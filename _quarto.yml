@@ -18,8 +18,10 @@ site:
         menu:
           - text: Week 01
             href: weeks/week01.qmd
-          - text: Week Template
-            href: weeks/week-template.qmd
+          - text: Week 02
+            href: weeks/week02.qmd
+          - text: Week 03
+            href: weeks/week03.qmd
       - text: Projects
         menu:
           - text: Project Home
