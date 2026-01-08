@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "slides/slide-Week01.html#welcome",
+    "href": "slides/slide-Week01.html#welcome",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Welcome!",
+    "text": "Welcome!\nI am very excited to be teaching this class.\n\nToday we will be talking about the course.\nBefore this introduction, I talked about the website.\nWe will work together on projects, we will use this to create slideshows"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#things-you-need-for-this-course",
+    "href": "slides/slide-Week01.html#things-you-need-for-this-course",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Things you need for this course",
+    "text": "Things you need for this course\n\nProgram R\nRStudio or Positron (new!)\nGithub\nI recommend you create a Github student account"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#introductions",
+    "href": "slides/slide-Week01.html#introductions",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Introductions",
+    "text": "Introductions\n\nAbout me:\nI enjoy numbers, statistics, coding, models and teaching\nMy academic history"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#my-academic-history",
+    "href": "slides/slide-Week01.html#my-academic-history",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "My academic history",
+    "text": "My academic history\n\n\n\n    \n        \n            \n            \n                UNAM\n                Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy/Placentotrohpy\n            \n        \n    \n\n    \n        \n            \n            \n                University of Maine\n                PhD working with Atlantic salmon movement and survival\n            \n        \n    \n\n    \n        \n            \n            \n                LSSU\n                Postdoc building a database, analysing data and looking at post-restoration ceommunity composition\n            \n        \n    \n\n    \n        \n            \n            \n                MSU\n                Postdoc working with models"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#currently",
+    "href": "slides/slide-Week01.html#currently",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Currently",
+    "text": "Currently\nI mostly teach\nDo some research\nServe on committees\nHerbert College representative in the Statistics Minor and Masters"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#your-turn",
+    "href": "slides/slide-Week01.html#your-turn",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Your turn",
+    "text": "Your turn\n\nName\nDepartment\nInterests both research and something you enjoy to do"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#this-weeks-assignment",
+    "href": "slides/slide-Week01.html#this-weeks-assignment",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "This week’s assignment",
+    "text": "This week’s assignment\n\nRead Tredennick et al. (2021) or Zuur, Ieno, and Elphick (2010) depending on your group\nPrepare a short presentation (15-20 minutes) on the paper\nBe ready to answer questions from your classmates\nUse slides or not, your choice\nYou will have 10 minutes at the beginning of next class to prepare with your group\nYou are the experts!"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-class",
+    "href": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-class",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Make sure you have everything ready for next class",
+    "text": "Make sure you have everything ready for next class\n\nR and RStudio or Positron installed\nPositron? What is that?\nPositron is a new IDE by the makers of RStudio. It is still in beta but looks very promising.\nLink: https://posit.co/download/preview/"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#references",
+    "href": "slides/slide-Week01.html#references",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "References",
+    "text": "References\n\nTredennick, A. T., G. Hooker, and P. B. Adler. (2021). A practical guide to selecting models for exploration, inference, and prediction in ecology. Ecology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nZuur, A. F., E. N. Ieno, and C. S. Elphick. (2010). A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
+    "href": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Notes before the end of the class",
+    "text": "Notes before the end of the class\n\nOffice: ANRB 474\nIf you have issues with R or RStudio, please chech the resources section on the website\nIf you are struggling with basic linear models, you can review and work on the materials from SNR 610: https://moctezumaii.github.io/SNR610/ which can be a good resource!\nThis is a collaborative class, we will work together to make it successful for all of us! Feel free to ask anyone for help\nSee you next class!\n\n\n\n\n\nTredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. “A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.” Ecology 102 (6): e03336. https://doi.org/10.1002/ecy.3336.\n\n\nZuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. “A Protocol for Data Exploration to Avoid Common Statistical Problems.” Methods in Ecology and Evolution 1 (1): 3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x."
+  }
+]

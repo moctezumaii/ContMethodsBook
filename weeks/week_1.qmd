@@ -1,0 +1,50 @@
+---
+title: "Week 01 — Introductions"
+format: html
+---
+
+# Session A: Introductions
+
+## Session Objectives
+
+-   Short class to introduce ourselves
+
+-   Get familiarized with course objectives
+
+# Session B: Papers and introduction to code
+
+## Part 1: Paper discussion (\~60 minutes of the class)
+
+### Preparation:
+
+We will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.
+
+**Group a:** @tredennick2021 This is a paper that **some** of you have read. But I think all of you should read it to be successful in this class.
+
+**Group b:** @zuur2010 if you have already read @tredennick2021, this is the one you should read.
+
+### Deliverable:
+
+You will give a short lecture \~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your "students". You can use slides, but you don't have to. You will self-govern your group. Each member can present, just two, or have a single person present.
+
+## Part 2: Github and R
+
+Make sure you have downloaded the following:
+
+-   Program R
+
+-   RStudio
+
+-   Know basics of R and RStudio: <https://moctezumaii.github.io/SNR610/installation_instructions.html>
+
+-   RStudio
+
+-   Create a Github account
+
+-   Apply for GitHub Education
+
+-   Join the course repository (you will be invited, accept the invite)
+
+-   Confirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)
+
+### 

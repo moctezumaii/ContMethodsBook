@@ -1,0 +1,23 @@
+---
+title: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+author: "Dr. Alejandro Molina-Moctezuma"
+format: html
+number-sections: false
+---
+
+Welcome to the course materials for SNR 690.
+
+Instructor: Dr. Alejandro Molina-Moctezuma\
+Credits: 3\
+Format: 2 sessions per week (75 minutes each)\
+Semester: TBA
+
+This book contains the syllabus, weekly readings, methods deep-dives, code notebooks, and example projects. Use the navigation (left) to go to the syllabus or weekly pages.
+
+Links - Syllabus: -\> [syllabus.html](/syllabus.html) -
+
+Weekly template: -\> [/weeks/week-template.html](/weeks/week-template.html) -
+
+References and links to papers! -\> [/references.html](/references.html)
+
+Contact Information and office hours Find me in my office ANRB 474! 😃

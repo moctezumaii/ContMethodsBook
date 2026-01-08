@@ -1,0 +1,131 @@
+---
+title: "Week 03 — Linear Models and GLM's"
+format: html
+---
+
+Week: 3
+
+Topic: Linear Models and GLM's
+
+## Background
+
+Review the following topics if you don't fully understand them:
+
+-   Inference
+
+-   Linear Models
+
+-   Generalized Linear Models
+
+-   Distributions
+
+    -   Normal
+
+    -   Binomial
+
+    -   Poisson
+
+    -   Negative Binomial
+
+Again, you can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat
+
+
+## Learning Objectives
+
+Explain how linear models, generalized linear models, and mixed models share a common structure
+
+Identify when normal-error linear models are inappropriate and how GLMs address these limitations
+
+Interpret regression coefficients under different link functions and error distributions
+
+Critically evaluate modeling choices in published ecological and natural resource studies
+
+Implement and compare LMs and GLMs in R while articulating underlying assumptions
+
+### Session A:
+
+#### Part 1: Paper discussion (\~45 minutes of the class)
+
+Discussion of: @bolker2009
+
+Submit before class: 1) A question of something you had a hard time understanding, and a question you would ask someone to test if they understood the paper (as if you were an instructor testing a student). You can submit both questions in the same section on CANVAS.
+
+I will open with a short lecture (15 minutes) on the paper, then we will have a discussion (15 minutes). Submit: 1 question of something you have a hard time understanding. I will lead the discussion, but be ready to discuss/explain topics. You will then work in groups.
+
+::: {.callout-tip appearance="simple"}
+## Questions To think about while reading
+
+-   When should a fixed effect be treated as random (and vice versa)?
+
+-   How do you diagnose and handle overdispersion and zero-inflation?
+
+-   Tradeoffs between lme4, glmmTMB, and Bayesian approaches for complex data?
+:::
+
+#### Part 2: Working in pairs (or trios) (\~30 Minutes)
+
+Half of you will read chapter 2 of @Zuur2009 (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.
+
+Each Student gets 8 minutes to give a lecture + 2 minutes for questions.
+
+Following this, students will answer 1) the most important concept, and 2) one question given by me.
+
+After this, they will switch roles.
+
+#### Exit ticket
+
+What was the most challenging thing about today?
+
+### Session B
+
+Methods workshop — hands-on coding
+
+#### Objectives
+
+-   Fit a GLM, GAM, and a GLMM to count and binomial response data.
+
+<!-- -->
+
+-   Interpret fixed-effect estimates and random-effect variances.
+
+-   Diagnose model fit (residuals, overdispersion, zero‑inflation) and fix common problems.
+
+-   Compare two model fits and write a concise ecological interpretation.
+
+#### Preparation:
+
+Install the following packages:
+
+-   lme4
+
+-   glmmTMB
+
+-   DHARMa
+
+-   broom.mixed
+
+-   ggplot2
+
+-   performance
+
+Class schedule
+
+-   5 minutes –\> Discussion about overdispersion
+
+-   10 minutes –\> Demo by me
+
+-   30 minutes –\> Paired work:
+
+    -   Task A (15 min): Fit Poisson GLM and GLMM on y; extract fixed effect, random variance, compute AIC.
+
+    -   Task B (15 min): Run DHARMa simulateResiduals on GLMM and inspect plot; note any issue (overdispersion, zero inflation, non-uniform residuals).
+
+    -   Work in pairs. You can decide how to work
+
+    -   Figure out issues/problems in the data
+
+-   10 minutes –\> Discussion part 2
+
+-   Students present results –\> 5 minutes
+
+-   Submit data

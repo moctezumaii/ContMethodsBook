@@ -1,0 +1,92 @@
+[
+  {
+    "objectID": "weeks/week01.html",
+    "href": "weeks/week01.html",
+    "title": "3  Week 01 — Introductions",
+    "section": "",
+    "text": "3.1 Session A: Introductions",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 01 — Introductions</span>"
+    ]
+  },
+  {
+    "objectID": "weeks/week01.html#session-objectives",
+    "href": "weeks/week01.html#session-objectives",
+    "title": "3  Week 01 — Introductions",
+    "section": "4.1 Session Objectives",
+    "text": "4.1 Session Objectives\n\nShort class to introduce ourselves\nGet familiarized with course objectives",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 01 — Introductions</span>"
+    ]
+  },
+  {
+    "objectID": "weeks/week01.html#part-1-paper-discussion-60-minutes-of-the-class",
+    "href": "weeks/week01.html#part-1-paper-discussion-60-minutes-of-the-class",
+    "title": "3  Week 01 — Introductions",
+    "section": "5.1 Part 1: Paper discussion (~60 minutes of the class)",
+    "text": "5.1 Part 1: Paper discussion (~60 minutes of the class)\n\n5.1.1 Preparation:\nWe will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.\nGroup a: @tredennick2021 This is a paper that some of you have read. But I think all of you should read it to be successful in this class.\nGroup b: @zuur2010 if you have already read @tredennick2021, this is the one you should read.\n\n\n5.1.2 Deliverable:\nYou will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 01 — Introductions</span>"
+    ]
+  },
+  {
+    "objectID": "weeks/week01.html#part-2-github-and-r",
+    "href": "weeks/week01.html#part-2-github-and-r",
+    "title": "3  Week 01 — Introductions",
+    "section": "5.2 Part 2: Github and R",
+    "text": "5.2 Part 2: Github and R\nMake sure you have downloaded the following:\n\nProgram R\nRStudio\nKnow basics of R and RStudio: https://moctezumaii.github.io/SNR610/installation_instructions.html\nRStudio\nCreate a Github account\nApply for GitHub Education\nJoin the course repository (you will be invited, accept the invite)\nConfirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)\n\n\n5.2.1",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 01 — Introductions</span>"
+    ]
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Course Description - This graduate-level course explores quantitative methods commonly used in agricultural, food, plant, animal, and natural resource sciences. Students will critically evaluate statistical and modeling techniques in current research, develop the ability to apply quantitative approaches to their own projects, and gain practical experience with equations, algorithms, and R code.\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences.\nImplement and adapt these methods using equations, models, and R code.\nApply appropriate quantitative approaches to their own research data.\nCommunicate and defend methodological decisions through peer-led discussions and final presentations.\n\nCourse Structure - Weeks 1–4:\n\nSession A (Paper Discussion): Class:\n\nDiscussion of a research article, focusing on research questions, data, and interpretation.\n\nSession B (Method Deep-Dive):\n\nMathematical/statistical foundations of the method used\n\n\n\n\nWeek 4:\n\nGitHub / collaborative work / version control workshop\n\nWeeks 5–12:\n\nSession A (Student-Led Paper Discussion)\nSession B (Workshop — hands-on coding and project development)\n\nWeeks 13–14:\n\nProject progress updates and peer feedback\n\nWeek 15:\n\nFinal presentations\n\n\nAssessment:\n\nParticipation & Paper Discussions: 50%\nWorkshop Engagement: 25%\nFinal Project (written report + presentation): 25%\n\nSoftware & Tools\n\nR (required)\nShared GitHub repository for code and datasets\nGitHub Codespaces (recommended for reproducible environment)\nCanvas (for administrative items)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Syllabus</span>"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods in Agriculture and Natural Resources",
+    "section": "",
+    "text": "Welcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: TBA\nThis book contains the syllabus, weekly readings, methods deep-dives, code notebooks, and example projects. Use the navigation (left) to go to the syllabus or weekly pages.\nLinks - Syllabus: -&gt; syllabus.html -\nWeekly template: -&gt; /weeks/week-template.html -\nReferences and links to papers! -&gt; /references.html\nContact Information and office hours Find me in my office ANRB 474! 😃",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>SNR 690 — Contemporary Approaches to Quantitative Methods</span>"
+    ]
+  },
+  {
+    "objectID": "weeks/week01.html#session-a-introductions",
+    "href": "weeks/week01.html#session-a-introductions",
+    "title": "3  Week 01 — Introductions",
+    "section": "",
+    "text": "3.1.1 Session Objectives\n\nShort class to introduce ourselves\nGet familiarized with course objectives",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 01 — Introductions</span>"
+    ]
+  },
+  {
+    "objectID": "weeks/week01.html#session-b-papers-and-introduction-to-code",
+    "href": "weeks/week01.html#session-b-papers-and-introduction-to-code",
+    "title": "3  Week 01 — Introductions",
+    "section": "3.2 Session B: Papers and introduction to code",
+    "text": "3.2 Session B: Papers and introduction to code\n\n3.2.1 Part 1: Paper discussion (~60 minutes of the class)\n\n3.2.1.1 Preparation:\nWe will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.\nGroup a: @tredennick2021 This is a paper that some of you have read. But I think all of you should read it to be successful in this class.\nGroup b: @zuur2010 if you have already read @tredennick2021, this is the one you should read.\n\n\n3.2.1.2 Deliverable:\nYou will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.\n\n\n\n3.2.2 Part 2: Github and R\nMake sure you have downloaded the following:\n\nProgram R\nRStudio\nKnow basics of R and RStudio: https://moctezumaii.github.io/SNR610/installation_instructions.html\nRStudio\nCreate a Github account\nApply for GitHub Education\nJoin the course repository (you will be invited, accept the invite)\nConfirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)\n\n\n\n3.2.3 Part 3: Look for papers\nPlease send me any and all papers that you find interesting, would be interested in my taking into account for the course!",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Week 01 — Introductions</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B.\nAdler. 2021. “A Practical Guide to Selecting Models for\nExploration, Inference, and Prediction in Ecology.”\nEcology 102 (6): e03336. https://doi.org/10.1002/ecy.3336.\n\n\nZuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. “A\nProtocol for Data Exploration to Avoid Common Statistical\nProblems.” Methods in Ecology and Evolution 1 (1): 3–14.\nhttps://doi.org/10.1111/j.2041-210X.2009.00001.x.",
+    "crumbs": [
+      "References"
+    ]
+  }
+]

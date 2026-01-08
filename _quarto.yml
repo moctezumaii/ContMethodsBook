@@ -1,0 +1,50 @@
+project:
+  type: website
+
+site:
+  title: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+  subtitle: "Student projects, lectures, and methods"
+  description: "Course materials, week notes, and student projects for SNR 690."
+  author:
+    name: "Dr. Alejandro Molina-Moctezuma"
+  favicon: assets/favicon.ico
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Syllabus
+        href: syllabus.qmd
+      - text: Weeks
+        menu:
+          - text: Week 01
+            href: weeks/week01.qmd
+          - text: Week Template
+            href: weeks/week-template.qmd
+      - text: Projects
+        menu:
+          - text: Project Home
+            href: projects/index.qmd         
+    right:
+      - text: References
+        href: references.qmd
+      - text: Slideshows
+        menu:
+          - text: Slides Week 01
+            href: slides/slide-Week01.qmd
+
+bibliography: references.bib   # main BibTeX file (place in repo root)
+
+render:
+  output-dir: _docs
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+
+
+
+
+
+

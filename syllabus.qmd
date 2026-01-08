@@ -1,0 +1,63 @@
+---
+title: "Syllabus"
+format: html
+number-sections: false
+---
+
+Course Description - This graduate-level course explores quantitative methods commonly used in agricultural, food, plant, animal, and natural resource sciences. Students will critically evaluate statistical and modeling techniques in current research, develop the ability to apply quantitative approaches to their own projects, and gain practical experience with equations, algorithms, and R code.
+
+<div class="btn-toolbar" role="toolbar" aria-label="Page links" style="margin-bottom:1rem;">
+    <div class="btn-group me-2" role="group" aria-label="Primary links">
+        <a class="btn btn-outline-primary" href="index.html"><i class="bi bi-house-fill me-1"></i> Home</a>
+        <a class="btn btn-outline-secondary" href="weeks/week-template.html"><i class="bi bi-journal-code me-1"></i> Week Template</a>
+        <a class="btn btn-outline-dark" href="references.html"><i class="bi bi-bookmark-fill me-1"></i> References</a>
+    </div>
+</div>
+
+Learning Outcomes
+
+1.  Critically evaluate quantitative methods in published research across agricultural and natural resource sciences.
+2.  Implement and adapt these methods using equations, models, and R code.
+3.  Apply appropriate quantitative approaches to their own research data.
+4.  Communicate and defend methodological decisions through peer-led discussions and final presentations.
+
+Course Structure - Weeks 1–3:
+
+-   Session A (Paper Discussion): Class:
+
+    -   Discussion of a research article, focusing on research questions, data, and interpretation.
+
+-   Session B (Method Deep-Dive):
+
+    -   Mathematical/statistical foundations of the method used
+
+<!-- -->
+
+-   Week 4:
+    -   GitHub / collaborative work / version control workshop
+-   Weeks 4–12:
+    -   Session A (Student-Led Paper Discussion) and lecture(methods deep-dive)
+    -   Session B (Workshop — hands-on coding and project development)
+-   Weeks 13–14:
+    -   Project progress updates and peer feedback
+-   Week 15:
+    -   Final presentations
+
+Assessment:
+
+-   Participation & Paper Discussions: 50%
+
+-   Workshop Engagement: 25%
+
+-   Final Project (written report + presentation): 25%
+
+Software & Tools
+
+-   R (required)
+
+-   Shared GitHub repository for code and datasets
+
+-   GitHub Codespaces (recommended for reproducible environment)
+
+-   Canvas (for administrative items)
+

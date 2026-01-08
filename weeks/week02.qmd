@@ -1,0 +1,76 @@
+---
+title: "Week 02 — [Philosophical concepts in data analysis]"
+format: html
+---
+
+Week: 2
+
+Topic: Foundational philosophical questions
+
+## Background
+
+Review the following topics if you don't fully understand them:
+
+-   Inference
+-   Probability
+-   Statistical models
+-   Samples and Populations
+-   Bias and Variance
+-   Frequentist and Bayesian statistics
+-   Uncertainty in data analysis
+
+
+You can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat
+
+## Learning Objectives
+
+Articulate what statistical models are for and how they function as scientific tools
+
+Explain how uncertainty enters data analysis and how it is handled in different inferential frameworks
+
+Compare frequentist and Bayesian perspectives on statistical inference
+
+Critically evaluate the assumptions underlying quantitative conclusions in published research
+
+## Readings
+Everyone Reads both of these papers for a discussion:
+
+@BayesianInferenceEcology
+@boxScienceStatistics1976
+
+
+
+### Session A:
+
+#### Part 1: Paper discussion (\~40 minutes of the class)
+
+I will open with a short lecture on both papers (15 minutes), then we will have a discussion (25 minutes).
+
+The discussion will be guided by some questions I will write.
+
+
+
+::: {.callout-tip appearance="simple"}
+## Questions To think about while reading
+
+-   What does it mean for a model to be “useful” rather than “true”?
+
+-   What kinds of uncertainty are explicitly modeled, and which are often ignored?
+
+-   How do Bayesian and frequentist approaches differ in how they treat uncertainty?
+
+-   How do these philosophical perspectives influence how we interpret results in applied research?
+:::
+
+#### Part 2: Dataset/coding
+
+We will start coding here. Run a Bayesian example
+
+#### Exit ticket
+
+What was the most challenging thing about today?
+
+### Session B
+
+Methods workshop — hands-on coding
+

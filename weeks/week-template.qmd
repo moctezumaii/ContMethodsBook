@@ -1,0 +1,33 @@
+---
+title: "Week XX — [Week Title]"
+format: html
+---
+<div class="btn-toolbar" role="toolbar" aria-label="Page links" style="margin-bottom:1rem;">
+	<div class="btn-group me-2" role="group" aria-label="Primary links">
+		<a class="btn btn-outline-primary" href="../index.html"><i class="bi bi-house-fill me-1"></i> Home</a>
+		<a class="btn btn-outline-secondary" href="../syllabus.html"><i class="bi bi-file-earmark-text-fill me-1"></i> Syllabus</a>
+		<a class="btn btn-outline-dark" href="../references.html"><i class="bi bi-bookmark-fill me-1"></i> References</a>
+	</div>
+</div>
+
+Week: XX  
+Session A: Paper Discussion — paper to be assigned by week lead  
+Session B: Methods workshop — hands-on coding
+
+Objectives
+- Short list of objectives for the week.
+
+Reading / Paper
+- Citation: Title, authors, year.
+- Key method(s) used in the paper.
+
+Method Deep-Dive
+- Math / equations: short derivation or key formulas.
+- Assumptions and diagnostics.
+
+Code / Implementation (R)
+- R script or R Markdown chunk for implementing the method or a minimal example:
+```{r}
+# Example placeholder
+library(tidyverse)
+# put example code here
