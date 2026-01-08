@@ -5,12 +5,6 @@ format: html
 number-sections: false
 ---
 
-<div class="btn-group" role="group" aria-label="Quick links" style="margin-bottom:1rem;">
-	<a class="btn btn-primary" href="syllabus.html"><i class="bi bi-file-earmark-text-fill me-1"></i> Syllabus</a>
-	<a class="btn btn-secondary" href="weeks/week-template.html"><i class="bi bi-journal-code me-1"></i> Week Template</a>
-	<a class="btn btn-success" href="index.html"><i class="bi bi-house-fill me-1"></i> Project Home</a>
-	<a class="btn btn-outline-dark" href="references.html"><i class="bi bi-bookmark-fill me-1"></i> References</a>
-</div>
 
 Welcome to the course materials for SNR 690.
 

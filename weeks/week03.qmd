@@ -64,7 +64,7 @@ I will open with a short lecture (15 minutes) on the paper, then we will have a 
 
 #### Part 2: Working in pairs (or trios) (\~30 Minutes)
 
-Half of you will read chapter 2 of @Zuur2009 (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.
+Half of you will read chapter 2 of @zuurMixedEffectsModels2009 (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.
 
 Each Student gets 8 minutes to give a lecture + 2 minutes for questions.
 

@@ -35,7 +35,7 @@ site:
 bibliography: references.bib   # main BibTeX file (place in repo root)
 
 render:
-  output-dir: _docs
+  output-dir: docs
 
 format:
   html:

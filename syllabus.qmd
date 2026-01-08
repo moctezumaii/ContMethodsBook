@@ -6,13 +6,7 @@ number-sections: false
 
 Course Description - This graduate-level course explores quantitative methods commonly used in agricultural, food, plant, animal, and natural resource sciences. Students will critically evaluate statistical and modeling techniques in current research, develop the ability to apply quantitative approaches to their own projects, and gain practical experience with equations, algorithms, and R code.
 
-<div class="btn-toolbar" role="toolbar" aria-label="Page links" style="margin-bottom:1rem;">
-    <div class="btn-group me-2" role="group" aria-label="Primary links">
-        <a class="btn btn-outline-primary" href="index.html"><i class="bi bi-house-fill me-1"></i> Home</a>
-        <a class="btn btn-outline-secondary" href="weeks/week-template.html"><i class="bi bi-journal-code me-1"></i> Week Template</a>
-        <a class="btn btn-outline-dark" href="references.html"><i class="bi bi-bookmark-fill me-1"></i> References</a>
-    </div>
-</div>
+
 
 Learning Outcomes
 
@@ -47,7 +41,7 @@ Assessment:
 
 -   Participation & Paper Discussions: 50%
 
--   Workshop Engagement: 25%
+-   Workshops: 25%
 
 -   Final Project (written report + presentation): 25%
 
