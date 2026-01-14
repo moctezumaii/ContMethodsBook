@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -217,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="readings" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="readings"><span class="header-section-number">3</span> Readings</h2>
 <p>Everyone Reads both of these papers for a discussion:</p>
-<p><span class="citation" data-cites="BayesianInferenceEcology">(<a href="#ref-BayesianInferenceEcology" role="doc-biblioref"><strong>BayesianInferenceEcology?</strong></a>)</span> <span class="citation" data-cites="boxScienceStatistics1976">(<a href="#ref-boxScienceStatistics1976" role="doc-biblioref"><strong>boxScienceStatistics1976?</strong></a>)</span></p>
+<p><span class="citation" data-cites="BayesianInferenceEcology">Ellison (<a href="#ref-BayesianInferenceEcology" role="doc-biblioref">2004</a>)</span> <span class="citation" data-cites="boxScienceStatistics1976">Box (<a href="#ref-boxScienceStatistics1976" role="doc-biblioref">1976</a>)</span></p>
 <section id="session-a" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="session-a"><span class="header-section-number">3.1</span> Session A:</h3>
 <section id="part-1-paper-discussion-40-minutes-of-the-class" class="level4" data-number="3.1.1">
@@ -257,10 +277,18 @@ Questions To think about while reading
 <p>Methods workshop — hands-on coding</p>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-boxScienceStatistics1976" class="csl-entry" role="listitem">
+Box, George E. P. 1976. <span>“Science and <span>Statistics</span>.”</span> <em>Journal of the American Statistical Association</em> 71 (356): 791–99. <a href="https://doi.org/10.2307/2286841">https://doi.org/10.2307/2286841</a>.
+</div>
+<div id="ref-BayesianInferenceEcology" class="csl-entry" role="listitem">
+Ellison, Aaron. 2004. <span>“Bayesian Inference in Ecology.”</span> <em>Ecology Letters</em>. <a href="https://doi.org/10.1111/j.1461-0248.2004.00603.x">https://doi.org/10.1111/j.1461-0248.2004.00603.x</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

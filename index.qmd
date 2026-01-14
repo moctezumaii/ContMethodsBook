@@ -5,20 +5,21 @@ format: html
 number-sections: false
 ---
 
-
 Welcome to the course materials for SNR 690.
 
 Instructor: Dr. Alejandro Molina-Moctezuma\
 Credits: 3\
 Format: 2 sessions per week (75 minutes each)\
-Semester: TBA
+Semester: Spring 2026
 
-This book contains the syllabus, weekly readings, methods deep-dives, code notebooks, and example projects. Use the navigation (left) to go to the syllabus or weekly pages.
+This book contains the syllabus, weekly readings, assignments, projects, papers, code notebooks, and everything we do in this class. This website will be a collaborative process.
 
-Links - Syllabus: -\> [syllabus.html](/syllabus.html) -
+We will be updating this landing page as the course goes on!
 
-Weekly template: -\> [/weeks/week-template.html](/weeks/week-template.html) -
+## Links:
 
-References and links to papers! -\> [/references.html](/references.html)
+[Syllabus](/syllabus.html)
+
+[What are we doing this week?](/slides/slide-Week01.html "Week 1 info!") –\> Here you will fin what papers to read, and have an idea of what each class is going to look like!
 
 Contact Information and office hours: Find me in my office ANRB 474! 😃

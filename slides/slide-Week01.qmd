@@ -6,6 +6,7 @@ format:
     incremental: true   
     scrollable: true
     smaller: true
+    fontsize: 50px
     chalkboard: true
 ---
 
@@ -121,6 +122,14 @@ Learning Outcomes
 2.  Implement and adapt these methods using equations, models, and R code
 3.  Apply appropriate quantitative approaches to their own research data
 4.  Communicate and defend methodological decisions through peer-led discussions and final presentations
+
+## Course lectures
+
+We will use some pretty different teaching and learning strategies. This are being used for three reasons:
+
+1.  There is peer-reviewed evidence that these strategies improve learning outcomes. But I am an empiricist.
+2.  You will develop some skills, like oral communication and some teaching abilities, that will be very helpful in your future.
+3.  I believe it will make the class engaging.
 
 ## This week's assignment
 -   Read @tredennick2021 or @zuur2010 depending on your group

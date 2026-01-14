@@ -53,5 +53,5 @@ Software & Tools
 
 -   GitHub Codespaces (recommended for reproducible environment)
 
--   Canvas (for administrative items)
+-   Canvas
 
