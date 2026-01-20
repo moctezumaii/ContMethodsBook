@@ -42,10 +42,10 @@ I am very excited to be teaching this class.
 /* Simple animated reveal for details summary content inside RevealJS slides */
 .academic-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; align-items: start; }
 .academic-card details summary { list-style: none; cursor: pointer; }
-.academic-card img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.academic-card img { width: 100%; height: 170px; object-fit: cover; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
 .academic-card .blurb { max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.35s ease, opacity 0.25s ease; }
-.academic-card details[open] .blurb { max-height: 240px; opacity: 1; }
-.academic-card .card-body { padding: 0.5rem; font-size: 0.9rem; }
+.academic-card details[open] .blurb { max-height: 300px; opacity: 1; }
+.academic-card .card-body { padding: 0.5rem; font-size: 1.7rem; }
 </style>
 
 <div class="academic-grid" style="margin-top:0.5rem;">
@@ -54,7 +54,7 @@ I am very excited to be teaching this class.
 			<summary><img src="../images/unam.jpg" alt="UNAM"></summary>
 			<div class="blurb card-body">
 				<strong>UNAM</strong>
-				<div>Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy/Placentotrohpy</div>
+				<div>Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy</div>
 			</div>
 		</details>
 	</div>
