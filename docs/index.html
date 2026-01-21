@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -129,6 +149,25 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./references.html"> 
 <span class="menu-text">References</span></a>
@@ -160,7 +199,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#links" id="toc-links" class="nav-link active" data-scroll-target="#links">Links:</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link active" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#links-and-inforrmation" id="toc-links-and-inforrmation" class="nav-link" data-scroll-target="#links-and-inforrmation">Links and inforrmation:</a></li>
   </ul>
 </nav>
     </div>
@@ -199,16 +239,29 @@ Format: 2 sessions per week (75 minutes each)<br>
 Semester: Spring 2026</p>
 <p>This book contains the syllabus, weekly readings, assignments, projects, papers, code notebooks, and everything we do in this class. This website will be a collaborative process.</p>
 <p>We will be updating this landing page as the course goes on!</p>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links:</h2>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p><em>this section will be updated regularly</em> If you are struggling with R or RStudio, check out these resources:</p>
+<p>Wickham <span class="citation" data-cites="wickhamDataScienceImport2023">Wickham, Çetinkaya-Rundel, and Grolemund (<a href="#ref-wickhamDataScienceImport2023" role="doc-biblioref">2023</a>)</span> here: <a href="https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a></p>
+<p>Data science in R: A gentle introduction <a href="https://bookdown.org/jgscott/DSGI/">https://bookdown.org/jgscott/DSGI/</a></p>
+<p>And check the materials of my SNR 610 course here: <a href="https://moctezumaii.github.io/SNR610/">https://moctezumaii.github.io/SNR610/</a></p>
+<p>Where you can access info regarding R and models.</p>
+</section>
+<section id="links-and-inforrmation" class="level2">
+<h2 class="anchored" data-anchor-id="links-and-inforrmation">Links and inforrmation:</h2>
 <p><a href=".\syllabus.html">Syllabus</a></p>
 <p><a href=".\slides/slide-Week01.html" title="Week 1 info!">What are we doing this week?</a> –&gt; Here you will fin what papers to read, and have an idea of what each class is going to look like!</p>
 <p>Contact Information and office hours: Find me in my office ANRB 474! 😃</p>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wickhamDataScienceImport2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. Second edition. Beijing ; Sebastopol, CA: O’Reilly. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -182,13 +182,6 @@
     "text": "Here we will have all the projects and assignments listed."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
-    "section": "",
-    "text": "Welcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: TBA\nThis book contains the syllabus, weekly readings, methods deep-dives, code notebooks, and example projects. Use the navigation (left) to go to the syllabus or weekly pages.\nLinks - Syllabus: -&gt; syllabus.html -\nWeekly template: -&gt; /weeks/week-template.html -\nReferences and links to papers! -&gt; /references.html\nContact Information and office hours Find me in my office ANRB 474! 😃"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
@@ -196,11 +189,18 @@
     "text": "Welcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: Spring 2026\nThis book contains the syllabus, weekly readings, assignments, projects, papers, code notebooks, and everything we do in this class. This website will be a collaborative process.\nWe will be updating this landing page as the course goes on!"
   },
   {
-    "objectID": "index.html#links",
-    "href": "index.html#links",
+    "objectID": "index.html#resources",
+    "href": "index.html#resources",
     "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
-    "section": "Links:",
-    "text": "Links:\nSyllabus\nWhat are we doing this week? –&gt; Here you will fin what papers to read, and have an idea of what each class is going to look like!\nContact Information and office hours: Find me in my office ANRB 474! 😃"
+    "section": "Resources",
+    "text": "Resources\nthis section will be updated regularly If you are struggling with R or RStudio, check out these resources:\nWickham Wickham, Çetinkaya-Rundel, and Grolemund (2023) here: https://r4ds.had.co.nz/\nData science in R: A gentle introduction https://bookdown.org/jgscott/DSGI/\nAnd check the materials of my SNR 610 course here: https://moctezumaii.github.io/SNR610/\nWhere you can access info regarding R and models."
+  },
+  {
+    "objectID": "index.html#links-and-inforrmation",
+    "href": "index.html#links-and-inforrmation",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "Links and inforrmation:",
+    "text": "Links and inforrmation:\nSyllabus\nWhat are we doing this week? –&gt; Here you will fin what papers to read, and have an idea of what each class is going to look like!\nContact Information and office hours: Find me in my office ANRB 474! 😃"
   },
   {
     "objectID": "references.html",

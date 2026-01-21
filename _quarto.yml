@@ -27,6 +27,14 @@ site:
           - text: Project Home
             href: projects/index.qmd         
     right:
+      - text: Resources
+        menu:
+          - text: R for Data Science
+            href: https://r4ds.hadley.nz/
+          - text: Data Science Introduction
+            href: https://bookdown.org/jgscott/DSGI/
+          - text: SNR 610 Course Book
+            href: https://moctezumaii.github.io/SNR610/
       - text: References
         href: references.qmd
       - text: Slideshows

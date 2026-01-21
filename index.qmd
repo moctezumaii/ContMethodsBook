@@ -16,7 +16,23 @@ This book contains the syllabus, weekly readings, assignments, projects, papers,
 
 We will be updating this landing page as the course goes on!
 
-## Links:
+## Resources
+
+*this section will be updated regularly* 
+If you are struggling with R or RStudio, check out these resources: 
+
+Wickham @wickhamDataScienceImport2023 here: [https://r4ds.had.co.nz/](https://r4ds.had.co.nz/) 
+
+    
+Data science in R: A gentle introduction [https://bookdown.org/jgscott/DSGI/](https://bookdown.org/jgscott/DSGI/)
+
+And check the materials of my SNR 610 course here: 
+[https://moctezumaii.github.io/SNR610/](https://moctezumaii.github.io/SNR610/) 
+
+
+Where you can access info regarding R and models.
+
+## Links and inforrmation:
 
 [Syllabus](/syllabus.html)
 
