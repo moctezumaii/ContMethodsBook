@@ -1,0 +1,90 @@
+---
+title: "Week 01, Session A: Introduction to Class"
+author: "Alejandro Molina Moctezuma"
+format:
+  revealjs:
+    incremental: true   
+    scrollable: true
+    smaller: true
+    fontsize: 40px
+    chalkboard: true
+---
+
+## Zuur paper: A protocol for data exploration to avoid common statistical problems
+
+-   Zuur et al., 2010. A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution. 1(1):3-14. https://doi.org/10.1111/j.2041-210X.2009.00001.x
+
+## Why is data exploration important?
+
+See if assumptions are met
+Identify outliers
+Understand data structure
+
+## Discussion
+
+Zuur paper makes the point that we should always explore our data before doing inferential analyses. However, Tredennick argues that exploration and inference should come from idnependent studies. How can we reconcile these views?
+
+## Equal variance
+Never happens in real world data
+
+## Normal data
+Never happens in real world data
+
+## Covariates
+Check for correlation among covariates
+
+## Zero inflated data
+Check for excess zeros
+Mix count and logistic data: hurdle models, zero-inflated models
+Cluster 
+
+## VIF
+How much is too much?
+
+## Zuur
+
+The point they make is to use exploration as a tool to protect inference, not create it.
+
+- By exploration, Zuur means checking assumptions, understanding data structure, and identifying potential issues. 
+- The goal is to ensure that the data meets the assumptions required for valid inference.
+- It is non-inferential.
+
+## Tredennick
+
+Tredennick argues that exploration and inference should come from independent studies.
+
+- By exploration, Tredennick means generating hypotheses and insights from the data.
+- The goal is to generate hypothesis from observed patterns.
+- If you observe a pattern and then test it in the same data, you risk overfitting and false positives.
+
+
+## Discussion
+
+How important is subject-matter expertise when exploring data? Can we rely solely on statistical techniques for exploration?
+
+- Does subject matter expertise introduce bias?
+- Can other techniques like Bayesian methods help us introduce subject matter with less bias?
+
+## We never meet assumptions
+- Real world data won't fit assumptions (e.g., there won't be a perfectly normal distribution)
+- When exploring the data, how close is close enough?
+Do modeling objectives matter when making these decisions?
+
+## Who here starts analyzing data without exploring it first?
+- Based on hypothesis, and a-priori methods
+
+## In your projects, do you use prediction, inference or exploration?
+- Why?
+- Exploration --> inductive
+- Inference --> deductive
+
+## Explorations vs inference
+In your view, which is more fundamental for scientific progress: carefully testing well-specified hypotheses, or exploring data and phenomena to see what patterns emerge? Why? Does your answer change depending on the stage of a research program?
+
+## For your project
+In your project, imagine you are doing a purely exploratory study.
+What would you actually want to look at, play with, or visualize in your system? Be concrete about: what you’d plot, what relationships you’d inspect, and what patterns you’d hope to notice
+
+## For your project
+Now, for the same system, write one clear, testable hypothesis.
+State exactly what you expect to see, how you’d measure it, and which model or statistical test you would use to evaluate it

@@ -9,6 +9,8 @@ Topic: Foundational philosophical questions
 
 ## Background
 
+The group that read @tredennickPracticalGuideSelecting2021 will be giving their lecture.
+
 Review the following topics if you don't fully understand them:
 
 -   Inference
@@ -18,7 +20,6 @@ Review the following topics if you don't fully understand them:
 -   Bias and Variance
 -   Frequentist and Bayesian statistics
 -   Uncertainty in data analysis
-
 
 You can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat
 
@@ -33,22 +34,28 @@ Compare frequentist and Bayesian perspectives on statistical inference
 Critically evaluate the assumptions underlying quantitative conclusions in published research
 
 ## Readings
-Everyone Reads both of these papers for a discussion:
 
-@BayesianInferenceEcology
-@boxScienceStatistics1976
+Please read this paper:
 
+@BayesianInferenceEcology by Tuesday.
 
+Again, a pretty complex topic. If you are not familiar with Bayesian statistics, focus on the philosophical side of things rather than the technical aspects.
+
+And explore this paper by Thursday: @boxScienceStatistics1976 (available at: <https://www.jstor.org/stable/2286841?seq=1>)
+
+@boxScienceStatistics1976 ‘Science and Statistics’ is VERY dense and had to read, so do not worry about every detail, and you can skim through it. For this class, your goal is to understand three ideas: (1) science as an iteration between theory and data, (2) models as deliberately false but useful, and (3) the need to check and revise models when they clash with data.
 
 ### Session A:
 
-#### Part 1: Paper discussion (\~40 minutes of the class)
+#### Part 1: Lecture by Team B (\~ 25 minutes of the class)
 
-I will open with a short lecture on both papers (15 minutes), then we will have a discussion (25 minutes).
+The team that did not give their lecture today, will be giving a lecture on choosing models.
+
+#### Part 2: Paper discussion (\~25 minutes of the class)
+
+I will open with a short lecture on @BayesianInferenceEcology (15 minutes), then we will have a discussion (15 minutes).
 
 The discussion will be guided by some questions I will write.
-
-
 
 ::: {.callout-tip appearance="simple"}
 ## Questions To think about while reading
@@ -64,7 +71,7 @@ The discussion will be guided by some questions I will write.
 
 #### Part 2: Dataset/coding
 
-We will start coding here. Run a Bayesian example
+We will start coding here. The objective will be to run a Bayesian example on Thursday
 
 #### Exit ticket
 
@@ -73,4 +80,3 @@ What was the most challenging thing about today?
 ### Session B
 
 Methods workshop — hands-on coding
-
