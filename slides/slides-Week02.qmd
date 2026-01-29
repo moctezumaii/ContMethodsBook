@@ -1,0 +1,134 @@
+---
+title: "Week 2: Philosophical concepts in data analysis"
+author: "SNR 610"
+execute: 
+  echo: true
+format:
+  revealjs:
+    incremental: true   
+    scrollable: true
+    smaller: true
+    chalkboard: true
+    mermaid:
+      theme: default
+    fontsize: 50px
+---
+
+## Objective for today
+
+The objective for the first three weeks is to step back and think and talk about statistics and data analysis from a philosophical and epistemological perspective
+
+-   Challenges:
+-   Too technical
+-   Terminology
+-   Math-heavy
+-   Kinda boring
+
+## Class today
+
+-   Wrap up last lecture/discussion on data exploration
+-   Have a lecture on Tredennick.
+-   Start to discuss the Bayesian Inference paper.
+-   Objective: further your understanding of foundational concepts in data analysis.
+
+## Paper discussions (last week)
+
+Last class we had Team 1 talk about "data exploration"
+
+-   Essentially, a protocol for "pre-modeling" data analysis
+
+-   Why is it important?
+
+## Questions from last team
+
+-   What kind of data do you have and how have you thought about approaching it?​
+
+-   What kinds of datasets (or distributions) that would be an exception to these rules?​ \*Rules presented last week
+
+-   How can you tell between an actual outlier and observational error? ​
+
+-   How might you prevent these errors before they happen?​
+
+## Question from me:
+
+-   For Thursday we will read the Box (1976) paper that has the following quote:
+
+-   "Since all models are wrong, the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad."
+
+-   How does this quote relate to last week's lecture?
+
+## Goal of exploration
+
+The goal is not to make a perfect model (impossible) but to detect the problems that will meaningfully distort your conclusions
+
+-   "Tigers" are the problems that will meaningfully distort your conclusions
+-   "Mice" are the problems that will not meaningfully distort your conclusions
+-   There will always be "mice" in your data!
+
+## Spherical cow
+
+-   The joke is designed to poke fun at theorists for making unrealistic assumptions in order to simplify a problem to make it easier to solve (or solvable at all).
+-   We do this with scientific assumptions all the time. We assume our data is normal, independent, linear and homoscedastic
+
+## Lecture on Tredennick et al. 2021
+
+Now we will have Team 2 give a lecture on Tredennick et al. 2021 @tredennickPracticalGuideSelecting2021
+
+## Discussion on Ellison 2004
+
+-   Raise your hand if you understand theoretically what Bayesian inference is
+-   Remember... it is mostly a philosophical alternative to frequentist inference
+-   Raise your hand if you have used Bayesian inference in practice (e.g., run a Bayesian model)
+
+## Difference in philosophy
+
+-   Difference in how they observe probability
+-   Frequentist: long-run frequency of repeatable events
+-   Frequentist: if the null hypothesis is true, and I ran this experiment 100 times, I would get results as extreme as this less than 5% of the time
+-   Bayesian: degree of belief in a hypothesis given the data observed
+
+## coin toss example: 7 heads in 10 tosses
+
+-   Frequentist: Null hypothesis: coin is fair (p = 0.5)
+-   Frequentists: Assuming that the null is true, I would observe an event as extreme or more extreme than this (7 or more heads in 10 tosses) about 17% of the time (p = 0.17. )
+-   Bayesian: given the data I have observed, and having no prior information, I believe that chances are that the coin is unfair. There is about an 89% chance that the coin is biased towards heads (p \> 0.5)
+
+## Different questions
+
+-   The frequentist p = 0.17 answers a different question: “If the coin were exactly fair, how often would I see 7 or more heads in 10 tosses?” (about 17%). It does not give the probability the coin is biased.
+-   The Bayesian answer gives the probability that θ \> 0.5
+
+## Prior information
+
+-   Bayesian inference allows you to incorporate prior information
+-   Prior information can come from previous studies, expert opinion, or logical constraints
+-   This is done through the prior distribution
+-   The result of the posterior distribution is a combination of the prior and the likelihood of the data
+
+## Example of prior information
+
+We use prior information in our daily lives all the time
+
+## Cleveland Browns and Bayesian Thinking
+
+-   You check the score: the Browns are up 21 to 7 at halftime against the Ravens.
+
+-   At the same time, the Chiefs are up 21 to 7 at halftime against the Jets
+
+-   In frequentist probability, you would think:
+
+-   "Probability of winning when going 21-7 is about 80%"
+
+-   But! yous have priors... if you are a Browns fan:
+
+$$ \text{Posterior belief} \propto \text{Prior (they find ways to lose)} \times \text{New data (they’re winning now)} $$
+
+-   Essentially, you know that they tend to find ways to lose
+
+-   You may be expecting heartbreak, despite the data (21-7)
+
+-   A Chiefs fan, at this point, might not be worried at all
+
+## Now... about the paper
+
+-   Share in pairs one thing you learned reading this paper (or something that it made you think about)

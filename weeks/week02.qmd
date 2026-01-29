@@ -5,6 +5,8 @@ format: html
 
 Week: 2
 
+**UPDATE**: Due to inclement weather, there will only be one session this week (Thursday).
+
 Topic: Foundational philosophical questions
 
 ## Background
@@ -79,4 +81,4 @@ What was the most challenging thing about today?
 
 ### Session B
 
-Methods workshop — hands-on coding
+Methods workshop — hands-on coding Session B has been cancelled

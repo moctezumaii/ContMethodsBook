@@ -10,8 +10,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.37">
 
-  <meta name="author" content="Alejandro Molina Moctezuma">
-  <title>SNR 690 — Contemporary Approaches to Quantitative Methods – Week 01, Session A: Introduction to Class</title>
+  <meta name="author" content="SNR 610">
+  <title>SNR 690 — Contemporary Approaches to Quantitative Methods – Week 2: Philosophical concepts in data analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,8 +29,28 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-bbe7401fe57d4b791b917637bb662036.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-46a35cbffb9c66091314816922e5356c.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -131,111 +151,155 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 01, Session A: Introduction to Class</h1>
+  <h1 class="title">Week 2: Philosophical concepts in data analysis</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Alejandro Molina Moctezuma 
+SNR 610 
 </div>
 </div>
 </div>
 
 </section>
-<section id="zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems" class="slide level2">
-<h2>Zuur paper: A protocol for data exploration to avoid common statistical problems</h2>
+<section id="objective-for-today" class="slide level2">
+<h2>Objective for today</h2>
+<p>The objective for the first three weeks is to step back and think and talk about statistics and data analysis from a philosophical and epistemological perspective</p>
 <ul>
-<li class="fragment">Zuur et al., 2010. A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution. 1(1):3-14. https://doi.org/10.1111/j.2041-210X.2009.00001.x</li>
+<li class="fragment">Challenges:</li>
+<li class="fragment">Too technical</li>
+<li class="fragment">Terminology</li>
+<li class="fragment">Math-heavy</li>
+<li class="fragment">Kinda boring</li>
 </ul>
 </section>
-<section id="why-is-data-exploration-important" class="slide level2">
-<h2>Why is data exploration important?</h2>
-<p>See if assumptions are met Identify outliers Understand data structure</p>
-</section>
-<section id="discussion" class="slide level2">
-<h2>Discussion</h2>
-<p>Zuur paper makes the point that we should always explore our data before doing inferential analyses. However, Tredennick argues that exploration and inference should come from idnependent studies. How can we reconcile these views?</p>
-</section>
-<section id="equal-variance" class="slide level2">
-<h2>Equal variance</h2>
-<p>Never happens in real world data</p>
-</section>
-<section id="normal-data" class="slide level2">
-<h2>Normal data</h2>
-<p>Never happens in real world data</p>
-</section>
-<section id="covariates" class="slide level2">
-<h2>Covariates</h2>
-<p>Check for correlation among covariates</p>
-</section>
-<section id="zero-inflated-data" class="slide level2">
-<h2>Zero inflated data</h2>
-<p>Check for excess zeros Mix count and logistic data: hurdle models, zero-inflated models Cluster</p>
-</section>
-<section id="vif" class="slide level2">
-<h2>VIF</h2>
-<p>How much is too much?</p>
-</section>
-<section id="zuur" class="slide level2">
-<h2>Zuur</h2>
-<p>The point they make is to use exploration as a tool to protect inference, not create it.</p>
+<section id="class-today" class="slide level2">
+<h2>Class today</h2>
 <ul>
-<li class="fragment">By exploration, Zuur means checking assumptions, understanding data structure, and identifying potential issues.</li>
-<li class="fragment">The goal is to ensure that the data meets the assumptions required for valid inference.</li>
-<li class="fragment">It is non-inferential.</li>
+<li class="fragment">Wrap up last lecture/discussion on data exploration</li>
+<li class="fragment">Have a lecture on Tredennick.</li>
+<li class="fragment">Start to discuss the Bayesian Inference paper.</li>
+<li class="fragment">Objective: further your understanding of foundational concepts in data analysis.</li>
 </ul>
 </section>
-<section id="tredennick" class="slide level2">
-<h2>Tredennick</h2>
-<p>Tredennick argues that exploration and inference should come from independent studies.</p>
+<section id="paper-discussions-last-week" class="slide level2">
+<h2>Paper discussions (last week)</h2>
+<p>Last class we had Team 1 talk about “data exploration”</p>
 <ul>
-<li class="fragment">By exploration, Tredennick means generating hypotheses and insights from the data.</li>
-<li class="fragment">The goal is to generate hypothesis from observed patterns.</li>
-<li class="fragment">If you observe a pattern and then test it in the same data, you risk overfitting and false positives.</li>
+<li class="fragment"><p>Essentially, a protocol for “pre-modeling” data analysis</p></li>
+<li class="fragment"><p>Why is it important?</p></li>
 </ul>
 </section>
-<section id="discussion-1" class="slide level2">
-<h2>Discussion</h2>
-<p>How important is subject-matter expertise when exploring data? Can we rely solely on statistical techniques for exploration?</p>
+<section id="questions-from-last-team" class="slide level2">
+<h2>Questions from last team</h2>
 <ul>
-<li class="fragment">Does subject matter expertise introduce bias?</li>
-<li class="fragment">Can other techniques like Bayesian methods help us introduce subject matter with less bias?</li>
+<li class="fragment"><p>What kind of data do you have and how have you thought about approaching it?​</p></li>
+<li class="fragment"><p>What kinds of datasets (or distributions) that would be an exception to these rules?​ *Rules presented last week</p></li>
+<li class="fragment"><p>How can you tell between an actual outlier and observational error? ​</p></li>
+<li class="fragment"><p>How might you prevent these errors before they happen?​</p></li>
 </ul>
 </section>
-<section id="we-never-meet-assumptions" class="slide level2">
-<h2>We never meet assumptions</h2>
+<section id="question-from-me" class="slide level2">
+<h2>Question from me:</h2>
 <ul>
-<li class="fragment">Real world data won’t fit assumptions (e.g., there won’t be a perfectly normal distribution)</li>
-<li class="fragment">When exploring the data, how close is close enough? Do modeling objectives matter when making these decisions?</li>
+<li class="fragment"><p>For Thursday we will read the Box (1976) paper that has the following quote:</p></li>
+<li class="fragment"><p>“Since all models are wrong, the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.”</p></li>
+<li class="fragment"><p>How does this quote relate to last week’s lecture?</p></li>
 </ul>
 </section>
-<section id="who-here-starts-analyzing-data-without-exploring-it-first" class="slide level2">
-<h2>Who here starts analyzing data without exploring it first?</h2>
+<section id="goal-of-exploration" class="slide level2">
+<h2>Goal of exploration</h2>
+<p>The goal is not to make a perfect model (impossible) but to detect the problems that will meaningfully distort your conclusions</p>
 <ul>
-<li class="fragment">Based on hypothesis, and a-priori methods</li>
+<li class="fragment">“Tigers” are the problems that will meaningfully distort your conclusions</li>
+<li class="fragment">“Mice” are the problems that will not meaningfully distort your conclusions</li>
+<li class="fragment">There will always be “mice” in your data!</li>
 </ul>
 </section>
-<section id="in-your-projects-do-you-use-prediction-inference-or-exploration" class="slide level2">
-<h2>In your projects, do you use prediction, inference or exploration?</h2>
+<section id="spherical-cow" class="slide level2">
+<h2>Spherical cow</h2>
 <ul>
-<li class="fragment">Why?</li>
-<li class="fragment">Exploration –&gt; inductive</li>
-<li class="fragment">Inference –&gt; deductive</li>
+<li class="fragment">The joke is designed to poke fun at theorists for making unrealistic assumptions in order to simplify a problem to make it easier to solve (or solvable at all).</li>
+<li class="fragment">We do this with scientific assumptions all the time. We assume our data is normal, independent, linear and homoscedastic</li>
 </ul>
 </section>
-<section id="explorations-vs-inference" class="slide level2">
-<h2>Explorations vs inference</h2>
-<p>In your view, which is more fundamental for scientific progress: carefully testing well-specified hypotheses, or exploring data and phenomena to see what patterns emerge? Why? Does your answer change depending on the stage of a research program?</p>
+<section id="lecture-on-tredennick-et-al.-2021" class="slide level2">
+<h2>Lecture on Tredennick et al.&nbsp;2021</h2>
+<p>Now we will have Team 2 give a lecture on Tredennick et al.&nbsp;2021 <span class="citation" data-cites="tredennickPracticalGuideSelecting2021">Tredennick et al. (<a href="#/now-about-the-paper" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </section>
-<section id="for-your-project" class="slide level2">
-<h2>For your project</h2>
-<p>In your project, imagine you are doing a purely exploratory study. What would you actually want to look at, play with, or visualize in your system? Be concrete about: what you’d plot, what relationships you’d inspect, and what patterns you’d hope to notice</p>
+<section id="discussion-on-ellison-2004" class="slide level2">
+<h2>Discussion on Ellison 2004</h2>
+<ul>
+<li class="fragment">Raise your hand if you understand theoretically what Bayesian inference is</li>
+<li class="fragment">Remember… it is mostly a philosophical alternative to frequentist inference</li>
+<li class="fragment">Raise your hand if you have used Bayesian inference in practice (e.g., run a Bayesian model)</li>
+</ul>
 </section>
-<section id="for-your-project-1" class="slide level2">
-<h2>For your project</h2>
-<p>Now, for the same system, write one clear, testable hypothesis. State exactly what you expect to see, how you’d measure it, and which model or statistical test you would use to evaluate it</p>
+<section id="difference-in-philosophy" class="slide level2">
+<h2>Difference in philosophy</h2>
+<ul>
+<li class="fragment">Difference in how they observe probability</li>
+<li class="fragment">Frequentist: long-run frequency of repeatable events</li>
+<li class="fragment">Frequentist: if the null hypothesis is true, and I ran this experiment 100 times, I would get results as extreme as this less than 5% of the time</li>
+<li class="fragment">Bayesian: degree of belief in a hypothesis given the data observed</li>
+</ul>
+</section>
+<section id="coin-toss-example-7-heads-in-10-tosses" class="slide level2">
+<h2>coin toss example: 7 heads in 10 tosses</h2>
+<ul>
+<li class="fragment">Frequentist: Null hypothesis: coin is fair (p = 0.5)</li>
+<li class="fragment">Frequentists: Assuming that the null is true, I would observe an event as extreme or more extreme than this (7 or more heads in 10 tosses) about 17% of the time (p = 0.17. )</li>
+<li class="fragment">Bayesian: given the data I have observed, and having no prior information, I believe that chances are that the coin is unfair. There is about an 89% chance that the coin is biased towards heads (p &gt; 0.5)</li>
+</ul>
+</section>
+<section id="different-questions" class="slide level2">
+<h2>Different questions</h2>
+<ul>
+<li class="fragment">The frequentist p = 0.17 answers a different question: “If the coin were exactly fair, how often would I see 7 or more heads in 10 tosses?” (about 17%). It does not give the probability the coin is biased.</li>
+<li class="fragment">The Bayesian answer gives the probability that θ &gt; 0.5</li>
+</ul>
+</section>
+<section id="prior-information" class="slide level2">
+<h2>Prior information</h2>
+<ul>
+<li class="fragment">Bayesian inference allows you to incorporate prior information</li>
+<li class="fragment">Prior information can come from previous studies, expert opinion, or logical constraints</li>
+<li class="fragment">This is done through the prior distribution</li>
+<li class="fragment">The result of the posterior distribution is a combination of the prior and the likelihood of the data</li>
+</ul>
+</section>
+<section id="example-of-prior-information" class="slide level2">
+<h2>Example of prior information</h2>
+<p>We use prior information in our daily lives all the time</p>
+</section>
+<section id="cleveland-browns-and-bayesian-thinking" class="slide level2">
+<h2>Cleveland Browns and Bayesian Thinking</h2>
+<ul>
+<li class="fragment"><p>You check the score: the Browns are up 21 to 7 at halftime against the Ravens.</p></li>
+<li class="fragment"><p>At the same time, the Chiefs are up 21 to 7 at halftime against the Jets</p></li>
+<li class="fragment"><p>In frequentist probability, you would think:</p></li>
+<li class="fragment"><p>“Probability of winning when going 21-7 is about 80%”</p></li>
+<li class="fragment"><p>But! yous have priors… if you are a Browns fan:</p></li>
+</ul>
+<p><span class="math display">\[ \text{Posterior belief} \propto \text{Prior (they find ways to lose)} \times \text{New data (they’re winning now)} \]</span></p>
+<ul>
+<li class="fragment"><p>Essentially, you know that they tend to find ways to lose</p></li>
+<li class="fragment"><p>You may be expecting heartbreak, despite the data (21-7)</p></li>
+<li class="fragment"><p>A Chiefs fan, at this point, might not be worried at all</p></li>
+</ul>
+</section>
+<section id="now-about-the-paper" class="slide level2 smaller scrollable">
+<h2>Now… about the paper</h2>
+<ul>
+<li class="fragment">Share in pairs one thing you learned reading this paper (or something that it made you think about)</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-tredennickPracticalGuideSelecting2021" class="csl-entry" role="listitem">
+Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. <span>“A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.”</span> <em>Ecology</em> 102 (6): e03336. <a href="https://doi.org/10.1002/ecy.3336">https://doi.org/10.1002/ecy.3336</a>.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
