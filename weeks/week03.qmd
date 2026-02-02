@@ -324,4 +324,4 @@ Linear regression: `lm(proportion ~ stratification_time)`
 #### Exit ticket:
 Is thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?
 
-#### Thursday session: coding
+#### Thursday session: coding workshop
