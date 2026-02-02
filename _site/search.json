@@ -32,14 +32,14 @@
     "href": "weeks/week02.html",
     "title": "Week 02 — [Philosophical concepts in data analysis]",
     "section": "",
-    "text": "Week: 2\nTopic: Foundational philosophical questions"
+    "text": "Week: 2\nUPDATE: Due to inclement weather, there will only be one session this week (Thursday).\nTopic: Foundational philosophical questions"
   },
   {
     "objectID": "weeks/week02.html#background",
     "href": "weeks/week02.html#background",
     "title": "Week 02 — [Philosophical concepts in data analysis]",
     "section": "1 Background",
-    "text": "1 Background\nReview the following topics if you don’t fully understand them:\n\nInference\nProbability\nStatistical models\nSamples and Populations\nBias and Variance\nFrequentist and Bayesian statistics\nUncertainty in data analysis\n\nYou can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat"
+    "text": "1 Background\nThe group that read Tredennick et al. (2021) will be giving their lecture.\nReview the following topics if you don’t fully understand them:\n\nInference\nProbability\nStatistical models\nSamples and Populations\nBias and Variance\nFrequentist and Bayesian statistics\nUncertainty in data analysis\n\nYou can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat"
   },
   {
     "objectID": "weeks/week02.html#learning-objectives",
@@ -53,126 +53,126 @@
     "href": "weeks/week02.html#readings",
     "title": "Week 02 — [Philosophical concepts in data analysis]",
     "section": "3 Readings",
-    "text": "3 Readings\nEveryone Reads both of these papers for a discussion:\n(BayesianInferenceEcology?) (boxScienceStatistics1976?)\n\n3.1 Session A:\n\n3.1.1 Part 1: Paper discussion (~40 minutes of the class)\nI will open with a short lecture on both papers (15 minutes), then we will have a discussion (25 minutes).\nThe discussion will be guided by some questions I will write.\n\n\n\n\n\n\nQuestions To think about while reading\n\n\n\n\nWhat does it mean for a model to be “useful” rather than “true”?\nWhat kinds of uncertainty are explicitly modeled, and which are often ignored?\nHow do Bayesian and frequentist approaches differ in how they treat uncertainty?\nHow do these philosophical perspectives influence how we interpret results in applied research?\n\n\n\n\n\n3.1.2 Part 2: Dataset/coding\nWe will start coding here. Run a Bayesian example\n\n\n3.1.3 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n3.2 Session B\nMethods workshop — hands-on coding"
+    "text": "3 Readings\nPlease read this paper:\nEllison (2004) by Tuesday.\nAgain, a pretty complex topic. If you are not familiar with Bayesian statistics, focus on the philosophical side of things rather than the technical aspects.\nAnd explore this paper by Thursday: Box (1976) (available at: https://www.jstor.org/stable/2286841?seq=1)\nBox (1976) ‘Science and Statistics’ is VERY dense and had to read, so do not worry about every detail, and you can skim through it. For this class, your goal is to understand three ideas: (1) science as an iteration between theory and data, (2) models as deliberately false but useful, and (3) the need to check and revise models when they clash with data.\n\n3.1 Session A:\n\n3.1.1 Part 1: Lecture by Team B (~ 25 minutes of the class)\nThe team that did not give their lecture today, will be giving a lecture on choosing models.\n\n\n3.1.2 Part 2: Paper discussion (~25 minutes of the class)\nI will open with a short lecture on Ellison (2004) (15 minutes), then we will have a discussion (15 minutes).\nThe discussion will be guided by some questions I will write.\n\n\n\n\n\n\nQuestions To think about while reading\n\n\n\n\nWhat does it mean for a model to be “useful” rather than “true”?\nWhat kinds of uncertainty are explicitly modeled, and which are often ignored?\nHow do Bayesian and frequentist approaches differ in how they treat uncertainty?\nHow do these philosophical perspectives influence how we interpret results in applied research?\n\n\n\n\n\n3.1.3 Part 2: Dataset/coding\nWe will start coding here. The objective will be to run a Bayesian example on Thursday\n\n\n3.1.4 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n3.2 Session B\nMethods workshop — hands-on coding Session B has been cancelled"
   },
   {
     "objectID": "weeks/week-template.html",
     "href": "weeks/week-template.html",
     "title": "Week XX — [Week Title]",
     "section": "",
-    "text": "&lt;div class=\"btn-group me-2\" role=\"group\" aria-label=\"Primary links\"&gt;\n    &lt;a class=\"btn btn-outline-primary\" href=\"../index.html\"&gt;&lt;i class=\"bi bi-house-fill me-1\"&gt;&lt;/i&gt; Home&lt;/a&gt;\n    &lt;a class=\"btn btn-outline-secondary\" href=\"../syllabus.html\"&gt;&lt;i class=\"bi bi-file-earmark-text-fill me-1\"&gt;&lt;/i&gt; Syllabus&lt;/a&gt;\n    &lt;a class=\"btn btn-outline-dark\" href=\"../references.html\"&gt;&lt;i class=\"bi bi-bookmark-fill me-1\"&gt;&lt;/i&gt; References&lt;/a&gt;\n&lt;/div&gt;\n\nWeek: XX\nSession A: Paper Discussion — paper to be assigned by week lead\nSession B: Methods workshop — hands-on coding\nObjectives - Short list of objectives for the week.\nReading / Paper - Citation: Title, authors, year. - Key method(s) used in the paper.\nMethod Deep-Dive - Math / equations: short derivation or key formulas. - Assumptions and diagnostics.\nCode / Implementation (R) - R script or R Markdown chunk for implementing the method or a minimal example:\n\n1 Example placeholder\nlibrary(tidyverse) # put example code here"
+    "text": "Week: XX\nSession A: Paper Discussion — paper to be assigned by week lead\nSession B: Methods workshop — hands-on coding\nObjectives - Short list of objectives for the week.\nReading / Paper - Citation: Title, authors, year. - Key method(s) used in the paper.\nMethod Deep-Dive - Math / equations: short derivation or key formulas. - Assumptions and diagnostics.\nCode / Implementation (R) - R script or R Markdown chunk for implementing the method or a minimal example: # Example placeholder library(tidyverse) # put example code here"
   },
   {
     "objectID": "slides/slide-Week01.html#welcome",
     "href": "slides/slide-Week01.html#welcome",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Welcome!",
-    "text": "Welcome!\nI am very excited to be teaching this class.\n\nToday we will be talking about the course.\nBefore this introduction, I talked about the website.\nWe will work together on projects, we will use this to create slideshows"
+    "section": "",
+    "text": "I am very excited to be teaching this class.\n\nToday we will be talking about the course.\nBefore this introduction, I talked about the website.\nWe will work together on projects, we will use this to create slideshows"
   },
   {
     "objectID": "slides/slide-Week01.html#things-you-need-for-this-course",
     "href": "slides/slide-Week01.html#things-you-need-for-this-course",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Things you need for this course",
-    "text": "Things you need for this course\n\nProgram R\nRStudio or Positron (new!)\nGithub\nI recommend you create a Github student account"
+    "section": "2 Things you need for this course",
+    "text": "2 Things you need for this course\n\nProgram R\nRStudio or Positron (new!)\nGithub\nI recommend you create a Github student account"
   },
   {
     "objectID": "slides/slide-Week01.html#introductions",
     "href": "slides/slide-Week01.html#introductions",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Introductions",
-    "text": "Introductions\n\nAbout me:\nI enjoy numbers, statistics, coding, models and teaching\nMy academic history"
+    "section": "3 Introductions",
+    "text": "3 Introductions\n\nAbout me:\nI enjoy numbers, statistics, coding, models and teaching\nMy academic history"
   },
   {
     "objectID": "slides/slide-Week01.html#my-academic-history",
     "href": "slides/slide-Week01.html#my-academic-history",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "My academic history",
-    "text": "My academic history\n\n\n\n    \n        \n            \n            \n                UNAM\n                Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy/Placentotrohpy\n            \n        \n    \n\n    \n        \n            \n            \n                University of Maine\n                PhD working with Atlantic salmon movement and survival\n            \n        \n    \n\n    \n        \n            \n            \n                LSSU\n                Postdoc building a database, analysing data and looking at post-restoration ceommunity composition\n            \n        \n    \n\n    \n        \n            \n            \n                MSU\n                Postdoc working with models"
+    "section": "4 My academic history",
+    "text": "4 My academic history\n\n\n\n    \n        \n            \n            \n                UNAM\n                Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy\n            \n        \n    \n\n    \n        \n            \n            \n                University of Maine\n                PhD working with Atlantic salmon movement and survival\n            \n        \n    \n\n    \n        \n            \n            \n                LSSU\n                Postdoc building a database, analysing data and looking at post-restoration ceommunity composition\n            \n        \n    \n\n    \n        \n            \n            \n                MSU\n                Postdoc working with models"
   },
   {
     "objectID": "slides/slide-Week01.html#currently",
     "href": "slides/slide-Week01.html#currently",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Currently",
-    "text": "Currently\nI mostly teach\nDo some research\nServe on committees\nHerbert College representative in the Statistics Minor and Masters"
+    "section": "5 Currently",
+    "text": "5 Currently\nI mostly teach\nDo some research\nServe on committees\nHerbert College representative in the Statistics Minor and Masters"
   },
   {
     "objectID": "slides/slide-Week01.html#your-turn",
     "href": "slides/slide-Week01.html#your-turn",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Your turn",
-    "text": "Your turn\n\nName\nDepartment\nInterests both research and something you enjoy to do"
+    "section": "6 Your turn",
+    "text": "6 Your turn\n\nName\nDepartment\nInterests both research and something you enjoy to do"
   },
   {
     "objectID": "slides/slide-Week01.html#course-overview",
     "href": "slides/slide-Week01.html#course-overview",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Course overview",
-    "text": "Course overview\nPLEASE CHECK THE SYLLABUS ON THE WEBSITE"
+    "section": "7 Course overview",
+    "text": "7 Course overview\nPLEASE CHECK THE SYLLABUS ON THE WEBSITE"
   },
   {
     "objectID": "slides/slide-Week01.html#course-overview-1",
     "href": "slides/slide-Week01.html#course-overview-1",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Course overview",
-    "text": "Course overview\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences\nImplement and adapt these methods using equations, models, and R code\nApply appropriate quantitative approaches to their own research data\nCommunicate and defend methodological decisions through peer-led discussions and final presentations"
+    "section": "8 Course overview",
+    "text": "8 Course overview\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences\nImplement and adapt these methods using equations, models, and R code\nApply appropriate quantitative approaches to their own research data\nCommunicate and defend methodological decisions through peer-led discussions and final presentations"
   },
   {
     "objectID": "slides/slide-Week01.html#this-weeks-assignment",
     "href": "slides/slide-Week01.html#this-weeks-assignment",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "This week’s assignment",
-    "text": "This week’s assignment\n\nRead Tredennick et al. (2021) or Zuur, Ieno, and Elphick (2010) depending on your group\nGive a lecture (~25 minutes) on the paper and lead a short discussion (~5 minutes)\nBe ready to answer questions from your classmates\nUse slides or not, your choice\nYou will have 10 minutes at the beginning of next class to prepare with your group\nYou are the experts!"
+    "section": "10 This week’s assignment",
+    "text": "10 This week’s assignment\n\nRead Tredennick et al. (2021) or Zuur, Ieno, and Elphick (2010) depending on your group\nGive a lecture (~25 minutes) on the paper and lead a short discussion (~5 minutes)\nBe ready to answer questions from your classmates\nUse slides or not, your choice\nYou will have 10 minutes at the beginning of next class to prepare with your group\nYou are the experts!"
   },
   {
     "objectID": "slides/slide-Week01.html#zuur-et-al.-2010",
     "href": "slides/slide-Week01.html#zuur-et-al.-2010",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Zuur et al. 2010",
-    "text": "Zuur et al. 2010\n\nA protocol for data exploration to avoid common statistical problems\nMethods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
+    "section": "11 Zuur et al. 2010",
+    "text": "11 Zuur et al. 2010\n\nA protocol for data exploration to avoid common statistical problems\nMethods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
   },
   {
     "objectID": "slides/slide-Week01.html#treddennick-et-al.-2021",
     "href": "slides/slide-Week01.html#treddennick-et-al.-2021",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Treddennick et al. 2021",
-    "text": "Treddennick et al. 2021\n\nA practical guide to selecting models for exploration, inference, and prediction in ecology\nEcology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nSome of you have already read this one!"
+    "section": "12 Treddennick et al. 2021",
+    "text": "12 Treddennick et al. 2021\n\nA practical guide to selecting models for exploration, inference, and prediction in ecology\nEcology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nSome of you have already read this one!"
   },
   {
     "objectID": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-classes",
     "href": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-classes",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Make sure you have everything ready for next classes",
-    "text": "Make sure you have everything ready for next classes\n\nR and RStudio or Positron installed\nPositron? What is that?\nPositron is a new IDE by the makers of RStudio. It is still in beta but looks very promising.\nLink: https://posit.co/download/preview/"
+    "section": "13 Make sure you have everything ready for next classes",
+    "text": "13 Make sure you have everything ready for next classes\n\nR and RStudio or Positron installed\nPositron? What is that?\nPositron is a new IDE by the makers of RStudio. It is still in beta but looks very promising.\nLink: https://posit.co/download/preview/"
   },
   {
     "objectID": "slides/slide-Week01.html#next-week",
     "href": "slides/slide-Week01.html#next-week",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Next Week",
-    "text": "Next Week"
+    "section": "14 Next Week",
+    "text": "14 Next Week"
   },
   {
     "objectID": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
     "href": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "Notes before the end of the class",
-    "text": "Notes before the end of the class\n\nOffice: ANRB 474\nIf you have issues with R or RStudio, please chech the resources section on the website\nIf you are struggling with basic linear models, you can review and work on the materials from SNR 610: https://moctezumaii.github.io/SNR610/ which can be a good resource!\nThis is a collaborative class, we will work together to make it successful for all of us! Feel free to ask anyone for help\nSee you next class!"
+    "section": "15 Notes before the end of the class",
+    "text": "15 Notes before the end of the class\n\nOffice: ANRB 474\nIf you have issues with R or RStudio, please chech the resources section on the website\nIf you are struggling with basic linear models, you can review and work on the materials from SNR 610: https://moctezumaii.github.io/SNR610/ which can be a good resource!\nThis is a collaborative class, we will work together to make it successful for all of us! Feel free to ask anyone for help\nSee you next class!"
   },
   {
     "objectID": "slides/slide-Week01.html#references",
     "href": "slides/slide-Week01.html#references",
     "title": "Week 01, Session A: Introduction to Class",
-    "section": "References",
-    "text": "References\n\nTredennick, A. T., G. Hooker, and P. B. Adler. (2021). A practical guide to selecting models for exploration, inference, and prediction in ecology. Ecology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nZuur, A. F., E. N. Ieno, and C. S. Elphick. (2010). A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x\n\n\n\n\n\nTredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. “A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.” Ecology 102 (6): e03336. https://doi.org/10.1002/ecy.3336.\n\n\nZuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. “A Protocol for Data Exploration to Avoid Common Statistical Problems.” Methods in Ecology and Evolution 1 (1): 3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x."
+    "section": "16 References",
+    "text": "16 References\n\nTredennick, A. T., G. Hooker, and P. B. Adler. (2021). A practical guide to selecting models for exploration, inference, and prediction in ecology. Ecology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nZuur, A. F., E. N. Ieno, and C. S. Elphick. (2010). A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
     "section": "",
-    "text": "&lt;a class=\"btn btn-primary\" href=\"syllabus.html\"&gt;&lt;i class=\"bi bi-file-earmark-text-fill me-1\"&gt;&lt;/i&gt; Syllabus&lt;/a&gt;\n&lt;a class=\"btn btn-secondary\" href=\"weeks/week-template.html\"&gt;&lt;i class=\"bi bi-journal-code me-1\"&gt;&lt;/i&gt; Week Template&lt;/a&gt;\n&lt;a class=\"btn btn-success\" href=\"index.html\"&gt;&lt;i class=\"bi bi-house-fill me-1\"&gt;&lt;/i&gt; Project Home&lt;/a&gt;\n&lt;a class=\"btn btn-outline-dark\" href=\"references.html\"&gt;&lt;i class=\"bi bi-bookmark-fill me-1\"&gt;&lt;/i&gt; References&lt;/a&gt;\n\nWelcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: TBA\nThis book contains the syllabus, weekly readings, methods deep-dives, code notebooks, and example projects. Use the navigation (left) to go to the syllabus or weekly pages.\nLinks - Syllabus: -&gt; syllabus.html -\nWeekly template: -&gt; /weeks/week-template.html -\nReferences and links to papers! -&gt; /references.html\nContact Information and office hours: Find me in my office ANRB 474! 😃"
+    "text": "Welcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: Spring 2026\nThis book contains the syllabus, weekly readings, assignments, projects, papers, code notebooks, and everything we do in this class. This website will be a collaborative process.\nWe will be updating this landing page as the course goes on!"
   },
   {
     "objectID": "about.html",
@@ -193,7 +193,7 @@
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "Course Description - This graduate-level course explores quantitative methods commonly used in agricultural, food, plant, animal, and natural resource sciences. Students will critically evaluate statistical and modeling techniques in current research, develop the ability to apply quantitative approaches to their own projects, and gain practical experience with equations, algorithms, and R code.\n\n&lt;div class=\"btn-group me-2\" role=\"group\" aria-label=\"Primary links\"&gt;\n    &lt;a class=\"btn btn-outline-primary\" href=\"index.html\"&gt;&lt;i class=\"bi bi-house-fill me-1\"&gt;&lt;/i&gt; Home&lt;/a&gt;\n    &lt;a class=\"btn btn-outline-secondary\" href=\"weeks/week-template.html\"&gt;&lt;i class=\"bi bi-journal-code me-1\"&gt;&lt;/i&gt; Week Template&lt;/a&gt;\n    &lt;a class=\"btn btn-outline-dark\" href=\"references.html\"&gt;&lt;i class=\"bi bi-bookmark-fill me-1\"&gt;&lt;/i&gt; References&lt;/a&gt;\n&lt;/div&gt;\n\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences.\nImplement and adapt these methods using equations, models, and R code.\nApply appropriate quantitative approaches to their own research data.\nCommunicate and defend methodological decisions through peer-led discussions and final presentations.\n\nCourse Structure - Weeks 1–3:\n\nSession A (Paper Discussion): Class:\n\nDiscussion of a research article, focusing on research questions, data, and interpretation.\n\nSession B (Method Deep-Dive):\n\nMathematical/statistical foundations of the method used\n\n\n\n\nWeek 4:\n\nGitHub / collaborative work / version control workshop\n\nWeeks 4–12:\n\nSession A (Student-Led Paper Discussion) and lecture(methods deep-dive)\nSession B (Workshop — hands-on coding and project development)\n\nWeeks 13–14:\n\nProject progress updates and peer feedback\n\nWeek 15:\n\nFinal presentations\n\n\nAssessment:\n\nParticipation & Paper Discussions: 50%\nWorkshop Engagement: 25%\nFinal Project (written report + presentation): 25%\n\nSoftware & Tools\n\nR (required)\nShared GitHub repository for code and datasets\nGitHub Codespaces (recommended for reproducible environment)\nCanvas (for administrative items)"
+    "text": "Course Description - This graduate-level course explores quantitative methods commonly used in agricultural, food, plant, animal, and natural resource sciences. Students will critically evaluate statistical and modeling techniques in current research, develop the ability to apply quantitative approaches to their own projects, and gain practical experience with equations, algorithms, and R code.\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences.\nImplement and adapt these methods using equations, models, and R code.\nApply appropriate quantitative approaches to their own research data.\nCommunicate and defend methodological decisions through peer-led discussions and final presentations.\n\nCourse Structure - Weeks 1–3:\n\nSession A (Paper Discussion): Class:\n\nDiscussion of a research article, focusing on research questions, data, and interpretation.\n\nSession B (Method Deep-Dive):\n\nMathematical/statistical foundations of the method used\n\n\n\n\nWeek 4:\n\nGitHub / collaborative work / version control workshop\n\nWeeks 4–12:\n\nSession A (Student-Led Paper Discussion) and lecture(methods deep-dive)\nSession B (Workshop — hands-on coding and project development)\n\nWeeks 13–14:\n\nProject progress updates and peer feedback\n\nWeek 15:\n\nFinal presentations\n\n\nAssessment:\n\nParticipation & Paper Discussions: 50%\nWorkshops: 25%\nFinal Project (written report + presentation): 25%\n\nSoftware & Tools\n\nR (required)\nShared GitHub repository for code and datasets\nGitHub Codespaces (recommended for reproducible environment)\nCanvas"
   },
   {
     "objectID": "weeks/week01.html",
@@ -235,6 +235,286 @@
     "href": "weeks/week03.html#learning-objectives",
     "title": "Week 03 — Linear Models and GLM’s",
     "section": "2 Learning Objectives",
-    "text": "2 Learning Objectives\nExplain how linear models, generalized linear models, and mixed models share a common structure\nIdentify when normal-error linear models are inappropriate and how GLMs address these limitations\nInterpret regression coefficients under different link functions and error distributions\nCritically evaluate modeling choices in published ecological and natural resource studies\nImplement and compare LMs and GLMs in R while articulating underlying assumptions\n\n2.1 Session A:\n\n2.1.1 Part 1: Paper discussion (~45 minutes of the class)\nDiscussion of: Bolker et al. (2009)\nSubmit before class: 1) A question of something you had a hard time understanding, and a question you would ask someone to test if they understood the paper (as if you were an instructor testing a student). You can submit both questions in the same section on CANVAS.\nI will open with a short lecture (15 minutes) on the paper, then we will have a discussion (15 minutes). Submit: 1 question of something you have a hard time understanding. I will lead the discussion, but be ready to discuss/explain topics. You will then work in groups.\n\n\n\n\n\n\nQuestions To think about while reading\n\n\n\n\nWhen should a fixed effect be treated as random (and vice versa)?\nHow do you diagnose and handle overdispersion and zero-inflation?\nTradeoffs between lme4, glmmTMB, and Bayesian approaches for complex data?\n\n\n\n\n\n2.1.2 Part 2: Working in pairs (or trios) (~30 Minutes)\nHalf of you will read chapter 2 of (Zuur2009?) (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.\nEach Student gets 8 minutes to give a lecture + 2 minutes for questions.\nFollowing this, students will answer 1) the most important concept, and 2) one question given by me.\nAfter this, they will switch roles.\n\n\n2.1.3 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n2.2 Session B\nMethods workshop — hands-on coding\n\n2.2.1 Objectives\n\nFit a GLM, GAM, and a GLMM to count and binomial response data.\n\n\n\nInterpret fixed-effect estimates and random-effect variances.\nDiagnose model fit (residuals, overdispersion, zero‑inflation) and fix common problems.\nCompare two model fits and write a concise ecological interpretation.\n\n\n\n2.2.2 Preparation:\nInstall the following packages:\n\nlme4\nglmmTMB\nDHARMa\nbroom.mixed\nggplot2\nperformance\n\nClass schedule\n\n5 minutes –&gt; Discussion about overdispersion\n10 minutes –&gt; Demo by me\n30 minutes –&gt; Paired work:\n\nTask A (15 min): Fit Poisson GLM and GLMM on y; extract fixed effect, random variance, compute AIC.\nTask B (15 min): Run DHARMa simulateResiduals on GLMM and inspect plot; note any issue (overdispersion, zero inflation, non-uniform residuals).\nWork in pairs. You can decide how to work\nFigure out issues/problems in the data\n\n10 minutes –&gt; Discussion part 2\nStudents present results –&gt; 5 minutes\nSubmit data"
+    "text": "2 Learning Objectives\nExplain how linear models, generalized linear models, and mixed models share a common structure\nIdentify when normal-error linear models are inappropriate and how GLMs address these limitations\nInterpret regression coefficients under different link functions and error distributions\nCritically evaluate modeling choices in published ecological and natural resource studies\nImplement and compare LMs and GLMs in R while articulating underlying assumptions\n\n2.1 Session A:\n\n2.1.1 Part 1: Paper discussion (~45 minutes of the class)\nDiscussion of: Bolker et al. (2009)\nSubmit before class: 1) A question of something you had a hard time understanding, and a question you would ask someone to test if they understood the paper (as if you were an instructor testing a student). You can submit both questions in the same section on CANVAS.\nI will open with a short lecture (15 minutes) on the paper, then we will have a discussion (15 minutes). Submit: 1 question of something you have a hard time understanding. I will lead the discussion, but be ready to discuss/explain topics. You will then work in groups.\n\n\n\n\n\n\nQuestions To think about while reading\n\n\n\n\nWhen should a fixed effect be treated as random (and vice versa)?\nHow do you diagnose and handle overdispersion and zero-inflation?\nTradeoffs between lme4, glmmTMB, and Bayesian approaches for complex data?\n\n\n\n\n\n2.1.2 Part 2: Working in pairs (or trios) (~30 Minutes)\nHalf of you will read chapter 2 of Zuur et al. (2009) (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.\nEach Student gets 8 minutes to give a lecture + 2 minutes for questions.\nFollowing this, students will answer 1) the most important concept, and 2) one question given by me.\nAfter this, they will switch roles.\n\n\n2.1.3 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n2.2 Session B\nMethods workshop — hands-on coding\n\n2.2.1 Objectives\n\nFit a GLM, GAM, and a GLMM to count and binomial response data.\n\n\n\nInterpret fixed-effect estimates and random-effect variances.\nDiagnose model fit (residuals, overdispersion, zero‑inflation) and fix common problems.\nCompare two model fits and write a concise ecological interpretation.\n\n\n\n2.2.2 Preparation:\nInstall the following packages:\n\nlme4\nglmmTMB\nDHARMa\nbroom.mixed\nggplot2\nperformance\n\nClass schedule\n\n5 minutes –&gt; Discussion about overdispersion\n10 minutes –&gt; Demo by me\n30 minutes –&gt; Paired work:\n\nTask A (15 min): Fit Poisson GLM and GLMM on y; extract fixed effect, random variance, compute AIC.\nTask B (15 min): Run DHARMa simulateResiduals on GLMM and inspect plot; note any issue (overdispersion, zero inflation, non-uniform residuals).\nWork in pairs. You can decide how to work\nFigure out issues/problems in the data\n\n10 minutes –&gt; Discussion part 2\nStudents present results –&gt; 5 minutes\nSubmit data"
+  },
+  {
+    "objectID": "slides/slide-Week01.html",
+    "href": "slides/slide-Week01.html",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "",
+    "text": "I am very excited to be teaching this class.\n\nToday we will be talking about the course.\nBefore this introduction, I talked about the website.\nWe will work together on projects, we will use this to create slideshows"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#course-lectures",
+    "href": "slides/slide-Week01.html#course-lectures",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "9 Course lectures",
+    "text": "9 Course lectures\nWe will use some pretty different teaching and learning strategies. This are being used for three reasons:\n\nThere is peer-reviewed evidence that these strategies improve learning outcomes. But I am an empiricist.\nYou will develop some skills, like oral communication and some teaching abilities, that will be very helpful in your future.\nI believe it will make the class engaging."
+  },
+  {
+    "objectID": "index.html#resources",
+    "href": "index.html#resources",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "Resources",
+    "text": "Resources\nthis section will be updated regularly If you are struggling with R or RStudio, check out these resources:\nWickham Wickham, Çetinkaya-Rundel, and Grolemund (2023) here: https://r4ds.had.co.nz/\nData science in R: A gentle introduction https://bookdown.org/jgscott/DSGI/\nAnd check the materials of my SNR 610 course here: https://moctezumaii.github.io/SNR610/\nWhere you can access info regarding R and models."
+  },
+  {
+    "objectID": "index.html#links-and-inforrmation",
+    "href": "index.html#links-and-inforrmation",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "Links and inforrmation:",
+    "text": "Links and inforrmation:\nSyllabus\nWhat are we doing this week? –&gt; Here you will fin what papers to read, and have an idea of what each class is going to look like!\nContact Information and office hours: Find me in my office ANRB 474! 😃"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "",
+    "text": "Here we will have all the projects and assignments listed."
+  },
+  {
+    "objectID": "slides/notes-week01.html",
+    "href": "slides/notes-week01.html",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "",
+    "text": "Zuur et al., 2010. A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution. 1(1):3-14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
+  },
+  {
+    "objectID": "slides/notes-week01.html#zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems",
+    "href": "slides/notes-week01.html#zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "",
+    "text": "Zuur et al., 2010. A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution. 1(1):3-14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
+  },
+  {
+    "objectID": "slides/notes-week01.html#why-is-data-exploration-important",
+    "href": "slides/notes-week01.html#why-is-data-exploration-important",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "2 Why is data exploration important?",
+    "text": "2 Why is data exploration important?\nSee if assumptions are met Identify outliers Understand data structure"
+  },
+  {
+    "objectID": "slides/notes-week01.html#discussion",
+    "href": "slides/notes-week01.html#discussion",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "3 Discussion",
+    "text": "3 Discussion\nZuur paper makes the point that we should always explore our data before doing inferential analyses. However, Tredennick argues that exploration and inference should come from idnependent studies. How can we reconcile these views?"
+  },
+  {
+    "objectID": "slides/notes-week01.html#equal-variance",
+    "href": "slides/notes-week01.html#equal-variance",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "4 Equal variance",
+    "text": "4 Equal variance\nNever happens in real world data"
+  },
+  {
+    "objectID": "slides/notes-week01.html#normal-data",
+    "href": "slides/notes-week01.html#normal-data",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "5 Normal data",
+    "text": "5 Normal data\nNever happens in real world data"
+  },
+  {
+    "objectID": "slides/notes-week01.html#covariates",
+    "href": "slides/notes-week01.html#covariates",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "6 Covariates",
+    "text": "6 Covariates\nCheck for correlation among covariates"
+  },
+  {
+    "objectID": "slides/notes-week01.html#zero-inflated-data",
+    "href": "slides/notes-week01.html#zero-inflated-data",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "7 Zero inflated data",
+    "text": "7 Zero inflated data\nCheck for excess zeros Mix count and logistic data: hurdle models, zero-inflated models Cluster"
+  },
+  {
+    "objectID": "slides/notes-week01.html#vif",
+    "href": "slides/notes-week01.html#vif",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "8 VIF",
+    "text": "8 VIF\nHow much is too much?"
+  },
+  {
+    "objectID": "slides/notes-week01.html#zuur",
+    "href": "slides/notes-week01.html#zuur",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "9 Zuur",
+    "text": "9 Zuur\nThe point they make is to use exploration as a tool to protect inference, not create it.\n\nBy exploration, Zuur means checking assumptions, understanding data structure, and identifying potential issues.\nThe goal is to ensure that the data meets the assumptions required for valid inference.\nIt is non-inferential."
+  },
+  {
+    "objectID": "slides/notes-week01.html#tredennick",
+    "href": "slides/notes-week01.html#tredennick",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "10 Tredennick",
+    "text": "10 Tredennick\nTredennick argues that exploration and inference should come from independent studies.\n\nBy exploration, Tredennick means generating hypotheses and insights from the data.\nThe goal is to generate hypothesis from observed patterns.\nIf you observe a pattern and then test it in the same data, you risk overfitting and false positives."
+  },
+  {
+    "objectID": "slides/notes-week01.html#discussion-1",
+    "href": "slides/notes-week01.html#discussion-1",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "11 Discussion",
+    "text": "11 Discussion\nHow important is subject-matter expertise when exploring data? Can we rely solely on statistical techniques for exploration?\n\nDoes subject matter expertise introduce bias?\nCan other techniques like Bayesian methods help us introduce subject matter with less bias?"
+  },
+  {
+    "objectID": "slides/notes-week01.html#we-never-meet-assumptions",
+    "href": "slides/notes-week01.html#we-never-meet-assumptions",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "12 We never meet assumptions",
+    "text": "12 We never meet assumptions\n\nReal world data won’t fit assumptions (e.g., there won’t be a perfectly normal distribution)\nWhen exploring the data, how close is close enough? Do modeling objectives matter when making these decisions?"
+  },
+  {
+    "objectID": "slides/notes-week01.html#who-here-starts-analyzing-data-without-exploring-it-first",
+    "href": "slides/notes-week01.html#who-here-starts-analyzing-data-without-exploring-it-first",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "13 Who here starts analyzing data without exploring it first?",
+    "text": "13 Who here starts analyzing data without exploring it first?\n\nBased on hypothesis, and a-priori methods"
+  },
+  {
+    "objectID": "slides/notes-week01.html#in-your-projects-do-you-use-prediction-inference-or-exploration",
+    "href": "slides/notes-week01.html#in-your-projects-do-you-use-prediction-inference-or-exploration",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "14 In your projects, do you use prediction, inference or exploration?",
+    "text": "14 In your projects, do you use prediction, inference or exploration?\n\nWhy?\nExploration –&gt; inductive\nInference –&gt; deductive"
+  },
+  {
+    "objectID": "slides/notes-week01.html#explorations-vs-inference",
+    "href": "slides/notes-week01.html#explorations-vs-inference",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "15 Explorations vs inference",
+    "text": "15 Explorations vs inference\nIn your view, which is more fundamental for scientific progress: carefully testing well-specified hypotheses, or exploring data and phenomena to see what patterns emerge? Why? Does your answer change depending on the stage of a research program?"
+  },
+  {
+    "objectID": "slides/notes-week01.html#for-your-project",
+    "href": "slides/notes-week01.html#for-your-project",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "16 For your project",
+    "text": "16 For your project\nIn your project, imagine you are doing a purely exploratory study. What would you actually want to look at, play with, or visualize in your system? Be concrete about: what you’d plot, what relationships you’d inspect, and what patterns you’d hope to notice"
+  },
+  {
+    "objectID": "slides/notes-week01.html#for-your-project-1",
+    "href": "slides/notes-week01.html#for-your-project-1",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "17 For your project",
+    "text": "17 For your project\nNow, for the same system, write one clear, testable hypothesis. State exactly what you expect to see, how you’d measure it, and which model or statistical test you would use to evaluate it"
+  },
+  {
+    "objectID": "slides/slides-Week02.html",
+    "href": "slides/slides-Week02.html",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "",
+    "text": "The objective for the first three weeks is to step back and think and talk about statistics and data analysis from a philosophical and epistemological perspective\n\nChallenges:\nToo technical\nTerminology\nMath-heavy\nKinda boring"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#objective-for-today",
+    "href": "slides/slides-Week02.html#objective-for-today",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "",
+    "text": "The objective for the first three weeks is to step back and think and talk about statistics and data analysis from a philosophical and epistemological perspective\n\nChallenges:\nToo technical\nTerminology\nMath-heavy\nKinda boring"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#class-today",
+    "href": "slides/slides-Week02.html#class-today",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "2 Class today",
+    "text": "2 Class today\n\nWrap up last lecture/discussion on data exploration\nHave a lecture on Tredennick.\nStart to discuss the Bayesian Inference paper.\nObjective: further your understanding of foundational concepts in data analysis."
+  },
+  {
+    "objectID": "slides/slides-Week02.html#paper-discussions-last-week",
+    "href": "slides/slides-Week02.html#paper-discussions-last-week",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "3 Paper discussions (last week)",
+    "text": "3 Paper discussions (last week)\nLast class we had Team 1 talk about “data exploration”\n\nEssentially, a protocol for “pre-modeling” data analysis\nWhy is it important?"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#questions-from-last-team",
+    "href": "slides/slides-Week02.html#questions-from-last-team",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "4 Questions from last team",
+    "text": "4 Questions from last team\n\nWhat kind of data do you have and how have you thought about approaching it?​\nWhat kinds of datasets (or distributions) that would be an exception to these rules?​ *Rules presented last week\nHow can you tell between an actual outlier and observational error? ​\nHow might you prevent these errors before they happen?​"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#question-from-me",
+    "href": "slides/slides-Week02.html#question-from-me",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "5 Question from me:",
+    "text": "5 Question from me:\n\nFor Thursday we will read the Box (1976) paper that has the following quote:\n“Since all models are wrong, the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.”\nHow does this quote relate to last week’s lecture?"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#goal-of-exploration",
+    "href": "slides/slides-Week02.html#goal-of-exploration",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "6 Goal of exploration",
+    "text": "6 Goal of exploration\nThe goal is not to make a perfect model (impossible) but to detect the problems that will meaningfully distort your conclusions\n\n“Tigers” are the problems that will meaningfully distort your conclusions\n“Mice” are the problems that will not meaningfully distort your conclusions\nThere will always be “mice” in your data!"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#spherical-cow",
+    "href": "slides/slides-Week02.html#spherical-cow",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "7 Spherical cow",
+    "text": "7 Spherical cow\n\nThe joke is designed to poke fun at theorists for making unrealistic assumptions in order to simplify a problem to make it easier to solve (or solvable at all).\nWe do this with scientific assumptions all the time. We assume our data is normal, independent, linear and homoscedastic"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#lecture-on-tredennick-et-al.-2021",
+    "href": "slides/slides-Week02.html#lecture-on-tredennick-et-al.-2021",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "8 Lecture on Tredennick et al. 2021",
+    "text": "8 Lecture on Tredennick et al. 2021\nNow we will have Team 2 give a lecture on Tredennick et al. 2021 Tredennick et al. (2021)"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#discussion-on-ellison-2004",
+    "href": "slides/slides-Week02.html#discussion-on-ellison-2004",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "9 Discussion on Ellison 2004",
+    "text": "9 Discussion on Ellison 2004\n\nRaise your hand if you understand theoretically what Bayesian inference is\nRemember… it is mostly a philosophical alternative to frequentist inference\nRaise your hand if you have used Bayesian inference in practice (e.g., run a Bayesian model)"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#difference-in-philosophy",
+    "href": "slides/slides-Week02.html#difference-in-philosophy",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "10 Difference in philosophy",
+    "text": "10 Difference in philosophy\n\nDifference in how they observe probability\nFrequentist: long-run frequency of repeatable events\nFrequentist: if the null hypothesis is true, and I ran this experiment 100 times, I would get results as extreme as this less than 5% of the time\nBayesian: degree of belief in a hypothesis given the data observed"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#coin-toss-example-7-heads-in-10-tosses",
+    "href": "slides/slides-Week02.html#coin-toss-example-7-heads-in-10-tosses",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "11 coin toss example: 7 heads in 10 tosses",
+    "text": "11 coin toss example: 7 heads in 10 tosses\n\nFrequentist: Null hypothesis: coin is fair (p = 0.5)\nFrequentists: Assuming that the null is true, I would observe an event as extreme or more extreme than this (7 or more heads in 10 tosses) about 17% of the time (p = 0.17. )\nBayesian: given the data I have observed, and having no prior information, I believe that chances are that the coin is unfair. There is about an 89% chance that the coin is biased towards heads (p &gt; 0.5)"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#different-questions",
+    "href": "slides/slides-Week02.html#different-questions",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "12 Different questions",
+    "text": "12 Different questions\n\nThe frequentist p = 0.17 answers a different question: “If the coin were exactly fair, how often would I see 7 or more heads in 10 tosses?” (about 17%). It does not give the probability the coin is biased.\nThe Bayesian answer gives the probability that θ &gt; 0.5"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#prior-information",
+    "href": "slides/slides-Week02.html#prior-information",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "13 Prior information",
+    "text": "13 Prior information\n\nBayesian inference allows you to incorporate prior information\nPrior information can come from previous studies, expert opinion, or logical constraints\nThis is done through the prior distribution\nThe result of the posterior distribution is a combination of the prior and the likelihood of the data"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#example-of-prior-information",
+    "href": "slides/slides-Week02.html#example-of-prior-information",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "14 Example of prior information",
+    "text": "14 Example of prior information\nWe use prior information in our daily lives all the time"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#cleveland-browns-and-bayesian-thinking",
+    "href": "slides/slides-Week02.html#cleveland-browns-and-bayesian-thinking",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "15 Cleveland Browns and Bayesian Thinking",
+    "text": "15 Cleveland Browns and Bayesian Thinking\n\nYou check the score: the Browns are up 21 to 7 at halftime against the Ravens.\nAt the same time, the Chiefs are up 21 to 7 at halftime against the Jets\nIn frequentist probability, you would think:\n“Probability of winning when going 21-7 is about 80%”\nBut! yous have priors… if you are a Browns fan:\n\n\\[ \\text{Posterior belief} \\propto \\text{Prior (they find ways to lose)} \\times \\text{New data (they’re winning now)} \\]\n\nEssentially, you know that they tend to find ways to lose\nYou may be expecting heartbreak, despite the data (21-7)\nA Chiefs fan, at this point, might not be worried at all"
+  },
+  {
+    "objectID": "slides/slides-Week02.html#now-about-the-paper",
+    "href": "slides/slides-Week02.html#now-about-the-paper",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "16 Now… about the paper",
+    "text": "16 Now… about the paper\n\nShare in pairs one thing you learned reading this paper (or something that it made you think about)"
   }
 ]

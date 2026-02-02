@@ -5,72 +5,121 @@ format: html
 
 Week: 3
 
-Topic: Linear Models and GLM's
-
-## Background
-
-Review the following topics if you don't fully understand them:
-
--   Inference
-
--   Linear Models
-
--   Generalized Linear Models
-
--   Distributions
-
-    -   Normal
-
-    -   Binomial
-
-    -   Poisson
-
-    -   Negative Binomial
-
-Again, you can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat
-
+Topic: Statistical Modeling Framework
 
 ## Learning Objectives
 
-Explain how linear models, generalized linear models, and mixed models share a common structure
+Connect research questions, data structure and data analysis
 
-Identify when normal-error linear models are inappropriate and how GLMs address these limitations
+## Background
 
-Interpret regression coefficients under different link functions and error distributions
+No background this week. After class, review the following topics:
 
-Critically evaluate modeling choices in published ecological and natural resource studies
+-   Inference
+-   Linear Models
+-   Distributions
+    -   Normal
+    -   Binomial
+    -   Poisson
+    -   Negative Binomial
 
-Implement and compare LMs and GLMs in R while articulating underlying assumptions
+## Before class
+Think about:
+
+-  A dataset you're currently working with (or interested in working with)
+-  The main research question you want to answer
+-  What is your response variable? What is its distribution? 
+
+
 
 ### Session A:
 
-#### Part 1: Paper discussion (\~45 minutes of the class)
+#### Part 1: Silent Reflection (10 min)
 
-Discussion of: @bolker2009
+On the paper I gave you, write the following:
 
-Submit before class: 1) A question of something you had a hard time understanding, and a question you would ask someone to test if they understood the paper (as if you were an instructor testing a student). You can submit both questions in the same section on CANVAS.
+::: {.callout-tip}
+## Reflection Prompts
+1. **My research question (one sentence):**
 
-I will open with a short lecture (15 minutes) on the paper, then we will have a discussion (15 minutes). Submit: 1 question of something you have a hard time understanding. I will lead the discussion, but be ready to discuss/explain topics. You will then work in groups.
+<br>
+<br>
 
-::: {.callout-tip appearance="simple"}
-## Questions To think about while reading
+2. **My response variable is:** (circle one or write your own)
+   - Continuous measurements
+   - Counts
+   - Binary (yes/no, presence/absence)
+   - Proportions
+   - Categories
+   - Other: ___________
 
--   When should a fixed effect be treated as random (and vice versa)?
+<br>
 
--   How do you diagnose and handle overdispersion and zero-inflation?
+3. **My data structure includes:** (check all that apply)
+   - [ ] Repeated measures on the same units
+   - [ ] Multiple sites/plots/locations
+   - [ ] Time series
+   - [ ] Nested structure (e.g., plants within plots within sites)
+   - [ ] Just one observation per unit
+   - [ ] Other: ___________
 
--   Tradeoffs between lme4, glmmTMB, and Bayesian approaches for complex data?
+<br>
+
+4. **One worry I have about analyzing my data:**
+<br>
+<br>
+
+
 :::
 
-#### Part 2: Working in pairs (or trios) (\~30 Minutes)
 
-Half of you will read chapter 2 of @zuurMixedEffectsModels2009 (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.
 
-Each Student gets 8 minutes to give a lecture + 2 minutes for questions.
+### Part 2: Graffitti discussion (12 minutes)
 
-Following this, students will answer 1) the most important concept, and 2) one question given by me.
+**Your task:**
+- Move freely around the room
+- Use markers to write on ANY wall (words, phrases, questions, drawings)
+- Read what others wrote
+- Add +1, arrows, or comments to build on others' ideas
+- No names required
 
-After this, they will switch roles.
+::: {.callout-warning}
+## The Five Walls
+
+**Wall 1:** "What's the hardest thing about data analysis for you?"
+
+**Wall 2:** "What's the gap between what you learned in stats class and what you actually need/use?"
+
+**Wall 3:** "What do you wish your advisor/committee understood about statistical analysis?"
+
+**Wall 4:** "What statistical concept do you pretend to understand but actually don't?"
+
+**Wall 5:** "What do you want to learn in this class?"
+
+**Wall 6:** "Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don't know why? If yes, explain"
+::: 
+
+#### Quick Harvest (6 min)
+
+Brief discussion of themes and patterns from the walls. This will inform future class topics.
+
+
+#### Part 3: Main concept --> Lecture
+
+#### The Method-Question-Data Triangle (15 min)
+```
+     RESEARCH QUESTION
+            /\
+           /  \
+          /    \
+         /      \
+        /        \
+       /          \
+DATA TYPE -------- METHOD CHOICE
+```
+
+All needed to be aligned. Dr. Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.
+
 
 #### Exit ticket
 
@@ -80,52 +129,199 @@ What was the most challenging thing about today?
 
 Methods workshop — hands-on coding
 
-#### Objectives
+#### 🤝 Think-Pair-Share (5 min)
 
--   Fit a GLM, GAM, and a GLMM to count and binomial response data.
+**Prompt:**
 
-<!-- -->
+> Look back at your silent reflection sheet. Based on the three examples:
+> 
+> - What method might be appropriate for YOUR data?
+> - What's one thing about your data structure that makes method choice tricky?
 
--   Interpret fixed-effect estimates and random-effect variances.
+1. **Think** (1 min) — jot notes on your sheet
+2. **Pair** (3 min) — discuss with a neighbor, help each other troubleshoot
+3. **Share** (1 min) — 2–3 volunteers share their pairing's most interesting dilemma
 
--   Diagnose model fit (residuals, overdispersion, zero‑inflation) and fix common problems.
+#### Detective Station
+### 4. Data Detective: Diagnosis Stations (25 min)
 
--   Compare two model fits and write a concise ecological interpretation.
+#### Setup
 
-#### Preparation:
+**Six stations** around the room, each with a **scenario card** describing:
+- A research question
+- A dataset description
+- A statistical method that was used (or is being proposed)
 
-Install the following packages:
+**Your job:** Diagnose whether the method fits the question and data.
 
--   lme4
+**Rotation schedule:**
+- 4 minutes per station
+- Work in pairs or trios
+- Record your diagnosis on the station worksheet
 
--   glmmTMB
+---
 
--   DHARMa
+#### 🔍 Station 1: Salamander Survival
 
--   broom.mixed
+**Research Question:**  
+Does canopy cover affect salamander survival in forest fragments?
 
--   ggplot2
+**Data:**
 
--   performance
+- 12 forest fragments
+- 20 salamanders marked in each fragment (240 total)
+- Survival recorded as binary (alive/dead) after one year
+- Canopy cover measured as % for each fragment
 
-Class schedule
+**Proposed Method:**  
+Logistic regression: `glm(survival ~ canopy_cover, family = binomial)`
 
--   5 minutes –\> Discussion about overdispersion
+**Your Diagnosis:**
 
--   10 minutes –\> Demo by me
+- [ ] Good match — use as is
+- [ ] Needs modification — what's missing?
+- [ ] Wrong method — what would you use instead?
 
--   30 minutes –\> Paired work:
+**Why?**
 
-    -   Task A (15 min): Fit Poisson GLM and GLMM on y; extract fixed effect, random variance, compute AIC.
+<br><br><br>
 
-    -   Task B (15 min): Run DHARMa simulateResiduals on GLMM and inspect plot; note any issue (overdispersion, zero inflation, non-uniform residuals).
+---
 
-    -   Work in pairs. You can decide how to work
+#### 🔍 Station 2: Wheat Yield Trials
 
-    -   Figure out issues/problems in the data
+**Research Question:**  
+Which of 5 wheat varieties produces the highest yield?
 
--   10 minutes –\> Discussion part 2
+**Data:**
 
--   Students present results –\> 5 minutes
+- 5 varieties tested in 4 blocks (randomized complete block design)
+- One plot per variety per block (20 plots total)
+- Yield (kg/ha) recorded once per plot
+- Data look approximately normal
 
--   Submit data
+**Proposed Method:**  
+One-way ANOVA: `aov(yield ~ variety)`
+
+**Your Diagnosis:**
+
+- [ ] Good match — use as is
+- [ ] Needs modification — what's missing?
+- [ ] Wrong method — what would you use instead?
+
+**Why?**
+
+<br><br><br>
+
+---
+
+#### 🔍 Station 3: Bird Abundance Over Time
+
+**Research Question:**  
+Is bird abundance declining in urban parks?
+
+**Data:**
+
+- 8 urban parks surveyed
+- Each park visited 6 times per year for 5 years (240 total observations)
+- Response: count of birds per visit (range: 0–89)
+- Year as continuous predictor
+
+**Proposed Method:**  
+Linear regression: `lm(bird_count ~ year)`
+
+**Your Diagnosis:**
+
+- [ ] Good match — use as is
+- [ ] Needs modification — what's missing?
+- [ ] Wrong method — what would you use instead?
+
+**Why?**
+
+<br><br><br>
+
+---
+
+#### 🔍 Station 4: Soil Microbial Diversity
+
+**Research Question:**  
+Does tillage treatment affect soil microbial diversity?
+
+**Data:**
+
+- 3 treatments: no-till, reduced till, conventional till
+- 10 fields per treatment (30 fields total)
+- Shannon diversity index calculated for each field (continuous, 0–5)
+- Data slightly right-skewed but otherwise well-behaved
+
+**Proposed Method:**  
+Kruskal-Wallis test (non-parametric)
+
+**Your Diagnosis:**
+
+- [ ] Good match — use as is
+- [ ] Needs modification — what's missing?
+- [ ] Wrong method — what would you use instead?
+
+**Why?**
+
+<br><br><br>
+
+---
+
+#### 🔍 Station 5: Pollinator Network Complexity
+
+**Research Question:**  
+Do pollinator networks become more complex with plant diversity?
+
+**Data:**
+
+- 25 meadows sampled
+- Plant diversity (species richness) recorded per meadow
+- Network complexity score calculated (continuous, 1.2–8.7)
+- Data are normal, linear relationship looks reasonable
+
+**Proposed Method:**  
+Bayesian multilevel model with varying intercepts and slopes, spatial Gaussian process
+
+**Your Diagnosis:**
+
+- [ ] Good match — use as is
+- [ ] Needs modification — what's missing?
+- [ ] Wrong method — what would you use instead?
+
+**Why?**
+
+<br><br><br>
+
+---
+
+#### 🔍 Station 6: Seedling Germination Experiment
+
+**Research Question:**  
+Does stratification time (0, 30, 60, 90 days) affect germination rate?
+
+**Data:**
+
+- 4 stratification treatments
+- 10 petri dishes per treatment (40 dishes)
+- 50 seeds per dish
+- Response: proportion germinated (0.0–1.0)
+
+**Proposed Method:**  
+Linear regression: `lm(proportion ~ stratification_time)`
+
+**Your Diagnosis:**
+
+- [ ] Good match — use as is
+- [ ] Needs modification — what's missing?
+- [ ] Wrong method — what would you use instead?
+
+**Why?**
+
+<br><br><br>
+
+#### Exit ticket:
+Is thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?
+
+#### Thursday session: coding
