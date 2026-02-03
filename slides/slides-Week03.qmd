@@ -442,7 +442,7 @@ ggplot(overcomp_data, aes(x = forest_type, y = height, fill = forest_type)) +
 
 ------------------------------------------------------------------------
 
-## Example 3: Simple vs. Complex {background-color="#ffffcc"}
+## Example 3: Simple vs. Complex {background-color="#ffffcc"} 
 
 ```{r}
 #| echo: true
