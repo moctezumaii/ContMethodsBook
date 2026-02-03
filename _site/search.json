@@ -516,5 +516,180 @@
     "title": "Week 2: Philosophical concepts in data analysis",
     "section": "16 Now… about the paper",
     "text": "16 Now… about the paper\n\nShare in pairs one thing you learned reading this paper (or something that it made you think about)"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#the-problem",
+    "href": "slides/slides-Week03.html#the-problem",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Problem",
+    "text": "The Problem\n\nWe often learn methods in isolation\n\n“This is a t-test”\n“This is ANOVA”\n“This is regression”\n\nThen we have data and ask: “What test do I run?”\nThis is backwards!\n\n\nKey insight: The research question should drive everything"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#the-triangle-framework",
+    "href": "slides/slides-Week03.html#the-triangle-framework",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Triangle Framework",
+    "text": "The Triangle Framework\n         RESEARCH QUESTION\n                /\\\n               /  \\\n              /    \\\n             /      \\\n            /        \\\n           /          \\\n    DATA TYPE -------- METHOD CHOICE\n\nAll three must align\n\n\nMisalignment leads to:\n\nWrong conclusions\nWasted effort\n\nRejected papers\nSad grad students! :frowning:"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#research-question-drives-everything",
+    "href": "slides/slides-Week03.html#research-question-drives-everything",
+    "title": "Matching Methods to Research Questions",
+    "section": "Research Question Drives Everything",
+    "text": "Research Question Drives Everything\n\n\n\nQuestion Type\nWhat You’re Looking For\nExample Methods\n\n\n\n\nIs there a difference?\nComparison\nt-test, ANOVA, GLM\n\n\nIs there a relationship?\nAssociation\nRegression, correlation\n\n\nCan I predict?\nPrediction\nML, regression\n\n\nWhat’s the pattern?\nStructure\nClustering, PCA, ordination\n\n\n\n\nYour question determines what “answer” looks like!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#data-type-constrains-your-options",
+    "href": "slides/slides-Week03.html#data-type-constrains-your-options",
+    "title": "Matching Methods to Research Questions",
+    "section": "Data Type Constrains Your Options",
+    "text": "Data Type Constrains Your Options\n\n\n\nResponse Variable\nDistribution\nCommon Methods\n\n\n\n\nContinuous, normal\nGaussian\nLM, ANOVA\n\n\nCounts (0, 1, 2, …)\nPoisson, NegBin\nGLM\n\n\nBinary (yes/no)\nBinomial\nLogistic regression\n\n\nProportions (0-1)\nBinomial, Beta\nGLM, Beta regression\n\n\n\n\nAlso consider:\n\nIndependence vs. grouping\nRepeated measures\nNested/hierarchical structure"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#the-alignment-check",
+    "href": "slides/slides-Week03.html#the-alignment-check",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Alignment Check ✅",
+    "text": "The Alignment Check ✅\nBefore analyzing, ask yourself:\n\n✅ What exactly is my question?\n✅ What type of response variable do I have?\n✅ What is my data structure (grouping, nesting, time)?\n✅ Does my method handle all of this?\n\n\nIf you can’t answer these → STOP and think!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#three-common-scenarios",
+    "href": "slides/slides-Week03.html#three-common-scenarios",
+    "title": "Matching Methods to Research Questions",
+    "section": "Three Common Scenarios",
+    "text": "Three Common Scenarios\nWe’ll look at three examples:\n\nMismatch - Method ignores key data structure\nGood Match - Method fits question and data\nOvercomplicated - Method is fancier than needed\n\n\nLet’s see each one…"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-1-mismatch",
+    "href": "slides/slides-Week03.html#example-1-mismatch",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: MISMATCH",
+    "text": "Example 1: MISMATCH\nScenario:\n\nTesting fertilizer effect on crop yield\n5 fields, 4 plots per field\n2 control plots, 2 fertilized plots per field\n\n\nThe analysis:\nlm(yield ~ fertilizer)\n\nTreats all 20 observations as independent!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-1-the-problem",
+    "href": "slides/slides-Week03.html#example-1-the-problem",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: The Problem",
+    "text": "Example 1: The Problem"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-1-wrong-vs.-right",
+    "href": "slides/slides-Week03.html#example-1-wrong-vs.-right",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: Wrong vs. Right",
+    "text": "Example 1: Wrong vs. Right\n\n\nShow code\n# WRONG: Ignores field structure\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\n\n# RIGHT: Accounts for field\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n\n\n\n\nTRUE EFFECT: 3 units\n\n\nWRONG MODEL (lm):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 2.57 \n\n\n  p-value: 0.2043 \n\n\nCORRECT MODEL (lmer):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 0.99 \n\n\n  p-value: 0"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-1-the-fix",
+    "href": "slides/slides-Week03.html#example-1-the-fix",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: The Fix",
+    "text": "Example 1: The Fix\nIn this design (treatment within fields):\n\nThe wrong model has inflated standard errors because it treats field variance as residual noise\nThe correct model* separates field variance → cleaner estimate of treatment effect\nThis means reduced power when you ignore structure\n\nIn other designs (treatment between fields):\n\nIgnoring structure would inflate Type I error instead\n\n\n\n\n# Wrong\nlm(yield ~ treatment)\n\n# Right  \nlmer(yield ~ treatment + (1|field))\n\nLesson: Always check your independence assumption!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-2-good-match",
+    "href": "slides/slides-Week03.html#example-2-good-match",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: GOOD MATCH",
+    "text": "Example 2: GOOD MATCH\nScenario:\n\nPollinator visits to flowers\n2 treatments: native vs. non-native plants\n30 plants per treatment\nResponse: count of visits (0 to ~45)\n\n\nThe approach:\nglm(visits ~ treatment, family = poisson)"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-2-the-data",
+    "href": "slides/slides-Week03.html#example-2-the-data",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: The Data",
+    "text": "Example 2: The Data"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-2-why-it-works",
+    "href": "slides/slides-Week03.html#example-2-why-it-works",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: Why It Works",
+    "text": "Example 2: Why It Works\n\n\nShow code\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)$coefficients\n\n\n                 Estimate Std. Error   z value      Pr(&gt;|z|)\n(Intercept)     2.0412203  0.0657951 31.023896 2.567154e-211\ntreatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12\n\n\n\nChecklist:\n\n✅ Count data → Poisson distribution\n✅ No upper bound on counts\n✅ Independent observations (different plants)\n✅ Simple comparison question"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-2-interpretation",
+    "href": "slides/slides-Week03.html#example-2-interpretation",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: Interpretation",
+    "text": "Example 2: Interpretation\n\n\nShow code\nest &lt;- coef(poisson_model)[\"treatmentnative\"]\ncat(\"Coefficient (log scale):\", round(est, 3), \"\\n\")\n\n\nCoefficient (log scale): 0.576 \n\n\nShow code\ncat(\"Multiplicative effect:\", round(exp(est), 2), \"\\n\")\n\n\nMultiplicative effect: 1.78 \n\n\nShow code\ncat(\"Native plants get\", round((exp(est) - 1) * 100, 1), \"% more visits\\n\")\n\n\nNative plants get 77.9 % more visits\n\n\n\nLesson: Match your distribution to your data type!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-3-overcomplicated",
+    "href": "slides/slides-Week03.html#example-3-overcomplicated",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: OVERCOMPLICATED",
+    "text": "Example 3: OVERCOMPLICATED\nScenario:\n\nTree height in 2 forest types\n30 trees per forest type\nNormal distribution, no grouping\nSimple question: “Is there a difference?”\n\n\nThe overkill:\n“Let’s use a Bayesian hierarchical model with spatial autocorrelation, weakly informative priors, and MCMC sampling!”"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-3-the-data",
+    "href": "slides/slides-Week03.html#example-3-the-data",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: The Data",
+    "text": "Example 3: The Data"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-3-simple-vs.-complex",
+    "href": "slides/slides-Week03.html#example-3-simple-vs.-complex",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: Simple vs. Complex",
+    "text": "Example 3: Simple vs. Complex\n\n\nShow code\n# Simple t-test (appropriate!)\nsimple_test &lt;- t.test(height ~ forest_type, data = overcomp_data)\n\ncat(\"Difference:\", round(diff(simple_test$estimate), 2), \"meters\\n\")\n\n\nDifference: -4.51 meters\n\n\nShow code\ncat(\"95% CI: [\", round(simple_test$conf.int[1], 2), \",\", \n    round(simple_test$conf.int[2], 2), \"]\\n\")\n\n\n95% CI: [ 2.2 , 6.81 ]\n\n\nShow code\ncat(\"p-value:\", format(simple_test$p.value, digits = 3), \"\\n\")\n\n\np-value: 0.000239 \n\n\n\nTime to run: ~0.001 seconds\nA Bayesian spatial model: ~5-10 minutes\nSame answer!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-3-the-lesson",
+    "href": "slides/slides-Week03.html#example-3-the-lesson",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: The Lesson",
+    "text": "Example 3: The Lesson\nProblems with overcomplication:\n\nTakes much longer to fit\nHarder to interpret\nReviewers get confused\nMore things can go wrong\nSame answer as simple approach!\n\n\nPrinciple of parsimony:\n\nUse the simplest method that adequately addresses your question\n\n\n\nSave fancy methods for when you need them!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#summary-three-scenarios",
+    "href": "slides/slides-Week03.html#summary-three-scenarios",
+    "title": "Matching Methods to Research Questions",
+    "section": "Summary: Three Scenarios",
+    "text": "Summary: Three Scenarios\n\n\n\n\n\n\n\n\n\nExample\nProblem\nConsequence\nLesson\n\n\n\n\nMismatch\nIgnored grouping structure\nFalse positive risk\nCheck independence\n\n\nGood Match\nNone — appropriate method\nValid inference\nMatch distribution\n\n\nOvercomplicated\nUnnecessary complexity\nWasted effort\nStart simple"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#your-checklist",
+    "href": "slides/slides-Week03.html#your-checklist",
+    "title": "Matching Methods to Research Questions",
+    "section": "Your Checklist",
+    "text": "Your Checklist\nBefore you analyze, ask:\n\n1️⃣ What is my question? (difference, relationship, prediction)\n\n\n2️⃣ What is my response variable? (continuous, count, binary, proportion)\n\n\n3️⃣ What is my data structure? (independent, grouped, nested, repeated)\n\n\n4️⃣ Does my method handle all three?"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#the-golden-rule",
+    "href": "slides/slides-Week03.html#the-golden-rule",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Golden Rule",
+    "text": "The Golden Rule\n\nStart simple.\n. . .\nAdd complexity only when needed.\n. . .\nAlways justify your choices."
+  },
+  {
+    "objectID": "slides/slides-Week03.html#now-its-your-turn",
+    "href": "slides/slides-Week03.html#now-its-your-turn",
+    "title": "Matching Methods to Research Questions",
+    "section": "Now It’s Your Turn!",
+    "text": "Now It’s Your Turn!\nData Detective Stations\n\n6 scenarios around the room\nDiagnose: Mismatch? Good match? Overcomplicated?\nWork in pairs\n4 minutes per station\n\n\nGrab your worksheet and let’s go!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#appendix-full-simulation-code",
+    "href": "slides/slides-Week03.html#appendix-full-simulation-code",
+    "title": "Matching Methods to Research Questions",
+    "section": "Appendix: Full Simulation Code",
+    "text": "Appendix: Full Simulation Code\n\n\nShow code\n# ============================================================================\n# EXAMPLE 1: MISMATCH - Ignoring nested structure\n# Demonstrates FALSE POSITIVE from pseudoreplication\n# ============================================================================\n\nlibrary(lme4)\nlibrary(ggplot2)\nlibrary(dplyr)\n\nset.seed(42)\n\nn_fields &lt;- 5\nn_plots_per_field &lt;- 4\n\nmismatch_data &lt;- expand.grid(\n  field = factor(1:n_fields),\n  plot = 1:n_plots_per_field\n) |&gt;\n  mutate(\n    treatment = rep(c(\"control\", \"control\", \"fertilizer\", \"fertilizer\"), n_fields),\n    treatment = factor(treatment, levels = c(\"control\", \"fertilizer\"))\n  )\n\n# Large field-to-field variation\nfield_effects &lt;- data.frame(\n  field = factor(1:n_fields),\n  field_effect = c(-12, -5, 2, 8, 14)\n)\n\ntrue_effect &lt;- 0  # NO TRUE EFFECT!\n\nmismatch_data &lt;- mismatch_data |&gt;\n  left_join(field_effects, by = \"field\") |&gt;\n  mutate(\n    yield = 50 + field_effect + \n            ifelse(treatment == \"fertilizer\", true_effect, 0) +\n            rnorm(n(), mean = 0, sd = 1.5)\n  ) |&gt;\n  # Create confounding between treatment and field quality\n  mutate(\n    yield = yield + ifelse(treatment == \"fertilizer\", field_effect * 0.15, 0)\n  )\n\n# Compare wrong vs correct\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n# Wrong model shows \"significant\" effect (p &lt; 0.05)\nsummary(wrong_model)\n\n# Correct model shows non-significant (as it should be - no true effect!)\nsummary(correct_model)"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#appendix-full-simulation-code-continued",
+    "href": "slides/slides-Week03.html#appendix-full-simulation-code-continued",
+    "title": "Matching Methods to Research Questions",
+    "section": "Appendix: Full Simulation Code (continued)",
+    "text": "Appendix: Full Simulation Code (continued)\n\n\nShow code\n# ============================================================================\n# EXAMPLE 2: GOOD MATCH - Poisson GLM for counts\n# ============================================================================\n\nset.seed(2024)\nn_per_group &lt;- 30\n\ngoodmatch_data &lt;- data.frame(\n  plant_id = 1:(2 * n_per_group),\n  treatment = factor(rep(c(\"native\", \"non_native\"), each = n_per_group),\n                     levels = c(\"non_native\", \"native\"))\n)\n\nbaseline_visits &lt;- 8\nnative_effect &lt;- 0.5  # Log-scale\n\ngoodmatch_data &lt;- goodmatch_data |&gt;\n  mutate(\n    log_mu = log(baseline_visits) + \n             ifelse(treatment == \"native\", native_effect, 0),\n    visits = rpois(n(), lambda = exp(log_mu))\n  )\n\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)\n\n# Interpretation\nexp(coef(poisson_model)[\"treatmentnative\"])  # Multiplicative effect"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#appendix-full-simulation-code-continued-1",
+    "href": "slides/slides-Week03.html#appendix-full-simulation-code-continued-1",
+    "title": "Matching Methods to Research Questions",
+    "section": "Appendix: Full Simulation Code (continued)",
+    "text": "Appendix: Full Simulation Code (continued)\n\n\nShow code\n# ============================================================================\n# EXAMPLE 3: OVERCOMPLICATED - Simple question, complex method\n# ============================================================================\n\nset.seed(2024)\nn_trees &lt;- 30\n\novercomp_data &lt;- data.frame(\n  tree_id = 1:(2 * n_trees),\n  forest_type = factor(rep(c(\"deciduous\", \"coniferous\"), each = n_trees))\n)\n\ndeciduous_mean &lt;- 18\nconiferous_mean &lt;- 22\ntree_sd &lt;- 4\n\novercomp_data &lt;- overcomp_data |&gt;\n  mutate(\n    height = ifelse(forest_type == \"deciduous\",\n                    rnorm(n(), deciduous_mean, tree_sd),\n                    rnorm(n(), coniferous_mean, tree_sd))\n  )\n\n# Simple and appropriate!\nt.test(height ~ forest_type, data = overcomp_data)\n\n# Or equivalently\nlm(height ~ forest_type, data = overcomp_data) |&gt; summary()"
   }
 ]

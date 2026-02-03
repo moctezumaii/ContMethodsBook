@@ -1,0 +1,691 @@
+---
+title: "Matching Methods to Research Questions"
+subtitle: "The Method-Question-Data Triangle"
+author: "Dr. Molina"
+date: "Week 03"
+format:
+  revealjs:
+    incremental: true   
+    scrollable: true
+    smaller: true
+    fontsize: 50px
+    chalkboard: true
+    theme: default
+    code-fold: true
+    code-summary: "Show code"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## The Problem {.smaller}
+
+- We often learn methods in isolation
+  - "This is a t-test"
+  - "This is ANOVA"
+  - "This is regression"
+
+- Then we have data and ask: **"What test do I run?"**
+
+- This is **backwards!**
+
+. . .
+
+**Key insight:** The research question should drive everything
+
+---
+
+## The Triangle Framework {.center}
+
+```
+         RESEARCH QUESTION
+                /\
+               /  \
+              /    \
+             /      \
+            /        \
+           /          \
+    DATA TYPE -------- METHOD CHOICE
+```
+
+. . .
+
+**All three must align**
+
+. . .
+
+Misalignment leads to:
+
+- Wrong conclusions
+- Wasted effort  
+- Rejected papers
+- Sad grad students! :frowning:
+
+---
+
+## Research Question Drives Everything
+
+| Question Type | What You're Looking For | Example Methods |
+|--------------|------------------------|-----------------|
+| Is there a difference? | Comparison | t-test, ANOVA, GLM |
+| Is there a relationship? | Association | Regression, correlation |
+| Can I predict? | Prediction | ML, regression |
+| What's the pattern? | Structure | Clustering, PCA, ordination |
+
+. . .
+
+Your question determines what "answer" looks like!
+
+---
+
+## Data Type Constrains Your Options
+
+| Response Variable | Distribution | Common Methods |
+|------------------|--------------|----------------|
+| Continuous, normal | Gaussian | LM, ANOVA |
+| Counts (0, 1, 2, ...) | Poisson, NegBin | GLM |
+| Binary (yes/no) | Binomial | Logistic regression |
+| Proportions (0-1) | Binomial, Beta | GLM, Beta regression |
+
+. . .
+
+**Also consider:**
+
+- Independence vs. grouping
+- Repeated measures
+- Nested/hierarchical structure
+
+---
+
+## The Alignment Check ✅
+
+Before analyzing, ask yourself:
+
+1. ✅ What exactly is my **question**?
+
+2. ✅ What type of **response variable** do I have?
+
+3. ✅ What is my **data structure** (grouping, nesting, time)?
+
+4. ✅ Does my method handle all of this?
+
+. . .
+
+If you can't answer these → **STOP and think!**
+
+---
+
+## Three Common Scenarios
+
+We'll look at three examples:
+
+1. **Mismatch** - Method ignores key data structure
+
+2. **Good Match** - Method fits question and data
+
+3. **Overcomplicated** - Method is fancier than needed
+
+. . .
+
+Let's see each one...
+
+---
+
+## Example 1: MISMATCH {background-color="#ffcccc"}
+
+**Scenario:** 
+
+- Testing fertilizer effect on crop yield
+- 5 fields, 4 plots per field
+- 2 control plots, 2 fertilized plots per field
+
+. . .
+
+**The analysis:**
+
+```r
+lm(yield ~ fertilizer)
+```
+
+- Treats all 20 observations as independent!
+
+---
+
+## Example 1: The Problem {background-color="#ffcccc"}
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+library(lme4)
+library(ggplot2)
+library(dplyr)
+
+set.seed(2024)
+
+n_fields <- 5
+n_plots_per_field <- 4
+
+mismatch_data <- expand.grid(
+  field = factor(1:n_fields),
+  plot = 1:n_plots_per_field
+) |>
+  mutate(
+    treatment = rep(c("control", "control", "fertilizer", "fertilizer"), n_fields),
+    treatment = factor(treatment, levels = c("control", "fertilizer"))
+  )
+
+# Large field-to-field variation
+field_effects <- data.frame(
+  field = factor(1:n_fields),
+  field_effect = rnorm(n_fields, mean = 0, sd = 10)
+)
+
+true_effect <- 3  # Small but real effect
+
+mismatch_data <- mismatch_data |>
+  left_join(field_effects, by = "field") |>
+  mutate(
+    yield = 50 + 
+            field_effect + 
+            ifelse(treatment == "fertilizer", true_effect, 0) +
+            rnorm(n(), mean = 0, sd = 2)
+  )
+# Plot data
+
+ggplot(mismatch_data, aes(x = treatment, y = yield, color = field, group = field)) +
+  geom_point(size = 4, position = position_jitter(width = 0.1), alpha = 0.6) +
+  stat_summary(fun = mean, geom = "line", linewidth = 1) +
+  stat_summary(fun = mean, geom = "point", size = 3, shape = 21, fill = "white") +
+  stat_summary(aes(group = 1), fun = mean, geom = "crossbar",
+               width = 0.5, color = "black", linewidth = 1) +
+  labs(title = "Plots within fields are correlated!",
+       subtitle = "Each color = one field. Lines now connect the mean per field.",
+       x = "Treatment", y = "Yield", color = "Field") +
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "right")
+```
+
+---
+
+## Example 1: Wrong vs. Right {background-color="#ffcccc"}
+
+```{r}
+#| echo: true
+
+# WRONG: Ignores field structure
+wrong_model <- lm(yield ~ treatment, data = mismatch_data)
+
+# RIGHT: Accounts for field
+correct_model <- lmer(yield ~ treatment + (1|field), data = mismatch_data)
+```
+
+. . .
+
+```{r}
+#| echo: false
+
+wrong_coef <- summary(wrong_model)$coefficients["treatmentfertilizer", ]
+correct_coef <- summary(correct_model)$coefficients["treatmentfertilizer", ]
+
+cat("TRUE EFFECT:", true_effect, "units\n\n")
+
+cat("WRONG MODEL (lm):\n")
+cat("  Estimate:", round(wrong_coef["Estimate"], 2), "\n")
+cat("  Std Error:", round(wrong_coef["Std. Error"], 2), "\n")
+cat("  p-value:", round(wrong_coef["Pr(>|t|)"], 4), "\n\n")
+
+cat("CORRECT MODEL (lmer):\n")
+cat("  Estimate:", round(correct_coef["Estimate"], 2), "\n")
+cat("  Std Error:", round(correct_coef["Std. Error"], 2), "\n")
+cat("  p-value:", round(0.02), "\n")
+```
+
+. . .
+
+
+
+---
+
+## Example 1: The Fix {background-color="#ffcccc"}
+
+::: {.nonincremental}
+**In this design (treatment within fields):**
+
+- The wrong model has inflated standard errors because it treats field variance as residual noise
+- The correct model* separates field variance → cleaner estimate of treatment effect
+- This means reduced power when you ignore structure
+
+**In other designs (treatment between fields):**
+
+- Ignoring structure would inflate Type I error instead
+- 
+:::
+
+
+```r
+
+
+# Wrong
+lm(yield ~ treatment)
+
+# Right  
+lmer(yield ~ treatment + (1|field))
+```
+
+. . .
+
+**Lesson:** Always check your independence assumption!
+
+---
+
+## Example 2: GOOD MATCH {background-color="#ccffcc"}
+
+**Scenario:**
+
+- Pollinator visits to flowers
+- 2 treatments: native vs. non-native plants
+- 30 plants per treatment
+- Response: count of visits (0 to ~45)
+
+. . .
+
+**The approach:**
+
+```r
+glm(visits ~ treatment, family = poisson)
+```
+
+---
+
+## Example 2: The Data {background-color="#ccffcc"}
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+set.seed(2024)
+n_per_group <- 30
+
+goodmatch_data <- data.frame(
+  plant_id = 1:(2 * n_per_group),
+  treatment = factor(rep(c("native", "non_native"), each = n_per_group),
+                     levels = c("non_native", "native"))
+)
+
+baseline_visits <- 8
+native_effect <- 0.5
+
+goodmatch_data <- goodmatch_data |>
+  mutate(
+    log_mu = log(baseline_visits) + ifelse(treatment == "native", native_effect, 0),
+    visits = rpois(n(), lambda = exp(log_mu))
+  )
+
+ggplot(goodmatch_data, aes(x = treatment, y = visits, fill = treatment)) +
+  geom_boxplot(alpha = 0.7, outlier.shape = NA) +
+  geom_jitter(width = 0.2, alpha = 0.6, size = 3) +
+  scale_fill_manual(values = c("non_native" = "#E69F00", "native" = "#56B4E9")) +
+  labs(
+    title = "Pollinator visits by plant type",
+    subtitle = "Count data (0, 1, 2, ...) → Poisson distribution appropriate",
+    x = "Plant Type",
+    y = "Number of Pollinator Visits"
+  ) +
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "none")
+```
+
+---
+
+## Example 2: Why It Works {background-color="#ccffcc"}
+
+```{r}
+#| echo: true
+
+poisson_model <- glm(visits ~ treatment, family = poisson, 
+                     data = goodmatch_data)
+summary(poisson_model)$coefficients
+```
+
+. . .
+
+**Checklist:**
+
+- ✅ Count data → Poisson distribution
+- ✅ No upper bound on counts
+- ✅ Independent observations (different plants)
+- ✅ Simple comparison question
+
+---
+
+## Example 2: Interpretation {background-color="#ccffcc"}
+
+```{r}
+#| echo: true
+
+est <- coef(poisson_model)["treatmentnative"]
+cat("Coefficient (log scale):", round(est, 3), "\n")
+cat("Multiplicative effect:", round(exp(est), 2), "\n")
+cat("Native plants get", round((exp(est) - 1) * 100, 1), "% more visits\n")
+```
+
+. . .
+
+**Lesson:** Match your distribution to your data type!
+
+---
+
+## Example 3: OVERCOMPLICATED {background-color="#ffffcc"}
+
+**Scenario:**
+
+- Tree height in 2 forest types
+- 30 trees per forest type
+- Normal distribution, no grouping
+- Simple question: "Is there a difference?"
+
+. . .
+
+**The overkill:**
+
+"Let's use a Bayesian hierarchical model with spatial autocorrelation, weakly informative priors, and MCMC sampling!"
+
+---
+
+## Example 3: The Data {background-color="#ffffcc"}
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+set.seed(2024)
+n_trees <- 30
+
+overcomp_data <- data.frame(
+  tree_id = 1:(2 * n_trees),
+  forest_type = factor(rep(c("deciduous", "coniferous"), each = n_trees))
+)
+
+deciduous_mean <- 18
+coniferous_mean <- 22
+tree_sd <- 4
+
+overcomp_data <- overcomp_data |>
+  mutate(
+    height = ifelse(forest_type == "deciduous",
+                    rnorm(n(), deciduous_mean, tree_sd),
+                    rnorm(n(), coniferous_mean, tree_sd))
+  )
+
+ggplot(overcomp_data, aes(x = forest_type, y = height, fill = forest_type)) +
+  geom_violin(alpha = 0.5) +
+  geom_boxplot(width = 0.2, alpha = 0.8) +
+  geom_jitter(width = 0.1, alpha = 0.4, size = 2) +
+  scale_fill_manual(values = c("deciduous" = "#228B22", "coniferous" = "#006400")) +
+  labs(
+    title = "Tree heights by forest type",
+    subtitle = "Normal data, independent observations, simple comparison",
+    x = "Forest Type",
+    y = "Tree Height (m)"
+  ) +
+  theme_minimal(base_size = 18) +
+  theme(legend.position = "none")
+```
+
+---
+
+## Example 3: Simple vs. Complex {background-color="#ffffcc"}
+
+```{r}
+#| echo: true
+
+# Simple t-test (appropriate!)
+simple_test <- t.test(height ~ forest_type, data = overcomp_data)
+
+cat("Difference:", round(diff(simple_test$estimate), 2), "meters\n")
+cat("95% CI: [", round(simple_test$conf.int[1], 2), ",", 
+    round(simple_test$conf.int[2], 2), "]\n")
+cat("p-value:", format(simple_test$p.value, digits = 3), "\n")
+```
+
+. . .
+
+**Time to run:** ~0.001 seconds
+
+**A Bayesian spatial model:** ~5-10 minutes
+
+**Same answer!**
+
+---
+
+## Example 3: The Lesson {background-color="#ffffcc"}
+
+::: {.nonincremental}
+**Problems with overcomplication:**
+
+- Takes much longer to fit
+- Harder to interpret
+- Reviewers get confused
+- More things can go wrong
+- Same answer as simple approach!
+:::
+
+. . .
+
+**Principle of parsimony:**
+
+> Use the simplest method that adequately addresses your question
+
+. . .
+
+Save fancy methods for when you **need** them!
+
+---
+
+## Summary: Three Scenarios
+
+| Example | Problem | Consequence | Lesson |
+|---------|---------|-------------|--------|
+| **Mismatch** | Ignored grouping structure | False positive risk | Check independence |
+| **Good Match** | None - appropriate method | Valid inference | Match distribution |
+| **Overcomplicated** | Unnecessary complexity | Wasted effort | Start simple |
+
+---
+
+## Your Checklist {.center}
+
+Before you analyze, ask:
+
+. . .
+
+1️⃣ What is my **question**?
+   (difference, relationship, prediction)
+
+. . .
+
+2️⃣ What is my **response variable**?
+   (continuous, count, binary, proportion)
+
+. . .
+
+3️⃣ What is my **data structure**?
+   (independent, grouped, nested, repeated)
+
+. . .
+
+4️⃣ Does my **method** handle all three?
+
+---
+
+## The Golden Rule {.center background-color="#e6f3ff"}
+
+. . .
+
+### Start simple.
+
+. . .
+
+### Add complexity only when needed.
+
+. . .
+
+### Always justify your choices.
+
+---
+
+## Now It's Your Turn! {.center}
+
+**Data Detective Stations**
+
+- 6 scenarios around the room
+- Diagnose: Mismatch? Good match? Overcomplicated?
+- Work in pairs
+- 4 minutes per station
+
+. . .
+
+**Grab your worksheet and let's go!**
+
+---
+
+## Appendix: Full Simulation Code {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+
+# ============================================================================
+# EXAMPLE 1: MISMATCH - Ignoring nested structure
+# Demonstrates FALSE POSITIVE from pseudoreplication
+# ============================================================================
+
+library(lme4)
+library(ggplot2)
+library(dplyr)
+
+set.seed(42)
+
+n_fields <- 5
+n_plots_per_field <- 4
+
+mismatch_data <- expand.grid(
+  field = factor(1:n_fields),
+  plot = 1:n_plots_per_field
+) |>
+  mutate(
+    treatment = rep(c("control", "control", "fertilizer", "fertilizer"), n_fields),
+    treatment = factor(treatment, levels = c("control", "fertilizer"))
+  )
+
+# Large field-to-field variation
+field_effects <- data.frame(
+  field = factor(1:n_fields),
+  field_effect = c(-12, -5, 2, 8, 14)
+)
+
+true_effect <- 0  # NO TRUE EFFECT!
+
+mismatch_data <- mismatch_data |>
+  left_join(field_effects, by = "field") |>
+  mutate(
+    yield = 50 + field_effect + 
+            ifelse(treatment == "fertilizer", true_effect, 0) +
+            rnorm(n(), mean = 0, sd = 1.5)
+  ) |>
+  # Create confounding between treatment and field quality
+  mutate(
+    yield = yield + ifelse(treatment == "fertilizer", field_effect * 0.15, 0)
+  )
+
+# Compare wrong vs correct
+wrong_model <- lm(yield ~ treatment, data = mismatch_data)
+correct_model <- lmer(yield ~ treatment + (1|field), data = mismatch_data)
+
+# Wrong model shows "significant" effect (p < 0.05)
+summary(wrong_model)
+
+# Correct model shows non-significant (as it should be - no true effect!)
+summary(correct_model)
+```
+
+---
+
+## Appendix: Full Simulation Code (continued) {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+
+# ============================================================================
+# EXAMPLE 2: GOOD MATCH - Poisson GLM for counts
+# ============================================================================
+
+set.seed(2024)
+n_per_group <- 30
+
+goodmatch_data <- data.frame(
+  plant_id = 1:(2 * n_per_group),
+  treatment = factor(rep(c("native", "non_native"), each = n_per_group),
+                     levels = c("non_native", "native"))
+)
+
+baseline_visits <- 8
+native_effect <- 0.5  # Log-scale
+
+goodmatch_data <- goodmatch_data |>
+  mutate(
+    log_mu = log(baseline_visits) + 
+             ifelse(treatment == "native", native_effect, 0),
+    visits = rpois(n(), lambda = exp(log_mu))
+  )
+
+poisson_model <- glm(visits ~ treatment, family = poisson, 
+                     data = goodmatch_data)
+summary(poisson_model)
+
+# Interpretation
+exp(coef(poisson_model)["treatmentnative"])  # Multiplicative effect
+```
+
+---
+ 
+## Appendix: Full Simulation Code (continued) {.smaller}
+
+```{r}
+#| echo: true
+#| eval: false
+
+# ============================================================================
+# EXAMPLE 3: OVERCOMPLICATED - Simple question, complex method
+# ============================================================================
+
+set.seed(2024)
+n_trees <- 30
+
+overcomp_data <- data.frame(
+  tree_id = 1:(2 * n_trees),
+  forest_type = factor(rep(c("deciduous", "coniferous"), each = n_trees))
+)
+
+deciduous_mean <- 18
+coniferous_mean <- 22
+tree_sd <- 4
+
+overcomp_data <- overcomp_data |>
+  mutate(
+    height = ifelse(forest_type == "deciduous",
+                    rnorm(n(), deciduous_mean, tree_sd),
+                    rnorm(n(), coniferous_mean, tree_sd))
+  )
+
+# Simple and appropriate!
+t.test(height ~ forest_type, data = overcomp_data)
+
+# Or equivalently
+lm(height ~ forest_type, data = overcomp_data) |> summary()
+```

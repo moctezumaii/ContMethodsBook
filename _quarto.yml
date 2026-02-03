@@ -43,6 +43,8 @@ site:
             href: slides/slide-Week01.qmd
           - text: Slides Week 02
             href: slides/slides-Week02.qmd
+          - text: Slides Week 03
+            href: slides/slides-Week03.qmd
 
 bibliography: references.bib   # main BibTeX file (place in repo root)
 

@@ -40,7 +40,7 @@ On the paper I gave you, write the following:
 
 ::: {.callout-tip}
 ## Reflection Prompts
-1. **My research question (one sentence):**
+1. **My research question is (one sentence):**
 
 <br>
 <br>
@@ -68,7 +68,12 @@ On the paper I gave you, write the following:
 4. **One worry I have about analyzing my data:**
 <br>
 <br>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 :::
 
@@ -78,13 +83,13 @@ On the paper I gave you, write the following:
 
 **Your task:**
 - Move freely around the room
-- Use markers to write on ANY wall (words, phrases, questions, drawings)
+- Use markers to write on ANY of the questions (words, phrases, questions, drawings)
 - Read what others wrote
 - Add +1, arrows, or comments to build on others' ideas
 - No names required
 
 ::: {.callout-warning}
-## The Five Walls
+## The Five Questions
 
 **Wall 1:** "What's the hardest thing about data analysis for you?"
 
@@ -99,7 +104,7 @@ On the paper I gave you, write the following:
 **Wall 6:** "Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don't know why? If yes, explain"
 ::: 
 
-#### Quick Harvest (6 min)
+#### Post-graffitti (6 min)
 
 Brief discussion of themes and patterns from the walls. This will inform future class topics.
 
@@ -120,14 +125,6 @@ DATA TYPE -------- METHOD CHOICE
 
 All needed to be aligned. Dr. Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.
 
-
-#### Exit ticket
-
-What was the most challenging thing about today?
-
-### Session B
-
-Methods workshop — hands-on coding
 
 #### 🤝 Think-Pair-Share (5 min)
 

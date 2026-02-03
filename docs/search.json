@@ -63,116 +63,326 @@
     "text": "Week: XX\nSession A: Paper Discussion — paper to be assigned by week lead\nSession B: Methods workshop — hands-on coding\nObjectives - Short list of objectives for the week.\nReading / Paper - Citation: Title, authors, year. - Key method(s) used in the paper.\nMethod Deep-Dive - Math / equations: short derivation or key formulas. - Assumptions and diagnostics.\nCode / Implementation (R) - R script or R Markdown chunk for implementing the method or a minimal example: # Example placeholder library(tidyverse) # put example code here"
   },
   {
-    "objectID": "slides/slides-Week02.html#objective-for-today",
-    "href": "slides/slides-Week02.html#objective-for-today",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Objective for today",
-    "text": "Objective for today\nThe objective for the first three weeks is to step back and think and talk about statistics and data analysis from a philosophical and epistemological perspective\n\nChallenges:\nToo technical\nTerminology\nMath-heavy\nKinda boring"
+    "objectID": "slides/slides-Week03.html#the-problem",
+    "href": "slides/slides-Week03.html#the-problem",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Problem",
+    "text": "The Problem\n\nWe often learn methods in isolation\n\n“This is a t-test”\n“This is ANOVA”\n“This is regression”\n\nThen we have data and ask: “What test do I run?”\nThis is backwards!\n\n\nKey insight: The research question should drive everything"
   },
   {
-    "objectID": "slides/slides-Week02.html#class-today",
-    "href": "slides/slides-Week02.html#class-today",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Class today",
-    "text": "Class today\n\nWrap up last lecture/discussion on data exploration\nHave a lecture on Tredennick.\nStart to discuss the Bayesian Inference paper.\nObjective: further your understanding of foundational concepts in data analysis."
+    "objectID": "slides/slides-Week03.html#the-triangle-framework",
+    "href": "slides/slides-Week03.html#the-triangle-framework",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Triangle Framework",
+    "text": "The Triangle Framework\n         RESEARCH QUESTION\n                /\\\n               /  \\\n              /    \\\n             /      \\\n            /        \\\n           /          \\\n    DATA TYPE -------- METHOD CHOICE\n\nAll three must align\n\n\nMisalignment leads to:\n\nWrong conclusions\nWasted effort\n\nRejected papers\nSad grad students! :frowning:"
   },
   {
-    "objectID": "slides/slides-Week02.html#paper-discussions-last-week",
-    "href": "slides/slides-Week02.html#paper-discussions-last-week",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Paper discussions (last week)",
-    "text": "Paper discussions (last week)\nLast class we had Team 1 talk about “data exploration”\n\nEssentially, a protocol for “pre-modeling” data analysis\nWhy is it important?"
+    "objectID": "slides/slides-Week03.html#research-question-drives-everything",
+    "href": "slides/slides-Week03.html#research-question-drives-everything",
+    "title": "Matching Methods to Research Questions",
+    "section": "Research Question Drives Everything",
+    "text": "Research Question Drives Everything\n\n\n\nQuestion Type\nWhat You’re Looking For\nExample Methods\n\n\n\n\nIs there a difference?\nComparison\nt-test, ANOVA, GLM\n\n\nIs there a relationship?\nAssociation\nRegression, correlation\n\n\nCan I predict?\nPrediction\nML, regression\n\n\nWhat’s the pattern?\nStructure\nClustering, PCA, ordination\n\n\n\n\nYour question determines what “answer” looks like!"
   },
   {
-    "objectID": "slides/slides-Week02.html#questions-from-last-team",
-    "href": "slides/slides-Week02.html#questions-from-last-team",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Questions from last team",
-    "text": "Questions from last team\n\nWhat kind of data do you have and how have you thought about approaching it?​\nWhat kinds of datasets (or distributions) that would be an exception to these rules?​ *Rules presented last week\nHow can you tell between an actual outlier and observational error? ​\nHow might you prevent these errors before they happen?​"
+    "objectID": "slides/slides-Week03.html#data-type-constrains-your-options",
+    "href": "slides/slides-Week03.html#data-type-constrains-your-options",
+    "title": "Matching Methods to Research Questions",
+    "section": "Data Type Constrains Your Options",
+    "text": "Data Type Constrains Your Options\n\n\n\nResponse Variable\nDistribution\nCommon Methods\n\n\n\n\nContinuous, normal\nGaussian\nLM, ANOVA\n\n\nCounts (0, 1, 2, …)\nPoisson, NegBin\nGLM\n\n\nBinary (yes/no)\nBinomial\nLogistic regression\n\n\nProportions (0-1)\nBinomial, Beta\nGLM, Beta regression\n\n\n\n\nAlso consider:\n\nIndependence vs. grouping\nRepeated measures\nNested/hierarchical structure"
   },
   {
-    "objectID": "slides/slides-Week02.html#question-from-me",
-    "href": "slides/slides-Week02.html#question-from-me",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Question from me:",
-    "text": "Question from me:\n\nFor Thursday we will read the Box (1976) paper that has the following quote:\n“Since all models are wrong, the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.”\nHow does this quote relate to last week’s lecture?"
+    "objectID": "slides/slides-Week03.html#the-alignment-check",
+    "href": "slides/slides-Week03.html#the-alignment-check",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Alignment Check ✅",
+    "text": "The Alignment Check ✅\nBefore analyzing, ask yourself:\n\n✅ What exactly is my question?\n✅ What type of response variable do I have?\n✅ What is my data structure (grouping, nesting, time)?\n✅ Does my method handle all of this?\n\n\nIf you can’t answer these → STOP and think!"
   },
   {
-    "objectID": "slides/slides-Week02.html#goal-of-exploration",
-    "href": "slides/slides-Week02.html#goal-of-exploration",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Goal of exploration",
-    "text": "Goal of exploration\nThe goal is not to make a perfect model (impossible) but to detect the problems that will meaningfully distort your conclusions\n\n“Tigers” are the problems that will meaningfully distort your conclusions\n“Mice” are the problems that will not meaningfully distort your conclusions\nThere will always be “mice” in your data!"
+    "objectID": "slides/slides-Week03.html#three-common-scenarios",
+    "href": "slides/slides-Week03.html#three-common-scenarios",
+    "title": "Matching Methods to Research Questions",
+    "section": "Three Common Scenarios",
+    "text": "Three Common Scenarios\nWe’ll look at three examples:\n\nMismatch - Method ignores key data structure\nGood Match - Method fits question and data\nOvercomplicated - Method is fancier than needed\n\n\nLet’s see each one…"
   },
   {
-    "objectID": "slides/slides-Week02.html#spherical-cow",
-    "href": "slides/slides-Week02.html#spherical-cow",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Spherical cow",
-    "text": "Spherical cow\n\nThe joke is designed to poke fun at theorists for making unrealistic assumptions in order to simplify a problem to make it easier to solve (or solvable at all).\nWe do this with scientific assumptions all the time. We assume our data is normal, independent, linear and homoscedastic"
+    "objectID": "slides/slides-Week03.html#example-1-mismatch",
+    "href": "slides/slides-Week03.html#example-1-mismatch",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: MISMATCH",
+    "text": "Example 1: MISMATCH\nScenario:\n\nTesting fertilizer effect on crop yield\n5 fields, 4 plots per field\n2 control plots, 2 fertilized plots per field\n\n\nThe analysis:\nlm(yield ~ fertilizer)\n\nTreats all 20 observations as independent!"
   },
   {
-    "objectID": "slides/slides-Week02.html#lecture-on-tredennick-et-al.-2021",
-    "href": "slides/slides-Week02.html#lecture-on-tredennick-et-al.-2021",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Lecture on Tredennick et al. 2021",
-    "text": "Lecture on Tredennick et al. 2021\nNow we will have Team 2 give a lecture on Tredennick et al. 2021 Tredennick et al. (2021)"
+    "objectID": "slides/slides-Week03.html#example-1-the-problem",
+    "href": "slides/slides-Week03.html#example-1-the-problem",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: The Problem",
+    "text": "Example 1: The Problem"
   },
   {
-    "objectID": "slides/slides-Week02.html#discussion-on-ellison-2004",
-    "href": "slides/slides-Week02.html#discussion-on-ellison-2004",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Discussion on Ellison 2004",
-    "text": "Discussion on Ellison 2004\n\nRaise your hand if you understand theoretically what Bayesian inference is\nRemember… it is mostly a philosophical alternative to frequentist inference\nRaise your hand if you have used Bayesian inference in practice (e.g., run a Bayesian model)"
+    "objectID": "slides/slides-Week03.html#example-1-wrong-vs.-right",
+    "href": "slides/slides-Week03.html#example-1-wrong-vs.-right",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: Wrong vs. Right",
+    "text": "Example 1: Wrong vs. Right\n\n\nShow code\n# WRONG: Ignores field structure\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\n\n# RIGHT: Accounts for field\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n\n\n\n\nTRUE EFFECT: 3 units\n\n\nWRONG MODEL (lm):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 2.57 \n\n\n  p-value: 0.2043 \n\n\nCORRECT MODEL (lmer):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 0.99 \n\n\n  p-value: 0"
   },
   {
-    "objectID": "slides/slides-Week02.html#difference-in-philosophy",
-    "href": "slides/slides-Week02.html#difference-in-philosophy",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Difference in philosophy",
-    "text": "Difference in philosophy\n\nDifference in how they observe probability\nFrequentist: long-run frequency of repeatable events\nFrequentist: if the null hypothesis is true, and I ran this experiment 100 times, I would get results as extreme as this less than 5% of the time\nBayesian: degree of belief in a hypothesis given the data observed"
+    "objectID": "slides/slides-Week03.html#example-1-the-fix",
+    "href": "slides/slides-Week03.html#example-1-the-fix",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 1: The Fix",
+    "text": "Example 1: The Fix\nIn this design (treatment within fields):\n\nThe wrong model has inflated standard errors because it treats field variance as residual noise\nThe correct model* separates field variance → cleaner estimate of treatment effect\nThis means reduced power when you ignore structure\n\nIn other designs (treatment between fields):\n\nIgnoring structure would inflate Type I error instead\n\n\n\n\n# Wrong\nlm(yield ~ treatment)\n\n# Right  \nlmer(yield ~ treatment + (1|field))\n\nLesson: Always check your independence assumption!"
   },
   {
-    "objectID": "slides/slides-Week02.html#coin-toss-example-7-heads-in-10-tosses",
-    "href": "slides/slides-Week02.html#coin-toss-example-7-heads-in-10-tosses",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "coin toss example: 7 heads in 10 tosses",
-    "text": "coin toss example: 7 heads in 10 tosses\n\nFrequentist: Null hypothesis: coin is fair (p = 0.5)\nFrequentists: Assuming that the null is true, I would observe an event as extreme or more extreme than this (7 or more heads in 10 tosses) about 17% of the time (p = 0.17. )\nBayesian: given the data I have observed, and having no prior information, I believe that chances are that the coin is unfair. There is about an 89% chance that the coin is biased towards heads (p &gt; 0.5)"
+    "objectID": "slides/slides-Week03.html#example-2-good-match",
+    "href": "slides/slides-Week03.html#example-2-good-match",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: GOOD MATCH",
+    "text": "Example 2: GOOD MATCH\nScenario:\n\nPollinator visits to flowers\n2 treatments: native vs. non-native plants\n30 plants per treatment\nResponse: count of visits (0 to ~45)\n\n\nThe approach:\nglm(visits ~ treatment, family = poisson)"
   },
   {
-    "objectID": "slides/slides-Week02.html#different-questions",
-    "href": "slides/slides-Week02.html#different-questions",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Different questions",
-    "text": "Different questions\n\nThe frequentist p = 0.17 answers a different question: “If the coin were exactly fair, how often would I see 7 or more heads in 10 tosses?” (about 17%). It does not give the probability the coin is biased.\nThe Bayesian answer gives the probability that θ &gt; 0.5"
+    "objectID": "slides/slides-Week03.html#example-2-the-data",
+    "href": "slides/slides-Week03.html#example-2-the-data",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: The Data",
+    "text": "Example 2: The Data"
   },
   {
-    "objectID": "slides/slides-Week02.html#prior-information",
-    "href": "slides/slides-Week02.html#prior-information",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Prior information",
-    "text": "Prior information\n\nBayesian inference allows you to incorporate prior information\nPrior information can come from previous studies, expert opinion, or logical constraints\nThis is done through the prior distribution\nThe result of the posterior distribution is a combination of the prior and the likelihood of the data"
+    "objectID": "slides/slides-Week03.html#example-2-why-it-works",
+    "href": "slides/slides-Week03.html#example-2-why-it-works",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: Why It Works",
+    "text": "Example 2: Why It Works\n\n\nShow code\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)$coefficients\n\n\n                 Estimate Std. Error   z value      Pr(&gt;|z|)\n(Intercept)     2.0412203  0.0657951 31.023896 2.567154e-211\ntreatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12\n\n\n\nChecklist:\n\n✅ Count data → Poisson distribution\n✅ No upper bound on counts\n✅ Independent observations (different plants)\n✅ Simple comparison question"
   },
   {
-    "objectID": "slides/slides-Week02.html#example-of-prior-information",
-    "href": "slides/slides-Week02.html#example-of-prior-information",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Example of prior information",
-    "text": "Example of prior information\nWe use prior information in our daily lives all the time"
+    "objectID": "slides/slides-Week03.html#example-2-interpretation",
+    "href": "slides/slides-Week03.html#example-2-interpretation",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 2: Interpretation",
+    "text": "Example 2: Interpretation\n\n\nShow code\nest &lt;- coef(poisson_model)[\"treatmentnative\"]\ncat(\"Coefficient (log scale):\", round(est, 3), \"\\n\")\n\n\nCoefficient (log scale): 0.576 \n\n\nShow code\ncat(\"Multiplicative effect:\", round(exp(est), 2), \"\\n\")\n\n\nMultiplicative effect: 1.78 \n\n\nShow code\ncat(\"Native plants get\", round((exp(est) - 1) * 100, 1), \"% more visits\\n\")\n\n\nNative plants get 77.9 % more visits\n\n\n\nLesson: Match your distribution to your data type!"
   },
   {
-    "objectID": "slides/slides-Week02.html#cleveland-browns-and-bayesian-thinking",
-    "href": "slides/slides-Week02.html#cleveland-browns-and-bayesian-thinking",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Cleveland Browns and Bayesian Thinking",
-    "text": "Cleveland Browns and Bayesian Thinking\n\nYou check the score: the Browns are up 21 to 7 at halftime against the Ravens.\nAt the same time, the Chiefs are up 21 to 7 at halftime against the Jets\nIn frequentist probability, you would think:\n“Probability of winning when going 21-7 is about 80%”\nBut! yous have priors… if you are a Browns fan:\n\n\\[ \\text{Posterior belief} \\propto \\text{Prior (they find ways to lose)} \\times \\text{New data (they’re winning now)} \\]\n\nEssentially, you know that they tend to find ways to lose\nYou may be expecting heartbreak, despite the data (21-7)\nA Chiefs fan, at this point, might not be worried at all"
+    "objectID": "slides/slides-Week03.html#example-3-overcomplicated",
+    "href": "slides/slides-Week03.html#example-3-overcomplicated",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: OVERCOMPLICATED",
+    "text": "Example 3: OVERCOMPLICATED\nScenario:\n\nTree height in 2 forest types\n30 trees per forest type\nNormal distribution, no grouping\nSimple question: “Is there a difference?”\n\n\nThe overkill:\n“Let’s use a Bayesian hierarchical model with spatial autocorrelation, weakly informative priors, and MCMC sampling!”"
   },
   {
-    "objectID": "slides/slides-Week02.html#now-about-the-paper",
-    "href": "slides/slides-Week02.html#now-about-the-paper",
-    "title": "Week 2: Philosophical concepts in data analysis",
-    "section": "Now… about the paper",
-    "text": "Now… about the paper\n\nShare in pairs one thing you learned reading this paper (or something that it made you think about)\n\n\n\n\n\nTredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. “A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.” Ecology 102 (6): e03336. https://doi.org/10.1002/ecy.3336."
+    "objectID": "slides/slides-Week03.html#example-3-the-data",
+    "href": "slides/slides-Week03.html#example-3-the-data",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: The Data",
+    "text": "Example 3: The Data"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-3-simple-vs.-complex",
+    "href": "slides/slides-Week03.html#example-3-simple-vs.-complex",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: Simple vs. Complex",
+    "text": "Example 3: Simple vs. Complex\n\n\nShow code\n# Simple t-test (appropriate!)\nsimple_test &lt;- t.test(height ~ forest_type, data = overcomp_data)\n\ncat(\"Difference:\", round(diff(simple_test$estimate), 2), \"meters\\n\")\n\n\nDifference: -4.51 meters\n\n\nShow code\ncat(\"95% CI: [\", round(simple_test$conf.int[1], 2), \",\", \n    round(simple_test$conf.int[2], 2), \"]\\n\")\n\n\n95% CI: [ 2.2 , 6.81 ]\n\n\nShow code\ncat(\"p-value:\", format(simple_test$p.value, digits = 3), \"\\n\")\n\n\np-value: 0.000239 \n\n\n\nTime to run: ~0.001 seconds\nA Bayesian spatial model: ~5-10 minutes\nSame answer!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#example-3-the-lesson",
+    "href": "slides/slides-Week03.html#example-3-the-lesson",
+    "title": "Matching Methods to Research Questions",
+    "section": "Example 3: The Lesson",
+    "text": "Example 3: The Lesson\nProblems with overcomplication:\n\nTakes much longer to fit\nHarder to interpret\nReviewers get confused\nMore things can go wrong\nSame answer as simple approach!\n\n\nPrinciple of parsimony:\n\nUse the simplest method that adequately addresses your question\n\n\n\nSave fancy methods for when you need them!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#summary-three-scenarios",
+    "href": "slides/slides-Week03.html#summary-three-scenarios",
+    "title": "Matching Methods to Research Questions",
+    "section": "Summary: Three Scenarios",
+    "text": "Summary: Three Scenarios\n\n\n\n\n\n\n\n\n\nExample\nProblem\nConsequence\nLesson\n\n\n\n\nMismatch\nIgnored grouping structure\nFalse positive risk\nCheck independence\n\n\nGood Match\nNone - appropriate method\nValid inference\nMatch distribution\n\n\nOvercomplicated\nUnnecessary complexity\nWasted effort\nStart simple"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#your-checklist",
+    "href": "slides/slides-Week03.html#your-checklist",
+    "title": "Matching Methods to Research Questions",
+    "section": "Your Checklist",
+    "text": "Your Checklist\nBefore you analyze, ask:\n\n1️⃣ What is my question? (difference, relationship, prediction)\n\n\n2️⃣ What is my response variable? (continuous, count, binary, proportion)\n\n\n3️⃣ What is my data structure? (independent, grouped, nested, repeated)\n\n\n4️⃣ Does my method handle all three?"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#the-golden-rule",
+    "href": "slides/slides-Week03.html#the-golden-rule",
+    "title": "Matching Methods to Research Questions",
+    "section": "The Golden Rule",
+    "text": "The Golden Rule\n\nStart simple.\n. . .\nAdd complexity only when needed.\n. . .\nAlways justify your choices."
+  },
+  {
+    "objectID": "slides/slides-Week03.html#now-its-your-turn",
+    "href": "slides/slides-Week03.html#now-its-your-turn",
+    "title": "Matching Methods to Research Questions",
+    "section": "Now It’s Your Turn!",
+    "text": "Now It’s Your Turn!\nData Detective Stations\n\n6 scenarios around the room\nDiagnose: Mismatch? Good match? Overcomplicated?\nWork in pairs\n4 minutes per station\n\n\nGrab your worksheet and let’s go!"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#appendix-full-simulation-code",
+    "href": "slides/slides-Week03.html#appendix-full-simulation-code",
+    "title": "Matching Methods to Research Questions",
+    "section": "Appendix: Full Simulation Code",
+    "text": "Appendix: Full Simulation Code\n\n\nShow code\n# ============================================================================\n# EXAMPLE 1: MISMATCH - Ignoring nested structure\n# Demonstrates FALSE POSITIVE from pseudoreplication\n# ============================================================================\n\nlibrary(lme4)\nlibrary(ggplot2)\nlibrary(dplyr)\n\nset.seed(42)\n\nn_fields &lt;- 5\nn_plots_per_field &lt;- 4\n\nmismatch_data &lt;- expand.grid(\n  field = factor(1:n_fields),\n  plot = 1:n_plots_per_field\n) |&gt;\n  mutate(\n    treatment = rep(c(\"control\", \"control\", \"fertilizer\", \"fertilizer\"), n_fields),\n    treatment = factor(treatment, levels = c(\"control\", \"fertilizer\"))\n  )\n\n# Large field-to-field variation\nfield_effects &lt;- data.frame(\n  field = factor(1:n_fields),\n  field_effect = c(-12, -5, 2, 8, 14)\n)\n\ntrue_effect &lt;- 0  # NO TRUE EFFECT!\n\nmismatch_data &lt;- mismatch_data |&gt;\n  left_join(field_effects, by = \"field\") |&gt;\n  mutate(\n    yield = 50 + field_effect + \n            ifelse(treatment == \"fertilizer\", true_effect, 0) +\n            rnorm(n(), mean = 0, sd = 1.5)\n  ) |&gt;\n  # Create confounding between treatment and field quality\n  mutate(\n    yield = yield + ifelse(treatment == \"fertilizer\", field_effect * 0.15, 0)\n  )\n\n# Compare wrong vs correct\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n# Wrong model shows \"significant\" effect (p &lt; 0.05)\nsummary(wrong_model)\n\n# Correct model shows non-significant (as it should be - no true effect!)\nsummary(correct_model)"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#appendix-full-simulation-code-continued",
+    "href": "slides/slides-Week03.html#appendix-full-simulation-code-continued",
+    "title": "Matching Methods to Research Questions",
+    "section": "Appendix: Full Simulation Code (continued)",
+    "text": "Appendix: Full Simulation Code (continued)\n\n\nShow code\n# ============================================================================\n# EXAMPLE 2: GOOD MATCH - Poisson GLM for counts\n# ============================================================================\n\nset.seed(2024)\nn_per_group &lt;- 30\n\ngoodmatch_data &lt;- data.frame(\n  plant_id = 1:(2 * n_per_group),\n  treatment = factor(rep(c(\"native\", \"non_native\"), each = n_per_group),\n                     levels = c(\"non_native\", \"native\"))\n)\n\nbaseline_visits &lt;- 8\nnative_effect &lt;- 0.5  # Log-scale\n\ngoodmatch_data &lt;- goodmatch_data |&gt;\n  mutate(\n    log_mu = log(baseline_visits) + \n             ifelse(treatment == \"native\", native_effect, 0),\n    visits = rpois(n(), lambda = exp(log_mu))\n  )\n\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)\n\n# Interpretation\nexp(coef(poisson_model)[\"treatmentnative\"])  # Multiplicative effect"
+  },
+  {
+    "objectID": "slides/slides-Week03.html#appendix-full-simulation-code-continued-1",
+    "href": "slides/slides-Week03.html#appendix-full-simulation-code-continued-1",
+    "title": "Matching Methods to Research Questions",
+    "section": "Appendix: Full Simulation Code (continued)",
+    "text": "Appendix: Full Simulation Code (continued)\n\n\nShow code\n# ============================================================================\n# EXAMPLE 3: OVERCOMPLICATED - Simple question, complex method\n# ============================================================================\n\nset.seed(2024)\nn_trees &lt;- 30\n\novercomp_data &lt;- data.frame(\n  tree_id = 1:(2 * n_trees),\n  forest_type = factor(rep(c(\"deciduous\", \"coniferous\"), each = n_trees))\n)\n\ndeciduous_mean &lt;- 18\nconiferous_mean &lt;- 22\ntree_sd &lt;- 4\n\novercomp_data &lt;- overcomp_data |&gt;\n  mutate(\n    height = ifelse(forest_type == \"deciduous\",\n                    rnorm(n(), deciduous_mean, tree_sd),\n                    rnorm(n(), coniferous_mean, tree_sd))\n  )\n\n# Simple and appropriate!\nt.test(height ~ forest_type, data = overcomp_data)\n\n# Or equivalently\nlm(height ~ forest_type, data = overcomp_data) |&gt; summary()"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#welcome",
+    "href": "slides/slide-Week01.html#welcome",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Welcome!",
+    "text": "Welcome!\nI am very excited to be teaching this class.\n\nToday we will be talking about the course.\nBefore this introduction, I talked about the website.\nWe will work together on projects, we will use this to create slideshows"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#things-you-need-for-this-course",
+    "href": "slides/slide-Week01.html#things-you-need-for-this-course",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Things you need for this course",
+    "text": "Things you need for this course\n\nProgram R\nRStudio or Positron (new!)\nGithub\nI recommend you create a Github student account"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#introductions",
+    "href": "slides/slide-Week01.html#introductions",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Introductions",
+    "text": "Introductions\n\nAbout me:\nI enjoy numbers, statistics, coding, models and teaching\nMy academic history"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#my-academic-history",
+    "href": "slides/slide-Week01.html#my-academic-history",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "My academic history",
+    "text": "My academic history\n\n\n\n    \n        \n            \n            \n                UNAM\n                Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy\n            \n        \n    \n\n    \n        \n            \n            \n                University of Maine\n                PhD working with Atlantic salmon movement and survival\n            \n        \n    \n\n    \n        \n            \n            \n                LSSU\n                Postdoc building a database, analysing data and looking at post-restoration ceommunity composition\n            \n        \n    \n\n    \n        \n            \n            \n                MSU\n                Postdoc working with models"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#currently",
+    "href": "slides/slide-Week01.html#currently",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Currently",
+    "text": "Currently\nI mostly teach\nDo some research\nServe on committees\nHerbert College representative in the Statistics Minor and Masters"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#your-turn",
+    "href": "slides/slide-Week01.html#your-turn",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Your turn",
+    "text": "Your turn\n\nName\nDepartment\nInterests both research and something you enjoy to do"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#course-overview",
+    "href": "slides/slide-Week01.html#course-overview",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Course overview",
+    "text": "Course overview\nPLEASE CHECK THE SYLLABUS ON THE WEBSITE"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#course-overview-1",
+    "href": "slides/slide-Week01.html#course-overview-1",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Course overview",
+    "text": "Course overview\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences\nImplement and adapt these methods using equations, models, and R code\nApply appropriate quantitative approaches to their own research data\nCommunicate and defend methodological decisions through peer-led discussions and final presentations"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#course-lectures",
+    "href": "slides/slide-Week01.html#course-lectures",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Course lectures",
+    "text": "Course lectures\nWe will use some pretty different teaching and learning strategies. This are being used for three reasons:\n\nThere is peer-reviewed evidence that these strategies improve learning outcomes. But I am an empiricist.\nYou will develop some skills, like oral communication and some teaching abilities, that will be very helpful in your future.\nI believe it will make the class engaging."
+  },
+  {
+    "objectID": "slides/slide-Week01.html#this-weeks-assignment",
+    "href": "slides/slide-Week01.html#this-weeks-assignment",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "This week’s assignment",
+    "text": "This week’s assignment\n\nRead Tredennick et al. (2021) or Zuur, Ieno, and Elphick (2010) depending on your group\nGive a lecture (~25 minutes) on the paper and lead a short discussion (~5 minutes)\nBe ready to answer questions from your classmates\nUse slides or not, your choice\nYou will have 10 minutes at the beginning of next class to prepare with your group\nYou are the experts!"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#zuur-et-al.-2010",
+    "href": "slides/slide-Week01.html#zuur-et-al.-2010",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Zuur et al. 2010",
+    "text": "Zuur et al. 2010\n\nA protocol for data exploration to avoid common statistical problems\nMethods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#treddennick-et-al.-2021",
+    "href": "slides/slide-Week01.html#treddennick-et-al.-2021",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Treddennick et al. 2021",
+    "text": "Treddennick et al. 2021\n\nA practical guide to selecting models for exploration, inference, and prediction in ecology\nEcology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nSome of you have already read this one!"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-classes",
+    "href": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-classes",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Make sure you have everything ready for next classes",
+    "text": "Make sure you have everything ready for next classes\n\nR and RStudio or Positron installed\nPositron? What is that?\nPositron is a new IDE by the makers of RStudio. It is still in beta but looks very promising.\nLink: https://posit.co/download/preview/"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#next-week",
+    "href": "slides/slide-Week01.html#next-week",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Next Week",
+    "text": "Next Week"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
+    "href": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "Notes before the end of the class",
+    "text": "Notes before the end of the class\n\nOffice: ANRB 474\nIf you have issues with R or RStudio, please chech the resources section on the website\nIf you are struggling with basic linear models, you can review and work on the materials from SNR 610: https://moctezumaii.github.io/SNR610/ which can be a good resource!\nThis is a collaborative class, we will work together to make it successful for all of us! Feel free to ask anyone for help\nSee you next class!"
+  },
+  {
+    "objectID": "slides/slide-Week01.html#references",
+    "href": "slides/slide-Week01.html#references",
+    "title": "Week 01, Session A: Introduction to Class",
+    "section": "References",
+    "text": "References\n\nTredennick, A. T., G. Hooker, and P. B. Adler. (2021). A practical guide to selecting models for exploration, inference, and prediction in ecology. Ecology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nZuur, A. F., E. N. Ieno, and C. S. Elphick. (2010). A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x\n\n\n\n\n\nTredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. “A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.” Ecology 102 (6): e03336. https://doi.org/10.1002/ecy.3336.\n\n\nZuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. “A Protocol for Data Exploration to Avoid Common Statistical Problems.” Methods in Ecology and Evolution 1 (1): 3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "References"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "",
+    "text": "Welcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: Spring 2026\nThis book contains the syllabus, weekly readings, assignments, projects, papers, code notebooks, and everything we do in this class. This website will be a collaborative process.\nWe will be updating this landing page as the course goes on!"
+  },
+  {
+    "objectID": "index.html#resources",
+    "href": "index.html#resources",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "Resources",
+    "text": "Resources\nthis section will be updated regularly If you are struggling with R or RStudio, check out these resources:\nWickham Wickham, Çetinkaya-Rundel, and Grolemund (2023) here: https://r4ds.had.co.nz/\nData science in R: A gentle introduction https://bookdown.org/jgscott/DSGI/\nAnd check the materials of my SNR 610 course here: https://moctezumaii.github.io/SNR610/\nWhere you can access info regarding R and models."
+  },
+  {
+    "objectID": "index.html#links-and-inforrmation",
+    "href": "index.html#links-and-inforrmation",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "Links and inforrmation:",
+    "text": "Links and inforrmation:\nSyllabus\nWhat are we doing this week? –&gt; Here you will fin what papers to read, and have an idea of what each class is going to look like!\nContact Information and office hours: Find me in my office ANRB 474! 😃"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "section": "",
+    "text": "Here we will have all the projects and assignments listed."
   },
   {
     "objectID": "slides/notes-week01.html#zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems",
@@ -294,151 +504,116 @@
     "text": "For your project\nNow, for the same system, write one clear, testable hypothesis. State exactly what you expect to see, how you’d measure it, and which model or statistical test you would use to evaluate it"
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
-    "section": "",
-    "text": "Here we will have all the projects and assignments listed."
+    "objectID": "slides/slides-Week02.html#objective-for-today",
+    "href": "slides/slides-Week02.html#objective-for-today",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Objective for today",
+    "text": "Objective for today\nThe objective for the first three weeks is to step back and think and talk about statistics and data analysis from a philosophical and epistemological perspective\n\nChallenges:\nToo technical\nTerminology\nMath-heavy\nKinda boring"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
-    "section": "",
-    "text": "Welcome to the course materials for SNR 690.\nInstructor: Dr. Alejandro Molina-Moctezuma\nCredits: 3\nFormat: 2 sessions per week (75 minutes each)\nSemester: Spring 2026\nThis book contains the syllabus, weekly readings, assignments, projects, papers, code notebooks, and everything we do in this class. This website will be a collaborative process.\nWe will be updating this landing page as the course goes on!"
+    "objectID": "slides/slides-Week02.html#class-today",
+    "href": "slides/slides-Week02.html#class-today",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Class today",
+    "text": "Class today\n\nWrap up last lecture/discussion on data exploration\nHave a lecture on Tredennick.\nStart to discuss the Bayesian Inference paper.\nObjective: further your understanding of foundational concepts in data analysis."
   },
   {
-    "objectID": "index.html#resources",
-    "href": "index.html#resources",
-    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
-    "section": "Resources",
-    "text": "Resources\nthis section will be updated regularly If you are struggling with R or RStudio, check out these resources:\nWickham Wickham, Çetinkaya-Rundel, and Grolemund (2023) here: https://r4ds.had.co.nz/\nData science in R: A gentle introduction https://bookdown.org/jgscott/DSGI/\nAnd check the materials of my SNR 610 course here: https://moctezumaii.github.io/SNR610/\nWhere you can access info regarding R and models."
+    "objectID": "slides/slides-Week02.html#paper-discussions-last-week",
+    "href": "slides/slides-Week02.html#paper-discussions-last-week",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Paper discussions (last week)",
+    "text": "Paper discussions (last week)\nLast class we had Team 1 talk about “data exploration”\n\nEssentially, a protocol for “pre-modeling” data analysis\nWhy is it important?"
   },
   {
-    "objectID": "index.html#links-and-inforrmation",
-    "href": "index.html#links-and-inforrmation",
-    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
-    "section": "Links and inforrmation:",
-    "text": "Links and inforrmation:\nSyllabus\nWhat are we doing this week? –&gt; Here you will fin what papers to read, and have an idea of what each class is going to look like!\nContact Information and office hours: Find me in my office ANRB 474! 😃"
+    "objectID": "slides/slides-Week02.html#questions-from-last-team",
+    "href": "slides/slides-Week02.html#questions-from-last-team",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Questions from last team",
+    "text": "Questions from last team\n\nWhat kind of data do you have and how have you thought about approaching it?​\nWhat kinds of datasets (or distributions) that would be an exception to these rules?​ *Rules presented last week\nHow can you tell between an actual outlier and observational error? ​\nHow might you prevent these errors before they happen?​"
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "References"
+    "objectID": "slides/slides-Week02.html#question-from-me",
+    "href": "slides/slides-Week02.html#question-from-me",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Question from me:",
+    "text": "Question from me:\n\nFor Thursday we will read the Box (1976) paper that has the following quote:\n“Since all models are wrong, the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.”\nHow does this quote relate to last week’s lecture?"
   },
   {
-    "objectID": "slides/slide-Week01.html#welcome",
-    "href": "slides/slide-Week01.html#welcome",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Welcome!",
-    "text": "Welcome!\nI am very excited to be teaching this class.\n\nToday we will be talking about the course.\nBefore this introduction, I talked about the website.\nWe will work together on projects, we will use this to create slideshows"
+    "objectID": "slides/slides-Week02.html#goal-of-exploration",
+    "href": "slides/slides-Week02.html#goal-of-exploration",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Goal of exploration",
+    "text": "Goal of exploration\nThe goal is not to make a perfect model (impossible) but to detect the problems that will meaningfully distort your conclusions\n\n“Tigers” are the problems that will meaningfully distort your conclusions\n“Mice” are the problems that will not meaningfully distort your conclusions\nThere will always be “mice” in your data!"
   },
   {
-    "objectID": "slides/slide-Week01.html#things-you-need-for-this-course",
-    "href": "slides/slide-Week01.html#things-you-need-for-this-course",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Things you need for this course",
-    "text": "Things you need for this course\n\nProgram R\nRStudio or Positron (new!)\nGithub\nI recommend you create a Github student account"
+    "objectID": "slides/slides-Week02.html#spherical-cow",
+    "href": "slides/slides-Week02.html#spherical-cow",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Spherical cow",
+    "text": "Spherical cow\n\nThe joke is designed to poke fun at theorists for making unrealistic assumptions in order to simplify a problem to make it easier to solve (or solvable at all).\nWe do this with scientific assumptions all the time. We assume our data is normal, independent, linear and homoscedastic"
   },
   {
-    "objectID": "slides/slide-Week01.html#introductions",
-    "href": "slides/slide-Week01.html#introductions",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Introductions",
-    "text": "Introductions\n\nAbout me:\nI enjoy numbers, statistics, coding, models and teaching\nMy academic history"
+    "objectID": "slides/slides-Week02.html#lecture-on-tredennick-et-al.-2021",
+    "href": "slides/slides-Week02.html#lecture-on-tredennick-et-al.-2021",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Lecture on Tredennick et al. 2021",
+    "text": "Lecture on Tredennick et al. 2021\nNow we will have Team 2 give a lecture on Tredennick et al. 2021 Tredennick et al. (2021)"
   },
   {
-    "objectID": "slides/slide-Week01.html#my-academic-history",
-    "href": "slides/slide-Week01.html#my-academic-history",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "My academic history",
-    "text": "My academic history\n\n\n\n    \n        \n            \n            \n                UNAM\n                Undergraduate degree in Biology and Masters in Ecology. Worked with fish and the evolution of Matrotrophy\n            \n        \n    \n\n    \n        \n            \n            \n                University of Maine\n                PhD working with Atlantic salmon movement and survival\n            \n        \n    \n\n    \n        \n            \n            \n                LSSU\n                Postdoc building a database, analysing data and looking at post-restoration ceommunity composition\n            \n        \n    \n\n    \n        \n            \n            \n                MSU\n                Postdoc working with models"
+    "objectID": "slides/slides-Week02.html#discussion-on-ellison-2004",
+    "href": "slides/slides-Week02.html#discussion-on-ellison-2004",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Discussion on Ellison 2004",
+    "text": "Discussion on Ellison 2004\n\nRaise your hand if you understand theoretically what Bayesian inference is\nRemember… it is mostly a philosophical alternative to frequentist inference\nRaise your hand if you have used Bayesian inference in practice (e.g., run a Bayesian model)"
   },
   {
-    "objectID": "slides/slide-Week01.html#currently",
-    "href": "slides/slide-Week01.html#currently",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Currently",
-    "text": "Currently\nI mostly teach\nDo some research\nServe on committees\nHerbert College representative in the Statistics Minor and Masters"
+    "objectID": "slides/slides-Week02.html#difference-in-philosophy",
+    "href": "slides/slides-Week02.html#difference-in-philosophy",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Difference in philosophy",
+    "text": "Difference in philosophy\n\nDifference in how they observe probability\nFrequentist: long-run frequency of repeatable events\nFrequentist: if the null hypothesis is true, and I ran this experiment 100 times, I would get results as extreme as this less than 5% of the time\nBayesian: degree of belief in a hypothesis given the data observed"
   },
   {
-    "objectID": "slides/slide-Week01.html#your-turn",
-    "href": "slides/slide-Week01.html#your-turn",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Your turn",
-    "text": "Your turn\n\nName\nDepartment\nInterests both research and something you enjoy to do"
+    "objectID": "slides/slides-Week02.html#coin-toss-example-7-heads-in-10-tosses",
+    "href": "slides/slides-Week02.html#coin-toss-example-7-heads-in-10-tosses",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "coin toss example: 7 heads in 10 tosses",
+    "text": "coin toss example: 7 heads in 10 tosses\n\nFrequentist: Null hypothesis: coin is fair (p = 0.5)\nFrequentists: Assuming that the null is true, I would observe an event as extreme or more extreme than this (7 or more heads in 10 tosses) about 17% of the time (p = 0.17. )\nBayesian: given the data I have observed, and having no prior information, I believe that chances are that the coin is unfair. There is about an 89% chance that the coin is biased towards heads (p &gt; 0.5)"
   },
   {
-    "objectID": "slides/slide-Week01.html#course-overview",
-    "href": "slides/slide-Week01.html#course-overview",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Course overview",
-    "text": "Course overview\nPLEASE CHECK THE SYLLABUS ON THE WEBSITE"
+    "objectID": "slides/slides-Week02.html#different-questions",
+    "href": "slides/slides-Week02.html#different-questions",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Different questions",
+    "text": "Different questions\n\nThe frequentist p = 0.17 answers a different question: “If the coin were exactly fair, how often would I see 7 or more heads in 10 tosses?” (about 17%). It does not give the probability the coin is biased.\nThe Bayesian answer gives the probability that θ &gt; 0.5"
   },
   {
-    "objectID": "slides/slide-Week01.html#course-overview-1",
-    "href": "slides/slide-Week01.html#course-overview-1",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Course overview",
-    "text": "Course overview\nLearning Outcomes\n\nCritically evaluate quantitative methods in published research across agricultural and natural resource sciences\nImplement and adapt these methods using equations, models, and R code\nApply appropriate quantitative approaches to their own research data\nCommunicate and defend methodological decisions through peer-led discussions and final presentations"
+    "objectID": "slides/slides-Week02.html#prior-information",
+    "href": "slides/slides-Week02.html#prior-information",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Prior information",
+    "text": "Prior information\n\nBayesian inference allows you to incorporate prior information\nPrior information can come from previous studies, expert opinion, or logical constraints\nThis is done through the prior distribution\nThe result of the posterior distribution is a combination of the prior and the likelihood of the data"
   },
   {
-    "objectID": "slides/slide-Week01.html#course-lectures",
-    "href": "slides/slide-Week01.html#course-lectures",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Course lectures",
-    "text": "Course lectures\nWe will use some pretty different teaching and learning strategies. This are being used for three reasons:\n\nThere is peer-reviewed evidence that these strategies improve learning outcomes. But I am an empiricist.\nYou will develop some skills, like oral communication and some teaching abilities, that will be very helpful in your future.\nI believe it will make the class engaging."
+    "objectID": "slides/slides-Week02.html#example-of-prior-information",
+    "href": "slides/slides-Week02.html#example-of-prior-information",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Example of prior information",
+    "text": "Example of prior information\nWe use prior information in our daily lives all the time"
   },
   {
-    "objectID": "slides/slide-Week01.html#this-weeks-assignment",
-    "href": "slides/slide-Week01.html#this-weeks-assignment",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "This week’s assignment",
-    "text": "This week’s assignment\n\nRead Tredennick et al. (2021) or Zuur, Ieno, and Elphick (2010) depending on your group\nGive a lecture (~25 minutes) on the paper and lead a short discussion (~5 minutes)\nBe ready to answer questions from your classmates\nUse slides or not, your choice\nYou will have 10 minutes at the beginning of next class to prepare with your group\nYou are the experts!"
+    "objectID": "slides/slides-Week02.html#cleveland-browns-and-bayesian-thinking",
+    "href": "slides/slides-Week02.html#cleveland-browns-and-bayesian-thinking",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Cleveland Browns and Bayesian Thinking",
+    "text": "Cleveland Browns and Bayesian Thinking\n\nYou check the score: the Browns are up 21 to 7 at halftime against the Ravens.\nAt the same time, the Chiefs are up 21 to 7 at halftime against the Jets\nIn frequentist probability, you would think:\n“Probability of winning when going 21-7 is about 80%”\nBut! yous have priors… if you are a Browns fan:\n\n\\[ \\text{Posterior belief} \\propto \\text{Prior (they find ways to lose)} \\times \\text{New data (they’re winning now)} \\]\n\nEssentially, you know that they tend to find ways to lose\nYou may be expecting heartbreak, despite the data (21-7)\nA Chiefs fan, at this point, might not be worried at all"
   },
   {
-    "objectID": "slides/slide-Week01.html#zuur-et-al.-2010",
-    "href": "slides/slide-Week01.html#zuur-et-al.-2010",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Zuur et al. 2010",
-    "text": "Zuur et al. 2010\n\nA protocol for data exploration to avoid common statistical problems\nMethods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x"
-  },
-  {
-    "objectID": "slides/slide-Week01.html#treddennick-et-al.-2021",
-    "href": "slides/slide-Week01.html#treddennick-et-al.-2021",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Treddennick et al. 2021",
-    "text": "Treddennick et al. 2021\n\nA practical guide to selecting models for exploration, inference, and prediction in ecology\nEcology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nSome of you have already read this one!"
-  },
-  {
-    "objectID": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-classes",
-    "href": "slides/slide-Week01.html#make-sure-you-have-everything-ready-for-next-classes",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Make sure you have everything ready for next classes",
-    "text": "Make sure you have everything ready for next classes\n\nR and RStudio or Positron installed\nPositron? What is that?\nPositron is a new IDE by the makers of RStudio. It is still in beta but looks very promising.\nLink: https://posit.co/download/preview/"
-  },
-  {
-    "objectID": "slides/slide-Week01.html#next-week",
-    "href": "slides/slide-Week01.html#next-week",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Next Week",
-    "text": "Next Week"
-  },
-  {
-    "objectID": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
-    "href": "slides/slide-Week01.html#notes-before-the-end-of-the-class",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "Notes before the end of the class",
-    "text": "Notes before the end of the class\n\nOffice: ANRB 474\nIf you have issues with R or RStudio, please chech the resources section on the website\nIf you are struggling with basic linear models, you can review and work on the materials from SNR 610: https://moctezumaii.github.io/SNR610/ which can be a good resource!\nThis is a collaborative class, we will work together to make it successful for all of us! Feel free to ask anyone for help\nSee you next class!"
-  },
-  {
-    "objectID": "slides/slide-Week01.html#references",
-    "href": "slides/slide-Week01.html#references",
-    "title": "Week 01, Session A: Introduction to Class",
-    "section": "References",
-    "text": "References\n\nTredennick, A. T., G. Hooker, and P. B. Adler. (2021). A practical guide to selecting models for exploration, inference, and prediction in ecology. Ecology 102(5):e03375. https://doi.org/10.1002/ecy.3336\nZuur, A. F., E. N. Ieno, and C. S. Elphick. (2010). A protocol for data exploration to avoid common statistical problems. Methods in Ecology and Evolution 1(1):3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x\n\n\n\n\n\nTredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. “A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.” Ecology 102 (6): e03336. https://doi.org/10.1002/ecy.3336.\n\n\nZuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. “A Protocol for Data Exploration to Avoid Common Statistical Problems.” Methods in Ecology and Evolution 1 (1): 3–14. https://doi.org/10.1111/j.2041-210X.2009.00001.x."
+    "objectID": "slides/slides-Week02.html#now-about-the-paper",
+    "href": "slides/slides-Week02.html#now-about-the-paper",
+    "title": "Week 2: Philosophical concepts in data analysis",
+    "section": "Now… about the paper",
+    "text": "Now… about the paper\n\nShare in pairs one thing you learned reading this paper (or something that it made you think about)\n\n\n\n\n\nTredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. “A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.” Ecology 102 (6): e03336. https://doi.org/10.1002/ecy.3336."
   },
   {
     "objectID": "syllabus.html",
@@ -494,6 +669,6 @@
     "href": "weeks/week03.html#before-class",
     "title": "Week 03 — Linear Models and GLM’s",
     "section": "3 Before class",
-    "text": "3 Before class\nThink about:\n\nA dataset you’re currently working with (or interested in working with)\nThe main research question you want to answer\nWhat is your response variable? What is its distribution?\n\n\n3.1 Session A:\n\n3.1.1 Part 1: Silent Reflection (10 min)\nOn the paper I gave you, write the following:\n\n\n\n\n\n\nReflection Prompts\n\n\n\n\nMy research question (one sentence):\n\n \n\nMy response variable is: (circle one or write your own)\n\nContinuous measurements\nCounts\nBinary (yes/no, presence/absence)\nProportions\nCategories\nOther: ___________\n\n\n\n\nMy data structure includes: (check all that apply)\n\nRepeated measures on the same units\nMultiple sites/plots/locations\nTime series\nNested structure (e.g., plants within plots within sites)\nJust one observation per unit\nOther: ___________\n\n\n\n\nOne worry I have about analyzing my data:  \n\n\n\n\n\n\n3.2 Part 2: Graffitti discussion (12 minutes)\nYour task: - Move freely around the room - Use markers to write on ANY wall (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required\n\n\n\n\n\n\nThe Five Walls\n\n\n\nWall 1: “What’s the hardest thing about data analysis for you?”\nWall 2: “What’s the gap between what you learned in stats class and what you actually need/use?”\nWall 3: “What do you wish your advisor/committee understood about statistical analysis?”\nWall 4: “What statistical concept do you pretend to understand but actually don’t?”\nWall 5: “What do you want to learn in this class?”\nWall 6: “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”\n\n\n\n3.2.1 Quick Harvest (6 min)\nBrief discussion of themes and patterns from the walls. This will inform future class topics.\n\n\n3.2.2 Part 3: Main concept –&gt; Lecture\n\n\n3.2.3 The Method-Question-Data Triangle (15 min)\n     RESEARCH QUESTION\n            /\\\n           /  \\\n          /    \\\n         /      \\\n        /        \\\n       /          \\\nDATA TYPE -------- METHOD CHOICE\nAll needed to be aligned. Dr. Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.\n\n\n3.2.4 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n3.3 Session B\nMethods workshop — hands-on coding\n\n3.3.1 🤝 Think-Pair-Share (5 min)\nPrompt:\n\nLook back at your silent reflection sheet. Based on the three examples:\n\nWhat method might be appropriate for YOUR data?\nWhat’s one thing about your data structure that makes method choice tricky?\n\n\n\nThink (1 min) — jot notes on your sheet\nPair (3 min) — discuss with a neighbor, help each other troubleshoot\nShare (1 min) — 2–3 volunteers share their pairing’s most interesting dilemma\n\n\n\n3.3.2 Detective Station\n\n\n\n3.4 4. Data Detective: Diagnosis Stations (25 min)\n\n3.4.1 Setup\nSix stations around the room, each with a scenario card describing: - A research question - A dataset description - A statistical method that was used (or is being proposed)\nYour job: Diagnose whether the method fits the question and data.\nRotation schedule: - 4 minutes per station - Work in pairs or trios - Record your diagnosis on the station worksheet\n\n\n\n3.4.2 🔍 Station 1: Salamander Survival\nResearch Question:\nDoes canopy cover affect salamander survival in forest fragments?\nData:\n\n12 forest fragments\n20 salamanders marked in each fragment (240 total)\nSurvival recorded as binary (alive/dead) after one year\nCanopy cover measured as % for each fragment\n\nProposed Method:\nLogistic regression: glm(survival ~ canopy_cover, family = binomial)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.3 🔍 Station 2: Wheat Yield Trials\nResearch Question:\nWhich of 5 wheat varieties produces the highest yield?\nData:\n\n5 varieties tested in 4 blocks (randomized complete block design)\nOne plot per variety per block (20 plots total)\nYield (kg/ha) recorded once per plot\nData look approximately normal\n\nProposed Method:\nOne-way ANOVA: aov(yield ~ variety)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.4 🔍 Station 3: Bird Abundance Over Time\nResearch Question:\nIs bird abundance declining in urban parks?\nData:\n\n8 urban parks surveyed\nEach park visited 6 times per year for 5 years (240 total observations)\nResponse: count of birds per visit (range: 0–89)\nYear as continuous predictor\n\nProposed Method:\nLinear regression: lm(bird_count ~ year)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.5 🔍 Station 4: Soil Microbial Diversity\nResearch Question:\nDoes tillage treatment affect soil microbial diversity?\nData:\n\n3 treatments: no-till, reduced till, conventional till\n10 fields per treatment (30 fields total)\nShannon diversity index calculated for each field (continuous, 0–5)\nData slightly right-skewed but otherwise well-behaved\n\nProposed Method:\nKruskal-Wallis test (non-parametric)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.6 🔍 Station 5: Pollinator Network Complexity\nResearch Question:\nDo pollinator networks become more complex with plant diversity?\nData:\n\n25 meadows sampled\nPlant diversity (species richness) recorded per meadow\nNetwork complexity score calculated (continuous, 1.2–8.7)\nData are normal, linear relationship looks reasonable\n\nProposed Method:\nBayesian multilevel model with varying intercepts and slopes, spatial Gaussian process\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.7 🔍 Station 6: Seedling Germination Experiment\nResearch Question:\nDoes stratification time (0, 30, 60, 90 days) affect germination rate?\nData:\n\n4 stratification treatments\n10 petri dishes per treatment (40 dishes)\n50 seeds per dish\nResponse: proportion germinated (0.0–1.0)\n\nProposed Method:\nLinear regression: lm(proportion ~ stratification_time)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n3.4.8 Exit ticket:\nIs thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?\n\n\n3.4.9 Thursday session: coding"
+    "text": "3 Before class\nThink about:\n\nA dataset you’re currently working with (or interested in working with)\nThe main research question you want to answer\nWhat is your response variable? What is its distribution?\n\n\n3.1 Session A:\n\n3.1.1 Part 1: Silent Reflection (10 min)\nOn the paper I gave you, write the following:\n\n\n\n\n\n\nReflection Prompts\n\n\n\n\nMy research question (one sentence):\n\n \n\nMy response variable is: (circle one or write your own)\n\nContinuous measurements\nCounts\nBinary (yes/no, presence/absence)\nProportions\nCategories\nOther: ___________\n\n\n\n\nMy data structure includes: (check all that apply)\n\nRepeated measures on the same units\nMultiple sites/plots/locations\nTime series\nNested structure (e.g., plants within plots within sites)\nJust one observation per unit\nOther: ___________\n\n\n\n\nOne worry I have about analyzing my data:  \n\n\n\n\n\n\n3.2 Part 2: Graffitti discussion (12 minutes)\nYour task: - Move freely around the room - Use markers to write on ANY wall (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required\n\n\n\n\n\n\nThe Five Walls\n\n\n\nWall 1: “What’s the hardest thing about data analysis for you?”\nWall 2: “What’s the gap between what you learned in stats class and what you actually need/use?”\nWall 3: “What do you wish your advisor/committee understood about statistical analysis?”\nWall 4: “What statistical concept do you pretend to understand but actually don’t?”\nWall 5: “What do you want to learn in this class?”\nWall 6: “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”\n\n\n\n3.2.1 Quick Harvest (6 min)\nBrief discussion of themes and patterns from the walls. This will inform future class topics.\n\n\n3.2.2 Part 3: Main concept –&gt; Lecture\n\n\n3.2.3 The Method-Question-Data Triangle (15 min)\n     RESEARCH QUESTION\n            /\\\n           /  \\\n          /    \\\n         /      \\\n        /        \\\n       /          \\\nDATA TYPE -------- METHOD CHOICE\nAll needed to be aligned. Dr. Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.\n\n\n3.2.4 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n3.3 Session B\nMethods workshop — hands-on coding\n\n3.3.1 🤝 Think-Pair-Share (5 min)\nPrompt:\n\nLook back at your silent reflection sheet. Based on the three examples:\n\nWhat method might be appropriate for YOUR data?\nWhat’s one thing about your data structure that makes method choice tricky?\n\n\n\nThink (1 min) — jot notes on your sheet\nPair (3 min) — discuss with a neighbor, help each other troubleshoot\nShare (1 min) — 2–3 volunteers share their pairing’s most interesting dilemma\n\n\n\n3.3.2 Detective Station\n\n\n\n3.4 4. Data Detective: Diagnosis Stations (25 min)\n\n3.4.1 Setup\nSix stations around the room, each with a scenario card describing: - A research question - A dataset description - A statistical method that was used (or is being proposed)\nYour job: Diagnose whether the method fits the question and data.\nRotation schedule: - 4 minutes per station - Work in pairs or trios - Record your diagnosis on the station worksheet\n\n\n\n3.4.2 🔍 Station 1: Salamander Survival\nResearch Question:\nDoes canopy cover affect salamander survival in forest fragments?\nData:\n\n12 forest fragments\n20 salamanders marked in each fragment (240 total)\nSurvival recorded as binary (alive/dead) after one year\nCanopy cover measured as % for each fragment\n\nProposed Method:\nLogistic regression: glm(survival ~ canopy_cover, family = binomial)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.3 🔍 Station 2: Wheat Yield Trials\nResearch Question:\nWhich of 5 wheat varieties produces the highest yield?\nData:\n\n5 varieties tested in 4 blocks (randomized complete block design)\nOne plot per variety per block (20 plots total)\nYield (kg/ha) recorded once per plot\nData look approximately normal\n\nProposed Method:\nOne-way ANOVA: aov(yield ~ variety)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.4 🔍 Station 3: Bird Abundance Over Time\nResearch Question:\nIs bird abundance declining in urban parks?\nData:\n\n8 urban parks surveyed\nEach park visited 6 times per year for 5 years (240 total observations)\nResponse: count of birds per visit (range: 0–89)\nYear as continuous predictor\n\nProposed Method:\nLinear regression: lm(bird_count ~ year)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.5 🔍 Station 4: Soil Microbial Diversity\nResearch Question:\nDoes tillage treatment affect soil microbial diversity?\nData:\n\n3 treatments: no-till, reduced till, conventional till\n10 fields per treatment (30 fields total)\nShannon diversity index calculated for each field (continuous, 0–5)\nData slightly right-skewed but otherwise well-behaved\n\nProposed Method:\nKruskal-Wallis test (non-parametric)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.6 🔍 Station 5: Pollinator Network Complexity\nResearch Question:\nDo pollinator networks become more complex with plant diversity?\nData:\n\n25 meadows sampled\nPlant diversity (species richness) recorded per meadow\nNetwork complexity score calculated (continuous, 1.2–8.7)\nData are normal, linear relationship looks reasonable\n\nProposed Method:\nBayesian multilevel model with varying intercepts and slopes, spatial Gaussian process\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.4.7 🔍 Station 6: Seedling Germination Experiment\nResearch Question:\nDoes stratification time (0, 30, 60, 90 days) affect germination rate?\nData:\n\n4 stratification treatments\n10 petri dishes per treatment (40 dishes)\n50 seeds per dish\nResponse: proportion germinated (0.0–1.0)\n\nProposed Method:\nLinear regression: lm(proportion ~ stratification_time)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n3.4.8 Exit ticket:\nIs thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?\n\n\n3.4.9 Thursday session: coding workshop"
   }
 ]
