@@ -1,5 +1,5 @@
 ---
-title: "Week 03 — Linear Models and GLM's"
+title: "Week 03 — Statistical Modeling Framework"
 format: html
 ---
 
@@ -89,7 +89,7 @@ On the paper I gave you, write the following:
 - No names required
 
 ::: {.callout-warning}
-## The Five Questions
+## The Six Questions
 
 **Wall 1:** "What's the hardest thing about data analysis for you?"
 
@@ -128,14 +128,14 @@ All needed to be aligned. Dr. Molina will give a lecture showing examples of mis
 
 #### 🤝 Think-Pair-Share (5 min)
 
-**Prompt:**
+**Activity:**
 
 > Look back at your silent reflection sheet. Based on the three examples:
 > 
 > - What method might be appropriate for YOUR data?
 > - What's one thing about your data structure that makes method choice tricky?
 
-1. **Think** (1 min) — jot notes on your sheet
+1. **Think** (<1 min) — you already did this... you can use 30 seconds to update your notes
 2. **Pair** (3 min) — discuss with a neighbor, help each other troubleshoot
 3. **Share** (1 min) — 2–3 volunteers share their pairing's most interesting dilemma
 

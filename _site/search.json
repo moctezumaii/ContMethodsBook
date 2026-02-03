@@ -219,23 +219,23 @@
   {
     "objectID": "weeks/week03.html",
     "href": "weeks/week03.html",
-    "title": "Week 03 — Linear Models and GLM’s",
+    "title": "Week 03 — Statistical Modeling Framework",
     "section": "",
-    "text": "Week: 3\nTopic: Linear Models and GLM’s"
+    "text": "Week: 3\nTopic: Statistical Modeling Framework"
   },
   {
     "objectID": "weeks/week03.html#background",
     "href": "weeks/week03.html#background",
-    "title": "Week 03 — Linear Models and GLM’s",
-    "section": "1 Background",
-    "text": "1 Background\nReview the following topics if you don’t fully understand them:\n\nInference\nLinear Models\nGeneralized Linear Models\nDistributions\n\nNormal\nBinomial\nPoisson\nNegative Binomial\n\n\nAgain, you can use AI or a quick search to help you understand these concepts, but make sure you understand them somewhat"
+    "title": "Week 03 — Statistical Modeling Framework",
+    "section": "2 Background",
+    "text": "2 Background\nNo background this week. After class, review the following topics:\n\nInference\nLinear Models\nDistributions\n\nNormal\nBinomial\nPoisson\nNegative Binomial"
   },
   {
     "objectID": "weeks/week03.html#learning-objectives",
     "href": "weeks/week03.html#learning-objectives",
-    "title": "Week 03 — Linear Models and GLM’s",
-    "section": "2 Learning Objectives",
-    "text": "2 Learning Objectives\nExplain how linear models, generalized linear models, and mixed models share a common structure\nIdentify when normal-error linear models are inappropriate and how GLMs address these limitations\nInterpret regression coefficients under different link functions and error distributions\nCritically evaluate modeling choices in published ecological and natural resource studies\nImplement and compare LMs and GLMs in R while articulating underlying assumptions\n\n2.1 Session A:\n\n2.1.1 Part 1: Paper discussion (~45 minutes of the class)\nDiscussion of: Bolker et al. (2009)\nSubmit before class: 1) A question of something you had a hard time understanding, and a question you would ask someone to test if they understood the paper (as if you were an instructor testing a student). You can submit both questions in the same section on CANVAS.\nI will open with a short lecture (15 minutes) on the paper, then we will have a discussion (15 minutes). Submit: 1 question of something you have a hard time understanding. I will lead the discussion, but be ready to discuss/explain topics. You will then work in groups.\n\n\n\n\n\n\nQuestions To think about while reading\n\n\n\n\nWhen should a fixed effect be treated as random (and vice versa)?\nHow do you diagnose and handle overdispersion and zero-inflation?\nTradeoffs between lme4, glmmTMB, and Bayesian approaches for complex data?\n\n\n\n\n\n2.1.2 Part 2: Working in pairs (or trios) (~30 Minutes)\nHalf of you will read chapter 2 of Zuur et al. (2009) (Mixed Effects Models and Extensions in Ecology with R) and the other half chapter 3.\nEach Student gets 8 minutes to give a lecture + 2 minutes for questions.\nFollowing this, students will answer 1) the most important concept, and 2) one question given by me.\nAfter this, they will switch roles.\n\n\n2.1.3 Exit ticket\nWhat was the most challenging thing about today?\n\n\n\n2.2 Session B\nMethods workshop — hands-on coding\n\n2.2.1 Objectives\n\nFit a GLM, GAM, and a GLMM to count and binomial response data.\n\n\n\nInterpret fixed-effect estimates and random-effect variances.\nDiagnose model fit (residuals, overdispersion, zero‑inflation) and fix common problems.\nCompare two model fits and write a concise ecological interpretation.\n\n\n\n2.2.2 Preparation:\nInstall the following packages:\n\nlme4\nglmmTMB\nDHARMa\nbroom.mixed\nggplot2\nperformance\n\nClass schedule\n\n5 minutes –&gt; Discussion about overdispersion\n10 minutes –&gt; Demo by me\n30 minutes –&gt; Paired work:\n\nTask A (15 min): Fit Poisson GLM and GLMM on y; extract fixed effect, random variance, compute AIC.\nTask B (15 min): Run DHARMa simulateResiduals on GLMM and inspect plot; note any issue (overdispersion, zero inflation, non-uniform residuals).\nWork in pairs. You can decide how to work\nFigure out issues/problems in the data\n\n10 minutes –&gt; Discussion part 2\nStudents present results –&gt; 5 minutes\nSubmit data"
+    "title": "Week 03 — Statistical Modeling Framework",
+    "section": "1 Learning Objectives",
+    "text": "1 Learning Objectives\nConnect research questions, data structure and data analysis"
   },
   {
     "objectID": "slides/slide-Week01.html",
@@ -521,175 +521,217 @@
     "objectID": "slides/slides-Week03.html#the-problem",
     "href": "slides/slides-Week03.html#the-problem",
     "title": "Matching Methods to Research Questions",
-    "section": "The Problem",
-    "text": "The Problem\n\nWe often learn methods in isolation\n\n“This is a t-test”\n“This is ANOVA”\n“This is regression”\n\nThen we have data and ask: “What test do I run?”\nThis is backwards!\n\n\nKey insight: The research question should drive everything"
+    "section": "",
+    "text": "We often learn methods in isolation\n\n“This is a t-test”\n“This is ANOVA”\n“This is regression”\n\nThen we have data and ask: “What test do I run?”\nThis is backwards!\n\n. . .\nKey insight: The research question should drive everything"
   },
   {
     "objectID": "slides/slides-Week03.html#the-triangle-framework",
     "href": "slides/slides-Week03.html#the-triangle-framework",
     "title": "Matching Methods to Research Questions",
-    "section": "The Triangle Framework",
-    "text": "The Triangle Framework\n         RESEARCH QUESTION\n                /\\\n               /  \\\n              /    \\\n             /      \\\n            /        \\\n           /          \\\n    DATA TYPE -------- METHOD CHOICE\n\nAll three must align\n\n\nMisalignment leads to:\n\nWrong conclusions\nWasted effort\n\nRejected papers\nSad grad students! :frowning:"
+    "section": "2 The Triangle Framework",
+    "text": "2 The Triangle Framework\n         RESEARCH QUESTION\n                /\\\n               /  \\\n              /    \\\n             /      \\\n            /        \\\n           /          \\\n    DATA TYPE -------- METHOD CHOICE\n. . .\nAll three must align\n. . .\nMisalignment leads to:\n\nWrong conclusions\nWasted effort\n\nRejected papers\nSad grad students! :frowning:"
   },
   {
     "objectID": "slides/slides-Week03.html#research-question-drives-everything",
     "href": "slides/slides-Week03.html#research-question-drives-everything",
     "title": "Matching Methods to Research Questions",
-    "section": "Research Question Drives Everything",
-    "text": "Research Question Drives Everything\n\n\n\nQuestion Type\nWhat You’re Looking For\nExample Methods\n\n\n\n\nIs there a difference?\nComparison\nt-test, ANOVA, GLM\n\n\nIs there a relationship?\nAssociation\nRegression, correlation\n\n\nCan I predict?\nPrediction\nML, regression\n\n\nWhat’s the pattern?\nStructure\nClustering, PCA, ordination\n\n\n\n\nYour question determines what “answer” looks like!"
+    "section": "3 Research Question Drives Everything",
+    "text": "3 Research Question Drives Everything\n\n\n\nQuestion Type\nWhat You’re Looking For\nExample Methods\n\n\n\n\nIs there a difference?\nComparison\nt-test, ANOVA, GLM\n\n\nIs there a relationship?\nAssociation\nRegression, correlation\n\n\nCan I predict?\nPrediction\nML, regression\n\n\nWhat’s the pattern?\nStructure\nClustering, PCA, ordination\n\n\n\n. . .\nYour question determines what “answer” looks like!"
   },
   {
     "objectID": "slides/slides-Week03.html#data-type-constrains-your-options",
     "href": "slides/slides-Week03.html#data-type-constrains-your-options",
     "title": "Matching Methods to Research Questions",
-    "section": "Data Type Constrains Your Options",
-    "text": "Data Type Constrains Your Options\n\n\n\nResponse Variable\nDistribution\nCommon Methods\n\n\n\n\nContinuous, normal\nGaussian\nLM, ANOVA\n\n\nCounts (0, 1, 2, …)\nPoisson, NegBin\nGLM\n\n\nBinary (yes/no)\nBinomial\nLogistic regression\n\n\nProportions (0-1)\nBinomial, Beta\nGLM, Beta regression\n\n\n\n\nAlso consider:\n\nIndependence vs. grouping\nRepeated measures\nNested/hierarchical structure"
+    "section": "4 Data Type Constrains Your Options",
+    "text": "4 Data Type Constrains Your Options\n\n\n\nResponse Variable\nDistribution\nCommon Methods\n\n\n\n\nContinuous, normal\nGaussian\nLM, ANOVA\n\n\nCounts (0, 1, 2, …)\nPoisson, NegBin\nGLM\n\n\nBinary (yes/no)\nBinomial\nLogistic regression\n\n\nProportions (0-1)\nBinomial, Beta\nGLM, Beta regression\n\n\n\n. . .\nAlso consider:\n\nIndependence vs. grouping\nRepeated measures\nNested/hierarchical structure"
   },
   {
     "objectID": "slides/slides-Week03.html#the-alignment-check",
     "href": "slides/slides-Week03.html#the-alignment-check",
     "title": "Matching Methods to Research Questions",
-    "section": "The Alignment Check ✅",
-    "text": "The Alignment Check ✅\nBefore analyzing, ask yourself:\n\n✅ What exactly is my question?\n✅ What type of response variable do I have?\n✅ What is my data structure (grouping, nesting, time)?\n✅ Does my method handle all of this?\n\n\nIf you can’t answer these → STOP and think!"
+    "section": "5 The Alignment Check ✅",
+    "text": "5 The Alignment Check ✅\nBefore analyzing, ask yourself:\n\n✅ What exactly is my question?\n✅ What type of response variable do I have?\n✅ What is my data structure (grouping, nesting, time)?\n✅ Does my method handle all of this?\n\n. . .\nIf you can’t answer these → STOP and think!"
   },
   {
     "objectID": "slides/slides-Week03.html#three-common-scenarios",
     "href": "slides/slides-Week03.html#three-common-scenarios",
     "title": "Matching Methods to Research Questions",
-    "section": "Three Common Scenarios",
-    "text": "Three Common Scenarios\nWe’ll look at three examples:\n\nMismatch - Method ignores key data structure\nGood Match - Method fits question and data\nOvercomplicated - Method is fancier than needed\n\n\nLet’s see each one…"
+    "section": "6 Three Common Scenarios",
+    "text": "6 Three Common Scenarios\nWe’ll look at three examples:\n\nMismatch - Method ignores key data structure\nGood Match - Method fits question and data\nOvercomplicated - Method is fancier than needed\n\n. . .\nLet’s see each one…"
   },
   {
     "objectID": "slides/slides-Week03.html#example-1-mismatch",
     "href": "slides/slides-Week03.html#example-1-mismatch",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 1: MISMATCH",
-    "text": "Example 1: MISMATCH\nScenario:\n\nTesting fertilizer effect on crop yield\n5 fields, 4 plots per field\n2 control plots, 2 fertilized plots per field\n\n\nThe analysis:\nlm(yield ~ fertilizer)\n\nTreats all 20 observations as independent!"
+    "section": "7 Example 1: MISMATCH",
+    "text": "7 Example 1: MISMATCH\nScenario:\n\nTesting fertilizer effect on crop yield\n5 fields, 4 plots per field\n2 control plots, 2 fertilized plots per field\n\n. . .\nThe analysis:\nlm(yield ~ fertilizer)\n\nTreats all 20 observations as independent!"
   },
   {
     "objectID": "slides/slides-Week03.html#example-1-the-problem",
     "href": "slides/slides-Week03.html#example-1-the-problem",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 1: The Problem",
-    "text": "Example 1: The Problem"
+    "section": "8 Example 1: The Problem",
+    "text": "8 Example 1: The Problem"
   },
   {
     "objectID": "slides/slides-Week03.html#example-1-wrong-vs.-right",
     "href": "slides/slides-Week03.html#example-1-wrong-vs.-right",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 1: Wrong vs. Right",
-    "text": "Example 1: Wrong vs. Right\n\n\nShow code\n# WRONG: Ignores field structure\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\n\n# RIGHT: Accounts for field\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n\n\n\n\nTRUE EFFECT: 3 units\n\n\nWRONG MODEL (lm):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 2.57 \n\n\n  p-value: 0.2043 \n\n\nCORRECT MODEL (lmer):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 0.99 \n\n\n  p-value: 0"
+    "section": "9 Example 1: Wrong vs. Right",
+    "text": "9 Example 1: Wrong vs. Right\n\n# WRONG: Ignores field structure\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\n\n# RIGHT: Accounts for field\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n. . .\n\n\nTRUE EFFECT: 3 units\n\n\nWRONG MODEL (lm):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 2.57 \n\n\n  p-value: 0.2043 \n\n\nCORRECT MODEL (lmer):\n\n\n  Estimate: 3.38 \n\n\n  Std Error: 0.99 \n\n\n  p-value: 0 \n\n\n. . ."
   },
   {
     "objectID": "slides/slides-Week03.html#example-1-the-fix",
     "href": "slides/slides-Week03.html#example-1-the-fix",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 1: The Fix",
-    "text": "Example 1: The Fix\nIn this design (treatment within fields):\n\nThe wrong model has inflated standard errors because it treats field variance as residual noise\nThe correct model* separates field variance → cleaner estimate of treatment effect\nThis means reduced power when you ignore structure\n\nIn other designs (treatment between fields):\n\nIgnoring structure would inflate Type I error instead\n\n\n\n\n# Wrong\nlm(yield ~ treatment)\n\n# Right  \nlmer(yield ~ treatment + (1|field))\n\nLesson: Always check your independence assumption!"
+    "section": "10 Example 1: The Fix",
+    "text": "10 Example 1: The Fix\n\nIn this design (treatment within fields):\n\nThe wrong model has inflated standard errors because it treats field variance as residual noise\nThe correct model* separates field variance → cleaner estimate of treatment effect\nThis means reduced power when you ignore structure\n\nIn other designs (treatment between fields):\n\nIgnoring structure would inflate Type I error instead\n\n\n\n\n\n# Wrong\nlm(yield ~ treatment)\n\n# Right  \nlmer(yield ~ treatment + (1|field))\n. . .\nLesson: Always check your independence assumption!"
   },
   {
     "objectID": "slides/slides-Week03.html#example-2-good-match",
     "href": "slides/slides-Week03.html#example-2-good-match",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 2: GOOD MATCH",
-    "text": "Example 2: GOOD MATCH\nScenario:\n\nPollinator visits to flowers\n2 treatments: native vs. non-native plants\n30 plants per treatment\nResponse: count of visits (0 to ~45)\n\n\nThe approach:\nglm(visits ~ treatment, family = poisson)"
+    "section": "11 Example 2: GOOD MATCH",
+    "text": "11 Example 2: GOOD MATCH\nScenario:\n\nPollinator visits to flowers\n2 treatments: native vs. non-native plants\n30 plants per treatment\nResponse: count of visits (0 to ~45)\n\n. . .\nThe approach:\nglm(visits ~ treatment, family = poisson)"
   },
   {
     "objectID": "slides/slides-Week03.html#example-2-the-data",
     "href": "slides/slides-Week03.html#example-2-the-data",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 2: The Data",
-    "text": "Example 2: The Data"
+    "section": "12 Example 2: The Data",
+    "text": "12 Example 2: The Data"
   },
   {
     "objectID": "slides/slides-Week03.html#example-2-why-it-works",
     "href": "slides/slides-Week03.html#example-2-why-it-works",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 2: Why It Works",
-    "text": "Example 2: Why It Works\n\n\nShow code\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)$coefficients\n\n\n                 Estimate Std. Error   z value      Pr(&gt;|z|)\n(Intercept)     2.0412203  0.0657951 31.023896 2.567154e-211\ntreatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12\n\n\n\nChecklist:\n\n✅ Count data → Poisson distribution\n✅ No upper bound on counts\n✅ Independent observations (different plants)\n✅ Simple comparison question"
+    "section": "13 Example 2: Why It Works",
+    "text": "13 Example 2: Why It Works\n\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)$coefficients\n\n                 Estimate Std. Error   z value      Pr(&gt;|z|)\n(Intercept)     2.0412203  0.0657951 31.023896 2.567154e-211\ntreatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12\n\n\n. . .\nChecklist:\n\n✅ Count data → Poisson distribution\n✅ No upper bound on counts\n✅ Independent observations (different plants)\n✅ Simple comparison question"
   },
   {
     "objectID": "slides/slides-Week03.html#example-2-interpretation",
     "href": "slides/slides-Week03.html#example-2-interpretation",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 2: Interpretation",
-    "text": "Example 2: Interpretation\n\n\nShow code\nest &lt;- coef(poisson_model)[\"treatmentnative\"]\ncat(\"Coefficient (log scale):\", round(est, 3), \"\\n\")\n\n\nCoefficient (log scale): 0.576 \n\n\nShow code\ncat(\"Multiplicative effect:\", round(exp(est), 2), \"\\n\")\n\n\nMultiplicative effect: 1.78 \n\n\nShow code\ncat(\"Native plants get\", round((exp(est) - 1) * 100, 1), \"% more visits\\n\")\n\n\nNative plants get 77.9 % more visits\n\n\n\nLesson: Match your distribution to your data type!"
+    "section": "14 Example 2: Interpretation",
+    "text": "14 Example 2: Interpretation\n\nest &lt;- coef(poisson_model)[\"treatmentnative\"]\ncat(\"Coefficient (log scale):\", round(est, 3), \"\\n\")\n\nCoefficient (log scale): 0.576 \n\ncat(\"Multiplicative effect:\", round(exp(est), 2), \"\\n\")\n\nMultiplicative effect: 1.78 \n\ncat(\"Native plants get\", round((exp(est) - 1) * 100, 1), \"% more visits\\n\")\n\nNative plants get 77.9 % more visits\n\n\n. . .\nLesson: Match your distribution to your data type!"
   },
   {
     "objectID": "slides/slides-Week03.html#example-3-overcomplicated",
     "href": "slides/slides-Week03.html#example-3-overcomplicated",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 3: OVERCOMPLICATED",
-    "text": "Example 3: OVERCOMPLICATED\nScenario:\n\nTree height in 2 forest types\n30 trees per forest type\nNormal distribution, no grouping\nSimple question: “Is there a difference?”\n\n\nThe overkill:\n“Let’s use a Bayesian hierarchical model with spatial autocorrelation, weakly informative priors, and MCMC sampling!”"
+    "section": "15 Example 3: OVERCOMPLICATED",
+    "text": "15 Example 3: OVERCOMPLICATED\nScenario:\n\nTree height in 2 forest types\n30 trees per forest type\nNormal distribution, no grouping\nSimple question: “Is there a difference?”\n\n. . .\nThe overkill:\n“Let’s use a Bayesian hierarchical model with spatial autocorrelation, weakly informative priors, and MCMC sampling!”"
   },
   {
     "objectID": "slides/slides-Week03.html#example-3-the-data",
     "href": "slides/slides-Week03.html#example-3-the-data",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 3: The Data",
-    "text": "Example 3: The Data"
+    "section": "16 Example 3: The Data",
+    "text": "16 Example 3: The Data"
   },
   {
     "objectID": "slides/slides-Week03.html#example-3-simple-vs.-complex",
     "href": "slides/slides-Week03.html#example-3-simple-vs.-complex",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 3: Simple vs. Complex",
-    "text": "Example 3: Simple vs. Complex\n\n\nShow code\n# Simple t-test (appropriate!)\nsimple_test &lt;- t.test(height ~ forest_type, data = overcomp_data)\n\ncat(\"Difference:\", round(diff(simple_test$estimate), 2), \"meters\\n\")\n\n\nDifference: -4.51 meters\n\n\nShow code\ncat(\"95% CI: [\", round(simple_test$conf.int[1], 2), \",\", \n    round(simple_test$conf.int[2], 2), \"]\\n\")\n\n\n95% CI: [ 2.2 , 6.81 ]\n\n\nShow code\ncat(\"p-value:\", format(simple_test$p.value, digits = 3), \"\\n\")\n\n\np-value: 0.000239 \n\n\n\nTime to run: ~0.001 seconds\nA Bayesian spatial model: ~5-10 minutes\nSame answer!"
+    "section": "17 Example 3: Simple vs. Complex",
+    "text": "17 Example 3: Simple vs. Complex\n\n# Simple t-test (appropriate!)\nsimple_test &lt;- t.test(height ~ forest_type, data = overcomp_data)\n\ncat(\"Difference:\", round(diff(simple_test$estimate), 2), \"meters\\n\")\n\nDifference: -4.51 meters\n\ncat(\"95% CI: [\", round(simple_test$conf.int[1], 2), \",\", \n    round(simple_test$conf.int[2], 2), \"]\\n\")\n\n95% CI: [ 2.2 , 6.81 ]\n\ncat(\"p-value:\", format(simple_test$p.value, digits = 3), \"\\n\")\n\np-value: 0.000239 \n\n\n. . .\nTime to run: ~0.001 seconds\nA Bayesian spatial model: ~5-10 minutes\nSame answer!"
   },
   {
     "objectID": "slides/slides-Week03.html#example-3-the-lesson",
     "href": "slides/slides-Week03.html#example-3-the-lesson",
     "title": "Matching Methods to Research Questions",
-    "section": "Example 3: The Lesson",
-    "text": "Example 3: The Lesson\nProblems with overcomplication:\n\nTakes much longer to fit\nHarder to interpret\nReviewers get confused\nMore things can go wrong\nSame answer as simple approach!\n\n\nPrinciple of parsimony:\n\nUse the simplest method that adequately addresses your question\n\n\n\nSave fancy methods for when you need them!"
+    "section": "18 Example 3: The Lesson",
+    "text": "18 Example 3: The Lesson\n\nProblems with overcomplication:\n\nTakes much longer to fit\nHarder to interpret\nReviewers get confused\nMore things can go wrong\nSame answer as simple approach!\n\n\n. . .\nPrinciple of parsimony:\n\nUse the simplest method that adequately addresses your question\n\n. . .\nSave fancy methods for when you need them!"
   },
   {
     "objectID": "slides/slides-Week03.html#summary-three-scenarios",
     "href": "slides/slides-Week03.html#summary-three-scenarios",
     "title": "Matching Methods to Research Questions",
-    "section": "Summary: Three Scenarios",
-    "text": "Summary: Three Scenarios\n\n\n\n\n\n\n\n\n\nExample\nProblem\nConsequence\nLesson\n\n\n\n\nMismatch\nIgnored grouping structure\nFalse positive risk\nCheck independence\n\n\nGood Match\nNone — appropriate method\nValid inference\nMatch distribution\n\n\nOvercomplicated\nUnnecessary complexity\nWasted effort\nStart simple"
+    "section": "19 Summary: Three Scenarios",
+    "text": "19 Summary: Three Scenarios\n\n\n\n\n\n\n\n\n\nExample\nProblem\nConsequence\nLesson\n\n\n\n\nMismatch\nIgnored grouping structure\nFalse positive risk\nCheck independence\n\n\nGood Match\nNone - appropriate method\nValid inference\nMatch distribution\n\n\nOvercomplicated\nUnnecessary complexity\nWasted effort\nStart simple"
   },
   {
     "objectID": "slides/slides-Week03.html#your-checklist",
     "href": "slides/slides-Week03.html#your-checklist",
     "title": "Matching Methods to Research Questions",
-    "section": "Your Checklist",
-    "text": "Your Checklist\nBefore you analyze, ask:\n\n1️⃣ What is my question? (difference, relationship, prediction)\n\n\n2️⃣ What is my response variable? (continuous, count, binary, proportion)\n\n\n3️⃣ What is my data structure? (independent, grouped, nested, repeated)\n\n\n4️⃣ Does my method handle all three?"
+    "section": "20 Your Checklist",
+    "text": "20 Your Checklist\nBefore you analyze, ask:\n. . .\n1️⃣ What is my question? (difference, relationship, prediction)\n. . .\n2️⃣ What is my response variable? (continuous, count, binary, proportion)\n. . .\n3️⃣ What is my data structure? (independent, grouped, nested, repeated)\n. . .\n4️⃣ Does my method handle all three?"
   },
   {
     "objectID": "slides/slides-Week03.html#the-golden-rule",
     "href": "slides/slides-Week03.html#the-golden-rule",
     "title": "Matching Methods to Research Questions",
-    "section": "The Golden Rule",
-    "text": "The Golden Rule\n\nStart simple.\n. . .\nAdd complexity only when needed.\n. . .\nAlways justify your choices."
+    "section": "21 The Golden Rule",
+    "text": "21 The Golden Rule\n. . .\n\n21.1 Start simple.\n. . .\n\n\n21.2 Add complexity only when needed.\n. . .\n\n\n21.3 Always justify your choices."
   },
   {
     "objectID": "slides/slides-Week03.html#now-its-your-turn",
     "href": "slides/slides-Week03.html#now-its-your-turn",
     "title": "Matching Methods to Research Questions",
-    "section": "Now It’s Your Turn!",
-    "text": "Now It’s Your Turn!\nData Detective Stations\n\n6 scenarios around the room\nDiagnose: Mismatch? Good match? Overcomplicated?\nWork in pairs\n4 minutes per station\n\n\nGrab your worksheet and let’s go!"
+    "section": "22 Now It’s Your Turn!",
+    "text": "22 Now It’s Your Turn!\nData Detective Stations\n\n6 scenarios around the room\nDiagnose: Mismatch? Good match? Overcomplicated?\nWork in pairs\n4 minutes per station\n\n. . .\nGrab your worksheet and let’s go!"
   },
   {
     "objectID": "slides/slides-Week03.html#appendix-full-simulation-code",
     "href": "slides/slides-Week03.html#appendix-full-simulation-code",
     "title": "Matching Methods to Research Questions",
-    "section": "Appendix: Full Simulation Code",
-    "text": "Appendix: Full Simulation Code\n\n\nShow code\n# ============================================================================\n# EXAMPLE 1: MISMATCH - Ignoring nested structure\n# Demonstrates FALSE POSITIVE from pseudoreplication\n# ============================================================================\n\nlibrary(lme4)\nlibrary(ggplot2)\nlibrary(dplyr)\n\nset.seed(42)\n\nn_fields &lt;- 5\nn_plots_per_field &lt;- 4\n\nmismatch_data &lt;- expand.grid(\n  field = factor(1:n_fields),\n  plot = 1:n_plots_per_field\n) |&gt;\n  mutate(\n    treatment = rep(c(\"control\", \"control\", \"fertilizer\", \"fertilizer\"), n_fields),\n    treatment = factor(treatment, levels = c(\"control\", \"fertilizer\"))\n  )\n\n# Large field-to-field variation\nfield_effects &lt;- data.frame(\n  field = factor(1:n_fields),\n  field_effect = c(-12, -5, 2, 8, 14)\n)\n\ntrue_effect &lt;- 0  # NO TRUE EFFECT!\n\nmismatch_data &lt;- mismatch_data |&gt;\n  left_join(field_effects, by = \"field\") |&gt;\n  mutate(\n    yield = 50 + field_effect + \n            ifelse(treatment == \"fertilizer\", true_effect, 0) +\n            rnorm(n(), mean = 0, sd = 1.5)\n  ) |&gt;\n  # Create confounding between treatment and field quality\n  mutate(\n    yield = yield + ifelse(treatment == \"fertilizer\", field_effect * 0.15, 0)\n  )\n\n# Compare wrong vs correct\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n# Wrong model shows \"significant\" effect (p &lt; 0.05)\nsummary(wrong_model)\n\n# Correct model shows non-significant (as it should be - no true effect!)\nsummary(correct_model)"
+    "section": "23 Appendix: Full Simulation Code",
+    "text": "23 Appendix: Full Simulation Code\n\n# ============================================================================\n# EXAMPLE 1: MISMATCH - Ignoring nested structure\n# Demonstrates FALSE POSITIVE from pseudoreplication\n# ============================================================================\n\nlibrary(lme4)\nlibrary(ggplot2)\nlibrary(dplyr)\n\nset.seed(42)\n\nn_fields &lt;- 5\nn_plots_per_field &lt;- 4\n\nmismatch_data &lt;- expand.grid(\n  field = factor(1:n_fields),\n  plot = 1:n_plots_per_field\n) |&gt;\n  mutate(\n    treatment = rep(c(\"control\", \"control\", \"fertilizer\", \"fertilizer\"), n_fields),\n    treatment = factor(treatment, levels = c(\"control\", \"fertilizer\"))\n  )\n\n# Large field-to-field variation\nfield_effects &lt;- data.frame(\n  field = factor(1:n_fields),\n  field_effect = c(-12, -5, 2, 8, 14)\n)\n\ntrue_effect &lt;- 0  # NO TRUE EFFECT!\n\nmismatch_data &lt;- mismatch_data |&gt;\n  left_join(field_effects, by = \"field\") |&gt;\n  mutate(\n    yield = 50 + field_effect + \n            ifelse(treatment == \"fertilizer\", true_effect, 0) +\n            rnorm(n(), mean = 0, sd = 1.5)\n  ) |&gt;\n  # Create confounding between treatment and field quality\n  mutate(\n    yield = yield + ifelse(treatment == \"fertilizer\", field_effect * 0.15, 0)\n  )\n\n# Compare wrong vs correct\nwrong_model &lt;- lm(yield ~ treatment, data = mismatch_data)\ncorrect_model &lt;- lmer(yield ~ treatment + (1|field), data = mismatch_data)\n\n# Wrong model shows \"significant\" effect (p &lt; 0.05)\nsummary(wrong_model)\n\n# Correct model shows non-significant (as it should be - no true effect!)\nsummary(correct_model)"
   },
   {
     "objectID": "slides/slides-Week03.html#appendix-full-simulation-code-continued",
     "href": "slides/slides-Week03.html#appendix-full-simulation-code-continued",
     "title": "Matching Methods to Research Questions",
-    "section": "Appendix: Full Simulation Code (continued)",
-    "text": "Appendix: Full Simulation Code (continued)\n\n\nShow code\n# ============================================================================\n# EXAMPLE 2: GOOD MATCH - Poisson GLM for counts\n# ============================================================================\n\nset.seed(2024)\nn_per_group &lt;- 30\n\ngoodmatch_data &lt;- data.frame(\n  plant_id = 1:(2 * n_per_group),\n  treatment = factor(rep(c(\"native\", \"non_native\"), each = n_per_group),\n                     levels = c(\"non_native\", \"native\"))\n)\n\nbaseline_visits &lt;- 8\nnative_effect &lt;- 0.5  # Log-scale\n\ngoodmatch_data &lt;- goodmatch_data |&gt;\n  mutate(\n    log_mu = log(baseline_visits) + \n             ifelse(treatment == \"native\", native_effect, 0),\n    visits = rpois(n(), lambda = exp(log_mu))\n  )\n\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)\n\n# Interpretation\nexp(coef(poisson_model)[\"treatmentnative\"])  # Multiplicative effect"
+    "section": "24 Appendix: Full Simulation Code (continued)",
+    "text": "24 Appendix: Full Simulation Code (continued)\n\n# ============================================================================\n# EXAMPLE 2: GOOD MATCH - Poisson GLM for counts\n# ============================================================================\n\nset.seed(2024)\nn_per_group &lt;- 30\n\ngoodmatch_data &lt;- data.frame(\n  plant_id = 1:(2 * n_per_group),\n  treatment = factor(rep(c(\"native\", \"non_native\"), each = n_per_group),\n                     levels = c(\"non_native\", \"native\"))\n)\n\nbaseline_visits &lt;- 8\nnative_effect &lt;- 0.5  # Log-scale\n\ngoodmatch_data &lt;- goodmatch_data |&gt;\n  mutate(\n    log_mu = log(baseline_visits) + \n             ifelse(treatment == \"native\", native_effect, 0),\n    visits = rpois(n(), lambda = exp(log_mu))\n  )\n\npoisson_model &lt;- glm(visits ~ treatment, family = poisson, \n                     data = goodmatch_data)\nsummary(poisson_model)\n\n# Interpretation\nexp(coef(poisson_model)[\"treatmentnative\"])  # Multiplicative effect"
   },
   {
     "objectID": "slides/slides-Week03.html#appendix-full-simulation-code-continued-1",
     "href": "slides/slides-Week03.html#appendix-full-simulation-code-continued-1",
     "title": "Matching Methods to Research Questions",
-    "section": "Appendix: Full Simulation Code (continued)",
-    "text": "Appendix: Full Simulation Code (continued)\n\n\nShow code\n# ============================================================================\n# EXAMPLE 3: OVERCOMPLICATED - Simple question, complex method\n# ============================================================================\n\nset.seed(2024)\nn_trees &lt;- 30\n\novercomp_data &lt;- data.frame(\n  tree_id = 1:(2 * n_trees),\n  forest_type = factor(rep(c(\"deciduous\", \"coniferous\"), each = n_trees))\n)\n\ndeciduous_mean &lt;- 18\nconiferous_mean &lt;- 22\ntree_sd &lt;- 4\n\novercomp_data &lt;- overcomp_data |&gt;\n  mutate(\n    height = ifelse(forest_type == \"deciduous\",\n                    rnorm(n(), deciduous_mean, tree_sd),\n                    rnorm(n(), coniferous_mean, tree_sd))\n  )\n\n# Simple and appropriate!\nt.test(height ~ forest_type, data = overcomp_data)\n\n# Or equivalently\nlm(height ~ forest_type, data = overcomp_data) |&gt; summary()"
+    "section": "25 Appendix: Full Simulation Code (continued)",
+    "text": "25 Appendix: Full Simulation Code (continued)\n\n# ============================================================================\n# EXAMPLE 3: OVERCOMPLICATED - Simple question, complex method\n# ============================================================================\n\nset.seed(2024)\nn_trees &lt;- 30\n\novercomp_data &lt;- data.frame(\n  tree_id = 1:(2 * n_trees),\n  forest_type = factor(rep(c(\"deciduous\", \"coniferous\"), each = n_trees))\n)\n\ndeciduous_mean &lt;- 18\nconiferous_mean &lt;- 22\ntree_sd &lt;- 4\n\novercomp_data &lt;- overcomp_data |&gt;\n  mutate(\n    height = ifelse(forest_type == \"deciduous\",\n                    rnorm(n(), deciduous_mean, tree_sd),\n                    rnorm(n(), coniferous_mean, tree_sd))\n  )\n\n# Simple and appropriate!\nt.test(height ~ forest_type, data = overcomp_data)\n\n# Or equivalently\nlm(height ~ forest_type, data = overcomp_data) |&gt; summary()"
+  },
+  {
+    "objectID": "materials/Week3questions.html",
+    "href": "materials/Week3questions.html",
+    "title": "Week 03 — Linear Models and GLM’s",
+    "section": "",
+    "text": "Reflection Prompts\n\n\n\n\nMy research question is (one sentence):\n\n \n\nMy response variable is: (circle one or write your own)\n\nContinuous measurements\nCounts\nBinary (yes/no, presence/absence)\nProportions\nCategories\nOther: ___________\n\n\n\n\nMy data structure includes: (check all that apply)\n\nRepeated measures on the same units\nMultiple sites/plots/locations\nTime series\nNested structure (e.g., plants within plots within sites)\nJust one observation per unit\nOther: ___________\n\n\n\n\nOne worry I have about analyzing my data:"
+  },
+  {
+    "objectID": "weeks/week03.html#before-class",
+    "href": "weeks/week03.html#before-class",
+    "title": "Week 03 — Statistical Modeling Framework",
+    "section": "3 Before class",
+    "text": "3 Before class\nThink about:\n\nA dataset you’re currently working with (or interested in working with)\nThe main research question you want to answer\nWhat is your response variable? What is its distribution?\n\n\n3.1 Session A:\n\n3.1.1 Part 1: Silent Reflection (10 min)\nOn the paper I gave you, write the following:\n\n\n\n\n\n\nReflection Prompts\n\n\n\n\nMy research question is (one sentence):\n\n \n\nMy response variable is: (circle one or write your own)\n\nContinuous measurements\nCounts\nBinary (yes/no, presence/absence)\nProportions\nCategories\nOther: ___________\n\n\n\n\nMy data structure includes: (check all that apply)\n\nRepeated measures on the same units\nMultiple sites/plots/locations\nTime series\nNested structure (e.g., plants within plots within sites)\nJust one observation per unit\nOther: ___________\n\n\n\n\nOne worry I have about analyzing my data:        \n\n\n\n\n\n\n3.2 Part 2: Graffitti discussion (12 minutes)\nYour task: - Move freely around the room - Use markers to write on ANY of the questions (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required\n\n\n\n\n\n\nThe Five Questions\n\n\n\nWall 1: “What’s the hardest thing about data analysis for you?”\nWall 2: “What’s the gap between what you learned in stats class and what you actually need/use?”\nWall 3: “What do you wish your advisor/committee understood about statistical analysis?”\nWall 4: “What statistical concept do you pretend to understand but actually don’t?”\nWall 5: “What do you want to learn in this class?”\nWall 6: “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”\n\n\n\n3.2.1 Post-graffitti (6 min)\nBrief discussion of themes and patterns from the walls. This will inform future class topics.\n\n\n3.2.2 Part 3: Main concept –&gt; Lecture\n\n\n3.2.3 The Method-Question-Data Triangle (15 min)\n     RESEARCH QUESTION\n            /\\\n           /  \\\n          /    \\\n         /      \\\n        /        \\\n       /          \\\nDATA TYPE -------- METHOD CHOICE\nAll needed to be aligned. Dr. Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.\n\n\n3.2.4 🤝 Think-Pair-Share (5 min)\nPrompt:\n\nLook back at your silent reflection sheet. Based on the three examples:\n\nWhat method might be appropriate for YOUR data?\nWhat’s one thing about your data structure that makes method choice tricky?\n\n\n\nThink (1 min) — jot notes on your sheet\nPair (3 min) — discuss with a neighbor, help each other troubleshoot\nShare (1 min) — 2–3 volunteers share their pairing’s most interesting dilemma\n\n\n\n3.2.5 Detective Station\n\n\n\n3.3 4. Data Detective: Diagnosis Stations (25 min)\n\n3.3.1 Setup\nSix stations around the room, each with a scenario card describing: - A research question - A dataset description - A statistical method that was used (or is being proposed)\nYour job: Diagnose whether the method fits the question and data.\nRotation schedule: - 4 minutes per station - Work in pairs or trios - Record your diagnosis on the station worksheet\n\n\n\n3.3.2 🔍 Station 1: Salamander Survival\nResearch Question:\nDoes canopy cover affect salamander survival in forest fragments?\nData:\n\n12 forest fragments\n20 salamanders marked in each fragment (240 total)\nSurvival recorded as binary (alive/dead) after one year\nCanopy cover measured as % for each fragment\n\nProposed Method:\nLogistic regression: glm(survival ~ canopy_cover, family = binomial)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.3.3 🔍 Station 2: Wheat Yield Trials\nResearch Question:\nWhich of 5 wheat varieties produces the highest yield?\nData:\n\n5 varieties tested in 4 blocks (randomized complete block design)\nOne plot per variety per block (20 plots total)\nYield (kg/ha) recorded once per plot\nData look approximately normal\n\nProposed Method:\nOne-way ANOVA: aov(yield ~ variety)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.3.4 🔍 Station 3: Bird Abundance Over Time\nResearch Question:\nIs bird abundance declining in urban parks?\nData:\n\n8 urban parks surveyed\nEach park visited 6 times per year for 5 years (240 total observations)\nResponse: count of birds per visit (range: 0–89)\nYear as continuous predictor\n\nProposed Method:\nLinear regression: lm(bird_count ~ year)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.3.5 🔍 Station 4: Soil Microbial Diversity\nResearch Question:\nDoes tillage treatment affect soil microbial diversity?\nData:\n\n3 treatments: no-till, reduced till, conventional till\n10 fields per treatment (30 fields total)\nShannon diversity index calculated for each field (continuous, 0–5)\nData slightly right-skewed but otherwise well-behaved\n\nProposed Method:\nKruskal-Wallis test (non-parametric)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.3.6 🔍 Station 5: Pollinator Network Complexity\nResearch Question:\nDo pollinator networks become more complex with plant diversity?\nData:\n\n25 meadows sampled\nPlant diversity (species richness) recorded per meadow\nNetwork complexity score calculated (continuous, 1.2–8.7)\nData are normal, linear relationship looks reasonable\n\nProposed Method:\nBayesian multilevel model with varying intercepts and slopes, spatial Gaussian process\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n\n3.3.7 🔍 Station 6: Seedling Germination Experiment\nResearch Question:\nDoes stratification time (0, 30, 60, 90 days) affect germination rate?\nData:\n\n4 stratification treatments\n10 petri dishes per treatment (40 dishes)\n50 seeds per dish\nResponse: proportion germinated (0.0–1.0)\n\nProposed Method:\nLinear regression: lm(proportion ~ stratification_time)\nYour Diagnosis:\n\nGood match — use as is\nNeeds modification — what’s missing?\nWrong method — what would you use instead?\n\nWhy?\n\n\n\n3.3.8 Exit ticket:\nIs thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?\n\n\n3.3.9 Thursday session: coding workshop"
+  },
+  {
+    "objectID": "slides/slides-Week03.html",
+    "href": "slides/slides-Week03.html",
+    "title": "Matching Methods to Research Questions",
+    "section": "",
+    "text": "We often learn methods in isolation\n\n“This is a t-test”\n“This is ANOVA”\n“This is regression”\n\nThen we have data and ask: “What test do I run?”\nThis is backwards!\n\n. . .\nKey insight: The research question should drive everything"
+  },
+  {
+    "objectID": "materials/fivewalls.html",
+    "href": "materials/fivewalls.html",
+    "title": "Week 03 — Six Walls",
+    "section": "",
+    "text": "div { &.callout { font-size: 2.0rem !important; } }"
+  },
+  {
+    "objectID": "materials/fivewalls.html#your-task",
+    "href": "materials/fivewalls.html#your-task",
+    "title": "Week 03 — Six Walls",
+    "section": "",
+    "text": "Your task: - Move freely around the room - Use markers to write on ANY of the questions (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required\n\n\n\n\n\n\nThe six Questions\n\n\n\nWall 1: “What’s the hardest thing about data analysis for you?”\nWall 2: “What’s the gap between what you learned in stats class and what you actually need/use?”\nWall 3: “What do you wish your advisor/committee understood about statistical analysis?”\nWall 4: “What statistical concept do you pretend to understand but actually don’t?”\nWall 5: “What do you want to learn in this class?”\nWall 6: “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”"
+  },
+  {
+    "objectID": "materials/sixq.html",
+    "href": "materials/sixq.html",
+    "title": "Week 03 — Wall Questions",
+    "section": "",
+    "text": "Your task: - Move freely around the room - Use markers to write on ANY of the questions (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required\n\n\n\n\n\n\nReflection Prompts\n\n\n\n\nMy research question is (one sentence): ## The Six Questions\n\nWall 1: “What’s the hardest thing about data analysis for you?”\nWall 2: “What’s the gap between what you learned in stats class and what you actually need/use?”\nWall 3: “What do you wish your advisor/committee understood about statistical analysis?”\nWall 4: “What statistical concept do you pretend to understand but actually don’t?”\nWall 5: “What do you want to learn in this class?”\nWall 6: “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”"
   }
 ]

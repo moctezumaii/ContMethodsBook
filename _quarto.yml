@@ -25,7 +25,13 @@ site:
       - text: Projects
         menu:
           - text: Project Home
-            href: projects/index.qmd         
+            href: projects/index.qmd
+      - text: Materials
+        menu:
+          - text: Week 3 questions
+            href: materials/Week3questions.qmd
+          - text: Week 3 graffiti wall activity
+            href: materials/sixq.qmd       
     right:
       - text: Resources
         menu:

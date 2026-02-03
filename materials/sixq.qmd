@@ -1,0 +1,31 @@
+---
+title: "Week 03 — Wall Questions"
+format: html
+---
+
+**Your task:**
+- Move freely around the room
+- Use markers to write on ANY of the questions (words, phrases, questions, drawings)
+- Read what others wrote
+- Add +1, arrows, or comments to build on others' ideas
+- No names required
+
+::: {.callout-warning}
+## Reflection Prompts
+
+1.  **My research question is (one sentence):**
+## The Six Questions
+
+**Wall 1:** "What's the hardest thing about data analysis for you?"
+
+**Wall 2:** "What's the gap between what you learned in stats class and what you actually need/use?"
+
+**Wall 3:** "What do you wish your advisor/committee understood about statistical analysis?"
+
+**Wall 4:** "What statistical concept do you pretend to understand but actually don't?"
+
+**Wall 5:** "What do you want to learn in this class?"
+
+**Wall 6:** "Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don't know why? If yes, explain"
+
+:::

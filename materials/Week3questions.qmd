@@ -1,0 +1,42 @@
+<div>
+
+---
+title: "Week 03 — Linear Models and GLM's"
+format: html
+---
+div {
+  &.callout {
+    font-size: 2.0rem !important;
+  }
+}
+</div>
+
+::: {.callout-tip style="font-size: 2.5rem" appearance="minimal"}
+## Reflection Prompts
+
+1.  **My research question is (one sentence):**
+
+<br> <br>
+
+2.  **My response variable is:** (circle one or write your own)
+    -   Continuous measurements
+    -   Counts
+    -   Binary (yes/no, presence/absence)
+    -   Proportions
+    -   Categories
+    -   Other: \_\_\_\_\_\_\_\_\_\_\_
+
+<br>
+
+3.  **My data structure includes:** (check all that apply)
+    -   [ ] Repeated measures on the same units
+    -   [ ] Multiple sites/plots/locations
+    -   [ ] Time series
+    -   [ ] Nested structure (e.g., plants within plots within sites)
+    -   [ ] Just one observation per unit
+    -   [ ] Other: \_\_\_\_\_\_\_\_\_\_\_
+
+<br>
+
+4.  **One worry I have about analyzing my data:** <br> <br> <br> <br> <br> <br> <br> <br>
+:::

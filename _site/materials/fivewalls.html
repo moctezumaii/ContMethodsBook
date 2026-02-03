@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 03 — Statistical Modeling Framework – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Week 03 — Six Walls – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -181,28 +181,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">2</span> Background</a></li>
-  <li><a href="#before-class" id="toc-before-class" class="nav-link" data-scroll-target="#before-class"><span class="header-section-number">3</span> Before class</a>
-  <ul class="collapse">
-  <li><a href="#session-a" id="toc-session-a" class="nav-link" data-scroll-target="#session-a"><span class="header-section-number">3.1</span> Session A:</a></li>
-  <li><a href="#part-2-graffitti-discussion-12-minutes" id="toc-part-2-graffitti-discussion-12-minutes" class="nav-link" data-scroll-target="#part-2-graffitti-discussion-12-minutes"><span class="header-section-number">3.2</span> Part 2: Graffitti discussion (12 minutes)</a></li>
-  <li><a href="#data-detective-diagnosis-stations-25-min" id="toc-data-detective-diagnosis-stations-25-min" class="nav-link" data-scroll-target="#data-detective-diagnosis-stations-25-min"><span class="header-section-number">3.3</span> 4. Data Detective: Diagnosis Stations (25 min)</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 03 — Statistical Modeling Framework</h1>
+<h1 class="title">Week 03 — Six Walls</h1>
 </div>
 
 
@@ -219,95 +206,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Week: 3</p>
-<p>Topic: Statistical Modeling Framework</p>
-<section id="learning-objectives" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1</span> Learning Objectives</h2>
-<p>Connect research questions, data structure and data analysis</p>
-</section>
-<section id="background" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="background"><span class="header-section-number">2</span> Background</h2>
-<p>No background this week. After class, review the following topics:</p>
-<ul>
-<li>Inference</li>
-<li>Linear Models</li>
-<li>Distributions
-<ul>
-<li>Normal</li>
-<li>Binomial</li>
-<li>Poisson</li>
-<li>Negative Binomial</li>
-</ul></li>
-</ul>
-</section>
-<section id="before-class" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="before-class"><span class="header-section-number">3</span> Before class</h2>
-<p>Think about:</p>
-<ul>
-<li>A dataset you’re currently working with (or interested in working with)</li>
-<li>The main research question you want to answer</li>
-<li>What is your response variable? What is its distribution?</li>
-</ul>
-<section id="session-a" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="session-a"><span class="header-section-number">3.1</span> Session A:</h3>
-<section id="part-1-silent-reflection-10-min" class="level4" data-number="3.1.1">
-<h4 data-number="3.1.1" class="anchored" data-anchor-id="part-1-silent-reflection-10-min"><span class="header-section-number">3.1.1</span> Part 1: Silent Reflection (10 min)</h4>
-<p>On the paper I gave you, write the following:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Reflection Prompts
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>My research question is (one sentence):</strong></li>
-</ol>
-<p><br> <br></p>
-<ol start="2" type="1">
-<li><strong>My response variable is:</strong> (circle one or write your own)
-<ul>
-<li>Continuous measurements</li>
-<li>Counts</li>
-<li>Binary (yes/no, presence/absence)</li>
-<li>Proportions</li>
-<li>Categories</li>
-<li>Other: ___________</li>
-</ul></li>
-</ol>
-<p><br></p>
-<ol start="3" type="1">
-<li><strong>My data structure includes:</strong> (check all that apply)
-<ul class="task-list">
-<li><label><input type="checkbox">Repeated measures on the same units</label></li>
-<li><label><input type="checkbox">Multiple sites/plots/locations</label></li>
-<li><label><input type="checkbox">Time series</label></li>
-<li><label><input type="checkbox">Nested structure (e.g., plants within plots within sites)</label></li>
-<li><label><input type="checkbox">Just one observation per unit</label></li>
-<li><label><input type="checkbox">Other: ___________</label></li>
-</ul></li>
-</ol>
-<p><br></p>
-<ol start="4" type="1">
-<li><strong>One worry I have about analyzing my data:</strong> <br> <br> <br> <br> <br> <br> <br> <br></li>
-</ol>
-</div>
-</div>
-</section>
-</section>
-<section id="part-2-graffitti-discussion-12-minutes" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="part-2-graffitti-discussion-12-minutes"><span class="header-section-number">3.2</span> Part 2: Graffitti discussion (12 minutes)</h3>
+div { &amp;.callout { font-size: 2.0rem !important; } }
+</main></div>
 <p><strong>Your task:</strong> - Move freely around the room - Use markers to write on ANY of the questions (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required</p>
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" style="font-size: 2.5rem">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The Five Questions
+The six Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -319,204 +227,10 @@ The Five Questions
 <p><strong>Wall 6:</strong> “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”</p>
 </div>
 </div>
-<section id="post-graffitti-6-min" class="level4" data-number="3.2.1">
-<h4 data-number="3.2.1" class="anchored" data-anchor-id="post-graffitti-6-min"><span class="header-section-number">3.2.1</span> Post-graffitti (6 min)</h4>
-<p>Brief discussion of themes and patterns from the walls. This will inform future class topics.</p>
-</section>
-<section id="part-3-main-concept-lecture" class="level4" data-number="3.2.2">
-<h4 data-number="3.2.2" class="anchored" data-anchor-id="part-3-main-concept-lecture"><span class="header-section-number">3.2.2</span> Part 3: Main concept –&gt; Lecture</h4>
-</section>
-<section id="the-method-question-data-triangle-15-min" class="level4" data-number="3.2.3">
-<h4 data-number="3.2.3" class="anchored" data-anchor-id="the-method-question-data-triangle-15-min"><span class="header-section-number">3.2.3</span> The Method-Question-Data Triangle (15 min)</h4>
-<pre><code>     RESEARCH QUESTION
-            /\
-           /  \
-          /    \
-         /      \
-        /        \
-       /          \
-DATA TYPE -------- METHOD CHOICE</code></pre>
-<p>All needed to be aligned. Dr.&nbsp;Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.</p>
-</section>
-<section id="think-pair-share-5-min" class="level4" data-number="3.2.4">
-<h4 data-number="3.2.4" class="anchored" data-anchor-id="think-pair-share-5-min"><span class="header-section-number">3.2.4</span> 🤝 Think-Pair-Share (5 min)</h4>
-<p><strong>Prompt:</strong></p>
-<blockquote class="blockquote">
-<p>Look back at your silent reflection sheet. Based on the three examples:</p>
-<ul>
-<li>What method might be appropriate for YOUR data?</li>
-<li>What’s one thing about your data structure that makes method choice tricky?</li>
-</ul>
-</blockquote>
-<ol type="1">
-<li><strong>Think</strong> (1 min) — jot notes on your sheet</li>
-<li><strong>Pair</strong> (3 min) — discuss with a neighbor, help each other troubleshoot</li>
-<li><strong>Share</strong> (1 min) — 2–3 volunteers share their pairing’s most interesting dilemma</li>
-</ol>
-</section>
-<section id="detective-station" class="level4" data-number="3.2.5">
-<h4 data-number="3.2.5" class="anchored" data-anchor-id="detective-station"><span class="header-section-number">3.2.5</span> Detective Station</h4>
-</section>
-</section>
-<section id="data-detective-diagnosis-stations-25-min" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="data-detective-diagnosis-stations-25-min"><span class="header-section-number">3.3</span> 4. Data Detective: Diagnosis Stations (25 min)</h3>
-<section id="setup" class="level4" data-number="3.3.1">
-<h4 data-number="3.3.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.3.1</span> Setup</h4>
-<p><strong>Six stations</strong> around the room, each with a <strong>scenario card</strong> describing: - A research question - A dataset description - A statistical method that was used (or is being proposed)</p>
-<p><strong>Your job:</strong> Diagnose whether the method fits the question and data.</p>
-<p><strong>Rotation schedule:</strong> - 4 minutes per station - Work in pairs or trios - Record your diagnosis on the station worksheet</p>
-<hr>
-</section>
-<section id="station-1-salamander-survival" class="level4" data-number="3.3.2">
-<h4 data-number="3.3.2" class="anchored" data-anchor-id="station-1-salamander-survival"><span class="header-section-number">3.3.2</span> 🔍 Station 1: Salamander Survival</h4>
-<p><strong>Research Question:</strong><br>
-Does canopy cover affect salamander survival in forest fragments?</p>
-<p><strong>Data:</strong></p>
-<ul>
-<li>12 forest fragments</li>
-<li>20 salamanders marked in each fragment (240 total)</li>
-<li>Survival recorded as binary (alive/dead) after one year</li>
-<li>Canopy cover measured as % for each fragment</li>
-</ul>
-<p><strong>Proposed Method:</strong><br>
-Logistic regression: <code>glm(survival ~ canopy_cover, family = binomial)</code></p>
-<p><strong>Your Diagnosis:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
-</ul>
-<p><strong>Why?</strong></p>
-<p><br><br><br></p>
-<hr>
-</section>
-<section id="station-2-wheat-yield-trials" class="level4" data-number="3.3.3">
-<h4 data-number="3.3.3" class="anchored" data-anchor-id="station-2-wheat-yield-trials"><span class="header-section-number">3.3.3</span> 🔍 Station 2: Wheat Yield Trials</h4>
-<p><strong>Research Question:</strong><br>
-Which of 5 wheat varieties produces the highest yield?</p>
-<p><strong>Data:</strong></p>
-<ul>
-<li>5 varieties tested in 4 blocks (randomized complete block design)</li>
-<li>One plot per variety per block (20 plots total)</li>
-<li>Yield (kg/ha) recorded once per plot</li>
-<li>Data look approximately normal</li>
-</ul>
-<p><strong>Proposed Method:</strong><br>
-One-way ANOVA: <code>aov(yield ~ variety)</code></p>
-<p><strong>Your Diagnosis:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
-</ul>
-<p><strong>Why?</strong></p>
-<p><br><br><br></p>
-<hr>
-</section>
-<section id="station-3-bird-abundance-over-time" class="level4" data-number="3.3.4">
-<h4 data-number="3.3.4" class="anchored" data-anchor-id="station-3-bird-abundance-over-time"><span class="header-section-number">3.3.4</span> 🔍 Station 3: Bird Abundance Over Time</h4>
-<p><strong>Research Question:</strong><br>
-Is bird abundance declining in urban parks?</p>
-<p><strong>Data:</strong></p>
-<ul>
-<li>8 urban parks surveyed</li>
-<li>Each park visited 6 times per year for 5 years (240 total observations)</li>
-<li>Response: count of birds per visit (range: 0–89)</li>
-<li>Year as continuous predictor</li>
-</ul>
-<p><strong>Proposed Method:</strong><br>
-Linear regression: <code>lm(bird_count ~ year)</code></p>
-<p><strong>Your Diagnosis:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
-</ul>
-<p><strong>Why?</strong></p>
-<p><br><br><br></p>
-<hr>
-</section>
-<section id="station-4-soil-microbial-diversity" class="level4" data-number="3.3.5">
-<h4 data-number="3.3.5" class="anchored" data-anchor-id="station-4-soil-microbial-diversity"><span class="header-section-number">3.3.5</span> 🔍 Station 4: Soil Microbial Diversity</h4>
-<p><strong>Research Question:</strong><br>
-Does tillage treatment affect soil microbial diversity?</p>
-<p><strong>Data:</strong></p>
-<ul>
-<li>3 treatments: no-till, reduced till, conventional till</li>
-<li>10 fields per treatment (30 fields total)</li>
-<li>Shannon diversity index calculated for each field (continuous, 0–5)</li>
-<li>Data slightly right-skewed but otherwise well-behaved</li>
-</ul>
-<p><strong>Proposed Method:</strong><br>
-Kruskal-Wallis test (non-parametric)</p>
-<p><strong>Your Diagnosis:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
-</ul>
-<p><strong>Why?</strong></p>
-<p><br><br><br></p>
-<hr>
-</section>
-<section id="station-5-pollinator-network-complexity" class="level4" data-number="3.3.6">
-<h4 data-number="3.3.6" class="anchored" data-anchor-id="station-5-pollinator-network-complexity"><span class="header-section-number">3.3.6</span> 🔍 Station 5: Pollinator Network Complexity</h4>
-<p><strong>Research Question:</strong><br>
-Do pollinator networks become more complex with plant diversity?</p>
-<p><strong>Data:</strong></p>
-<ul>
-<li>25 meadows sampled</li>
-<li>Plant diversity (species richness) recorded per meadow</li>
-<li>Network complexity score calculated (continuous, 1.2–8.7)</li>
-<li>Data are normal, linear relationship looks reasonable</li>
-</ul>
-<p><strong>Proposed Method:</strong><br>
-Bayesian multilevel model with varying intercepts and slopes, spatial Gaussian process</p>
-<p><strong>Your Diagnosis:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
-</ul>
-<p><strong>Why?</strong></p>
-<p><br><br><br></p>
-<hr>
-</section>
-<section id="station-6-seedling-germination-experiment" class="level4" data-number="3.3.7">
-<h4 data-number="3.3.7" class="anchored" data-anchor-id="station-6-seedling-germination-experiment"><span class="header-section-number">3.3.7</span> 🔍 Station 6: Seedling Germination Experiment</h4>
-<p><strong>Research Question:</strong><br>
-Does stratification time (0, 30, 60, 90 days) affect germination rate?</p>
-<p><strong>Data:</strong></p>
-<ul>
-<li>4 stratification treatments</li>
-<li>10 petri dishes per treatment (40 dishes)</li>
-<li>50 seeds per dish</li>
-<li>Response: proportion germinated (0.0–1.0)</li>
-</ul>
-<p><strong>Proposed Method:</strong><br>
-Linear regression: <code>lm(proportion ~ stratification_time)</code></p>
-<p><strong>Your Diagnosis:</strong></p>
-<ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
-</ul>
-<p><strong>Why?</strong></p>
-<p><br><br><br></p>
-</section>
-<section id="exit-ticket" class="level4" data-number="3.3.8">
-<h4 data-number="3.3.8" class="anchored" data-anchor-id="exit-ticket"><span class="header-section-number">3.3.8</span> Exit ticket:</h4>
-<p>Is thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?</p>
-</section>
-<section id="thursday-session-coding-workshop" class="level4" data-number="3.3.9">
-<h4 data-number="3.3.9" class="anchored" data-anchor-id="thursday-session-coding-workshop"><span class="header-section-number">3.3.9</span> Thursday session: coding workshop</h4>
 
 
-</section>
-</section>
-</section>
 
-</main> <!-- /main -->
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -934,7 +648,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</div> <!-- /content -->
+ <!-- /content -->
 
 
 

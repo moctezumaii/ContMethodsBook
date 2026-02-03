@@ -8,7 +8,7 @@ format:
     incremental: true   
     scrollable: true
     smaller: true
-    fontsize: 50px
+    fontsize: 45px
     chalkboard: true
     theme: default
     code-fold: true
@@ -21,24 +21,28 @@ execute:
 
 ## The Problem {.smaller}
 
-- We often learn methods in isolation
-  - "This is a t-test"
-  - "This is ANOVA"
-  - "This is regression"
+-   We often learn methods in isolation --\> during classes
 
-- Then we have data and ask: **"What test do I run?"**
+    -   "This is a t-test"
+    -   "This is ANOVA"
+    -   "This is regression"
+    -   "This is Bayesian"
 
-- This is **backwards!**
+-   Then we want to apply those methods in our data.
+
+-   This is particularly true for people that really enjoy analytical methods!
+
+-   This is **backwards!**
 
 . . .
 
-**Key insight:** The research question should drive everything
+The research question should drive everything!
 
----
+------------------------------------------------------------------------
 
 ## The Triangle Framework {.center}
 
-```
+```         
          RESEARCH QUESTION
                 /\
                /  \
@@ -57,17 +61,17 @@ execute:
 
 Misalignment leads to:
 
-- Wrong conclusions
-- Wasted effort  
-- Rejected papers
-- Sad grad students! :frowning:
+-   Wrong conclusions
+-   Wasted effort\
+-   Rejected papers
+-   Sad grad students! 😦
 
----
+------------------------------------------------------------------------
 
 ## Research Question Drives Everything
 
 | Question Type | What You're Looking For | Example Methods |
-|--------------|------------------------|-----------------|
+|----|----|----|
 | Is there a difference? | Comparison | t-test, ANOVA, GLM |
 | Is there a relationship? | Association | Regression, correlation |
 | Can I predict? | Prediction | ML, regression |
@@ -77,80 +81,80 @@ Misalignment leads to:
 
 Your question determines what "answer" looks like!
 
----
+------------------------------------------------------------------------
 
 ## Data Type Constrains Your Options
 
-| Response Variable | Distribution | Common Methods |
-|------------------|--------------|----------------|
-| Continuous, normal | Gaussian | LM, ANOVA |
-| Counts (0, 1, 2, ...) | Poisson, NegBin | GLM |
-| Binary (yes/no) | Binomial | Logistic regression |
-| Proportions (0-1) | Binomial, Beta | GLM, Beta regression |
+| Response Variable     | Distribution    | Common Methods       |
+|-----------------------|-----------------|----------------------|
+| Continuous, normal    | Gaussian        | LM, ANOVA            |
+| Counts (0, 1, 2, ...) | Poisson, NegBin | GLM                  |
+| Binary (yes/no)       | Binomial        | Logistic regression  |
+| Proportions (0-1)     | Binomial, Beta  | GLM, Beta regression |
 
 . . .
 
 **Also consider:**
 
-- Independence vs. grouping
-- Repeated measures
-- Nested/hierarchical structure
+-   Independence vs. grouping
+-   Repeated measures
+-   Nested/hierarchical structure
 
----
+------------------------------------------------------------------------
 
 ## The Alignment Check ✅
 
 Before analyzing, ask yourself:
 
-1. ✅ What exactly is my **question**?
+1.  ✅ What exactly is my **question**?
 
-2. ✅ What type of **response variable** do I have?
+2.  ✅ What type of **response variable** do I have?
 
-3. ✅ What is my **data structure** (grouping, nesting, time)?
+3.  ✅ What is my **data structure** (grouping, nesting, time)?
 
-4. ✅ Does my method handle all of this?
+4.  ✅ Does my method handle all of this?
 
 . . .
 
 If you can't answer these → **STOP and think!**
 
----
+------------------------------------------------------------------------
 
 ## Three Common Scenarios
 
 We'll look at three examples:
 
-1. **Mismatch** - Method ignores key data structure
+1.  **Mismatch** - Method ignores key data structure
 
-2. **Good Match** - Method fits question and data
+2.  **Good Match** - Method fits question and data
 
-3. **Overcomplicated** - Method is fancier than needed
+3.  **Overcomplicated** - Method is fancier than needed
 
 . . .
 
 Let's see each one...
 
----
+------------------------------------------------------------------------
 
 ## Example 1: MISMATCH {background-color="#ffcccc"}
 
-**Scenario:** 
+**Scenario:**
 
-- Testing fertilizer effect on crop yield
-- 5 fields, 4 plots per field
-- 2 control plots, 2 fertilized plots per field
+-   Testing fertilizer effect on crop yield
+-   5 fields, 4 plots per field
+-   2 control plots, 2 fertilized plots per field
 
 . . .
 
 **The analysis:**
 
-```r
+``` r
 lm(yield ~ fertilizer)
 ```
 
-- Treats all 20 observations as independent!
+-   Treats all 20 observations as independent!
 
----
+------------------------------------------------------------------------
 
 ## Example 1: The Problem {background-color="#ffcccc"}
 
@@ -208,7 +212,7 @@ ggplot(mismatch_data, aes(x = treatment, y = yield, color = field, group = field
   theme(legend.position = "right")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Example 1: Wrong vs. Right {background-color="#ffcccc"}
 
@@ -245,27 +249,26 @@ cat("  p-value:", round(0.02), "\n")
 
 . . .
 
-
-
----
+------------------------------------------------------------------------
 
 ## Example 1: The Fix {background-color="#ffcccc"}
 
-::: {.nonincremental}
+
 **In this design (treatment within fields):**
 
-- The wrong model has inflated standard errors because it treats field variance as residual noise
-- The correct model* separates field variance → cleaner estimate of treatment effect
-- This means reduced power when you ignore structure
+-   The wrong model has inflated standard errors because it treats field variance as residual noise
+-   The correct model\* separates field variance → cleaner estimate of treatment effect
+-   This means reduced power when you ignore structure
+
+. . .
+
 
 **In other designs (treatment between fields):**
 
-- Ignoring structure would inflate Type I error instead
-- 
-:::
+-   Ignoring structure would inflate Type I error instead
 
 
-```r
+``` r
 
 
 # Wrong
@@ -279,26 +282,26 @@ lmer(yield ~ treatment + (1|field))
 
 **Lesson:** Always check your independence assumption!
 
----
+------------------------------------------------------------------------
 
 ## Example 2: GOOD MATCH {background-color="#ccffcc"}
 
 **Scenario:**
 
-- Pollinator visits to flowers
-- 2 treatments: native vs. non-native plants
-- 30 plants per treatment
-- Response: count of visits (0 to ~45)
+-   Pollinator visits to flowers
+-   2 treatments: native vs. non-native plants
+-   30 plants per treatment
+-   Response: count of visits (0 to \~45)
 
 . . .
 
 **The approach:**
 
-```r
+``` r
 glm(visits ~ treatment, family = poisson)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Example 2: The Data {background-color="#ccffcc"}
 
@@ -339,7 +342,7 @@ ggplot(goodmatch_data, aes(x = treatment, y = visits, fill = treatment)) +
   theme(legend.position = "none")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Example 2: Why It Works {background-color="#ccffcc"}
 
@@ -355,12 +358,12 @@ summary(poisson_model)$coefficients
 
 **Checklist:**
 
-- ✅ Count data → Poisson distribution
-- ✅ No upper bound on counts
-- ✅ Independent observations (different plants)
-- ✅ Simple comparison question
+-   ✅ Count data → Poisson distribution
+-   ✅ No upper bound on counts
+-   ✅ Independent observations (different plants)
+-   ✅ Simple comparison question
 
----
+------------------------------------------------------------------------
 
 ## Example 2: Interpretation {background-color="#ccffcc"}
 
@@ -377,16 +380,16 @@ cat("Native plants get", round((exp(est) - 1) * 100, 1), "% more visits\n")
 
 **Lesson:** Match your distribution to your data type!
 
----
+------------------------------------------------------------------------
 
 ## Example 3: OVERCOMPLICATED {background-color="#ffffcc"}
 
 **Scenario:**
 
-- Tree height in 2 forest types
-- 30 trees per forest type
-- Normal distribution, no grouping
-- Simple question: "Is there a difference?"
+-   Tree height in 2 forest types
+-   30 trees per forest type
+-   Normal distribution, no grouping
+-   Simple question: "Is there a difference?"
 
 . . .
 
@@ -394,7 +397,7 @@ cat("Native plants get", round((exp(est) - 1) * 100, 1), "% more visits\n")
 
 "Let's use a Bayesian hierarchical model with spatial autocorrelation, weakly informative priors, and MCMC sampling!"
 
----
+------------------------------------------------------------------------
 
 ## Example 3: The Data {background-color="#ffffcc"}
 
@@ -437,7 +440,7 @@ ggplot(overcomp_data, aes(x = forest_type, y = height, fill = forest_type)) +
   theme(legend.position = "none")
 ```
 
----
+------------------------------------------------------------------------
 
 ## Example 3: Simple vs. Complex {background-color="#ffffcc"}
 
@@ -455,24 +458,24 @@ cat("p-value:", format(simple_test$p.value, digits = 3), "\n")
 
 . . .
 
-**Time to run:** ~0.001 seconds
+**Time to run:** \~0.001 seconds
 
-**A Bayesian spatial model:** ~5-10 minutes
+**A Bayesian spatial model:** \~5-10 minutes
 
 **Same answer!**
 
----
+------------------------------------------------------------------------
 
 ## Example 3: The Lesson {background-color="#ffffcc"}
 
-::: {.nonincremental}
+::: nonincremental
 **Problems with overcomplication:**
 
-- Takes much longer to fit
-- Harder to interpret
-- Reviewers get confused
-- More things can go wrong
-- Same answer as simple approach!
+-   Takes much longer to fit
+-   Harder to interpret
+-   Reviewers get confused
+-   More things can go wrong
+-   Same answer as simple approach!
 :::
 
 . . .
@@ -483,19 +486,25 @@ cat("p-value:", format(simple_test$p.value, digits = 3), "\n")
 
 . . .
 
-Save fancy methods for when you **need** them!
+Save fancy methods for when you need them!
 
----
+. . .
+
+I know this is challenging! When I learn about new methods, I want to use them ALL THE TIME. But resist the urge! Focus on the researhc question!
+
+If you teach, you get to explore any methods you want in your lessons!
+
+------------------------------------------------------------------------
 
 ## Summary: Three Scenarios
 
 | Example | Problem | Consequence | Lesson |
-|---------|---------|-------------|--------|
+|-----------------|-----------------|----------------------|-----------------|
 | **Mismatch** | Ignored grouping structure | False positive risk | Check independence |
 | **Good Match** | None - appropriate method | Valid inference | Match distribution |
 | **Overcomplicated** | Unnecessary complexity | Wasted effort | Start simple |
 
----
+------------------------------------------------------------------------
 
 ## Your Checklist {.center}
 
@@ -503,24 +512,21 @@ Before you analyze, ask:
 
 . . .
 
-1️⃣ What is my **question**?
-   (difference, relationship, prediction)
+1️⃣ What is my **question**? (difference, relationship, prediction)
 
 . . .
 
-2️⃣ What is my **response variable**?
-   (continuous, count, binary, proportion)
+2️⃣ What is my **response variable**? (continuous, count, binary, proportion)
 
 . . .
 
-3️⃣ What is my **data structure**?
-   (independent, grouped, nested, repeated)
+3️⃣ What is my **data structure**? (independent, grouped, nested, repeated)
 
 . . .
 
 4️⃣ Does my **method** handle all three?
 
----
+------------------------------------------------------------------------
 
 ## The Golden Rule {.center background-color="#e6f3ff"}
 
@@ -536,22 +542,42 @@ Before you analyze, ask:
 
 ### Always justify your choices.
 
----
+------------------------------------------------------------------------
 
 ## Now It's Your Turn! {.center}
 
-**Data Detective Stations**
+**Think-Pair-Share (5 min)**
 
-- 6 scenarios around the room
-- Diagnose: Mismatch? Good match? Overcomplicated?
-- Work in pairs
-- 4 minutes per station
+> Look back at your silent reflection sheet. Based on the three examples:
+> 
+> - What method might be appropriate for YOUR data?
+> - What's one thing about your data structure that makes method choice tricky?
+
+1. **Think** (<1 min) — you already did this... you can use 30 seconds to update your notes
+2. **Pair** (3 min) — discuss with a neighbor, help each other troubleshoot
+3. **Share** (1 min) — 2–3 volunteers share their pairing's most interesting dilemma
 
 . . .
 
 **Grab your worksheet and let's go!**
 
----
+------------------------------------------------------------------------
+
+
+## Now It's Your Turn! {.center}
+
+**Data Detective Stations**
+
+-   6 scenarios around the room
+-   Diagnose: Mismatch? Good match? Overcomplicated?
+-   Work in pairs
+-   4 minutes per station
+
+. . .
+
+**Grab your worksheet and let's go!**
+
+------------------------------------------------------------------------
 
 ## Appendix: Full Simulation Code {.smaller}
 
@@ -613,7 +639,7 @@ summary(wrong_model)
 summary(correct_model)
 ```
 
----
+------------------------------------------------------------------------
 
 ## Appendix: Full Simulation Code (continued) {.smaller}
 
@@ -652,8 +678,8 @@ summary(poisson_model)
 exp(coef(poisson_model)["treatmentnative"])  # Multiplicative effect
 ```
 
----
- 
+------------------------------------------------------------------------
+
 ## Appendix: Full Simulation Code (continued) {.smaller}
 
 ```{r}
