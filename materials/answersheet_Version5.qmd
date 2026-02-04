@@ -1,0 +1,840 @@
+---
+title: "Week 03 Session B — Answer Sheet"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    include-in-header:
+      text: |
+        <style>
+          #protected-content { display: none; }
+          #password-form { 
+            max-width: 450px; 
+            margin: 100px auto; 
+            padding: 40px;
+            border: 2px solid #dc3545;
+            border-radius: 12px;
+            text-align: center;
+            background-color: #fff8f8;
+          }
+          #password-form h2 {
+            color: #dc3545;
+            margin-bottom: 20px;
+          }
+          #password-form input[type="password"] {
+            padding: 12px;
+            width: 250px;
+            margin: 15px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+          }
+          #password-form button {
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+          }
+          #password-form button:hover {
+            background-color: #c82333;
+          }
+          .error-message {
+            color: #dc3545;
+            margin-top: 15px;
+            font-weight: bold;
+          }
+          .warning-text {
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+          }
+        </style>
+---
+
+<div id="password-form">
+  <h2>🔒 Instructor Access Only</h2>
+  <p>This page contains solutions to the Week 03 coding activities.</p>
+  <p><strong>Students:</strong> Please work through the problems yourself before viewing answers!</p>
+  <input type="password" id="password-input" placeholder="Enter instructor password">
+  <br>
+  <button onclick="checkPassword()">Access Answers</button>
+  <p id="error-msg" class="error-message"></p>
+  <p class="warning-text">If you are a student and don't have the password,<br>that means you shouldn't be here yet! 😊</p>
+</div>
+
+<div id="protected-content">
+
+::: {.callout-warning}
+## Instructor Use Only
+This document contains solutions and discussion points for the differentiated coding activities. Do not share with students until after the session.
+:::
+
+---
+
+# 🟢 Track A: Beginners
+
+## Option A2: My First Model — Expected Answers
+
+### Question: What does the slope for temperature mean?
+
+**Expected answer:** For every 1-degree increase in temperature, yield increases by approximately 1.3 units (the exact value depends on the data). This assumes a linear relationship and that all other factors are held constant.
+
+### Question: Which model explains more variance?
+
+**Expected answer:** Model 2 (with two predictors) will typically have a higher R-squared than Model 1. However, students should note:
+
+- R-squared always increases when you add predictors
+- Adjusted R-squared accounts for the number of predictors
+- A higher R-squared doesn't always mean a "better" model
+
+### Question: Interpret the coefficient for rainfall while "controlling for" temperature
+
+**Expected answer:** Holding temperature constant, for every 1-unit increase in rainfall, yield changes by [X] units. This is the *partial* effect of rainfall — the effect of rainfall after accounting for the relationship between temperature and yield.
+
+**Discussion point:** With the provided data, temperature and rainfall are correlated. This can lead to:
+
+- Coefficients that differ from simple correlations
+- Larger standard errors (multicollinearity)
+- Difficulty interpreting "independent" effects
+
+---
+
+# 🟡 Track B: Intermediate Stations
+
+## Station 1: Salamander Survival — Answer
+
+### What's wrong with the proposed method?
+
+The proposed method `glm(survival ~ canopy_cover, family = binomial)` treats each salamander as an independent observation. But salamanders within the same forest fragment are **not independent** - they share the same environment, microclimate, predators, etc.
+
+**The problem:** Pseudoreplication. The true sample size is 12 fragments, not 240 salamanders.
+
+### The correct approach
+
+Use a **generalized linear mixed model (GLMM)** with fragment as a random effect:
+
+```{r}
+#| label: station1-answer
+#| eval: false
+
+library(tidyverse)
+library(lme4)
+
+# -------------------------------------------
+# Simulate the data
+# -------------------------------------------
+
+set.seed(123)
+
+n_fragments <- 12
+n_salamanders_per_fragment <- 20
+
+# Create fragment-level data
+fragments <- data.frame(
+  fragment_id = 1:n_fragments,
+  canopy_cover = runif(n_fragments, 30, 90)
+)
+
+# Add fragment-level random effect
+# This represents unmeasured fragment-level variation
+fragments$fragment_effect <- rnorm(n_fragments, 0, 0.8)
+
+# Create individual salamander data
+salamander_data <- fragments %>%
+  slice(rep(1:n(), each = n_salamanders_per_fragment)) %>%
+  mutate(
+    salamander_id = 1:n(),
+    # True model: logit(survival) = -2 + 0.04*canopy + fragment_effect
+    log_odds = -2 + 0.04 * canopy_cover + fragment_effect,
+    prob_survival = plogis(log_odds),
+    survival = rbinom(n(), 1, prob_survival)
+  )
+
+# -------------------------------------------
+# WRONG approach (ignoring clustering)
+# -------------------------------------------
+
+wrong_model <- glm(survival ~ canopy_cover, 
+                   family = binomial, 
+                   data = salamander_data)
+summary(wrong_model)
+
+# -------------------------------------------
+# CORRECT approach (mixed model)
+# -------------------------------------------
+
+correct_model <- glmer(survival ~ canopy_cover + (1 | fragment_id), 
+                       family = binomial, 
+                       data = salamander_data)
+summary(correct_model)
+
+# -------------------------------------------
+# Compare results
+# -------------------------------------------
+
+# Extract coefficients and SEs
+wrong_coef <- summary(wrong_model)$coefficients
+correct_coef <- summary(correct_model)$coefficients
+
+cat("WRONG model SE for canopy_cover:", wrong_coef["canopy_cover", "Std. Error"], "\n")
+cat("CORRECT model SE for canopy_cover:", correct_coef["canopy_cover", "Std. Error"], "\n")
+```
+
+### What students should observe
+
+| Comparison | Wrong Model | Correct Model |
+|------------|-------------|---------------|
+| Standard error for canopy_cover | Smaller (artificially precise) | Larger (realistic) |
+| p-value | Often significant | May not be significant |
+| Conclusion | May claim strong effect | More honest uncertainty |
+
+**Key insight:** Ignoring the clustering leads to **overconfident conclusions** because we're pretending we have 240 independent observations when we really only have 12 independent units.
+
+---
+
+## Station 4: Soil Microbial Diversity — Answer
+
+### Is Kruskal-Wallis wrong, or just overly cautious?
+
+Kruskal-Wallis is **not wrong**, but it may be **unnecessarily conservative** for this scenario.
+
+**When Kruskal-Wallis is truly needed:**
+
+- Severely non-normal data (heavy skew, outliers)
+- Ordinal data
+- Very small sample sizes where normality can't be assessed
+- Heterogeneous variances that can't be addressed
+
+**When ANOVA is fine:**
+
+- Slight skewness (ANOVA is robust to this)
+- Moderate sample sizes (n ≥ 10 per group)
+- Residuals approximately normal
+- Similar variances across groups
+
+### The comparison
+
+```{r}
+#| label: station4-answer
+#| eval: false
+
+library(tidyverse)
+
+# -------------------------------------------
+# Simulate the data
+# -------------------------------------------
+
+set.seed(456)
+
+n_per_treatment <- 10
+
+soil_data <- data.frame(
+  treatment = rep(c("no_till", "reduced_till", "conventional"), each = n_per_treatment),
+  field_id = 1:30
+)
+
+# Simulate slightly right-skewed Shannon diversity
+# True effect: no-till > reduced > conventional
+soil_data <- soil_data %>%
+  mutate(
+    true_mean = case_when(
+      treatment == "no_till" ~ 3.8,
+      treatment == "reduced_till" ~ 3.2,
+      treatment == "conventional" ~ 2.6
+    ),
+    # Add slight right skew using gamma-like distribution
+    diversity = true_mean + rnorm(n(), 0, 0.5) + rexp(n(), rate = 5)
+  )
+
+# Visualize
+ggplot(soil_data, aes(x = treatment, y = diversity)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5)
+
+# -------------------------------------------
+# Proposed: Kruskal-Wallis
+# -------------------------------------------
+
+kruskal_result <- kruskal.test(diversity ~ treatment, data = soil_data)
+print(kruskal_result)
+
+# -------------------------------------------
+# Alternative: ANOVA
+# -------------------------------------------
+
+anova_model <- aov(diversity ~ treatment, data = soil_data)
+summary(anova_model)
+
+# Check assumptions
+par(mfrow = c(2, 2))
+plot(anova_model)
+
+# Post-hoc (only available with ANOVA, not Kruskal-Wallis easily)
+TukeyHSD(anova_model)
+```
+
+### What students should observe
+
+| Aspect | Kruskal-Wallis | ANOVA |
+|--------|----------------|-------|
+| Tests | Differences in ranks | Differences in means |
+| Interpretation | Less intuitive | Effect sizes in original units |
+| Post-hoc tests | Dunn's test (less common) | Tukey HSD (standard) |
+| Power | Slightly lower | Slightly higher |
+
+**Key insight:** For slightly skewed but otherwise well-behaved data, ANOVA is often the better choice because:
+
+1. It's more powerful
+2. Effect sizes are interpretable
+3. Post-hoc comparisons are straightforward
+4. ANOVA is robust to moderate violations of normality
+
+---
+
+## Station 6: Seedling Germination — Answer
+
+### What's wrong with `lm(proportion ~ stratification_time)`?
+
+Three major problems:
+
+1. **Bounded response:** Proportions are bounded between 0 and 1. Linear regression can predict values outside this range.
+
+2. **Non-constant variance:** Variance of proportions depends on the mean. Near 0 or 1, variance is smaller. This violates homoscedasticity.
+
+3. **Ignores sample size:** A proportion of 0.5 from 10 seeds has more uncertainty than 0.5 from 100 seeds. Linear regression treats them the same.
+
+### The correct approach
+
+Use **binomial GLM with counts** (successes and failures):
+
+```{r}
+#| label: station6-answer
+#| eval: false
+
+library(tidyverse)
+
+# -------------------------------------------
+# Simulate the data
+# -------------------------------------------
+
+set.seed(789)
+
+n_dishes <- 10
+n_seeds <- 50
+strat_times <- c(0, 30, 60, 90)
+
+germination_data <- expand.grid(
+  dish_id = 1:n_dishes,
+  stratification_time = strat_times
+) %>%
+  mutate(
+    # True relationship: logit(germination) = -1.5 + 0.025 * time
+    log_odds = -1.5 + 0.025 * stratification_time,
+    true_prob = plogis(log_odds),
+    # Simulate germination (binomial process)
+    n_germinated = rbinom(n(), n_seeds, true_prob),
+    n_failed = n_seeds - n_germinated,
+    proportion = n_germinated / n_seeds
+  )
+
+# Visualize
+ggplot(germination_data, aes(x = factor(stratification_time), y = proportion)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  labs(x = "Stratification Time (days)", y = "Proportion Germinated")
+
+# -------------------------------------------
+# WRONG: Linear model on proportions
+# -------------------------------------------
+
+wrong_model <- lm(proportion ~ stratification_time, data = germination_data)
+summary(wrong_model)
+
+# Check residuals — look for heteroscedasticity
+par(mfrow = c(2, 2))
+plot(wrong_model)
+
+# -------------------------------------------
+# CORRECT: Binomial GLM with counts
+# -------------------------------------------
+
+correct_model <- glm(cbind(n_germinated, n_failed) ~ stratification_time, 
+                     family = binomial, 
+                     data = germination_data)
+summary(correct_model)
+
+# Check for overdispersion
+# Residual deviance / residual df should be approximately 1
+resid_dev <- summary(correct_model)$deviance
+resid_df <- summary(correct_model)$df.residual
+cat("Dispersion ratio:", resid_dev / resid_df, "\n")
+# If >> 1, use quasibinomial or beta-binomial
+
+# -------------------------------------------
+# Compare predictions
+# -------------------------------------------
+
+new_data <- data.frame(stratification_time = 0:90)
+new_data$pred_wrong <- predict(wrong_model, new_data)
+new_data$pred_correct <- predict(correct_model, new_data, type = "response")
+
+ggplot() +
+  geom_point(data = germination_data, 
+             aes(x = stratification_time, y = proportion), alpha = 0.5) +
+  geom_line(data = new_data, 
+            aes(x = stratification_time, y = pred_wrong, color = "Linear Model")) +
+  geom_line(data = new_data, 
+            aes(x = stratification_time, y = pred_correct, color = "Binomial GLM")) +
+  labs(y = "Proportion Germinated", color = "Model") +
+  ylim(0, 1)
+```
+
+### What students should observe
+
+| Issue | Linear Model | Binomial GLM |
+|-------|--------------|--------------|
+| Predictions at extremes | Can go below 0 or above 1 | Always between 0 and 1 |
+| Residual variance | Heteroscedastic (funnel shape) | Properly modeled |
+| Interpretation | Additive effect on proportion | Multiplicative effect on odds |
+| Accounts for n_seeds | No | Yes |
+
+**Key insight:** When you have count data out of a known total (successes/trials), use `cbind(successes, failures)` with `family = binomial`. This properly models the binomial nature of the data.
+
+---
+
+# 🔴 Track C: Advanced Stations
+
+## Station 2: Wheat Yield Trials — Answer
+
+### What's wrong with `aov(yield ~ variety)`?
+
+The proposed model ignores the **block structure** of the RCBD (Randomized Complete Block Design). Blocks account for spatial heterogeneity (some blocks may be more fertile).
+
+**Consequences of ignoring blocks:**
+
+- Block variation is lumped into residual error
+- Residual variance is inflated
+- Standard errors are larger
+- F-test has less power
+- May miss real treatment effects
+
+### The correct approach
+
+```{r}
+#| label: station2-answer
+#| eval: false
+
+library(tidyverse)
+library(lme4)
+library(emmeans)
+
+# -------------------------------------------
+# Simulate RCBD data
+# -------------------------------------------
+
+set.seed(2024)
+
+varieties <- c("Var_A", "Var_B", "Var_C", "Var_D", "Var_E")
+blocks <- c("Block_1", "Block_2", "Block_3", "Block_4")
+
+wheat_data <- expand.grid(
+  variety = varieties,
+  block = blocks,
+  stringsAsFactors = FALSE
+) %>%
+  mutate(
+    # True variety effects (differences from grand mean)
+    variety_effect = case_when(
+      variety == "Var_A" ~ -200,
+      variety == "Var_B" ~ 0,
+      variety == "Var_C" ~ 400,  # Best variety
+      variety == "Var_D" ~ -100,
+      variety == "Var_E" ~ 200
+    ),
+    # Block effects (some blocks more fertile)
+    block_effect = case_when(
+      block == "Block_1" ~ -400,
+      block == "Block_2" ~ -100,
+      block == "Block_3" ~ 200,
+      block == "Block_4" ~ 300
+    ),
+    # Grand mean + effects + residual error
+    yield = 5000 + variety_effect + block_effect + rnorm(n(), 0, 120)
+  )
+
+# Visualize
+ggplot(wheat_data, aes(x = variety, y = yield, color = block)) +
+  geom_point(size = 3) +
+  theme_minimal() +
+  labs(title = "Wheat Yield by Variety and Block")
+
+# -------------------------------------------
+# WRONG: Ignoring blocks
+# -------------------------------------------
+
+wrong_model <- aov(yield ~ variety, data = wheat_data)
+summary(wrong_model)
+
+# Note: Residual MS includes block variation!
+
+# -------------------------------------------
+# CORRECT Option A: Block as fixed effect
+# -------------------------------------------
+
+correct_fixed <- aov(yield ~ block + variety, data = wheat_data)
+summary(correct_fixed)
+
+# Compare residual variance
+cat("Wrong model residual MS:", summary(wrong_model)[[1]]["Residuals", "Mean Sq"], "\n")
+cat("Correct model residual MS:", summary(correct_fixed)[[1]]["Residuals", "Mean Sq"], "\n")
+
+# -------------------------------------------
+# CORRECT Option B: Block as random effect
+# -------------------------------------------
+
+correct_random <- lmer(yield ~ variety + (1 | block), data = wheat_data)
+summary(correct_random)
+anova(correct_random)
+
+# -------------------------------------------
+# Post-hoc comparisons
+# -------------------------------------------
+
+emmeans_result <- emmeans(correct_fixed, pairwise ~ variety)
+emmeans_result$contrasts
+
+# Compact letter display
+library(multcomp)
+cld(emmeans_result$emmeans, Letters = letters)
+
+# -------------------------------------------
+# Extension: Publication figure
+# -------------------------------------------
+
+# Get estimated marginal means
+emm <- as.data.frame(emmeans_result$emmeans)
+
+ggplot(emm, aes(x = reorder(variety, emmean), y = emmean)) +
+  geom_point(size = 3) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.2) +
+  geom_jitter(data = wheat_data, aes(x = variety, y = yield), 
+              width = 0.1, alpha = 0.4, color = "gray50") +
+  labs(x = "Variety", y = "Yield (kg/ha)",
+       title = "Wheat Variety Comparison",
+       subtitle = "Points = raw data, Error bars = 95% CI of estimated means") +
+  theme_minimal()
+```
+
+### Fixed vs. Random blocks?
+
+| Use Fixed Block | Use Random Block |
+|-----------------|------------------|
+| Blocks are exhaustive (these specific blocks) | Blocks are a sample from a population |
+| Interest in specific block differences | Want to generalize beyond these blocks |
+| Blocks are part of the experimental design | Blocks are nuisance variation |
+| Traditional agronomic trials | Multi-site, multi-year studies |
+
+**For this scenario:** Either is defensible. Fixed is more traditional in agronomy; random is more generalizable.
+
+---
+
+## Station 3: Bird Abundance Over Time — Answer
+
+### What are the THREE problems with `lm(bird_count ~ year)`?
+
+1. **Non-normal response:** Counts follow Poisson (or negative binomial), not normal distribution
+
+2. **Non-independence within parks:** Multiple observations from the same park are correlated (need random effect for park)
+
+3. **Temporal pseudoreplication:** Multiple visits within years are not independent
+
+### The correct approach
+
+```{r}
+#| label: station3-answer
+#| eval: false
+
+library(tidyverse)
+library(lme4)
+library(glmmTMB)
+
+# -------------------------------------------
+# Simulate repeated measures count data
+# -------------------------------------------
+
+set.seed(303)
+
+n_parks <- 8
+n_years <- 5
+n_visits <- 6
+
+bird_data <- expand.grid(
+  park_id = 1:n_parks,
+  year = 1:n_years,
+  visit = 1:n_visits
+) %>%
+  mutate(
+    # Park-level random intercepts
+    park_effect = rep(rnorm(n_parks, 0, 0.4), each = n_years * n_visits),
+    # Optional: Park-level random slopes (some parks decline faster)
+    park_slope = rep(rnorm(n_parks, 0, 0.05), each = n_years * n_visits),
+    # True model: log(count) = 3.5 - 0.15*year + park_effect + park_slope*year
+    log_mean = 3.5 - 0.15 * year + park_effect + park_slope * year,
+    # Simulate Poisson counts
+    bird_count = rpois(n(), exp(log_mean))
+  )
+
+# Visualize
+ggplot(bird_data, aes(x = year, y = bird_count, color = factor(park_id))) +
+  geom_jitter(width = 0.1, alpha = 0.5) +
+  geom_smooth(method = "glm", method.args = list(family = "poisson"), se = FALSE) +
+  facet_wrap(~ park_id, ncol = 4) +
+  labs(title = "Bird Counts by Park Over Time")
+
+# -------------------------------------------
+# WRONG: Linear model ignoring everything
+# -------------------------------------------
+
+wrong_model <- lm(bird_count ~ year, data = bird_data)
+summary(wrong_model)
+
+# Problems visible in residuals
+par(mfrow = c(2, 2))
+plot(wrong_model)
+
+# -------------------------------------------
+# BETTER: Poisson GLMM with random intercepts
+# -------------------------------------------
+
+better_model <- glmer(bird_count ~ year + (1 | park_id), 
+                      family = poisson, 
+                      data = bird_data)
+summary(better_model)
+
+# Check for overdispersion
+overdisp <- sum(residuals(better_model, type = "pearson")^2) / df.residual(better_model)
+cat("Overdispersion ratio:", overdisp, "\n")
+# If > 1.5, consider negative binomial
+
+# -------------------------------------------
+# BEST: Random slopes (parks decline at different rates)
+# -------------------------------------------
+
+best_model <- glmer(bird_count ~ year + (1 + year | park_id), 
+                    family = poisson, 
+                    data = bird_data)
+summary(best_model)
+
+# Compare models
+anova(better_model, best_model)
+
+# -------------------------------------------
+# Interpretation
+# -------------------------------------------
+
+# The year coefficient is on the log scale
+year_coef <- fixef(best_model)["year"]
+cat("Year effect (log scale):", year_coef, "\n")
+cat("Multiplicative change per year:", exp(year_coef), "\n")
+cat("Percent change per year:", (exp(year_coef) - 1) * 100, "%\n")
+
+# -------------------------------------------
+# Extension: Negative binomial for overdispersion
+# -------------------------------------------
+
+nb_model <- glmmTMB(bird_count ~ year + (1 + year | park_id), 
+                    family = nbinom2, 
+                    data = bird_data)
+summary(nb_model)
+```
+
+### What students should observe
+
+| Model | Issues Addressed |
+|-------|------------------|
+| `lm(count ~ year)` | None |
+| `glm(..., family = poisson)` | Count distribution |
+| `glmer(... + (1 \| park))` | Count + park clustering |
+| `glmer(... + (1 + year \| park))` | Count + park clustering + varying trends |
+| `glmmTMB(..., family = nbinom2)` | All above + overdispersion |
+
+---
+
+## Station 5: Pollinator Network Complexity — Answer
+
+### Why is the Bayesian spatial model overkill?
+
+The proposed method (Bayesian multilevel model with spatial Gaussian process) would require:
+- Spatial coordinates (not provided)
+- Grouping structure for random effects (not present)
+- Substantial computation time
+- Expertise in Bayesian methods
+- Complex model diagnostics
+
+**For 25 independent meadows with a simple linear relationship, this is massive overkill.**
+
+### The correct approach: Simple linear regression
+
+```{r}
+#| label: station5-answer
+#| eval: false
+
+library(tidyverse)
+
+# -------------------------------------------
+# Simulate simple, well-behaved data
+# -------------------------------------------
+
+set.seed(555)
+
+n_meadows <- 25
+
+pollinator_data <- data.frame(
+  meadow_id = 1:n_meadows,
+  plant_richness = round(runif(n_meadows, 5, 45))
+) %>%
+  mutate(
+    # Simple linear relationship with normal errors
+    network_complexity = 1.0 + 0.15 * plant_richness + rnorm(n_meadows, 0, 0.7)
+  )
+
+# Visualize
+ggplot(pollinator_data, aes(x = plant_richness, y = network_complexity)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = TRUE, color = "blue") +
+  labs(x = "Plant Species Richness", 
+       y = "Network Complexity Score",
+       title = "Simple Linear Relationship")
+
+# -------------------------------------------
+# THE CORRECT APPROACH: Simple lm()
+# -------------------------------------------
+
+simple_model <- lm(network_complexity ~ plant_richness, data = pollinator_data)
+summary(simple_model)
+
+# Check assumptions
+par(mfrow = c(2, 2))
+plot(simple_model)
+
+# All assumptions met! We're done.
+
+# -------------------------------------------
+# Discussion: When WOULD complexity be needed?
+# -------------------------------------------
+
+# The complex approach would be appropriate if:
+
+# 1. Meadows were grouped (e.g., multiple meadows per region)
+#    → Need random intercepts for region
+
+# 2. Repeated measures over time
+#    → Need random intercepts for meadow, possibly temporal autocorrelation
+
+# 3. Spatial autocorrelation (nearby meadows more similar)
+#    → Need spatial covariance structure (Gaussian process, CAR, etc.)
+
+# 4. Multiple response variables
+#    → Need multivariate model
+
+# 5. Prior information from previous studies
+#    → Bayesian framework with informative priors
+
+# -------------------------------------------
+# Costs of over-complication
+# -------------------------------------------
+
+# 1. Computation time (hours vs. seconds)
+# 2. More parameters to estimate with limited data (n=25)
+# 3. Harder to interpret and explain
+# 4. More opportunities for errors
+# 5. Reviewers may not understand or trust the analysis
+# 6. May not converge or give unreliable estimates
+# 7. Requires specialized software and expertise
+```
+
+### Key discussion points
+
+**Occam's Razor in Statistics:** Start with the simplest model that addresses your research question. Add complexity only when:
+
+1. The simple model clearly fails (poor fit, violated assumptions)
+2. The research question requires it (e.g., estimating variance components)
+3. The data structure demands it (e.g., hierarchical, spatial, temporal)
+
+**Red flags for unnecessary complexity:**
+
+- "I used a Bayesian spatial model" for simple cross-sectional data
+- Random effects with < 5 groups
+- More parameters than you can reliably estimate
+- Methods chosen to seem sophisticated rather than answer the question
+
+---
+
+# General Discussion Points for Wrap-Up
+
+## Why simulate data?
+
+1. **Forces you to understand the data-generating process** — You can't simulate what you don't understand
+2. **Creates known "truth" to compare methods against** — You know the true effect size
+3. **Reveals how methods fail** — See the consequences of wrong choices
+4. **Builds intuition** — Understand what different parameters do
+5. **Useful for power analysis** — Before collecting real data
+
+## Common themes across stations
+
+| Station | Main Issue | Lesson |
+|---------|------------|--------|
+| 1 (Salamander) | Pseudoreplication | Know your unit of replication |
+| 2 (Wheat) | Ignoring design structure | Use the structure you designed |
+| 3 (Birds) | Multiple violations | Match method to data structure |
+| 4 (Soil) | Overcautious | Don't be afraid of parametric tests |
+| 5 (Pollinator) | Overkill | Simpler is often better |
+| 6 (Germination) | Wrong distribution | Match distribution to response type |
+
+## Signs you've chosen the wrong method
+
+- Residual plots look terrible
+- Predictions outside possible range
+- Standard errors that seem too small (pseudoreplication)
+- Model won't converge
+- Results don't make biological sense
+- You can't explain what the model is doing
+
+</div>
+
+<script>
+function checkPassword() {
+  const password = document.getElementById('password-input').value;
+  
+  // =============================================
+  // CHANGE THIS PASSWORD TO YOUR DESIRED PASSWORD
+  // =============================================
+  const correctPassword = "SNR690answers";
+  
+  if (password === correctPassword) {
+    document.getElementById('password-form').style.display = 'none';
+    document.getElementById('protected-content').style.display = 'block';
+    sessionStorage.setItem('authenticated', 'true');
+  } else {
+    document.getElementById('error-msg').textContent = 'Incorrect password. Try again.';
+    document.getElementById('password-input').value = '';
+  }
+}
+
+// Check if already authenticated this session
+if (sessionStorage.getItem('authenticated') === 'true') {
+  document.getElementById('password-form').style.display = 'none';
+  document.getElementById('protected-content').style.display = 'block';
+}
+
+// Allow Enter key to submit
+document.getElementById('password-input').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    checkPassword();
+  }
+});
+</script>

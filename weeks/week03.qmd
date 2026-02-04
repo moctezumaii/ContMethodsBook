@@ -32,9 +32,9 @@ Think about:
 
 
 
-### Session A:
+# Session A:
 
-#### Part 1: Silent Reflection (10 min)
+## Part 1: Silent Reflection (10 min)
 
 On the paper I gave you, write the following:
 
@@ -79,7 +79,7 @@ On the paper I gave you, write the following:
 
 
 
-### Part 2: Graffitti discussion (12 minutes)
+## Part 2: Graffitti discussion (12 minutes)
 
 **Your task:**
 - Move freely around the room
@@ -104,14 +104,14 @@ On the paper I gave you, write the following:
 **Wall 6:** "Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don't know why? If yes, explain"
 ::: 
 
-#### Post-graffitti (6 min)
+## Post-graffitti (6 min)
 
 Brief discussion of themes and patterns from the walls. This will inform future class topics.
 
 
-#### Part 3: Main concept --> Lecture
+## Part 3: Main concept --> Lecture
 
-#### The Method-Question-Data Triangle (15 min)
+## The Method-Question-Data Triangle (15 min)
 ```
      RESEARCH QUESTION
             /\
@@ -126,7 +126,7 @@ DATA TYPE -------- METHOD CHOICE
 All needed to be aligned. Dr. Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.
 
 
-#### 🤝 Think-Pair-Share (5 min)
+## 🤝 Think-Pair-Share (5 min)
 
 **Activity:**
 
@@ -139,10 +139,10 @@ All needed to be aligned. Dr. Molina will give a lecture showing examples of mis
 2. **Pair** (3 min) — discuss with a neighbor, help each other troubleshoot
 3. **Share** (1 min) — 2–3 volunteers share their pairing's most interesting dilemma
 
-#### Detective Station
-### 4. Data Detective: Diagnosis Stations (25 min)
 
-#### Setup
+## 4. Data Detective: Diagnosis Stations (25 min)
+
+### Setup
 
 **Six stations** around the room, each with a **scenario card** describing:
 - A research question
@@ -318,7 +318,314 @@ Linear regression: `lm(proportion ~ stratification_time)`
 
 <br><br><br>
 
-#### Exit ticket:
-Is thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?
 
-#### Thursday session: coding workshop
+# Session B:
+
+## Discussion of Diagnosis Stations (10 min)
+
+## Self-Assessment (1 minute)
+
+Before we begin, place yourself into a track based on your current comfort level:
+
+| Track | Description | You should choose this if... |
+|-------|-------------|------------------------------|
+| 🟢 **Track A** | New to R / Need a refresher | "I've never used R" OR "It's been a while and I need to review some basics" |
+| 🟡 **Track B** | Some experience | "I can run models but need practice choosing the right one" |
+| 🔴 **Track C** | Experienced | "I can fit GLMs, troubleshoot code, and want a bit of a challenge" |
+
+---
+
+## 🟢 Track A: Beginners (Choose One Option)
+
+### Option A1: Introduction to R, Projects, and Quarto
+
+If you are completely new to R or need a structured introduction, work through the [Intro to R, Projects and Quarto assignment](https://rpubs.com/amolina/1212896).
+
+**Your goal:** Complete the tutorial and have a working `.qmd` file that renders by the end of class.
+
+---
+
+### Option A2: My First Model — Guided Template
+
+If you have some R basics but haven't run statistical models, use this guided template.
+
+**Your goal:** Fit two models, interpret the output, and check assumptions.
+
+```{r}
+#| label: track-a-starter
+#| eval: false
+
+# ===========================================
+# SNR 690: Your First Model Template
+# ===========================================
+
+# 1. Load packages (install if needed)
+library(tidyverse)
+
+# 2. Load YOUR data (replace with your file path)
+# my_data <- read_csv("your_data.csv")
+
+# For now, let's use example data:
+my_data <- data.frame(
+  yield = c(12, 15, 14, 18, 20, 22, 19, 25, 17, 21),
+  temperature = c(15, 16, 15, 18, 20, 21, 19, 23, 17, 20),
+  rainfall = c(50, 55, 48, 60, 70, 75, 65, 80, 58, 68),
+  site = c("A", "A", "B", "B", "C", "C", "D", "D", "E", "E")
+)
+
+# 3. Explore your data
+head(my_data)
+summary(my_data)
+
+# Visualize relationships
+ggplot(my_data, aes(x = temperature, y = yield)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Yield vs Temperature")
+
+# -------------------------------------------
+# MODEL 1: Single predictor
+# -------------------------------------------
+
+# 4. Fit a simple model with ONE predictor
+model1 <- lm(yield ~ temperature, data = my_data)
+
+# 5. Look at the output
+summary(model1)
+
+# 6. Check assumptions (look at these plots!)
+par(mfrow = c(2, 2))
+plot(model1)
+
+# QUESTION: What does the slope for temperature mean?
+# Write one sentence here:
+# 
+
+# -------------------------------------------
+# MODEL 2: Two predictors
+# -------------------------------------------
+
+# 7. Now fit a model with TWO predictors
+model2 <- lm(yield ~ temperature + rainfall, data = my_data)
+
+# 8. Look at the output
+summary(model2)
+
+# 9. Check assumptions
+par(mfrow = c(2, 2))
+plot(model2)
+
+# 10. Compare models
+# Which model explains more variance? (Hint: look at R-squared)
+# 
+
+# QUESTION: Interpret the coefficient for rainfall. 
+# What does it mean while "controlling for" temperature?
+# Write one sentence here:
+# 
+
+
+
+
+# -------------------------------------------
+# YOUR TURN: Adapt for your data
+# -------------------------------------------
+
+# First, run the same model with an interactive term, what changed?
+# Replace the example data with your own data. Simulate data if needed. Let's look at your own system.
+# What is your response variable?
+# What are 1-2 predictor variables you want to test?
+# Fit the models and interpret!
+```
+
+---
+
+## 🟡 Track B: Intermediate — Simulate & Analyze (Choose One Station)
+
+Your task: Take one of the diagnosis stations from Session A (from the ones listed here), **simulate data** that matches the scenario, then fit the analysis **two ways**: the "proposed" (potentially wrong) way and the "correct" way. Compare the results.
+
+::: {.callout-note}
+## Your Deliverable
+1. Simulate data that matches the scenario description
+2. Fit the **proposed** model (as written in the station)
+3. Fit the **correct** model (what SHOULD be used)
+4. Compare the outputs — what's different? Why does it matter?
+5. Write 2-3 sentences explaining what you learned
+:::
+
+---
+
+### Station 1: Salamander Survival
+
+**Research Question:** Does canopy cover affect salamander survival in forest fragments?
+
+**Data Structure:**
+
+- 12 forest fragments
+- 20 salamanders marked in each fragment (240 total)
+- Survival recorded as binary (alive/dead) after one year
+- Canopy cover measured as % for each fragment
+
+**Proposed Method:** `glm(survival ~ canopy_cover, family = binomial)`
+
+**Your Diagnosis from Session A:** Needs modification — what's missing?
+
+**Hints:**
+
+- What is the unit of observation? What is the unit of replication?
+- Are salamanders within the same fragment independent?
+- What package might you need for the correct approach?
+
+---
+
+### Station 4: Soil Microbial Diversity
+
+**Research Question:** Does tillage treatment affect soil microbial diversity?
+
+**Data Structure:**
+
+- 3 treatments: no-till, reduced till, conventional till
+- 10 fields per treatment (30 fields total)
+- Shannon diversity index calculated for each field (continuous, 0–5)
+- Data slightly right-skewed but otherwise well-behaved
+
+**Proposed Method:** Kruskal-Wallis test (non-parametric)
+
+**Your Diagnosis from Session A:** Is this wrong, or just overly cautious?
+
+**Hints:**
+
+- When is a non-parametric test truly necessary?
+- What assumptions does ANOVA actually require?
+- How robust is ANOVA to slight skewness?
+
+---
+
+### Station 6: Seedling Germination
+
+**Research Question:** Does stratification time (0, 30, 60, 90 days) affect germination rate?
+
+**Data Structure:**
+
+- 4 stratification treatments
+- 10 petri dishes per treatment (40 dishes)
+- 50 seeds per dish
+- Response: proportion germinated (0.0–1.0)
+
+**Proposed Method:** `lm(proportion ~ stratification_time)`
+
+**Your Diagnosis from Session A:** Wrong method — what would you use instead?
+
+**Hints:**
+
+- What's the difference between a proportion and a count?
+- Why can't you just use `lm()` on proportions?
+- Look up `cbind()` with `glm(..., family = binomial)`
+
+---
+
+## 🔴 Track C: Advanced — Simulate, Fix & Extend (Choose One Station)
+
+Your task: Take one of the diagnosis stations, **simulate realistic data** (including appropriate complexity), then fit the analysis **two ways**: the "proposed" (wrong) way and the "correct" way. **Then extend**: add a visualization, check for additional issues, or adapt the code structure for your own research project.
+
+::: {.callout-note}
+## Your Deliverable
+1. Simulate data that realistically reflects the scenario (think about variance structure!)
+2. Fit the **proposed** model
+3. Fit the **correct** model
+4. **Extend** in one of these ways:
+   - Create a publication-ready visualization
+   - Check for additional issues (overdispersion, influential points, etc.)
+   - Adapt the analysis structure for YOUR research data
+5. Be prepared to explain your approach to the class
+:::
+
+---
+
+### Station 2: Wheat Yield Trials
+
+**Research Question:** Which of 5 wheat varieties produces the highest yield?
+
+**Data Structure:**
+
+- 5 varieties tested in 4 blocks (randomized complete block design)
+- One plot per variety per block (20 plots total)
+- Yield (kg/ha) recorded once per plot
+- Data look approximately normal
+
+**Proposed Method:** `aov(yield ~ variety)` (one-way ANOVA)
+
+**Your Diagnosis from Session A:** Needs modification — what's missing?
+
+**Challenges:**
+
+- Simulate data with BOTH variety effects AND block effects
+- What happens to your standard errors and p-values when you ignore blocks?
+- Should block be fixed or random? When does it matter?
+- Extension: Add post-hoc comparisons with `emmeans`
+
+---
+
+### Station 3: Bird Abundance Over Time
+
+**Research Question:** Is bird abundance declining in urban parks?
+
+**Data Structure:**
+
+- 8 urban parks surveyed
+- Each park visited 6 times per year for 5 years (240 total observations)
+- Response: count of birds per visit (range: 0–89)
+- Year as continuous predictor
+
+**Proposed Method:** `lm(bird_count ~ year)`
+
+**Your Diagnosis from Session A:** Wrong method — multiple issues!
+
+**Challenges:**
+
+- This data has at least THREE problems with the proposed method. What are they?
+- Simulate data with park-level random effects and temporal structure
+- What distribution should counts follow?
+- Extension: Try adding random slopes — do parks decline at different rates?
+
+---
+
+### Station 5: Pollinator Network Complexity
+
+**Research Question:** Do pollinator networks become more complex with plant diversity?
+
+**Data Structure:**
+
+- 25 meadows sampled
+- Plant diversity (species richness) recorded per meadow
+- Network complexity score calculated (continuous, 1.2–8.7)
+- Data are normal, linear relationship looks reasonable
+
+**Proposed Method:** Bayesian multilevel model with varying intercepts and slopes, spatial Gaussian process
+
+**Your Diagnosis from Session A:** This is OVERKILL!
+
+**Challenges:**
+
+- Simulate simple, well-behaved data that matches this scenario
+- Show that a simple `lm()` is sufficient
+- Discussion: When WOULD the complex approach be justified? What would the data need to look like?
+- Extension: What are the costs of over-complicating your analysis? Write a brief argument for simplicity.
+
+---
+
+## End of Session Wrap-Up
+
+**Deliverables (choose based on your track):**
+
+| Track | What to submit/share |
+|-------|---------------------|
+| 🟢 Track A | Intro to R --> follow the instructions. Or your working `.qmd` file with at least one model output |
+| 🟡 Track B | Your simulation + comparison of wrong vs. correct model, with 2-3 sentences explaining what you learned. |
+| 🔴 Track C | Your extended analysis + one visualization + notes on how this applies to your research |
+
+
+
+
+#### Exit Ticket (5 min)
+Is thinking about how methods align to your objectives useful?
