@@ -1,5 +1,5 @@
 ---
-title: "Week 03 — Statistical Modeling Framework"
+title: "Week 03 - Statistical Modeling Framework"
 format: html
 ---
 
@@ -135,9 +135,9 @@ All needed to be aligned. Dr. Molina will give a lecture showing examples of mis
 > - What method might be appropriate for YOUR data?
 > - What's one thing about your data structure that makes method choice tricky?
 
-1. **Think** (<1 min) — you already did this... you can use 30 seconds to update your notes
-2. **Pair** (3 min) — discuss with a neighbor, help each other troubleshoot
-3. **Share** (1 min) — 2–3 volunteers share their pairing's most interesting dilemma
+1. **Think** (<1 min) - you already did this... you can use 30 seconds to update your notes
+2. **Pair** (3 min) - discuss with a neighbor, help each other troubleshoot
+3. **Share** (1 min) - 2–3 volunteers share their pairing's most interesting dilemma
 
 
 ## 4. Data Detective: Diagnosis Stations (25 min)
@@ -175,9 +175,9 @@ Logistic regression: `glm(survival ~ canopy_cover, family = binomial)`
 
 **Your Diagnosis:**
 
-- [ ] Good match — use as is
-- [ ] Needs modification — what's missing?
-- [ ] Wrong method — what would you use instead?
+- [ ] Good match - use as is
+- [ ] Needs modification - what's missing?
+- [ ] Wrong method - what would you use instead?
 
 **Why?**
 
@@ -202,9 +202,9 @@ One-way ANOVA: `aov(yield ~ variety)`
 
 **Your Diagnosis:**
 
-- [ ] Good match — use as is
-- [ ] Needs modification — what's missing?
-- [ ] Wrong method — what would you use instead?
+- [ ] Good match - use as is
+- [ ] Needs modification - what's missing?
+- [ ] Wrong method - what would you use instead?
 
 **Why?**
 
@@ -229,9 +229,9 @@ Linear regression: `lm(bird_count ~ year)`
 
 **Your Diagnosis:**
 
-- [ ] Good match — use as is
-- [ ] Needs modification — what's missing?
-- [ ] Wrong method — what would you use instead?
+- [ ] Good match - use as is
+- [ ] Needs modification - what's missing?
+- [ ] Wrong method - what would you use instead?
 
 **Why?**
 
@@ -256,9 +256,9 @@ Kruskal-Wallis test (non-parametric)
 
 **Your Diagnosis:**
 
-- [ ] Good match — use as is
-- [ ] Needs modification — what's missing?
-- [ ] Wrong method — what would you use instead?
+- [ ] Good match - use as is
+- [ ] Needs modification - what's missing?
+- [ ] Wrong method - what would you use instead?
 
 **Why?**
 
@@ -283,9 +283,9 @@ Bayesian multilevel model with varying intercepts and slopes, spatial Gaussian p
 
 **Your Diagnosis:**
 
-- [ ] Good match — use as is
-- [ ] Needs modification — what's missing?
-- [ ] Wrong method — what would you use instead?
+- [ ] Good match - use as is
+- [ ] Needs modification - what's missing?
+- [ ] Wrong method - what would you use instead?
 
 **Why?**
 
@@ -310,9 +310,9 @@ Linear regression: `lm(proportion ~ stratification_time)`
 
 **Your Diagnosis:**
 
-- [ ] Good match — use as is
-- [ ] Needs modification — what's missing?
-- [ ] Wrong method — what would you use instead?
+- [ ] Good match - use as is
+- [ ] Needs modification - what's missing?
+- [ ] Wrong method - what would you use instead?
 
 **Why?**
 
@@ -345,7 +345,7 @@ If you are completely new to R or need a structured introduction, work through t
 
 ---
 
-### Option A2: My First Model — Guided Template
+### Option A2: My First Model - Guided Template
 
 If you have some R basics but haven't run statistical models, use this guided template.
 
@@ -440,7 +440,7 @@ plot(model2)
 
 ---
 
-## 🟡 Track B: Intermediate — Simulate & Analyze (Choose One Station)
+## 🟡 Track B: Intermediate - Simulate & Analyze (Choose One Station)
 
 Your task: Take one of the diagnosis stations from Session A (from the ones listed here), **simulate data** that matches the scenario, then fit the analysis **two ways**: the "proposed" (potentially wrong) way and the "correct" way. Compare the results.
 
@@ -449,7 +449,7 @@ Your task: Take one of the diagnosis stations from Session A (from the ones list
 1. Simulate data that matches the scenario description
 2. Fit the **proposed** model (as written in the station)
 3. Fit the **correct** model (what SHOULD be used)
-4. Compare the outputs — what's different? Why does it matter?
+4. Compare the outputs - what's different? Why does it matter?
 5. Write 2-3 sentences explaining what you learned
 :::
 
@@ -468,7 +468,7 @@ Your task: Take one of the diagnosis stations from Session A (from the ones list
 
 **Proposed Method:** `glm(survival ~ canopy_cover, family = binomial)`
 
-**Your Diagnosis from Session A:** Needs modification — what's missing?
+**Your Diagnosis from Session A:** Needs modification - what's missing?
 
 **Hints:**
 
@@ -514,7 +514,7 @@ Your task: Take one of the diagnosis stations from Session A (from the ones list
 
 **Proposed Method:** `lm(proportion ~ stratification_time)`
 
-**Your Diagnosis from Session A:** Wrong method — what would you use instead?
+**Your Diagnosis from Session A:** Wrong method - what would you use instead?
 
 **Hints:**
 
@@ -524,7 +524,7 @@ Your task: Take one of the diagnosis stations from Session A (from the ones list
 
 ---
 
-## 🔴 Track C: Advanced — Simulate, Fix & Extend (Choose One Station)
+## 🔴 Track C: Advanced - Simulate, Fix & Extend (Choose One Station)
 
 Your task: Take one of the diagnosis stations, **simulate realistic data** (including appropriate complexity), then fit the analysis **two ways**: the "proposed" (wrong) way and the "correct" way. **Then extend**: add a visualization, check for additional issues, or adapt the code structure for your own research project.
 
@@ -555,7 +555,7 @@ Your task: Take one of the diagnosis stations, **simulate realistic data** (incl
 
 **Proposed Method:** `aov(yield ~ variety)` (one-way ANOVA)
 
-**Your Diagnosis from Session A:** Needs modification — what's missing?
+**Your Diagnosis from Session A:** Needs modification - what's missing?
 
 **Challenges:**
 
@@ -579,14 +579,14 @@ Your task: Take one of the diagnosis stations, **simulate realistic data** (incl
 
 **Proposed Method:** `lm(bird_count ~ year)`
 
-**Your Diagnosis from Session A:** Wrong method — multiple issues!
+**Your Diagnosis from Session A:** Wrong method - multiple issues!
 
 **Challenges:**
 
 - This data has at least THREE problems with the proposed method. What are they?
 - Simulate data with park-level random effects and temporal structure
 - What distribution should counts follow?
-- Extension: Try adding random slopes — do parks decline at different rates?
+- Extension: Try adding random slopes - do parks decline at different rates?
 
 ---
 
