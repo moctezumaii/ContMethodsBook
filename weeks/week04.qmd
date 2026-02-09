@@ -1,0 +1,417 @@
+---
+title: "Week 04 - Version Control, Git & Collaboration"
+format: html
+---
+
+# Objectives and background
+
+Topic: Introduction to Git, GitHub, and Collaborative Reproducible Research
+
+## Learning Objectives
+
+- Explain *why* version control matters for reproducible, transparent research
+- Connect version control philosophy to themes from Weeks 1–3 (data exploration, model selection, the Method-Question-Data triangle)
+- Use Git and GitHub for basic version control (init, add, commit, push, pull)
+- Collaborate on a shared repository using branches and pull requests
+- Apply version control to a Quarto-based analytical workflow
+
+::: {.callout-note}
+## The Semester So Far - Key Takeaways from Weeks 1–3
+
+| Week | Topic | Key Takeaway |
+|------|-------|-------------|
+| 1 | Introductions & Papers | Data exploration protects inference (Zuur); exploration vs. inference should be independent (Tredennick); always explore your data before modeling |
+| 2 | Philosophy of Data Analysis | "All models are wrong" (Box); Bayesian vs. frequentist thinking; uncertainty is everywhere; the goal is to find the useful model, not the true one |
+| 3 | Statistical Modeling Framework | The Method-Question-Data Triangle must align; mismatch → wrong conclusions; overcomplication → wasted effort; start simple, add complexity only when needed |
+| **4** | **Version Control & Collaboration** | **Your analytical decisions need to be tracked, transparent, and reproducible - Git makes this possible** |
+:::
+
+In Weeks 1–3, we talked about *how to think* about data analysis:
+
+- **Week 1** emphasized that data exploration and inference are separate activities - but both must be documented. How do you keep track of which analyses were exploratory vs. confirmatory?
+- **Week 2** introduced the idea that all models are wrong but some are useful. If you try multiple models, how do you record *which* ones you tried, *why* you chose one over another, and *what changed*?
+- **Week 3** showed us the Method-Question-Data Triangle and the dangers of mismatch vs. overcomplication. When you iterate through model choices - trying a `lm()`, realizing you need a `glmer()`, adding random effects - how do you track that evolution?
+
+**Version control can help us with this** And at WORST... it is a great tool to have!
+
+::: {.callout-important}
+## About Week 3 Simulations
+Many of you found the simulation exercises in Week 3 challenging - simulating data that matches a scenario description, then fitting both the "proposed" (wrong) and "correct" models. **That's completely normal.** Simulating data is a skill that takes practice.
+
+Session B this week is designed to give you a **second pass** at those simulations. The first hands-on activity will walk through the Week 3 simulation & analysis exercises together, step by step. *Then* we'll layer Git on top, so you're learning version control with familiar code rather than starting from scratch.
+:::
+
+## Background Reading
+
+Before Thursday class, review the following:
+
+- [Happy Git with R](https://happygitwithr.com/) - Great guide
+- [GitHub Quickstart Guide](https://docs.github.com/en/get-started/quickstart) --> REad this for an overview of GitHub's features
+## Before Class
+
+Make sure you have:
+
+- [ ] A [GitHub account](https://github.com) (you should already have this from Week 1)
+- [ ] Git installed on your computer (`git --version` in terminal)
+- [ ] RStudio or Positron with Git integration configured
+- [ ] Accepted the invite to the course repository -- check your email or GitHub notifications
+- [ ] Confirmed Codespaces access (if using browser-based workflow) -- check your email or GitHub notifications
+
+Think about:
+
+- How many versions of your thesis/analysis scripts do you currently have?
+- Have you ever lost work, overwritten a file, or been unable to undo a change?
+- Have you ever emailed a script to a collaborator and gotten confused about which version is "current"?
+
+---
+
+# Session A: Why Version Control? (Lecture + Discussion, 75 min)
+
+## Part 1: Retrieval Practice - What Do You Remember? (8 min)
+
+Before we introduce anything new, let's activate what you already know from Weeks 1–3. **No notes, no phones** - this is retrieval practice. Struggling to recall is the point; it strengthens memory.
+
+::: {.callout-warning}
+## Quick-Fire Recall (write on paper, 3 min)
+
+Answer as many as you can from memory. One or two sentences each is fine.
+
+1. What did Zuur argue about data exploration? What is the goal of exploring your data before modeling?
+2. What is Box's famous quote about models? What does it mean in practice?
+3. In Week 3, what were the **three scenarios** we examined? (Hint: one was a "good match")
+4. In the examples from Week 3, explain one fo the experiments and what went wrong?
+5. What is the **Golden Rule** from Week 3?
+:::
+
+**Debrief (5 min):** Turn to a neighbor and compare answers. Fill in each other's gaps. 
+note: ask them what they want here
+
+::: {.callout-tip}
+## Why Retrieval Practice?
+Research shows that actively recalling information - even when it's difficult - produces stronger long-term retention than re-reading notes (Roediger & Butler, 2011). This is a "desirable difficulty." If it felt hard, that's good!
+:::
+
+
+
+## Part 2: Predict-Observe-Explain (12 min)
+
+
+**Quick Poll:** Raise your hand if you've ever:
+
+1. Lost work because you overwrote a file
+2. Couldn't remember why you changed something in your code
+3. Had a collaborator edit the same file and you had to manually merge changes
+4. Had a folder full of `_v2`, `_v3`, `_FINAL` files
+
+
+### 🔮 PREDICT (3 min - write on paper)
+
+Here is a scenario. **Predict what will go wrong:**
+
+> You're writing your thesis. You have a file called `analysis.R`. You make changes over two weeks. Your folder now looks like this:
+>
+> ```
+> analysis.R
+> analysis_v2.R
+> analysis_FINAL.R
+> analysis_FINAL_v2.R
+> analysis_FINAL_ACTUALLY_FINAL.R
+> analysis_FINAL_ACTUALLY_FINAL_USE_THIS_ONE.R
+> ```
+>
+> Your advisor emails and says: *"The reviewer wants to see the version where you used the Poisson model instead of the linear model. Can you send that?"*
+
+**Write down:** What happens next? What specifically goes wrong? How long does it take you to find the right version? Do you even *have* it?
+
+### 👁️ OBSERVE (2 minute)
+I will show how source control works. And why it is so powerful.
+
+### 💡 EXPLAIN (5 min - whole class)
+
+As a class, answer:
+
+1. Why does the file-naming approach fail? (Be specific: what information is lost?)
+2. What does Git preserve that file-naming doesn't?
+3. Can you connect this to Box's "all models are wrong" idea? (Hint: if you're iterating through models, you need a record of *which* wrong models you tried and why you moved on)
+
+## Part 3: Why Version Control? - Elaborative Interrogation (10 min)
+
+Elaborative interrogation means asking "**why?**" and "**how?**" until you reach a deep understanding.
+
+### Round 1: Pair Up - "Why" Chain (6 min)
+
+With a partner, take turns asking "why?" about this statement. Go at least four levels deep:
+
+> **"Researchers should use version control for their analyses."**
+
+### Round 2: Connect to a Specific Week (5 min)
+
+Each pair picks **two** of the statements below. For each, write a single sentence completing the prompt:
+
+| Statement from Weeks 1–3 | "Version control helps with this because..." |
+|---------------------------|-----------------------------------------------|
+| "Data exploration should protect inference, not create it" (Zuur) | |
+| "Exploration and inference should come from independent studies" (Tredennick) | |
+| "All models are wrong, but some are useful" (Box) | |
+| "The research question should drive everything" (Week 3 slides) | |
+| "Start simple. Add complexity only when needed. Always justify your choices." (Week 3 Golden Rule) | |
+| "Misalignment leads to wrong conclusions, wasted effort, rejected papers, and sad grad students" (Week 3 slides) | |
+
+**Share Out (2–3 min):** 3–4 pairs share their best sentence.
+
+## Part 4: Lecture - What is Git? (≈20 min)
+
+Dr. Molina will give a traditional lecture covering the following. Take notes - you'll use this for a concept map right after.
+
+### What is version control?
+
+- A system that records changes to files over time
+- You can recall any previous version at any time
+- Think of it as **Track Changes** for your entire project - but much more powerful
+
+### Why Git specifically?
+
+- Created by Linus Torvalds (creator of Linux) in 2005
+- Distributed - every collaborator has the full project history
+- The industry standard for software, increasingly for science
+- Integrates with RStudio, Positron, and Quarto
+
+### Key Concepts
+
+| Concept | What It Is | Analogy |
+|---------|-----------|---------|
+| **Repository (repo)** | A project folder tracked by Git | Your lab notebook for a project |
+| **Commit** | A snapshot of your files at a point in time | An entry in your lab notebook |
+| **Staging (git add)** | Choosing which changes to include in the next commit | Deciding which observations to write up |
+| **Branch** | A parallel version of your project | An exploratory side-analysis |
+| **Merge** | Combining two branches | Integrating your exploratory findings into your main analysis |
+| **Pull Request (PR)** | A request to merge your branch + review | Asking a collaborator to check your work before including it |
+| **Clone** | Downloading a copy of a remote repository | Getting a copy of a shared lab notebook |
+| **Push / Pull** | Sending/receiving updates to/from GitHub | Syncing your local lab notebook with the shared one |
+
+### The Git Mental Model
+
+```
+Your Computer (Local)                    GitHub (Remote)
+┌─────────────────────┐                ┌──────────────────┐
+│  Working Directory   │   git push    │                  │
+│  (your files)        │ ──────────►   │   Remote Repo    │
+│         │            │               │   (GitHub)       │
+│    git add           │   git pull    │                  │
+│         ▼            │ ◄──────────   │                  │
+│  Staging Area        │               └──────────────────┘
+│         │            │
+│    git commit        │
+│         ▼            │
+│  Local Repository    │
+│  (commit history)    │
+└─────────────────────┘
+```
+
+### Git is *Not* Just for Code
+
+Git tracks **any text file**: `.qmd`, `.R`, `.csv` (small), `.bib`, `.tex`, `.md`
+
+::: {.callout-important}
+## What Git is NOT Good For
+
+- Large binary files (images, PDFs, Word docs, big datasets)
+- Files that change constantly in unpredictable ways
+- Sensitive data (passwords, API keys, personally identifiable data)
+
+For large data, look into `.gitignore` and Git Large File Storage (LFS).
+:::
+
+### GitHub ≠ Git
+
+| Git | GitHub |
+|-----|--------|
+| The version control system | A website that hosts Git repositories |
+| Runs on your computer | Runs in the cloud |
+| Tracks history locally | Lets you share, collaborate, and back up |
+| Free, open source | Free for public repos; education accounts get extras |
+
+## Part 5: Concept Map - Your Understanding of Git (8 min)
+
+Now that you've heard the lecture, **build a concept map** from memory. This tests whether you actually absorbed it.
+
+### Individual (5 min)
+
+On a blank piece of paper, create a **concept map** using these terms. Draw circles for each term and arrows showing how they relate. Label the arrows with verbs (e.g., "creates", "contains", "sends to").
+
+**Terms:** Repository, Commit, Branch, Merge, Pull Request, Clone, Push, Pull, Staging Area, Working Directory, Remote (GitHub)
+
+## Part 6: Hands-On - Join GitHub, Create Your First Repo, First Commits (≈15 min)
+
+::: {.callout-important}
+## We're doing this NOW, together, in class.
+The rest of Session A is hands-on. 
+:::
+
+### Step 1: Make sure you're on GitHub (2 min)
+
+1. Go to [github.com](https://github.com)
+2. If you don't have an account, **create one now**
+3. If you haven't applied for [GitHub Education](https://education.github.com/), do that after class (it gives you free features)
+4. Confirm you can log in
+
+### Step 2: Create a new RStudio Project with Git (3 min)
+
+1. Open **RStudio**
+2. Go to **File → New Project → New Directory → New Project**
+3. Name it: `water-growth-sim`
+4. ✅ Check **"Create a git repository"**
+5. Click **Create Project**
+
+You now have a local Git repository! Notice the **Git tab** in your RStudio pane (usually top-right).
+
+### Step 3: Create a new Quarto file (2 min)
+
+1. **File → New File → Quarto Document**
+2. Title: `"Water and Plant Growth Simulation"`
+3. Save it as `simulation.qmd`
+
+### Step 4: Write the simulation - Step 1 only (data simulation) (3 min)
+
+Type this into your `simulation.qmd` file. This is a simple simulation: water availability (x) affects plant growth (y) through a basic linear relationship.
+
+```{r}
+#| label: simulate-data
+#| eval: false
+
+# =============================================
+# Water & Plant Growth: Simple Linear Simulation
+# =============================================
+# Research question: Does water availability affect plant growth?
+# We KNOW the answer because we're simulating the data!
+
+library(tidyverse)
+
+set.seed(2024)
+
+# Define the truth
+n_plants <- 40             # number of plants
+true_intercept <- 5        # baseline growth (cm) with no water
+true_slope <- 2.5          # for every 1 unit increase in water, growth increases by 2.5 cm
+noise_sd <- 3              # how much natural variation there is
+
+# Simulate predictor: water availability (liters per week)
+water <- runif(n_plants, min = 0, max = 10)
+
+# Simulate response: plant growth (cm)
+growth <- true_intercept + true_slope * water + rnorm(n_plants, mean = 0, sd = noise_sd)
+
+# Put it in a data frame
+plant_data <- data.frame(
+  water = water,
+  growth = growth
+)
+
+# Take a look
+head(plant_data)
+summary(plant_data)
+
+# Visualize
+ggplot(plant_data, aes(x = water, y = growth)) +
+  geom_point(size = 3, alpha = 0.7) +
+  labs(
+    title = "Simulated: Water Availability vs. Plant Growth",
+    subtitle = paste("True relationship: growth =", true_intercept, "+", true_slope, "× water + noise"),
+    x = "Water Availability (L/week)",
+    y = "Plant Growth (cm)"
+  ) +
+  theme_minimal(base_size = 14)
+```
+
+### Step 5: Make your FIRST commit (3 min)
+
+1. Go to the **Git tab** in RStudio
+2. You'll see your files listed (`.qmd`, `.Rproj`, maybe `.gitignore`)
+3. **Check the boxes** next to all the files (this is "staging" - `git add`)
+4. Click **"Commit"**
+5. In the commit message box, type: `"Simulated water and plant growth data - true slope is 2.5"`
+6. Click **Commit**
+
+🎉 **Congratulations - you just made your first Git commit!**
+
+Click **"History"** in the Git pane to see your commit. There's your first lab notebook entry.
+
+### Step 6: Connect to GitHub and push (3 min)
+
+1. Go to [github.com](https://github.com) → click **"+"** (top right) → **New repository**
+2. Name it: `water-growth-sim`
+3. Leave it **Public** (or Private if you prefer)
+4. ⚠️ **Do NOT** check "Add a README" - your local repo already has files
+5. Click **Create repository**
+6. GitHub will show you instructions. Copy the two lines under **"…or push an existing repository from the command line"**:
+7. In RStudio, go to **Terminal** tab (next to Console) and paste those commands
+
+```bash
+git remote add origin https://github.com/YOUR-USERNAME/water-growth-sim.git
+git branch -M main
+git push -u origin main
+```
+
+8. Go back to GitHub in your browser and **refresh the page** - your files are there! 🎉
+
+::: {.callout-tip}
+## Check GitHub!
+Go to `https://github.com/YOUR-USERNAME/water-growth-sim` and confirm you can see your `simulation.qmd` file. Click on it - you can read your code right in the browser. Click "Commits" to see your commit history (it has one entry so far).
+:::
+
+9. Now, return to RStudio, and add one line of code to your `simulation.qmd`. I want you to run the linear model using `lm()` and run the `summary()`. After that, commit again, and see if you can push the changes to GitHub.
+10. **Commit message:** `"Fit linear model to simulated data"`
+11. Push to GitHub again.
+12. Render your Quarto document to see the output. You can also commit and push the rendered HTML if you want (that's how I made this website!).
+
+## Muddiest Point (2 min)
+
+On a piece of paper, write down the **one thing** from today that is most confusing or unclear to you. Be specific! Dr. Molina will read these before Session B.
+
+
+# Session B: Hands-On - Simulations Revisited + Git Workshop (75 min)
+
+::: {.callout-important}
+## Session B Game Plan
+
+This session has **two parts**:
+
+1. **Part 1 (≈35 min): Week 3 Simulation Refresher** - We'll work through the simulations that many of you found challenging last week. We do this together, step by step, so everyone is comfortable with simulating data, fitting the wrong model, and fitting the correct model.
+
+2. **Part 2 (≈35 min): Git on Top of Your Simulations** - Once your code is working, we'll use *that same code* to practice Git. You'll create a repository, make commits at each stage of the analysis, and see how version control tells the story of your work.
+
+This way you're not learning two hard things at once - you're reinforcing last week's content *and* learning Git with code you already understand.
+:::
+
+### Addressing Your Muddiest Points (5 min)
+
+Dr. Molina will open with a quick response to the most common muddiest points from Session A.
+
+---
+
+## Part 1: Week 3 Simulation Refresher (≈35 min)
+
+### Why Simulate? (5 min - mini-lecture)
+
+Simulation is one of the most powerful tools in a statistician's toolkit. It lets you:
+
+- **Understand your model** by seeing how data generated *from* that model behaves
+- **Test your analysis pipeline** on data where you *know* the truth
+- **Diagnose problems** - if your model can't recover known parameters from simulated data, something is wrong
+
+In Week 3, many of you found simulation challenging. That's expected! Let's break it down together.
+
+::: {.callout-tip}
+## The Simulation Recipe
+
+Every simulation follows the same four steps:
+
+1. **Define the truth** - What are the true parameter values? (e.g., true effect = 3 units)
+2. **Generate structure** - Create the experimental design (e.g., 5 fields × 4 plots)
+3. **Add randomness** - Use a distribution to generate data (e.g., `rnorm()`, `rpois()`, `rbinom()`)
+4. **Fit the model** - Analyze the simulated data and see if you recover the truth
+:::
+
+### Guided Walkthrough: Fertilizer Mismatch (15 min - code along together)
+
+We'll recreate the **Example 1: Mismatch** from Week 3 slides step by step. This is the fertilizer-on-crop-yield example where ignoring field structure leads to wrong conclusions.

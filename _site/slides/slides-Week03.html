@@ -162,6 +162,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -249,9 +268,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#always-justify-your-choices." id="toc-always-justify-your-choices." class="nav-link" data-scroll-target="#always-justify-your-choices."><span class="header-section-number">21.3</span> Always justify your choices.</a></li>
   </ul></li>
   <li><a href="#now-its-your-turn" id="toc-now-its-your-turn" class="nav-link" data-scroll-target="#now-its-your-turn"><span class="header-section-number">22</span> Now It’s Your Turn!</a></li>
-  <li><a href="#appendix-full-simulation-code" id="toc-appendix-full-simulation-code" class="nav-link" data-scroll-target="#appendix-full-simulation-code"><span class="header-section-number">23</span> Appendix: Full Simulation Code</a></li>
-  <li><a href="#appendix-full-simulation-code-continued" id="toc-appendix-full-simulation-code-continued" class="nav-link" data-scroll-target="#appendix-full-simulation-code-continued"><span class="header-section-number">24</span> Appendix: Full Simulation Code (continued)</a></li>
-  <li><a href="#appendix-full-simulation-code-continued-1" id="toc-appendix-full-simulation-code-continued-1" class="nav-link" data-scroll-target="#appendix-full-simulation-code-continued-1"><span class="header-section-number">25</span> Appendix: Full Simulation Code (continued)</a></li>
+  <li><a href="#now-its-your-turn-1" id="toc-now-its-your-turn-1" class="nav-link" data-scroll-target="#now-its-your-turn-1"><span class="header-section-number">23</span> Now It’s Your Turn!</a></li>
+  <li><a href="#appendix-full-simulation-code" id="toc-appendix-full-simulation-code" class="nav-link" data-scroll-target="#appendix-full-simulation-code"><span class="header-section-number">24</span> Appendix: Full Simulation Code</a></li>
+  <li><a href="#appendix-full-simulation-code-continued" id="toc-appendix-full-simulation-code-continued" class="nav-link" data-scroll-target="#appendix-full-simulation-code-continued"><span class="header-section-number">25</span> Appendix: Full Simulation Code (continued)</a></li>
+  <li><a href="#appendix-full-simulation-code-continued-1" id="toc-appendix-full-simulation-code-continued-1" class="nav-link" data-scroll-target="#appendix-full-simulation-code-continued-1"><span class="header-section-number">26</span> Appendix: Full Simulation Code (continued)</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-Week03.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -293,17 +313,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-problem" class="level2 smaller" data-number="1">
 <h2 class="smaller anchored" data-number="1" data-anchor-id="the-problem"><span class="header-section-number">1</span> The Problem</h2>
 <ul>
-<li><p>We often learn methods in isolation</p>
+<li><p>We often learn methods in isolation –&gt; during classes</p>
 <ul>
 <li>“This is a t-test”</li>
 <li>“This is ANOVA”</li>
 <li>“This is regression”</li>
+<li>“This is Bayesian”</li>
 </ul></li>
-<li><p>Then we have data and ask: <strong>“What test do I run?”</strong></p></li>
+<li><p>Then we want to apply those methods in our data.</p></li>
+<li><p>This is particularly true for people that really enjoy analytical methods!</p></li>
 <li><p>This is <strong>backwards!</strong></p></li>
 </ul>
 <p>. . .</p>
-<p><strong>Key insight:</strong> The research question should drive everything</p>
+<p>The research question should drive everything!</p>
 <hr>
 </section>
 <section id="the-triangle-framework" class="level2 center" data-number="2">
@@ -325,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Wasted effort<br>
 </li>
 <li>Rejected papers</li>
-<li>Sad grad students! :frowning:</li>
+<li>Sad grad students! 😦</li>
 </ul>
 <hr>
 </section>
@@ -455,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="slides-Week03_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="slides-Week03_files/figure-revealjs/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -506,19 +528,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example-1-the-fix" class="level2" data-background-color="#ffcccc" data-number="10">
 <h2 data-background-color="#ffcccc" data-number="10" class="anchored" data-anchor-id="example-1-the-fix"><span class="header-section-number">10</span> Example 1: The Fix</h2>
-<div class="nonincremental">
 <p><strong>In this design (treatment within fields):</strong></p>
 <ul>
 <li>The wrong model has inflated standard errors because it treats field variance as residual noise</li>
 <li>The correct model* separates field variance → cleaner estimate of treatment effect</li>
 <li>This means reduced power when you ignore structure</li>
 </ul>
+<p>. . .</p>
 <p><strong>In other designs (treatment between fields):</strong></p>
 <ul>
 <li>Ignoring structure would inflate Type I error instead</li>
-<li></li>
 </ul>
-</div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Wrong</span></span>
@@ -550,7 +570,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="slides-Week03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="slides-Week03_files/figure-revealjs/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -620,7 +640,7 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="slides-Week03_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="slides-Week03_files/figure-revealjs/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -671,7 +691,10 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 <p>Use the simplest method that adequately addresses your question</p>
 </blockquote>
 <p>. . .</p>
-<p>Save fancy methods for when you <strong>need</strong> them!</p>
+<p>Save fancy methods for when you need them!</p>
+<p>. . .</p>
+<p>I know this is challenging! When I learn about new methods, I want to use them ALL THE TIME. But resist the urge! Focus on the researhc question!</p>
+<p>If you teach, you get to explore any methods you want in your lessons!</p>
 <hr>
 </section>
 <section id="summary-three-scenarios" class="level2" data-number="19">
@@ -680,8 +703,8 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 23%">
-<col style="width: 33%">
-<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -745,6 +768,25 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 </section>
 <section id="now-its-your-turn" class="level2 center" data-number="22">
 <h2 class="center anchored" data-number="22" data-anchor-id="now-its-your-turn"><span class="header-section-number">22</span> Now It’s Your Turn!</h2>
+<p><strong>Think-Pair-Share (5 min)</strong></p>
+<blockquote class="blockquote">
+<p>Look back at your silent reflection sheet. Based on the three examples:</p>
+<ul>
+<li>What method might be appropriate for YOUR data?</li>
+<li>What’s one thing about your data structure that makes method choice tricky?</li>
+</ul>
+</blockquote>
+<ol type="1">
+<li><strong>Think</strong> (&lt;1 min) — you already did this… you can use 30 seconds to update your notes</li>
+<li><strong>Pair</strong> (3 min) — discuss with a neighbor, help each other troubleshoot</li>
+<li><strong>Share</strong> (1 min) — 2–3 volunteers share their pairing’s most interesting dilemma</li>
+</ol>
+<p>. . .</p>
+<p><strong>Grab your worksheet and let’s go!</strong></p>
+<hr>
+</section>
+<section id="now-its-your-turn-1" class="level2 center" data-number="23">
+<h2 class="center anchored" data-number="23" data-anchor-id="now-its-your-turn-1"><span class="header-section-number">23</span> Now It’s Your Turn!</h2>
 <p><strong>Data Detective Stations</strong></p>
 <ul>
 <li>6 scenarios around the room</li>
@@ -756,8 +798,8 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 <p><strong>Grab your worksheet and let’s go!</strong></p>
 <hr>
 </section>
-<section id="appendix-full-simulation-code" class="level2 smaller" data-number="23">
-<h2 class="smaller anchored" data-number="23" data-anchor-id="appendix-full-simulation-code"><span class="header-section-number">23</span> Appendix: Full Simulation Code</h2>
+<section id="appendix-full-simulation-code" class="level2 smaller" data-number="24">
+<h2 class="smaller anchored" data-number="24" data-anchor-id="appendix-full-simulation-code"><span class="header-section-number">24</span> Appendix: Full Simulation Code</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================================</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># EXAMPLE 1: MISMATCH - Ignoring nested structure</span></span>
@@ -814,8 +856,8 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 </div>
 <hr>
 </section>
-<section id="appendix-full-simulation-code-continued" class="level2 smaller" data-number="24">
-<h2 class="smaller anchored" data-number="24" data-anchor-id="appendix-full-simulation-code-continued"><span class="header-section-number">24</span> Appendix: Full Simulation Code (continued)</h2>
+<section id="appendix-full-simulation-code-continued" class="level2 smaller" data-number="25">
+<h2 class="smaller anchored" data-number="25" data-anchor-id="appendix-full-simulation-code-continued"><span class="header-section-number">25</span> Appendix: Full Simulation Code (continued)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================================</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># EXAMPLE 2: GOOD MATCH - Poisson GLM for counts</span></span>
@@ -849,8 +891,8 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 </div>
 <hr>
 </section>
-<section id="appendix-full-simulation-code-continued-1" class="level2 smaller" data-number="25">
-<h2 class="smaller anchored" data-number="25" data-anchor-id="appendix-full-simulation-code-continued-1"><span class="header-section-number">25</span> Appendix: Full Simulation Code (continued)</h2>
+<section id="appendix-full-simulation-code-continued-1" class="level2 smaller" data-number="26">
+<h2 class="smaller anchored" data-number="26" data-anchor-id="appendix-full-simulation-code-continued-1"><span class="header-section-number">26</span> Appendix: Full Simulation Code (continued)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================================</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># EXAMPLE 3: OVERCOMPLICATED - Simple question, complex method</span></span>
@@ -886,6 +928,82 @@ treatmentnative 0.5761755  0.0822319  7.006715  2.439777e-12</code></pre>
 </section>
 
 </main> <!-- /main -->
+
+
+<script>
+
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+  // slide changes (different for each slide format).
+
+  (function () {
+
+    // dispatch for htmlwidgets
+
+    function fireSlideEnter() {
+
+      const event = window.document.createEvent("Event");
+
+      event.initEvent("slideenter", true, true);
+
+      window.document.dispatchEvent(event);
+
+    }
+
+
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+
+      fireSlideEnter();
+
+
+
+      // dispatch for shiny
+
+      if (window.jQuery) {
+
+        if (previousSlide) {
+
+          window.jQuery(previousSlide).trigger("hidden");
+
+        }
+
+        if (currentSlide) {
+
+          window.jQuery(currentSlide).trigger("shown");
+
+        }
+
+      }
+
+    }
+
+
+
+    // hookup for slidy
+
+    if (window.w3c_slidy) {
+
+      window.w3c_slidy.add_observer(function (slide_num) {
+
+        // slide_num starts at position 1
+
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+      });
+
+    }
+
+
+
+  })();
+
+</script>
+
+
+
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

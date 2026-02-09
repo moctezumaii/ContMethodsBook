@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 04 - Version Control, Git &amp; Collaboration – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objectives-and-background" id="toc-objectives-and-background" class="nav-link active" data-scroll-target="#objectives-and-background"><span class="header-section-number">1</span> Objectives and background</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</a></li>
+  <li><a href="#background-reading" id="toc-background-reading" class="nav-link" data-scroll-target="#background-reading"><span class="header-section-number">1.2</span> Background Reading</a></li>
+  </ul></li>
+  <li><a href="#session-a-why-version-control-lecture-discussion-75-min" id="toc-session-a-why-version-control-lecture-discussion-75-min" class="nav-link" data-scroll-target="#session-a-why-version-control-lecture-discussion-75-min"><span class="header-section-number">2</span> Session A: Why Version Control? (Lecture + Discussion, 75 min)</a>
+  <ul class="collapse">
+  <li><a href="#part-1-retrieval-practice---what-do-you-remember-8-min" id="toc-part-1-retrieval-practice---what-do-you-remember-8-min" class="nav-link" data-scroll-target="#part-1-retrieval-practice---what-do-you-remember-8-min"><span class="header-section-number">2.1</span> Part 1: Retrieval Practice - What Do You Remember? (8 min)</a></li>
+  <li><a href="#part-2-predict-observe-explain-12-min" id="toc-part-2-predict-observe-explain-12-min" class="nav-link" data-scroll-target="#part-2-predict-observe-explain-12-min"><span class="header-section-number">2.2</span> Part 2: Predict-Observe-Explain (12 min)</a>
+  <ul class="collapse">
+  <li><a href="#predict-3-min---write-on-paper" id="toc-predict-3-min---write-on-paper" class="nav-link" data-scroll-target="#predict-3-min---write-on-paper"><span class="header-section-number">2.2.1</span> 🔮 PREDICT (3 min - write on paper)</a></li>
+  <li><a href="#observe-2-minute" id="toc-observe-2-minute" class="nav-link" data-scroll-target="#observe-2-minute"><span class="header-section-number">2.2.2</span> 👁️ OBSERVE (2 minute)</a></li>
+  <li><a href="#explain-5-min---whole-class" id="toc-explain-5-min---whole-class" class="nav-link" data-scroll-target="#explain-5-min---whole-class"><span class="header-section-number">2.2.3</span> 💡 EXPLAIN (5 min - whole class)</a></li>
+  </ul></li>
+  <li><a href="#part-3-why-version-control---elaborative-interrogation-10-min" id="toc-part-3-why-version-control---elaborative-interrogation-10-min" class="nav-link" data-scroll-target="#part-3-why-version-control---elaborative-interrogation-10-min"><span class="header-section-number">2.3</span> Part 3: Why Version Control? - Elaborative Interrogation (10 min)</a>
+  <ul class="collapse">
+  <li><a href="#round-1-pair-up---why-chain-6-min" id="toc-round-1-pair-up---why-chain-6-min" class="nav-link" data-scroll-target="#round-1-pair-up---why-chain-6-min"><span class="header-section-number">2.3.1</span> Round 1: Pair Up - “Why” Chain (6 min)</a></li>
+  <li><a href="#round-2-connect-to-a-specific-week-5-min" id="toc-round-2-connect-to-a-specific-week-5-min" class="nav-link" data-scroll-target="#round-2-connect-to-a-specific-week-5-min"><span class="header-section-number">2.3.2</span> Round 2: Connect to a Specific Week (5 min)</a></li>
+  </ul></li>
+  <li><a href="#part-4-lecture---what-is-git-20-min" id="toc-part-4-lecture---what-is-git-20-min" class="nav-link" data-scroll-target="#part-4-lecture---what-is-git-20-min"><span class="header-section-number">2.4</span> Part 4: Lecture - What is Git? (≈20 min)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link" data-scroll-target="#what-is-version-control"><span class="header-section-number">2.4.1</span> What is version control?</a></li>
+  <li><a href="#why-git-specifically" id="toc-why-git-specifically" class="nav-link" data-scroll-target="#why-git-specifically"><span class="header-section-number">2.4.2</span> Why Git specifically?</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">2.4.3</span> Key Concepts</a></li>
+  <li><a href="#the-git-mental-model" id="toc-the-git-mental-model" class="nav-link" data-scroll-target="#the-git-mental-model"><span class="header-section-number">2.4.4</span> The Git Mental Model</a></li>
+  <li><a href="#git-is-not-just-for-code" id="toc-git-is-not-just-for-code" class="nav-link" data-scroll-target="#git-is-not-just-for-code"><span class="header-section-number">2.4.5</span> Git is <em>Not</em> Just for Code</a></li>
+  <li><a href="#github-git" id="toc-github-git" class="nav-link" data-scroll-target="#github-git"><span class="header-section-number">2.4.6</span> GitHub ≠ Git</a></li>
+  </ul></li>
+  <li><a href="#part-5-concept-map---your-understanding-of-git-8-min" id="toc-part-5-concept-map---your-understanding-of-git-8-min" class="nav-link" data-scroll-target="#part-5-concept-map---your-understanding-of-git-8-min"><span class="header-section-number">2.5</span> Part 5: Concept Map - Your Understanding of Git (8 min)</a>
+  <ul class="collapse">
+  <li><a href="#individual-5-min" id="toc-individual-5-min" class="nav-link" data-scroll-target="#individual-5-min"><span class="header-section-number">2.5.1</span> Individual (5 min)</a></li>
+  </ul></li>
+  <li><a href="#part-6-hands-on---join-github-create-your-first-repo-first-commits-15-min" id="toc-part-6-hands-on---join-github-create-your-first-repo-first-commits-15-min" class="nav-link" data-scroll-target="#part-6-hands-on---join-github-create-your-first-repo-first-commits-15-min"><span class="header-section-number">2.6</span> Part 6: Hands-On - Join GitHub, Create Your First Repo, First Commits (≈15 min)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-make-sure-youre-on-github-2-min" id="toc-step-1-make-sure-youre-on-github-2-min" class="nav-link" data-scroll-target="#step-1-make-sure-youre-on-github-2-min"><span class="header-section-number">2.6.1</span> Step 1: Make sure you’re on GitHub (2 min)</a></li>
+  <li><a href="#step-2-create-a-new-rstudio-project-with-git-3-min" id="toc-step-2-create-a-new-rstudio-project-with-git-3-min" class="nav-link" data-scroll-target="#step-2-create-a-new-rstudio-project-with-git-3-min"><span class="header-section-number">2.6.2</span> Step 2: Create a new RStudio Project with Git (3 min)</a></li>
+  <li><a href="#step-3-create-a-new-quarto-file-2-min" id="toc-step-3-create-a-new-quarto-file-2-min" class="nav-link" data-scroll-target="#step-3-create-a-new-quarto-file-2-min"><span class="header-section-number">2.6.3</span> Step 3: Create a new Quarto file (2 min)</a></li>
+  <li><a href="#step-4-write-the-simulation---step-1-only-data-simulation-3-min" id="toc-step-4-write-the-simulation---step-1-only-data-simulation-3-min" class="nav-link" data-scroll-target="#step-4-write-the-simulation---step-1-only-data-simulation-3-min"><span class="header-section-number">2.6.4</span> Step 4: Write the simulation - Step 1 only (data simulation) (3 min)</a></li>
+  <li><a href="#step-5-make-your-first-commit-3-min" id="toc-step-5-make-your-first-commit-3-min" class="nav-link" data-scroll-target="#step-5-make-your-first-commit-3-min"><span class="header-section-number">2.6.5</span> Step 5: Make your FIRST commit (3 min)</a></li>
+  <li><a href="#step-6-connect-to-github-and-push-3-min" id="toc-step-6-connect-to-github-and-push-3-min" class="nav-link" data-scroll-target="#step-6-connect-to-github-and-push-3-min"><span class="header-section-number">2.6.6</span> Step 6: Connect to GitHub and push (3 min)</a></li>
+  </ul></li>
+  <li><a href="#muddiest-point-2-min" id="toc-muddiest-point-2-min" class="nav-link" data-scroll-target="#muddiest-point-2-min"><span class="header-section-number">2.7</span> Muddiest Point (2 min)</a></li>
+  </ul></li>
+  <li><a href="#session-b-hands-on---simulations-revisited-git-workshop-75-min" id="toc-session-b-hands-on---simulations-revisited-git-workshop-75-min" class="nav-link" data-scroll-target="#session-b-hands-on---simulations-revisited-git-workshop-75-min"><span class="header-section-number">3</span> Session B: Hands-On - Simulations Revisited + Git Workshop (75 min)</a>
+  <ul class="collapse">
+  <li><a href="#addressing-your-muddiest-points-5-min" id="toc-addressing-your-muddiest-points-5-min" class="nav-link" data-scroll-target="#addressing-your-muddiest-points-5-min"><span class="header-section-number">3.0.1</span> Addressing Your Muddiest Points (5 min)</a></li>
+  <li><a href="#part-1-week-3-simulation-refresher-35-min" id="toc-part-1-week-3-simulation-refresher-35-min" class="nav-link" data-scroll-target="#part-1-week-3-simulation-refresher-35-min"><span class="header-section-number">3.1</span> Part 1: Week 3 Simulation Refresher (≈35 min)</a>
+  <ul class="collapse">
+  <li><a href="#why-simulate-5-min---dr.-molina-mini-lecture" id="toc-why-simulate-5-min---dr.-molina-mini-lecture" class="nav-link" data-scroll-target="#why-simulate-5-min---dr.-molina-mini-lecture"><span class="header-section-number">3.1.1</span> Why Simulate? (5 min - Dr.&nbsp;Molina mini-lecture)</a></li>
+  <li><a href="#guided-walkthrough-fertilizer-mismatch-15-min---code-along-together" id="toc-guided-walkthrough-fertilizer-mismatch-15-min---code-along-together" class="nav-link" data-scroll-target="#guided-walkthrough-fertilizer-mismatch-15-min---code-along-together"><span class="header-section-number">3.1.2</span> Guided Walkthrough: Fertilizer Mismatch (15 min - code along together)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 04 - Version Control, Git &amp; Collaboration</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objectives-and-background" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Objectives and background</h1>
+<p>Topic: Introduction to Git, GitHub, and Collaborative Reproducible Research</p>
+<section id="learning-objectives" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</h2>
+<ul>
+<li>Explain <em>why</em> version control matters for reproducible, transparent research</li>
+<li>Connect version control philosophy to themes from Weeks 1–3 (data exploration, model selection, the Method-Question-Data triangle)</li>
+<li>Use Git and GitHub for basic version control (init, add, commit, push, pull)</li>
+<li>Collaborate on a shared repository using branches and pull requests</li>
+<li>Apply version control to a Quarto-based analytical workflow</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Semester So Far - Key Takeaways from Weeks 1–3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 26%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Topic</th>
+<th>Key Takeaway</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Introductions &amp; Papers</td>
+<td>Data exploration protects inference (Zuur); exploration vs.&nbsp;inference should be independent (Tredennick); always explore your data before modeling</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Philosophy of Data Analysis</td>
+<td>“All models are wrong” (Box); Bayesian vs.&nbsp;frequentist thinking; uncertainty is everywhere; the goal is to find the useful model, not the true one</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Statistical Modeling Framework</td>
+<td>The Method-Question-Data Triangle must align; mismatch → wrong conclusions; overcomplication → wasted effort; start simple, add complexity only when needed</td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td><strong>Version Control &amp; Collaboration</strong></td>
+<td><strong>Your analytical decisions need to be tracked, transparent, and reproducible - Git makes this possible</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In Weeks 1–3, we talked about <em>how to think</em> about data analysis:</p>
+<ul>
+<li><strong>Week 1</strong> emphasized that data exploration and inference are separate activities - but both must be documented. How do you keep track of which analyses were exploratory vs.&nbsp;confirmatory?</li>
+<li><strong>Week 2</strong> introduced the idea that all models are wrong but some are useful. If you try multiple models, how do you record <em>which</em> ones you tried, <em>why</em> you chose one over another, and <em>what changed</em>?</li>
+<li><strong>Week 3</strong> showed us the Method-Question-Data Triangle and the dangers of mismatch vs.&nbsp;overcomplication. When you iterate through model choices - trying a <code>lm()</code>, realizing you need a <code>glmer()</code>, adding random effects - how do you track that evolution?</li>
+</ul>
+<p><strong>Version control can help us with this</strong> And at WORST… it is a great tool to have!</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+About Week 3 Simulations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many of you found the simulation exercises in Week 3 challenging - simulating data that matches a scenario description, then fitting both the “proposed” (wrong) and “correct” models. <strong>That’s completely normal.</strong> Simulating data is a skill that takes practice.</p>
+<p>Session B this week is designed to give you a <strong>second pass</strong> at those simulations. The first hands-on activity will walk through the Week 3 simulation &amp; analysis exercises together, step by step. <em>Then</em> we’ll layer Git on top, so you’re learning version control with familiar code rather than starting from scratch.</p>
+</div>
+</div>
+</section>
+<section id="background-reading" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="background-reading"><span class="header-section-number">1.2</span> Background Reading</h2>
+<p>Before Thursday class, review the following:</p>
+<ul>
+<li><a href="https://happygitwithr.com/">Happy Git with R</a> - Great guide</li>
+<li><a href="https://docs.github.com/en/get-started/quickstart">GitHub Quickstart Guide</a> –&gt; REad this for an overview of GitHub’s features ## Before Class</li>
+</ul>
+<p>Make sure you have:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">A <a href="https://github.com">GitHub account</a> (you should already have this from Week 1)</label></li>
+<li><label><input type="checkbox">Git installed on your computer (<code>git --version</code> in terminal)</label></li>
+<li><label><input type="checkbox">RStudio or Positron with Git integration configured</label></li>
+<li><label><input type="checkbox">Accepted the invite to the course repository – check your email or GitHub notifications</label></li>
+<li><label><input type="checkbox">Confirmed Codespaces access (if using browser-based workflow) – check your email or GitHub notifications</label></li>
+</ul>
+<p>Think about:</p>
+<ul>
+<li>How many versions of your thesis/analysis scripts do you currently have?</li>
+<li>Have you ever lost work, overwritten a file, or been unable to undo a change?</li>
+<li>Have you ever emailed a script to a collaborator and gotten confused about which version is “current”?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="session-a-why-version-control-lecture-discussion-75-min" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Session A: Why Version Control? (Lecture + Discussion, 75 min)</h1>
+<section id="part-1-retrieval-practice---what-do-you-remember-8-min" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="part-1-retrieval-practice---what-do-you-remember-8-min"><span class="header-section-number">2.1</span> Part 1: Retrieval Practice - What Do You Remember? (8 min)</h2>
+<p>Before we introduce anything new, let’s activate what you already know from Weeks 1–3. <strong>No notes, no phones</strong> - this is retrieval practice. Struggling to recall is the point; it strengthens memory.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick-Fire Recall (write on paper, 3 min)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Answer as many as you can from memory. One or two sentences each is fine.</p>
+<ol type="1">
+<li>What did Zuur argue about data exploration? What is the goal of exploring your data before modeling?</li>
+<li>What is Box’s famous quote about models? What does it mean in practice?</li>
+<li>In Week 3, what were the <strong>three scenarios</strong> we examined? (Hint: one was a “good match”)</li>
+<li>In the examples from Week 3, explain one fo the experiments and what went wrong?</li>
+<li>What is the <strong>Golden Rule</strong> from Week 3?</li>
+</ol>
+</div>
+</div>
+<p><strong>Debrief (5 min):</strong> Turn to a neighbor and compare answers. Fill in each other’s gaps. note: ask them what they want here</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why Retrieval Practice?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Research shows that actively recalling information - even when it’s difficult - produces stronger long-term retention than re-reading notes (Roediger &amp; Butler, 2011). This is a “desirable difficulty.” If it felt hard, that’s good!</p>
+</div>
+</div>
+</section>
+<section id="part-2-predict-observe-explain-12-min" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="part-2-predict-observe-explain-12-min"><span class="header-section-number">2.2</span> Part 2: Predict-Observe-Explain (12 min)</h2>
+<p><strong>Quick Poll:</strong> Raise your hand if you’ve ever:</p>
+<ol type="1">
+<li>Lost work because you overwrote a file</li>
+<li>Couldn’t remember why you changed something in your code</li>
+<li>Had a collaborator edit the same file and you had to manually merge changes</li>
+<li>Had a folder full of <code>_v2</code>, <code>_v3</code>, <code>_FINAL</code> files</li>
+</ol>
+<section id="predict-3-min---write-on-paper" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="predict-3-min---write-on-paper"><span class="header-section-number">2.2.1</span> 🔮 PREDICT (3 min - write on paper)</h3>
+<p>Here is a scenario. <strong>Predict what will go wrong:</strong></p>
+<blockquote class="blockquote">
+<p>You’re writing your thesis. You have a file called <code>analysis.R</code>. You make changes over two weeks. Your folder now looks like this:</p>
+<pre><code>analysis.R
+analysis_v2.R
+analysis_FINAL.R
+analysis_FINAL_v2.R
+analysis_FINAL_ACTUALLY_FINAL.R
+analysis_FINAL_ACTUALLY_FINAL_USE_THIS_ONE.R</code></pre>
+<p>Your advisor emails and says: <em>“The reviewer wants to see the version where you used the Poisson model instead of the linear model. Can you send that?”</em></p>
+</blockquote>
+<p><strong>Write down:</strong> What happens next? What specifically goes wrong? How long does it take you to find the right version? Do you even <em>have</em> it?</p>
+</section>
+<section id="observe-2-minute" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="observe-2-minute"><span class="header-section-number">2.2.2</span> 👁️ OBSERVE (2 minute)</h3>
+<p>I will show how source control works. And why it is so powerful.</p>
+</section>
+<section id="explain-5-min---whole-class" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="explain-5-min---whole-class"><span class="header-section-number">2.2.3</span> 💡 EXPLAIN (5 min - whole class)</h3>
+<p>As a class, answer:</p>
+<ol type="1">
+<li>Why does the file-naming approach fail? (Be specific: what information is lost?)</li>
+<li>What does Git preserve that file-naming doesn’t?</li>
+<li>Can you connect this to Box’s “all models are wrong” idea? (Hint: if you’re iterating through models, you need a record of <em>which</em> wrong models you tried and why you moved on)</li>
+</ol>
+</section>
+</section>
+<section id="part-3-why-version-control---elaborative-interrogation-10-min" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="part-3-why-version-control---elaborative-interrogation-10-min"><span class="header-section-number">2.3</span> Part 3: Why Version Control? - Elaborative Interrogation (10 min)</h2>
+<p>Elaborative interrogation means asking “<strong>why?</strong>” and “<strong>how?</strong>” until you reach a deep understanding.</p>
+<section id="round-1-pair-up---why-chain-6-min" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="round-1-pair-up---why-chain-6-min"><span class="header-section-number">2.3.1</span> Round 1: Pair Up - “Why” Chain (6 min)</h3>
+<p>With a partner, take turns asking “why?” about this statement. Go at least four levels deep:</p>
+<blockquote class="blockquote">
+<p><strong>“Researchers should use version control for their analyses.”</strong></p>
+</blockquote>
+</section>
+<section id="round-2-connect-to-a-specific-week-5-min" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="round-2-connect-to-a-specific-week-5-min"><span class="header-section-number">2.3.2</span> Round 2: Connect to a Specific Week (5 min)</h3>
+<p>Each pair picks <strong>two</strong> of the statements below. For each, write a single sentence completing the prompt:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Statement from Weeks 1–3</th>
+<th>“Version control helps with this because…”</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Data exploration should protect inference, not create it” (Zuur)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>“Exploration and inference should come from independent studies” (Tredennick)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>“All models are wrong, but some are useful” (Box)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>“The research question should drive everything” (Week 3 slides)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>“Start simple. Add complexity only when needed. Always justify your choices.” (Week 3 Golden Rule)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>“Misalignment leads to wrong conclusions, wasted effort, rejected papers, and sad grad students” (Week 3 slides)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Share Out (2–3 min):</strong> 3–4 pairs share their best sentence.</p>
+</section>
+</section>
+<section id="part-4-lecture---what-is-git-20-min" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="part-4-lecture---what-is-git-20-min"><span class="header-section-number">2.4</span> Part 4: Lecture - What is Git? (≈20 min)</h2>
+<p>Dr.&nbsp;Molina will give a traditional lecture covering the following. Take notes - you’ll use this for a concept map right after.</p>
+<section id="what-is-version-control" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="what-is-version-control"><span class="header-section-number">2.4.1</span> What is version control?</h3>
+<ul>
+<li>A system that records changes to files over time</li>
+<li>You can recall any previous version at any time</li>
+<li>Think of it as <strong>Track Changes</strong> for your entire project - but much more powerful</li>
+</ul>
+</section>
+<section id="why-git-specifically" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="why-git-specifically"><span class="header-section-number">2.4.2</span> Why Git specifically?</h3>
+<ul>
+<li>Created by Linus Torvalds (creator of Linux) in 2005</li>
+<li>Distributed - every collaborator has the full project history</li>
+<li>The industry standard for software, increasingly for science</li>
+<li>Integrates with RStudio, Positron, and Quarto</li>
+</ul>
+</section>
+<section id="key-concepts" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">2.4.3</span> Key Concepts</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 37%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>What It Is</th>
+<th>Analogy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Repository (repo)</strong></td>
+<td>A project folder tracked by Git</td>
+<td>Your lab notebook for a project</td>
+</tr>
+<tr class="even">
+<td><strong>Commit</strong></td>
+<td>A snapshot of your files at a point in time</td>
+<td>An entry in your lab notebook</td>
+</tr>
+<tr class="odd">
+<td><strong>Staging (git add)</strong></td>
+<td>Choosing which changes to include in the next commit</td>
+<td>Deciding which observations to write up</td>
+</tr>
+<tr class="even">
+<td><strong>Branch</strong></td>
+<td>A parallel version of your project</td>
+<td>An exploratory side-analysis</td>
+</tr>
+<tr class="odd">
+<td><strong>Merge</strong></td>
+<td>Combining two branches</td>
+<td>Integrating your exploratory findings into your main analysis</td>
+</tr>
+<tr class="even">
+<td><strong>Pull Request (PR)</strong></td>
+<td>A request to merge your branch + review</td>
+<td>Asking a collaborator to check your work before including it</td>
+</tr>
+<tr class="odd">
+<td><strong>Clone</strong></td>
+<td>Downloading a copy of a remote repository</td>
+<td>Getting a copy of a shared lab notebook</td>
+</tr>
+<tr class="even">
+<td><strong>Push / Pull</strong></td>
+<td>Sending/receiving updates to/from GitHub</td>
+<td>Syncing your local lab notebook with the shared one</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-git-mental-model" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="the-git-mental-model"><span class="header-section-number">2.4.4</span> The Git Mental Model</h3>
+<pre><code>Your Computer (Local)                    GitHub (Remote)
+┌─────────────────────┐                ┌──────────────────┐
+│  Working Directory   │   git push    │                  │
+│  (your files)        │ ──────────►   │   Remote Repo    │
+│         │            │               │   (GitHub)       │
+│    git add           │   git pull    │                  │
+│         ▼            │ ◄──────────   │                  │
+│  Staging Area        │               └──────────────────┘
+│         │            │
+│    git commit        │
+│         ▼            │
+│  Local Repository    │
+│  (commit history)    │
+└─────────────────────┘</code></pre>
+</section>
+<section id="git-is-not-just-for-code" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="git-is-not-just-for-code"><span class="header-section-number">2.4.5</span> Git is <em>Not</em> Just for Code</h3>
+<p>Git tracks <strong>any text file</strong>: <code>.qmd</code>, <code>.R</code>, <code>.csv</code> (small), <code>.bib</code>, <code>.tex</code>, <code>.md</code></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What Git is NOT Good For
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Large binary files (images, PDFs, Word docs, big datasets)</li>
+<li>Files that change constantly in unpredictable ways</li>
+<li>Sensitive data (passwords, API keys, personally identifiable data)</li>
+</ul>
+<p>For large data, look into <code>.gitignore</code> and Git Large File Storage (LFS).</p>
+</div>
+</div>
+</section>
+<section id="github-git" class="level3" data-number="2.4.6">
+<h3 data-number="2.4.6" class="anchored" data-anchor-id="github-git"><span class="header-section-number">2.4.6</span> GitHub ≠ Git</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 61%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Git</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>The version control system</td>
+<td>A website that hosts Git repositories</td>
+</tr>
+<tr class="even">
+<td>Runs on your computer</td>
+<td>Runs in the cloud</td>
+</tr>
+<tr class="odd">
+<td>Tracks history locally</td>
+<td>Lets you share, collaborate, and back up</td>
+</tr>
+<tr class="even">
+<td>Free, open source</td>
+<td>Free for public repos; education accounts get extras</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="part-5-concept-map---your-understanding-of-git-8-min" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="part-5-concept-map---your-understanding-of-git-8-min"><span class="header-section-number">2.5</span> Part 5: Concept Map - Your Understanding of Git (8 min)</h2>
+<p>Now that you’ve heard the lecture, <strong>build a concept map</strong> from memory. This tests whether you actually absorbed it.</p>
+<section id="individual-5-min" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="individual-5-min"><span class="header-section-number">2.5.1</span> Individual (5 min)</h3>
+<p>On a blank piece of paper, create a <strong>concept map</strong> using these terms. Draw circles for each term and arrows showing how they relate. Label the arrows with verbs (e.g., “creates”, “contains”, “sends to”).</p>
+<p><strong>Terms:</strong> Repository, Commit, Branch, Merge, Pull Request, Clone, Push, Pull, Staging Area, Working Directory, Remote (GitHub)</p>
+</section>
+</section>
+<section id="part-6-hands-on---join-github-create-your-first-repo-first-commits-15-min" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="part-6-hands-on---join-github-create-your-first-repo-first-commits-15-min"><span class="header-section-number">2.6</span> Part 6: Hands-On - Join GitHub, Create Your First Repo, First Commits (≈15 min)</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+We’re doing this NOW, together, in class.
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The rest of Session A is hands-on.</p>
+</div>
+</div>
+<section id="step-1-make-sure-youre-on-github-2-min" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="step-1-make-sure-youre-on-github-2-min"><span class="header-section-number">2.6.1</span> Step 1: Make sure you’re on GitHub (2 min)</h3>
+<ol type="1">
+<li>Go to <a href="https://github.com">github.com</a></li>
+<li>If you don’t have an account, <strong>create one now</strong></li>
+<li>If you haven’t applied for <a href="https://education.github.com/">GitHub Education</a>, do that after class (it gives you free features)</li>
+<li>Confirm you can log in</li>
+</ol>
+</section>
+<section id="step-2-create-a-new-rstudio-project-with-git-3-min" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="step-2-create-a-new-rstudio-project-with-git-3-min"><span class="header-section-number">2.6.2</span> Step 2: Create a new RStudio Project with Git (3 min)</h3>
+<ol type="1">
+<li>Open <strong>RStudio</strong></li>
+<li>Go to <strong>File → New Project → New Directory → New Project</strong></li>
+<li>Name it: <code>water-growth-sim</code></li>
+<li>✅ Check <strong>“Create a git repository”</strong></li>
+<li>Click <strong>Create Project</strong></li>
+</ol>
+<p>You now have a local Git repository! Notice the <strong>Git tab</strong> in your RStudio pane (usually top-right).</p>
+</section>
+<section id="step-3-create-a-new-quarto-file-2-min" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="step-3-create-a-new-quarto-file-2-min"><span class="header-section-number">2.6.3</span> Step 3: Create a new Quarto file (2 min)</h3>
+<ol type="1">
+<li><strong>File → New File → Quarto Document</strong></li>
+<li>Title: <code>"Water and Plant Growth Simulation"</code></li>
+<li>Save it as <code>simulation.qmd</code></li>
+</ol>
+</section>
+<section id="step-4-write-the-simulation---step-1-only-data-simulation-3-min" class="level3" data-number="2.6.4">
+<h3 data-number="2.6.4" class="anchored" data-anchor-id="step-4-write-the-simulation---step-1-only-data-simulation-3-min"><span class="header-section-number">2.6.4</span> Step 4: Write the simulation - Step 1 only (data simulation) (3 min)</h3>
+<p>Type this into your <code>simulation.qmd</code> file. This is a simple simulation: water availability (x) affects plant growth (y) through a basic linear relationship.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Water &amp; Plant Growth: Simple Linear Simulation</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Research question: Does water availability affect plant growth?</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We KNOW the answer because we're simulating the data!</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the truth</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>n_plants <span class="ot">&lt;-</span> <span class="dv">40</span>             <span class="co"># number of plants</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>true_intercept <span class="ot">&lt;-</span> <span class="dv">5</span>        <span class="co"># baseline growth (cm) with no water</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>true_slope <span class="ot">&lt;-</span> <span class="fl">2.5</span>          <span class="co"># for every 1 unit increase in water, growth increases by 2.5 cm</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>noise_sd <span class="ot">&lt;-</span> <span class="dv">3</span>              <span class="co"># how much natural variation there is</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate predictor: water availability (liters per week)</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>water <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_plants, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">10</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate response: plant growth (cm)</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>growth <span class="ot">&lt;-</span> true_intercept <span class="sc">+</span> true_slope <span class="sc">*</span> water <span class="sc">+</span> <span class="fu">rnorm</span>(n_plants, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> noise_sd)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Put it in a data frame</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>plant_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">water =</span> water,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">growth =</span> growth</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a look</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(plant_data)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(plant_data)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plant_data, <span class="fu">aes</span>(<span class="at">x =</span> water, <span class="at">y =</span> growth)) <span class="sc">+</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Simulated: Water Availability vs. Plant Growth"</span>,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"True relationship: growth ="</span>, true_intercept, <span class="st">"+"</span>, true_slope, <span class="st">"× water + noise"</span>),</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Water Availability (L/week)"</span>,</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Plant Growth (cm)"</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-5-make-your-first-commit-3-min" class="level3" data-number="2.6.5">
+<h3 data-number="2.6.5" class="anchored" data-anchor-id="step-5-make-your-first-commit-3-min"><span class="header-section-number">2.6.5</span> Step 5: Make your FIRST commit (3 min)</h3>
+<ol type="1">
+<li>Go to the <strong>Git tab</strong> in RStudio</li>
+<li>You’ll see your files listed (<code>.qmd</code>, <code>.Rproj</code>, maybe <code>.gitignore</code>)</li>
+<li><strong>Check the boxes</strong> next to all the files (this is “staging” - <code>git add</code>)</li>
+<li>Click <strong>“Commit”</strong></li>
+<li>In the commit message box, type: <code>"Simulated water and plant growth data - true slope is 2.5"</code></li>
+<li>Click <strong>Commit</strong></li>
+</ol>
+<p>🎉 <strong>Congratulations - you just made your first Git commit!</strong></p>
+<p>Click <strong>“History”</strong> in the Git pane to see your commit. There’s your first lab notebook entry.</p>
+</section>
+<section id="step-6-connect-to-github-and-push-3-min" class="level3" data-number="2.6.6">
+<h3 data-number="2.6.6" class="anchored" data-anchor-id="step-6-connect-to-github-and-push-3-min"><span class="header-section-number">2.6.6</span> Step 6: Connect to GitHub and push (3 min)</h3>
+<ol type="1">
+<li>Go to <a href="https://github.com">github.com</a> → click <strong>“+”</strong> (top right) → <strong>New repository</strong></li>
+<li>Name it: <code>water-growth-sim</code></li>
+<li>Leave it <strong>Public</strong> (or Private if you prefer)</li>
+<li>⚠️ <strong>Do NOT</strong> check “Add a README” - your local repo already has files</li>
+<li>Click <strong>Create repository</strong></li>
+<li>GitHub will show you instructions. Copy the two lines under <strong>“…or push an existing repository from the command line”</strong>:</li>
+<li>In RStudio, go to <strong>Terminal</strong> tab (next to Console) and paste those commands</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YOUR-USERNAME/water-growth-sim.git</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="8" type="1">
+<li>Go back to GitHub in your browser and <strong>refresh the page</strong> - your files are there! 🎉</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Check GitHub!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Go to <code>https://github.com/YOUR-USERNAME/water-growth-sim</code> and confirm you can see your <code>simulation.qmd</code> file. Click on it - you can read your code right in the browser. Click “Commits” to see your commit history (it has one entry so far).</p>
+</div>
+</div>
+<ol start="9" type="1">
+<li>Now, return to RStudio, and add one line of code to your <code>simulation.qmd</code>. I want you to run the linear model using <code>lm()</code> and run the <code>summary()</code>. After that, commit again, and see if you can push the changes to GitHub.</li>
+<li><strong>Commit message:</strong> <code>"Fit linear model to simulated data"</code></li>
+<li>Push to GitHub again.</li>
+<li>Render your Quarto document to see the output. You can also commit and push the rendered HTML if you want (that’s how I made this website!).</li>
+</ol>
+</section>
+</section>
+<section id="muddiest-point-2-min" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="muddiest-point-2-min"><span class="header-section-number">2.7</span> Muddiest Point (2 min)</h2>
+<p>On a piece of paper, write down the <strong>one thing</strong> from today that is most confusing or unclear to you. Be specific! Dr.&nbsp;Molina will read these before Session B.</p>
+</section>
+</section>
+<section id="session-b-hands-on---simulations-revisited-git-workshop-75-min" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Session B: Hands-On - Simulations Revisited + Git Workshop (75 min)</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Session B Game Plan
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This session has <strong>two parts</strong>:</p>
+<ol type="1">
+<li><p><strong>Part 1 (≈35 min): Week 3 Simulation Refresher</strong> - We’ll work through the simulations that many of you found challenging last week. We do this together, step by step, so everyone is comfortable with simulating data, fitting the wrong model, and fitting the correct model.</p></li>
+<li><p><strong>Part 2 (≈35 min): Git on Top of Your Simulations</strong> - Once your code is working, we’ll use <em>that same code</em> to practice Git. You’ll create a repository, make commits at each stage of the analysis, and see how version control tells the story of your work.</p></li>
+</ol>
+<p>This way you’re not learning two hard things at once - you’re reinforcing last week’s content <em>and</em> learning Git with code you already understand.</p>
+</div>
+</div>
+<section id="addressing-your-muddiest-points-5-min" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="addressing-your-muddiest-points-5-min"><span class="header-section-number">3.0.1</span> Addressing Your Muddiest Points (5 min)</h3>
+<p>Dr.&nbsp;Molina will open with a quick response to the most common muddiest points from Session A.</p>
+<hr>
+</section>
+<section id="part-1-week-3-simulation-refresher-35-min" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="part-1-week-3-simulation-refresher-35-min"><span class="header-section-number">3.1</span> Part 1: Week 3 Simulation Refresher (≈35 min)</h2>
+<section id="why-simulate-5-min---dr.-molina-mini-lecture" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="why-simulate-5-min---dr.-molina-mini-lecture"><span class="header-section-number">3.1.1</span> Why Simulate? (5 min - Dr.&nbsp;Molina mini-lecture)</h3>
+<p>Simulation is one of the most powerful tools in a statistician’s toolkit. It lets you:</p>
+<ul>
+<li><strong>Understand your model</strong> by seeing how data generated <em>from</em> that model behaves</li>
+<li><strong>Test your analysis pipeline</strong> on data where you <em>know</em> the truth</li>
+<li><strong>Diagnose problems</strong> - if your model can’t recover known parameters from simulated data, something is wrong</li>
+</ul>
+<p>In Week 3, many of you found simulation challenging. That’s expected! Let’s break it down together.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Simulation Recipe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every simulation follows the same four steps:</p>
+<ol type="1">
+<li><strong>Define the truth</strong> - What are the true parameter values? (e.g., true effect = 3 units)</li>
+<li><strong>Generate structure</strong> - Create the experimental design (e.g., 5 fields × 4 plots)</li>
+<li><strong>Add randomness</strong> - Use a distribution to generate data (e.g., <code>rnorm()</code>, <code>rpois()</code>, <code>rbinom()</code>)</li>
+<li><strong>Fit the model</strong> - Analyze the simulated data and see if you recover the truth</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="guided-walkthrough-fertilizer-mismatch-15-min---code-along-together" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="guided-walkthrough-fertilizer-mismatch-15-min---code-along-together"><span class="header-section-number">3.1.2</span> Guided Walkthrough: Fertilizer Mismatch (15 min - code along together)</h3>
+<p>We’ll recreate the <strong>Example 1: Mismatch</strong> from Week 3 slides step by step. This is the fertilizer-on-crop-yield example where ignoring field structure leads to wrong conclusions.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

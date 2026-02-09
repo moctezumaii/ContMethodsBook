@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 03 — Statistical Modeling Framework – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Week 03 - Statistical Modeling Framework – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -126,6 +160,25 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -186,13 +239,44 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">1</span> Learning Objectives</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">2</span> Background</a></li>
-  <li><a href="#before-class" id="toc-before-class" class="nav-link" data-scroll-target="#before-class"><span class="header-section-number">3</span> Before class</a>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives"><span class="header-section-number">0.1</span> Learning Objectives</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">0.2</span> Background</a></li>
+  <li><a href="#before-class" id="toc-before-class" class="nav-link" data-scroll-target="#before-class"><span class="header-section-number">0.3</span> Before class</a></li>
+  <li><a href="#session-a" id="toc-session-a" class="nav-link" data-scroll-target="#session-a"><span class="header-section-number">1</span> Session A:</a>
   <ul class="collapse">
-  <li><a href="#session-a" id="toc-session-a" class="nav-link" data-scroll-target="#session-a"><span class="header-section-number">3.1</span> Session A:</a></li>
-  <li><a href="#part-2-graffitti-discussion-12-minutes" id="toc-part-2-graffitti-discussion-12-minutes" class="nav-link" data-scroll-target="#part-2-graffitti-discussion-12-minutes"><span class="header-section-number">3.2</span> Part 2: Graffitti discussion (12 minutes)</a></li>
-  <li><a href="#data-detective-diagnosis-stations-25-min" id="toc-data-detective-diagnosis-stations-25-min" class="nav-link" data-scroll-target="#data-detective-diagnosis-stations-25-min"><span class="header-section-number">3.3</span> 4. Data Detective: Diagnosis Stations (25 min)</a></li>
+  <li><a href="#part-1-silent-reflection-10-min" id="toc-part-1-silent-reflection-10-min" class="nav-link" data-scroll-target="#part-1-silent-reflection-10-min"><span class="header-section-number">1.1</span> Part 1: Silent Reflection (10 min)</a></li>
+  <li><a href="#part-2-graffitti-discussion-12-minutes" id="toc-part-2-graffitti-discussion-12-minutes" class="nav-link" data-scroll-target="#part-2-graffitti-discussion-12-minutes"><span class="header-section-number">1.2</span> Part 2: Graffitti discussion (12 minutes)</a></li>
+  <li><a href="#post-graffitti-6-min" id="toc-post-graffitti-6-min" class="nav-link" data-scroll-target="#post-graffitti-6-min"><span class="header-section-number">1.3</span> Post-graffitti (6 min)</a></li>
+  <li><a href="#part-3-main-concept-lecture" id="toc-part-3-main-concept-lecture" class="nav-link" data-scroll-target="#part-3-main-concept-lecture"><span class="header-section-number">1.4</span> Part 3: Main concept –&gt; Lecture</a></li>
+  <li><a href="#the-method-question-data-triangle-15-min" id="toc-the-method-question-data-triangle-15-min" class="nav-link" data-scroll-target="#the-method-question-data-triangle-15-min"><span class="header-section-number">1.5</span> The Method-Question-Data Triangle (15 min)</a></li>
+  <li><a href="#think-pair-share-5-min" id="toc-think-pair-share-5-min" class="nav-link" data-scroll-target="#think-pair-share-5-min"><span class="header-section-number">1.6</span> 🤝 Think-Pair-Share (5 min)</a></li>
+  <li><a href="#data-detective-diagnosis-stations-25-min" id="toc-data-detective-diagnosis-stations-25-min" class="nav-link" data-scroll-target="#data-detective-diagnosis-stations-25-min"><span class="header-section-number">1.7</span> 4. Data Detective: Diagnosis Stations (25 min)</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">1.7.1</span> Setup</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#session-b" id="toc-session-b" class="nav-link" data-scroll-target="#session-b"><span class="header-section-number">2</span> Session B:</a>
+  <ul class="collapse">
+  <li><a href="#discussion-of-diagnosis-stations-10-min" id="toc-discussion-of-diagnosis-stations-10-min" class="nav-link" data-scroll-target="#discussion-of-diagnosis-stations-10-min"><span class="header-section-number">2.1</span> Discussion of Diagnosis Stations (10 min)</a></li>
+  <li><a href="#self-assessment-1-minute" id="toc-self-assessment-1-minute" class="nav-link" data-scroll-target="#self-assessment-1-minute"><span class="header-section-number">2.2</span> Self-Assessment (1 minute)</a></li>
+  <li><a href="#track-a-beginners-choose-one-option" id="toc-track-a-beginners-choose-one-option" class="nav-link" data-scroll-target="#track-a-beginners-choose-one-option"><span class="header-section-number">2.3</span> 🟢 Track A: Beginners (Choose One Option)</a>
+  <ul class="collapse">
+  <li><a href="#option-a1-introduction-to-r-projects-and-quarto" id="toc-option-a1-introduction-to-r-projects-and-quarto" class="nav-link" data-scroll-target="#option-a1-introduction-to-r-projects-and-quarto"><span class="header-section-number">2.3.1</span> Option A1: Introduction to R, Projects, and Quarto</a></li>
+  <li><a href="#option-a2-my-first-model---guided-template" id="toc-option-a2-my-first-model---guided-template" class="nav-link" data-scroll-target="#option-a2-my-first-model---guided-template"><span class="header-section-number">2.3.2</span> Option A2: My First Model - Guided Template</a></li>
+  </ul></li>
+  <li><a href="#track-b-intermediate---simulate-analyze-choose-one-station" id="toc-track-b-intermediate---simulate-analyze-choose-one-station" class="nav-link" data-scroll-target="#track-b-intermediate---simulate-analyze-choose-one-station"><span class="header-section-number">2.4</span> 🟡 Track B: Intermediate - Simulate &amp; Analyze (Choose One Station)</a>
+  <ul class="collapse">
+  <li><a href="#station-1-salamander-survival-1" id="toc-station-1-salamander-survival-1" class="nav-link" data-scroll-target="#station-1-salamander-survival-1"><span class="header-section-number">2.4.1</span> Station 1: Salamander Survival</a></li>
+  <li><a href="#station-4-soil-microbial-diversity-1" id="toc-station-4-soil-microbial-diversity-1" class="nav-link" data-scroll-target="#station-4-soil-microbial-diversity-1"><span class="header-section-number">2.4.2</span> Station 4: Soil Microbial Diversity</a></li>
+  <li><a href="#station-6-seedling-germination" id="toc-station-6-seedling-germination" class="nav-link" data-scroll-target="#station-6-seedling-germination"><span class="header-section-number">2.4.3</span> Station 6: Seedling Germination</a></li>
+  </ul></li>
+  <li><a href="#track-c-advanced---simulate-fix-extend-choose-one-station" id="toc-track-c-advanced---simulate-fix-extend-choose-one-station" class="nav-link" data-scroll-target="#track-c-advanced---simulate-fix-extend-choose-one-station"><span class="header-section-number">2.5</span> 🔴 Track C: Advanced - Simulate, Fix &amp; Extend (Choose One Station)</a>
+  <ul class="collapse">
+  <li><a href="#station-2-wheat-yield-trials-1" id="toc-station-2-wheat-yield-trials-1" class="nav-link" data-scroll-target="#station-2-wheat-yield-trials-1"><span class="header-section-number">2.5.1</span> Station 2: Wheat Yield Trials</a></li>
+  <li><a href="#station-3-bird-abundance-over-time-1" id="toc-station-3-bird-abundance-over-time-1" class="nav-link" data-scroll-target="#station-3-bird-abundance-over-time-1"><span class="header-section-number">2.5.2</span> Station 3: Bird Abundance Over Time</a></li>
+  <li><a href="#station-5-pollinator-network-complexity-1" id="toc-station-5-pollinator-network-complexity-1" class="nav-link" data-scroll-target="#station-5-pollinator-network-complexity-1"><span class="header-section-number">2.5.3</span> Station 5: Pollinator Network Complexity</a></li>
+  </ul></li>
+  <li><a href="#end-of-session-wrap-up" id="toc-end-of-session-wrap-up" class="nav-link" data-scroll-target="#end-of-session-wrap-up"><span class="header-section-number">2.6</span> End of Session Wrap-Up</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -202,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 03 — Statistical Modeling Framework</h1>
+<h1 class="title">Week 03 - Statistical Modeling Framework</h1>
 </div>
 
 
@@ -221,12 +305,12 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Week: 3</p>
 <p>Topic: Statistical Modeling Framework</p>
-<section id="learning-objectives" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1</span> Learning Objectives</h2>
+<section id="learning-objectives" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">0.1</span> Learning Objectives</h2>
 <p>Connect research questions, data structure and data analysis</p>
 </section>
-<section id="background" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="background"><span class="header-section-number">2</span> Background</h2>
+<section id="background" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="background"><span class="header-section-number">0.2</span> Background</h2>
 <p>No background this week. After class, review the following topics:</p>
 <ul>
 <li>Inference</li>
@@ -240,18 +324,19 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="before-class" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="before-class"><span class="header-section-number">3</span> Before class</h2>
+<section id="before-class" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="before-class"><span class="header-section-number">0.3</span> Before class</h2>
 <p>Think about:</p>
 <ul>
 <li>A dataset you’re currently working with (or interested in working with)</li>
 <li>The main research question you want to answer</li>
 <li>What is your response variable? What is its distribution?</li>
 </ul>
-<section id="session-a" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="session-a"><span class="header-section-number">3.1</span> Session A:</h3>
-<section id="part-1-silent-reflection-10-min" class="level4" data-number="3.1.1">
-<h4 data-number="3.1.1" class="anchored" data-anchor-id="part-1-silent-reflection-10-min"><span class="header-section-number">3.1.1</span> Part 1: Silent Reflection (10 min)</h4>
+</section>
+<section id="session-a" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Session A:</h1>
+<section id="part-1-silent-reflection-10-min" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="part-1-silent-reflection-10-min"><span class="header-section-number">1.1</span> Part 1: Silent Reflection (10 min)</h2>
 <p>On the paper I gave you, write the following:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -297,9 +382,8 @@ Reflection Prompts
 </div>
 </div>
 </section>
-</section>
-<section id="part-2-graffitti-discussion-12-minutes" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="part-2-graffitti-discussion-12-minutes"><span class="header-section-number">3.2</span> Part 2: Graffitti discussion (12 minutes)</h3>
+<section id="part-2-graffitti-discussion-12-minutes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="part-2-graffitti-discussion-12-minutes"><span class="header-section-number">1.2</span> Part 2: Graffitti discussion (12 minutes)</h2>
 <p><strong>Your task:</strong> - Move freely around the room - Use markers to write on ANY of the questions (words, phrases, questions, drawings) - Read what others wrote - Add +1, arrows, or comments to build on others’ ideas - No names required</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -307,7 +391,7 @@ Reflection Prompts
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The Five Questions
+The Six Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -319,15 +403,16 @@ The Five Questions
 <p><strong>Wall 6:</strong> “Do you ever feel like you are doing analyses that you do not understand or that might be wrong, but don’t know why? If yes, explain”</p>
 </div>
 </div>
-<section id="post-graffitti-6-min" class="level4" data-number="3.2.1">
-<h4 data-number="3.2.1" class="anchored" data-anchor-id="post-graffitti-6-min"><span class="header-section-number">3.2.1</span> Post-graffitti (6 min)</h4>
+</section>
+<section id="post-graffitti-6-min" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="post-graffitti-6-min"><span class="header-section-number">1.3</span> Post-graffitti (6 min)</h2>
 <p>Brief discussion of themes and patterns from the walls. This will inform future class topics.</p>
 </section>
-<section id="part-3-main-concept-lecture" class="level4" data-number="3.2.2">
-<h4 data-number="3.2.2" class="anchored" data-anchor-id="part-3-main-concept-lecture"><span class="header-section-number">3.2.2</span> Part 3: Main concept –&gt; Lecture</h4>
+<section id="part-3-main-concept-lecture" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="part-3-main-concept-lecture"><span class="header-section-number">1.4</span> Part 3: Main concept –&gt; Lecture</h2>
 </section>
-<section id="the-method-question-data-triangle-15-min" class="level4" data-number="3.2.3">
-<h4 data-number="3.2.3" class="anchored" data-anchor-id="the-method-question-data-triangle-15-min"><span class="header-section-number">3.2.3</span> The Method-Question-Data Triangle (15 min)</h4>
+<section id="the-method-question-data-triangle-15-min" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="the-method-question-data-triangle-15-min"><span class="header-section-number">1.5</span> The Method-Question-Data Triangle (15 min)</h2>
 <pre><code>     RESEARCH QUESTION
             /\
            /  \
@@ -338,9 +423,9 @@ The Five Questions
 DATA TYPE -------- METHOD CHOICE</code></pre>
 <p>All needed to be aligned. Dr.&nbsp;Molina will give a lecture showing examples of mismatch, good match and overcomplicated model.</p>
 </section>
-<section id="think-pair-share-5-min" class="level4" data-number="3.2.4">
-<h4 data-number="3.2.4" class="anchored" data-anchor-id="think-pair-share-5-min"><span class="header-section-number">3.2.4</span> 🤝 Think-Pair-Share (5 min)</h4>
-<p><strong>Prompt:</strong></p>
+<section id="think-pair-share-5-min" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="think-pair-share-5-min"><span class="header-section-number">1.6</span> 🤝 Think-Pair-Share (5 min)</h2>
+<p><strong>Activity:</strong></p>
 <blockquote class="blockquote">
 <p>Look back at your silent reflection sheet. Based on the three examples:</p>
 <ul>
@@ -349,26 +434,21 @@ DATA TYPE -------- METHOD CHOICE</code></pre>
 </ul>
 </blockquote>
 <ol type="1">
-<li><strong>Think</strong> (1 min) — jot notes on your sheet</li>
-<li><strong>Pair</strong> (3 min) — discuss with a neighbor, help each other troubleshoot</li>
-<li><strong>Share</strong> (1 min) — 2–3 volunteers share their pairing’s most interesting dilemma</li>
+<li><strong>Think</strong> (&lt;1 min) - you already did this… you can use 30 seconds to update your notes</li>
+<li><strong>Pair</strong> (3 min) - discuss with a neighbor, help each other troubleshoot</li>
+<li><strong>Share</strong> (1 min) - 2–3 volunteers share their pairing’s most interesting dilemma</li>
 </ol>
 </section>
-<section id="detective-station" class="level4" data-number="3.2.5">
-<h4 data-number="3.2.5" class="anchored" data-anchor-id="detective-station"><span class="header-section-number">3.2.5</span> Detective Station</h4>
-</section>
-</section>
-<section id="data-detective-diagnosis-stations-25-min" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="data-detective-diagnosis-stations-25-min"><span class="header-section-number">3.3</span> 4. Data Detective: Diagnosis Stations (25 min)</h3>
-<section id="setup" class="level4" data-number="3.3.1">
-<h4 data-number="3.3.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.3.1</span> Setup</h4>
+<section id="data-detective-diagnosis-stations-25-min" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="data-detective-diagnosis-stations-25-min"><span class="header-section-number">1.7</span> 4. Data Detective: Diagnosis Stations (25 min)</h2>
+<section id="setup" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1.7.1</span> Setup</h3>
 <p><strong>Six stations</strong> around the room, each with a <strong>scenario card</strong> describing: - A research question - A dataset description - A statistical method that was used (or is being proposed)</p>
 <p><strong>Your job:</strong> Diagnose whether the method fits the question and data.</p>
 <p><strong>Rotation schedule:</strong> - 4 minutes per station - Work in pairs or trios - Record your diagnosis on the station worksheet</p>
 <hr>
-</section>
-<section id="station-1-salamander-survival" class="level4" data-number="3.3.2">
-<h4 data-number="3.3.2" class="anchored" data-anchor-id="station-1-salamander-survival"><span class="header-section-number">3.3.2</span> 🔍 Station 1: Salamander Survival</h4>
+<section id="station-1-salamander-survival" class="level4" data-number="1.7.1.1">
+<h4 data-number="1.7.1.1" class="anchored" data-anchor-id="station-1-salamander-survival"><span class="header-section-number">1.7.1.1</span> 🔍 Station 1: Salamander Survival</h4>
 <p><strong>Research Question:</strong><br>
 Does canopy cover affect salamander survival in forest fragments?</p>
 <p><strong>Data:</strong></p>
@@ -382,16 +462,16 @@ Does canopy cover affect salamander survival in forest fragments?</p>
 Logistic regression: <code>glm(survival ~ canopy_cover, family = binomial)</code></p>
 <p><strong>Your Diagnosis:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
+<li><label><input type="checkbox">Good match - use as is</label></li>
+<li><label><input type="checkbox">Needs modification - what’s missing?</label></li>
+<li><label><input type="checkbox">Wrong method - what would you use instead?</label></li>
 </ul>
 <p><strong>Why?</strong></p>
 <p><br><br><br></p>
 <hr>
 </section>
-<section id="station-2-wheat-yield-trials" class="level4" data-number="3.3.3">
-<h4 data-number="3.3.3" class="anchored" data-anchor-id="station-2-wheat-yield-trials"><span class="header-section-number">3.3.3</span> 🔍 Station 2: Wheat Yield Trials</h4>
+<section id="station-2-wheat-yield-trials" class="level4" data-number="1.7.1.2">
+<h4 data-number="1.7.1.2" class="anchored" data-anchor-id="station-2-wheat-yield-trials"><span class="header-section-number">1.7.1.2</span> 🔍 Station 2: Wheat Yield Trials</h4>
 <p><strong>Research Question:</strong><br>
 Which of 5 wheat varieties produces the highest yield?</p>
 <p><strong>Data:</strong></p>
@@ -405,16 +485,16 @@ Which of 5 wheat varieties produces the highest yield?</p>
 One-way ANOVA: <code>aov(yield ~ variety)</code></p>
 <p><strong>Your Diagnosis:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
+<li><label><input type="checkbox">Good match - use as is</label></li>
+<li><label><input type="checkbox">Needs modification - what’s missing?</label></li>
+<li><label><input type="checkbox">Wrong method - what would you use instead?</label></li>
 </ul>
 <p><strong>Why?</strong></p>
 <p><br><br><br></p>
 <hr>
 </section>
-<section id="station-3-bird-abundance-over-time" class="level4" data-number="3.3.4">
-<h4 data-number="3.3.4" class="anchored" data-anchor-id="station-3-bird-abundance-over-time"><span class="header-section-number">3.3.4</span> 🔍 Station 3: Bird Abundance Over Time</h4>
+<section id="station-3-bird-abundance-over-time" class="level4" data-number="1.7.1.3">
+<h4 data-number="1.7.1.3" class="anchored" data-anchor-id="station-3-bird-abundance-over-time"><span class="header-section-number">1.7.1.3</span> 🔍 Station 3: Bird Abundance Over Time</h4>
 <p><strong>Research Question:</strong><br>
 Is bird abundance declining in urban parks?</p>
 <p><strong>Data:</strong></p>
@@ -428,16 +508,16 @@ Is bird abundance declining in urban parks?</p>
 Linear regression: <code>lm(bird_count ~ year)</code></p>
 <p><strong>Your Diagnosis:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
+<li><label><input type="checkbox">Good match - use as is</label></li>
+<li><label><input type="checkbox">Needs modification - what’s missing?</label></li>
+<li><label><input type="checkbox">Wrong method - what would you use instead?</label></li>
 </ul>
 <p><strong>Why?</strong></p>
 <p><br><br><br></p>
 <hr>
 </section>
-<section id="station-4-soil-microbial-diversity" class="level4" data-number="3.3.5">
-<h4 data-number="3.3.5" class="anchored" data-anchor-id="station-4-soil-microbial-diversity"><span class="header-section-number">3.3.5</span> 🔍 Station 4: Soil Microbial Diversity</h4>
+<section id="station-4-soil-microbial-diversity" class="level4" data-number="1.7.1.4">
+<h4 data-number="1.7.1.4" class="anchored" data-anchor-id="station-4-soil-microbial-diversity"><span class="header-section-number">1.7.1.4</span> 🔍 Station 4: Soil Microbial Diversity</h4>
 <p><strong>Research Question:</strong><br>
 Does tillage treatment affect soil microbial diversity?</p>
 <p><strong>Data:</strong></p>
@@ -451,16 +531,16 @@ Does tillage treatment affect soil microbial diversity?</p>
 Kruskal-Wallis test (non-parametric)</p>
 <p><strong>Your Diagnosis:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
+<li><label><input type="checkbox">Good match - use as is</label></li>
+<li><label><input type="checkbox">Needs modification - what’s missing?</label></li>
+<li><label><input type="checkbox">Wrong method - what would you use instead?</label></li>
 </ul>
 <p><strong>Why?</strong></p>
 <p><br><br><br></p>
 <hr>
 </section>
-<section id="station-5-pollinator-network-complexity" class="level4" data-number="3.3.6">
-<h4 data-number="3.3.6" class="anchored" data-anchor-id="station-5-pollinator-network-complexity"><span class="header-section-number">3.3.6</span> 🔍 Station 5: Pollinator Network Complexity</h4>
+<section id="station-5-pollinator-network-complexity" class="level4" data-number="1.7.1.5">
+<h4 data-number="1.7.1.5" class="anchored" data-anchor-id="station-5-pollinator-network-complexity"><span class="header-section-number">1.7.1.5</span> 🔍 Station 5: Pollinator Network Complexity</h4>
 <p><strong>Research Question:</strong><br>
 Do pollinator networks become more complex with plant diversity?</p>
 <p><strong>Data:</strong></p>
@@ -474,16 +554,16 @@ Do pollinator networks become more complex with plant diversity?</p>
 Bayesian multilevel model with varying intercepts and slopes, spatial Gaussian process</p>
 <p><strong>Your Diagnosis:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
+<li><label><input type="checkbox">Good match - use as is</label></li>
+<li><label><input type="checkbox">Needs modification - what’s missing?</label></li>
+<li><label><input type="checkbox">Wrong method - what would you use instead?</label></li>
 </ul>
 <p><strong>Why?</strong></p>
 <p><br><br><br></p>
 <hr>
 </section>
-<section id="station-6-seedling-germination-experiment" class="level4" data-number="3.3.7">
-<h4 data-number="3.3.7" class="anchored" data-anchor-id="station-6-seedling-germination-experiment"><span class="header-section-number">3.3.7</span> 🔍 Station 6: Seedling Germination Experiment</h4>
+<section id="station-6-seedling-germination-experiment" class="level4" data-number="1.7.1.6">
+<h4 data-number="1.7.1.6" class="anchored" data-anchor-id="station-6-seedling-germination-experiment"><span class="header-section-number">1.7.1.6</span> 🔍 Station 6: Seedling Germination Experiment</h4>
 <p><strong>Research Question:</strong><br>
 Does stratification time (0, 30, 60, 90 days) affect germination rate?</p>
 <p><strong>Data:</strong></p>
@@ -497,19 +577,363 @@ Does stratification time (0, 30, 60, 90 days) affect germination rate?</p>
 Linear regression: <code>lm(proportion ~ stratification_time)</code></p>
 <p><strong>Your Diagnosis:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox">Good match — use as is</label></li>
-<li><label><input type="checkbox">Needs modification — what’s missing?</label></li>
-<li><label><input type="checkbox">Wrong method — what would you use instead?</label></li>
+<li><label><input type="checkbox">Good match - use as is</label></li>
+<li><label><input type="checkbox">Needs modification - what’s missing?</label></li>
+<li><label><input type="checkbox">Wrong method - what would you use instead?</label></li>
 </ul>
 <p><strong>Why?</strong></p>
 <p><br><br><br></p>
 </section>
-<section id="exit-ticket" class="level4" data-number="3.3.8">
-<h4 data-number="3.3.8" class="anchored" data-anchor-id="exit-ticket"><span class="header-section-number">3.3.8</span> Exit ticket:</h4>
-<p>Is thinking about how methods align to your objectives useful? Or would you ratehr start working on code right away?</p>
 </section>
-<section id="thursday-session-coding-workshop" class="level4" data-number="3.3.9">
-<h4 data-number="3.3.9" class="anchored" data-anchor-id="thursday-session-coding-workshop"><span class="header-section-number">3.3.9</span> Thursday session: coding workshop</h4>
+</section>
+</section>
+<section id="session-b" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Session B:</h1>
+<section id="discussion-of-diagnosis-stations-10-min" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="discussion-of-diagnosis-stations-10-min"><span class="header-section-number">2.1</span> Discussion of Diagnosis Stations (10 min)</h2>
+</section>
+<section id="self-assessment-1-minute" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="self-assessment-1-minute"><span class="header-section-number">2.2</span> Self-Assessment (1 minute)</h2>
+<p>Before we begin, place yourself into a track based on your current comfort level:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 26%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Track</th>
+<th>Description</th>
+<th>You should choose this if…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🟢 <strong>Track A</strong></td>
+<td>New to R / Need a refresher</td>
+<td>“I’ve never used R” OR “It’s been a while and I need to review some basics”</td>
+</tr>
+<tr class="even">
+<td>🟡 <strong>Track B</strong></td>
+<td>Some experience</td>
+<td>“I can run models but need practice choosing the right one”</td>
+</tr>
+<tr class="odd">
+<td>🔴 <strong>Track C</strong></td>
+<td>Experienced</td>
+<td>“I can fit GLMs, troubleshoot code, and want a bit of a challenge”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="track-a-beginners-choose-one-option" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="track-a-beginners-choose-one-option"><span class="header-section-number">2.3</span> 🟢 Track A: Beginners (Choose One Option)</h2>
+<section id="option-a1-introduction-to-r-projects-and-quarto" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="option-a1-introduction-to-r-projects-and-quarto"><span class="header-section-number">2.3.1</span> Option A1: Introduction to R, Projects, and Quarto</h3>
+<p>If you are completely new to R or need a structured introduction, work through the <a href="https://rpubs.com/amolina/1212896">Intro to R, Projects and Quarto assignment</a>.</p>
+<p><strong>Your goal:</strong> Complete the tutorial and have a working <code>.qmd</code> file that renders by the end of class.</p>
+<hr>
+</section>
+<section id="option-a2-my-first-model---guided-template" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="option-a2-my-first-model---guided-template"><span class="header-section-number">2.3.2</span> Option A2: My First Model - Guided Template</h3>
+<p>If you have some R basics but haven’t run statistical models, use this guided template.</p>
+<p><strong>Your goal:</strong> Fit two models, interpret the output, and check assumptions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># SNR 690: Your First Model Template</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ===========================================</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load packages (install if needed)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Load YOUR data (replace with your file path)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- read_csv("your_data.csv")</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># For now, let's use example data:</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">yield =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">19</span>, <span class="dv">25</span>, <span class="dv">17</span>, <span class="dv">21</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">temperature =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">20</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">rainfall =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">48</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">80</span>, <span class="dv">58</span>, <span class="dv">68</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">site =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"E"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Explore your data</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(my_data)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_data)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize relationships</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(my_data, <span class="fu">aes</span>(<span class="at">x =</span> temperature, <span class="at">y =</span> yield)) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Yield vs Temperature"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL 1: Single predictor</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Fit a simple model with ONE predictor</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(yield <span class="sc">~</span> temperature, <span class="at">data =</span> my_data)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Look at the output</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Check assumptions (look at these plots!)</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model1)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION: What does the slope for temperature mean?</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Write one sentence here:</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># MODEL 2: Two predictors</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Now fit a model with TWO predictors</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(yield <span class="sc">~</span> temperature <span class="sc">+</span> rainfall, <span class="at">data =</span> my_data)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Look at the output</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># 9. Check assumptions</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model2)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. Compare models</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Which model explains more variance? (Hint: look at R-squared)</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="co"># QUESTION: Interpret the coefficient for rainfall. </span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co"># What does it mean while "controlling for" temperature?</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Write one sentence here:</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR TURN: Adapt for your data</span></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------------------------------</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co"># First, run the same model with an interactive term, what changed?</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace the example data with your own data. Simulate data if needed. Let's look at your own system.</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co"># What is your response variable?</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="co"># What are 1-2 predictor variables you want to test?</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the models and interpret!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="track-b-intermediate---simulate-analyze-choose-one-station" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="track-b-intermediate---simulate-analyze-choose-one-station"><span class="header-section-number">2.4</span> 🟡 Track B: Intermediate - Simulate &amp; Analyze (Choose One Station)</h2>
+<p>Your task: Take one of the diagnosis stations from Session A (from the ones listed here), <strong>simulate data</strong> that matches the scenario, then fit the analysis <strong>two ways</strong>: the “proposed” (potentially wrong) way and the “correct” way. Compare the results.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Deliverable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Simulate data that matches the scenario description</li>
+<li>Fit the <strong>proposed</strong> model (as written in the station)</li>
+<li>Fit the <strong>correct</strong> model (what SHOULD be used)</li>
+<li>Compare the outputs - what’s different? Why does it matter?</li>
+<li>Write 2-3 sentences explaining what you learned</li>
+</ol>
+</div>
+</div>
+<hr>
+<section id="station-1-salamander-survival-1" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="station-1-salamander-survival-1"><span class="header-section-number">2.4.1</span> Station 1: Salamander Survival</h3>
+<p><strong>Research Question:</strong> Does canopy cover affect salamander survival in forest fragments?</p>
+<p><strong>Data Structure:</strong></p>
+<ul>
+<li>12 forest fragments</li>
+<li>20 salamanders marked in each fragment (240 total)</li>
+<li>Survival recorded as binary (alive/dead) after one year</li>
+<li>Canopy cover measured as % for each fragment</li>
+</ul>
+<p><strong>Proposed Method:</strong> <code>glm(survival ~ canopy_cover, family = binomial)</code></p>
+<p><strong>Your Diagnosis from Session A:</strong> Needs modification - what’s missing?</p>
+<p><strong>Hints:</strong></p>
+<ul>
+<li>What is the unit of observation? What is the unit of replication?</li>
+<li>Are salamanders within the same fragment independent?</li>
+<li>What package might you need for the correct approach?</li>
+</ul>
+<hr>
+</section>
+<section id="station-4-soil-microbial-diversity-1" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="station-4-soil-microbial-diversity-1"><span class="header-section-number">2.4.2</span> Station 4: Soil Microbial Diversity</h3>
+<p><strong>Research Question:</strong> Does tillage treatment affect soil microbial diversity?</p>
+<p><strong>Data Structure:</strong></p>
+<ul>
+<li>3 treatments: no-till, reduced till, conventional till</li>
+<li>10 fields per treatment (30 fields total)</li>
+<li>Shannon diversity index calculated for each field (continuous, 0–5)</li>
+<li>Data slightly right-skewed but otherwise well-behaved</li>
+</ul>
+<p><strong>Proposed Method:</strong> Kruskal-Wallis test (non-parametric)</p>
+<p><strong>Your Diagnosis from Session A:</strong> Is this wrong, or just overly cautious?</p>
+<p><strong>Hints:</strong></p>
+<ul>
+<li>When is a non-parametric test truly necessary?</li>
+<li>What assumptions does ANOVA actually require?</li>
+<li>How robust is ANOVA to slight skewness?</li>
+</ul>
+<hr>
+</section>
+<section id="station-6-seedling-germination" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="station-6-seedling-germination"><span class="header-section-number">2.4.3</span> Station 6: Seedling Germination</h3>
+<p><strong>Research Question:</strong> Does stratification time (0, 30, 60, 90 days) affect germination rate?</p>
+<p><strong>Data Structure:</strong></p>
+<ul>
+<li>4 stratification treatments</li>
+<li>10 petri dishes per treatment (40 dishes)</li>
+<li>50 seeds per dish</li>
+<li>Response: proportion germinated (0.0–1.0)</li>
+</ul>
+<p><strong>Proposed Method:</strong> <code>lm(proportion ~ stratification_time)</code></p>
+<p><strong>Your Diagnosis from Session A:</strong> Wrong method - what would you use instead?</p>
+<p><strong>Hints:</strong></p>
+<ul>
+<li>What’s the difference between a proportion and a count?</li>
+<li>Why can’t you just use <code>lm()</code> on proportions?</li>
+<li>Look up <code>cbind()</code> with <code>glm(..., family = binomial)</code></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="track-c-advanced---simulate-fix-extend-choose-one-station" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="track-c-advanced---simulate-fix-extend-choose-one-station"><span class="header-section-number">2.5</span> 🔴 Track C: Advanced - Simulate, Fix &amp; Extend (Choose One Station)</h2>
+<p>Your task: Take one of the diagnosis stations, <strong>simulate realistic data</strong> (including appropriate complexity), then fit the analysis <strong>two ways</strong>: the “proposed” (wrong) way and the “correct” way. <strong>Then extend</strong>: add a visualization, check for additional issues, or adapt the code structure for your own research project.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Deliverable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Simulate data that realistically reflects the scenario (think about variance structure!)</li>
+<li>Fit the <strong>proposed</strong> model</li>
+<li>Fit the <strong>correct</strong> model</li>
+<li><strong>Extend</strong> in one of these ways:
+<ul>
+<li>Create a publication-ready visualization</li>
+<li>Check for additional issues (overdispersion, influential points, etc.)</li>
+<li>Adapt the analysis structure for YOUR research data</li>
+</ul></li>
+<li>Be prepared to explain your approach to the class</li>
+</ol>
+</div>
+</div>
+<hr>
+<section id="station-2-wheat-yield-trials-1" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="station-2-wheat-yield-trials-1"><span class="header-section-number">2.5.1</span> Station 2: Wheat Yield Trials</h3>
+<p><strong>Research Question:</strong> Which of 5 wheat varieties produces the highest yield?</p>
+<p><strong>Data Structure:</strong></p>
+<ul>
+<li>5 varieties tested in 4 blocks (randomized complete block design)</li>
+<li>One plot per variety per block (20 plots total)</li>
+<li>Yield (kg/ha) recorded once per plot</li>
+<li>Data look approximately normal</li>
+</ul>
+<p><strong>Proposed Method:</strong> <code>aov(yield ~ variety)</code> (one-way ANOVA)</p>
+<p><strong>Your Diagnosis from Session A:</strong> Needs modification - what’s missing?</p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Simulate data with BOTH variety effects AND block effects</li>
+<li>What happens to your standard errors and p-values when you ignore blocks?</li>
+<li>Should block be fixed or random? When does it matter?</li>
+<li>Extension: Add post-hoc comparisons with <code>emmeans</code></li>
+</ul>
+<hr>
+</section>
+<section id="station-3-bird-abundance-over-time-1" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="station-3-bird-abundance-over-time-1"><span class="header-section-number">2.5.2</span> Station 3: Bird Abundance Over Time</h3>
+<p><strong>Research Question:</strong> Is bird abundance declining in urban parks?</p>
+<p><strong>Data Structure:</strong></p>
+<ul>
+<li>8 urban parks surveyed</li>
+<li>Each park visited 6 times per year for 5 years (240 total observations)</li>
+<li>Response: count of birds per visit (range: 0–89)</li>
+<li>Year as continuous predictor</li>
+</ul>
+<p><strong>Proposed Method:</strong> <code>lm(bird_count ~ year)</code></p>
+<p><strong>Your Diagnosis from Session A:</strong> Wrong method - multiple issues!</p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>This data has at least THREE problems with the proposed method. What are they?</li>
+<li>Simulate data with park-level random effects and temporal structure</li>
+<li>What distribution should counts follow?</li>
+<li>Extension: Try adding random slopes - do parks decline at different rates?</li>
+</ul>
+<hr>
+</section>
+<section id="station-5-pollinator-network-complexity-1" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="station-5-pollinator-network-complexity-1"><span class="header-section-number">2.5.3</span> Station 5: Pollinator Network Complexity</h3>
+<p><strong>Research Question:</strong> Do pollinator networks become more complex with plant diversity?</p>
+<p><strong>Data Structure:</strong></p>
+<ul>
+<li>25 meadows sampled</li>
+<li>Plant diversity (species richness) recorded per meadow</li>
+<li>Network complexity score calculated (continuous, 1.2–8.7)</li>
+<li>Data are normal, linear relationship looks reasonable</li>
+</ul>
+<p><strong>Proposed Method:</strong> Bayesian multilevel model with varying intercepts and slopes, spatial Gaussian process</p>
+<p><strong>Your Diagnosis from Session A:</strong> This is OVERKILL!</p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li>Simulate simple, well-behaved data that matches this scenario</li>
+<li>Show that a simple <code>lm()</code> is sufficient</li>
+<li>Discussion: When WOULD the complex approach be justified? What would the data need to look like?</li>
+<li>Extension: What are the costs of over-complicating your analysis? Write a brief argument for simplicity.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="end-of-session-wrap-up" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="end-of-session-wrap-up"><span class="header-section-number">2.6</span> End of Session Wrap-Up</h2>
+<p><strong>Deliverables (choose based on your track):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Track</th>
+<th>What to submit/share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🟢 Track A</td>
+<td>Intro to R –&gt; follow the instructions. Or your working <code>.qmd</code> file with at least one model output</td>
+</tr>
+<tr class="even">
+<td>🟡 Track B</td>
+<td>Your simulation + comparison of wrong vs.&nbsp;correct model, with 2-3 sentences explaining what you learned.</td>
+</tr>
+<tr class="odd">
+<td>🔴 Track C</td>
+<td>Your extended analysis + one visualization + notes on how this applies to your research</td>
+</tr>
+</tbody>
+</table>
+<section id="exit-ticket-5-min" class="level4" data-number="2.6.0.1">
+<h4 data-number="2.6.0.1" class="anchored" data-anchor-id="exit-ticket-5-min"><span class="header-section-number">2.6.0.1</span> Exit Ticket (5 min)</h4>
+<p>Is thinking about how methods align to your objectives useful?</p>
 
 
 </section>

@@ -22,6 +22,8 @@ site:
             href: weeks/week02.qmd
           - text: Week 03
             href: weeks/week03.qmd
+          - text: Week 04
+            href: weeks/week04.qmd
       - text: Projects
         menu:
           - text: Project Home
