@@ -1,0 +1,432 @@
+---
+title: "Version Control, Git & Collaboration"
+subtitle: "Tracking Your Analytical Decisions"
+author: "Alejandro Molina Moctezuma"
+date: "Week 04"
+format:
+  revealjs:
+    incremental: true   
+    scrollable: true
+    smaller: true
+    fontsize: 47px
+    chalkboard: true
+    theme: default
+    code-fold: true
+    code-summary: "Show code"
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Welcome to Week 4 {.center}
+
+**Topic:** Version Control, Git & Collaboration
+
+. . .
+
+Today we connect *how you think* about data analysis to *how you track* your analytical decisions.
+
+. . .
+
+> "Your analytical decisions need to be tracked, transparent, and reproducible - Git makes this possible." This is, at it's core, not just useful It follows the scientific iterative process!
+
+------------------------------------------------------------------------
+
+## Before we start
+
+Last week was tough. Some things that made it complicated:
+
+1.  Simulations are hard –\> Generalized Linear Models
+
+2.  Working in large groups
+
+3.  Everyone coding separately, and trying things without a shared system for tracking changes
+
+## The Semester So Far {.smaller}
+
+| Week | Topic | Key Takeaway |
+|------------------|-------------------|-----------------------------------|
+| 1 | Introductions & Papers | Data exploration protects inference (Zuur); always explore before modeling |
+| 2 | Philosophy of Data Analysis | "All models are wrong" (Box); find the *useful* model, not the *true* one. Also, the best model is based on your obejctives (prediction vs inference vs exploration) |
+| 3 | Statistical Modeling Framework | Method-Question-Data Triangle must align; start simple |
+| **4** | **Version Control & Collaboration** | **Track, share, and reproduce your analytical journey** |
+
+------------------------------------------------------------------------
+
+## Why Are We Talking About This? {.smaller}
+
+In Weeks 1–3, we talked about *how to think* about data analysis...
+
+. . .
+
+-   **Week 1:** Data exploration and inference are separate - but both must be documented
+
+. . .
+
+-   **Week 2:** All models are wrong but some are useful - how do you record *which* ones you tried? In case it is an iterative process
+
+. . .
+
+-   **Week 3:** The Method-Question-Data Triangle - when you iterate through model choices, how do you track that evolution?
+
+. . .
+
+**Version control answers all of these questions.**
+
+------------------------------------------------------------------------
+
+## Version Control as a tool
+
+> It can also be a very good tool to have. I have applied at jobs, that specifically asked for this. In the future, as more collaborative projects deal with complex models, version control will be a must-have skill AI is expanding the ability to code and do data analysis, which will increase potential collaboration --\> source control becomes even more important More importantly... if you are doing science, it should be reproducible.
+
+------------------------------------------------------------------------
+
+## 🎯 Learning Objectives
+
+::: nonincremental
+By the end of the week, you will be able to:
+
+1.  Explain *why* version control matters for reproducible research
+2.  Connect version control to themes from Weeks 1–3
+3.  Use Git and GitHub for basic version control
+4.  Collaborate using branches and pull requests
+5.  Apply version control to a Quarto-based workflow
+:::
+
+## 
+
+------------------------------------------------------------------------
+
+## Useful for the rest of the semester
+
+We will collaborate
+
+This will make it easier
+
+------------------------------------------------------------------------
+
+## Activity: Retrieval Practice (8 min) {background-color="#fff3cd"}
+
+No notes, no phones, no laptops
+
+. . .
+
+Struggling to recall is the point — it strengthens memory!
+
+. . .
+
+### Quick-Fire Recall (write on paper, 3 min)
+
+::: nonincremental
+1.  What did Zuur argue about data exploration?
+2.  What is Box's famous quote about models?
+3.  What were the three scenarios from Week 3?
+4.  Explain one experiment from Week 3 — what went wrong?
+5.  What is the Golden Rule from Week 3?
+:::
+
+::: {.notes}
+Notes --> start simple, add complexity, justify complexity
+:::
+
+. . .
+
+**Debrief (5 min):** Turn to a neighbor and compare answers.
+
+------------------------------------------------------------------------
+
+## Why Retrieval Practice?
+
+> Research shows that actively recalling information — even when it's difficult — produces stronger long-term retention than re-reading notes (Roediger & Butler, 2011).
+
+. . .
+
+This is a "desirable difficulty." If it felt hard, that's good!
+
+------------------------------------------------------------------------
+
+## Activity: Predict-Observe-Explain (12 min) {background-color="#fff3cd"}
+
+**Quick Poll:** Raise your hand if you've ever...
+
+::: nonincremental
+1.  Lost work because you overwrote a file
+2.  Made a change in your code and wished you had the old version as well
+3.  Couldn't remember why you changed something in your code/analysis
+4.  Had a collaborator edit the same file
+5.  Had a folder full of `_v2`, `_v3`, `_FINAL` files
+:::
+
+------------------------------------------------------------------------
+
+## 🔮 PREDICT
+
+Here is a scenario. **Predict what will go wrong:**
+
+> Your folder looks like this:
+>
+> ```         
+> analysis.R
+> analysis_v2.R
+> analysis_FINAL.R
+> analysis_FINAL_v2.R
+> analysis_FINAL_ACTUALLY_FINAL.R
+> analysis_FINAL_ACTUALLY_FINAL_USE_THIS_ONE.R
+> ```
+>
+> Your advisor emails: *"The reviewer wants to see the version where you used the Poisson model instead of the linear model."*
+
+. . .
+
+**Write down:** What happens next? Can you even *find* it?
+
+------------------------------------------------------------------------
+
+## 🔮 PREDICT (3 min)
+
+Here is an alternative scenario. **Predict what will go wrong:**
+
+> You have a single file: analysis.R Your advisor emails: *"The reviewer wants to see the version where you used the Poisson model instead of the linear model."*
+
+. . .
+
+**Write down:** What happens next? Can you even *find* it?
+
+------------------------------------------------------------------------
+
+## 👁️ OBSERVE
+
+I will now demonstrate how version control solves this problem.
+
+. . .
+
+Watch how Git lets us travel through time in our project...
+
+------------------------------------------------------------------------
+
+## 💡 EXPLAIN (5 min — whole class)
+
+As a class, answer:
+
+. . .
+
+1.  Why does the file-naming approach fail? *(What information is lost?)*
+
+. . .
+
+2.  What does Git preserve that file-naming doesn't?
+
+. . .
+
+3.  Can you connect this to Box's "all models are wrong" idea?
+
+. . .
+
+> If you're iterating through models, you need a record of *which* wrong models you tried and *why* you moved on.
+
+------------------------------------------------------------------------
+
+## Activity: Elaborative Interrogation {background-color="#fff3cd"}
+
+Asking **"why?"** and **"how?"** until you reach deep understanding.
+
+. . .
+
+### Round 1: "Why" Chain 
+
+With a partner, take turns asking "why?" about this statement. Go **at least four levels deep:**
+
+> **"Researchers should use version control for their analyses."**
+
+------------------------------------------------------------------------
+
+## Round 2: Connect to a Specific Week (5 min) {.smaller}
+
+Each pair picks **two** statements. 
+
+And you do the *why?* and *how?* chain for each one.
+
+1. Data exploration should protect inference, not create it. (Zuur, Week 1)
+
+2. All models are wrong, but some are useful." (Box, Week 2)
+
+3. "Start simple. Add complexity only when needed. Always justify your choices." (Golden Rule, Week 3)
+
+4. "Misalignment between method, question, and data leads to wrong conclusions, wasted effort, rejected papers, and sad grad students." (Week 3)
+
+5. "Exploration and inference should come from independent studies. (Tredennick, Week 1)
+
+. . .
+
+**Share Out (2–3 min):** 3–4 pairs share their best sentence.
+
+------------------------------------------------------------------------
+
+## Lecture: What is Version Control? {background-color="#e6f3ff"}
+
+. . .
+
+A system that records changes to files over time
+
+. . .
+
+You can recall **any previous version** at any time
+
+. . .
+
+Think of it as **Track Changes** for your entire project — but much more powerful
+
+------------------------------------------------------------------------
+
+## Why Git Specifically?
+
+-   It is super easy to learn and use!
+
+. . .
+
+-   **Distributed** - every collaborator has the full project history
+
+. . .
+
+-   The **industry standard** for software, increasingly for science
+
+. . .
+
+-   Integrates with **RStudio, Positron, and Quarto**
+
+------------------------------------------------------------------------
+
+## Key Concepts {.smaller}
+
+| Concept | What It Is | Analogy |
+|-----------------------|---------------------------|-----------------------|
+| **Repository (repo)** | A project folder tracked by Git | Your lab notebook for a project |
+| **Commit** | A snapshot of your files at a point in time | An entry in your lab notebook |
+| **Staging (git add)** | Choosing which changes to include in the next commit | Deciding which observations to write up |
+| **Branch** | A parallel version of your project | An exploratory side-analysis |
+
+|  |
+|----------|
+
+## Key Concepts (continued) {.smaller} |
+
+| Concept | What It Is | Analogy | 
+|---------|-----------|---------| 
+| **Merge** | Combining two branches | Integrating exploratory findings into main analysis | 
+| **Pull Request (PR)** | A request to merge your branch + review | Asking a collaborator to check your work | 
+| **Clone** | Downloading a copy of a remote repository | Getting a copy of a shared lab notebook | 
+| **Push / Pull** | Sending/receiving updates to/from GitHub | Syncing your local notebook with the shared one 
+
+|  |
+|----------|
+
+## The Git Mental Model
+
+```         
+Your Computer (Local)                    GitHub (Remote)
+┌─────────────────────┐                ┌──────────────────┐
+│  Working Directory   │   git push    │                  │
+│  (your files)        │ ──────────►   │   Remote Repo    │
+│         │            │               │   (GitHub)       │
+│    git add           │   git pull    │                  │
+│         ▼            │ ◄──────────   │                  │
+│  Staging Area        │               └──────────────────┘
+│         │            │
+│    git commit        │
+│         ▼            │
+│  Local Repository    │
+│  (commit history)    │
+└─────────────────────┘
+```
+
+------------------------------------------------------------------------
+
+## The Workflow in Plain English
+
+1.  You **edit** files in your Working Directory
+
+. . .
+
+2.  You **stage** (`git add`) the changes you want to record
+
+. . .
+
+3.  You **commit** - creating a snapshot with a message explaining *why*
+
+. . .
+
+4.  You **push** to GitHub so others (and future you!) can see it
+
+. . .
+
+5.  You **pull** to get changes others have made
+
+------------------------------------------------------------------------
+
+## Git is *Not* Just for Code
+
+Git tracks **any text file:**
+
+-   `.qmd`, `.R`, `.csv` (small), `.bib`, `.tex`, `.md`
+
+. . .
+
+### What Git is NOT Good For
+
+::: nonincremental
+-   Large binary files (images, PDFs, Word docs, big datasets)
+-   Files that change constantly in unpredictable ways
+-   Sensitive data (passwords, API keys, PII)
+:::
+
+. . .
+
+For large data → `.gitignore` and Git Large File Storage (LFS)
+
+------------------------------------------------------------------------
+
+## GitHub ≠ Git
+
+| Git | GitHub |
+|----------------------------|--------------------------------------------|
+| The version control **system** | A **website** that hosts Git repositories |
+| Runs on **your computer** | Runs in **the cloud** |
+| Tracks history **locally** | Lets you **share, collaborate**, and back up |
+| Free, open source | Free for public repos; education accounts get extras |
+
+. . .
+
+Git is the engine. GitHub is the garage where everyone parks.
+
+------------------------------------------------------------------------
+
+## Activity: Concept Map (8 min) {background-color="#fff3cd"}
+
+Now that you've heard the lecture, **build a concept map** from memory.
+
+. . .
+
+### Individual (5 min)
+
+On a blank piece of paper, create a concept map using these terms. Draw circles and arrows. Label arrows with verbs.
+
+. . .
+
+**Terms:** Repository, Commit, Branch, Merge, Pull Request, Clone, Push, Pull, Staging Area, Working Directory, Remote (GitHub)
+
+|  |
+|------------------------------------------------------------------------|
+| \## Activity: Hands-On — Your First Repo (15 min) {background-color="#d4edda"} Once you are done... start working on this \> Who here did a Github account? \> Join an educational account |
+
+## Summary
+
+::: nonincremental
+| What We Covered | Key Takeaway |
+|-----------------------------------------|-------------------------------|
+| Why version control? | File-naming fails; Git preserves *what*, *when*, and *why* |
+| What is Git? | A system that snapshots your project over time |
+| Git ≠ GitHub | Git is the engine; GitHub is the cloud platform |
+| Key workflow | edit → `add` → `commit` → `push` |
+| Connection to research | Track model iterations, exploration vs. inference, analytical decisions |
+:::
