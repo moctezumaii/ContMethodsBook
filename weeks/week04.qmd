@@ -379,17 +379,18 @@ On a piece of paper, write down the **one thing** from today that is most confus
 
 This session has **two parts**:
 
-1. **Part 1 (≈35 min): Week 3 Simulation Refresher** - We'll work through the simulations that many of you found challenging last week. We do this together, step by step, so everyone is comfortable with simulating data, fitting the wrong model, and fitting the correct model.
+This entire session is **hands-on**. You will be working on your computers the whole time. The goals are:
 
-2. **Part 2 (≈35 min): Git on Top of Your Simulations** - Once your code is working, we'll use *that same code* to practice Git. You'll create a repository, make commits at each stage of the analysis, and see how version control tells the story of your work.
+1. **Practice GitHub** — cloning, committing, pushing, pulling, and collaborating on a shared repository. This is your first real deep dive after the intro in Session A.
+2. **Revisit Week 3 simulations** — specifically the "simulate → analyze correctly → analyze incorrectly" workflow, but this time we **start simple** (no transformations like log or logit) and work inside a **Quarto document** with proper source control.
+3. **Work collaboratively** — you'll be working in small teams on a shared GitHub repository, experiencing what real collaborative version control feels like.
 
-This way you're not learning two hard things at once - you're reinforcing last week's content *and* learning Git with code you already understand.
+**The rule for today: start simple.** Simple linear models. Normal distributions. No transformations. Get comfortable with the simulation → correct analysis → wrong analysis pipeline *and* with Git before we add complexity.
 :::
 
-### Addressing Your Muddiest Points (5 min)
+### Muddiest Points (2 min)
 
-Dr. Molina will open with a quick response to the most common muddiest points from Session A.
-
+Let's start the class by taking a couple minutes and write the things that have been the most complicated about this class
 ---
 
 ## Part 1: Week 3 Simulation Refresher (≈35 min)
@@ -415,6 +416,320 @@ Every simulation follows the same four steps:
 4. **Fit the model** - Analyze the simulated data and see if you recover the truth
 :::
 
-### Guided Walkthrough: Fertilizer Mismatch (15 min - code along together)
+---
 
-We'll recreate the **Example 1: Mismatch** from Week 3 slides step by step. This is the fertilizer-on-crop-yield example where ignoring field structure leads to wrong conclusions.
+## Part 1: Setting Up Your Team Repository (≈10 min)
+
+### Form Pairs (1 min)
+
+Get into pairs. You'll be working on a **shared GitHub repository** for the rest of this session. Each person will take responsibility for **one** of the two simulation exercises, so you'll both contribute a complete analysis to the same repo.
+
+::: {.callout-note}
+## Why Shared Repos?
+In real research, you rarely work alone. Shared repositories force you to practice the pull → edit → commit → push cycle and deal with real collaboration challenges (coordinating who's working on what, writing clear commit messages for your partner). This is the whole point of today.
+:::
+
+### One Person Creates the Repo (3 min)
+
+**One partner** does the following:
+
+1. Go to [github.com](https://github.com) → **"+"** → **New repository**
+2. Name it: `snr690-sim-team-[your-initials]` (e.g., `snr690-sim-team-amjk`)
+3. ✅ Check **"Add a README file"**
+4. Set it to **Public** (so your partner can access it easily)
+5. Click **Create repository**
+6. Go to **Settings → Collaborators → Add people** and add your partner by their GitHub username
+
+### Both Partners Clone the Repo (3 min)
+
+**Both partners** (including the creator):
+
+1. Go to the repository page on GitHub
+2. Click the green **"<> Code"** button → copy the HTTPS URL
+3. In RStudio: **File → New Project → Version Control → Git**
+4. Paste the URL, choose a directory, click **Create Project**
+
+::: {.callout-tip}
+## Checkpoint
+Both partners should now have the same project open in RStudio, connected to the same GitHub repository. You should see the **Git tab** in your RStudio pane.
+:::
+
+### Decide Who Does What (1 min)
+
+- **Partner A** will work on **Activity 1: The Soil Temperature Experiment**
+- **Partner B** will work on **Activity 2: The Fertilizer Yield Experiment**
+
+Each person creates their own Quarto file:
+
+1. **File → New File → Quarto Document**
+2. Title: `"Soil Temperature Simulation - [Your Name]"` or `"Fertilizer Yield Simulation - [Your Name]"`
+3. Save it as `sim-soil-temp-[yourname].qmd` or `sim-fertilizer-[yourname].qmd`
+4. **Commit** with message: `"Add Quarto file for [activity name]"`
+5. **Push** to GitHub
+
+::: {.callout-warning}
+## Important: Pull Before You Push!
+Before pushing, always **pull first** (`git pull` in the Terminal, or the ⬇️ Pull button in the Git tab). Your partner may have pushed changes. Get in the habit now: **pull → work → commit → pull → push**.
+:::
+
+---
+
+## Part 2: Simulation Exercises — Start Simple, No Transformations (≈45 min)
+
+::: {.callout-important}
+## The Rule: Start Simple
+We are deliberately keeping this simple today. **No log transformations. No logit links. No random effects.** Just linear models with normal distributions. The goal is to get the *workflow* right:
+
+1. Simulate data where you **know the truth**
+2. **Comment every line** — explain what each step is doing and why
+3. Fit the **correct** model — does it recover the truth?
+4. Fit a **wrong** model — what goes wrong?
+5. Write it all up in your Quarto document with narrative explaining what you did and why
+6. Commit after each step with a meaningful commit message
+
+Once you're comfortable with this pipeline, adding complexity (GLMs, transformations, random effects) in future weeks will be much easier.
+:::
+
+---
+
+### Activity 1: The Soil Temperature Experiment (Partner A)
+
+**Scenario:** A researcher wants to know if soil temperature affects the rate of decomposition (mass loss in grams) of leaf litter. They set up 30 plots across a gradient of soil temperatures (5°C to 25°C) and measure mass loss after 6 months.
+
+**The truth (what we're simulating):**
+
+- True intercept = 2 (baseline decomposition at 0°C)
+- True slope = 0.8 (for every 1°C increase in soil temp, mass loss increases by 0.8 g)
+- Noise SD = 2.5
+
+#### Step 1: Simulate the data and visualize
+
+Copy the code below into your Quarto document. **Your job: add a comment above or next to every line explaining what it does and *why*.** If you don't understand a line, ask Dr. Molina — that's the point.
+
+```{r}
+#| label: sim-soil-temp
+#| eval: false
+
+library(tidyverse)
+
+set.seed(42)
+
+n_plots <- 30
+true_intercept <- 2
+true_slope <- 0.8
+noise_sd <- 2.5
+
+soil_temp <- runif(n_plots, min = 5, max = 25)
+mass_loss <- true_intercept + true_slope * soil_temp + rnorm(n_plots, 0, noise_sd)
+
+decomp_data <- data.frame(
+  soil_temp = soil_temp,
+  mass_loss = mass_loss
+)
+
+ggplot(decomp_data, aes(x = soil_temp, y = mass_loss)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "steelblue") +
+  labs(
+    title = "Simulated: Soil Temperature vs. Leaf Litter Decomposition",
+    subtitle = paste("Truth: mass_loss =", true_intercept, "+", true_slope, "x soil_temp + noise"),
+    x = "Soil Temperature (°C)",
+    y = "Mass Loss (g)"
+  ) +
+  theme_minimal(base_size = 14)
+```
+
+**📝 In your Quarto doc:** Write a paragraph *above* the code chunk explaining the scenario, the research question, and what the true relationship is. Write another paragraph *below* the plot describing what you see.
+
+**📝 Commit message:** `"Simulate soil temp decomposition data - true slope 0.8"`
+
+#### Step 2: Fit the correct model
+
+The correct approach here is a **simple linear regression** — `lm(mass_loss ~ soil_temp)`. The data are continuous, the relationship is linear, and the errors are normally distributed. This is a textbook match.
+
+**Your job:** Write the code to fit this model, look at the summary, and answer these questions in your Quarto narrative:
+
+- What slope did the model estimate? How close is it to the true value of 0.8?
+- What intercept did the model estimate? How close is it to the true value of 2?
+- Is the slope statistically significant? Should it be, given that we *know* the true effect exists?
+- Why might the estimates not be *exactly* 0.8 and 2?
+
+**📝 Commit message:** `"Fit correct linear model - check parameter recovery"`
+
+#### Step 3: Fit the wrong model
+
+The wrong approach: **categorize the continuous soil temperature into "Cold" (< 15°C) and "Warm" (≥ 15°C) and run a t-test** comparing mass loss between the two groups.
+
+**Your job:** Write the code to do this, and then answer these questions in your Quarto narrative:
+
+- What information do you lose when you turn a continuous variable into two categories?
+- Does the t-test tell you *how much* mass loss changes per degree? Or just that the groups differ?
+- Compare the p-value and effect size from the t-test to the slope and p-value from the linear regression. Which gives you more useful information?
+- Connect this to the **Golden Rule from Week 3**: "Start simple. Add complexity only when needed. Always justify your choices." Here the wrong model isn't more complex — it's *less informative*. Sometimes the mistake isn't overcomplicating; it's throwing away information.
+
+**📝 Commit message:** `"Fit wrong model (categorized t-test) - compare to correct approach"`
+
+#### Step 4: Write your conclusions
+
+In your Quarto document, add a final section called **"What I Learned"** summarizing:
+
+- Why the correct model is correct for this scenario
+- What specifically went wrong with the incorrect approach
+- One sentence connecting this to a concept from Weeks 1–3
+
+**📝 Commit message:** `"Add conclusions and reflections"`
+
+**Push to GitHub.**
+
+---
+
+### Activity 2: The Fertilizer Yield Experiment (Partner B)
+
+**Scenario:** An agronomist tests whether nitrogen application rate (kg/ha) affects wheat yield (tons/ha). They have 40 plots, each receiving a different nitrogen rate (0–200 kg/ha). The relationship is linear and the data are well-behaved.
+
+**The truth (what we're simulating):**
+
+- True intercept = 1.5 (yield with no fertilizer)
+- True slope = 0.015 (for every 1 kg/ha of nitrogen, yield increases by 0.015 tons/ha)
+- Noise SD = 0.4
+
+#### Step 1: Simulate the data and visualize
+
+Copy the code below into your Quarto document. **Your job: add a comment above or next to every line explaining what it does and *why*.** If you don't understand a line, ask Dr. Molina — that's the point.
+
+```{r}
+#| label: sim-fertilizer
+#| eval: false
+
+library(tidyverse)
+
+set.seed(123)
+
+n_plots <- 40
+true_intercept <- 1.5
+true_slope <- 0.015
+noise_sd <- 0.4
+
+nitrogen <- runif(n_plots, min = 0, max = 200)
+yield <- true_intercept + true_slope * nitrogen + rnorm(n_plots, 0, noise_sd)
+
+fert_data <- data.frame(
+  nitrogen = nitrogen,
+  yield = yield
+)
+
+ggplot(fert_data, aes(x = nitrogen, y = yield)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "darkgreen") +
+  labs(
+    title = "Simulated: Nitrogen Application vs. Wheat Yield",
+    subtitle = paste("Truth: yield =", true_intercept, "+", true_slope, "x nitrogen + noise"),
+    x = "Nitrogen Application (kg/ha)",
+    y = "Wheat Yield (tons/ha)"
+  ) +
+  theme_minimal(base_size = 14)
+```
+
+**📝 In your Quarto doc:** Write a paragraph *above* the code chunk explaining the scenario, the research question, and what the true relationship is. Write another paragraph *below* the plot describing what you see.
+
+**📝 Commit message:** `"Simulate fertilizer yield data - true slope 0.015"`
+
+#### Step 2: Fit the correct model
+
+The correct approach here is a **simple linear regression** — `lm(yield ~ nitrogen)`. Same logic as Activity 1: continuous response, continuous predictor, linear relationship, normal errors.
+
+**Your job:** Write the code to fit this model, look at the summary, and answer these questions in your Quarto narrative:
+
+- What slope did the model estimate? How close is it to the true value of 0.015?
+- What intercept did the model estimate? How close is it to the true value of 1.5?
+- Is the slope statistically significant?
+- What is the R² value? What does it tell you about how much variation in yield is explained by nitrogen?
+
+**📝 Commit message:** `"Fit correct linear model - check parameter recovery"`
+
+#### Step 3: Fit the wrong model
+
+The wrong approach: **add a quadratic term that isn't needed** — `lm(yield ~ nitrogen + I(nitrogen^2))`. This is the *overcomplication* scenario from Week 3.
+
+**Your job:** Write the code to fit this overcomplicated model, and then answer these questions in your Quarto narrative:
+
+- Is the quadratic term (`I(nitrogen^2)`) statistically significant? Should it be?
+- Compare the slope estimate for `nitrogen` in the quadratic model to the simple model. Did it change? Why might it change even though the quadratic term isn't real?
+- Compare the R² of both models. Did the overcomplicated model explain *meaningfully* more variance, or just a tiny bit more?
+- What is the danger of adding terms "just in case"? What does this do to interpretability?
+- Connect this to **Box's quote from Week 2**: "All models are wrong, but some are useful." The quadratic model is *more wrong* (it implies a curvature that doesn't exist) and *less useful* (harder to interpret). More parameters ≠ better model.
+
+**📝 Commit message:** `"Fit wrong model (unnecessary quadratic) - compare to correct approach"`
+
+#### Step 4: Write your conclusions
+
+In your Quarto document, add a final section called **"What I Learned"** summarizing:
+
+- Why the correct model is correct for this scenario
+- What specifically went wrong with the incorrect approach
+- One sentence connecting this to a concept from Weeks 1–3
+
+**📝 Commit message:** `"Add conclusions and reflections"`
+
+**Push to GitHub.**
+
+---
+
+## Part 3: Review Your Partner's Work + Reflection (≈10 min)
+
+### Pull and Read (5 min)
+
+1. **Pull** from GitHub to get your partner's file
+2. **Open their `.qmd` file** and read through it
+3. Pay attention to:
+   - Did they comment every line of the simulation code? Do the comments make sense?
+   - Is their narrative clear — could you understand the analysis without them explaining it to you?
+   - Do their conclusions connect back to Week 1–3 concepts?
+
+::: {.callout-tip}
+## SoTL Connection: Peer Review as Learning
+Research on peer instruction (Mazur, 1997) shows that explaining your reasoning to others — and reading others' explanations — deepens understanding more than working alone. Reading your partner's Quarto document isn't just a Git exercise; comparing how they narrated their analysis to how you narrated yours is a powerful form of peer learning.
+:::
+
+4. **Optional:** If you want to leave feedback, you can add a comment directly in their `.qmd` file (use `<!-- Your comment here -->` so it doesn't render), commit with message `"Add peer review comments to [partner]'s file"`, and push.
+
+### Think-Pair-Share Reflection (5 min)
+
+**Think (1 min):** On paper, answer:
+
+1. What was the most surprising or useful thing about using Git today?
+2. What did you learn from reading your partner's analysis that you wouldn't have learned working alone?
+
+**Pair (2 min):** Discuss with your partner.
+
+**Share (2 min):** 2–3 pairs share with the class.
+
+::: {.callout-tip}
+## SoTL Connection: Metacognitive Monitoring
+Writing commit messages forces **metacognitive monitoring** — you have to pause and articulate *what* you just did and *why* (Tanner, 2012). This is the same skill that makes for good scientific writing: being explicit about your analytical choices. Over time, the habit of writing commit messages trains you to be a more reflective analyst.
+:::
+
+### Git Log Review (2 min)
+
+In the Terminal, type:
+
+```bash
+git log --oneline
+```
+
+Look at the commit history. Each line is a snapshot of your analytical journey — and your partner's. **This is what version control gives you**: a complete, narrated record of every decision both of you made.
+
+### Exit Ticket (2 min)
+
+On a piece of paper, answer:
+
+1. **One thing you now feel comfortable doing in Git** (be specific — e.g., "I can commit and push from RStudio")
+2. **One thing you still want to practice** (e.g., "I'm not sure how branches work")
+3. **One connection** between today's Git workshop and the statistical concepts from Weeks 1–3
+
+::: {.callout-note}
+## Looking Ahead
+Now that you have Git fundamentals down, future sessions will build on this. You'll use version control for every hands-on activity going forward. 
+:::
+
+---
