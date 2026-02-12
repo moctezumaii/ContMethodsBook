@@ -461,7 +461,7 @@ Both partners should now have the same project open in RStudio, connected to the
 Each person creates their own Quarto file:
 
 1.  **File → New File → Quarto Document**
-2.  Title: `"Soil Temperature Simulation - [Your Name]"` or `"Fertilizer Yield Simulation - [Your Name]"`
+2.  Title: `"Salamander - [Your Name]"` or `"Yield - [Your Name]"`
 3.  Save it as `sim-soil-temp-[yourname].qmd` or `sim-fertilizer-[yourname].qmd`
 4.  **Commit** with message: `"Add Quarto file for [activity name]"`
 5.  **Push** to GitHub

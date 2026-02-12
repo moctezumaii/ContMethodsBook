@@ -298,7 +298,7 @@
     "href": "slides/slides-Week03.html#example-3-the-lesson",
     "title": "Matching Methods to Research Questions",
     "section": "Example 3: The Lesson",
-    "text": "Example 3: The Lesson\nProblems with overcomplication:\n\nTakes much longer to fit\nHarder to interpret\nReviewers get confused\nMore things can go wrong\nSame answer as simple approach!\n\n\nPrinciple of parsimony:\n\nUse the simplest method that adequately addresses your question\n\n\n\nSave fancy methods for when you need them!\n\n\nI know this is challenging! When I learn about new methods, I want to use them ALL THE TIME. But resist the urge! Focus on the researhc question!\nIf you teach, you get to explore any methods you want in your lessons!"
+    "text": "Example 3: The Lesson\n\nProblems with overcomplication:\n\nTakes much longer to fit\nHarder to interpret\nReviewers get confused\nMore things can go wrong\nSame answer as simple approach!\n\n\n\nPrinciple of parsimony:\n\nUse the simplest method that adequately addresses your question\n\n\n\nSave fancy methods for when you need them!\n\n\nI know this is challenging! When I learn about new methods, I want to use them ALL THE TIME. But resist the urge! Focus on the researhc question!\nIf you teach, you get to explore any methods you want in your lessons!"
   },
   {
     "objectID": "slides/slides-Week03.html#summary-three-scenarios",
@@ -865,7 +865,7 @@
     "href": "slides/slides-Week04.html#learning-objectives",
     "title": "Version Control, Git & Collaboration",
     "section": "🎯 Learning Objectives",
-    "text": "🎯 Learning Objectives\nBy the end of the week, you will be able to:\n\nExplain why version control matters for reproducible research\nConnect version control to themes from Weeks 1–3\nUse Git and GitHub for basic version control\nCollaborate using branches and pull requests\nApply version control to a Quarto-based workflow"
+    "text": "🎯 Learning Objectives\n\nBy the end of the week, you will be able to:\n\nExplain why version control matters for reproducible research\nConnect version control to themes from Weeks 1–3\nUse Git and GitHub for basic version control\nCollaborate using branches and pull requests\nApply version control to a Quarto-based workflow"
   },
   {
     "objectID": "slides/slides-Week04.html#useful-for-the-rest-of-the-semester",
@@ -879,7 +879,7 @@
     "href": "slides/slides-Week04.html#activity-retrieval-practice-8-min",
     "title": "Version Control, Git & Collaboration",
     "section": "Activity: Retrieval Practice (8 min)",
-    "text": "Activity: Retrieval Practice (8 min)\nNo notes, no phones, no laptops\n\nStruggling to recall is the point — it strengthens memory!\n\n\nQuick-Fire Recall (write on paper, 3 min)\n\nWhat did Zuur argue about data exploration?\nWhat is Box’s famous quote about models?\nWhat were the three scenarios from Week 3?\nExplain one experiment from Week 3 — what went wrong?\nWhat is the Golden Rule from Week 3?\n\n\nNotes –&gt; start simple, add complexity, justify complexity\n\n. . .\nDebrief (5 min): Turn to a neighbor and compare answers."
+    "text": "Activity: Retrieval Practice (8 min)\nNo notes, no phones, no laptops\n\nStruggling to recall is the point — it strengthens memory!\n\n\nQuick-Fire Recall (write on paper, 3 min)\n\n\nWhat did Zuur argue about data exploration?\nWhat is Box’s famous quote about models?\nWhat were the three scenarios from Week 3?\nExplain one experiment from Week 3 — what went wrong?\nWhat is the Golden Rule from Week 3?\n\n\n\nNotes –&gt; start simple, add complexity, justify complexity\n\n. . .\nDebrief (5 min): Turn to a neighbor and compare answers."
   },
   {
     "objectID": "slides/slides-Week04.html#why-retrieval-practice",
@@ -893,7 +893,7 @@
     "href": "slides/slides-Week04.html#activity-predict-observe-explain-12-min",
     "title": "Version Control, Git & Collaboration",
     "section": "Activity: Predict-Observe-Explain (12 min)",
-    "text": "Activity: Predict-Observe-Explain (12 min)\nQuick Poll: Raise your hand if you’ve ever…\n\nLost work because you overwrote a file\nMade a change in your code and wished you had the old version as well\nCouldn’t remember why you changed something in your code/analysis\nHad a collaborator edit the same file\nHad a folder full of _v2, _v3, _FINAL files"
+    "text": "Activity: Predict-Observe-Explain (12 min)\nQuick Poll: Raise your hand if you’ve ever…\n\n\nLost work because you overwrote a file\nMade a change in your code and wished you had the old version as well\nCouldn’t remember why you changed something in your code/analysis\nHad a collaborator edit the same file\nHad a folder full of _v2, _v3, _FINAL files"
   },
   {
     "objectID": "slides/slides-Week04.html#predict",
@@ -984,7 +984,7 @@
     "href": "slides/slides-Week04.html#git-is-not-just-for-code",
     "title": "Version Control, Git & Collaboration",
     "section": "Git is Not Just for Code",
-    "text": "Git is Not Just for Code\nGit tracks any text file:\n\n.qmd, .R, .csv (small), .bib, .tex, .md\n\n\nWhat Git is NOT Good For\n\nLarge binary files (images, PDFs, Word docs, big datasets)\nFiles that change constantly in unpredictable ways\nSensitive data (passwords, API keys, PII)\n\n. . .\nFor large data → .gitignore and Git Large File Storage (LFS)"
+    "text": "Git is Not Just for Code\nGit tracks any text file:\n\n.qmd, .R, .csv (small), .bib, .tex, .md\n\n\nWhat Git is NOT Good For\n\n\nLarge binary files (images, PDFs, Word docs, big datasets)\nFiles that change constantly in unpredictable ways\nSensitive data (passwords, API keys, PII)\n\n\n. . .\nFor large data → .gitignore and Git Large File Storage (LFS)"
   },
   {
     "objectID": "slides/slides-Week04.html#github-git",
@@ -1005,14 +1005,14 @@
     "href": "slides/slides-Week04.html#summary",
     "title": "Version Control, Git & Collaboration",
     "section": "Summary",
-    "text": "Summary\n\n\n\n\n\n\n\nWhat We Covered\nKey Takeaway\n\n\n\n\nWhy version control?\nFile-naming fails; Git preserves what, when, and why\n\n\nWhat is Git?\nA system that snapshots your project over time\n\n\nGit ≠ GitHub\nGit is the engine; GitHub is the cloud platform\n\n\nKey workflow\nedit → add → commit → push\n\n\nConnection to research\nTrack model iterations, exploration vs. inference, analytical decisions"
+    "text": "Summary\n\n\n\n\n\n\n\n\nWhat We Covered\nKey Takeaway\n\n\n\n\nWhy version control?\nFile-naming fails; Git preserves what, when, and why\n\n\nWhat is Git?\nA system that snapshots your project over time\n\n\nGit ≠ GitHub\nGit is the engine; GitHub is the cloud platform\n\n\nKey workflow\nedit → add → commit → push\n\n\nConnection to research\nTrack model iterations, exploration vs. inference, analytical decisions"
   },
   {
     "objectID": "weeks/week-template.html",
     "href": "weeks/week-template.html",
     "title": "Week XX — [Week Title]",
     "section": "",
-    "text": "Week: XX\nSession A: Paper Discussion — paper to be assigned by week lead\nSession B: Methods workshop — hands-on coding\nObjectives - Short list of objectives for the week.\nReading / Paper - Citation: Title, authors, year. - Key method(s) used in the paper.\nMethod Deep-Dive - Math / equations: short derivation or key formulas. - Assumptions and diagnostics.\nCode / Implementation (R) - R script or R Markdown chunk for implementing the method or a minimal example: # Example placeholder library(tidyverse) # put example code here"
+    "text": "Week: XX\nSession A: Paper Discussion — paper to be assigned by week lead\nSession B: Methods workshop — hands-on coding\nObjectives - Short list of objectives for the week.\nReading / Paper - Citation: Title, authors, year. - Key method(s) used in the paper.\nMethod Deep-Dive - Math / equations: short derivation or key formulas. - Assumptions and diagnostics.\nCode / Implementation (R) - R script or R Markdown chunk for implementing the method or a minimal example:\n\n1 Example placeholder\nlibrary(tidyverse) # put example code here"
   },
   {
     "objectID": "weeks/week02.html",
@@ -1131,7 +1131,7 @@
     "href": "weeks/week04.html#part-1-setting-up-your-team-repository-10-min",
     "title": "Week 04 - Version Control, Git & Collaboration",
     "section": "3.3 Part 1: Setting Up Your Team Repository (≈10 min)",
-    "text": "3.3 Part 1: Setting Up Your Team Repository (≈10 min)\n\n3.3.1 Form Pairs (1 min)\nGet into pairs. You’ll be working on a shared GitHub repository for the rest of this session. Each person will take responsibility for one of the two simulation exercises, so you’ll both contribute a complete analysis to the same repo.\n\n\n\n\n\n\nWhy Shared Repos?\n\n\n\nIn real research, you rarely work alone. Shared repositories force you to practice the pull → edit → commit → push cycle and deal with real collaboration challenges (coordinating who’s working on what, writing clear commit messages for your partner). This is the whole point of today.\n\n\n\n\n3.3.2 One Person Creates the Repo (3 min)\nOne partner does the following:\n\nGo to github.com → “+” → New repository\nName it: snr690-sim-team-[your-initials] (e.g., snr690-sim-team-amjk)\n✅ Check “Add a README file”\nSet it to Public (so your partner can access it easily)\nClick Create repository\nGo to Settings → Collaborators → Add people and add your partner by their GitHub username\n\n\n\n3.3.3 Both Partners Clone the Repo (3 min)\nBoth partners (including the creator):\n\nGo to the repository page on GitHub\nClick the green “&lt;&gt; Code” button → copy the HTTPS URL\nIn RStudio: File → New Project → Version Control → Git\nPaste the URL, choose a directory, click Create Project\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nBoth partners should now have the same project open in RStudio, connected to the same GitHub repository. You should see the Git tab in your RStudio pane.\n\n\n\n\n3.3.4 Decide Who Does What (1 min)\n\nPartner A will work on Activity 1: The Soil Temperature Experiment\nPartner B will work on Activity 2: The Fertilizer Yield Experiment\n\nEach person creates their own Quarto file:\n\nFile → New File → Quarto Document\nTitle: \"Soil Temperature Simulation - [Your Name]\" or \"Fertilizer Yield Simulation - [Your Name]\"\nSave it as sim-soil-temp-[yourname].qmd or sim-fertilizer-[yourname].qmd\nCommit with message: \"Add Quarto file for [activity name]\"\nPush to GitHub\n\n\n\n\n\n\n\nImportant: Pull Before You Push!\n\n\n\nBefore pushing, always pull first (git pull in the Terminal, or the ⬇️ Pull button in the Git tab). Your partner may have pushed changes. Get in the habit now: pull → work → commit → pull → push."
+    "text": "3.3 Part 1: Setting Up Your Team Repository (≈10 min)\n\n3.3.1 Form Pairs (1 min)\nGet into pairs. You’ll be working on a shared GitHub repository for the rest of this session. Each person will take responsibility for one of the two simulation exercises, so you’ll both contribute a complete analysis to the same repo.\n\n\n\n\n\n\nWhy Shared Repos?\n\n\n\nIn real research, you rarely work alone. Shared repositories force you to practice the pull → edit → commit → push cycle and deal with real collaboration challenges (coordinating who’s working on what, writing clear commit messages for your partner). This is the whole point of today.\n\n\n\n\n3.3.2 One Person Creates the Repo (3 min)\nOne partner does the following:\n\nGo to github.com → “+” → New repository\nName it: snr690-sim-team-[your-initials] (e.g., snr690-sim-team-amjk)\n✅ Check “Add a README file”\nSet it to Public (so your partner can access it easily)\nClick Create repository\nGo to Settings → Collaborators → Add people and add your partner by their GitHub username\n\n\n\n3.3.3 Both Partners Clone the Repo (3 min)\nBoth partners (including the creator):\n\nGo to the repository page on GitHub\nClick the green “&lt;&gt; Code” button → copy the HTTPS URL\nIn RStudio: File → New Project → Version Control → Git\nPaste the URL, choose a directory, click Create Project\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nBoth partners should now have the same project open in RStudio, connected to the same GitHub repository. You should see the Git tab in your RStudio pane.\n\n\n\n\n3.3.4 Decide Who Does What (1 min)\n\nPartner A will work on Activity 1: The Soil Temperature Experiment\nPartner B will work on Activity 2: The Fertilizer Yield Experiment\n\nEach person creates their own Quarto file:\n\nFile → New File → Quarto Document\nTitle: \"Salamander - [Your Name]\" or \"Yield - [Your Name]\"\nSave it as sim-soil-temp-[yourname].qmd or sim-fertilizer-[yourname].qmd\nCommit with message: \"Add Quarto file for [activity name]\"\nPush to GitHub\n\n\n\n\n\n\n\nImportant: Pull Before You Push!\n\n\n\nBefore pushing, always pull first (git pull in the Terminal, or the ⬇️ Pull button in the Git tab). Your partner may have pushed changes. Get in the habit now: pull → work → commit → pull → push."
   },
   {
     "objectID": "weeks/week04.html#part-2-simulation-exercises-start-simple-no-transformations-45-min",
