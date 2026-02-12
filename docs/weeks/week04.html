@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -65,15 +66,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../assets/favicon.ico" rel="icon">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -292,11 +294,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#session-b-hands-on---simulations-revisited-git-workshop-75-min" id="toc-session-b-hands-on---simulations-revisited-git-workshop-75-min" class="nav-link" data-scroll-target="#session-b-hands-on---simulations-revisited-git-workshop-75-min"><span class="header-section-number">3</span> Session B: Hands-On - Simulations Revisited + Git Workshop (75 min)</a>
   <ul class="collapse">
-  <li><a href="#addressing-your-muddiest-points-5-min" id="toc-addressing-your-muddiest-points-5-min" class="nav-link" data-scroll-target="#addressing-your-muddiest-points-5-min"><span class="header-section-number">3.0.1</span> Addressing Your Muddiest Points (5 min)</a></li>
-  <li><a href="#part-1-week-3-simulation-refresher-35-min" id="toc-part-1-week-3-simulation-refresher-35-min" class="nav-link" data-scroll-target="#part-1-week-3-simulation-refresher-35-min"><span class="header-section-number">3.1</span> Part 1: Week 3 Simulation Refresher (≈35 min)</a>
+  <li><a href="#muddiest-points-2-min" id="toc-muddiest-points-2-min" class="nav-link" data-scroll-target="#muddiest-points-2-min"><span class="header-section-number">3.0.1</span> Muddiest Points (2 min)</a></li>
+  <li><a href="#lets-start-the-class-by-taking-a-couple-minutes-and-write-the-things-that-have-been-the-most-complicated-about-this-class" id="toc-lets-start-the-class-by-taking-a-couple-minutes-and-write-the-things-that-have-been-the-most-complicated-about-this-class" class="nav-link" data-scroll-target="#lets-start-the-class-by-taking-a-couple-minutes-and-write-the-things-that-have-been-the-most-complicated-about-this-class"><span class="header-section-number">3.1</span> Let’s start the class by taking a couple minutes and write the things that have been the most complicated about this class</a></li>
+  <li><a href="#part-1-week-3-simulation-refresher-35-min" id="toc-part-1-week-3-simulation-refresher-35-min" class="nav-link" data-scroll-target="#part-1-week-3-simulation-refresher-35-min"><span class="header-section-number">3.2</span> Part 1: Week 3 Simulation Refresher (≈35 min)</a>
   <ul class="collapse">
-  <li><a href="#why-simulate-5-min---mini-lecture" id="toc-why-simulate-5-min---mini-lecture" class="nav-link" data-scroll-target="#why-simulate-5-min---mini-lecture"><span class="header-section-number">3.1.1</span> Why Simulate? (5 min - mini-lecture)</a></li>
-  <li><a href="#guided-walkthrough-fertilizer-mismatch-15-min---code-along-together" id="toc-guided-walkthrough-fertilizer-mismatch-15-min---code-along-together" class="nav-link" data-scroll-target="#guided-walkthrough-fertilizer-mismatch-15-min---code-along-together"><span class="header-section-number">3.1.2</span> Guided Walkthrough: Fertilizer Mismatch (15 min - code along together)</a></li>
+  <li><a href="#why-simulate-5-min---mini-lecture" id="toc-why-simulate-5-min---mini-lecture" class="nav-link" data-scroll-target="#why-simulate-5-min---mini-lecture"><span class="header-section-number">3.2.1</span> Why Simulate? (5 min - mini-lecture)</a></li>
+  </ul></li>
+  <li><a href="#part-1-setting-up-your-team-repository-10-min" id="toc-part-1-setting-up-your-team-repository-10-min" class="nav-link" data-scroll-target="#part-1-setting-up-your-team-repository-10-min"><span class="header-section-number">3.3</span> Part 1: Setting Up Your Team Repository (≈10 min)</a>
+  <ul class="collapse">
+  <li><a href="#form-pairs-1-min" id="toc-form-pairs-1-min" class="nav-link" data-scroll-target="#form-pairs-1-min"><span class="header-section-number">3.3.1</span> Form Pairs (1 min)</a></li>
+  <li><a href="#one-person-creates-the-repo-3-min" id="toc-one-person-creates-the-repo-3-min" class="nav-link" data-scroll-target="#one-person-creates-the-repo-3-min"><span class="header-section-number">3.3.2</span> One Person Creates the Repo (3 min)</a></li>
+  <li><a href="#both-partners-clone-the-repo-3-min" id="toc-both-partners-clone-the-repo-3-min" class="nav-link" data-scroll-target="#both-partners-clone-the-repo-3-min"><span class="header-section-number">3.3.3</span> Both Partners Clone the Repo (3 min)</a></li>
+  <li><a href="#decide-who-does-what-1-min" id="toc-decide-who-does-what-1-min" class="nav-link" data-scroll-target="#decide-who-does-what-1-min"><span class="header-section-number">3.3.4</span> Decide Who Does What (1 min)</a></li>
+  </ul></li>
+  <li><a href="#part-2-simulation-exercises-start-simple-no-transformations-45-min" id="toc-part-2-simulation-exercises-start-simple-no-transformations-45-min" class="nav-link" data-scroll-target="#part-2-simulation-exercises-start-simple-no-transformations-45-min"><span class="header-section-number">3.4</span> Part 2: Simulation Exercises — Start Simple, No Transformations (≈45 min)</a>
+  <ul class="collapse">
+  <li><a href="#activity-1-salamander-survival-partner-a-station-1-from-week-3" id="toc-activity-1-salamander-survival-partner-a-station-1-from-week-3" class="nav-link" data-scroll-target="#activity-1-salamander-survival-partner-a-station-1-from-week-3"><span class="header-section-number">3.4.1</span> Activity 1: Salamander Survival (Partner A) — Station 1 from Week 3</a></li>
+  <li><a href="#activity-2-wheat-yield-trials-partner-b-station-2-from-week-3" id="toc-activity-2-wheat-yield-trials-partner-b-station-2-from-week-3" class="nav-link" data-scroll-target="#activity-2-wheat-yield-trials-partner-b-station-2-from-week-3"><span class="header-section-number">3.4.2</span> Activity 2: Wheat Yield Trials (Partner B) — Station 2 from Week 3</a></li>
+  </ul></li>
+  <li><a href="#part-3-review-your-partners-work-reflection-10-min" id="toc-part-3-review-your-partners-work-reflection-10-min" class="nav-link" data-scroll-target="#part-3-review-your-partners-work-reflection-10-min"><span class="header-section-number">3.5</span> Part 3: Review Your Partner’s Work + Reflection (≈10 min)</a>
+  <ul class="collapse">
+  <li><a href="#pull-and-read-5-min" id="toc-pull-and-read-5-min" class="nav-link" data-scroll-target="#pull-and-read-5-min"><span class="header-section-number">3.5.1</span> Pull and Read (5 min)</a></li>
+  <li><a href="#git-log-review-2-min" id="toc-git-log-review-2-min" class="nav-link" data-scroll-target="#git-log-review-2-min"><span class="header-section-number">3.5.2</span> Git Log Review (2 min)</a></li>
+  <li><a href="#exit-ticket-2-min" id="toc-exit-ticket-2-min" class="nav-link" data-scroll-target="#exit-ticket-2-min"><span class="header-section-number">3.5.3</span> Exit Ticket (2 min)</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -348,9 +368,9 @@ The Semester So Far - Key Takeaways from Weeks 1–3
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
+<col style="width: 25%">
 <col style="width: 26%">
-<col style="width: 50%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -557,7 +577,7 @@ analysis_FINAL_ACTUALLY_FINAL_USE_THIS_ONE.R</code></pre>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
-<col style="width: 37%">
+<col style="width: 36%">
 <col style="width: 31%">
 </colgroup>
 <thead>
@@ -837,7 +857,7 @@ Check GitHub!
 </section>
 <section id="muddiest-point-2-min" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="muddiest-point-2-min"><span class="header-section-number">2.7</span> Muddiest Point (2 min)</h2>
-<p>On a piece of paper, write down the <strong>one thing</strong> from today that is most confusing or unclear to you. Be specific! Dr.&nbsp;Molina will read these before Session B.</p>
+<p>On a piece of paper, write down the <strong>one thing</strong> from today that is most confusing or unclear to you –&gt; We will move this to session 2</p>
 </section>
 </section>
 <section id="session-b-hands-on---simulations-revisited-git-workshop-75-min" class="level1" data-number="3">
@@ -848,27 +868,30 @@ Check GitHub!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Session B Game Plan
+Session B
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>This session has <strong>two parts</strong>:</p>
+<p>This entire session is hands-on. You will be working on your computers the whole time. The goals are:</p>
 <ol type="1">
-<li><p><strong>Part 1 (≈35 min): Week 3 Simulation Refresher</strong> - We’ll work through the simulations that many of you found challenging last week. We do this together, step by step, so everyone is comfortable with simulating data, fitting the wrong model, and fitting the correct model.</p></li>
-<li><p><strong>Part 2 (≈35 min): Git on Top of Your Simulations</strong> - Once your code is working, we’ll use <em>that same code</em> to practice Git. You’ll create a repository, make commits at each stage of the analysis, and see how version control tells the story of your work.</p></li>
+<li><strong>Practice GitHub</strong> — cloning, committing, pushing, pulling, and collaborating on a shared repository. This is your first real deep dive after the intro in Session A.</li>
+<li><strong>Revisit Week 3 simulations</strong> — specifically the “simulate → analyze correctly → analyze incorrectly” workflow, but this time we <strong>start simple</strong> (no transformations like log or logit) and work inside a <strong>Quarto document</strong> with proper source control.</li>
+<li><strong>Work collaboratively</strong> — you’ll be working in small teams on a shared GitHub repository, experiencing what real collaborative version control feels like.</li>
 </ol>
-<p>This way you’re not learning two hard things at once - you’re reinforcing last week’s content <em>and</em> learning Git with code you already understand.</p>
+<p><strong>The rule for today: start simple.</strong> Simple linear models. Normal distributions. No transformations. Get comfortable with the simulation → correct analysis → wrong analysis pipeline <em>and</em> with Git before we add complexity.</p>
 </div>
 </div>
-<section id="addressing-your-muddiest-points-5-min" class="level3" data-number="3.0.1">
-<h3 data-number="3.0.1" class="anchored" data-anchor-id="addressing-your-muddiest-points-5-min"><span class="header-section-number">3.0.1</span> Addressing Your Muddiest Points (5 min)</h3>
-<p>Dr.&nbsp;Molina will open with a quick response to the most common muddiest points from Session A.</p>
-<hr>
+<section id="muddiest-points-2-min" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="muddiest-points-2-min"><span class="header-section-number">3.0.1</span> Muddiest Points (2 min)</h3>
 </section>
-<section id="part-1-week-3-simulation-refresher-35-min" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="part-1-week-3-simulation-refresher-35-min"><span class="header-section-number">3.1</span> Part 1: Week 3 Simulation Refresher (≈35 min)</h2>
-<section id="why-simulate-5-min---mini-lecture" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="why-simulate-5-min---mini-lecture"><span class="header-section-number">3.1.1</span> Why Simulate? (5 min - mini-lecture)</h3>
+<section id="lets-start-the-class-by-taking-a-couple-minutes-and-write-the-things-that-have-been-the-most-complicated-about-this-class" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="lets-start-the-class-by-taking-a-couple-minutes-and-write-the-things-that-have-been-the-most-complicated-about-this-class"><span class="header-section-number">3.1</span> Let’s start the class by taking a couple minutes and write the things that have been the most complicated about this class</h2>
+</section>
+<section id="part-1-week-3-simulation-refresher-35-min" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="part-1-week-3-simulation-refresher-35-min"><span class="header-section-number">3.2</span> Part 1: Week 3 Simulation Refresher (≈35 min)</h2>
+<section id="why-simulate-5-min---mini-lecture" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="why-simulate-5-min---mini-lecture"><span class="header-section-number">3.2.1</span> Why Simulate? (5 min - mini-lecture)</h3>
 <p>Simulation is one of the most powerful tools in a statistician’s toolkit. It lets you:</p>
 <ul>
 <li><strong>Understand your model</strong> by seeing how data generated <em>from</em> that model behaves</li>
@@ -895,10 +918,458 @@ The Simulation Recipe
 </ol>
 </div>
 </div>
+<hr>
 </section>
-<section id="guided-walkthrough-fertilizer-mismatch-15-min---code-along-together" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="guided-walkthrough-fertilizer-mismatch-15-min---code-along-together"><span class="header-section-number">3.1.2</span> Guided Walkthrough: Fertilizer Mismatch (15 min - code along together)</h3>
-<p>We’ll recreate the <strong>Example 1: Mismatch</strong> from Week 3 slides step by step. This is the fertilizer-on-crop-yield example where ignoring field structure leads to wrong conclusions.</p>
+</section>
+<section id="part-1-setting-up-your-team-repository-10-min" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="part-1-setting-up-your-team-repository-10-min"><span class="header-section-number">3.3</span> Part 1: Setting Up Your Team Repository (≈10 min)</h2>
+<section id="form-pairs-1-min" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="form-pairs-1-min"><span class="header-section-number">3.3.1</span> Form Pairs (1 min)</h3>
+<p>Get into pairs. You’ll be working on a <strong>shared GitHub repository</strong> for the rest of this session. Each person will take responsibility for <strong>one</strong> of the two simulation exercises, so you’ll both contribute a complete analysis to the same repo.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why Shared Repos?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In real research, you rarely work alone. Shared repositories force you to practice the pull → edit → commit → push cycle and deal with real collaboration challenges (coordinating who’s working on what, writing clear commit messages for your partner). This is the whole point of today.</p>
+</div>
+</div>
+</section>
+<section id="one-person-creates-the-repo-3-min" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="one-person-creates-the-repo-3-min"><span class="header-section-number">3.3.2</span> One Person Creates the Repo (3 min)</h3>
+<p><strong>One partner</strong> does the following:</p>
+<ol type="1">
+<li>Go to <a href="https://github.com">github.com</a> → <strong>“+”</strong> → <strong>New repository</strong></li>
+<li>Name it: <code>snr690-sim-team-[your-initials]</code> (e.g., <code>snr690-sim-team-amjk</code>)</li>
+<li>✅ Check <strong>“Add a README file”</strong></li>
+<li>Set it to <strong>Public</strong> (so your partner can access it easily)</li>
+<li>Click <strong>Create repository</strong></li>
+<li>Go to <strong>Settings → Collaborators → Add people</strong> and add your partner by their GitHub username</li>
+</ol>
+</section>
+<section id="both-partners-clone-the-repo-3-min" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="both-partners-clone-the-repo-3-min"><span class="header-section-number">3.3.3</span> Both Partners Clone the Repo (3 min)</h3>
+<p><strong>Both partners</strong> (including the creator):</p>
+<ol type="1">
+<li>Go to the repository page on GitHub</li>
+<li>Click the green <strong>“&lt;&gt; Code”</strong> button → copy the HTTPS URL</li>
+<li>In RStudio: <strong>File → New Project → Version Control → Git</strong></li>
+<li>Paste the URL, choose a directory, click <strong>Create Project</strong></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Checkpoint
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both partners should now have the same project open in RStudio, connected to the same GitHub repository. You should see the <strong>Git tab</strong> in your RStudio pane.</p>
+</div>
+</div>
+</section>
+<section id="decide-who-does-what-1-min" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="decide-who-does-what-1-min"><span class="header-section-number">3.3.4</span> Decide Who Does What (1 min)</h3>
+<ul>
+<li><strong>Partner A</strong> will work on <strong>Activity 1: The Soil Temperature Experiment</strong></li>
+<li><strong>Partner B</strong> will work on <strong>Activity 2: The Fertilizer Yield Experiment</strong></li>
+</ul>
+<p>Each person creates their own Quarto file:</p>
+<ol type="1">
+<li><strong>File → New File → Quarto Document</strong></li>
+<li>Title: <code>"Soil Temperature Simulation - [Your Name]"</code> or <code>"Fertilizer Yield Simulation - [Your Name]"</code></li>
+<li>Save it as <code>sim-soil-temp-[yourname].qmd</code> or <code>sim-fertilizer-[yourname].qmd</code></li>
+<li><strong>Commit</strong> with message: <code>"Add Quarto file for [activity name]"</code></li>
+<li><strong>Push</strong> to GitHub</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important: Pull Before You Push!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before pushing, always <strong>pull first</strong> (<code>git pull</code> in the Terminal, or the ⬇️ Pull button in the Git tab). Your partner may have pushed changes. Get in the habit now: <strong>pull → work → commit → pull → push</strong>.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-2-simulation-exercises-start-simple-no-transformations-45-min" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="part-2-simulation-exercises-start-simple-no-transformations-45-min"><span class="header-section-number">3.4</span> Part 2: Simulation Exercises — Start Simple, No Transformations (≈45 min)</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Rule: Start Simple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are deliberately keeping this simple today. <strong>I am providing the simulation… Look at it, and figure out what I did different than you</strong></p>
+<p>This is what you will be doing here: 1. Simulate data where you <strong>know the truth</strong> (you have the parameters and I provided the code this time) 2. <strong>Comment on the simulation code</strong> explain what each step is doing and why… or at least try to 3. Fit the <strong>proposed (wrong) model/method</strong> from Week 3. You write the code and explain why it might be problematic 4. Fit the <strong>correct model</strong>. You propose it, write the code, commit, and push 5. Write it all up in your Quarto document with narrative explaining what you did and why 6. Commit after each step with a meaningful commit message</p>
+<p>This mirrors the real research process: you try an analysis, realize there’s a problem, and re-analyze correctly. Git tracks every step of that journey.</p>
+</div>
+</div>
+<hr>
+<section id="activity-1-salamander-survival-partner-a-station-1-from-week-3" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="activity-1-salamander-survival-partner-a-station-1-from-week-3"><span class="header-section-number">3.4.1</span> Activity 1: Salamander Survival (Partner A) — Station 1 from Week 3</h3>
+<p><strong>Scenario:</strong> A researcher wants to know if canopy cover affects salamander survival in forest fragments. They marked 20 salamanders in each of 12 forest fragments and recorded whether each salamander survived (alive/dead) after one year. Canopy cover was measured as a percentage for each fragment.</p>
+<p><strong>The truth (what we’re simulating):</strong></p>
+<ul>
+<li>12 forest fragments</li>
+<li>20 salamanders per fragment (240 total salamanders)</li>
+<li>Canopy cover ranges from 40% to 90%</li>
+<li>True effect of canopy cover on survival probability: for every 10% increase in canopy cover, the log-odds of survival increases by 0.09</li>
+<li>We’ll use a logistic relationship (since survival is binary), but don’t worry about the math - just run the code and comment what each line does</li>
+</ul>
+<section id="step-1-simulate-the-data-and-visualize-20-min" class="level4" data-number="3.4.1.1">
+<h4 data-number="3.4.1.1" class="anchored" data-anchor-id="step-1-simulate-the-data-and-visualize-20-min"><span class="header-section-number">3.4.1.1</span> Step 1: Simulate the data and visualize (20 min)</h4>
+<p>Copy the code below into your Quarto document. <strong>Your job: add a comment above or next to every line explaining what it does.</strong> If you don’t understand a line, ask me.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)  <span class="co"># for mixed models later</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the experimental structure</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>n_fragments <span class="ot">&lt;-</span> <span class="dv">12</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>n_salamanders_per_fragment <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>n_total <span class="ot">&lt;-</span> n_fragments <span class="sc">*</span> n_salamanders_per_fragment</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the truth</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>true_intercept <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">3.5</span>          </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>true_canopy_effect <span class="ot">&lt;-</span> <span class="fl">0.09</span>    </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create fragment-level data</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>fragment_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">fragment_id =</span> <span class="dv">1</span><span class="sc">:</span>n_fragments,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">canopy_cover =</span> <span class="fu">runif</span>(n_fragments, <span class="at">min =</span> <span class="dv">40</span>, <span class="at">max =</span> <span class="dv">90</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Create salamander-level data (each salamander belongs to a fragment)</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>salamander_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">salamander_id =</span> <span class="dv">1</span><span class="sc">:</span>n_total,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">fragment_id =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_fragments, <span class="at">each =</span> n_salamanders_per_fragment)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge to get canopy cover for each salamander</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>salamander_data <span class="ot">&lt;-</span> salamander_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(fragment_data, <span class="at">by =</span> <span class="st">"fragment_id"</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate survival using logistic regression formula</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>salamander_data <span class="ot">&lt;-</span> salamander_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">log_odds =</span> true_intercept <span class="sc">+</span> true_canopy_effect <span class="sc">*</span> canopy_cover,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob_survival =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>log_odds)),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">survived =</span> <span class="fu">rbinom</span>(n_total, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> prob_survival)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(salamander_data)</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(salamander_data)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize: proportion surviving in each fragment</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>fragment_summary <span class="ot">&lt;-</span> salamander_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(fragment_id, canopy_cover) <span class="sc">%&gt;%</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_survived =</span> <span class="fu">sum</span>(survived),</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_total =</span> <span class="fu">n</span>(),</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">prop_survived =</span> n_survived <span class="sc">/</span> n_total,</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fragment_summary, <span class="fu">aes</span>(<span class="at">x =</span> canopy_cover, <span class="at">y =</span> prop_survived)) <span class="sc">+</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Simulated: Canopy Cover vs. Salamander Survival"</span>,</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point = one forest fragment (20 salamanders each)"</span>,</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Canopy Cover (%)"</span>,</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Proportion Survived"</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>📝 In your Quarto doc:</strong> Write a paragraph <em>above</em> the code chunk explaining: - What is the research question? - What is the experimental design? (How many fragments? How many salamanders per fragment?) - What is the response variable? What type of variable is it? - Why does this structure matter for the analysis?</p>
+<p><strong>📝 Commit message:</strong> <code>"Simulate salamander survival data - 12 fragments, 20 sal per fragment"</code></p>
+</section>
+<section id="step-2-fit-the-proposed-wrong-model-from-week-3-10-min" class="level4" data-number="3.4.1.2">
+<h4 data-number="3.4.1.2" class="anchored" data-anchor-id="step-2-fit-the-proposed-wrong-model-from-week-3-10-min"><span class="header-section-number">3.4.1.2</span> Step 2: Fit the proposed (wrong) model from Week 3 (10 min)</h4>
+<p>In Week 3 Station 1, the <strong>proposed method</strong> was:</p>
+<blockquote class="blockquote">
+<p>Logistic regression: <code>glm(survival ~ canopy_cover, family = binomial)</code> Use the <code>salamander_data</code> data frame, which has one row per salamander, with a binary <code>survived</code> column and a <code>canopy_cover</code> column.</p>
+</blockquote>
+<p>This treats each salamander as an independent observation. <strong>But is that correct?</strong></p>
+<p><strong>Your job:</strong></p>
+<ol type="1">
+<li>Fit this model using the code below (or write your own):</li>
+</ol>
+<ol start="2" type="1">
+<li><strong>In your Quarto document</strong>, answer these questions:
+<ul>
+<li>What does this model assume about the salamanders?</li>
+<li>Are salamanders within the same fragment truly independent? Why or why not?</li>
+<li>What is the <strong>unit of replication</strong> in this experiment — the salamander or the fragment?</li>
+<li>What problem might arise if we ignore the fragment structure?</li>
+<li><strong>Key question:</strong> If salamanders in the same fragment are more similar to each other than to salamanders in other fragments (e.g., because of fragment-specific conditions), what happens to our standard errors and p-values?</li>
+</ul></li>
+</ol>
+<p><strong>📝 Commit message:</strong> <code>"Fit proposed model (ignores fragment structure) - identify problem"</code></p>
+<p><strong>Push to GitHub.</strong></p>
+</section>
+<section id="step-3-fit-the-correct-model-15-min" class="level4" data-number="3.4.1.3">
+<h4 data-number="3.4.1.3" class="anchored" data-anchor-id="step-3-fit-the-correct-model-15-min"><span class="header-section-number">3.4.1.3</span> Step 3: Fit the correct model (15 min)</h4>
+<p>The correct approach needs to <strong>account for the fact that salamanders are grouped within fragments</strong>. Salamanders in the same fragment are not independent — they share the same canopy cover, the same local predators, the same microclimate.</p>
+<p><strong>Your job:</strong></p>
+<ol type="1">
+<li><p><strong>Propose a better model.</strong> Hints:</p>
+<ul>
+<li>You need to tell the model that salamanders are nested within fragments</li>
+<li>Look at the <code>lme4</code> package (already loaded at the top)</li>
+<li>The function you want is <code>glmer()</code> (generalized linear mixed-effects model)</li>
+<li>The syntax is similar to <code>glm()</code>, but you add a random effect for fragment: <code>(1 | fragment_id)</code></li>
+<li>Example structure: <code>glmer(response ~ predictor + (1 | grouping_variable), family = binomial, data = ...)</code></li>
+</ul></li>
+<li><p><strong>Write the code</strong> to fit the correct model</p></li>
+<li><p><strong>In your Quarto document</strong>, answer:</p>
+<ul>
+<li>How did the estimate of the canopy cover effect change?</li>
+<li>How did the standard error change? (Bigger? Smaller?)</li>
+<li>Did the p-value change?</li>
+<li>Why does accounting for fragment structure matter?</li>
+<li>Which model do you trust more, and why?</li>
+</ul></li>
+<li><p><strong>Replace the proposed model in your document</strong> — meaning, re-organize your <code>.qmd</code> so that the correct model comes first, and the wrong model is shown as “what not to do” or moved to an appendix section. This simulates the real research process: you realize you made a mistake, so you re-do the analysis correctly.</p></li>
+</ol>
+<p><strong>📝 Commit message:</strong> <code>"Fit correct model with random effect for fragment - replace wrong approach"</code></p>
+<p><strong>Push to GitHub.</strong></p>
+</section>
+<section id="step-4-write-your-conclusions" class="level4" data-number="3.4.1.4">
+<h4 data-number="3.4.1.4" class="anchored" data-anchor-id="step-4-write-your-conclusions"><span class="header-section-number">3.4.1.4</span> Step 4: Write your conclusions</h4>
+<p>Add a final section called <strong>“What I Learned”</strong> summarizing: - Why the proposed model was problematic (be specific about pseudoreplication) - Why the correct model is better - One sentence connecting this to the <strong>Method-Question-Data Triangle from Week 3</strong> (hint: the question is about canopy cover, but the data have a nested structure — the method must match both)</p>
+<p><strong>📝 Commit message:</strong> <code>"Add conclusions and connect to Week 3 concepts"</code></p>
+<p><strong>Push to GitHub.</strong></p>
+<hr>
+</section>
+</section>
+<section id="activity-2-wheat-yield-trials-partner-b-station-2-from-week-3" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="activity-2-wheat-yield-trials-partner-b-station-2-from-week-3"><span class="header-section-number">3.4.2</span> Activity 2: Wheat Yield Trials (Partner B) — Station 2 from Week 3</h3>
+<p><strong>Scenario:</strong> An agronomist wants to know which of 5 wheat varieties produces the highest yield. They use a randomized complete block design: 4 blocks (fields), with one plot per variety per block (20 plots total). Yield (kg/ha) is recorded once per plot.</p>
+<p><strong>The truth (what we’re simulating):</strong></p>
+<ul>
+<li>5 wheat varieties</li>
+<li>4 blocks (to account for field variability)</li>
+<li>True variety effects: Variety A is the baseline, B is +200 kg/ha better, C is +350 kg/ha better, D is +100 kg/ha better, E is -50 kg/ha worse</li>
+<li>True block effects: Block 1 is baseline, Block 2 is +150 kg/ha, Block 3 is -100 kg/ha, Block 4 is +200 kg/ha (because soil quality varies)</li>
+<li>Noise SD = 120 kg/ha</li>
+</ul>
+<section id="step-1-simulate-the-data-and-visualize-20-min-1" class="level4" data-number="3.4.2.1">
+<h4 data-number="3.4.2.1" class="anchored" data-anchor-id="step-1-simulate-the-data-and-visualize-20-min-1"><span class="header-section-number">3.4.2.1</span> Step 1: Simulate the data and visualize (20 min)</h4>
+<p>Copy the code below into your Quarto document. <strong>Your job: add a comment next to lines explaining what it does.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define experimental structure</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>varieties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>blocks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Block1"</span>, <span class="st">"Block2"</span>, <span class="st">"Block3"</span>, <span class="st">"Block4"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the truth</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>baseline_yield <span class="ot">&lt;-</span> <span class="dv">3000</span>  <span class="co"># kg/ha for variety A in block 1</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>variety_effects <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">A =</span> <span class="dv">0</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">B =</span> <span class="dv">200</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">C =</span> <span class="dv">350</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">D =</span> <span class="dv">100</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">E =</span> <span class="sc">-</span><span class="dv">50</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>block_effects <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Block1 =</span> <span class="dv">0</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">Block2 =</span> <span class="dv">150</span>,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">Block3 =</span> <span class="sc">-</span><span class="dv">100</span>,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">Block4 =</span> <span class="dv">200</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>noise_sd <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Create all combinations of variety and block (full factorial design)</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>wheat_data <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">variety =</span> varieties,</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">block =</span> blocks</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Add true yield based on variety and block effects</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>wheat_data <span class="ot">&lt;-</span> wheat_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">variety_effect =</span> variety_effects[variety],</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">block_effect =</span> block_effects[block],</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">true_yield =</span> baseline_yield <span class="sc">+</span> variety_effect <span class="sc">+</span> block_effect,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">yield =</span> true_yield <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">n</span>(), <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> noise_sd)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wheat_data)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(wheat_data)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(wheat_data, <span class="fu">aes</span>(<span class="at">x =</span> variety, <span class="at">y =</span> yield, <span class="at">color =</span> block)) <span class="sc">+</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.3</span>)) <span class="sc">+</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"crossbar"</span>, <span class="at">width =</span> <span class="fl">0.5</span>, </span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Simulated: Wheat Variety Yields Across Blocks"</span>,</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Each point = one plot; crossbar = variety mean across blocks"</span>,</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Wheat Variety"</span>,</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Yield (kg/ha)"</span>,</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Block"</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>📝 In your Quarto doc:</strong> Write a paragraph <em>above</em> the code chunk explaining: - What is the research question? - What is the experimental design? (What is a “block”? Why use blocks?) - What is the response variable? - Why does the block structure matter?</p>
+<p><strong>📝 Commit message:</strong> <code>"Simulate wheat yield data - 5 varieties x 4 blocks"</code></p>
+</section>
+<section id="step-2-fit-the-proposed-wrong-model-from-week-3-10-min-1" class="level4" data-number="3.4.2.2">
+<h4 data-number="3.4.2.2" class="anchored" data-anchor-id="step-2-fit-the-proposed-wrong-model-from-week-3-10-min-1"><span class="header-section-number">3.4.2.2</span> Step 2: Fit the proposed (wrong) model from Week 3 (10 min)</h4>
+<p>In Week 3 Station 2, the <strong>proposed method</strong> was:</p>
+<blockquote class="blockquote">
+<p>One-way ANOVA: <code>aov(yield ~ variety)</code></p>
+</blockquote>
+<p>This completely ignores the blocks. <strong>But blocks were part of the experimental design!</strong></p>
+<p><strong>Your job:</strong></p>
+<ol type="1">
+<li>Fit this model: write the code to fit the one-way ANOVA that ignores blocks</li>
+</ol>
+<ol start="2" type="1">
+<li><strong>In your Quarto narrative</strong>, answer these questions:
+<ul>
+<li>What does this model assume about the blocks?</li>
+<li>If Block 2 has naturally higher-quality soil (true block effect = +150 kg/ha), and we ignore blocks, what happens to the variety estimates?</li>
+<li>What problem arises when we ignore a source of variation that we know exists?</li>
+<li><strong>Key question:</strong> The blocks were part of the experimental design. If we don’t account for them in the analysis, are we throwing away information? What does that do to our standard errors and our ability to detect real variety differences?</li>
+</ul></li>
+</ol>
+<p><strong>📝 Commit message:</strong> <code>"Fit proposed model (ignores blocks) - identify problem"</code></p>
+<p><strong>Push to GitHub.</strong></p>
+</section>
+<section id="step-3-fit-the-correct-model-15-min-1" class="level4" data-number="3.4.2.3">
+<h4 data-number="3.4.2.3" class="anchored" data-anchor-id="step-3-fit-the-correct-model-15-min-1"><span class="header-section-number">3.4.2.3</span> Step 3: Fit the correct model (15 min)</h4>
+<p>The correct approach is to include <strong>both variety AND block</strong> in the model. This is a <strong>two-way ANOVA</strong> (or a linear model with two categorical predictors).</p>
+<p><strong>Your job:</strong></p>
+<ol type="1">
+<li><p><strong>Propose a better model.</strong> Hints:</p></li>
+<li><p><strong>Write the code</strong> to fit the correct model</p></li>
+<li><p><strong>In your Quarto document</strong>, answer:</p>
+<ul>
+<li>How did the F-statistic and p-value for <code>variety</code> change?</li>
+<li>How did the residual error (residual standard error) change? (Hint: look at <code>summary(proposed_model)</code> vs <code>summary(correct_model)</code>)</li>
+<li>Compare the means for each variety from both models — did they change? If so, why?</li>
+</ul></li>
+<li><p><strong>Replace the proposed model in your document</strong> — re-organize your <code>.qmd</code> so the correct analysis comes first, and the wrong model is shown as “what not to do.”</p></li>
+</ol>
+<p><strong>📝 Commit message:</strong> <code>"Fit correct model with block effect - replace wrong approach"</code></p>
+<p><strong>Push to GitHub.</strong></p>
+</section>
+<section id="step-4-write-your-conclusions-1" class="level4" data-number="3.4.2.4">
+<h4 data-number="3.4.2.4" class="anchored" data-anchor-id="step-4-write-your-conclusions-1"><span class="header-section-number">3.4.2.4</span> Step 4: Write your conclusions</h4>
+<p>Add a final section called <strong>“What I Learned”</strong> summarizing: - Why the proposed model was problematic (be specific about ignoring the blocking structure) - Why the correct model is better - One sentence connecting this to the <strong>Method-Question-Data Triangle from Week 3</strong> (hint: the question is about varieties, but the data were collected using a blocked design — the method must account for that)</p>
+<p><strong>📝 Commit message:</strong> <code>"Add conclusions and connect to Week 3 concepts"</code></p>
+<p><strong>Push to GitHub.</strong></p>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+What You Just Did
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You both just completed the full research cycle that Git is designed to track:</p>
+<ol type="1">
+<li><strong>Simulate/collect data</strong> → commit</li>
+<li><strong>Analyze using a proposed method</strong> → commit</li>
+<li><strong>Realize the method is wrong</strong> → write about the problem, commit</li>
+<li><strong>Re-analyze correctly</strong> → replace the wrong analysis, commit</li>
+<li><strong>Write conclusions</strong> → commit</li>
+</ol>
+<p>Your Git history now tells the complete story of your analytical decisions. In real research, this is invaluable: when a reviewer asks “did you try X?”, you can look at your commit history and say “yes, here’s what happened when we did X, and here’s why we switched to Y.”</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="part-3-review-your-partners-work-reflection-10-min" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="part-3-review-your-partners-work-reflection-10-min"><span class="header-section-number">3.5</span> Part 3: Review Your Partner’s Work + Reflection (≈10 min)</h2>
+<section id="pull-and-read-5-min" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="pull-and-read-5-min"><span class="header-section-number">3.5.1</span> Pull and Read (5 min)</h3>
+<ol type="1">
+<li><strong>Pull</strong> from GitHub to get your partner’s file</li>
+<li><strong>Open their <code>.qmd</code> file</strong> and read through it</li>
+<li>Pay attention to:
+<ul>
+<li>Did they comment every line of the simulation code? Do the comments make sense?</li>
+<li>Is their narrative clear — could you understand the analysis without them explaining it to you?</li>
+<li>Do their conclusions connect back to Week 1–3 concepts?</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Metacognitive Monitoring
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Writing commit messages forces <strong>metacognitive monitoring</strong> — you have to pause and articulate <em>what</em> you just did and <em>why</em> (Tanner, 2012). This is the same skill that makes for good scientific writing: being explicit about your analytical choices. Over time, the habit of writing commit messages trains you to be a more reflective analyst.</p>
+</div>
+</div>
+</section>
+<section id="git-log-review-2-min" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="git-log-review-2-min"><span class="header-section-number">3.5.2</span> Git Log Review (2 min)</h3>
+<p>In the Terminal, type:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Look at the commit history. Each line is a snapshot of your analytical journey — and your partner’s. <strong>This is what version control gives you</strong>: a complete, narrated record of every decision both of you made.</p>
+</section>
+<section id="exit-ticket-2-min" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="exit-ticket-2-min"><span class="header-section-number">3.5.3</span> Exit Ticket (2 min)</h3>
+<p>On a piece of paper, answer:</p>
+<ol type="1">
+<li><strong>One thing you now feel comfortable doing in Git</strong> (be specific — e.g., “I can commit and push from RStudio”)</li>
+<li><strong>One thing you still want to practice</strong> (e.g., “I’m not sure how branches work”)</li>
+<li><strong>One connection</strong> between today’s Git workshop and the statistical concepts from Weeks 1–3</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Looking Ahead
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now that you have Git fundamentals down, future sessions will build on this. You’ll use version control for every hands-on activity going forward.</p>
+</div>
+</div>
+<hr>
 
 
 </section>
@@ -907,236 +1378,242 @@ The Simulation Recipe
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1144,185 +1621,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

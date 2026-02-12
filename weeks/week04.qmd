@@ -9,17 +9,17 @@ Topic: Introduction to Git, GitHub, and Collaborative Reproducible Research
 
 ## Learning Objectives
 
-- Explain *why* version control matters for reproducible, transparent research
-- Connect version control philosophy to themes from Weeks 1–3 (data exploration, model selection, the Method-Question-Data triangle)
-- Use Git and GitHub for basic version control (init, add, commit, push, pull)
-- Collaborate on a shared repository using branches and pull requests
-- Apply version control to a Quarto-based analytical workflow
+-   Explain *why* version control matters for reproducible, transparent research
+-   Connect version control philosophy to themes from Weeks 1–3 (data exploration, model selection, the Method-Question-Data triangle)
+-   Use Git and GitHub for basic version control (init, add, commit, push, pull)
+-   Collaborate on a shared repository using branches and pull requests
+-   Apply version control to a Quarto-based analytical workflow
 
-::: {.callout-note}
+::: callout-note
 ## The Semester So Far - Key Takeaways from Weeks 1–3
 
 | Week | Topic | Key Takeaway |
-|------|-------|-------------|
+|------------------|-------------------|-----------------------------------|
 | 1 | Introductions & Papers | Data exploration protects inference (Zuur); exploration vs. inference should be independent (Tredennick); always explore your data before modeling |
 | 2 | Philosophy of Data Analysis | "All models are wrong" (Box); Bayesian vs. frequentist thinking; uncertainty is everywhere; the goal is to find the useful model, not the true one |
 | 3 | Statistical Modeling Framework | The Method-Question-Data Triangle must align; mismatch → wrong conclusions; overcomplication → wasted effort; start simple, add complexity only when needed |
@@ -28,14 +28,15 @@ Topic: Introduction to Git, GitHub, and Collaborative Reproducible Research
 
 In Weeks 1–3, we talked about *how to think* about data analysis:
 
-- **Week 1** emphasized that data exploration and inference are separate activities - but both must be documented. How do you keep track of which analyses were exploratory vs. confirmatory?
-- **Week 2** introduced the idea that all models are wrong but some are useful. If you try multiple models, how do you record *which* ones you tried, *why* you chose one over another, and *what changed*?
-- **Week 3** showed us the Method-Question-Data Triangle and the dangers of mismatch vs. overcomplication. When you iterate through model choices - trying a `lm()`, realizing you need a `glmer()`, adding random effects - how do you track that evolution?
+-   **Week 1** emphasized that data exploration and inference are separate activities - but both must be documented. How do you keep track of which analyses were exploratory vs. confirmatory?
+-   **Week 2** introduced the idea that all models are wrong but some are useful. If you try multiple models, how do you record *which* ones you tried, *why* you chose one over another, and *what changed*?
+-   **Week 3** showed us the Method-Question-Data Triangle and the dangers of mismatch vs. overcomplication. When you iterate through model choices - trying a `lm()`, realizing you need a `glmer()`, adding random effects - how do you track that evolution?
 
 **Version control can help us with this** And at WORST... it is a great tool to have!
 
-::: {.callout-important}
+::: callout-important
 ## About Week 3 Simulations
+
 Many of you found the simulation exercises in Week 3 challenging - simulating data that matches a scenario description, then fitting both the "proposed" (wrong) and "correct" models. **That's completely normal.** Simulating data is a skill that takes practice.
 
 Session B this week is designed to give you a **second pass** at those simulations. The first hands-on activity will walk through the Week 3 simulation & analysis exercises together, step by step. *Then* we'll layer Git on top, so you're learning version control with familiar code rather than starting from scratch.
@@ -45,25 +46,24 @@ Session B this week is designed to give you a **second pass** at those simulatio
 
 Before Thursday class, review the following:
 
-- [Happy Git with R](https://happygitwithr.com/) - Great guide
-- [GitHub Quickstart Guide](https://docs.github.com/en/get-started/quickstart) --> REad this for an overview of GitHub's features
-## Before Class
+-   [Happy Git with R](https://happygitwithr.com/) - Great guide
+-   [GitHub Quickstart Guide](https://docs.github.com/en/get-started/quickstart) --\> REad this for an overview of GitHub's features \## Before Class
 
 Make sure you have:
 
-- [ ] A [GitHub account](https://github.com) (you should already have this from Week 1)
-- [ ] Git installed on your computer (`git --version` in terminal)
-- [ ] RStudio or Positron with Git integration configured
-- [ ] Accepted the invite to the course repository -- check your email or GitHub notifications
-- [ ] Confirmed Codespaces access (if using browser-based workflow) -- check your email or GitHub notifications
+-   [ ] A [GitHub account](https://github.com) (you should already have this from Week 1)
+-   [ ] Git installed on your computer (`git --version` in terminal)
+-   [ ] RStudio or Positron with Git integration configured
+-   [ ] Accepted the invite to the course repository -- check your email or GitHub notifications
+-   [ ] Confirmed Codespaces access (if using browser-based workflow) -- check your email or GitHub notifications
 
 Think about:
 
-- How many versions of your thesis/analysis scripts do you currently have?
-- Have you ever lost work, overwritten a file, or been unable to undo a change?
-- Have you ever emailed a script to a collaborator and gotten confused about which version is "current"?
+-   How many versions of your thesis/analysis scripts do you currently have?
+-   Have you ever lost work, overwritten a file, or been unable to undo a change?
+-   Have you ever emailed a script to a collaborator and gotten confused about which version is "current"?
 
----
+------------------------------------------------------------------------
 
 # Session A: Why Version Control? (Lecture + Discussion, 75 min)
 
@@ -71,38 +71,34 @@ Think about:
 
 Before we introduce anything new, let's activate what you already know from Weeks 1–3. **No notes, no phones** - this is retrieval practice. Struggling to recall is the point; it strengthens memory.
 
-::: {.callout-warning}
+::: callout-warning
 ## Quick-Fire Recall (write on paper, 3 min)
 
 Answer as many as you can from memory. One or two sentences each is fine.
 
-1. What did Zuur argue about data exploration? What is the goal of exploring your data before modeling?
-2. What is Box's famous quote about models? What does it mean in practice?
-3. In Week 3, what were the **three scenarios** we examined? (Hint: one was a "good match")
-4. In the examples from Week 3, explain one fo the experiments and what went wrong?
-5. What is the **Golden Rule** from Week 3?
+1.  What did Zuur argue about data exploration? What is the goal of exploring your data before modeling?
+2.  What is Box's famous quote about models? What does it mean in practice?
+3.  In Week 3, what were the **three scenarios** we examined? (Hint: one was a "good match")
+4.  In the examples from Week 3, explain one fo the experiments and what went wrong?
+5.  What is the **Golden Rule** from Week 3?
 :::
 
-**Debrief (5 min):** Turn to a neighbor and compare answers. Fill in each other's gaps. 
-note: ask them what they want here
+**Debrief (5 min):** Turn to a neighbor and compare answers. Fill in each other's gaps. note: ask them what they want here
 
-::: {.callout-tip}
+::: callout-tip
 ## Why Retrieval Practice?
+
 Research shows that actively recalling information - even when it's difficult - produces stronger long-term retention than re-reading notes (Roediger & Butler, 2011). This is a "desirable difficulty." If it felt hard, that's good!
 :::
 
-
-
 ## Part 2: Predict-Observe-Explain (12 min)
-
 
 **Quick Poll:** Raise your hand if you've ever:
 
-1. Lost work because you overwrote a file
-2. Couldn't remember why you changed something in your code
-3. Had a collaborator edit the same file and you had to manually merge changes
-4. Had a folder full of `_v2`, `_v3`, `_FINAL` files
-
+1.  Lost work because you overwrote a file
+2.  Couldn't remember why you changed something in your code
+3.  Had a collaborator edit the same file and you had to manually merge changes
+4.  Had a folder full of `_v2`, `_v3`, `_FINAL` files
 
 ### 🔮 PREDICT (3 min - write on paper)
 
@@ -110,7 +106,7 @@ Here is a scenario. **Predict what will go wrong:**
 
 > You're writing your thesis. You have a file called `analysis.R`. You make changes over two weeks. Your folder now looks like this:
 >
-> ```
+> ```         
 > analysis.R
 > analysis_v2.R
 > analysis_FINAL.R
@@ -124,15 +120,16 @@ Here is a scenario. **Predict what will go wrong:**
 **Write down:** What happens next? What specifically goes wrong? How long does it take you to find the right version? Do you even *have* it?
 
 ### 👁️ OBSERVE (2 minute)
+
 I will show how source control works. And why it is so powerful.
 
 ### 💡 EXPLAIN (5 min - whole class)
 
 As a class, answer:
 
-1. Why does the file-naming approach fail? (Be specific: what information is lost?)
-2. What does Git preserve that file-naming doesn't?
-3. Can you connect this to Box's "all models are wrong" idea? (Hint: if you're iterating through models, you need a record of *which* wrong models you tried and why you moved on)
+1.  Why does the file-naming approach fail? (Be specific: what information is lost?)
+2.  What does Git preserve that file-naming doesn't?
+3.  Can you connect this to Box's "all models are wrong" idea? (Hint: if you're iterating through models, you need a record of *which* wrong models you tried and why you moved on)
 
 ## Part 3: Why Version Control? - Elaborative Interrogation (10 min)
 
@@ -146,19 +143,19 @@ With a partner, take turns asking "why?" about this statement. Go at least four 
 
 ### Round 2: Connect to a Specific Week (5 min)
 
-Each pair picks **two** statements. 
+Each pair picks **two** statements.
 
 And you do the *why?* and *how?* chain for each one.
 
-1. Data exploration should protect inference, not create it. (Zuur, Week 1)
+1.  Data exploration should protect inference, not create it. (Zuur, Week 1)
 
-2. All models are wrong, but some are useful." (Box, Week 2)
+2.  All models are wrong, but some are useful." (Box, Week 2)
 
-3. "Start simple. Add complexity only when needed. Always justify your choices." (Golden Rule, Week 3)
+3.  "Start simple. Add complexity only when needed. Always justify your choices." (Golden Rule, Week 3)
 
-4. "Misalignment between method, question, and data leads to wrong conclusions, wasted effort, rejected papers, and sad grad students." (Week 3)
+4.  "Misalignment between method, question, and data leads to wrong conclusions, wasted effort, rejected papers, and sad grad students." (Week 3)
 
-5. "Exploration and inference should come from independent studies. (Tredennick, Week 1)
+5.  "Exploration and inference should come from independent studies. (Tredennick, Week 1)
 
 **Share Out (2–3 min):** 3–4 pairs share their best sentence.
 
@@ -168,21 +165,21 @@ Dr. Molina will give a traditional lecture covering the following. Take notes - 
 
 ### What is version control?
 
-- A system that records changes to files over time
-- You can recall any previous version at any time
-- Think of it as **Track Changes** for your entire project - but much more powerful
+-   A system that records changes to files over time
+-   You can recall any previous version at any time
+-   Think of it as **Track Changes** for your entire project - but much more powerful
 
 ### Why Git specifically?
 
-- Created by Linus Torvalds (creator of Linux) in 2005
-- Distributed - every collaborator has the full project history
-- The industry standard for software, increasingly for science
-- Integrates with RStudio, Positron, and Quarto
+-   Created by Linus Torvalds (creator of Linux) in 2005
+-   Distributed - every collaborator has the full project history
+-   The industry standard for software, increasingly for science
+-   Integrates with RStudio, Positron, and Quarto
 
 ### Key Concepts
 
 | Concept | What It Is | Analogy |
-|---------|-----------|---------|
+|-----------------------|---------------------------|-----------------------|
 | **Repository (repo)** | A project folder tracked by Git | Your lab notebook for a project |
 | **Commit** | A snapshot of your files at a point in time | An entry in your lab notebook |
 | **Staging (git add)** | Choosing which changes to include in the next commit | Deciding which observations to write up |
@@ -194,7 +191,7 @@ Dr. Molina will give a traditional lecture covering the following. Take notes - 
 
 ### The Git Mental Model
 
-```
+```         
 Your Computer (Local)                    GitHub (Remote)
 ┌─────────────────────┐                ┌──────────────────┐
 │  Working Directory   │   git push    │                  │
@@ -215,12 +212,12 @@ Your Computer (Local)                    GitHub (Remote)
 
 Git tracks **any text file**: `.qmd`, `.R`, `.csv` (small), `.bib`, `.tex`, `.md`
 
-::: {.callout-important}
+::: callout-important
 ## What Git is NOT Good For
 
-- Large binary files (images, PDFs, Word docs, big datasets)
-- Files that change constantly in unpredictable ways
-- Sensitive data (passwords, API keys, personally identifiable data)
+-   Large binary files (images, PDFs, Word docs, big datasets)
+-   Files that change constantly in unpredictable ways
+-   Sensitive data (passwords, API keys, personally identifiable data)
 
 For large data, look into `.gitignore` and Git Large File Storage (LFS).
 :::
@@ -228,7 +225,7 @@ For large data, look into `.gitignore` and Git Large File Storage (LFS).
 ### GitHub ≠ Git
 
 | Git | GitHub |
-|-----|--------|
+|----------------------------|--------------------------------------------|
 | The version control system | A website that hosts Git repositories |
 | Runs on your computer | Runs in the cloud |
 | Tracks history locally | Lets you share, collaborate, and back up |
@@ -246,33 +243,34 @@ On a blank piece of paper, create a **concept map** using these terms. Draw circ
 
 ## Part 6: Hands-On - Join GitHub, Create Your First Repo, First Commits (≈15 min)
 
-::: {.callout-important}
+::: callout-important
 ## We're doing this NOW, together, in class.
-The rest of Session A is hands-on. 
+
+The rest of Session A is hands-on.
 :::
 
 ### Step 1: Make sure you're on GitHub (2 min)
 
-1. Go to [github.com](https://github.com)
-2. If you don't have an account, **create one now**
-3. If you haven't applied for [GitHub Education](https://education.github.com/), do that after class (it gives you free features)
-4. Confirm you can log in
+1.  Go to [github.com](https://github.com)
+2.  If you don't have an account, **create one now**
+3.  If you haven't applied for [GitHub Education](https://education.github.com/), do that after class (it gives you free features)
+4.  Confirm you can log in
 
 ### Step 2: Create a new RStudio Project with Git (3 min)
 
-1. Open **RStudio**
-2. Go to **File → New Project → New Directory → New Project**
-3. Name it: `water-growth-sim`
-4. ✅ Check **"Create a git repository"**
-5. Click **Create Project**
+1.  Open **RStudio**
+2.  Go to **File → New Project → New Directory → New Project**
+3.  Name it: `water-growth-sim`
+4.  ✅ Check **"Create a git repository"**
+5.  Click **Create Project**
 
 You now have a local Git repository! Notice the **Git tab** in your RStudio pane (usually top-right).
 
 ### Step 3: Create a new Quarto file (2 min)
 
-1. **File → New File → Quarto Document**
-2. Title: `"Water and Plant Growth Simulation"`
-3. Save it as `simulation.qmd`
+1.  **File → New File → Quarto Document**
+2.  Title: `"Water and Plant Growth Simulation"`
+3.  Save it as `simulation.qmd`
 
 ### Step 4: Write the simulation - Step 1 only (data simulation) (3 min)
 
@@ -328,12 +326,12 @@ ggplot(plant_data, aes(x = water, y = growth)) +
 
 ### Step 5: Make your FIRST commit (3 min)
 
-1. Go to the **Git tab** in RStudio
-2. You'll see your files listed (`.qmd`, `.Rproj`, maybe `.gitignore`)
-3. **Check the boxes** next to all the files (this is "staging" - `git add`)
-4. Click **"Commit"**
-5. In the commit message box, type: `"Simulated water and plant growth data - true slope is 2.5"`
-6. Click **Commit**
+1.  Go to the **Git tab** in RStudio
+2.  You'll see your files listed (`.qmd`, `.Rproj`, maybe `.gitignore`)
+3.  **Check the boxes** next to all the files (this is "staging" - `git add`)
+4.  Click **"Commit"**
+5.  In the commit message box, type: `"Simulated water and plant growth data - true slope is 2.5"`
+6.  Click **Commit**
 
 🎉 **Congratulations - you just made your first Git commit!**
 
@@ -341,57 +339,56 @@ Click **"History"** in the Git pane to see your commit. There's your first lab n
 
 ### Step 6: Connect to GitHub and push (3 min)
 
-1. Go to [github.com](https://github.com) → click **"+"** (top right) → **New repository**
-2. Name it: `water-growth-sim`
-3. Leave it **Public** (or Private if you prefer)
-4. ⚠️ **Do NOT** check "Add a README" - your local repo already has files
-5. Click **Create repository**
-6. GitHub will show you instructions. Copy the two lines under **"…or push an existing repository from the command line"**:
-7. In RStudio, go to **Terminal** tab (next to Console) and paste those commands
+1.  Go to [github.com](https://github.com) → click **"+"** (top right) → **New repository**
+2.  Name it: `water-growth-sim`
+3.  Leave it **Public** (or Private if you prefer)
+4.  ⚠️ **Do NOT** check "Add a README" - your local repo already has files
+5.  Click **Create repository**
+6.  GitHub will show you instructions. Copy the two lines under **"…or push an existing repository from the command line"**:
+7.  In RStudio, go to **Terminal** tab (next to Console) and paste those commands
 
-```bash
+``` bash
 git remote add origin https://github.com/YOUR-USERNAME/water-growth-sim.git
 git branch -M main
 git push -u origin main
 ```
 
-8. Go back to GitHub in your browser and **refresh the page** - your files are there! 🎉
+8.  Go back to GitHub in your browser and **refresh the page** - your files are there! 🎉
 
-::: {.callout-tip}
+::: callout-tip
 ## Check GitHub!
+
 Go to `https://github.com/YOUR-USERNAME/water-growth-sim` and confirm you can see your `simulation.qmd` file. Click on it - you can read your code right in the browser. Click "Commits" to see your commit history (it has one entry so far).
 :::
 
-9. Now, return to RStudio, and add one line of code to your `simulation.qmd`. I want you to run the linear model using `lm()` and run the `summary()`. After that, commit again, and see if you can push the changes to GitHub.
+9.  Now, return to RStudio, and add one line of code to your `simulation.qmd`. I want you to run the linear model using `lm()` and run the `summary()`. After that, commit again, and see if you can push the changes to GitHub.
 10. **Commit message:** `"Fit linear model to simulated data"`
 11. Push to GitHub again.
 12. Render your Quarto document to see the output. You can also commit and push the rendered HTML if you want (that's how I made this website!).
 
 ## Muddiest Point (2 min)
 
-On a piece of paper, write down the **one thing** from today that is most confusing or unclear to you. Be specific! Dr. Molina will read these before Session B.
-
+On a piece of paper, write down the **one thing** from today that is most confusing or unclear to you –\> We will move this to session 2
 
 # Session B: Hands-On - Simulations Revisited + Git Workshop (75 min)
 
-::: {.callout-important}
-## Session B Game Plan
+::: callout-important
+## Session B 
 
 This session has **two parts**:
 
-This entire session is **hands-on**. You will be working on your computers the whole time. The goals are:
+This entire session is hands-on. You will be working on your computers the whole time. The goals are:
 
-1. **Practice GitHub** — cloning, committing, pushing, pulling, and collaborating on a shared repository. This is your first real deep dive after the intro in Session A.
-2. **Revisit Week 3 simulations** — specifically the "simulate → analyze correctly → analyze incorrectly" workflow, but this time we **start simple** (no transformations like log or logit) and work inside a **Quarto document** with proper source control.
-3. **Work collaboratively** — you'll be working in small teams on a shared GitHub repository, experiencing what real collaborative version control feels like.
+1.  **Practice GitHub** — cloning, committing, pushing, pulling, and collaborating on a shared repository. This is your first real deep dive after the intro in Session A.
+2.  **Revisit Week 3 simulations** — specifically the "simulate → analyze correctly → analyze incorrectly" workflow, but this time we **start simple** (no transformations like log or logit) and work inside a **Quarto document** with proper source control.
+3.  **Work collaboratively** — you'll be working in small teams on a shared GitHub repository, experiencing what real collaborative version control feels like.
 
 **The rule for today: start simple.** Simple linear models. Normal distributions. No transformations. Get comfortable with the simulation → correct analysis → wrong analysis pipeline *and* with Git before we add complexity.
 :::
 
 ### Muddiest Points (2 min)
 
-Let's start the class by taking a couple minutes and write the things that have been the most complicated about this class
----
+## Let's start the class by taking a couple minutes and write the things that have been the most complicated about this class
 
 ## Part 1: Week 3 Simulation Refresher (≈35 min)
 
@@ -399,24 +396,24 @@ Let's start the class by taking a couple minutes and write the things that have 
 
 Simulation is one of the most powerful tools in a statistician's toolkit. It lets you:
 
-- **Understand your model** by seeing how data generated *from* that model behaves
-- **Test your analysis pipeline** on data where you *know* the truth
-- **Diagnose problems** - if your model can't recover known parameters from simulated data, something is wrong
+-   **Understand your model** by seeing how data generated *from* that model behaves
+-   **Test your analysis pipeline** on data where you *know* the truth
+-   **Diagnose problems** - if your model can't recover known parameters from simulated data, something is wrong
 
 In Week 3, many of you found simulation challenging. That's expected! Let's break it down together.
 
-::: {.callout-tip}
+::: callout-tip
 ## The Simulation Recipe
 
 Every simulation follows the same four steps:
 
-1. **Define the truth** - What are the true parameter values? (e.g., true effect = 3 units)
-2. **Generate structure** - Create the experimental design (e.g., 5 fields × 4 plots)
-3. **Add randomness** - Use a distribution to generate data (e.g., `rnorm()`, `rpois()`, `rbinom()`)
-4. **Fit the model** - Analyze the simulated data and see if you recover the truth
+1.  **Define the truth** - What are the true parameter values? (e.g., true effect = 3 units)
+2.  **Generate structure** - Create the experimental design (e.g., 5 fields × 4 plots)
+3.  **Add randomness** - Use a distribution to generate data (e.g., `rnorm()`, `rpois()`, `rbinom()`)
+4.  **Fit the model** - Analyze the simulated data and see if you recover the truth
 :::
 
----
+------------------------------------------------------------------------
 
 ## Part 1: Setting Up Your Team Repository (≈10 min)
 
@@ -424,8 +421,9 @@ Every simulation follows the same four steps:
 
 Get into pairs. You'll be working on a **shared GitHub repository** for the rest of this session. Each person will take responsibility for **one** of the two simulation exercises, so you'll both contribute a complete analysis to the same repo.
 
-::: {.callout-note}
+::: callout-note
 ## Why Shared Repos?
+
 In real research, you rarely work alone. Shared repositories force you to practice the pull → edit → commit → push cycle and deal with real collaboration challenges (coordinating who's working on what, writing clear commit messages for your partner). This is the whole point of today.
 :::
 
@@ -433,279 +431,431 @@ In real research, you rarely work alone. Shared repositories force you to practi
 
 **One partner** does the following:
 
-1. Go to [github.com](https://github.com) → **"+"** → **New repository**
-2. Name it: `snr690-sim-team-[your-initials]` (e.g., `snr690-sim-team-amjk`)
-3. ✅ Check **"Add a README file"**
-4. Set it to **Public** (so your partner can access it easily)
-5. Click **Create repository**
-6. Go to **Settings → Collaborators → Add people** and add your partner by their GitHub username
+1.  Go to [github.com](https://github.com) → **"+"** → **New repository**
+2.  Name it: `snr690-sim-team-[your-initials]` (e.g., `snr690-sim-team-amjk`)
+3.  ✅ Check **"Add a README file"**
+4.  Set it to **Public** (so your partner can access it easily)
+5.  Click **Create repository**
+6.  Go to **Settings → Collaborators → Add people** and add your partner by their GitHub username
 
 ### Both Partners Clone the Repo (3 min)
 
 **Both partners** (including the creator):
 
-1. Go to the repository page on GitHub
-2. Click the green **"<> Code"** button → copy the HTTPS URL
-3. In RStudio: **File → New Project → Version Control → Git**
-4. Paste the URL, choose a directory, click **Create Project**
+1.  Go to the repository page on GitHub
+2.  Click the green **"\<\> Code"** button → copy the HTTPS URL
+3.  In RStudio: **File → New Project → Version Control → Git**
+4.  Paste the URL, choose a directory, click **Create Project**
 
-::: {.callout-tip}
+::: callout-tip
 ## Checkpoint
+
 Both partners should now have the same project open in RStudio, connected to the same GitHub repository. You should see the **Git tab** in your RStudio pane.
 :::
 
 ### Decide Who Does What (1 min)
 
-- **Partner A** will work on **Activity 1: The Soil Temperature Experiment**
-- **Partner B** will work on **Activity 2: The Fertilizer Yield Experiment**
+-   **Partner A** will work on **Activity 1: The Soil Temperature Experiment**
+-   **Partner B** will work on **Activity 2: The Fertilizer Yield Experiment**
 
 Each person creates their own Quarto file:
 
-1. **File → New File → Quarto Document**
-2. Title: `"Soil Temperature Simulation - [Your Name]"` or `"Fertilizer Yield Simulation - [Your Name]"`
-3. Save it as `sim-soil-temp-[yourname].qmd` or `sim-fertilizer-[yourname].qmd`
-4. **Commit** with message: `"Add Quarto file for [activity name]"`
-5. **Push** to GitHub
+1.  **File → New File → Quarto Document**
+2.  Title: `"Soil Temperature Simulation - [Your Name]"` or `"Fertilizer Yield Simulation - [Your Name]"`
+3.  Save it as `sim-soil-temp-[yourname].qmd` or `sim-fertilizer-[yourname].qmd`
+4.  **Commit** with message: `"Add Quarto file for [activity name]"`
+5.  **Push** to GitHub
 
-::: {.callout-warning}
+::: callout-warning
 ## Important: Pull Before You Push!
+
 Before pushing, always **pull first** (`git pull` in the Terminal, or the ⬇️ Pull button in the Git tab). Your partner may have pushed changes. Get in the habit now: **pull → work → commit → pull → push**.
 :::
 
----
+------------------------------------------------------------------------
 
 ## Part 2: Simulation Exercises — Start Simple, No Transformations (≈45 min)
 
 ::: {.callout-important}
 ## The Rule: Start Simple
-We are deliberately keeping this simple today. **No log transformations. No logit links. No random effects.** Just linear models with normal distributions. The goal is to get the *workflow* right:
+We are deliberately keeping this simple today. **I am providing the simulation... Look at it, and figure out what I did different than you**
 
-1. Simulate data where you **know the truth**
-2. **Comment every line** — explain what each step is doing and why
-3. Fit the **correct** model — does it recover the truth?
-4. Fit a **wrong** model — what goes wrong?
+This is what you will be doing here:
+1. Simulate data where you **know the truth** (you have the parameters and I provided the code this time)
+2. **Comment on the simulation code**  explain what each step is doing and why... or at least try to
+3. Fit the **proposed (wrong) model/method** from Week 3. You write the code and explain why it might be problematic
+4. Fit the **correct model**. You propose it, write the code, commit, and push
 5. Write it all up in your Quarto document with narrative explaining what you did and why
 6. Commit after each step with a meaningful commit message
 
-Once you're comfortable with this pipeline, adding complexity (GLMs, transformations, random effects) in future weeks will be much easier.
+This mirrors the real research process: you try an analysis, realize there's a problem, and re-analyze correctly. Git tracks every step of that journey.
 :::
 
 ---
 
-### Activity 1: The Soil Temperature Experiment (Partner A)
+### Activity 1: Salamander Survival (Partner A) — Station 1 from Week 3
 
-**Scenario:** A researcher wants to know if soil temperature affects the rate of decomposition (mass loss in grams) of leaf litter. They set up 30 plots across a gradient of soil temperatures (5°C to 25°C) and measure mass loss after 6 months.
+**Scenario:** A researcher wants to know if canopy cover affects salamander survival in forest fragments. They marked 20 salamanders in each of 12 forest fragments and recorded whether each salamander survived (alive/dead) after one year. Canopy cover was measured as a percentage for each fragment.
 
 **The truth (what we're simulating):**
 
-- True intercept = 2 (baseline decomposition at 0°C)
-- True slope = 0.8 (for every 1°C increase in soil temp, mass loss increases by 0.8 g)
-- Noise SD = 2.5
+- 12 forest fragments
+- 20 salamanders per fragment (240 total salamanders)
+- Canopy cover ranges from 40% to 90%
+- True effect of canopy cover on survival probability: for every 10% increase in canopy cover, the log-odds of survival increases by 0.09
+- We'll use a logistic relationship (since survival is binary), but don't worry about the math - just run the code and comment what each line does
 
-#### Step 1: Simulate the data and visualize
+#### Step 1: Simulate the data and visualize (20 min)
 
-Copy the code below into your Quarto document. **Your job: add a comment above or next to every line explaining what it does and *why*.** If you don't understand a line, ask Dr. Molina — that's the point.
+Copy the code below into your Quarto document. **Your job: add a comment above or next to every line explaining what it does.** If you don't understand a line, ask me.
 
 ```{r}
-#| label: sim-soil-temp
+#| label: sim-salamander
 #| eval: false
 
 library(tidyverse)
+library(lme4)  # for mixed models later
 
 set.seed(42)
 
-n_plots <- 30
-true_intercept <- 2
-true_slope <- 0.8
-noise_sd <- 2.5
+# Define the experimental structure
+n_fragments <- 12
+n_salamanders_per_fragment <- 20
+n_total <- n_fragments * n_salamanders_per_fragment
 
-soil_temp <- runif(n_plots, min = 5, max = 25)
-mass_loss <- true_intercept + true_slope * soil_temp + rnorm(n_plots, 0, noise_sd)
+# Define the truth
+true_intercept <- -3.5          
+true_canopy_effect <- 0.09    
 
-decomp_data <- data.frame(
-  soil_temp = soil_temp,
-  mass_loss = mass_loss
+# Create fragment-level data
+fragment_data <- data.frame(
+  fragment_id = 1:n_fragments,
+  canopy_cover = runif(n_fragments, min = 40, max = 90)
 )
 
-ggplot(decomp_data, aes(x = soil_temp, y = mass_loss)) +
-  geom_point(size = 3, alpha = 0.7) +
-  geom_smooth(method = "lm", se = TRUE, color = "steelblue") +
+# Create salamander-level data (each salamander belongs to a fragment)
+salamander_data <- data.frame(
+  salamander_id = 1:n_total,
+  fragment_id = rep(1:n_fragments, each = n_salamanders_per_fragment)
+)
+
+# Merge to get canopy cover for each salamander
+salamander_data <- salamander_data %>%
+  left_join(fragment_data, by = "fragment_id")
+
+# Simulate survival using logistic regression formula
+salamander_data <- salamander_data %>%
+  mutate(
+    log_odds = true_intercept + true_canopy_effect * canopy_cover,
+    prob_survival = 1 / (1 + exp(-log_odds)),
+    survived = rbinom(n_total, size = 1, prob = prob_survival)
+  )
+
+# Look at the data
+head(salamander_data)
+summary(salamander_data)
+
+# Visualize: proportion surviving in each fragment
+fragment_summary <- salamander_data %>%
+  group_by(fragment_id, canopy_cover) %>%
+  summarise(
+    n_survived = sum(survived),
+    n_total = n(),
+    prop_survived = n_survived / n_total,
+    .groups = "drop"
+  )
+
+ggplot(fragment_summary, aes(x = canopy_cover, y = prop_survived)) +
+  geom_point(size = 4, alpha = 0.7) +
   labs(
-    title = "Simulated: Soil Temperature vs. Leaf Litter Decomposition",
-    subtitle = paste("Truth: mass_loss =", true_intercept, "+", true_slope, "x soil_temp + noise"),
-    x = "Soil Temperature (°C)",
-    y = "Mass Loss (g)"
+    title = "Simulated: Canopy Cover vs. Salamander Survival",
+    subtitle = "Each point = one forest fragment (20 salamanders each)",
+    x = "Canopy Cover (%)",
+    y = "Proportion Survived"
   ) +
+  ylim(0, 1) +
   theme_minimal(base_size = 14)
 ```
 
-**📝 In your Quarto doc:** Write a paragraph *above* the code chunk explaining the scenario, the research question, and what the true relationship is. Write another paragraph *below* the plot describing what you see.
+**📝 In your Quarto doc:** Write a paragraph *above* the code chunk explaining:
+- What is the research question?
+- What is the experimental design? (How many fragments? How many salamanders per fragment?)
+- What is the response variable? What type of variable is it?
+- Why does this structure matter for the analysis?
 
-**📝 Commit message:** `"Simulate soil temp decomposition data - true slope 0.8"`
+**📝 Commit message:** `"Simulate salamander survival data - 12 fragments, 20 sal per fragment"`
 
-#### Step 2: Fit the correct model
+#### Step 2: Fit the proposed (wrong) model from Week 3 (10 min)
 
-The correct approach here is a **simple linear regression** — `lm(mass_loss ~ soil_temp)`. The data are continuous, the relationship is linear, and the errors are normally distributed. This is a textbook match.
+In Week 3 Station 1, the **proposed method** was:
 
-**Your job:** Write the code to fit this model, look at the summary, and answer these questions in your Quarto narrative:
+> Logistic regression: `glm(survival ~ canopy_cover, family = binomial)`
+Use the `salamander_data` data frame, which has one row per salamander, with a binary `survived` column and a `canopy_cover` column.
 
-- What slope did the model estimate? How close is it to the true value of 0.8?
-- What intercept did the model estimate? How close is it to the true value of 2?
-- Is the slope statistically significant? Should it be, given that we *know* the true effect exists?
-- Why might the estimates not be *exactly* 0.8 and 2?
+This treats each salamander as an independent observation. **But is that correct?**
 
-**📝 Commit message:** `"Fit correct linear model - check parameter recovery"`
+**Your job:**
 
-#### Step 3: Fit the wrong model
+1. Fit this model using the code below (or write your own):
 
-The wrong approach: **categorize the continuous soil temperature into "Cold" (< 15°C) and "Warm" (≥ 15°C) and run a t-test** comparing mass loss between the two groups.
+```{r}
+#| label: proposed-model-salamander
+#| eval: false
+#| echo: false
 
-**Your job:** Write the code to do this, and then answer these questions in your Quarto narrative:
+# Proposed approach from Week 3
+proposed_model <- glm(survived ~ canopy_cover, 
+                      data = salamander_data, 
+                      family = binomial)
 
-- What information do you lose when you turn a continuous variable into two categories?
-- Does the t-test tell you *how much* mass loss changes per degree? Or just that the groups differ?
-- Compare the p-value and effect size from the t-test to the slope and p-value from the linear regression. Which gives you more useful information?
-- Connect this to the **Golden Rule from Week 3**: "Start simple. Add complexity only when needed. Always justify your choices." Here the wrong model isn't more complex — it's *less informative*. Sometimes the mistake isn't overcomplicating; it's throwing away information.
+summary(proposed_model)
+```
 
-**📝 Commit message:** `"Fit wrong model (categorized t-test) - compare to correct approach"`
+2. **In your Quarto document**, answer these questions:
+   - What does this model assume about the salamanders?
+   - Are salamanders within the same fragment truly independent? Why or why not?
+   - What is the **unit of replication** in this experiment — the salamander or the fragment?
+   - What problem might arise if we ignore the fragment structure?
+   - **Key question:** If salamanders in the same fragment are more similar to each other than to salamanders in other fragments (e.g., because of fragment-specific conditions), what happens to our standard errors and p-values?
+
+**📝 Commit message:** `"Fit proposed model (ignores fragment structure) - identify problem"`
+
+**Push to GitHub.**
+
+#### Step 3: Fit the correct model (15 min)
+
+The correct approach needs to **account for the fact that salamanders are grouped within fragments**. Salamanders in the same fragment are not independent — they share the same canopy cover, the same local predators, the same microclimate.
+
+**Your job:**
+
+1. **Propose a better model.** Hints:
+   - You need to tell the model that salamanders are nested within fragments
+   - Look at the `lme4` package (already loaded at the top)
+   - The function you want is `glmer()` (generalized linear mixed-effects model)
+   - The syntax is similar to `glm()`, but you add a random effect for fragment: `(1 | fragment_id)`
+   - Example structure: `glmer(response ~ predictor + (1 | grouping_variable), family = binomial, data = ...)`
+
+2. **Write the code** to fit the correct model
+
+3. **In your Quarto document**, answer:
+   - How did the estimate of the canopy cover effect change?
+   - How did the standard error change? (Bigger? Smaller?)
+   - Did the p-value change?
+   - Why does accounting for fragment structure matter?
+   - Which model do you trust more, and why?
+
+4. **Replace the proposed model in your document** — meaning, re-organize your `.qmd` so that the correct model comes first, and the wrong model is shown as "what not to do" or moved to an appendix section. This simulates the real research process: you realize you made a mistake, so you re-do the analysis correctly.
+
+**📝 Commit message:** `"Fit correct model with random effect for fragment - replace wrong approach"`
+
+**Push to GitHub.**
 
 #### Step 4: Write your conclusions
 
-In your Quarto document, add a final section called **"What I Learned"** summarizing:
+Add a final section called **"What I Learned"** summarizing:
+- Why the proposed model was problematic (be specific about pseudoreplication)
+- Why the correct model is better
+- One sentence connecting this to the **Method-Question-Data Triangle from Week 3** (hint: the question is about canopy cover, but the data have a nested structure — the method must match both)
 
-- Why the correct model is correct for this scenario
-- What specifically went wrong with the incorrect approach
-- One sentence connecting this to a concept from Weeks 1–3
-
-**📝 Commit message:** `"Add conclusions and reflections"`
+**📝 Commit message:** `"Add conclusions and connect to Week 3 concepts"`
 
 **Push to GitHub.**
 
 ---
 
-### Activity 2: The Fertilizer Yield Experiment (Partner B)
+### Activity 2: Wheat Yield Trials (Partner B) — Station 2 from Week 3
 
-**Scenario:** An agronomist tests whether nitrogen application rate (kg/ha) affects wheat yield (tons/ha). They have 40 plots, each receiving a different nitrogen rate (0–200 kg/ha). The relationship is linear and the data are well-behaved.
+**Scenario:** An agronomist wants to know which of 5 wheat varieties produces the highest yield. They use a randomized complete block design: 4 blocks (fields), with one plot per variety per block (20 plots total). Yield (kg/ha) is recorded once per plot.
 
 **The truth (what we're simulating):**
 
-- True intercept = 1.5 (yield with no fertilizer)
-- True slope = 0.015 (for every 1 kg/ha of nitrogen, yield increases by 0.015 tons/ha)
-- Noise SD = 0.4
+- 5 wheat varieties
+- 4 blocks (to account for field variability)
+- True variety effects: Variety A is the baseline, B is +200 kg/ha better, C is +350 kg/ha better, D is +100 kg/ha better, E is -50 kg/ha worse
+- True block effects: Block 1 is baseline, Block 2 is +150 kg/ha, Block 3 is -100 kg/ha, Block 4 is +200 kg/ha (because soil quality varies)
+- Noise SD = 120 kg/ha
 
-#### Step 1: Simulate the data and visualize
+#### Step 1: Simulate the data and visualize (20 min)
 
-Copy the code below into your Quarto document. **Your job: add a comment above or next to every line explaining what it does and *why*.** If you don't understand a line, ask Dr. Molina — that's the point.
+Copy the code below into your Quarto document. **Your job: add a comment next to lines explaining what it does.**
 
 ```{r}
-#| label: sim-fertilizer
+#| label: sim-wheat
 #| eval: false
 
 library(tidyverse)
 
 set.seed(123)
 
-n_plots <- 40
-true_intercept <- 1.5
-true_slope <- 0.015
-noise_sd <- 0.4
+# Define experimental structure
+varieties <- c("A", "B", "C", "D", "E")
+blocks <- c("Block1", "Block2", "Block3", "Block4")
 
-nitrogen <- runif(n_plots, min = 0, max = 200)
-yield <- true_intercept + true_slope * nitrogen + rnorm(n_plots, 0, noise_sd)
+# Define the truth
+baseline_yield <- 3000  # kg/ha for variety A in block 1
 
-fert_data <- data.frame(
-  nitrogen = nitrogen,
-  yield = yield
+variety_effects <- c(
+  A = 0,
+  B = 200,
+  C = 350,
+  D = 100,
+  E = -50
 )
 
-ggplot(fert_data, aes(x = nitrogen, y = yield)) +
-  geom_point(size = 3, alpha = 0.7) +
-  geom_smooth(method = "lm", se = TRUE, color = "darkgreen") +
+block_effects <- c(
+  Block1 = 0,
+  Block2 = 150,
+  Block3 = -100,
+  Block4 = 200
+)
+
+noise_sd <- 120
+
+# Create all combinations of variety and block (full factorial design)
+wheat_data <- expand.grid(
+  variety = varieties,
+  block = blocks
+)
+
+# Add true yield based on variety and block effects
+wheat_data <- wheat_data %>%
+  mutate(
+    variety_effect = variety_effects[variety],
+    block_effect = block_effects[block],
+    true_yield = baseline_yield + variety_effect + block_effect,
+    yield = true_yield + rnorm(n(), mean = 0, sd = noise_sd)
+  )
+
+# Look at the data
+head(wheat_data)
+summary(wheat_data)
+
+# Visualize
+ggplot(wheat_data, aes(x = variety, y = yield, color = block)) +
+  geom_point(size = 4, alpha = 0.7, position = position_dodge(width = 0.3)) +
+  stat_summary(fun = mean, geom = "crossbar", width = 0.5, 
+               color = "black", size = 0.3) +
   labs(
-    title = "Simulated: Nitrogen Application vs. Wheat Yield",
-    subtitle = paste("Truth: yield =", true_intercept, "+", true_slope, "x nitrogen + noise"),
-    x = "Nitrogen Application (kg/ha)",
-    y = "Wheat Yield (tons/ha)"
+    title = "Simulated: Wheat Variety Yields Across Blocks",
+    subtitle = "Each point = one plot; crossbar = variety mean across blocks",
+    x = "Wheat Variety",
+    y = "Yield (kg/ha)",
+    color = "Block"
   ) +
   theme_minimal(base_size = 14)
 ```
 
-**📝 In your Quarto doc:** Write a paragraph *above* the code chunk explaining the scenario, the research question, and what the true relationship is. Write another paragraph *below* the plot describing what you see.
+**📝 In your Quarto doc:** Write a paragraph *above* the code chunk explaining:
+- What is the research question?
+- What is the experimental design? (What is a "block"? Why use blocks?)
+- What is the response variable?
+- Why does the block structure matter?
 
-**📝 Commit message:** `"Simulate fertilizer yield data - true slope 0.015"`
+**📝 Commit message:** `"Simulate wheat yield data - 5 varieties x 4 blocks"`
 
-#### Step 2: Fit the correct model
+#### Step 2: Fit the proposed (wrong) model from Week 3 (10 min)
 
-The correct approach here is a **simple linear regression** — `lm(yield ~ nitrogen)`. Same logic as Activity 1: continuous response, continuous predictor, linear relationship, normal errors.
+In Week 3 Station 2, the **proposed method** was:
 
-**Your job:** Write the code to fit this model, look at the summary, and answer these questions in your Quarto narrative:
+> One-way ANOVA: `aov(yield ~ variety)`
 
-- What slope did the model estimate? How close is it to the true value of 0.015?
-- What intercept did the model estimate? How close is it to the true value of 1.5?
-- Is the slope statistically significant?
-- What is the R² value? What does it tell you about how much variation in yield is explained by nitrogen?
+This completely ignores the blocks. **But blocks were part of the experimental design!**
 
-**📝 Commit message:** `"Fit correct linear model - check parameter recovery"`
+**Your job:**
 
-#### Step 3: Fit the wrong model
+1. Fit this model:
+write the code to fit the one-way ANOVA that ignores blocks
 
-The wrong approach: **add a quadratic term that isn't needed** — `lm(yield ~ nitrogen + I(nitrogen^2))`. This is the *overcomplication* scenario from Week 3.
+```{r}
+#| label: proposed-model-wheat
+#| eval: false
+#| echo: false
 
-**Your job:** Write the code to fit this overcomplicated model, and then answer these questions in your Quarto narrative:
+# Proposed approach from Week 3
+proposed_model <- aov(yield ~ variety, data = wheat_data)
+summary(proposed_model)
+```
 
-- Is the quadratic term (`I(nitrogen^2)`) statistically significant? Should it be?
-- Compare the slope estimate for `nitrogen` in the quadratic model to the simple model. Did it change? Why might it change even though the quadratic term isn't real?
-- Compare the R² of both models. Did the overcomplicated model explain *meaningfully* more variance, or just a tiny bit more?
-- What is the danger of adding terms "just in case"? What does this do to interpretability?
-- Connect this to **Box's quote from Week 2**: "All models are wrong, but some are useful." The quadratic model is *more wrong* (it implies a curvature that doesn't exist) and *less useful* (harder to interpret). More parameters ≠ better model.
+2. **In your Quarto narrative**, answer these questions:
+   - What does this model assume about the blocks?
+   - If Block 2 has naturally higher-quality soil (true block effect = +150 kg/ha), and we ignore blocks, what happens to the variety estimates?
+   - What problem arises when we ignore a source of variation that we know exists?
+   - **Key question:** The blocks were part of the experimental design. If we don't account for them in the analysis, are we throwing away information? What does that do to our standard errors and our ability to detect real variety differences?
 
-**📝 Commit message:** `"Fit wrong model (unnecessary quadratic) - compare to correct approach"`
+**📝 Commit message:** `"Fit proposed model (ignores blocks) - identify problem"`
+
+**Push to GitHub.**
+
+#### Step 3: Fit the correct model (15 min)
+
+The correct approach is to include **both variety AND block** in the model. This is a **two-way ANOVA** (or a linear model with two categorical predictors).
+
+
+
+**Your job:**
+
+1. **Propose a better model.** Hints:
+
+
+2. **Write the code** to fit the correct model
+
+3. **In your Quarto document**, answer:
+   - How did the F-statistic and p-value for `variety` change?
+   - How did the residual error (residual standard error) change? (Hint: look at `summary(proposed_model)` vs `summary(correct_model)`)
+   - Compare the means for each variety from both models — did they change? If so, why?
+
+
+4. **Replace the proposed model in your document** — re-organize your `.qmd` so the correct analysis comes first, and the wrong model is shown as "what not to do."
+
+**📝 Commit message:** `"Fit correct model with block effect - replace wrong approach"`
+
+**Push to GitHub.**
 
 #### Step 4: Write your conclusions
 
-In your Quarto document, add a final section called **"What I Learned"** summarizing:
+Add a final section called **"What I Learned"** summarizing:
+- Why the proposed model was problematic (be specific about ignoring the blocking structure)
+- Why the correct model is better
+- One sentence connecting this to the **Method-Question-Data Triangle from Week 3** (hint: the question is about varieties, but the data were collected using a blocked design — the method must account for that)
 
-- Why the correct model is correct for this scenario
-- What specifically went wrong with the incorrect approach
-- One sentence connecting this to a concept from Weeks 1–3
-
-**📝 Commit message:** `"Add conclusions and reflections"`
+**📝 Commit message:** `"Add conclusions and connect to Week 3 concepts"`
 
 **Push to GitHub.**
 
 ---
 
+::: {.callout-note}
+## What You Just Did
+
+You both just completed the full research cycle that Git is designed to track:
+
+1. **Simulate/collect data** → commit
+2. **Analyze using a proposed method** → commit
+3. **Realize the method is wrong** → write about the problem, commit
+4. **Re-analyze correctly** → replace the wrong analysis, commit
+5. **Write conclusions** → commit
+
+Your Git history now tells the complete story of your analytical decisions. In real research, this is invaluable: when a reviewer asks "did you try X?", you can look at your commit history and say "yes, here's what happened when we did X, and here's why we switched to Y."
+:::
+
+
+------------------------------------------------------------------------
+
 ## Part 3: Review Your Partner's Work + Reflection (≈10 min)
 
 ### Pull and Read (5 min)
 
-1. **Pull** from GitHub to get your partner's file
-2. **Open their `.qmd` file** and read through it
-3. Pay attention to:
-   - Did they comment every line of the simulation code? Do the comments make sense?
-   - Is their narrative clear — could you understand the analysis without them explaining it to you?
-   - Do their conclusions connect back to Week 1–3 concepts?
+1.  **Pull** from GitHub to get your partner's file
+2.  **Open their `.qmd` file** and read through it
+3.  Pay attention to:
+    -   Did they comment every line of the simulation code? Do the comments make sense?
+    -   Is their narrative clear — could you understand the analysis without them explaining it to you?
+    -   Do their conclusions connect back to Week 1–3 concepts?
 
-::: {.callout-tip}
-## SoTL Connection: Peer Review as Learning
-Research on peer instruction (Mazur, 1997) shows that explaining your reasoning to others — and reading others' explanations — deepens understanding more than working alone. Reading your partner's Quarto document isn't just a Git exercise; comparing how they narrated their analysis to how you narrated yours is a powerful form of peer learning.
-:::
 
-4. **Optional:** If you want to leave feedback, you can add a comment directly in their `.qmd` file (use `<!-- Your comment here -->` so it doesn't render), commit with message `"Add peer review comments to [partner]'s file"`, and push.
+::: callout-tip
+##  Metacognitive Monitoring
 
-### Think-Pair-Share Reflection (5 min)
-
-**Think (1 min):** On paper, answer:
-
-1. What was the most surprising or useful thing about using Git today?
-2. What did you learn from reading your partner's analysis that you wouldn't have learned working alone?
-
-**Pair (2 min):** Discuss with your partner.
-
-**Share (2 min):** 2–3 pairs share with the class.
-
-::: {.callout-tip}
-## SoTL Connection: Metacognitive Monitoring
 Writing commit messages forces **metacognitive monitoring** — you have to pause and articulate *what* you just did and *why* (Tanner, 2012). This is the same skill that makes for good scientific writing: being explicit about your analytical choices. Over time, the habit of writing commit messages trains you to be a more reflective analyst.
 :::
 
@@ -713,7 +863,7 @@ Writing commit messages forces **metacognitive monitoring** — you have to paus
 
 In the Terminal, type:
 
-```bash
+``` bash
 git log --oneline
 ```
 
@@ -723,13 +873,14 @@ Look at the commit history. Each line is a snapshot of your analytical journey �
 
 On a piece of paper, answer:
 
-1. **One thing you now feel comfortable doing in Git** (be specific — e.g., "I can commit and push from RStudio")
-2. **One thing you still want to practice** (e.g., "I'm not sure how branches work")
-3. **One connection** between today's Git workshop and the statistical concepts from Weeks 1–3
+1.  **One thing you now feel comfortable doing in Git** (be specific — e.g., "I can commit and push from RStudio")
+2.  **One thing you still want to practice** (e.g., "I'm not sure how branches work")
+3.  **One connection** between today's Git workshop and the statistical concepts from Weeks 1–3
 
-::: {.callout-note}
+::: callout-note
 ## Looking Ahead
-Now that you have Git fundamentals down, future sessions will build on this. You'll use version control for every hands-on activity going forward. 
+
+Now that you have Git fundamentals down, future sessions will build on this. You'll use version control for every hands-on activity going forward.
 :::
 
----
+------------------------------------------------------------------------
