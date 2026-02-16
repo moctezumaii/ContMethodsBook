@@ -46,7 +46,7 @@ Last week was tough. Some things that made it complicated:
 ## The Semester So Far {.smaller}
 
 | Week | Topic | Key Takeaway |
-|------------------|-------------------|-----------------------------------|
+|-------------------|-------------------|----------------------------------|
 | 1 | Introductions & Papers | Data exploration protects inference (Zuur); always explore before modeling |
 | 2 | Philosophy of Data Analysis | "All models are wrong" (Box); find the *useful* model, not the *true* one. Also, the best model is based on your obejctives (prediction vs inference vs exploration) |
 | 3 | Statistical Modeling Framework | Method-Question-Data Triangle must align; start simple |
@@ -126,8 +126,8 @@ Struggling to recall is the point — it strengthens memory!
 5.  What is the Golden Rule from Week 3?
 :::
 
-::: {.notes}
-Notes --> start simple, add complexity, justify complexity
+::: notes
+Notes --\> start simple, add complexity, justify complexity
 :::
 
 . . .
@@ -233,7 +233,7 @@ Asking **"why?"** and **"how?"** until you reach deep understanding.
 
 . . .
 
-### Round 1: "Why" Chain 
+### Round 1: "Why" Chain
 
 With a partner, take turns asking "why?" about this statement. Go **at least four levels deep:**
 
@@ -243,19 +243,19 @@ With a partner, take turns asking "why?" about this statement. Go **at least fou
 
 ## Round 2: Connect to a Specific Week (5 min) {.smaller}
 
-Each pair picks **two** statements. 
+Each pair picks **two** statements.
 
 And you do the *why?* and *how?* chain for each one.
 
-1. Data exploration should protect inference, not create it. (Zuur, Week 1)
+1.  Data exploration should protect inference, not create it. (Zuur, Week 1)
 
-2. All models are wrong, but some are useful." (Box, Week 2)
+2.  All models are wrong, but some are useful." (Box, Week 2)
 
-3. "Start simple. Add complexity only when needed. Always justify your choices." (Golden Rule, Week 3)
+3.  "Start simple. Add complexity only when needed. Always justify your choices." (Golden Rule, Week 3)
 
-4. "Misalignment between method, question, and data leads to wrong conclusions, wasted effort, rejected papers, and sad grad students." (Week 3)
+4.  "Misalignment between method, question, and data leads to wrong conclusions, wasted effort, rejected papers, and sad grad students." (Week 3)
 
-5. "Exploration and inference should come from independent studies. (Tredennick, Week 1)
+5.  "Exploration and inference should come from independent studies. (Tredennick, Week 1)
 
 . . .
 
@@ -306,20 +306,14 @@ Think of it as **Track Changes** for your entire project — but much more power
 | **Staging (git add)** | Choosing which changes to include in the next commit | Deciding which observations to write up |
 | **Branch** | A parallel version of your project | An exploratory side-analysis |
 
-|  |
-|----------|
+## Key Concepts (continued) {.smaller} \|
 
-## Key Concepts (continued) {.smaller} |
-
-| Concept | What It Is | Analogy | 
-|---------|-----------|---------| 
-| **Merge** | Combining two branches | Integrating exploratory findings into main analysis | 
-| **Pull Request (PR)** | A request to merge your branch + review | Asking a collaborator to check your work | 
-| **Clone** | Downloading a copy of a remote repository | Getting a copy of a shared lab notebook | 
-| **Push / Pull** | Sending/receiving updates to/from GitHub | Syncing your local notebook with the shared one 
-
-|  |
-|----------|
+| Concept | What It Is | Analogy |
+|-----------------------|---------------------------|-----------------------|
+| **Merge** | Combining two branches | Integrating exploratory findings into main analysis |
+| **Pull Request (PR)** | A request to merge your branch + review | Asking a collaborator to check your work |
+| **Clone** | Downloading a copy of a remote repository | Getting a copy of a shared lab notebook |
+| **Push / Pull** | Sending/receiving updates to/from GitHub | Syncing your local notebook with the shared one |
 
 ## The Git Mental Model
 
