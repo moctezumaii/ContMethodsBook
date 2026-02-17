@@ -1,0 +1,188 @@
+---
+title: "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis"
+format: html
+---
+
+# Week Overview
+
+| Session | Content |
+|---------|---------|
+| **Session A Part 1** | Student-led paper discussion (~35 min) |
+| **Session A Part 2** | Method deep-dive (this document, ~35 min) |
+| **Session B** | Hands-on coding workshop |
+
+
+
+::: {.callout-tip}
+## Learning Objectives
+1. Understand why split-plot designs exist and how they differ from RCBD
+2. Recognize that `lmer + anova()` is a **linear mixed model**, not classical ANOVA
+3. Identify whole-plot vs subplot error strata and why they change the F-ratio
+4. Interpret G × ST interactions biologically and agronomically
+5. Apply the Zuur data exploration checklist critically to a published paper
+:::
+
+
+## Background & Readings
+
+**Paper:**
+
+Angelini, L. G., Chehade, L. A., Foschi, L., & Tavarini, S. (2020). Performance and Potentiality of Camelina (*Camelina sativa* L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment. *Agronomy*, 10(12), 1929. [https://doi.org/10.3390/agronomy10121929](https://doi.org/10.3390/agronomy10121929)
+
+
+
+::: {.callout-tip}
+## Questions to Consider
+
+While reading, always think about:
+
+- What is the research question**? What factors are being tested?
+- What is the experimental design**? (How many factors? How are treatments arranged? What is the blocking factor?)
+- What are the response variables**? What type of data are they? (continuous, counts, proportions?)
+- What statistical methods are used? Are they appropriate given the design?
+- Does the Method-Question-Data Triangle align in this paper?
+- What would Zuur (Week 1) say about their data exploration? Do you see evidence of it?
+:::
+
+## Response variables
+
+| Variable | Type |
+|----------|------|
+| Seed yield (Mg/ha) | Continuous |
+| Oil content (% DW) | Continuous |
+| 1000-seed weight (g) | Continuous |
+| Plant height (cm) | Continuous |
+| Siliques per plant | **Count** |
+| Plant density (No./m²) | **Count** |
+| Harvest index | Index |
+
+::: {.callout-note}
+Counts were analyzed with Poisson GLMs: potentially the right call (if they checked for zero-inflation). We return to this below.
+:::
+
+# The Experimental Design
+
+## Why It Is a Split-Plot
+
+You cannot randomize Autumn vs. Spring sowing within the same small plot —
+the whole field area for a given replicate must be sown in the same season.
+**Sowing time requires a large experimental unit.** This is the defining reason
+split-plot designs exist.
+```
+BLOCK (replicate, n = 4)
+├── WHOLE PLOT: Autumn sowing
+│   ├── subplot: V1, V2, V3, V4, V5, V6, CELINE (randomized)
+└── WHOLE PLOT: Spring sowing
+    └── subplot: V1, V2, V3, V4, V5, V6, CELINE (randomized)
+```
+## Two Error Strata
+
+| Stratum | Tests | Experimental unit |
+|---------|-------|-------------------|
+| **Whole-plot error** | Sowing Time (ST) | Whole plot within block |
+| **Subplot error** | Genotype (G), G×ST | Subplot within whole plot |
+
+Using a single pooled error (naive ANOVA) gives an **anti-conservative test for ST**
+(false positives) and an **over-conservative test for G** (false negatives).
+
+## How to run as an ANOVA (not what they did, even though they claim that)
+
+```{r eval=FALSE}
+aov(yield ~ ST * Genotype * Year + Error(Block/ST), data = dat)
+```
+
+## What They Likely Ran
+```{r eval=FALSE}
+model <- lmer(yield ~ Genotype * ST * Year + (1|Block) + (1|Block:ST),
+              data = dat)
+anova(model)  # Satterthwaite F-tests
+```
+
+
+::: {.callout-important}
+## lmer + anova() ≠ Classical ANOVA
+This is a **linear mixed model**. The `anova()` call uses Satterthwaite approximated
+denominator df - which may be non-integer. Reporting this as "ANOVA" obscures what was done.
+:::
+
+
+## What a Significant G × ST Interaction Means
+
+> **The ranking of genotypes depends on sowing time.** You cannot make one variety recommendation.
+
+## Ordinal vs. Disordinal
+
+| Type | Definition | Implication |
+|------|-----------|-------------|
+| **Ordinal** | Rankings preserved, magnitudes differ | Main effects broadly valid |
+| **Disordinal** | Rankings cross over | Separate recommendations essential |
+
+
+## Tukey vs. LSD
+
+| | LSD | Tukey HSD |
+|-|-----|-----------|
+| Controls | Per-comparison alpha | Familywise error rate |
+| Result | More liberal | More conservative |
+| Used in paper | | ✅ |
+
+::: {.callout-warning}
+Compact letter displays ("a", "ab", "b") can mask
+near-significant differences. Always look at the actual means and CIs.
+:::
+
+---
+
+## The Method–Question–Data Triangle
+```
+       QUESTION
+   "Best genotype × 
+   sowing time?"
+        /\
+       /  \
+ DATA /    \ METHOD
+-----/------\-------
+Factorial    Split-plot LMM
+blocked      Two error strata
+cont+count   Poisson for counts
+```
+
+::: {.fragment}
+**Alignment?** Mostly yes — but the gap between what was done (LMM) and
+what was reported ("ANOVA") is a transparency issue.
+:::
+
+---
+
+## The 6 Key Takeaways
+
+::: {.incremental}
+1. **Split-plot** because ST cannot be randomized at subplot level → two error strata
+2. **`lmer + anova()`** is a linear mixed model, not classical ANOVA, this is a reporting issue
+3. **Year as fixed** is pragmatic with n=2 but limits generalizability
+4. **G×ST is disordinal**  separate recommendations required
+5. **Poisson for counts** was correct if they checked for zero-inflation (not reported)
+6. **Data exploration is underreported**  it usually is
+:::
+
+## Data analysis
+ You can generate the data using this, and then analyze it using either the `aov()` or `lmer()` approach. Check for differences
+```{r eval=FALSE}
+# I will simulate the data. 4 repliacation (Block), 2 sowing times (ST), 7 Genotypes (G), 2 years (Year)
+set.seed(42)
+dat<-expand.grid(Block = factor(1:4),
+                 ST = factor(c("Autumn", "Spring")),
+                 Genotype = factor(paste0("V", 1:6)),
+                 Year = factor(2018:2019))
+dat$yield <- 1.8 +
+   0.30 * (dat$ST == "Autumn") +
+   c(0.10, -0.10, 0.40, -0.20, 0.05, 0.10, 0.20)[as.integer(dat$G)] +
+   0.40 * (dat$ST == "Autumn" & dat$G == "V3") + 
+   -0.05 * (dat$ST == "Spring" & dat$G == "V5") + 
+   0.20 * (dat$Year == "2019") +
+   rnorm(nrow(dat), 0, 0.15)  # add some noise
+
+
+
+
+```

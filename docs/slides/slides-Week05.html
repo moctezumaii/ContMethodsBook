@@ -10,9 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.37">
 
-  <meta name="author" content="Alejandro Molina Moctezuma">
+  <meta name="author" content="Discussion on Bailey’s lecture">
   <meta name="dcterms.date" content="2001-04-01">
-  <title>SNR 690 — Contemporary Approaches to Quantitative Methods – Version Control, Git &amp; Collaboration</title>
+  <title>SNR 690 — Contemporary Approaches to Quantitative Methods – Lecture on Angelini et al.&nbsp;(2020)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,6 +30,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7fc9b07ac2f6ddc31a5f952aa7d79460.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -132,147 +197,89 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Version Control, Git &amp; Collaboration</h1>
-  <p class="subtitle">Tracking Your Analytical Decisions</p>
+  <h1 class="title">Lecture on Angelini et al.&nbsp;(2020)</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Alejandro Molina Moctezuma 
+Discussion on Bailey’s lecture 
 </div>
 </div>
 </div>
 
   <p class="date">2001-04-01</p>
 </section>
-<section id="welcome-to-week-4" class="slide level2 center">
-<h2>Welcome to Week 4</h2>
-<p><strong>Topic:</strong> Version Control, Git &amp; Collaboration</p>
-<div class="fragment">
-<p>Today we connect <em>how you think</em> about data analysis to <em>how you track</em> your analytical decisions.</p>
-</div>
-<div class="fragment">
-<blockquote>
-<p>“Your analytical decisions need to be tracked, transparent, and reproducible - Git makes this possible.” This is, at it’s core, not just useful It follows the scientific iterative process!</p>
-</blockquote>
-</div>
-</section>
-<section id="before-we-start" class="slide level2 scrollable">
-<h2>Before we start</h2>
-<p>Last week was tough. Some things that made it complicated:</p>
-<ol type="1">
-<li class="fragment"><p>Simulations are hard –&gt; Generalized Linear Models</p></li>
-<li class="fragment"><p>Working in large groups</p></li>
-<li class="fragment"><p>Everyone coding separately, and trying things without a shared system for tracking changes</p></li>
-</ol>
-</section>
-<section id="the-semester-so-far" class="slide level2 smaller">
-<h2>The Semester So Far</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 47%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Topic</th>
-<th>Key Takeaway</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Introductions &amp; Papers</td>
-<td>Data exploration protects inference (Zuur); always explore before modeling</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Philosophy of Data Analysis</td>
-<td>“All models are wrong” (Box); find the <em>useful</em> model, not the <em>true</em> one. Also, the best model is based on your obejctives (prediction vs inference vs exploration)</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Statistical Modeling Framework</td>
-<td>Method-Question-Data Triangle must align; start simple</td>
-</tr>
-<tr class="even">
-<td><strong>4</strong></td>
-<td><strong>Version Control &amp; Collaboration</strong></td>
-<td><strong>Track, share, and reproduce your analytical journey</strong></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="why-are-we-talking-about-this" class="slide level2 smaller">
-<h2>Why Are We Talking About This?</h2>
-<p>In Weeks 1–3, we talked about <em>how to think</em> about data analysis…</p>
-<div class="fragment">
+<section id="the-paper-in-one-sentence" class="slide level2">
+<h2>The Paper in One Sentence</h2>
 <ul>
-<li class="fragment"><strong>Week 1:</strong> Data exploration and inference are separate - but both must be documented</li>
+<li class="fragment"><p>Seven camelina cultivars × two sowing times × two years</p></li>
+<li class="fragment"><blockquote>
+<p>which combination gives the best site-specific results?</p>
+</blockquote></li>
 </ul>
-</div>
 <div class="fragment">
+<p><strong>Why it matters statistically:</strong> the experimental design is more complex than it looks.</p>
+</div>
+</section>
+<section id="not-a-simple-rcbd" class="slide level2">
+<h2>Not a simple RCBD</h2>
 <ul>
-<li class="fragment"><strong>Week 2:</strong> All models are wrong but some are useful - how do you record <em>which</em> ones you tried? In case it is an iterative process</li>
+<li class="fragment"><p>All 14 treatments randomized within each block</p></li>
+<li class="fragment"><p>That’s impossible: You can’t sow half a block in October and the other half in March</p></li>
 </ul>
-</div>
-<div class="fragment">
-<ul>
-<li class="fragment"><strong>Week 3:</strong> The Method-Question-Data Triangle - when you iterate through model choices, how do you track that evolution?</li>
-</ul>
-</div>
-<div class="fragment">
-<p><strong>Version control answers all of these questions.</strong></p>
-</div>
 </section>
-<section id="version-control-as-a-tool" class="slide level2">
-<h2>Version Control as a tool</h2>
-<blockquote>
-<p>It can also be a very good tool to have. I have applied at jobs, that specifically asked for this. In the future, as more collaborative projects deal with complex models, version control will be a must-have skill AI is expanding the ability to code and do data analysis, which will increase potential collaboration –&gt; source control becomes even more important More importantly… if you are doing science, it should be reproducible.</p>
-</blockquote>
+<section id="split-plot" class="slide level2">
+<h2>Split plot:</h2>
+<pre><code>BLOCK
+├── WHOLE PLOT: Autumn
+│   └── V1 V2 V3 V4 V5 V6 CELINE
+└── WHOLE PLOT: Spring
+    └── V1 V2 V3 V4 V5 V6 CELINE</code></pre>
 </section>
-<section id="learning-objectives" class="slide level2 scrollable">
-<h2>🎯 Learning Objectives</h2>
-<div>
-<p>By the end of the week, you will be able to:</p>
-<ol type="1">
-<li>Explain <em>why</em> version control matters for reproducible research</li>
-<li>Connect version control to themes from Weeks 1–3</li>
-<li>Use Git and GitHub for basic version control</li>
-<li>Collaborate using branches and pull requests</li>
-<li>Apply version control to a Quarto-based workflow</li>
-</ol>
-</div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-</section>
-<section id="useful-for-the-rest-of-the-semester" class="slide level2">
-<h2>Useful for the rest of the semester</h2>
-<p>We will collaborate</p>
-<p>This will make it easier</p>
-</section>
-<section id="activity-retrieval-practice-8-min" class="slide level2 scrollable" data-background-color="#fff3cd">
-<h2>Activity: Retrieval Practice (8 min)</h2>
-<p>No notes, no phones, no laptops</p>
-<div class="fragment">
-<p>Struggling to recall is the point — it strengthens memory!</p>
-</div>
-<div class="fragment">
-<h3 id="quick-fire-recall-write-on-paper-3-min">Quick-Fire Recall (write on paper, 3 min)</h3>
-<div>
-<ol type="1">
-<li>What did Zuur argue about data exploration?</li>
-<li>What is Box’s famous quote about models?</li>
-<li>What were the three scenarios from Week 3?</li>
-<li>Explain one experiment from Week 3 — what went wrong?</li>
-<li>What is the Golden Rule from Week 3?</li>
-</ol>
-</div>
+<section id="what-are-we-seeing-here" class="slide level2">
+<h2>What are we seeing here?</h2>
+<p><span class="math display">\[
+y =
+\mu
++ \text{Replicate}
++ \text{Year}
++ \text{SowingTime}
++ \text{WholePlotError}
++ \text{Cultivar}
++ \text{Interactions}
++ \text{SubplotError}
+\]</span></p>
 <aside class="notes">
-<p>Notes –&gt; start simple, add complexity, justify complexity</p>
+<p>Conceptual model:</p>
+<p><span class="math display">\[
+y_{ij} = \mu + B_i + T_j + \epsilon_{ij}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(y_{ij}\)</span> = observed response in block <span class="math inline">\(i\)</span> receiving treatment <span class="math inline">\(j\)</span></p></li>
+<li><p><span class="math inline">\(\mu\)</span> = overall mean response</p></li>
+<li><p><span class="math inline">\(B_i\)</span> = effect of block <span class="math inline">\(i\)</span></p>
+<ul>
+<li>Accounts for background variation we are not primarily interested in</li>
+<li>Examples: lake, field, site, year</li>
+<li>Typically treated as a random effect</li>
+</ul></li>
+<li><p><span class="math inline">\(T_j\)</span> = effect of treatment <span class="math inline">\(j\)</span></p>
+<ul>
+<li>The main effect we want to study</li>
+<li>Treated as a fixed effect</li>
+</ul></li>
+<li><p><span class="math inline">\(\epsilon_{ij}\)</span> = residual error</p>
+<ul>
+<li>Random unexplained variation</li>
+<li>Represents variability among experimental units within blocks</li>
+<li>Assumed: <span class="math display">\[
+\epsilon_{ij} \sim \text{Normal}(0, \sigma^2)
+\]</span></li>
+</ul></li>
+</ul>
+<p>Key idea:</p>
+<p>There is only ONE level of experimental units and ONE source of experimental error.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -284,383 +291,90 @@ Alejandro Molina Moctezuma
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<p>. . .</p>
-<p><strong>Debrief (5 min):</strong> Turn to a neighbor and compare answers.</p>
+</section>
+<section id="two-error-strata" class="slide level2">
+<h2>Two Error Strata</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Stratum</th>
+<th>Tests</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Whole-plot error</strong></td>
+<td>Sowing Time</td>
+<td>Whole plot in block</td>
+</tr>
+<tr class="even">
+<td><strong>Subplot error</strong></td>
+<td>Genotype, G×ST</td>
+<td>Subplot in whole plot</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Using a single pooled error gives an <strong>anti-conservative test for ST</strong> and an <strong>over-conservative test for G</strong>. This is one of the most common errors in agronomy papers.</p>
+</div>
+</div>
 </div>
 </section>
-<section id="why-retrieval-practice" class="slide level2">
-<h2>Why Retrieval Practice?</h2>
-<blockquote>
-<p>Research shows that actively recalling information — even when it’s difficult — produces stronger long-term retention than re-reading notes (Roediger &amp; Butler, 2011).</p>
-</blockquote>
+<section id="aov-vs.-lmer-for-split-plots" class="slide level2">
+<h2><code>aov()</code> vs.&nbsp;<code>lmer()</code> for Split-Plots</h2>
+<p><strong>Classical approach — explicit error strata:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">aov</span>(yield <span class="sc">~</span> ST <span class="sc">*</span> G <span class="sc">*</span> Year <span class="sc">+</span> <span class="fu">Error</span>(Block<span class="sc">/</span>ST), <span class="at">data =</span> dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>What <code>lmerTest</code> does:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">lmer</span>(yield <span class="sc">~</span> G <span class="sc">*</span> ST <span class="sc">*</span> Year <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block<span class="sc">:</span>ST), <span class="at">data =</span> dat)</span>
+<span id="cb3-2"><a></a><span class="fu">anova</span>(model)  <span class="co"># Satterthwaite df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
-<p>This is a “desirable difficulty.” If it felt hard, that’s good!</p>
+<p>Both are valid. But <code>lmer</code> output labeled as “ANOVA” obscures that this is a <strong>linear mixed model</strong> with approximated denominator df.</p>
 </div>
 </section>
-<section id="activity-predict-observe-explain-12-min" class="slide level2 scrollable" data-background-color="#fff3cd">
-<h2>Activity: Predict-Observe-Explain (12 min)</h2>
-<p><strong>Quick Poll:</strong> Raise your hand if you’ve ever…</p>
+<section id="the-methodquestiondata-triangle" class="slide level2">
+<h2>The Method–Question–Data Triangle</h2>
+<pre><code>       QUESTION
+   "Best genotype × 
+   sowing time?"
+        /\
+       /  \
+ DATA /    \ METHOD
+-----/------\-------
+Factorial    Split-plot LMM
+blocked      Two error strata
+cont+count   Poisson for counts</code></pre>
+<div class="fragment">
+<p><strong>Alignment?</strong> Mostly yes - but the gap between what was done (LMM) and what was reported (“ANOVA”) is a transparency issue.</p>
+</div>
+</section>
+<section id="the-6-key-takeaways" class="slide level2 scrollable">
+<h2>The 6 Key Takeaways</h2>
 <div>
 <ol type="1">
-<li>Lost work because you overwrote a file</li>
-<li>Made a change in your code and wished you had the old version as well</li>
-<li>Couldn’t remember why you changed something in your code/analysis</li>
-<li>Had a collaborator edit the same file</li>
-<li>Had a folder full of <code>_v2</code>, <code>_v3</code>, <code>_FINAL</code> files</li>
+<li class="fragment"><strong>Split-plot</strong> because ST cannot be randomized at subplot level → two error strata</li>
+<li class="fragment"><strong><code>lmer + anova()</code></strong> is a linear mixed model, not classical ANOVA</li>
+<li class="fragment"><strong>Year as fixed</strong> is pragmatic with n=2 but limits generalizability</li>
+<li class="fragment"><strong>G×ST is disordinal</strong> — separate recommendations required</li>
+<li class="fragment"><strong>Poisson for counts</strong> was correct; response type matters</li>
+<li class="fragment"><strong>Data exploration is underreported</strong> — Zuur would want figures</li>
 </ol>
 </div>
 </section>
-<section id="predict" class="slide level2">
-<h2>🔮 PREDICT</h2>
-<p>Here is a scenario. <strong>Predict what will go wrong:</strong></p>
-<blockquote>
-<p>Your folder looks like this:</p>
-<pre><code>analysis.R
-analysis_v2.R
-analysis_FINAL.R
-analysis_FINAL_v2.R
-analysis_FINAL_ACTUALLY_FINAL.R
-analysis_FINAL_ACTUALLY_FINAL_USE_THIS_ONE.R</code></pre>
-<p>Your advisor emails: <em>“The reviewer wants to see the version where you used the Poisson model instead of the linear model.”</em></p>
-</blockquote>
-<div class="fragment">
-<p><strong>Write down:</strong> What happens next? Can you even <em>find</em> it?</p>
-</div>
-</section>
-<section id="predict-3-min" class="slide level2">
-<h2>🔮 PREDICT (3 min)</h2>
-<p>Here is an alternative scenario. <strong>Predict what will go wrong:</strong></p>
-<blockquote>
-<p>You have a single file: analysis.R Your advisor emails: <em>“The reviewer wants to see the version where you used the Poisson model instead of the linear model.”</em></p>
-</blockquote>
-<div class="fragment">
-<p><strong>Write down:</strong> What happens next? Can you even <em>find</em> it?</p>
-</div>
-</section>
-<section id="observe" class="slide level2">
-<h2>👁️ OBSERVE</h2>
-<p>I will now demonstrate how version control solves this problem.</p>
-<div class="fragment">
-<p>Watch how Git lets us travel through time in our project…</p>
-</div>
-</section>
-<section id="explain-5-min-whole-class" class="slide level2 scrollable">
-<h2>💡 EXPLAIN (5 min — whole class)</h2>
-<p>As a class, answer:</p>
-<div class="fragment">
-<ol type="1">
-<li class="fragment">Why does the file-naming approach fail? <em>(What information is lost?)</em></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="2" type="1">
-<li class="fragment">What does Git preserve that file-naming doesn’t?</li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="3" type="1">
-<li class="fragment">Can you connect this to Box’s “all models are wrong” idea?</li>
-</ol>
-</div>
-<div class="fragment">
-<blockquote>
-<p>If you’re iterating through models, you need a record of <em>which</em> wrong models you tried and <em>why</em> you moved on.</p>
-</blockquote>
-</div>
-</section>
-<section id="activity-elaborative-interrogation" class="slide level2" data-background-color="#fff3cd">
-<h2>Activity: Elaborative Interrogation</h2>
-<p>Asking <strong>“why?”</strong> and <strong>“how?”</strong> until you reach deep understanding.</p>
-<div class="fragment">
-<h3 id="round-1-why-chain">Round 1: “Why” Chain</h3>
-<p>With a partner, take turns asking “why?” about this statement. Go <strong>at least four levels deep:</strong></p>
-<blockquote>
-<p><strong>“Researchers should use version control for their analyses.”</strong></p>
-</blockquote>
-</div>
-</section>
-<section id="round-2-connect-to-a-specific-week-5-min" class="slide level2 smaller scrollable">
-<h2>Round 2: Connect to a Specific Week (5 min)</h2>
-<p>Each pair picks <strong>two</strong> statements.</p>
-<p>And you do the <em>why?</em> and <em>how?</em> chain for each one.</p>
-<ol type="1">
-<li class="fragment"><p>Data exploration should protect inference, not create it. (Zuur, Week 1)</p></li>
-<li class="fragment"><p>All models are wrong, but some are useful.” (Box, Week 2)</p></li>
-<li class="fragment"><p>“Start simple. Add complexity only when needed. Always justify your choices.” (Golden Rule, Week 3)</p></li>
-<li class="fragment"><p>“Misalignment between method, question, and data leads to wrong conclusions, wasted effort, rejected papers, and sad grad students.” (Week 3)</p></li>
-<li class="fragment"><p>“Exploration and inference should come from independent studies. (Tredennick, Week 1)</p></li>
-</ol>
-<div class="fragment">
-<p><strong>Share Out (2–3 min):</strong> 3–4 pairs share their best sentence.</p>
-</div>
-</section>
-<section id="lecture-what-is-version-control" class="slide level2" data-background-color="#e6f3ff">
-<h2>Lecture: What is Version Control?</h2>
-<div class="fragment">
-<p>A system that records changes to files over time</p>
-</div>
-<div class="fragment">
-<p>You can recall <strong>any previous version</strong> at any time</p>
-</div>
-<div class="fragment">
-<p>Think of it as <strong>Track Changes</strong> for your entire project — but much more powerful</p>
-</div>
-</section>
-<section id="why-git-specifically" class="slide level2">
-<h2>Why Git Specifically?</h2>
+<section id="questions" class="slide level2">
+<h2>Questions</h2>
 <ul>
-<li class="fragment">It is super easy to learn and use!</li>
+<li class="fragment"><p>How did the authors control for environmental variation when comparing genotypes across different sowing dates?</p></li>
+<li class="fragment"><p>The paper mentions they used “visual inspection of model residuals was also done to check for model assumptions”</p></li>
 </ul>
-<div class="fragment">
-<ul>
-<li class="fragment"><strong>Distributed</strong> - every collaborator has the full project history</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li class="fragment">The <strong>industry standard</strong> for software, increasingly for science</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li class="fragment">Integrates with <strong>RStudio, Positron, and Quarto</strong></li>
-</ul>
-</div>
-</section>
-<section id="key-concepts" class="slide level2 smaller">
-<h2>Key Concepts</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 31%">
-<col style="width: 36%">
-<col style="width: 31%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Concept</th>
-<th>What It Is</th>
-<th>Analogy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Repository (repo)</strong></td>
-<td>A project folder tracked by Git</td>
-<td>Your lab notebook for a project</td>
-</tr>
-<tr class="even">
-<td><strong>Commit</strong></td>
-<td>A snapshot of your files at a point in time</td>
-<td>An entry in your lab notebook</td>
-</tr>
-<tr class="odd">
-<td><strong>Staging (git add)</strong></td>
-<td>Choosing which changes to include in the next commit</td>
-<td>Deciding which observations to write up</td>
-</tr>
-<tr class="even">
-<td><strong>Branch</strong></td>
-<td>A parallel version of your project</td>
-<td>An exploratory side-analysis</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="key-concepts-continued-.smaller" class="slide level2">
-<h2>Key Concepts (continued) {.smaller} |</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 31%">
-<col style="width: 36%">
-<col style="width: 31%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Concept</th>
-<th>What It Is</th>
-<th>Analogy</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Merge</strong></td>
-<td>Combining two branches</td>
-<td>Integrating exploratory findings into main analysis</td>
-</tr>
-<tr class="even">
-<td><strong>Pull Request (PR)</strong></td>
-<td>A request to merge your branch + review</td>
-<td>Asking a collaborator to check your work</td>
-</tr>
-<tr class="odd">
-<td><strong>Clone</strong></td>
-<td>Downloading a copy of a remote repository</td>
-<td>Getting a copy of a shared lab notebook</td>
-</tr>
-<tr class="even">
-<td><strong>Push / Pull</strong></td>
-<td>Sending/receiving updates to/from GitHub</td>
-<td>Syncing your local notebook with the shared one</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="the-git-mental-model" class="slide level2">
-<h2>The Git Mental Model</h2>
-<pre><code>Your Computer (Local)                    GitHub (Remote)
-┌─────────────────────┐                ┌──────────────────┐
-│  Working Directory   │   git push    │                  │
-│  (your files)        │ ──────────►   │   Remote Repo    │
-│         │            │               │   (GitHub)       │
-│    git add           │   git pull    │                  │
-│         ▼            │ ◄──────────   │                  │
-│  Staging Area        │               └──────────────────┘
-│         │            │
-│    git commit        │
-│         ▼            │
-│  Local Repository    │
-│  (commit history)    │
-└─────────────────────┘</code></pre>
-</section>
-<section id="the-workflow-in-plain-english" class="slide level2 scrollable">
-<h2>The Workflow in Plain English</h2>
-<ol type="1">
-<li class="fragment">You <strong>edit</strong> files in your Working Directory</li>
-</ol>
-<div class="fragment">
-<ol start="2" type="1">
-<li class="fragment">You <strong>stage</strong> (<code>git add</code>) the changes you want to record</li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="3" type="1">
-<li class="fragment">You <strong>commit</strong> - creating a snapshot with a message explaining <em>why</em></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="4" type="1">
-<li class="fragment">You <strong>push</strong> to GitHub so others (and future you!) can see it</li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="5" type="1">
-<li class="fragment">You <strong>pull</strong> to get changes others have made</li>
-</ol>
-</div>
-</section>
-<section id="git-is-not-just-for-code" class="slide level2">
-<h2>Git is <em>Not</em> Just for Code</h2>
-<p>Git tracks <strong>any text file:</strong></p>
-<ul>
-<li class="fragment"><code>.qmd</code>, <code>.R</code>, <code>.csv</code> (small), <code>.bib</code>, <code>.tex</code>, <code>.md</code></li>
-</ul>
-<div class="fragment">
-<h3 id="what-git-is-not-good-for">What Git is NOT Good For</h3>
-<div>
-<ul>
-<li>Large binary files (images, PDFs, Word docs, big datasets)</li>
-<li>Files that change constantly in unpredictable ways</li>
-<li>Sensitive data (passwords, API keys, PII)</li>
-</ul>
-</div>
-<p>. . .</p>
-<p>For large data → <code>.gitignore</code> and Git Large File Storage (LFS)</p>
-</div>
-</section>
-<section id="github-git" class="slide level2">
-<h2>GitHub ≠ Git</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 61%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Git</th>
-<th>GitHub</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>The version control <strong>system</strong></td>
-<td>A <strong>website</strong> that hosts Git repositories</td>
-</tr>
-<tr class="even">
-<td>Runs on <strong>your computer</strong></td>
-<td>Runs in <strong>the cloud</strong></td>
-</tr>
-<tr class="odd">
-<td>Tracks history <strong>locally</strong></td>
-<td>Lets you <strong>share, collaborate</strong>, and back up</td>
-</tr>
-<tr class="even">
-<td>Free, open source</td>
-<td>Free for public repos; education accounts get extras</td>
-</tr>
-</tbody>
-</table>
-<div class="fragment">
-<p>Git is the engine. GitHub is the garage where everyone parks.</p>
-</div>
-</section>
-<section id="activity-concept-map-8-min" class="slide level2" data-background-color="#fff3cd">
-<h2>Activity: Concept Map (8 min)</h2>
-<p>Now that you’ve heard the lecture, <strong>build a concept map</strong> from memory.</p>
-<div class="fragment">
-<h3 id="individual-5-min">Individual (5 min)</h3>
-<p>On a blank piece of paper, create a concept map using these terms. Draw circles and arrows. Label arrows with verbs.</p>
-<p>. . .</p>
-<p><strong>Terms:</strong> Repository, Commit, Branch, Merge, Pull Request, Clone, Push, Pull, Staging Area, Working Directory, Remote (GitHub)</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>## Activity: Hands-On — Your First Repo (15 min) {background-color=“#d4edda”} Once you are done… start working on this &gt; Who here did a Github account? &gt; Join an educational account</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<div>
-<table class="caption-top">
-<colgroup>
-<col style="width: 56%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>What We Covered</th>
-<th>Key Takeaway</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Why version control?</td>
-<td>File-naming fails; Git preserves <em>what</em>, <em>when</em>, and <em>why</em></td>
-</tr>
-<tr class="even">
-<td>What is Git?</td>
-<td>A system that snapshots your project over time</td>
-</tr>
-<tr class="odd">
-<td>Git ≠ GitHub</td>
-<td>Git is the engine; GitHub is the cloud platform</td>
-</tr>
-<tr class="even">
-<td>Key workflow</td>
-<td>edit → <code>add</code> → <code>commit</code> → <code>push</code></td>
-</tr>
-<tr class="odd">
-<td>Connection to research</td>
-<td>Track model iterations, exploration vs.&nbsp;inference, analytical decisions</td>
-</tr>
-</tbody>
-</table>
-</div>
 
 
 </section>

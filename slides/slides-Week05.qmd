@@ -1,0 +1,179 @@
+---
+title: "Lecture on Angelini et al. (2020)"
+author: "Discussion on Bailey's lecture"
+date: "Week 04"
+format:
+  revealjs:
+    incremental: true   
+    scrollable: true
+    smaller: true
+    fontsize: 47px
+    chalkboard: true
+    theme: default
+    code-fold: true
+    code-summary: "Show code"
+execute:
+  echo: true
+  warning: false
+  message: false
+  eval: false
+---
+
+## The Paper in One Sentence
+
+* Seven camelina cultivars × two sowing times × two years   
+
+* Which combination gives the best site-specific results?
+
+::: {.fragment}
+**Why it matters statistically:**
+the experimental design is more complex than it looks.
+:::
+
+## Not a simple RCBD
+
+
+* All 14 treatments randomized within each block
+
+* That's impossible: You can't sow half a block in October and the other half in March
+
+## Split plot:
+
+```
+BLOCK
+├── WHOLE PLOT: Autumn
+│   └── V1 V2 V3 V4 V5 V6 CELINE
+└── WHOLE PLOT: Spring
+    └── V1 V2 V3 V4 V5 V6 CELINE
+```
+
+
+
+---
+
+## What are we seeing here?
+
+$$
+y =
+\mu
++ \text{Replicate}
++ \text{Year}
++ \text{SowingTime}
++ \text{WholePlotError}
++ \text{Cultivar}
++ \text{Interactions}
++ \text{SubplotError}
+$$
+
+::: {.notes}
+Conceptual model:
+
+$$
+y_{ij} = \mu + B_i + T_j + \epsilon_{ij}
+$$
+
+Where:
+
+- $y_{ij}$ = observed response in block $i$ receiving treatment $j$
+
+- $\mu$ = overall mean response
+
+- $B_i$ = effect of block $i$
+  - Accounts for background variation we are not primarily interested in
+  - Examples: lake, field, site, year
+  - Typically treated as a random effect
+
+- $T_j$ = effect of treatment $j$
+  - The main effect we want to study
+  - Treated as a fixed effect
+
+- $\epsilon_{ij}$ = residual error
+  - Random unexplained variation
+  - Represents variability among experimental units within blocks
+  - Assumed:
+$$
+\epsilon_{ij} \sim \text{Normal}(0, \sigma^2)
+$$
+
+Key idea:
+
+There is only ONE level of experimental units and ONE source of experimental error.
+
+
+:::
+
+
+---
+
+## Two Error Strata
+
+| Stratum | Tests | Unit |
+|---------|-------|------|
+| **Whole-plot error** | Sowing Time | Whole plot in block |
+| **Subplot error** | Genotype, G×ST | Subplot in whole plot |
+
+::: {.callout-important}
+Using a single pooled error gives an **anti-conservative test for ST**
+and an **over-conservative test for G**.
+This is one of the most common errors in agronomy papers.
+:::
+
+---
+
+## `aov()` vs. `lmer()` for Split-Plots
+
+**Classical approach — explicit error strata:**
+```r
+aov(yield ~ ST * G * Year + Error(Block/ST), data = dat)
+```
+
+**What `lmerTest` does:**
+```r
+lmer(yield ~ G * ST * Year + (1|Block) + (1|Block:ST), data = dat)
+anova(model)  # Satterthwaite df
+```
+
+::: {.fragment}
+Both are valid. But `lmer` output labeled as "ANOVA" obscures that
+this is a **linear mixed model** with approximated denominator df.
+:::
+
+
+## The Method–Question–Data Triangle
+```
+       QUESTION
+   "Best genotype × 
+   sowing time?"
+        /\
+       /  \
+ DATA /    \ METHOD
+-----/------\-------
+Factorial    Split-plot LMM
+blocked      Two error strata
+cont+count   Poisson for counts
+```
+
+::: {.fragment}
+**Alignment?** Mostly yes - but the gap between what was done (LMM) and
+what was reported ("ANOVA") is a transparency issue.
+:::
+
+---
+
+## The 6 Key Takeaways
+
+::: {.incremental}
+1. **Split-plot** because ST cannot be randomized at subplot level → two error strata
+2. **`lmer + anova()`** is a linear mixed model, not classical ANOVA
+3. **Year as fixed** is pragmatic with n=2 but limits generalizability
+4. **G×ST is disordinal** — separate recommendations required
+5. **Poisson for counts** was correct; response type matters
+6. **Data exploration is underreported** — Zuur would want figures
+:::
+
+
+## Questions
+- How did the authors control for environmental variation when comparing genotypes across different sowing dates? 
+ 
+- The paper mentions they used “visual inspection of model residuals was also done to check for model assumptions”
+ 

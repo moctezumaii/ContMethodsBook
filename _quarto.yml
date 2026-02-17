@@ -24,6 +24,8 @@ site:
             href: weeks/week03.qmd
           - text: Week 04
             href: weeks/week04.qmd
+          - text: Week 05
+            href: weeks/week05.qmd
       - text: Projects
         menu:
           - text: Project Home
@@ -57,6 +59,8 @@ site:
             href: slides/slides-Week03.qmd
           - text: Slides Week 04
             href: slides/slides-Week04.qmd
+          - text: Slides Week 05
+            href: slides/slides-Week05.qmd
 
 bibliography: references.bib   # main BibTeX file (place in repo root)
 
