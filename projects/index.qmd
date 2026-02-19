@@ -1,1 +1,72 @@
-Here we will have all the projects and assignments listed.
+---
+title: "Final Paper Instructions"
+---
+
+## Overview
+This assignment guides you through creating a research project repository and developing your final paper proposal.
+
+## Step 1: Create a Private GitHub Repository
+
+1. Go to [GitHub](https://github.com) and log in
+2. Click the **"+"** icon in the top-right corner and select **"New repository"**
+3. Name your repository (e.g., `SNR690-final-paper-yourname`)
+4. Add a brief description of your project
+5. **Important:** Select **"Private"** to keep your work confidential
+6. Check **"Add a README file"**
+7. Click **"Create repository"**
+
+## Step 2: Clone Repository to RStudio
+
+1. In your new GitHub repository, click the green **"Code"** button
+2. Copy the HTTPS URL
+3. Open RStudio
+4. Go to **File > New Project > Version Control > Git**
+5. Paste the repository URL
+6. Choose a local directory and click **"Create Project"**
+
+## Step 3: Modify the README
+
+Edit your README.md file to include the following sections:
+
+### Objective
+*What do you aim to accomplish with this research?*
+
+### Research Question
+*What specific question are you trying to answer?*
+
+### Variables
+*List your response variable(s) and predictor variable(s)*
+
+### Experimental Design or Data Structure
+*Describe your data collection approach or existing dataset structure*
+
+### Analysis Method
+*What statistical method(s) will you use?*
+
+### Main Result
+*What do you expect to find or demonstrate?*
+
+### Logical Alignment
+*Do these components align logically? Explain briefly how your methods will answer your research question.*
+
+## Example Project Template
+
+**Objective:** Assess the impact of habitat restoration on native bird species richness in riparian zones
+
+**Research Question:** Does riparian habitat restoration increase native bird species richness compared to unrestored sites?
+
+**Variables:**
+- Response: Bird species richness (count)
+- Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)
+
+**Experimental Design or Data Structure:** 
+Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons
+
+**Analysis Method:** 
+Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures
+
+**Main Result:** 
+Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration
+
+**Logical Alignment:** 
+Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.
