@@ -172,7 +172,7 @@
     "href": "slides/slides-Week05.html#the-paper-in-one-sentence",
     "title": "Lecture on Angelini et al. (2020)",
     "section": "The Paper in One Sentence",
-    "text": "The Paper in One Sentence\n\nSeven camelina cultivars × two sowing times × two years\n\nwhich combination gives the best site-specific results?\n\n\n\nWhy it matters statistically: the experimental design is more complex than it looks."
+    "text": "The Paper in One Sentence\n\nSeven camelina cultivars × two sowing times × two years\nWhich combination gives the best site-specific results?\n\n\nWhy it matters statistically: the experimental design is more complex than it looks."
   },
   {
     "objectID": "slides/slides-Week05.html#not-a-simple-rcbd",
@@ -646,9 +646,44 @@
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
-    "title": "SNR 690 — Contemporary Approaches to Quantitative Methods",
+    "title": "Final Paper Instructions",
     "section": "",
-    "text": "Here we will have all the projects and assignments listed."
+    "text": "This assignment guides you through creating a research project repository and developing your final paper proposal."
+  },
+  {
+    "objectID": "projects/index.html#overview",
+    "href": "projects/index.html#overview",
+    "title": "Final Paper Instructions",
+    "section": "",
+    "text": "This assignment guides you through creating a research project repository and developing your final paper proposal."
+  },
+  {
+    "objectID": "projects/index.html#step-1-create-a-private-github-repository",
+    "href": "projects/index.html#step-1-create-a-private-github-repository",
+    "title": "Final Paper Instructions",
+    "section": "2 Step 1: Create a Private GitHub Repository",
+    "text": "2 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
+  },
+  {
+    "objectID": "projects/index.html#step-2-clone-repository-to-rstudio",
+    "href": "projects/index.html#step-2-clone-repository-to-rstudio",
+    "title": "Final Paper Instructions",
+    "section": "3 Step 2: Clone Repository to RStudio",
+    "text": "3 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
+  },
+  {
+    "objectID": "projects/index.html#step-3-modify-the-readme",
+    "href": "projects/index.html#step-3-modify-the-readme",
+    "title": "Final Paper Instructions",
+    "section": "4 Step 3: Modify the README",
+    "text": "4 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n4.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n4.2 Research Question\nWhat specific question are you trying to answer?\n\n\n4.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n4.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n4.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n4.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n4.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question."
+  },
+  {
+    "objectID": "projects/index.html#example-project-template",
+    "href": "projects/index.html#example-project-template",
+    "title": "Final Paper Instructions",
+    "section": "5 Example Project Template",
+    "text": "5 Example Project Template\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity."
   },
   {
     "objectID": "slides/notes-week01.html#zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems",
@@ -1213,91 +1248,91 @@
   {
     "objectID": "weeks/week05.html",
     "href": "weeks/week05.html",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "",
     "text": "Session\nContent\n\n\n\n\nSession A Part 1\nStudent-led paper discussion (~35 min)\n\n\nSession A Part 2\nMethod deep-dive (this document, ~35 min)\n\n\nSession B\nHands-on coding workshop\n\n\n\n\n\n\n\n\n\nLearning Objectives\n\n\n\n\nUnderstand why split-plot designs exist and how they differ from RCBD\nRecognize that lmer + anova() is a linear mixed model, not classical ANOVA\nIdentify whole-plot vs subplot error strata and why they change the F-ratio\nInterpret G × ST interactions biologically and agronomically\nApply the Zuur data exploration checklist critically to a published paper\n\n\n\n\n\nPaper:\nAngelini, L. G., Chehade, L. A., Foschi, L., & Tavarini, S. (2020). Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment. Agronomy, 10(12), 1929. https://doi.org/10.3390/agronomy10121929\n\n\n\n\n\n\nQuestions to Consider\n\n\n\nWhile reading, always think about:\n\nWhat is the research question**? What factors are being tested?\nWhat is the experimental design**? (How many factors? How are treatments arranged? What is the blocking factor?)\nWhat are the response variables**? What type of data are they? (continuous, counts, proportions?)\nWhat statistical methods are used? Are they appropriate given the design?\nDoes the Method-Question-Data Triangle align in this paper?\nWhat would Zuur (Week 1) say about their data exploration? Do you see evidence of it?\n\n\n\n\n\n\n\n\n\nVariable\nType\n\n\n\n\nSeed yield (Mg/ha)\nContinuous\n\n\nOil content (% DW)\nContinuous\n\n\n1000-seed weight (g)\nContinuous\n\n\nPlant height (cm)\nContinuous\n\n\nSiliques per plant\nCount\n\n\nPlant density (No./m²)\nCount\n\n\nHarvest index\nIndex\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCounts were analyzed with Poisson GLMs: potentially the right call (if they checked for zero-inflation). We return to this below."
   },
   {
     "objectID": "weeks/week05.html#background-readings",
     "href": "weeks/week05.html#background-readings",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "",
     "text": "Paper:\nAngelini, L. G., Chehade, L. A., Foschi, L., & Tavarini, S. (2020). Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment. Agronomy, 10(12), 1929. https://doi.org/10.3390/agronomy10121929\n\n\n\n\n\n\nQuestions to Consider\n\n\n\nWhile reading, always think about:\n\nWhat is the research question**? What factors are being tested?\nWhat is the experimental design**? (How many factors? How are treatments arranged? What is the blocking factor?)\nWhat are the response variables**? What type of data are they? (continuous, counts, proportions?)\nWhat statistical methods are used? Are they appropriate given the design?\nDoes the Method-Question-Data Triangle align in this paper?\nWhat would Zuur (Week 1) say about their data exploration? Do you see evidence of it?"
   },
   {
     "objectID": "weeks/week05.html#response-variables",
     "href": "weeks/week05.html#response-variables",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "",
     "text": "Variable\nType\n\n\n\n\nSeed yield (Mg/ha)\nContinuous\n\n\nOil content (% DW)\nContinuous\n\n\n1000-seed weight (g)\nContinuous\n\n\nPlant height (cm)\nContinuous\n\n\nSiliques per plant\nCount\n\n\nPlant density (No./m²)\nCount\n\n\nHarvest index\nIndex\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nCounts were analyzed with Poisson GLMs: potentially the right call (if they checked for zero-inflation). We return to this below."
   },
   {
     "objectID": "weeks/week05.html#why-it-is-a-split-plot",
     "href": "weeks/week05.html#why-it-is-a-split-plot",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.1 Why It Is a Split-Plot",
     "text": "2.1 Why It Is a Split-Plot\nYou cannot randomize Autumn vs. Spring sowing within the same small plot — the whole field area for a given replicate must be sown in the same season. Sowing time requires a large experimental unit. This is the defining reason split-plot designs exist.\nBLOCK (replicate, n = 4)\n├── WHOLE PLOT: Autumn sowing\n│   ├── subplot: V1, V2, V3, V4, V5, V6, CELINE (randomized)\n└── WHOLE PLOT: Spring sowing\n    └── subplot: V1, V2, V3, V4, V5, V6, CELINE (randomized)"
   },
   {
     "objectID": "weeks/week05.html#two-error-strata",
     "href": "weeks/week05.html#two-error-strata",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.2 Two Error Strata",
     "text": "2.2 Two Error Strata\n\n\n\nStratum\nTests\nExperimental unit\n\n\n\n\nWhole-plot error\nSowing Time (ST)\nWhole plot within block\n\n\nSubplot error\nGenotype (G), G×ST\nSubplot within whole plot\n\n\n\nUsing a single pooled error (naive ANOVA) gives an anti-conservative test for ST (false positives) and an over-conservative test for G (false negatives)."
   },
   {
     "objectID": "weeks/week05.html#how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that",
     "href": "weeks/week05.html#how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.3 How to run as an ANOVA (not what they did, even though they claim that)",
     "text": "2.3 How to run as an ANOVA (not what they did, even though they claim that)\n\naov(yield ~ ST * Genotype * Year + Error(Block/ST), data = dat)"
   },
   {
     "objectID": "weeks/week05.html#what-they-likely-ran",
     "href": "weeks/week05.html#what-they-likely-ran",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.4 What They Likely Ran",
     "text": "2.4 What They Likely Ran\n\nmodel &lt;- lmer(yield ~ Genotype * ST * Year + (1|Block) + (1|Block:ST),\n              data = dat)\nanova(model)  # Satterthwaite F-tests\n\n\n\n\n\n\n\nlmer + anova() ≠ Classical ANOVA\n\n\n\nThis is a linear mixed model. The anova() call uses Satterthwaite approximated denominator df - which may be non-integer. Reporting this as “ANOVA” obscures what was done."
   },
   {
     "objectID": "weeks/week05.html#what-a-significant-g-st-interaction-means",
     "href": "weeks/week05.html#what-a-significant-g-st-interaction-means",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.5 What a Significant G × ST Interaction Means",
     "text": "2.5 What a Significant G × ST Interaction Means\n\nThe ranking of genotypes depends on sowing time. You cannot make one variety recommendation."
   },
   {
     "objectID": "weeks/week05.html#ordinal-vs.-disordinal",
     "href": "weeks/week05.html#ordinal-vs.-disordinal",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.6 Ordinal vs. Disordinal",
     "text": "2.6 Ordinal vs. Disordinal\n\n\n\n\n\n\n\n\nType\nDefinition\nImplication\n\n\n\n\nOrdinal\nRankings preserved, magnitudes differ\nMain effects broadly valid\n\n\nDisordinal\nRankings cross over\nSeparate recommendations essential"
   },
   {
     "objectID": "weeks/week05.html#tukey-vs.-lsd",
     "href": "weeks/week05.html#tukey-vs.-lsd",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.7 Tukey vs. LSD",
     "text": "2.7 Tukey vs. LSD\n\n\n\n\nLSD\nTukey HSD\n\n\n\n\nControls\nPer-comparison alpha\nFamilywise error rate\n\n\nResult\nMore liberal\nMore conservative\n\n\nUsed in paper\n\n✅\n\n\n\n\n\n\n\n\n\nWarning\n\n\n\nCompact letter displays (“a”, “ab”, “b”) can mask near-significant differences. Always look at the actual means and CIs."
   },
   {
     "objectID": "weeks/week05.html#the-methodquestiondata-triangle",
     "href": "weeks/week05.html#the-methodquestiondata-triangle",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.8 The Method–Question–Data Triangle",
     "text": "2.8 The Method–Question–Data Triangle\n       QUESTION\n   \"Best genotype × \n   sowing time?\"\n        /\\\n       /  \\\n DATA /    \\ METHOD\n-----/------\\-------\nFactorial    Split-plot LMM\nblocked      Two error strata\ncont+count   Poisson for counts\n\nAlignment? Mostly yes — but the gap between what was done (LMM) and what was reported (“ANOVA”) is a transparency issue."
   },
   {
     "objectID": "weeks/week05.html#the-6-key-takeaways",
     "href": "weeks/week05.html#the-6-key-takeaways",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.9 The 6 Key Takeaways",
     "text": "2.9 The 6 Key Takeaways\n\n\nSplit-plot because ST cannot be randomized at subplot level → two error strata\nlmer + anova() is a linear mixed model, not classical ANOVA, this is a reporting issue\nYear as fixed is pragmatic with n=2 but limits generalizability\nG×ST is disordinal separate recommendations required\nPoisson for counts was correct if they checked for zero-inflation (not reported)\nData exploration is underreported it usually is"
   },
   {
     "objectID": "weeks/week05.html#data-analysis",
     "href": "weeks/week05.html#data-analysis",
-    "title": "Week 05 — Rainfed Rice Systems: Comparing Treatments & Yield Gap Analysis",
+    "title": "Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment",
     "section": "2.10 Data analysis",
     "text": "2.10 Data analysis\nYou can generate the data using this, and then analyze it using either the aov() or lmer() approach. Check for differences\n\n# I will simulate the data. 4 repliacation (Block), 2 sowing times (ST), 7 Genotypes (G), 2 years (Year)\nset.seed(42)\ndat&lt;-expand.grid(Block = factor(1:4),\n                 ST = factor(c(\"Autumn\", \"Spring\")),\n                 Genotype = factor(paste0(\"V\", 1:6)),\n                 Year = factor(2018:2019))\ndat$yield &lt;- 1.8 +\n   0.30 * (dat$ST == \"Autumn\") +\n   c(0.10, -0.10, 0.40, -0.20, 0.05, 0.10, 0.20)[as.integer(dat$G)] +\n   0.40 * (dat$ST == \"Autumn\" & dat$G == \"V3\") + \n   -0.05 * (dat$ST == \"Spring\" & dat$G == \"V5\") + \n   0.20 * (dat$Year == \"2019\") +\n   rnorm(nrow(dat), 0, 0.15)  # add some noise"
   }

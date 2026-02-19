@@ -2,7 +2,7 @@
 title: "Week 04 - Version Control, Git & Collaboration"
 format: html
 ---
-
+Week 4
 # Objectives and background
 
 Topic: Introduction to Git, GitHub, and Collaborative Reproducible Research
