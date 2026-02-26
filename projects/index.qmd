@@ -55,6 +55,12 @@ Edit your README.md file to include the following sections:
 ### Usefulness for Your Career or Degree
 *Briefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory*
 
+## Step 4: Share your repository with me via Github
+1. In your GitHub repository, click on **"Settings"**
+2. In the left sidebar, click **"Manage access"**
+3. Click **"Invite a collaborator"**
+4. Enter my email address
+
 ## Example Project Template
 
 **Objective:** Assess the impact of habitat restoration on native bird species richness in riparian zones
@@ -76,3 +82,17 @@ Restored sites are expected to show significantly higher species richness, with 
 
 **Logical Alignment:** 
 Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.
+
+**Expected Timeline:**
+- Week 6: Finalize research question analysis plan
+- Week 7: Clean data
+- Week 8: Run preliminary analyses
+- Week 9: Interpret results and create figures
+- Week 10: Draft methods section
+- Week 11: Draft results section
+- Week 12: Draft introduction and discussion
+- Week 13: Revise and finalize paper
+- Week 14: Submit final paper
+
+**Usefulness for Your Career or Degree:**
+This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.
