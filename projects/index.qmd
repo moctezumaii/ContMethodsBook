@@ -2,7 +2,6 @@
 title: "Final Paper Instructions"
 ---
 
-## Overview
 This assignment guides you through creating a research project repository and developing your final paper proposal.
 
 ## Step 1: Create a Private GitHub Repository

@@ -651,46 +651,39 @@
     "text": "This assignment guides you through creating a research project repository and developing your final paper proposal."
   },
   {
-    "objectID": "projects/index.html#overview",
-    "href": "projects/index.html#overview",
-    "title": "Final Paper Instructions",
-    "section": "",
-    "text": "This assignment guides you through creating a research project repository and developing your final paper proposal."
-  },
-  {
     "objectID": "projects/index.html#step-1-create-a-private-github-repository",
     "href": "projects/index.html#step-1-create-a-private-github-repository",
     "title": "Final Paper Instructions",
-    "section": "2 Step 1: Create a Private GitHub Repository",
-    "text": "2 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
+    "section": "1 Step 1: Create a Private GitHub Repository",
+    "text": "1 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
   },
   {
     "objectID": "projects/index.html#step-2-clone-repository-to-rstudio",
     "href": "projects/index.html#step-2-clone-repository-to-rstudio",
     "title": "Final Paper Instructions",
-    "section": "3 Step 2: Clone Repository to RStudio",
-    "text": "3 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
+    "section": "2 Step 2: Clone Repository to RStudio",
+    "text": "2 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
   },
   {
     "objectID": "projects/index.html#step-3-modify-the-readme",
     "href": "projects/index.html#step-3-modify-the-readme",
     "title": "Final Paper Instructions",
-    "section": "4 Step 3: Modify the README",
-    "text": "4 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n4.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n4.2 Research Question\nWhat specific question are you trying to answer?\n\n\n4.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n4.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n4.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n4.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n4.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n4.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n4.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
+    "section": "3 Step 3: Modify the README",
+    "text": "3 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n3.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n3.2 Research Question\nWhat specific question are you trying to answer?\n\n\n3.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n3.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n3.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n3.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n3.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n3.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n3.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
   },
   {
     "objectID": "projects/index.html#step-4-share-your-repository-with-me-via-github",
     "href": "projects/index.html#step-4-share-your-repository-with-me-via-github",
     "title": "Final Paper Instructions",
-    "section": "5 Step 4: Share your repository with me via Github",
-    "text": "5 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
+    "section": "4 Step 4: Share your repository with me via Github",
+    "text": "4 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
   },
   {
     "objectID": "projects/index.html#example-project-template",
     "href": "projects/index.html#example-project-template",
     "title": "Final Paper Instructions",
-    "section": "6 Example Project Template",
-    "text": "6 Example Project Template\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career."
+    "section": "5 Example Project Template",
+    "text": "5 Example Project Template\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career."
   },
   {
     "objectID": "slides/notes-week01.html#zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems",
