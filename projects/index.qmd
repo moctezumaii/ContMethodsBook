@@ -49,6 +49,12 @@ Edit your README.md file to include the following sections:
 ### Logical Alignment
 *Do these components align logically? Explain briefly how your methods will answer your research question.*
 
+### Expected Timeline
+*Create a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.*
+
+### Usefulness for Your Career or Degree
+*Briefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory*
+
 ## Example Project Template
 
 **Objective:** Assess the impact of habitat restoration on native bird species richness in riparian zones
