@@ -1,0 +1,162 @@
+---
+title: "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis"
+format: html
+---
+
+::: {.callout-note}
+## Instructor Use Only
+
+These are structured talking points for the ~20-minute mini-lecture in Session A, Part 2. They are not distributed to students in advance.
+:::
+
+# Talking Points (~20 min)
+
+---
+
+## Opening Hook (2 min)
+
+> *"Imagine you're in your dissertation defense. Your committee asks: 'Why did you use this method?' What do you say?"*
+
+Pause. Let the question land.
+
+> *"If your answer is 'because my advisor does it that way' or 'because I Googled it and it seemed right' — that's a problem. Not because those methods are wrong, but because you can't defend them. Today we're going to practice defending them."*
+
+Transition: *"Let's start by revisiting something from Week 2 that sounds abstract but is deeply practical."*
+
+---
+
+## Section 1: Revisiting Box (5 min)
+
+**Core idea:** "All models are wrong, some are useful." — George Box
+
+This is not a cop-out or a disclaimer. It is a **design principle**.
+
+**What it means in practice:**
+
+> Your model doesn't need to perfectly describe reality. It needs to be *wrong in a way that doesn't matter* for your specific question.
+
+**Two examples of being wrong in a way that DOES matter:**
+
+::: {.callout-warning}
+## Example 1: Linear model on count data
+
+`lm(insect_count ~ treatment)`
+
+Count data cannot be negative. A linear model can predict negative counts. When your counts are small (0–10), this matters — your inference is compromised.
+
+**Wrong in a way that matters.**
+:::
+
+::: {.callout-warning}
+## Example 2: RCBD ANOVA on a split-plot design
+
+`aov(yield ~ variety + block)` — ignoring that sowing time is a whole-plot factor.
+
+You are using the wrong error term for the whole-plot factor. Your F-ratio for sowing time is anticonservative (too many false positives).
+
+**Wrong in a way that matters.** (See Week 5.)
+:::
+
+**Actionable version for students:**
+
+> Ask yourself: "In what way is my model wrong? Does that wrongness affect my conclusions?"
+
+If you can answer that honestly, you are doing philosophy.
+
+---
+
+## Section 2: What Kind of Inference? (5 min)
+
+**Core idea:** Your method must match the *type of claim* you want to make.
+
+| Type | What you're doing | What you need | Example |
+|------|------------------|---------------|---------|
+| **Descriptive** | Summarizing what is in your data | Representative sample, appropriate summary stats | "Mean wheat yield was 4.2 Mg/ha across all sites" |
+| **Predictive** | Forecasting new observations | Cross-validation, held-out test set | "A model trained on 2020–2022 predicts 2023 yield within 0.3 Mg/ha" |
+| **Causal** | Claiming X causes Y | Randomization or strong causal design + assumptions | "Nitrogen application increased yield by 0.8 Mg/ha" (from RCT) |
+
+::: {.callout-important}
+## Warning: Observational Data + Regression ≠ Causal
+
+This is one of the most common errors in applied agricultural and ecological research.
+
+> *"We found that farms with higher biodiversity had lower pest pressure (β = −0.42, p < 0.001). Therefore, increasing biodiversity reduces pests."*
+
+This is a **causal claim** from an **observational study**. The regression tells you there is an association. It does not tell you why.
+
+You need a randomized experiment, a natural experiment, or explicit causal modeling (DAGs, instrumental variables) to make causal claims.
+:::
+
+**Transition:** *"So: what kind of inference are you making? Point at your Methods section mentally. Does your method actually support that type of claim?"*
+
+---
+
+## Section 3: The Triangle in Practice (5 min)
+
+**Core idea:** Question + Data + Method must all align. (Week 3 recap, with new examples.)
+
+**Three concrete examples from ag / natural resources:**
+
+::: {.callout-tip}
+## Good Alignment: Nitrogen Rate × Year on Wheat Yield
+
+- **Question:** Does nitrogen rate affect wheat yield, and does this vary by year?
+- **Data:** Continuous yield (kg/ha); blocked RCT; two years; plots within blocks
+- **Method:** `lmer(yield ~ N_rate * Year + (1|Block), data = dat)`
+- **Triangle:** ✅ Continuous response → lmer; blocked design → random block; factorial treatment → interaction term
+
+**This is defensible.**
+:::
+
+::: {.callout-warning}
+## Common Mistake: Bird Richness Counts with Repeated Measures → `aov()`
+
+- **Question:** Is bird species richness declining over years across urban parks?
+- **Data:** Integer counts (0–47); 8 parks; 6 visits/year; 5 years; counts are non-normal
+- **Method used:** `aov(richness ~ year)`
+- **Triangle:** ❌ Count data → Poisson, not Gaussian; repeated measures → random effects needed; pseudoreplication ignored
+
+**Should be:** `glmer(richness ~ year + (1|park), family = poisson, data = dat)`
+:::
+
+::: {.callout-note}
+## Overcomplicated: Soil pH, 2 Groups, 10 Samples → Bayesian Hierarchical Model
+
+- **Question:** Does tillage treatment affect soil pH?
+- **Data:** 10 samples per treatment (n = 20 total); continuous pH; no nesting or grouping structure
+- **Method used:** Full Bayesian hierarchical model with weakly informative priors and MCMC
+- **Triangle:** ⚠️ A t-test (or simple Bayesian two-sample comparison) is sufficient. The added complexity provides no additional insight and makes your methods section impenetrable.
+
+**Complexity must be earned by your data, not borrowed from methodology papers.**
+:::
+
+---
+
+## Section 4: Tying It Together (3 min)
+
+**Core message:**
+
+> *"Your methods section is not just a technical description — it is a philosophical argument."*
+
+When a reviewer reads your methods, they are asking:
+
+1. Did you know what kind of claim you were making?
+2. Did you choose a method that is honest about what your data can support?
+3. Did you avoid being either naively simple or gratuitously complex?
+
+**Transition to Think-Pair-Share:**
+
+> *"Now you're going to make that argument — out loud, to a peer who will push back. Take out a notecard."*
+
+---
+
+## Quick Reference Summary
+
+| Section | Core Message | Time |
+|---------|-------------|------|
+| Opening Hook | "Can you defend your method?" | 2 min |
+| Section 1: Box | Wrong in a way that matters vs. doesn't | 5 min |
+| Section 2: Inference Type | Descriptive / Predictive / Causal; observational ≠ causal | 5 min |
+| Section 3: Triangle in Practice | Three concrete ag/NR examples | 5 min |
+| Section 4: Tying Together | Methods section = philosophical argument | 3 min |
+| **Total** | | **~20 min** |
