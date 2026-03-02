@@ -1,0 +1,251 @@
+---
+title: "Week 08 — The Philosophy Behind Your Analysis"
+format: html
+---
+
+Week: 8
+
+Topic: The Philosophy Behind Your Analysis
+
+# Week Overview
+
+| Session | Content |
+|---------|---------|
+| **Session A** | Instructor-led philosophy deep-dive (~75 min) |
+| **Session B** | Workshop — project progress, peer review & method justification (~75 min) |
+
+::: {.callout-note}
+No student presenter is available this week. Dr. Molina will lead Session A as an instructor-led discussion.
+:::
+
+## Learning Objectives
+
+1. Connect the philosophical ideas from Weeks 2, 3, and 5 to your own analysis
+2. Articulate and defend your method choice in writing and verbally
+3. Identify common philosophical pitfalls in applied statistics
+4. Assess your project's current progress against your planned timeline
+
+---
+
+# Session A: The Philosophy Behind Your Analysis (75 min)
+
+## Part 1: Opening — Pulse Check & Minute Paper (10 min)
+
+::: {.callout-tip}
+## SoTL Activity #1: Minute Paper
+
+Take an index card and respond to both prompts in 3–4 minutes:
+
+1. **"What is the single most important thing you learned in this course so far?"**
+
+<br><br>
+
+2. **"What is the muddiest point — the thing you still don't understand or feel uncertain about?"**
+
+<br><br><br>
+:::
+
+Dr. Molina will collect cards, skim quickly, and address the muddiest points during the mini-lecture.
+
+---
+
+## Part 2: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)
+
+### Recap: Key Philosophical Ideas from Previous Weeks
+
+| Week | Idea | Implication for Your Work |
+|------|------|--------------------------|
+| Week 2 | "All models are wrong, some are useful" (Box) | Your model doesn't need to be *true* — it needs to be *defensible* |
+| Week 2 | Bayesian vs. frequentist frameworks | Know which framework you're working in **and why** |
+| Week 3 | Method–Question–Data Triangle | If these three don't align, your results are unreliable |
+| Week 5 | Split-plot, mixed models vs. ANOVA | Same data can produce multiple analyses; your **design** dictates the right one |
+
+### Central Question
+
+> **"Can you defend your analysis to a skeptical reviewer?"**
+
+### Four Requirements of a Good Defense
+
+1. **Philosophical grounding** — What framework are you working in? What assumptions does it require?
+2. **Data–method alignment** — Does your method match your response variable type and data structure?
+3. **Simplicity vs. complexity** — Is your model as simple as possible while still being honest?
+4. **Transparency** — Could someone reproduce your analysis and understand your reasoning?
+
+### Three Common Pitfalls
+
+::: {.callout-warning}
+## Pitfall 1: Method Chosen by Habit, Not Design
+
+> "I'm using ANOVA because my advisor always uses ANOVA."
+
+Your design may require a GLMM. Habit is not a philosophical defense.
+:::
+
+::: {.callout-warning}
+## Pitfall 2: Philosophical Mismatch
+
+> Using a Bayesian framework but interpreting results with p-values and null hypothesis language.
+
+Know your framework. Bayesian credible intervals and posterior probabilities are **not** the same as p-values and confidence intervals.
+:::
+
+::: {.callout-warning}
+## Pitfall 3: The Triangle Is Broken
+
+> Repeated measures + count data, but using a simple t-test.
+
+Check all three corners of the triangle — question, data type, and method — every time.
+:::
+
+### Decision Flowchart: Choosing Your Method
+
+```
+What is your research question?
+        |
+        |-----> Descriptive / exploratory?
+        |               --> Summary statistics, visualization
+        |
+        |-----> Predictive?
+        |               --> Consider cross-validation, predictive modeling
+        |
+        |-----> Inferential / causal?
+                        |
+                        |--> What is your response variable?
+                        |
+                        |-----> Continuous, normal?
+                        |               --> lm(), lmer() if structure present
+                        |
+                        |-----> Counts (integers >= 0)?
+                        |               --> glm(Poisson) or glmer(Poisson)
+                        |
+                        |-----> Proportions / binary?
+                        |               --> glm(binomial) or glmer(binomial)
+                        |
+                        |--> What is your data structure?
+                                |
+                                |-----> Simple, independent observations?
+                                |               --> lm() or glm()
+                                |
+                                |-----> Blocked / repeated / nested?
+                                                --> lmer() or glmer()
+```
+
+::: {.callout-important}
+## Key Takeaway
+
+**The best analysis is the simplest one that honestly addresses your question given your data structure.**
+
+Complexity must be *earned* by your data and your question — not borrowed from habit or perceived sophistication.
+:::
+
+---
+
+## Part 3: 🤝 Think-Pair-Share — Defend Your Method (20 min)
+
+::: {.callout-tip}
+## SoTL Activity #2: Structured Peer Dialogue
+:::
+
+### Think (5 min)
+
+Fill out a **Method Defense Card** on a notecard or piece of paper:
+
+| Prompt | Your Response |
+|--------|--------------|
+| My research question is: | |
+| My response variable type is: | |
+| My planned analysis is: | |
+| Why it fits (reference the Triangle): | |
+| One alternative I considered and rejected: | |
+
+### Pair (8 min)
+
+Partner with someone from **outside** your immediate research area.
+
+- Take turns presenting your Method Defense Card (~3 min each)
+- Your partner plays the role of **"skeptical reviewer"** and asks one tough question
+
+> Tough question examples: "Why not use a simpler model?" / "How do you know your data meet that assumption?" / "What would a Bayesian say about this?"
+
+### Share (7 min)
+
+3–4 pairs share the toughest question they received. Dr. Molina moderates and connects questions back to the lecture themes.
+
+---
+
+## Part 4: Philosophical Stations — Small Group Rotation (15 min)
+
+Work in groups of 3–4. ⏱ 5 minutes per station, then rotate.
+
+### Station 1 — "The Box Station"
+
+> How is your model "wrong"? Why is it still *useful*?
+
+Write your answer on the station sheet. Be specific — what assumptions does your model violate? Why does it still give you defensible insight?
+
+### Station 2 — "The Inference Station"
+
+> Is your claim **causal**, **predictive**, or **descriptive**?
+> Does your analysis actually support that type of claim?
+
+Write the type of inference you are making and one sentence explaining how your method supports (or fails to support) it.
+
+### Station 3 — "The Reproducibility Station"
+
+> Could someone reproduce your analysis from your GitHub repo **today**?
+
+List two things that are currently missing (data, code, README, environment details, etc.).
+
+**Brief whole-class debrief (2–3 min):** What patterns did you notice across stations?
+
+---
+
+## Part 5: Exit Ticket — Self-Assessment (10 min)
+
+::: {.callout-tip}
+## SoTL Activity #3: Reflective Self-Assessment
+
+Please respond to all prompts honestly. This is for your own growth and for course improvement.
+
+**1. How confident are you right now in defending your analysis choice?**
+
+⬜ 1 — Not at all confident  
+⬜ 2 — Slightly confident  
+⬜ 3 — Moderately confident  
+⬜ 4 — Quite confident  
+⬜ 5 — Very confident
+
+**2. Name one thing you will change or clarify about your project after today:**
+
+<br><br>
+
+**3. Which philosophical idea is most relevant to your project? (check all that apply)**
+
+⬜ "All models are wrong, some are useful"  
+⬜ Bayesian vs. frequentist framework  
+⬜ Method–Question–Data Triangle  
+⬜ Design dictates analysis  
+⬜ Simplicity vs. complexity tradeoff
+
+**4. One remaining question I have:**
+
+<br><br>
+:::
+
+::: {.callout-note}
+## Instructor Note: SoTL Data Collection
+
+- **Minute papers** (Part 1) and **exit tickets** (Part 5) can be analyzed qualitatively (theme coding) or quantitatively (confidence ratings over time).
+- **Method Defense Cards** (Part 3) can be coded for reasoning quality: Does the student reference the triangle? Do they identify a genuine alternative?
+- **Recommendation:** Repeat the confidence rating question (Exit Ticket prompt 1) at Week 10 and Week 14 to track growth across the semester.
+:::
+
+---
+
+## Session A Summary
+
+| SoTL Activity | Purpose | Time |
+|---------------|---------|------|
+| #1 Minute Paper | Assess prior learning; surface muddiest points | 10 min |
+| #2 Structured Peer Dialogue (Think-Pair-Share) | Practice verbal defense; expose reasoning gaps through peer challenge | 20 min |
+| #3 Reflective Self-Assessment (Exit Ticket) | Track confidence; generate actionable next step; collect longitudinal data | 10 min |
