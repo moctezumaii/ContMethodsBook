@@ -10,9 +10,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.37">
 
-  <meta name="author" content="Discussion on Bailey’s lecture">
-  <meta name="dcterms.date" content="2001-04-01">
-  <title>SNR 690 — Contemporary Approaches to Quantitative Methods – Lecture on Angelini et al.&nbsp;(2020)</title>
+  <meta name="author" content="Dr.&nbsp;Alejandro Molina Moctezuma">
+  <meta name="dcterms.date" content="2001-07-01">
+  <title>SNR 690 — Contemporary Approaches to Quantitative Methods – From Philosophy to Practice: Defending Your Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,71 +30,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7fc9b07ac2f6ddc31a5f952aa7d79460.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -197,87 +132,119 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lecture on Angelini et al.&nbsp;(2020)</h1>
+  <h1 class="title">From Philosophy to Practice: Defending Your Analysis</h1>
+  <p class="subtitle">Week 7 — Your Methods, Your Defense</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Discussion on Bailey’s lecture 
+Dr.&nbsp;Alejandro Molina Moctezuma 
 </div>
 </div>
 </div>
 
-  <p class="date">2001-04-01</p>
+  <p class="date">2001-07-01</p>
 </section>
-<section id="the-paper-in-one-sentence" class="slide level2">
-<h2>The Paper in One Sentence</h2>
-<ul>
-<li class="fragment"><p>Seven camelina cultivars × two sowing times × two years</p></li>
-<li class="fragment"><p>Which combination gives the best site-specific results?</p></li>
-</ul>
+<section id="todays-goal" class="slide level2 center">
+<h2>🎯 Today’s Goal</h2>
 <div class="fragment">
-<p><strong>Why it matters statistically:</strong> the experimental design is more complex than it looks.</p>
+<p>We’ve spent weeks talking about <em>philosophy</em> and <em>diagnostics</em> and looking at papers</p>
+</div>
+<div class="fragment">
+<p>This week: I want people to start working a bit on their methods</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p><em>“The best time to defend your methods is before someone else attacks them.”</em></p>
+</blockquote>
+</div>
+<div class="fragment">
+<p><strong>~20–25 minutes</strong></p>
 </div>
 </section>
-<section id="not-a-simple-rcbd" class="slide level2">
-<h2>Not a simple RCBD</h2>
+<section id="where-weve-been" class="slide level2 smaller">
+<h2>🗺️ Where We’ve Been</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Idea</th>
+<th>The One-Liner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>Box (1976)</td>
+<td>“All models are wrong — some are useful”</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Bayesian vs.&nbsp;Frequentist</td>
+<td>You’re working in a framework whether you know it or not</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Method–Question–Data Triangle</td>
+<td>Misalignment = unreliable results</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Split-plot &amp; mixed models</td>
+<td>Your <strong>design</strong> dictates your analysis</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Week 7:</strong> We apply all of this —&gt; to a flawed paper, and to your own work.</p>
+</div>
+</section>
+<section id="a-question-for-you" class="slide level2 center">
+<h2>A Question for You</h2>
+<div class="fragment">
+<blockquote>
+<p><em>“You’re in your dissertation defense.<em> </em>Your committee asks:<em> <strong>‘Why did you use this method?’</strong> </em>What do you say?”</em> Are you ready to answer that question?</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p>Take 20 seconds. Think about it honestly.</p>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If your answer is <em>“because my advisor does it”</em> or <em>“because I Googled it”</em> —&gt; <strong>that’s what this semester is about.</strong></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="this-course" class="slide level2">
+<h2>This course</h2>
 <ul>
-<li class="fragment"><p>All 14 treatments randomized within each block</p></li>
-<li class="fragment"><p>That’s impossible: You can’t sow half a block in October and the other half in March</p></li>
+<li class="fragment">A very important aspect of this course is for you to spend time THINKING and applying these concepts</li>
+<li class="fragment">I am just a facilitator in this course -&gt; not a lecturer as in most courses</li>
 </ul>
 </section>
-<section id="split-plot" class="slide level2">
-<h2>Split plot:</h2>
-<pre><code>BLOCK
-├── WHOLE PLOT: Autumn
-│   └── V1 V2 V3 V4 V5 V6 CELINE
-└── WHOLE PLOT: Spring
-    └── V1 V2 V3 V4 V5 V6 CELINE</code></pre>
-</section>
-<section id="what-are-we-seeing-here" class="slide level2">
-<h2>What are we seeing here?</h2>
-<p><span class="math display">\[
-y =
-\mu
-+ \text{Replicate}
-+ \text{Year}
-+ \text{SowingTime}
-+ \text{WholePlotError}
-+ \text{Cultivar}
-+ \text{Interactions}
-+ \text{SubplotError}
-\]</span></p>
+<section id="why-so-repetitive" class="slide level2">
+<h2>Why so repetitive?</h2>
+<ul>
+<li class="fragment"><p>I am really focusing on some concepts that I think are really important and that I want you to understand deeply</p></li>
+<li class="fragment"><p>They are the foundation for your understanding of concepts from a philosophical perspective</p></li>
+</ul>
 <aside class="notes">
-<p>Conceptual model:</p>
-<p><span class="math display">\[
-y_{ij} = \mu + B_i + T_j + \epsilon_{ij}
-\]</span></p>
-<p>Where:</p>
-<ul>
-<li><p><span class="math inline">\(y_{ij}\)</span> = observed response in block <span class="math inline">\(i\)</span> receiving treatment <span class="math inline">\(j\)</span></p></li>
-<li><p><span class="math inline">\(\mu\)</span> = overall mean response</p></li>
-<li><p><span class="math inline">\(B_i\)</span> = effect of block <span class="math inline">\(i\)</span></p>
-<ul>
-<li>Accounts for background variation we are not primarily interested in</li>
-<li>Examples: lake, field, site, year</li>
-<li>Typically treated as a random effect</li>
-</ul></li>
-<li><p><span class="math inline">\(T_j\)</span> = effect of treatment <span class="math inline">\(j\)</span></p>
-<ul>
-<li>The main effect we want to study</li>
-<li>Treated as a fixed effect</li>
-</ul></li>
-<li><p><span class="math inline">\(\epsilon_{ij}\)</span> = residual error</p>
-<ul>
-<li>Random unexplained variation</li>
-<li>Represents variability among experimental units within blocks</li>
-<li>Assumed: <span class="math display">\[
-\epsilon_{ij} \sim \text{Normal}(0, \sigma^2)
-\]</span></li>
-</ul></li>
-</ul>
-<p>Key idea:</p>
-<p>There is only ONE level of experimental units and ONE source of experimental error.</p>
+<p>If you take a class in the stats department, you will learn a lot of VERY TECHNICAL statistical concepts. Not to apply them If you take one of the AG campus courses, you will learn a lot of technical concepts and how to apply them, but you won’t learn the philosophical concepts that are the foundation for understanding when to apply them and how to defend them. This course is designed to give you the philosophical foundation for understanding when to apply methods and how to defend them. We will touch on technical concepts, but the focus is on the philosophy of science and how it applies to your research.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -290,29 +257,122 @@ y_{ij} = \mu + B_i + T_j + \epsilon_{ij}
           display:block!important;
       }</style></aside>
 </section>
-<section id="two-error-strata" class="slide level2">
-<h2>Two Error Strata</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Stratum</th>
-<th>Tests</th>
-<th>Unit</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Whole-plot error</strong></td>
-<td>Sowing Time</td>
-<td>Whole plot in block</td>
-</tr>
-<tr class="even">
-<td><strong>Subplot error</strong></td>
-<td>Genotype, G×ST</td>
-<td>Subplot in whole plot</td>
-</tr>
-</tbody>
-</table>
+<section id="quik-questions" class="slide level2 smaller scrollable">
+<h2>Quik Questions 🔍</h2>
+<div class="fragment">
+<p><strong>Raise your hand if you can answer:</strong></p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">What does the <strong>Method–Question–Data Triangle</strong> tell us?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li class="fragment">What does Box mean when he says models are “wrong but useful”?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li class="fragment">What is the difference between a <strong>causal</strong> and a <strong>descriptive</strong> claim?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li class="fragment">Why does a split-plot need a <strong>different error term</strong> than a simple ANOVA?</li>
+</ol>
+</div>
+</section>
+<section id="meet-dr.-reyes" class="slide level2" data-background-color="#fff3cd">
+<h2>📄 Meet Dr.&nbsp;Reyes</h2>
+<p><em>You are a peer reviewer for</em> Ecological Applications.</p>
+<div class="fragment">
+<blockquote>
+<p><strong>Title:</strong> <em>Nitrogen addition increases aboveground biomass in semi-arid grasslands</em></p>
+</blockquote>
+</div>
+<div class="fragment">
+<blockquote>
+<p><strong>Methods (excerpt):</strong> We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control, low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested at three time points: May, July, and September.</p>
+<p>We ran a <strong>one-way ANOVA</strong> on the September harvest only, as this represented “peak biomass.” We report p = 0.03 and conclude high nitrogen significantly increased biomass.</p>
+<p>We selected ANOVA because it is the <strong>standard method</strong> in grassland ecology and because our dataset was small. We acknowledge data were <strong>not fully independent</strong> but considered this a <strong>minor concern</strong>.</p>
+</blockquote>
+</div>
+</section>
+<section id="what-did-you-notice" class="slide level2 smaller">
+<h2>🚨 What Did You Notice?</h2>
+<div class="fragment">
+<p>Let’s run Dr.&nbsp;Reyes’s design through our tools:</p>
+</div>
+<div class="fragment">
+<p><strong>The Triangle:</strong></p>
+<ul>
+<li class="fragment"><p>Research question: Does nitrogen addition increase biomass?</p></li>
+<li class="fragment"><p>Data: 12 plots nested within 4 ranches, repeated measures over time</p></li>
+<li class="fragment"><p>Method: One-way ANOVA on September data only</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Box Test:</strong> Is this model wrong in a way that <em>matters</em>?</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>Plots nested within ranches. Repeated measures (3 time points). One-way ANOVA ignores both.<br>
+<strong>Yes. Wrong in a way that matters.</strong></p>
+</blockquote>
+</div>
+</section>
+<section id="three-problems" class="slide level2">
+<h2>🚨 Three Problems</h2>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Problem 1 — Habit, not design</strong></p>
+</div>
+<div class="callout-content">
+<p><em>“Standard method”</em> is not a philosophical defense.<br>
+The design calls for <code>lmer()</code> with ranch as a random effect.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Problem 2 — The Triangle is broken</strong></p>
+</div>
+<div class="callout-content">
+<p>Repeated measures + nested structure + continuous response<br>
+→ requires a <strong>mixed model</strong>, not a one-way ANOVA.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Problem 3 — Dropping data without justification</strong></p>
+</div>
+<div class="callout-content">
+<p>Why only September? What does the May–July trajectory tell us?<br>
+Selective analysis ≠ rigorous inference.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -322,59 +382,208 @@ y_{ij} = \mu + B_i + T_j + \epsilon_{ij}
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>Using a single pooled error gives an <strong>anti-conservative test for ST</strong> and an <strong>over-conservative test for G</strong>. This is one of the most common errors in agronomy papers.</p>
+<p><strong>The fix?</strong> <code>lmer(biomass ~ treatment * time + (1|ranch/plot), data = reyes_data)</code></p>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section id="aov-vs.-lmer-for-split-plots" class="slide level2">
-<h2><code>aov()</code> vs.&nbsp;<code>lmer()</code> for Split-Plots</h2>
-<p><strong>Classical approach — explicit error strata:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">aov</span>(yield <span class="sc">~</span> ST <span class="sc">*</span> G <span class="sc">*</span> Year <span class="sc">+</span> <span class="fu">Error</span>(Block<span class="sc">/</span>ST), <span class="at">data =</span> dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>What <code>lmerTest</code> does:</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">lmer</span>(yield <span class="sc">~</span> G <span class="sc">*</span> ST <span class="sc">*</span> Year <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block<span class="sc">:</span>ST), <span class="at">data =</span> dat)</span>
-<span id="cb3-2"><a></a><span class="fu">anova</span>(model)  <span class="co"># Satterthwaite df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="what-kind-of-inference-was-dr.-reyes-making" class="slide level2 smaller">
+<h2>🧭 What Kind of Inference Was Dr.&nbsp;Reyes Making?</h2>
 <div class="fragment">
-<p>Both are valid. But <code>lmer</code> output labeled as “ANOVA” obscures that this is a <strong>linear mixed model</strong> with approximated denominator df.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 35%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>What you need</th>
+<th>What Dr.&nbsp;Reyes had</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Descriptive</strong></td>
+<td>Representative sample</td>
+<td>✅ (sort of)</td>
+</tr>
+<tr class="even">
+<td><strong>Predictive</strong></td>
+<td>Cross-validation, held-out test</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td><strong>Causal</strong></td>
+<td>Randomization + correct error structure</td>
+<td>⚠️ Treatments assigned to ranches — confounded</td>
+</tr>
+</tbody>
+</table>
 </div>
-</section>
-<section id="the-methodquestiondata-triangle" class="slide level2">
-<h2>The Method–Question–Data Triangle</h2>
-<pre><code>       QUESTION
-   "Best genotype × 
-   sowing time?"
-        /\
-       /  \
- DATA /    \ METHOD
------/------\-------
-Factorial    Split-plot LMM
-blocked      Two error strata
-cont+count   Poisson for counts</code></pre>
 <div class="fragment">
-<p><strong>Alignment?</strong> Mostly yes - but the gap between what was done (LMM) and what was reported (“ANOVA”) is a transparency issue.</p>
+<blockquote>
+<p>Dr.&nbsp;Reyes wrote <em>“significantly increased biomass”</em> -&gt; that’s a causal claim.<br>
+But the design doesn’t fully support it.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>The honest version:</strong> <em>“Biomass was higher in high-N plots (p = 0.03) –&gt; Descriptive”</em></p>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="the-6-key-takeaways" class="slide level2 scrollable">
-<h2>The 6 Key Takeaways</h2>
-<div>
+<section id="the-four-requirements-of-a-good-defense" class="slide level2 smaller scrollable">
+<h2>🔺 The Four Requirements of a Good Defense</h2>
+<div class="fragment">
+<p><strong>Can you answer all four for your own analysis?</strong></p>
+</div>
+<div class="fragment">
 <ol type="1">
-<li class="fragment"><strong>Split-plot</strong> because ST cannot be randomized at subplot level → two error strata</li>
-<li class="fragment"><strong><code>lmer + anova()</code></strong> is a linear mixed model, not classical ANOVA</li>
-<li class="fragment"><strong>Year as fixed</strong> is pragmatic with n=2 but limits generalizability</li>
-<li class="fragment"><strong>G×ST is disordinal</strong> — separate recommendations required</li>
-<li class="fragment"><strong>Poisson for counts</strong> was correct; response type matters</li>
-<li class="fragment"><strong>Data exploration is underreported</strong> — Zuur would want figures</li>
+<li class="fragment"><strong>Philosophical grounding</strong> — What framework are you in? Frequentist? Bayesian? What does that require?</li>
 </ol>
 </div>
+<div class="fragment">
+<ol start="2" type="1">
+<li class="fragment"><strong>Data–method alignment</strong> — Does your method match your response variable type <em>and</em> data structure?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li class="fragment"><strong>Simplicity vs.&nbsp;complexity</strong> — Is your model as simple as possible while still being <em>honest</em>?</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li class="fragment"><strong>Transparency</strong> — Could someone reproduce your analysis from your GitHub repo today?</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>The best analysis is the simplest one that honestly addresses your question given your data structure.</strong></p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="questions" class="slide level2">
-<h2>Questions</h2>
-<ul>
-<li class="fragment"><p>How did the authors control for environmental variation when comparing genotypes across different sowing dates?</p></li>
-<li class="fragment"><p>The paper mentions they used “visual inspection of model residuals was also done to check for model assumptions”</p></li>
-</ul>
+<section id="now-its-your-turn" class="slide level2 center">
+<h2>🔁 Now It’s Your Turn</h2>
+<div class="fragment">
+<p><em>You just played reviewer.</em></p>
+</div>
+<div class="fragment">
+<p><strong>Thursday’s workshop:</strong> You become the author.</p>
+</div>
+<div class="fragment">
+<p>You will fill out a <strong>Method Defense Card</strong>:</p>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My research question</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>My response variable type</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>My planned analysis</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Why it fits (Triangle + framework)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>One thing Dr.&nbsp;Reyes did I might be tempted to do</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>How I’m guarding against it</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-assumptions-traffic-light" class="slide level2 smaller">
+<h2>🟢🟡🔴 The Assumptions Traffic Light</h2>
+<p><em>Coming Thursday — but start thinking now.</em></p>
+<div class="fragment">
+<p>Every model makes assumptions. Most people know this.<br>
+Fewer people have <strong>actually checked</strong> which ones they’ve met.</p>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independence of residuals</td>
+<td>🟢 Checked</td>
+</tr>
+<tr class="even">
+<td>Normality of random effects</td>
+<td>🟡</td>
+</tr>
+<tr class="odd">
+<td>No spatial autocorrelation</td>
+<td>🔴</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>The goal is not all green.</strong><br>
+Red assumptions are <em>honest limitations</em> —&gt; they belong in your Discussion.<br>
+The failure is <strong>not knowing which color you’re at.</strong></p>
+</div>
+</div>
+</div>
 
 
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

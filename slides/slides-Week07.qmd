@@ -1,5 +1,7 @@
 ---
-title: "Reviewing one paper"
+title: "From Philosophy to Practice: Defending Your Analysis"
+subtitle: "Week 7 — Your Methods, Your Defense"
+author: "Dr. Alejandro Molina Moctezuma"
 date: "Week 07"
 format:
   revealjs:
@@ -18,11 +20,290 @@ execute:
   eval: false
 ---
 
-## Recap
-| 1 and 2 | "All models are wrong, some are useful" (Box) | Your model doesn't need to be *true* — it needs to be *defensible* |
-| 2 | Bayesian vs. frequentist: different treatments of uncertainty | You should be able to say *which framework* you're working in and *why* |
-| 3-4 | The Method-Question-Data Triangle | If these three don't align, your results are unreliable |
-| 5 | Split-plot, mixed models vs. ANOVA | The same data can be analyzed multiple ways — the *design* dictates the right one |
+## 🎯 Today's Goal {.center}
+
+. . .
+
+We've spent weeks talking about *philosophy* and *diagnostics* and looking at papers
+
+. . .
+
+This week: I want people to start working a bit on their methods
+
+. . .
+
+> *"The best time to defend your methods is before someone else attacks them."*
+
+. . .
+
+**~20–25 minutes**
+
+---
+
+## 🗺️ Where We've Been {.smaller}
+
+| Week | Idea | The One-Liner |
+|------|------|--------------|
+| 2 | Box (1976) | "All models are wrong — some are useful" |
+| 2 | Bayesian vs. Frequentist | You're working in a framework whether you know it or not |
+| 3 | Method–Question–Data Triangle | Misalignment = unreliable results |
+| 5 | Split-plot & mixed models | Your **design** dictates your analysis |
+
+. . .
+
+**Week 7:** We apply all of this —> to a flawed paper, and to your own work.
+
+---
 
 
-## 
+## A Question for You {.center}
+
+. . .
+
+> *"You're in your dissertation defense.*
+> *Your committee asks:*
+> **'Why did you use this method?'**
+> *What do you say?"*
+> Are you ready to answer that question?
+
+. . .
+
+Take 20 seconds. Think about it honestly.
+
+. . .
+
+::: {.callout-tip}
+If your answer is *"because my advisor does it"* or *"because I Googled it"* —> **that's what this semester is about.**
+:::
+
+---
+
+## This course
+
+- A very important aspect of this course is for you to spend time THINKING and applying these concepts
+- I am just a facilitator in this course -> not a lecturer as in most courses
+
+## Why so repetitive?
+- I am really focusing on some concepts that I think are really important and that I want you to understand deeply
+
+- They are the foundation for your understanding of concepts from a philosophical perspective
+
+::: {.notes}
+If you take a class in the stats department, you will learn a lot of VERY TECHNICAL statistical concepts. Not to apply them
+If you take one of the AG campus courses, you will learn a lot of technical concepts and how to apply them, but you won't learn the philosophical concepts that are the foundation for understanding when to apply them and how to defend them.
+This course is designed to give you the philosophical foundation for understanding when to apply methods and how to defend them. We will touch on technical concepts, but the focus is on the philosophy of science and how it applies to your research.
+:::
+
+## Quik Questions 🔍 {.smaller}
+
+
+. . .
+
+**Raise your hand if you can answer:**
+
+. . .
+
+1. What does the **Method–Question–Data Triangle** tell us?
+
+. . .
+
+2. What does Box mean when he says models are "wrong but useful"?
+
+. . .
+
+3. What is the difference between a **causal** and a **descriptive** claim?
+
+. . .
+
+4. Why does a split-plot need a **different error term** than a simple ANOVA?
+
+. . .
+
+---
+
+## 📄 Meet Dr. Reyes {background-color="#fff3cd"}
+
+*You are a peer reviewer for* Ecological Applications.
+
+. . .
+
+> **Title:** *Nitrogen addition increases aboveground biomass in semi-arid grasslands*
+
+. . .
+
+> **Methods (excerpt):**
+> We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control, low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested at three time points: May, July, and September.
+>
+> We ran a **one-way ANOVA** on the September harvest only, as this represented "peak biomass." We report p = 0.03 and conclude high nitrogen significantly increased biomass.
+>
+> We selected ANOVA because it is the **standard method** in grassland ecology and because our dataset was small. We acknowledge data were **not fully independent** but considered this a **minor concern**.
+
+---
+
+## 🚨 What Did You Notice? {.smaller}
+
+. . .
+
+Let's run Dr. Reyes's design through our tools:
+
+. . .
+
+**The Triangle:**
+
+- Research question: Does nitrogen addition increase biomass?
+
+- Data: 12 plots nested within 4 ranches, repeated measures over time
+
+- Method: One-way ANOVA on September data only
+
+. . .
+
+**Box Test:** Is this model wrong in a way that *matters*?
+
+. . .
+
+> Plots nested within ranches. 
+> Repeated measures (3 time points). 
+> One-way ANOVA ignores both.  
+> **Yes. Wrong in a way that matters.**
+
+---
+
+## 🚨 Three Problems 
+
+. . .
+
+::: {.callout-warning}
+### Problem 1 — Habit, not design
+*"Standard method"* is not a philosophical defense.  
+The design calls for `lmer()` with ranch as a random effect.
+:::
+
+. . .
+
+::: {.callout-warning}
+### Problem 2 — The Triangle is broken
+Repeated measures + nested structure + continuous response  
+→ requires a **mixed model**, not a one-way ANOVA.
+:::
+
+. . .
+
+::: {.callout-warning}
+### Problem 3 — Dropping data without justification
+Why only September? What does the May–July trajectory tell us?  
+Selective analysis ≠ rigorous inference.
+:::
+
+. . .
+
+::: {.callout-important}
+**The fix?** `lmer(biomass ~ treatment * time + (1|ranch/plot), data = reyes_data)`
+:::
+
+---
+
+## 🧭 What Kind of Inference Was Dr. Reyes Making? {.smaller}
+
+. . .
+
+| Type | What you need | What Dr. Reyes had |
+|------|--------------|-------------------|
+| **Descriptive** | Representative sample | ✅ (sort of) |
+| **Predictive** | Cross-validation, held-out test | ❌ |
+| **Causal** | Randomization + correct error structure | ⚠️ Treatments assigned to ranches — confounded |
+
+. . .
+
+> Dr. Reyes wrote *"significantly increased biomass"* -> that's a causal claim.  
+> But the design doesn't fully support it.
+
+. . .
+
+::: {.callout-tip}
+**The honest version:** *"Biomass was higher in high-N plots (p = 0.03) --> Descriptive"*
+:::
+
+---
+
+## 🔺 The Four Requirements of a Good Defense {.smaller}
+
+. . .
+
+**Can you answer all four for your own analysis?**
+
+. . .
+
+1. **Philosophical grounding** — What framework are you in? Frequentist? Bayesian? What does that require?
+
+. . .
+
+2. **Data–method alignment** — Does your method match your response variable type *and* data structure?
+
+. . .
+
+3. **Simplicity vs. complexity** — Is your model as simple as possible while still being *honest*?
+
+. . .
+
+4. **Transparency** — Could someone reproduce your analysis from your GitHub repo today?
+
+. . .
+
+::: {.callout-important}
+**The best analysis is the simplest one that honestly addresses your question given your data structure.**
+:::
+
+---
+
+## 🔁 Now It's Your Turn {.center}
+
+. . .
+
+*You just played reviewer.*
+
+. . .
+
+**Thursday's workshop:** You become the author.
+
+. . .
+
+You will fill out a **Method Defense Card**:
+
+. . .
+
+| Prompt | Your Answer |
+|--------|------------|
+| My research question | |
+| My response variable type | |
+| My planned analysis | |
+| Why it fits (Triangle + framework) | |
+| One thing Dr. Reyes did I might be tempted to do | |
+| How I'm guarding against it | |
+
+---
+
+## 🟢🟡🔴 The Assumptions Traffic Light {.smaller}
+
+*Coming Thursday — but start thinking now.*
+
+. . .
+
+Every model makes assumptions. Most people know this.  
+Fewer people have **actually checked** which ones they've met.
+
+. . .
+
+| Assumption | Status |
+|------------|--------|
+| Independence of residuals | 🟢 Checked |
+| Normality of random effects | 🟡 |
+| No spatial autocorrelation | 🔴  |
+
+. . .
+
+::: {.callout-tip}
+**The goal is not all green.**  
+Red assumptions are *honest limitations* —> they belong in your Discussion.  
+The failure is **not knowing which color you're at.**
+:::

@@ -203,67 +203,95 @@
     "text": "Week: XX\nSession A: Paper Discussion — paper to be assigned by week lead\nSession B: Methods workshop — hands-on coding\nObjectives - Short list of objectives for the week.\nReading / Paper - Citation: Title, authors, year. - Key method(s) used in the paper.\nMethod Deep-Dive - Math / equations: short derivation or key formulas. - Assumptions and diagnostics.\nCode / Implementation (R) - R script or R Markdown chunk for implementing the method or a minimal example:\n\n1 Example placeholder\nlibrary(tidyverse) # put example code here"
   },
   {
-    "objectID": "slides/slides-Week07.html#the-paper-in-one-sentence",
-    "href": "slides/slides-Week07.html#the-paper-in-one-sentence",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "The Paper in One Sentence",
-    "text": "The Paper in One Sentence\n\nSeven camelina cultivars × two sowing times × two years\nWhich combination gives the best site-specific results?\n\n\nWhy it matters statistically: the experimental design is more complex than it looks."
+    "objectID": "slides/slides-Week07.html#todays-goal",
+    "href": "slides/slides-Week07.html#todays-goal",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🎯 Today’s Goal",
+    "text": "🎯 Today’s Goal\n\nWe’ve spent weeks talking about philosophy and diagnostics and looking at papers\n\n\nThis week: I want people to start working a bit on their methods\n\n\n\n“The best time to defend your methods is before someone else attacks them.”\n\n\n\n~20–25 minutes"
   },
   {
-    "objectID": "slides/slides-Week07.html#not-a-simple-rcbd",
-    "href": "slides/slides-Week07.html#not-a-simple-rcbd",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "Not a simple RCBD",
-    "text": "Not a simple RCBD\n\nAll 14 treatments randomized within each block\nThat’s impossible: You can’t sow half a block in October and the other half in March"
+    "objectID": "slides/slides-Week07.html#where-weve-been",
+    "href": "slides/slides-Week07.html#where-weve-been",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🗺️ Where We’ve Been",
+    "text": "🗺️ Where We’ve Been\n\n\n\n\n\n\n\n\nWeek\nIdea\nThe One-Liner\n\n\n\n\n2\nBox (1976)\n“All models are wrong — some are useful”\n\n\n2\nBayesian vs. Frequentist\nYou’re working in a framework whether you know it or not\n\n\n3\nMethod–Question–Data Triangle\nMisalignment = unreliable results\n\n\n5\nSplit-plot & mixed models\nYour design dictates your analysis\n\n\n\n\nWeek 7: We apply all of this —&gt; to a flawed paper, and to your own work."
   },
   {
-    "objectID": "slides/slides-Week07.html#split-plot",
-    "href": "slides/slides-Week07.html#split-plot",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "Split plot:",
-    "text": "Split plot:\nBLOCK\n├── WHOLE PLOT: Autumn\n│   └── V1 V2 V3 V4 V5 V6 CELINE\n└── WHOLE PLOT: Spring\n    └── V1 V2 V3 V4 V5 V6 CELINE"
+    "objectID": "slides/slides-Week07.html#a-question-for-you",
+    "href": "slides/slides-Week07.html#a-question-for-you",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "A Question for You",
+    "text": "A Question for You\n\n\n“You’re in your dissertation defense. Your committee asks: ‘Why did you use this method?’ What do you say?” Are you ready to answer that question?\n\n\n\nTake 20 seconds. Think about it honestly.\n\n\n\n\n\n\n\n\nTip\n\n\nIf your answer is “because my advisor does it” or “because I Googled it” —&gt; that’s what this semester is about."
   },
   {
-    "objectID": "slides/slides-Week07.html#what-are-we-seeing-here",
-    "href": "slides/slides-Week07.html#what-are-we-seeing-here",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "What are we seeing here?",
-    "text": "What are we seeing here?\n\\[\ny =\n\\mu\n+ \\text{Replicate}\n+ \\text{Year}\n+ \\text{SowingTime}\n+ \\text{WholePlotError}\n+ \\text{Cultivar}\n+ \\text{Interactions}\n+ \\text{SubplotError}\n\\]\n\nConceptual model:\n\\[\ny_{ij} = \\mu + B_i + T_j + \\epsilon_{ij}\n\\]\nWhere:\n\n\\(y_{ij}\\) = observed response in block \\(i\\) receiving treatment \\(j\\)\n\\(\\mu\\) = overall mean response\n\\(B_i\\) = effect of block \\(i\\)\n\nAccounts for background variation we are not primarily interested in\nExamples: lake, field, site, year\nTypically treated as a random effect\n\n\\(T_j\\) = effect of treatment \\(j\\)\n\nThe main effect we want to study\nTreated as a fixed effect\n\n\\(\\epsilon_{ij}\\) = residual error\n\nRandom unexplained variation\nRepresents variability among experimental units within blocks\nAssumed: \\[\n\\epsilon_{ij} \\sim \\text{Normal}(0, \\sigma^2)\n\\]\n\n\nKey idea:\nThere is only ONE level of experimental units and ONE source of experimental error."
+    "objectID": "slides/slides-Week07.html#this-course",
+    "href": "slides/slides-Week07.html#this-course",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "This course",
+    "text": "This course\n\nA very important aspect of this course is for you to spend time THINKING and applying these concepts\nI am just a facilitator in this course -&gt; not a lecturer as in most courses"
   },
   {
-    "objectID": "slides/slides-Week07.html#two-error-strata",
-    "href": "slides/slides-Week07.html#two-error-strata",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "Two Error Strata",
-    "text": "Two Error Strata\n\n\n\nStratum\nTests\nUnit\n\n\n\n\nWhole-plot error\nSowing Time\nWhole plot in block\n\n\nSubplot error\nGenotype, G×ST\nSubplot in whole plot\n\n\n\n\n\n\n\n\n\nImportant\n\n\nUsing a single pooled error gives an anti-conservative test for ST and an over-conservative test for G. This is one of the most common errors in agronomy papers."
+    "objectID": "slides/slides-Week07.html#why-so-repetitive",
+    "href": "slides/slides-Week07.html#why-so-repetitive",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "Why so repetitive?",
+    "text": "Why so repetitive?\n\nI am really focusing on some concepts that I think are really important and that I want you to understand deeply\nThey are the foundation for your understanding of concepts from a philosophical perspective\n\n\nIf you take a class in the stats department, you will learn a lot of VERY TECHNICAL statistical concepts. Not to apply them If you take one of the AG campus courses, you will learn a lot of technical concepts and how to apply them, but you won’t learn the philosophical concepts that are the foundation for understanding when to apply them and how to defend them. This course is designed to give you the philosophical foundation for understanding when to apply methods and how to defend them. We will touch on technical concepts, but the focus is on the philosophy of science and how it applies to your research."
   },
   {
-    "objectID": "slides/slides-Week07.html#aov-vs.-lmer-for-split-plots",
-    "href": "slides/slides-Week07.html#aov-vs.-lmer-for-split-plots",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "aov() vs. lmer() for Split-Plots",
-    "text": "aov() vs. lmer() for Split-Plots\nClassical approach — explicit error strata:\naov(yield ~ ST * G * Year + Error(Block/ST), data = dat)\nWhat lmerTest does:\nlmer(yield ~ G * ST * Year + (1|Block) + (1|Block:ST), data = dat)\nanova(model)  # Satterthwaite df\n\nBoth are valid. But lmer output labeled as “ANOVA” obscures that this is a linear mixed model with approximated denominator df."
+    "objectID": "slides/slides-Week07.html#quik-questions",
+    "href": "slides/slides-Week07.html#quik-questions",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "Quik Questions 🔍",
+    "text": "Quik Questions 🔍\n\nRaise your hand if you can answer:\n\n\n\nWhat does the Method–Question–Data Triangle tell us?\n\n\n\n\nWhat does Box mean when he says models are “wrong but useful”?\n\n\n\n\nWhat is the difference between a causal and a descriptive claim?\n\n\n\n\nWhy does a split-plot need a different error term than a simple ANOVA?"
   },
   {
-    "objectID": "slides/slides-Week07.html#the-methodquestiondata-triangle",
-    "href": "slides/slides-Week07.html#the-methodquestiondata-triangle",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "The Method–Question–Data Triangle",
-    "text": "The Method–Question–Data Triangle\n       QUESTION\n   \"Best genotype × \n   sowing time?\"\n        /\\\n       /  \\\n DATA /    \\ METHOD\n-----/------\\-------\nFactorial    Split-plot LMM\nblocked      Two error strata\ncont+count   Poisson for counts\n\nAlignment? Mostly yes - but the gap between what was done (LMM) and what was reported (“ANOVA”) is a transparency issue."
+    "objectID": "slides/slides-Week07.html#meet-dr.-reyes",
+    "href": "slides/slides-Week07.html#meet-dr.-reyes",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "📄 Meet Dr. Reyes",
+    "text": "📄 Meet Dr. Reyes\nYou are a peer reviewer for Ecological Applications.\n\n\nTitle: Nitrogen addition increases aboveground biomass in semi-arid grasslands\n\n\n\n\nMethods (excerpt): We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control, low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested at three time points: May, July, and September.\nWe ran a one-way ANOVA on the September harvest only, as this represented “peak biomass.” We report p = 0.03 and conclude high nitrogen significantly increased biomass.\nWe selected ANOVA because it is the standard method in grassland ecology and because our dataset was small. We acknowledge data were not fully independent but considered this a minor concern."
   },
   {
-    "objectID": "slides/slides-Week07.html#the-6-key-takeaways",
-    "href": "slides/slides-Week07.html#the-6-key-takeaways",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "The 6 Key Takeaways",
-    "text": "The 6 Key Takeaways\n\n\nSplit-plot because ST cannot be randomized at subplot level → two error strata\nlmer + anova() is a linear mixed model, not classical ANOVA\nYear as fixed is pragmatic with n=2 but limits generalizability\nG×ST is disordinal — separate recommendations required\nPoisson for counts was correct; response type matters\nData exploration is underreported — Zuur would want figures"
+    "objectID": "slides/slides-Week07.html#what-did-you-notice",
+    "href": "slides/slides-Week07.html#what-did-you-notice",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🚨 What Did You Notice?",
+    "text": "🚨 What Did You Notice?\n\nLet’s run Dr. Reyes’s design through our tools:\n\n\nThe Triangle:\n\nResearch question: Does nitrogen addition increase biomass?\nData: 12 plots nested within 4 ranches, repeated measures over time\nMethod: One-way ANOVA on September data only\n\n\n\nBox Test: Is this model wrong in a way that matters?\n\n\n\nPlots nested within ranches. Repeated measures (3 time points). One-way ANOVA ignores both.\nYes. Wrong in a way that matters."
   },
   {
-    "objectID": "slides/slides-Week07.html#questions",
-    "href": "slides/slides-Week07.html#questions",
-    "title": "Lecture on Angelini et al. (2020)",
-    "section": "Questions",
-    "text": "Questions\n\nHow did the authors control for environmental variation when comparing genotypes across different sowing dates?\nThe paper mentions they used “visual inspection of model residuals was also done to check for model assumptions”"
+    "objectID": "slides/slides-Week07.html#three-problems",
+    "href": "slides/slides-Week07.html#three-problems",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🚨 Three Problems",
+    "text": "🚨 Three Problems\n\n\n\n\n\n\n\nProblem 1 — Habit, not design\n\n\n“Standard method” is not a philosophical defense.\nThe design calls for lmer() with ranch as a random effect.\n\n\n\n\n\n\n\n\n\n\n\nProblem 2 — The Triangle is broken\n\n\nRepeated measures + nested structure + continuous response\n→ requires a mixed model, not a one-way ANOVA.\n\n\n\n\n\n\n\n\n\n\n\nProblem 3 — Dropping data without justification\n\n\nWhy only September? What does the May–July trajectory tell us?\nSelective analysis ≠ rigorous inference.\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThe fix? lmer(biomass ~ treatment * time + (1|ranch/plot), data = reyes_data)"
+  },
+  {
+    "objectID": "slides/slides-Week07.html#what-kind-of-inference-was-dr.-reyes-making",
+    "href": "slides/slides-Week07.html#what-kind-of-inference-was-dr.-reyes-making",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🧭 What Kind of Inference Was Dr. Reyes Making?",
+    "text": "🧭 What Kind of Inference Was Dr. Reyes Making?\n\n\n\n\n\n\n\n\n\nType\nWhat you need\nWhat Dr. Reyes had\n\n\n\n\nDescriptive\nRepresentative sample\n✅ (sort of)\n\n\nPredictive\nCross-validation, held-out test\n❌\n\n\nCausal\nRandomization + correct error structure\n⚠️ Treatments assigned to ranches — confounded\n\n\n\n\n\n\nDr. Reyes wrote “significantly increased biomass” -&gt; that’s a causal claim.\nBut the design doesn’t fully support it.\n\n\n\n\n\n\n\n\n\nTip\n\n\nThe honest version: “Biomass was higher in high-N plots (p = 0.03) –&gt; Descriptive”"
+  },
+  {
+    "objectID": "slides/slides-Week07.html#the-four-requirements-of-a-good-defense",
+    "href": "slides/slides-Week07.html#the-four-requirements-of-a-good-defense",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🔺 The Four Requirements of a Good Defense",
+    "text": "🔺 The Four Requirements of a Good Defense\n\nCan you answer all four for your own analysis?\n\n\n\nPhilosophical grounding — What framework are you in? Frequentist? Bayesian? What does that require?\n\n\n\n\nData–method alignment — Does your method match your response variable type and data structure?\n\n\n\n\nSimplicity vs. complexity — Is your model as simple as possible while still being honest?\n\n\n\n\nTransparency — Could someone reproduce your analysis from your GitHub repo today?\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThe best analysis is the simplest one that honestly addresses your question given your data structure."
+  },
+  {
+    "objectID": "slides/slides-Week07.html#now-its-your-turn",
+    "href": "slides/slides-Week07.html#now-its-your-turn",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🔁 Now It’s Your Turn",
+    "text": "🔁 Now It’s Your Turn\n\nYou just played reviewer.\n\n\nThursday’s workshop: You become the author.\n\n\nYou will fill out a Method Defense Card:\n\n\n\n\n\nPrompt\nYour Answer\n\n\n\n\nMy research question\n\n\n\nMy response variable type\n\n\n\nMy planned analysis\n\n\n\nWhy it fits (Triangle + framework)\n\n\n\nOne thing Dr. Reyes did I might be tempted to do\n\n\n\nHow I’m guarding against it"
+  },
+  {
+    "objectID": "slides/slides-Week07.html#the-assumptions-traffic-light",
+    "href": "slides/slides-Week07.html#the-assumptions-traffic-light",
+    "title": "From Philosophy to Practice: Defending Your Analysis",
+    "section": "🟢🟡🔴 The Assumptions Traffic Light",
+    "text": "🟢🟡🔴 The Assumptions Traffic Light\nComing Thursday — but start thinking now.\n\nEvery model makes assumptions. Most people know this.\nFewer people have actually checked which ones they’ve met.\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\nIndependence of residuals\n🟢 Checked\n\n\nNormality of random effects\n🟡\n\n\nNo spatial autocorrelation\n🔴\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nThe goal is not all green.\nRed assumptions are honest limitations —&gt; they belong in your Discussion.\nThe failure is not knowing which color you’re at."
   },
   {
     "objectID": "slides/slides-Week04.html#welcome-to-week-4",
@@ -721,50 +749,50 @@
     "text": "5 Example Project Template\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career."
   },
   {
-    "objectID": "materials/week08-lecture-notes.html",
-    "href": "materials/week08-lecture-notes.html",
+    "objectID": "materials/week07-lecture-notes.html",
+    "href": "materials/week07-lecture-notes.html",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "",
     "text": "Instructor Use Only\n\n\n\nThese are structured talking points for the ~20-minute mini-lecture in Session A, Part 2. They are not distributed to students in advance."
   },
   {
-    "objectID": "materials/week08-lecture-notes.html#opening-hook-2-min",
-    "href": "materials/week08-lecture-notes.html#opening-hook-2-min",
+    "objectID": "materials/week07-lecture-notes.html#opening-hook-2-min",
+    "href": "materials/week07-lecture-notes.html#opening-hook-2-min",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "1.1 Opening Hook (2 min)",
     "text": "1.1 Opening Hook (2 min)\n\n“Imagine you’re in your dissertation defense. Your committee asks: ‘Why did you use this method?’ What do you say?”\n\nPause. Let the question land.\n\n“If your answer is ‘because my advisor does it that way’ or ‘because I Googled it and it seemed right’ — that’s a problem. Not because those methods are wrong, but because you can’t defend them. Today we’re going to practice defending them.”\n\nTransition: “Let’s start by revisiting something from Week 2 that sounds abstract but is deeply practical.”"
   },
   {
-    "objectID": "materials/week08-lecture-notes.html#section-1-revisiting-box-5-min",
-    "href": "materials/week08-lecture-notes.html#section-1-revisiting-box-5-min",
+    "objectID": "materials/week07-lecture-notes.html#section-1-revisiting-box-5-min",
+    "href": "materials/week07-lecture-notes.html#section-1-revisiting-box-5-min",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "1.2 Section 1: Revisiting Box (5 min)",
     "text": "1.2 Section 1: Revisiting Box (5 min)\nCore idea: “All models are wrong, some are useful.” — George Box\nThis is not a cop-out or a disclaimer. It is a design principle.\nWhat it means in practice:\n\nYour model doesn’t need to perfectly describe reality. It needs to be wrong in a way that doesn’t matter for your specific question.\n\nTwo examples of being wrong in a way that DOES matter:\n\n\n\n\n\n\nExample 1: Linear model on count data\n\n\n\nlm(insect_count ~ treatment)\nCount data cannot be negative. A linear model can predict negative counts. When your counts are small (0–10), this matters — your inference is compromised.\nWrong in a way that matters.\n\n\n\n\n\n\n\n\nExample 2: RCBD ANOVA on a split-plot design\n\n\n\naov(yield ~ variety + block) — ignoring that sowing time is a whole-plot factor.\nYou are using the wrong error term for the whole-plot factor. Your F-ratio for sowing time is anticonservative (too many false positives).\nWrong in a way that matters. (See Week 5.)\n\n\nActionable version for students:\n\nAsk yourself: “In what way is my model wrong? Does that wrongness affect my conclusions?”\n\nIf you can answer that honestly, you are doing philosophy."
   },
   {
-    "objectID": "materials/week08-lecture-notes.html#section-2-what-kind-of-inference-5-min",
-    "href": "materials/week08-lecture-notes.html#section-2-what-kind-of-inference-5-min",
+    "objectID": "materials/week07-lecture-notes.html#section-2-what-kind-of-inference-5-min",
+    "href": "materials/week07-lecture-notes.html#section-2-what-kind-of-inference-5-min",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "1.3 Section 2: What Kind of Inference? (5 min)",
     "text": "1.3 Section 2: What Kind of Inference? (5 min)\nCore idea: Your method must match the type of claim you want to make.\n\n\n\n\n\n\n\n\n\nType\nWhat you’re doing\nWhat you need\nExample\n\n\n\n\nDescriptive\nSummarizing what is in your data\nRepresentative sample, appropriate summary stats\n“Mean wheat yield was 4.2 Mg/ha across all sites”\n\n\nPredictive\nForecasting new observations\nCross-validation, held-out test set\n“A model trained on 2020–2022 predicts 2023 yield within 0.3 Mg/ha”\n\n\nCausal\nClaiming X causes Y\nRandomization or strong causal design + assumptions\n“Nitrogen application increased yield by 0.8 Mg/ha” (from RCT)\n\n\n\n\n\n\n\n\n\nWarning: Observational Data + Regression ≠ Causal\n\n\n\nThis is one of the most common errors in applied agricultural and ecological research.\n\n“We found that farms with higher biodiversity had lower pest pressure (β = −0.42, p &lt; 0.001). Therefore, increasing biodiversity reduces pests.”\n\nThis is a causal claim from an observational study. The regression tells you there is an association. It does not tell you why.\nYou need a randomized experiment, a natural experiment, or explicit causal modeling (DAGs, instrumental variables) to make causal claims.\n\n\nTransition: “So: what kind of inference are you making? Point at your Methods section mentally. Does your method actually support that type of claim?”"
   },
   {
-    "objectID": "materials/week08-lecture-notes.html#section-3-the-triangle-in-practice-5-min",
-    "href": "materials/week08-lecture-notes.html#section-3-the-triangle-in-practice-5-min",
+    "objectID": "materials/week07-lecture-notes.html#section-3-the-triangle-in-practice-5-min",
+    "href": "materials/week07-lecture-notes.html#section-3-the-triangle-in-practice-5-min",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "1.4 Section 3: The Triangle in Practice (5 min)",
     "text": "1.4 Section 3: The Triangle in Practice (5 min)\nCore idea: Question + Data + Method must all align. (Week 3 recap, with new examples.)\nThree concrete examples from ag / natural resources:\n\n\n\n\n\n\nGood Alignment: Nitrogen Rate × Year on Wheat Yield\n\n\n\n\nQuestion: Does nitrogen rate affect wheat yield, and does this vary by year?\nData: Continuous yield (kg/ha); blocked RCT; two years; plots within blocks\nMethod: lmer(yield ~ N_rate * Year + (1|Block), data = dat)\nTriangle: ✅ Continuous response → lmer; blocked design → random block; factorial treatment → interaction term\n\nThis is defensible.\n\n\n\n\n\n\n\n\nCommon Mistake: Bird Richness Counts with Repeated Measures → aov()\n\n\n\n\nQuestion: Is bird species richness declining over years across urban parks?\nData: Integer counts (0–47); 8 parks; 6 visits/year; 5 years; counts are non-normal\nMethod used: aov(richness ~ year)\nTriangle: ❌ Count data → Poisson, not Gaussian; repeated measures → random effects needed; pseudoreplication ignored\n\nShould be: glmer(richness ~ year + (1|park), family = poisson, data = dat)\n\n\n\n\n\n\n\n\nOvercomplicated: Soil pH, 2 Groups, 10 Samples → Bayesian Hierarchical Model\n\n\n\n\nQuestion: Does tillage treatment affect soil pH?\nData: 10 samples per treatment (n = 20 total); continuous pH; no nesting or grouping structure\nMethod used: Full Bayesian hierarchical model with weakly informative priors and MCMC\nTriangle: ⚠️ A t-test (or simple Bayesian two-sample comparison) is sufficient. The added complexity provides no additional insight and makes your methods section impenetrable.\n\nComplexity must be earned by your data, not borrowed from methodology papers."
   },
   {
-    "objectID": "materials/week08-lecture-notes.html#section-4-tying-it-together-3-min",
-    "href": "materials/week08-lecture-notes.html#section-4-tying-it-together-3-min",
+    "objectID": "materials/week07-lecture-notes.html#section-4-tying-it-together-3-min",
+    "href": "materials/week07-lecture-notes.html#section-4-tying-it-together-3-min",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "1.5 Section 4: Tying It Together (3 min)",
     "text": "1.5 Section 4: Tying It Together (3 min)\nCore message:\n\n“Your methods section is not just a technical description — it is a philosophical argument.”\n\nWhen a reviewer reads your methods, they are asking:\n\nDid you know what kind of claim you were making?\nDid you choose a method that is honest about what your data can support?\nDid you avoid being either naively simple or gratuitously complex?\n\nTransition to Think-Pair-Share:\n\n“Now you’re going to make that argument — out loud, to a peer who will push back. Take out a notecard.”"
   },
   {
-    "objectID": "materials/week08-lecture-notes.html#quick-reference-summary",
-    "href": "materials/week08-lecture-notes.html#quick-reference-summary",
+    "objectID": "materials/week07-lecture-notes.html#quick-reference-summary",
+    "href": "materials/week07-lecture-notes.html#quick-reference-summary",
     "title": "Week 08 — Lecture Notes: The Philosophy Behind Your Analysis",
     "section": "1.6 Quick Reference Summary",
     "text": "1.6 Quick Reference Summary\n\n\n\n\n\n\n\n\nSection\nCore Message\nTime\n\n\n\n\nOpening Hook\n“Can you defend your method?”\n2 min\n\n\nSection 1: Box\nWrong in a way that matters vs. doesn’t\n5 min\n\n\nSection 2: Inference Type\nDescriptive / Predictive / Causal; observational ≠ causal\n5 min\n\n\nSection 3: Triangle in Practice\nThree concrete ag/NR examples\n5 min\n\n\nSection 4: Tying Together\nMethods section = philosophical argument\n3 min\n\n\nTotal\n\n~20 min"
@@ -1502,14 +1530,14 @@
     "href": "weeks/week07.html#part-0-assignment-check-5-min",
     "title": "Week 07 - Your analysis",
     "section": "2.1 ⚡ Part 0: Assignment Check (5 min)",
-    "text": "2.1 ⚡ Part 0: Assignment Check (5 min)\n\n\n\n\n\n\nQuick Check-In — Your Thursday Actionable Item\n\n\n\nNo discussion yet — just a private 2-minute reflection on the index card already on your desk.\nThink back to the one actionable item you committed to working on by Thursday.\n\n\n\n\n\n\n\nPrompt\nYour Response\n\n\n\n\nMy original actionable item was:\n\n\n\nCurrent status (circle):\nOn track / / / / Stuck / / / / Needs revision / / / / Not started\n\n\nIf revising: what’s the adjusted version?\n\n\n\nOne thing I need to do in the next 48 hrs (nothing is an option):"
+    "text": "2.1 ⚡ Part 0: Assignment Check (5 min)\n\n\n\n\n\n\nQuick Check-In — Your Thursday Actionable Item\n\n\n\n3-5 minutes\nThink back to the one actionable item you committed to working on by Thursday.\n\n\n\n\n\n\n\nPrompt\nYour Response\n\n\n\n\nMy original actionable item was:\n\n\n\nCurrent status (circle):\nOn track   Stuck   Needs revision   Not started\n\n\nIf revising: what’s the adjusted version?\n\n\n\nOne thing I need to do in the next 48 hrs (“do nothing” is an option):"
   },
   {
-    "objectID": "weeks/week07.html#part-1-opening-pulse-check-minute-paper-10-min",
-    "href": "weeks/week07.html#part-1-opening-pulse-check-minute-paper-10-min",
+    "objectID": "weeks/week07.html#part-1-opening.-pulse-check-minute-paper-10-min",
+    "href": "weeks/week07.html#part-1-opening.-pulse-check-minute-paper-10-min",
     "title": "Week 07 - Your analysis",
-    "section": "2.2 Part 1: Opening — Pulse Check & Minute Paper (10 min)",
-    "text": "2.2 Part 1: Opening — Pulse Check & Minute Paper (10 min)\n\n\n\n\n\n\nSoTL Activity #1: Minute Paper\n\n\n\nTake an index card and respond to both prompts in 3–4 minutes:\n\n“What is the single most important thing you learned in this course so far?”\n\n\n\n“What is the thing you want to talk about in a future class? What topic or question should we cover?”"
+    "section": "2.2 Part 1: Opening. Pulse Check & Minute Paper (10 min)",
+    "text": "2.2 Part 1: Opening. Pulse Check & Minute Paper (10 min)\n\n\n\n\n\n\nSoTL Activity #1: Minute Paper\n\n\n\nRespond to both questions in 3–4 minutes:\n\n“What is the single most important thing you learned in this course so far?”\n\n\n\n“What is the thing you want to talk about in a future class? What topic or question should we cover?”"
   },
   {
     "objectID": "weeks/week07.html#part-2-the-case-dr.-reyess-grassland-study-20-min",
@@ -1519,25 +1547,25 @@
     "text": "2.3 Part 2: The Case — “Dr. Reyes’s Grassland Study” (20 min)\n\n2.3.1 Setup (3 min)\n\nYou are a peer reviewer for the journal Ecological Applications. You’ve just received the following methods section. Your job: find everything that’s wrong — and explain why it matters.\n\n\n\n\n\n\n\n\n📄 The Manuscript Excerpt — Read Carefully\n\n\n\nTitle: Nitrogen addition increases aboveground biomass in semi-arid grasslands\nMethods (excerpt):\n\nWe established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control (0 kg N/ha), low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested from each plot at three time points: May, July, and September of the same year.\nTo assess treatment effects, we calculated mean biomass per treatment per time point and ran a one-way ANOVA (treatment as the fixed effect) on the September harvest only, as this represented “peak biomass.” We report p-values and conclude that high nitrogen significantly increased biomass (p = 0.03). All plots were located within 5 km of one another on each ranch.\nWe selected ANOVA because it is the standard method in grassland ecology and because our dataset was small. We acknowledge that data were not fully independent but considered this a minor concern.\n\n\n\nIndividual choice of reject, revisions or accept."
   },
   {
-    "objectID": "weeks/week07.html#part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min",
-    "href": "weeks/week07.html#part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min",
-    "title": "Week 07 - Your analysis",
-    "section": "2.4 Part 3: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)",
-    "text": "2.4 Part 3: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)\n\n2.4.1 Recap: Key Philosophical Ideas from Previous Weeks\n\n\n\n\n\n\n\n\nWeek\nIdea\nImplication for Your Work\n\n\n\n\nWeek 2\n“All models are wrong, some are useful” (Box)\nYour model doesn’t need to be true — it needs to be defensible\n\n\nWeek 2\nBayesian vs. frequentist frameworks\nKnow which framework you’re working in and why\n\n\nWeek 3\nMethod–Question–Data Triangle\nIf these three don’t align, your results are unreliable\n\n\nWeek 5\nSplit-plot, mixed models vs. ANOVA\nSame data can produce multiple analyses; your design dictates the right one\n\n\n\nDiscuss the paper"
-  },
-  {
     "objectID": "weeks/week07.html#part-3-case-diagnosis-small-group-work-20-min",
     "href": "weeks/week07.html#part-3-case-diagnosis-small-group-work-20-min",
     "title": "Week 07 - Your analysis",
-    "section": "2.5 Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)",
-    "text": "2.5 Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)\nWork in groups of 3–4. Each group gets one diagnostic role you are responsible for that angle, but your findings feed the whole class.\n\n2.5.1 Role Assignments\n\n\n\n\n\n\n\nRole\nYour Diagnostic Focus\n\n\n\n\n🔺 Triangle Auditors\nDoes the method match the question, data type, and structure? What would the correct model be?\n\n\n🧭 Framework Detectives\nWhat philosophical framework is Dr. Reyes implicitly using? Where does it break down? What would a Bayesian alternative look like?\n\n\n✂️ Complexity Judges\nWas dropping July and May data defensible? What is lost? Is the model too simple — or could it have been simpler in a different direction?\n\n\n🔁 Reproducibility Auditors\nWhat would you need to reproduce this analysis? What is missing? List specific items.\n\n\n\n\n\n2.5.2 Group Task (12 min)\n\nRead the excerpt again as a group\nPrepare a 2-minute verbal finding — one clear diagnosis + one concrete fix\nAssign a spokesperson\n\n\n\n2.5.3 Whole-Class Report-Out (8 min)\nEach group presents. Dr. Molina synthesizes, connects to student discussion interests from the minute papers where relevant, and links findings back to the Triangle, Box, and framework ideas.\n\n\n\n\n\n\nInstructor Note: Facilitation Moves\n\n\n\n\nPush Triangle Auditors to name the actual R function, not just “a better model”\nAsk Framework Detectives: “If Dr. Reyes had been a Bayesian, where would the analysis have looked different first?”\nAsk Complexity Judges: “Is there a version of this that is simpler and more honest at the same time?”\nAsk Reproducibility Auditors to list what they’d email Dr. Reyes to ask for before reviewing further"
+    "section": "2.4 Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)",
+    "text": "2.4 Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)\nWork in groups of 3–4. Each group gets one diagnostic role you are responsible for that angle, but your findings feed the whole class.\n\n2.4.1 Role Assignments\n\n\n\n\n\n\n\nRole\nYour Diagnostic Focus\n\n\n\n\n🔺 Triangle Auditors\nDoes the method match the question, data type, and structure? What would the correct model be?\n\n\n🧭 Framework Detectives\nWhat philosophical framework is Dr. Reyes implicitly using? Where does it break down? What would a Bayesian alternative look like?\n\n\n✂️ Complexity Judges\nWas dropping July and May data defensible? What is lost? Is the model too simple? Could it have been simpler in a different direction?\n\n\n🔁 Reproducibility Auditors\nWhat would you need to reproduce this analysis? What is missing? List specific items.\n\n\n\n\n\n2.4.2 Group Task\n\nRead the excerpt again as a group\nPrepare a 2-minute verbal finding — one clear diagnosis + one concrete fix"
   },
   {
-    "objectID": "weeks/week07.html#part-4-defend-your-own-methods-think-pair-share-20-min",
-    "href": "weeks/week07.html#part-4-defend-your-own-methods-think-pair-share-20-min",
+    "objectID": "weeks/week07.html#part-4-lecture",
+    "href": "weeks/week07.html#part-4-lecture",
     "title": "Week 07 - Your analysis",
-    "section": "2.6 Part 4: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)",
-    "text": "2.6 Part 4: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)\n\n\n\n\n\n\nSoTL Activity #2: Structured Peer Dialogue\n\n\n\nYou just played reviewer. Now you’re the author.\n\n\n\n2.6.1 Think (5 min)\nFill out a Method Defense Card:\n\n\n\nPrompt\nYour Response\n\n\n\n\nMy research question:\n\n\n\nMy response variable type:\n\n\n\nMy planned analysis:\n\n\n\nWhy it fits (reference Triangle + one framework point):\n\n\n\nOne thing Dr. Reyes did that I might be tempted to do too:\n\n\n\nHow I’m guarding against it:\n\n\n\n\n\n\n2.6.2 Pair (8 min)\nPartner with someone outside your immediate research area.\n\nPresent your Method Defense Card (~3 min each)\nYour partner plays skeptical reviewer — one tough question only\n\n\nTough question bank: “Why not use a simpler model?” / “How do you know your data meet that assumption?” / “What would Dr. Reyes say about your justification?” / “What are you waving away as ‘a minor concern’?”\n\n\n\n2.6.3 Share (7 min)\n3–4 pairs share the toughest question they received. Connect back to the case diagnosis.\n\n\n2.6.4 Write one statement\nIn your project (RSTUDIO or Github or Word) start a “Methods” section. Write one sentence there. Examples: I chose X methods because … A key limitation of my analysis is … so we …"
+    "section": "2.5 Part 4: Lecture",
+    "text": "2.5 Part 4: Lecture"
+  },
+  {
+    "objectID": "weeks/week07.html#part-5-defend-your-own-methods-think-pair-share-20-min",
+    "href": "weeks/week07.html#part-5-defend-your-own-methods-think-pair-share-20-min",
+    "title": "Week 07 - Your analysis",
+    "section": "2.6 Part 5: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)",
+    "text": "2.6 Part 5: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)\n\n\n\n\n\n\nSoTL Activity #2: Structured Peer Dialogue\n\n\n\nYou just played reviewer. Now you’re the author.\n\n\n\n2.6.1 Think (5 min)\nFill out a Method Defense Card:\n\n\n\nPrompt\nYour Response\n\n\n\n\nMy research question:\n\n\n\nMy response variable type:\n\n\n\nMy planned analysis:\n\n\n\nWhy it fits (reference Triangle + one framework point):\n\n\n\nOne thing Dr. Reyes did that I might be tempted to do too:\n\n\n\nHow I’m guarding against it:\n\n\n\n\n\n\n2.6.2 Pair (5 min)\nPartner with someone outside your immediate research area.\n\nPresent your Method Defense Card (~3 min each)\nYour partner plays skeptical reviewer — one tough question only\n\n\nTough question bank: “Why not use a simpler model?” / “How do you know your data meet that assumption?” / “What would Dr. Reyes say about your justification?” / “What are you waving away as ‘a minor concern’?”\n\n\n\n2.6.3 Write one statement\nIn your project (RSTUDIO or Github or Word) start a “Methods” section. Write one sentence there. Examples: I chose X methods because … A key limitation of my analysis is … so we …"
   },
   {
     "objectID": "weeks/week07.html#part-4b-assumptions-audit-10-min",
@@ -1547,31 +1575,10 @@
     "text": "2.7 Part 4b: 🟢🟡🔴 Assumptions Audit (10 min)\n\n\n\n\n\n\nSoTL Activity #3: Assumptions Traffic Light\n\n\n\nUse this immediately after defending your method — while the conversation is still fresh.\n\n\nEvery model makes assumptions. Most people know this. Fewer people have actually checked which ones they’ve met.\nOn a new sheet or the back of your Method Defense Card, list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked — and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet — but I could by Thursday\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check — need to acknowledge and bound my claims\n\n\n\nThe goal is not to have all green. Red assumptions are not failures — they are honest limitations that belong in your Discussion section. The failure is not knowing which color you’re at.\n\n\n2.7.1 Central Question\n\n“Can you defend your analysis to a skeptical reviewer?”\n\n\n\n2.7.2 Four Requirements of a Good Defense\n\nPhilosophical grounding — What framework are you working in? What assumptions does it require?\nData–method alignment — Does your method match your response variable type and data structure?\nSimplicity vs. complexity — Is your model as simple as possible while still being honest?\nTransparency — Could someone reproduce your analysis and understand your reasoning?\n\n\n\n2.7.3 Three Common Pitfalls\n\n\n\n\n\n\nPitfall 1: Method Chosen by Habit, Not Design\n\n\n\n\n“I’m using ANOVA because my advisor always uses ANOVA.”\n\nYour design may require a GLMM. Habit is not a philosophical defense.\n\n\n\n\n\n\n\n\nPitfall 2: Philosophical Mismatch\n\n\n\n\nUsing a Bayesian framework but interpreting results with p-values and null hypothesis language.\n\nKnow your framework. Bayesian credible intervals and posterior probabilities are not the same as p-values and confidence intervals.\n\n\n\n\n\n\n\n\nPitfall 3: The Triangle Is Broken\n\n\n\n\nRepeated measures + count data, but using a simple t-test.\n\nCheck all three corners of the triangle — question, data type, and method — every time.\n\n\n\n\n2.7.4 Decision Flowchart: Choosing Your Method\nWhat is your research question?\n        |\n        |-----&gt; Descriptive / exploratory?\n        |               --&gt; Summary statistics, visualization\n        |\n        |-----&gt; Predictive?\n        |               --&gt; Consider cross-validation, predictive modeling\n        |\n        |-----&gt; Inferential / causal?\n                        |\n                        |--&gt; What is your response variable?\n                        |\n                        |-----&gt; Continuous, normal?\n                        |               --&gt; lm(), lmer() if structure present\n                        |\n                        |-----&gt; Counts (integers &gt;= 0)?\n                        |               --&gt; glm(Poisson) or glmer(Poisson)\n                        |\n                        |-----&gt; Proportions / binary?\n                        |               --&gt; glm(binomial) or glmer(binomial)\n                        |\n                        |--&gt; What is your data structure?\n                                |\n                                |-----&gt; Simple, independent observations?\n                                |               --&gt; lm() or glm()\n                                |\n                                |-----&gt; Blocked / repeated / nested?\n                                                --&gt; lmer() or glmer()\n\n\n\n\n\n\nKey Takeaway\n\n\n\nThe best analysis is the simplest one that honestly addresses your question given your data structure.\nComplexity must be earned by your data and your question — not borrowed from habit or perceived sophistication."
   },
   {
-    "objectID": "weeks/week07.html#part-3-think-pair-share-defend-your-method-20-min",
-    "href": "weeks/week07.html#part-3-think-pair-share-defend-your-method-20-min",
-    "title": "Week 07 - Your analysis",
-    "section": "2.8 Part 3: 🤝 Think-Pair-Share — Defend Your Method (20 min)",
-    "text": "2.8 Part 3: 🤝 Think-Pair-Share — Defend Your Method (20 min)\n\n\n\n\n\n\nSoTL Activity #2: Structured Peer Dialogue\n\n\n\n\n\n\n\n2.8.1 Think (5 min)\nFill out a Method Defense Card on a notecard or piece of paper:\n\n\n\nPrompt\nYour Response\n\n\n\n\nMy research question is:\n\n\n\nMy response variable type is:\n\n\n\nMy planned analysis is:\n\n\n\nWhy it fits (reference the Triangle):\n\n\n\nOne alternative I considered and rejected:\n\n\n\n\n\n\n2.8.2 Pair (8 min)\nPartner with someone from outside your immediate research area.\n\nTake turns presenting your Method Defense Card (~3 min each)\nYour partner plays the role of “skeptical reviewer” and asks one tough question\n\n\nTough question examples: “Why not use a simpler model?” / “How do you know your data meet that assumption?” / “What would a Bayesian say about this?”\n\n\n\n2.8.3 Share (7 min)\n3–4 pairs share the toughest question they received. Dr. Molina moderates and connects questions back to the lecture themes."
-  },
-  {
-    "objectID": "weeks/week07.html#part-4-philosophical-stations-small-group-rotation-15-min",
-    "href": "weeks/week07.html#part-4-philosophical-stations-small-group-rotation-15-min",
-    "title": "Week 07 - Your analysis",
-    "section": "2.9 Part 4: Philosophical Stations — Small Group Rotation (15 min)",
-    "text": "2.9 Part 4: Philosophical Stations — Small Group Rotation (15 min)\nWork in groups of 3–4. ⏱ 5 minutes per station, then rotate.\n\n2.9.1 Station 1 — “The Box Station”\n\nHow is your model “wrong”? Why is it still useful?\n\nWrite your answer on the station sheet. Be specific — what assumptions does your model violate? Why does it still give you defensible insight?\n\n\n2.9.2 Station 2 — “The Inference Station”\n\nIs your claim causal, predictive, or descriptive? Does your analysis actually support that type of claim?\n\nWrite the type of inference you are making and one sentence explaining how your method supports (or fails to support) it.\n\n\n2.9.3 Station 3 — “The Reproducibility Station”\n\nCould someone reproduce your analysis from your GitHub repo today?\n\nList two things that are currently missing (data, code, README, environment details, etc.).\nBrief whole-class debrief (2–3 min): What patterns did you notice across stations?"
-  },
-  {
     "objectID": "weeks/week07.html#part-5-exit-ticket-self-assessment-10-min",
     "href": "weeks/week07.html#part-5-exit-ticket-self-assessment-10-min",
     "title": "Week 07 - Your analysis",
-    "section": "2.10 Part 5: Exit Ticket — Self-Assessment (10 min)",
-    "text": "2.10 Part 5: Exit Ticket — Self-Assessment (10 min)\n\n\n\n\n\n\nSoTL Activity #3: Reflective Self-Assessment\n\n\n\nPlease respond to all prompts honestly. This is for your own growth and for course improvement.\n1. How confident are you right now in defending your analysis choice?\n⬜ 1 — Not at all confident\n⬜ 2 — Slightly confident\n⬜ 3 — Moderately confident\n⬜ 4 — Quite confident\n⬜ 5 — Very confident\n2. Name one thing you will change or clarify about your project after today:\n\n3. Which philosophical idea is most relevant to your project? (check all that apply)\n⬜ “All models are wrong, some are useful”\n⬜ Bayesian vs. frequentist framework\n⬜ Method–Question–Data Triangle\n⬜ Design dictates analysis\n⬜ Simplicity vs. complexity tradeoff\n4. One remaining question I have:\n\n\n\n\n\n\n\n\n\nInstructor Note: SoTL Data Collection\n\n\n\n\nMinute papers (Part 1) and exit tickets (Part 5) can be analyzed qualitatively (theme coding) or quantitatively (confidence ratings over time).\nMethod Defense Cards (Part 3) can be coded for reasoning quality: Does the student reference the triangle? Do they identify a genuine alternative?\nRecommendation: Repeat the confidence rating question (Exit Ticket prompt 1) at Week 10 and Week 14 to track growth across the semester."
-  },
-  {
-    "objectID": "weeks/week07.html#session-a-summary",
-    "href": "weeks/week07.html#session-a-summary",
-    "title": "Week 07 - Your analysis",
-    "section": "2.11 Session A Summary",
-    "text": "2.11 Session A Summary\n\n\n\n\n\n\n\n\nSoTL Activity\nPurpose\nTime\n\n\n\n\n#1 Minute Paper\nAssess prior learning; surface muddiest points\n10 min\n\n\n#2 Structured Peer Dialogue (Think-Pair-Share)\nPractice verbal defense; expose reasoning gaps through peer challenge\n20 min\n\n\n#3 Reflective Self-Assessment (Exit Ticket)\nTrack confidence; generate actionable next step; collect longitudinal data\n10 min"
+    "section": "2.8 Part 5: Exit Ticket — Self-Assessment (10 min)",
+    "text": "2.8 Part 5: Exit Ticket — Self-Assessment (10 min)\n\n\n\n\n\n\nSoTL Activity #3: Reflective Self-Assessment\n\n\n\nPlease respond to all prompts honestly. This is for your own growth and for course improvement.\n1. How confident are you right now in defending your analysis choice?\n⬜ 1 — Not at all confident\n⬜ 2 — Slightly confident\n⬜ 3 — Moderately confident\n⬜ 4 — Quite confident\n⬜ 5 — Very confident\n2. Name one thing you will change or clarify about your project after today:\n\n3. Which philosophical idea is most relevant to your project? (check all that apply)\n⬜ “All models are wrong, some are useful”\n⬜ Bayesian vs. frequentist framework\n⬜ Method–Question–Data Triangle\n⬜ Design dictates analysis\n⬜ Simplicity vs. complexity tradeoff\n4. One remaining question I have:"
   }
 ]

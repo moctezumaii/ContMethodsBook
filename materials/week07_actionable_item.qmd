@@ -1,0 +1,43 @@
+---
+title: "Quick Check-In"
+format: pdf
+---
+
+:::{.callout-tip}
+## Quick Check-In — Your Thursday Actionable Item
+
+
+Think back to the **one actionable item** you committed to working on by Thursday.
+---
+
+**My original actionable item was:**
+\vspace{3cm}
+
+
+
+
+
+**Current status:**
+
+( ) On track    ( ) Stuck    ( ) Needs revision    ( ) Not started
+
+
+**If revising: what's the adjusted version?**
+
+\vspace{3cm}
+
+
+
+
+
+**One thing I need to do in the next 48 hrs ("do nothing" is an option):**
+
+\vspace{3cm}
+
+
+
+
+
+
+Thanks!
+:::

@@ -1,0 +1,49 @@
+---
+title: "Activity"
+format: pdf
+---
+
+## Part 2: The Case — "Dr. Reyes's Grassland Study" (20 min)
+
+### Setup (3 min)
+
+> *You are a peer reviewer for the journal* Ecological Applications. *You've just received the following methods section. Your job: find everything that's wrong — and explain why it matters.*
+
+---
+
+::: {.callout-warning}
+## 📄 The Manuscript Excerpt — Read Carefully
+
+**Title:** *Nitrogen addition increases aboveground biomass in semi-arid grasslands*
+
+**Methods (excerpt):**
+
+> We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control (0 kg N/ha), low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested from each plot at three time points: May, July, and September of the same year.
+>
+> To assess treatment effects, we calculated mean biomass per treatment per time point and ran a one-way ANOVA (treatment as the fixed effect) on the September harvest only, as this represented "peak biomass." We report p-values and conclude that high nitrogen significantly increased biomass (p = 0.03). All plots were located within 5 km of one another on each ranch.
+>
+> We selected ANOVA because it is the standard method in grassland ecology and because our dataset was small. We acknowledge that data were not fully independent but considered this a minor concern.
+
+:::
+
+Individual choice of reject, revisions or accept.
+
+
+## Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)
+
+Work in groups of 3–4. Each group gets **one diagnostic role** you are responsible for that angle, but your findings feed the whole class.
+
+### Role Assignments
+
+| Role | Your Diagnostic Focus |
+|------|----------------------|
+| 🔺 **Triangle Auditors** | Does the method match the question, data type, and structure? What would the correct model be? |
+| 🧭 **Framework Detectives** | What philosophical framework is Dr. Reyes implicitly using? Where does it break down? What would a Bayesian alternative look like? |
+| ✂️ **Complexity Judges** | Was dropping July and May data defensible? What is lost? Is the model too simple? Could it have been simpler in a *different* direction? |
+| 🔁 **Reproducibility Auditors** | What would you need to reproduce this analysis? What is missing? List *specific* items. |
+
+### Group Task 
+
+1. Read the excerpt again as a group
+2. Prepare a **2-minute verbal finding**: one clear diagnosis + one concrete fix
+
