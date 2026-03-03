@@ -26,8 +26,10 @@ site:
             href: weeks/week04.qmd
           - text: Week 05
             href: weeks/week05.qmd
-          - text: Week 08
-            href: weeks/week08.qmd
+          - text: Week 07
+            href: weeks/week07.qmd
+          - text: Week 07, Thursday
+            href: weeks/week07-workshop.qmd
       - text: Projects
         menu:
           - text: Project Home
@@ -40,8 +42,7 @@ site:
             href: materials/sixq.qmd 
           - text: Answers to Week 3 questions
             href: materials/answersheet_Version5.qmd
-          - text: Week 8 lecture notes
-            href: materials/week08-lecture-notes.qmd     
+
     right:
       - text: Resources
         menu:

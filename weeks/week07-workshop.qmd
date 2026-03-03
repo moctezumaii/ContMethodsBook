@@ -63,7 +63,7 @@ Answer the following:
 
 Share your traffic light color and your "one thing" with the person next to you. Offer one suggestion or piece of encouragement.
 
-### Step 3 — Whole Class Pulse (5 min)
+### Step 3 — Whole Class  (5 min)
 
 Show of hands:
 
@@ -71,7 +71,6 @@ Show of hands:
 - 🟡 How many are slightly behind?
 - 🔴 How many need to re-plan?
 
-Dr. Molina will address the most common challenges and offer brief guidance.
 
 ---
 
@@ -107,9 +106,7 @@ Use this structure when reviewing your partner's project:
 
 **The Hard Question**:
 > Ask one question the presenter may not have considered yet. Examples:
-> - "What distribution does your response variable follow, and does your model assume that?"
-> - "What happens to your conclusions if [assumption] is violated?"
-> - "Have you checked for [overdispersion / influential points / non-independence]?"
+
 :::
 
 ### After Both Rounds
@@ -128,11 +125,11 @@ Write down:
 
 ## Part 3: Method Justification — Written Exercise (15 min)
 
-Write a **150–250 word paragraph** answering the following question:
+Write a new section on your methods:
 
-> **"Why is [your method] the appropriate analysis for your research question, given your data?"**
+**Method justification**
 
-Your paragraph must address:
+Your paragraph can address:
 
 ::: {.callout-tip}
 ## Writing Checklist
@@ -144,70 +141,7 @@ Your paragraph must address:
 ⬜ What assumptions does your method make, and how will you check them?
 :::
 
-::: {.callout-important}
-## Required References
+## Part 4: Structured Work Time 
 
-Your paragraph must reference:
+Work on your project. 
 
-1. The **Method–Question–Data Triangle** (Week 3) — explicitly connect your method to your question and data type
-2. At least **one philosophical concept from Week 2** — e.g., "All models are wrong, some are useful" (Box), or your choice of inferential framework
-:::
-
-**Optional:** 1–2 volunteers read their paragraph aloud; class provides quick feedback (3 min).
-
----
-
-## Part 4: Structured Work Time (20 min)
-
-Work on your project. Dr. Molina will circulate.
-
-**Suggested priorities by traffic light color:**
-
-| Color | Focus |
-|-------|-------|
-| 🟢 Green | Run your planned analyses; create or refine figures |
-| 🟡 Yellow | Focus exclusively on your "one thing" from Part 1 |
-| 🔴 Red | Meet with Dr. Molina — re-plan your timeline now |
-
-::: {.callout-important}
-## ⏱ Before You Leave: Commit to Git
-
-Before the end of class, commit your current work with a **meaningful commit message**.
-
-Good examples:
-- `"Add exploratory plots for soil moisture data"`
-- `"Fit initial lmer model for yield ~ treatment + (1|block)"`
-- `"Draft methods paragraph for Week 8 justification exercise"`
-
-Bad examples:
-- `"update"`
-- `"stuff"`
-- `"asdfgh"`
-
-Your commit history is part of your project record. Future-you (and your committee) will thank present-you.
-:::
-
----
-
-## Part 5: Closing — One Word Check-Out (~5 min)
-
-Go around the room. Each person says **one word** describing how they feel about their project right now.
-
-::: {.callout-note}
-## Instructor Note: SoTL Data
-
-One-word check-outs provide data on the **affective dimension** of learning — confidence, anxiety, engagement, momentum. Tracking these words across weeks can reveal when students feel most uncertain (often before major milestones) and when momentum builds. Consider recording them in a simple log.
-:::
-
----
-
-## Workshop Summary
-
-| Part | Activity | Time |
-|------|----------|------|
-| **1** | Timeline Self-Assessment (individual → neighbor → class) | 15 min |
-| **2** | Peer Feedback — Project Pairs (12 min per person) | 25 min |
-| **3** | Method Justification — Written paragraph (150–250 words) | 15 min |
-| **4** | Structured Work Time + Git commit | 20 min |
-| **5** | One Word Check-Out | ~5 min |
-| | **Total** | **~75–80 min** |

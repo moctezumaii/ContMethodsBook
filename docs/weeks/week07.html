@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 07 - Your analysis – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week05.html">
+ <span class="dropdown-text">Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07.html">
+ <span class="dropdown-text">Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07-workshop.html">
+ <span class="dropdown-text">Week 07, Thursday</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week04.html">
+ <span class="dropdown-text">Slides Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week05.html">
+ <span class="dropdown-text">Slides Week 05</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</a></li>
+  </ul></li>
+  <li><a href="#session-a-the-philosophy-behind-your-analysis-75-min" id="toc-session-a-the-philosophy-behind-your-analysis-75-min" class="nav-link" data-scroll-target="#session-a-the-philosophy-behind-your-analysis-75-min"><span class="header-section-number">2</span> Session A: The Philosophy Behind Your Analysis (75 min)</a>
+  <ul class="collapse">
+  <li><a href="#part-0-assignment-check-5-min" id="toc-part-0-assignment-check-5-min" class="nav-link" data-scroll-target="#part-0-assignment-check-5-min"><span class="header-section-number">2.1</span> ⚡ Part 0: Assignment Check (5 min)</a></li>
+  <li><a href="#part-1-opening-pulse-check-minute-paper-10-min" id="toc-part-1-opening-pulse-check-minute-paper-10-min" class="nav-link" data-scroll-target="#part-1-opening-pulse-check-minute-paper-10-min"><span class="header-section-number">2.2</span> Part 1: Opening — Pulse Check &amp; Minute Paper (10 min)</a></li>
+  <li><a href="#part-2-the-case-dr.-reyess-grassland-study-20-min" id="toc-part-2-the-case-dr.-reyess-grassland-study-20-min" class="nav-link" data-scroll-target="#part-2-the-case-dr.-reyess-grassland-study-20-min"><span class="header-section-number">2.3</span> Part 2: The Case — “Dr.&nbsp;Reyes’s Grassland Study” (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#setup-3-min" id="toc-setup-3-min" class="nav-link" data-scroll-target="#setup-3-min"><span class="header-section-number">2.3.1</span> Setup (3 min)</a></li>
+  </ul></li>
+  <li><a href="#part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min" id="toc-part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min" class="nav-link" data-scroll-target="#part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min"><span class="header-section-number">2.4</span> Part 3: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#recap-key-philosophical-ideas-from-previous-weeks" id="toc-recap-key-philosophical-ideas-from-previous-weeks" class="nav-link" data-scroll-target="#recap-key-philosophical-ideas-from-previous-weeks"><span class="header-section-number">2.4.1</span> Recap: Key Philosophical Ideas from Previous Weeks</a></li>
+  </ul></li>
+  <li><a href="#part-3-case-diagnosis-small-group-work-20-min" id="toc-part-3-case-diagnosis-small-group-work-20-min" class="nav-link" data-scroll-target="#part-3-case-diagnosis-small-group-work-20-min"><span class="header-section-number">2.5</span> Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#role-assignments" id="toc-role-assignments" class="nav-link" data-scroll-target="#role-assignments"><span class="header-section-number">2.5.1</span> Role Assignments</a></li>
+  <li><a href="#group-task-12-min" id="toc-group-task-12-min" class="nav-link" data-scroll-target="#group-task-12-min"><span class="header-section-number">2.5.2</span> Group Task (12 min)</a></li>
+  <li><a href="#whole-class-report-out-8-min" id="toc-whole-class-report-out-8-min" class="nav-link" data-scroll-target="#whole-class-report-out-8-min"><span class="header-section-number">2.5.3</span> Whole-Class Report-Out (8 min)</a></li>
+  </ul></li>
+  <li><a href="#part-4-defend-your-own-methods-think-pair-share-20-min" id="toc-part-4-defend-your-own-methods-think-pair-share-20-min" class="nav-link" data-scroll-target="#part-4-defend-your-own-methods-think-pair-share-20-min"><span class="header-section-number">2.6</span> Part 4: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#think-5-min" id="toc-think-5-min" class="nav-link" data-scroll-target="#think-5-min"><span class="header-section-number">2.6.1</span> Think (5 min)</a></li>
+  <li><a href="#pair-8-min" id="toc-pair-8-min" class="nav-link" data-scroll-target="#pair-8-min"><span class="header-section-number">2.6.2</span> Pair (8 min)</a></li>
+  <li><a href="#share-7-min" id="toc-share-7-min" class="nav-link" data-scroll-target="#share-7-min"><span class="header-section-number">2.6.3</span> Share (7 min)</a></li>
+  <li><a href="#write-one-statement" id="toc-write-one-statement" class="nav-link" data-scroll-target="#write-one-statement"><span class="header-section-number">2.6.4</span> Write one statement</a></li>
+  </ul></li>
+  <li><a href="#part-4b-assumptions-audit-10-min" id="toc-part-4b-assumptions-audit-10-min" class="nav-link" data-scroll-target="#part-4b-assumptions-audit-10-min"><span class="header-section-number">2.7</span> Part 4b: 🟢🟡🔴 Assumptions Audit (10 min)</a>
+  <ul class="collapse">
+  <li><a href="#central-question" id="toc-central-question" class="nav-link" data-scroll-target="#central-question"><span class="header-section-number">2.7.1</span> Central Question</a></li>
+  <li><a href="#four-requirements-of-a-good-defense" id="toc-four-requirements-of-a-good-defense" class="nav-link" data-scroll-target="#four-requirements-of-a-good-defense"><span class="header-section-number">2.7.2</span> Four Requirements of a Good Defense</a></li>
+  <li><a href="#three-common-pitfalls" id="toc-three-common-pitfalls" class="nav-link" data-scroll-target="#three-common-pitfalls"><span class="header-section-number">2.7.3</span> Three Common Pitfalls</a></li>
+  <li><a href="#decision-flowchart-choosing-your-method" id="toc-decision-flowchart-choosing-your-method" class="nav-link" data-scroll-target="#decision-flowchart-choosing-your-method"><span class="header-section-number">2.7.4</span> Decision Flowchart: Choosing Your Method</a></li>
+  </ul></li>
+  <li><a href="#part-3-think-pair-share-defend-your-method-20-min" id="toc-part-3-think-pair-share-defend-your-method-20-min" class="nav-link" data-scroll-target="#part-3-think-pair-share-defend-your-method-20-min"><span class="header-section-number">2.8</span> Part 3: 🤝 Think-Pair-Share — Defend Your Method (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#think-5-min-1" id="toc-think-5-min-1" class="nav-link" data-scroll-target="#think-5-min-1"><span class="header-section-number">2.8.1</span> Think (5 min)</a></li>
+  <li><a href="#pair-8-min-1" id="toc-pair-8-min-1" class="nav-link" data-scroll-target="#pair-8-min-1"><span class="header-section-number">2.8.2</span> Pair (8 min)</a></li>
+  <li><a href="#share-7-min-1" id="toc-share-7-min-1" class="nav-link" data-scroll-target="#share-7-min-1"><span class="header-section-number">2.8.3</span> Share (7 min)</a></li>
+  </ul></li>
+  <li><a href="#part-4-philosophical-stations-small-group-rotation-15-min" id="toc-part-4-philosophical-stations-small-group-rotation-15-min" class="nav-link" data-scroll-target="#part-4-philosophical-stations-small-group-rotation-15-min"><span class="header-section-number">2.9</span> Part 4: Philosophical Stations — Small Group Rotation (15 min)</a>
+  <ul class="collapse">
+  <li><a href="#station-1-the-box-station" id="toc-station-1-the-box-station" class="nav-link" data-scroll-target="#station-1-the-box-station"><span class="header-section-number">2.9.1</span> Station 1 — “The Box Station”</a></li>
+  <li><a href="#station-2-the-inference-station" id="toc-station-2-the-inference-station" class="nav-link" data-scroll-target="#station-2-the-inference-station"><span class="header-section-number">2.9.2</span> Station 2 — “The Inference Station”</a></li>
+  <li><a href="#station-3-the-reproducibility-station" id="toc-station-3-the-reproducibility-station" class="nav-link" data-scroll-target="#station-3-the-reproducibility-station"><span class="header-section-number">2.9.3</span> Station 3 — “The Reproducibility Station”</a></li>
+  </ul></li>
+  <li><a href="#part-5-exit-ticket-self-assessment-10-min" id="toc-part-5-exit-ticket-self-assessment-10-min" class="nav-link" data-scroll-target="#part-5-exit-ticket-self-assessment-10-min"><span class="header-section-number">2.10</span> Part 5: Exit Ticket — Self-Assessment (10 min)</a></li>
+  <li><a href="#session-a-summary" id="toc-session-a-summary" class="nav-link" data-scroll-target="#session-a-summary"><span class="header-section-number">2.11</span> Session A Summary</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 07 - Your analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Week: 8</p>
+<p>Topic: The Philosophy Behind Your Analysis</p>
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Session A</strong></td>
+<td>Case-based philosophy + peer review (~75 min)</td>
+</tr>
+<tr class="even">
+<td><strong>Session B</strong></td>
+<td>Workshop: project progress, peer review &amp; method justification (~75 min)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No student presenter is available this week. Come ready to read, diagnose, and argue.</p>
+</div>
+</div>
+<section id="learning-objectives" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</h2>
+<ol type="1">
+<li>Connect the philosophical ideas from Weeks 2, 3, and 5 to <em>to someone else’s flawed analysis</em> before your own</li>
+<li>Articulate and defend your method choice in writing and verbally</li>
+<li>Identify common philosophical pitfalls by diagnosing them in a real scenario</li>
+<li>Assess your project’s current progress against your planned timeline</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="session-a-the-philosophy-behind-your-analysis-75-min" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Session A: The Philosophy Behind Your Analysis (75 min)</h1>
+<section id="part-0-assignment-check-5-min" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="part-0-assignment-check-5-min"><span class="header-section-number">2.1</span> ⚡ Part 0: Assignment Check (5 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check-In — Your Thursday Actionable Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>No discussion yet — just a private 2-minute reflection on the index card already on your desk.</em></p>
+<p>Think back to the <strong>one actionable item</strong> you committed to working on by Thursday.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My original actionable item was:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Current status (circle):</td>
+<td><strong>On track</strong> / / / / <strong>Stuck</strong> / / / / <strong>Needs revision</strong> / / / / <strong>Not started</strong></td>
+</tr>
+<tr class="odd">
+<td>If revising: what’s the adjusted version?</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>One thing I need to do in the next 48 hrs (nothing is an option):</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="part-1-opening-pulse-check-minute-paper-10-min" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="part-1-opening-pulse-check-minute-paper-10-min"><span class="header-section-number">2.2</span> Part 1: Opening — Pulse Check &amp; Minute Paper (10 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SoTL Activity #1: Minute Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take an index card and respond to both prompts in 3–4 minutes:</p>
+<ol type="1">
+<li><strong>“What is the single most important thing you learned in this course so far?”</strong></li>
+</ol>
+<p><br><br></p>
+<ol start="2" type="1">
+<li><strong>“What is the thing you want to talk about in a future class? What topic or question should we cover?”</strong></li>
+</ol>
+<p><br><br><br></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-2-the-case-dr.-reyess-grassland-study-20-min" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="part-2-the-case-dr.-reyess-grassland-study-20-min"><span class="header-section-number">2.3</span> Part 2: The Case — “Dr.&nbsp;Reyes’s Grassland Study” (20 min)</h2>
+<section id="setup-3-min" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="setup-3-min"><span class="header-section-number">2.3.1</span> Setup (3 min)</h3>
+<blockquote class="blockquote">
+<p><em>You are a peer reviewer for the journal</em> Ecological Applications. <em>You’ve just received the following methods section. Your job: find everything that’s wrong — and explain why it matters.</em></p>
+</blockquote>
+<hr>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📄 The Manuscript Excerpt — Read Carefully
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Title:</strong> <em>Nitrogen addition increases aboveground biomass in semi-arid grasslands</em></p>
+<p><strong>Methods (excerpt):</strong></p>
+<blockquote class="blockquote">
+<p>We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control (0 kg N/ha), low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested from each plot at three time points: May, July, and September of the same year.</p>
+<p>To assess treatment effects, we calculated mean biomass per treatment per time point and ran a one-way ANOVA (treatment as the fixed effect) on the September harvest only, as this represented “peak biomass.” We report p-values and conclude that high nitrogen significantly increased biomass (p = 0.03). All plots were located within 5 km of one another on each ranch.</p>
+<p>We selected ANOVA because it is the standard method in grassland ecology and because our dataset was small. We acknowledge that data were not fully independent but considered this a minor concern.</p>
+</blockquote>
+</div>
+</div>
+<p>Individual choice of reject, revisions or accept.</p>
+</section>
+</section>
+<section id="part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="part-3-mini-lecture-why-philosophy-matters-for-your-analysis-20-min"><span class="header-section-number">2.4</span> Part 3: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)</h2>
+<section id="recap-key-philosophical-ideas-from-previous-weeks" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="recap-key-philosophical-ideas-from-previous-weeks"><span class="header-section-number">2.4.1</span> Recap: Key Philosophical Ideas from Previous Weeks</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Idea</th>
+<th>Implication for Your Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Week 2</td>
+<td>“All models are wrong, some are useful” (Box)</td>
+<td>Your model doesn’t need to be <em>true</em> — it needs to be <em>defensible</em></td>
+</tr>
+<tr class="even">
+<td>Week 2</td>
+<td>Bayesian vs.&nbsp;frequentist frameworks</td>
+<td>Know which framework you’re working in <strong>and why</strong></td>
+</tr>
+<tr class="odd">
+<td>Week 3</td>
+<td>Method–Question–Data Triangle</td>
+<td>If these three don’t align, your results are unreliable</td>
+</tr>
+<tr class="even">
+<td>Week 5</td>
+<td>Split-plot, mixed models vs.&nbsp;ANOVA</td>
+<td>Same data can produce multiple analyses; your <strong>design</strong> dictates the right one</td>
+</tr>
+</tbody>
+</table>
+<p>Discuss the paper</p>
+</section>
+</section>
+<section id="part-3-case-diagnosis-small-group-work-20-min" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="part-3-case-diagnosis-small-group-work-20-min"><span class="header-section-number">2.5</span> Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)</h2>
+<p>Work in groups of 3–4. Each group gets <strong>one diagnostic role</strong> you are responsible for that angle, but your findings feed the whole class.</p>
+<section id="role-assignments" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="role-assignments"><span class="header-section-number">2.5.1</span> Role Assignments</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Your Diagnostic Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🔺 <strong>Triangle Auditors</strong></td>
+<td>Does the method match the question, data type, and structure? What would the correct model be?</td>
+</tr>
+<tr class="even">
+<td>🧭 <strong>Framework Detectives</strong></td>
+<td>What philosophical framework is Dr.&nbsp;Reyes implicitly using? Where does it break down? What would a Bayesian alternative look like?</td>
+</tr>
+<tr class="odd">
+<td>✂️ <strong>Complexity Judges</strong></td>
+<td>Was dropping July and May data defensible? What is lost? Is the model too simple — or could it have been simpler in a <em>different</em> direction?</td>
+</tr>
+<tr class="even">
+<td>🔁 <strong>Reproducibility Auditors</strong></td>
+<td>What would you need to reproduce this analysis? What is missing? List <em>specific</em> items.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="group-task-12-min" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="group-task-12-min"><span class="header-section-number">2.5.2</span> Group Task (12 min)</h3>
+<ol type="1">
+<li>Read the excerpt again as a group</li>
+<li>Prepare a <strong>2-minute verbal finding</strong> — one clear diagnosis + one concrete fix</li>
+<li>Assign a spokesperson</li>
+</ol>
+</section>
+<section id="whole-class-report-out-8-min" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="whole-class-report-out-8-min"><span class="header-section-number">2.5.3</span> Whole-Class Report-Out (8 min)</h3>
+<p>Each group presents. Dr.&nbsp;Molina synthesizes, connects to student discussion interests from the minute papers where relevant, and links findings back to the Triangle, Box, and framework ideas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructor Note: Facilitation Moves
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Push Triangle Auditors to name the <em>actual</em> R function, not just “a better model”</li>
+<li>Ask Framework Detectives: “If Dr.&nbsp;Reyes had been a Bayesian, where would the analysis have looked different <em>first</em>?”</li>
+<li>Ask Complexity Judges: “Is there a version of this that is <em>simpler and more honest</em> at the same time?”</li>
+<li>Ask Reproducibility Auditors to list what they’d email Dr.&nbsp;Reyes to ask for before reviewing further</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-4-defend-your-own-methods-think-pair-share-20-min" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="part-4-defend-your-own-methods-think-pair-share-20-min"><span class="header-section-number">2.6</span> Part 4: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SoTL Activity #2: Structured Peer Dialogue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>You just played reviewer. Now you’re the author.</em></p>
+</div>
+</div>
+<section id="think-5-min" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="think-5-min"><span class="header-section-number">2.6.1</span> Think (5 min)</h3>
+<p>Fill out a <strong>Method Defense Card</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My research question:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>My response variable type:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>My planned analysis:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Why it fits (reference Triangle + one framework point):</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>One thing Dr.&nbsp;Reyes did that I might be tempted to do too:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>How I’m guarding against it:</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pair-8-min" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="pair-8-min"><span class="header-section-number">2.6.2</span> Pair (8 min)</h3>
+<p>Partner with someone <strong>outside your immediate research area.</strong></p>
+<ul>
+<li>Present your Method Defense Card (~3 min each)</li>
+<li>Your partner plays <strong>skeptical reviewer</strong> — one tough question only</li>
+</ul>
+<blockquote class="blockquote">
+<p>Tough question bank: <em>“Why not use a simpler model?” / “How do you know your data meet that assumption?” / “What would Dr.&nbsp;Reyes say about your justification?” / “What are you waving away as ‘a minor concern’?”</em></p>
+</blockquote>
+</section>
+<section id="share-7-min" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="share-7-min"><span class="header-section-number">2.6.3</span> Share (7 min)</h3>
+<p>3–4 pairs share the toughest question they received. Connect back to the case diagnosis.</p>
+</section>
+<section id="write-one-statement" class="level3" data-number="2.6.4">
+<h3 data-number="2.6.4" class="anchored" data-anchor-id="write-one-statement"><span class="header-section-number">2.6.4</span> Write one statement</h3>
+<p>In your project (RSTUDIO or Github or Word) start a “Methods” section. Write one sentence there. Examples: I chose X methods because … A key limitation of my analysis is … so we …</p>
+<hr>
+</section>
+</section>
+<section id="part-4b-assumptions-audit-10-min" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="part-4b-assumptions-audit-10-min"><span class="header-section-number">2.7</span> Part 4b: 🟢🟡🔴 Assumptions Audit (10 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SoTL Activity #3: Assumptions Traffic Light
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Use this immediately after defending your method — while the conversation is still fresh.</em></p>
+</div>
+</div>
+<p>Every model makes assumptions. Most people know this. Fewer people have actually <em>checked</em> which ones they’ve met.</p>
+<p>On a new sheet or the back of your Method Defense Card, list every assumption your chosen model requires. Then rate each one:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>(e.g., independence of residuals)</em></td>
+<td>🟢 Checked — and it holds</td>
+</tr>
+<tr class="even">
+<td><em>(e.g., normality of random effects)</em></td>
+<td>🟡 Haven’t checked yet — but I could by Thursday</td>
+</tr>
+<tr class="odd">
+<td><em>(e.g., no spatial autocorrelation)</em></td>
+<td>🔴 Can’t fully check — need to acknowledge and bound my claims</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The goal is not to have all green.</strong> Red assumptions are not failures — they are honest limitations that belong in your Discussion section. The failure is not knowing which color you’re at.</p>
+<hr>
+<section id="central-question" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="central-question"><span class="header-section-number">2.7.1</span> Central Question</h3>
+<blockquote class="blockquote">
+<p><strong>“Can you defend your analysis to a skeptical reviewer?”</strong></p>
+</blockquote>
+</section>
+<section id="four-requirements-of-a-good-defense" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="four-requirements-of-a-good-defense"><span class="header-section-number">2.7.2</span> Four Requirements of a Good Defense</h3>
+<ol type="1">
+<li><strong>Philosophical grounding</strong> — What framework are you working in? What assumptions does it require?</li>
+<li><strong>Data–method alignment</strong> — Does your method match your response variable type and data structure?</li>
+<li><strong>Simplicity vs.&nbsp;complexity</strong> — Is your model as simple as possible while still being honest?</li>
+<li><strong>Transparency</strong> — Could someone reproduce your analysis and understand your reasoning?</li>
+</ol>
+</section>
+<section id="three-common-pitfalls" class="level3" data-number="2.7.3">
+<h3 data-number="2.7.3" class="anchored" data-anchor-id="three-common-pitfalls"><span class="header-section-number">2.7.3</span> Three Common Pitfalls</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pitfall 1: Method Chosen by Habit, Not Design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>“I’m using ANOVA because my advisor always uses ANOVA.”</p>
+</blockquote>
+<p>Your design may require a GLMM. Habit is not a philosophical defense.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pitfall 2: Philosophical Mismatch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>Using a Bayesian framework but interpreting results with p-values and null hypothesis language.</p>
+</blockquote>
+<p>Know your framework. Bayesian credible intervals and posterior probabilities are <strong>not</strong> the same as p-values and confidence intervals.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pitfall 3: The Triangle Is Broken
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>Repeated measures + count data, but using a simple t-test.</p>
+</blockquote>
+<p>Check all three corners of the triangle — question, data type, and method — every time.</p>
+</div>
+</div>
+</section>
+<section id="decision-flowchart-choosing-your-method" class="level3" data-number="2.7.4">
+<h3 data-number="2.7.4" class="anchored" data-anchor-id="decision-flowchart-choosing-your-method"><span class="header-section-number">2.7.4</span> Decision Flowchart: Choosing Your Method</h3>
+<pre><code>What is your research question?
+        |
+        |-----&gt; Descriptive / exploratory?
+        |               --&gt; Summary statistics, visualization
+        |
+        |-----&gt; Predictive?
+        |               --&gt; Consider cross-validation, predictive modeling
+        |
+        |-----&gt; Inferential / causal?
+                        |
+                        |--&gt; What is your response variable?
+                        |
+                        |-----&gt; Continuous, normal?
+                        |               --&gt; lm(), lmer() if structure present
+                        |
+                        |-----&gt; Counts (integers &gt;= 0)?
+                        |               --&gt; glm(Poisson) or glmer(Poisson)
+                        |
+                        |-----&gt; Proportions / binary?
+                        |               --&gt; glm(binomial) or glmer(binomial)
+                        |
+                        |--&gt; What is your data structure?
+                                |
+                                |-----&gt; Simple, independent observations?
+                                |               --&gt; lm() or glm()
+                                |
+                                |-----&gt; Blocked / repeated / nested?
+                                                --&gt; lmer() or glmer()</code></pre>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key Takeaway
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The best analysis is the simplest one that honestly addresses your question given your data structure.</strong></p>
+<p>Complexity must be <em>earned</em> by your data and your question — not borrowed from habit or perceived sophistication.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-3-think-pair-share-defend-your-method-20-min" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="part-3-think-pair-share-defend-your-method-20-min"><span class="header-section-number">2.8</span> Part 3: 🤝 Think-Pair-Share — Defend Your Method (20 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SoTL Activity #2: Structured Peer Dialogue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+<section id="think-5-min-1" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="think-5-min-1"><span class="header-section-number">2.8.1</span> Think (5 min)</h3>
+<p>Fill out a <strong>Method Defense Card</strong> on a notecard or piece of paper:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My research question is:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>My response variable type is:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>My planned analysis is:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Why it fits (reference the Triangle):</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>One alternative I considered and rejected:</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pair-8-min-1" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="pair-8-min-1"><span class="header-section-number">2.8.2</span> Pair (8 min)</h3>
+<p>Partner with someone from <strong>outside</strong> your immediate research area.</p>
+<ul>
+<li>Take turns presenting your Method Defense Card (~3 min each)</li>
+<li>Your partner plays the role of <strong>“skeptical reviewer”</strong> and asks one tough question</li>
+</ul>
+<blockquote class="blockquote">
+<p>Tough question examples: “Why not use a simpler model?” / “How do you know your data meet that assumption?” / “What would a Bayesian say about this?”</p>
+</blockquote>
+</section>
+<section id="share-7-min-1" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="share-7-min-1"><span class="header-section-number">2.8.3</span> Share (7 min)</h3>
+<p>3–4 pairs share the toughest question they received. Dr.&nbsp;Molina moderates and connects questions back to the lecture themes.</p>
+<hr>
+</section>
+</section>
+<section id="part-4-philosophical-stations-small-group-rotation-15-min" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="part-4-philosophical-stations-small-group-rotation-15-min"><span class="header-section-number">2.9</span> Part 4: Philosophical Stations — Small Group Rotation (15 min)</h2>
+<p>Work in groups of 3–4. ⏱ 5 minutes per station, then rotate.</p>
+<section id="station-1-the-box-station" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="station-1-the-box-station"><span class="header-section-number">2.9.1</span> Station 1 — “The Box Station”</h3>
+<blockquote class="blockquote">
+<p>How is your model “wrong”? Why is it still <em>useful</em>?</p>
+</blockquote>
+<p>Write your answer on the station sheet. Be specific — what assumptions does your model violate? Why does it still give you defensible insight?</p>
+</section>
+<section id="station-2-the-inference-station" class="level3" data-number="2.9.2">
+<h3 data-number="2.9.2" class="anchored" data-anchor-id="station-2-the-inference-station"><span class="header-section-number">2.9.2</span> Station 2 — “The Inference Station”</h3>
+<blockquote class="blockquote">
+<p>Is your claim <strong>causal</strong>, <strong>predictive</strong>, or <strong>descriptive</strong>? Does your analysis actually support that type of claim?</p>
+</blockquote>
+<p>Write the type of inference you are making and one sentence explaining how your method supports (or fails to support) it.</p>
+</section>
+<section id="station-3-the-reproducibility-station" class="level3" data-number="2.9.3">
+<h3 data-number="2.9.3" class="anchored" data-anchor-id="station-3-the-reproducibility-station"><span class="header-section-number">2.9.3</span> Station 3 — “The Reproducibility Station”</h3>
+<blockquote class="blockquote">
+<p>Could someone reproduce your analysis from your GitHub repo <strong>today</strong>?</p>
+</blockquote>
+<p>List two things that are currently missing (data, code, README, environment details, etc.).</p>
+<p><strong>Brief whole-class debrief (2–3 min):</strong> What patterns did you notice across stations?</p>
+<hr>
+</section>
+</section>
+<section id="part-5-exit-ticket-self-assessment-10-min" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="part-5-exit-ticket-self-assessment-10-min"><span class="header-section-number">2.10</span> Part 5: Exit Ticket — Self-Assessment (10 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SoTL Activity #3: Reflective Self-Assessment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please respond to all prompts honestly. This is for your own growth and for course improvement.</p>
+<p><strong>1. How confident are you right now in defending your analysis choice?</strong></p>
+<p>⬜ 1 — Not at all confident<br>
+⬜ 2 — Slightly confident<br>
+⬜ 3 — Moderately confident<br>
+⬜ 4 — Quite confident<br>
+⬜ 5 — Very confident</p>
+<p><strong>2. Name one thing you will change or clarify about your project after today:</strong></p>
+<p><br><br></p>
+<p><strong>3. Which philosophical idea is most relevant to your project? (check all that apply)</strong></p>
+<p>⬜ “All models are wrong, some are useful”<br>
+⬜ Bayesian vs.&nbsp;frequentist framework<br>
+⬜ Method–Question–Data Triangle<br>
+⬜ Design dictates analysis<br>
+⬜ Simplicity vs.&nbsp;complexity tradeoff</p>
+<p><strong>4. One remaining question I have:</strong></p>
+<p><br><br></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructor Note: SoTL Data Collection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Minute papers</strong> (Part 1) and <strong>exit tickets</strong> (Part 5) can be analyzed qualitatively (theme coding) or quantitatively (confidence ratings over time).</li>
+<li><strong>Method Defense Cards</strong> (Part 3) can be coded for reasoning quality: Does the student reference the triangle? Do they identify a genuine alternative?</li>
+<li><strong>Recommendation:</strong> Repeat the confidence rating question (Exit Ticket prompt 1) at Week 10 and Week 14 to track growth across the semester.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="session-a-summary" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="session-a-summary"><span class="header-section-number">2.11</span> Session A Summary</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 30%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>SoTL Activity</th>
+<th>Purpose</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>#1 Minute Paper</td>
+<td>Assess prior learning; surface muddiest points</td>
+<td>10 min</td>
+</tr>
+<tr class="even">
+<td>#2 Structured Peer Dialogue (Think-Pair-Share)</td>
+<td>Practice verbal defense; expose reasoning gaps through peer challenge</td>
+<td>20 min</td>
+</tr>
+<tr class="odd">
+<td>#3 Reflective Self-Assessment (Exit Ticket)</td>
+<td>Track confidence; generate actionable next step; collect longitudinal data</td>
+<td>10 min</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

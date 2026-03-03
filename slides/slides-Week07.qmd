@@ -1,0 +1,28 @@
+---
+title: "Reviewing one paper"
+date: "Week 07"
+format:
+  revealjs:
+    incremental: true   
+    scrollable: true
+    smaller: true
+    fontsize: 47px
+    chalkboard: true
+    theme: default
+    code-fold: true
+    code-summary: "Show code"
+execute:
+  echo: true
+  warning: false
+  message: false
+  eval: false
+---
+
+## Recap
+| 1 and 2 | "All models are wrong, some are useful" (Box) | Your model doesn't need to be *true* — it needs to be *defensible* |
+| 2 | Bayesian vs. frequentist: different treatments of uncertainty | You should be able to say *which framework* you're working in and *why* |
+| 3-4 | The Method-Question-Data Triangle | If these three don't align, your results are unreliable |
+| 5 | Split-plot, mixed models vs. ANOVA | The same data can be analyzed multiple ways — the *design* dictates the right one |
+
+
+## 

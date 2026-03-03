@@ -1,5 +1,5 @@
 ---
-title: "Week 08 — The Philosophy Behind Your Analysis"
+title: "Week 07 - Your analysis"
 format: html
 ---
 
@@ -11,23 +11,41 @@ Topic: The Philosophy Behind Your Analysis
 
 | Session | Content |
 |---------|---------|
-| **Session A** | Instructor-led philosophy deep-dive (~75 min) |
-| **Session B** | Workshop — project progress, peer review & method justification (~75 min) |
+| **Session A** | Case-based philosophy + peer review (~75 min) |
+| **Session B** | Workshop: project progress, peer review & method justification (~75 min) |
 
 ::: {.callout-note}
-No student presenter is available this week. Dr. Molina will lead Session A as an instructor-led discussion.
+No student presenter is available this week. Come ready to read, diagnose, and argue.
 :::
 
 ## Learning Objectives
 
-1. Connect the philosophical ideas from Weeks 2, 3, and 5 to your own analysis
+1. Connect the philosophical ideas from Weeks 2, 3, and 5 to *to someone else's flawed analysis* before your own
 2. Articulate and defend your method choice in writing and verbally
-3. Identify common philosophical pitfalls in applied statistics
+3. Identify common philosophical pitfalls by diagnosing them in a real scenario
 4. Assess your project's current progress against your planned timeline
 
 ---
 
 # Session A: The Philosophy Behind Your Analysis (75 min)
+
+## ⚡ Part 0: Assignment Check (5 min)
+
+::: {.callout-tip}
+## Quick Check-In — Your Thursday Actionable Item
+
+*No discussion yet — just a private 2-minute reflection on the index card already on your desk.*
+
+Think back to the **one actionable item** you committed to working on by Thursday.
+
+| Prompt | Your Response |
+|--------|--------------|
+| My original actionable item was: | |
+| Current status (circle): | **On track** / / / / **Stuck** / / / /  **Needs revision** / / / /  **Not started** |
+| If revising: what's the adjusted version? | |
+| One thing I need to do in the next 48 hrs (nothing is an option): | |
+
+:::
 
 ## Part 1: Opening — Pulse Check & Minute Paper (10 min)
 
@@ -40,16 +58,40 @@ Take an index card and respond to both prompts in 3–4 minutes:
 
 <br><br>
 
-2. **"What is the muddiest point — the thing you still don't understand or feel uncertain about?"**
+2. **"What is the thing you want to talk about in a future class? What topic or question should we cover?"**
 
 <br><br><br>
 :::
 
-Dr. Molina will collect cards, skim quickly, and address the muddiest points during the mini-lecture.
 
 ---
 
-## Part 2: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)
+## Part 2: The Case — "Dr. Reyes's Grassland Study" (20 min)
+
+### Setup (3 min)
+
+> *You are a peer reviewer for the journal* Ecological Applications. *You've just received the following methods section. Your job: find everything that's wrong — and explain why it matters.*
+
+---
+
+::: {.callout-warning}
+## 📄 The Manuscript Excerpt — Read Carefully
+
+**Title:** *Nitrogen addition increases aboveground biomass in semi-arid grasslands*
+
+**Methods (excerpt):**
+
+> We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control (0 kg N/ha), low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested from each plot at three time points: May, July, and September of the same year.
+>
+> To assess treatment effects, we calculated mean biomass per treatment per time point and ran a one-way ANOVA (treatment as the fixed effect) on the September harvest only, as this represented "peak biomass." We report p-values and conclude that high nitrogen significantly increased biomass (p = 0.03). All plots were located within 5 km of one another on each ranch.
+>
+> We selected ANOVA because it is the standard method in grassland ecology and because our dataset was small. We acknowledge that data were not fully independent but considered this a minor concern.
+
+:::
+
+Individual choice of reject, revisions or accept.
+
+## Part 3: Mini-Lecture — Why Philosophy Matters for YOUR Analysis (20 min)
 
 ### Recap: Key Philosophical Ideas from Previous Weeks
 
@@ -59,6 +101,108 @@ Dr. Molina will collect cards, skim quickly, and address the muddiest points dur
 | Week 2 | Bayesian vs. frequentist frameworks | Know which framework you're working in **and why** |
 | Week 3 | Method–Question–Data Triangle | If these three don't align, your results are unreliable |
 | Week 5 | Split-plot, mixed models vs. ANOVA | Same data can produce multiple analyses; your **design** dictates the right one |
+
+Discuss the paper
+
+
+## Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)
+
+Work in groups of 3–4. Each group gets **one diagnostic role** you are responsible for that angle, but your findings feed the whole class.
+
+### Role Assignments
+
+| Role | Your Diagnostic Focus |
+|------|----------------------|
+| 🔺 **Triangle Auditors** | Does the method match the question, data type, and structure? What would the correct model be? |
+| 🧭 **Framework Detectives** | What philosophical framework is Dr. Reyes implicitly using? Where does it break down? What would a Bayesian alternative look like? |
+| ✂️ **Complexity Judges** | Was dropping July and May data defensible? What is lost? Is the model too simple — or could it have been simpler in a *different* direction? |
+| 🔁 **Reproducibility Auditors** | What would you need to reproduce this analysis? What is missing? List *specific* items. |
+
+### Group Task (12 min)
+
+1. Read the excerpt again as a group
+2. Prepare a **2-minute verbal finding** — one clear diagnosis + one concrete fix
+3. Assign a spokesperson
+
+### Whole-Class Report-Out (8 min)
+
+Each group presents. Dr. Molina synthesizes, connects to student discussion interests from the minute papers where relevant, and links findings back to the Triangle, Box, and framework ideas.
+
+::: {.callout-note}
+## Instructor Note: Facilitation Moves
+- Push Triangle Auditors to name the *actual* R function, not just "a better model"
+- Ask Framework Detectives: "If Dr. Reyes had been a Bayesian, where would the analysis have looked different *first*?"
+- Ask Complexity Judges: "Is there a version of this that is *simpler and more honest* at the same time?"
+- Ask Reproducibility Auditors to list what they'd email Dr. Reyes to ask for before reviewing further
+:::
+
+---
+
+## Part 4: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)
+
+::: {.callout-tip}
+## SoTL Activity #2: Structured Peer Dialogue
+
+*You just played reviewer. Now you're the author.*
+:::
+
+### Think (5 min)
+
+Fill out a **Method Defense Card**:
+
+| Prompt | Your Response |
+|--------|--------------|
+| My research question: | |
+| My response variable type: | |
+| My planned analysis: | |
+| Why it fits (reference Triangle + one framework point): | |
+| One thing Dr. Reyes did that I might be tempted to do too: | |
+| How I'm guarding against it: | |
+
+### Pair (8 min)
+
+Partner with someone **outside your immediate research area.**
+
+- Present your Method Defense Card (~3 min each)
+- Your partner plays **skeptical reviewer** — one tough question only
+
+> Tough question bank: *"Why not use a simpler model?" / "How do you know your data meet that assumption?" / "What would Dr. Reyes say about your justification?" / "What are you waving away as 'a minor concern'?"*
+
+### Share (7 min)
+
+3–4 pairs share the toughest question they received. Connect back to the case diagnosis.
+
+### Write one statement
+
+In your project (RSTUDIO or Github or Word) start a "Methods" section. Write one sentence there. Examples:
+I chose X methods because ...
+A key limitation of my analysis is ... so we ...
+
+---
+
+## Part 4b: 🟢🟡🔴 Assumptions Audit (10 min)
+
+::: {.callout-tip}
+## SoTL Activity #3: Assumptions Traffic Light
+
+*Use this immediately after defending your method — while the conversation is still fresh.*
+:::
+
+Every model makes assumptions. Most people know this. Fewer people have actually *checked* which ones they've met.
+
+On a new sheet or the back of your Method Defense Card, list every assumption your chosen model requires. Then rate each one:
+
+| Assumption | Status |
+|------------|--------|
+| *(e.g., independence of residuals)* | 🟢 Checked — and it holds |
+| *(e.g., normality of random effects)* | 🟡 Haven't checked yet — but I could by Thursday |
+| *(e.g., no spatial autocorrelation)* | 🔴 Can't fully check — need to acknowledge and bound my claims |
+
+**The goal is not to have all green.** Red assumptions are not failures — they are honest limitations that belong in your Discussion section. The failure is not knowing which color you're at.
+---
+
+
+
 
 ### Central Question
 
