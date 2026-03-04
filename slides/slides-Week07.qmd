@@ -32,11 +32,11 @@ This week: I want people to start working a bit on their methods
 
 . . .
 
-> *"The best time to defend your methods is before someone else attacks them."*
+> *"The best time to defend your methods is ______________"*
 
 . . .
 
-**~20–25 minutes**
+
 
 ---
 
@@ -46,12 +46,12 @@ This week: I want people to start working a bit on their methods
 |------|------|--------------|
 | 2 | Box (1976) | "All models are wrong — some are useful" |
 | 2 | Bayesian vs. Frequentist | You're working in a framework whether you know it or not |
-| 3 | Method–Question–Data Triangle | Misalignment = unreliable results |
-| 5 | Split-plot & mixed models | Your **design** dictates your analysis |
+| 3, 4 | Method–Question–Data Triangle | Misalignment = unreliable results |
+| 5, 6 | Papers | Start planning your paper |
 
 . . .
 
-**Week 7:** We apply all of this —> to a flawed paper, and to your own work.
+**Week 7:** Start justifying your method.
 
 ---
 
@@ -66,9 +66,6 @@ This week: I want people to start working a bit on their methods
 > *What do you say?"*
 > Are you ready to answer that question?
 
-. . .
-
-Take 20 seconds. Think about it honestly.
 
 . . .
 

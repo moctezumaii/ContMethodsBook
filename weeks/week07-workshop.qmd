@@ -11,7 +11,7 @@ Topic: Project Progress, Peer Review & Method Justification
 
 | Part | Activity | Time |
 |------|----------|------|
-| **Part 1** | Timeline Self-Assessment | 15 min |
+| **Part 1** | Timeline Self-Assessment | 10 min |
 | **Part 2** | Peer Feedback — Project Pairs | 25 min |
 | **Part 3** | Method Justification — Written Exercise | 15 min |
 | **Part 4** | Structured Work Time | 20 min |
@@ -24,18 +24,20 @@ Topic: Project Progress, Peer Review & Method Justification
 
 ### Step 1 — Individual Review (5 min)
 
-Open your project README and review your **Expected Timeline**.
+Open your project README and finish and review your **Expected Timeline**.
 
 Answer the following:
 
 ::: {.callout-tip}
 ## Timeline Check Prompts
 
-**What did you plan to have done by Week 8?**
+**What did you plan to have done by next week?**
+
+Be aware that you are NOT expected to work on this over break
 
 <br><br>
 
-**What have you actually accomplished?**
+**Moving forward, you should answer the followign each week**
 
 <br><br>
 
@@ -50,13 +52,8 @@ Answer the following:
 <br><br>
 
 **Updated timeline for remaining weeks:**
-
-| Week | Goal |
-|------|------|
-| Week 9 | |
-| Week 10 | |
-| Week 11 | |
-| Week 12 | |
+Update or leave your timeline as needed.
+Please, if possible, start working on Github so you can share this with me
 :::
 
 ### Step 2 — Share with Neighbor (5 min)
@@ -74,19 +71,24 @@ Show of hands:
 
 ---
 
-## Part 2: Peer Feedback — Project Pairs (25 min)
+## Part 2: Start working on your methods
+
+In your project (RSTUDIO or Github or Word) start a "Methods" section. Write two sentences there. Examples:
+- I chose X methods because ...
+- A key limitation of my analysis is ... so we ...
+
+## Part 3: Peer Feedback - We will be doing this most weeks
 
 Pair with someone **outside** your immediate research area.
 
-**⏱ 12 minutes per person (24 min + 1 min transition)**
+**⏱ ~7 minutes per person**
 
-### Presenter Role (12 min)
 
 | Time | Task |
 |------|------|
-| 3 min | Explain your project: question, data, and why it matters |
-| 3 min | Show your current work: code, figures, or written sections |
-| 6 min | Receive feedback from your reviewer |
+| 4 min | Explain your project: question, data, and why it matters |
+| 1 min | Show your current work: code, figures, or written sections |
+| 2 min | Receive feedback from your reviewer |
 
 ### Reviewer Feedback Guide
 
@@ -98,14 +100,11 @@ Use this structure when reviewing your partner's project:
 **Strengths** (at least one):
 > "One thing that is working well is..."
 
-**Triangle Check**:
-> "Based on what I heard, the Method–Question–Data Triangle [does / does not yet] align because..."
-
 **One Idea**:
 > "One thing you might consider is..."
 
-**The Hard Question**:
-> Ask one question the presenter may not have considered yet. Examples:
+**One Hard Question**:
+> Ask one question the presenter may not have considered yet.
 
 :::
 
@@ -138,10 +137,22 @@ Your paragraph can address:
 ⬜ What is your data structure (independent, nested, repeated, blocked)?  
 ⬜ Why is a simpler analysis insufficient?  
 ⬜ Why is a more complex analysis not warranted?  
-⬜ What assumptions does your method make, and how will you check them?
+⬜ What assumptions does your method make? List ALL OF THEM!
 :::
 
-## Part 4: Structured Work Time 
+## Part 4: Check your assumptions
 
-Work on your project. 
+Based on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project.
+list every assumption your chosen model requires. Then rate each one:
+
+| Assumption | Status |
+|------------|--------|
+| *(e.g., independence of residuals)* | 🟢 Checked: and it holds |
+| *(e.g., normality of random effects)* | 🟡 Haven't checked yet: but I could by next class |
+| *(e.g., no spatial autocorrelation)* | 🔴 Can't fully check: need to acknowledge it and discuss it |
+
+**The goal is not to have all green.** Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.
+---
+
+## Part 5: Work on your project. 
 
