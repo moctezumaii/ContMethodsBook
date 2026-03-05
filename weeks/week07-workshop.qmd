@@ -7,18 +7,7 @@ Week: 8
 
 Topic: Project Progress, Peer Review & Method Justification
 
-# Workshop Overview
 
-| Part | Activity | Time |
-|------|----------|------|
-| **Part 1** | Timeline Self-Assessment | 10 min |
-| **Part 2** | Peer Feedback — Project Pairs | 25 min |
-| **Part 3** | Method Justification — Written Exercise | 15 min |
-| **Part 4** | Structured Work Time | 20 min |
-| **Part 5** | Closing — One Word Check-Out | ~5 min |
-| | **Total** | **~75–80 min** |
-
----
 
 ## Part 1: Timeline Self-Assessment (15 min)
 
@@ -41,11 +30,11 @@ Be aware that you are NOT expected to work on this over break
 
 <br><br>
 
-**Traffic light rating:**
+**Where are you:**
 
-⬜ 🟢 Green — On track or ahead  
-⬜ 🟡 Yellow — Slightly behind; I know what I need to do  
-⬜ 🔴 Red — Significantly behind; need help re-planning
+⬜ 🟢 On track or ahead  
+⬜ 🟡 Slightly behind; I know what I need to do  
+⬜ 🔴 Significantly behind; need help re-planning
 
 **If Yellow or Red: one concrete thing I will do this week:**
 
@@ -58,15 +47,7 @@ Please, if possible, start working on Github so you can share this with me
 
 ### Step 2 — Share with Neighbor (5 min)
 
-Share your traffic light color and your "one thing" with the person next to you. Offer one suggestion or piece of encouragement.
-
-### Step 3 — Whole Class  (5 min)
-
-Show of hands:
-
-- 🟢 How many are on track?
-- 🟡 How many are slightly behind?
-- 🔴 How many need to re-plan?
+Share your timeline with the person next to you. Offer one suggestion or piece of encouragement.
 
 
 ---
