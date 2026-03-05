@@ -140,6 +140,6 @@ I chose a Generalized Linear Mixed Model with a Poisson distribution because my 
 | Assumption | Status |
 |------------|--------|
 | Independence of residuals | 🟢 Checked: and it holds |
-| Normality of random effects | 🟡 Haven't checked yet: but I could by next class |
+| Normality of random effects | 🟡  Haven't checked yet: but I could by next class |
 | No spatial autocorrelation | 🔴 Can't fully check: need to acknowledge it and discuss it |
 

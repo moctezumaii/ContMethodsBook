@@ -40,7 +40,7 @@ Think back to the **one actionable item** you committed to working on by Thursda
 | Prompt | Your Response |
 |--------|--------------|
 | My original actionable item was: | |
-| Current status (circle): | **On track** \  **Stuck** \  **Needs revision** \  **Not started** |
+| Current status (circle): | **On track**<br/>**Stuck**<br/>**Needs revision**<br/>**Not started** |
 | If revising: what's the adjusted version? | |
 | One thing I need to do in the next 48 hrs ("do nothing" is an option): | |
 
