@@ -60,6 +60,43 @@ Edit your README.md file to include the following sections:
 3. Click **"Invite a collaborator"**
 4. Enter my email address
 
+## Step 5: Write a method justification section
+
+On the same document, write a brief justification for your chosen method(s). This should start with a sentence like this:
+- I chose X methods because ...
+- A key limitation of my analysis is ... so we ...
+
+It should be two or so paragraphs.
+
+Your paragraphs can address:
+
+::: {.callout-tip}
+## Writing Checklist
+
+⬜ What is your response variable and what distribution does it follow?  
+⬜ What is your data structure (independent, nested, repeated, blocked)?  
+⬜ Why is a simpler analysis insufficient?  
+⬜ Why is a more complex analysis not warranted?  
+⬜ What assumptions does your method make? List ALL OF THEM!
+:::
+
+And more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis.
+
+## Step 6: Check your assumptions
+
+Based on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project.
+list every assumption your chosen model requires. Then rate each one:
+
+| Assumption | Status |
+|------------|--------|
+| *(e.g., independence of residuals)* | 🟢 Checked: and it holds |
+| *(e.g., normality of random effects)* | 🟡 Haven't checked yet: but I could by next class |
+| *(e.g., no spatial autocorrelation)* | 🔴 Can't fully check: need to acknowledge it and discuss it |
+
+**The goal is not to have all green.** Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.
+
+
+
 ## Example Project Template
 
 **Objective:** Assess the impact of habitat restoration on native bird species richness in riparian zones
@@ -95,3 +132,14 @@ Yes - the GLMM approach handles count data (species richness) and accounts for s
 
 **Usefulness for Your Career or Degree:**
 This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.
+
+**Method Justification:**
+I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.
+
+**Assumption Check:**
+| Assumption | Status |
+|------------|--------|
+| Independence of residuals | 🟢 Checked: and it holds |
+| Normality of random effects | 🟡 Haven't checked yet: but I could by next class |
+| No spatial autocorrelation | 🔴 Can't fully check: need to acknowledge it and discuss it |
+

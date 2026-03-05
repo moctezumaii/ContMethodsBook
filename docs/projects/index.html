@@ -248,7 +248,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#usefulness-for-your-career-or-degree" id="toc-usefulness-for-your-career-or-degree" class="nav-link" data-scroll-target="#usefulness-for-your-career-or-degree"><span class="header-section-number">3.9</span> Usefulness for Your Career or Degree</a></li>
   </ul></li>
   <li><a href="#step-4-share-your-repository-with-me-via-github" id="toc-step-4-share-your-repository-with-me-via-github" class="nav-link" data-scroll-target="#step-4-share-your-repository-with-me-via-github"><span class="header-section-number">4</span> Step 4: Share your repository with me via Github</a></li>
-  <li><a href="#example-project-template" id="toc-example-project-template" class="nav-link" data-scroll-target="#example-project-template"><span class="header-section-number">5</span> Example Project Template</a></li>
+  <li><a href="#step-5-write-a-method-justification-section" id="toc-step-5-write-a-method-justification-section" class="nav-link" data-scroll-target="#step-5-write-a-method-justification-section"><span class="header-section-number">5</span> Step 5: Write a method justification section</a></li>
+  <li><a href="#step-6-check-your-assumptions" id="toc-step-6-check-your-assumptions" class="nav-link" data-scroll-target="#step-6-check-your-assumptions"><span class="header-section-number">6</span> Step 6: Check your assumptions</a></li>
+  <li><a href="#example-project-template" id="toc-example-project-template" class="nav-link" data-scroll-target="#example-project-template"><span class="header-section-number">7</span> Example Project Template</a></li>
   </ul>
 </nav>
     </div>
@@ -347,8 +349,63 @@ ul.task-list li input[type="checkbox"] {
 <li>Enter my email address</li>
 </ol>
 </section>
-<section id="example-project-template" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="example-project-template"><span class="header-section-number">5</span> Example Project Template</h2>
+<section id="step-5-write-a-method-justification-section" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="step-5-write-a-method-justification-section"><span class="header-section-number">5</span> Step 5: Write a method justification section</h2>
+<p>On the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we …</p>
+<p>It should be two or so paragraphs.</p>
+<p>Your paragraphs can address:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Writing Checklist
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>⬜ What is your response variable and what distribution does it follow?<br>
+⬜ What is your data structure (independent, nested, repeated, blocked)?<br>
+⬜ Why is a simpler analysis insufficient?<br>
+⬜ Why is a more complex analysis not warranted?<br>
+⬜ What assumptions does your method make? List ALL OF THEM!</p>
+</div>
+</div>
+<p>And more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis.</p>
+</section>
+<section id="step-6-check-your-assumptions" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="step-6-check-your-assumptions"><span class="header-section-number">6</span> Step 6: Check your assumptions</h2>
+<p>Based on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 60%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>(e.g., independence of residuals)</em></td>
+<td>🟢 Checked: and it holds</td>
+</tr>
+<tr class="even">
+<td><em>(e.g., normality of random effects)</em></td>
+<td>🟡 Haven’t checked yet: but I could by next class</td>
+</tr>
+<tr class="odd">
+<td><em>(e.g., no spatial autocorrelation)</em></td>
+<td>🔴 Can’t fully check: need to acknowledge it and discuss it</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The goal is not to have all green.</strong> Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.</p>
+</section>
+<section id="example-project-template" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="example-project-template"><span class="header-section-number">7</span> Example Project Template</h2>
 <p><strong>Objective:</strong> Assess the impact of habitat restoration on native bird species richness in riparian zones</p>
 <p><strong>Research Question:</strong> Does riparian habitat restoration increase native bird species richness compared to unrestored sites?</p>
 <p><strong>Variables:</strong> - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)</p>
@@ -358,6 +415,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Logical Alignment:</strong> Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.</p>
 <p><strong>Expected Timeline:</strong> - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper</p>
 <p><strong>Usefulness for Your Career or Degree:</strong> This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.</p>
+<p><strong>Method Justification:</strong> I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.</p>
+<p><strong>Assumption Check:</strong> | Assumption | Status | |————|——–| | Independence of residuals | 🟢 Checked: and it holds | | Normality of random effects | 🟡 Haven’t checked yet: but I could by next class | | No spatial autocorrelation | 🔴 Can’t fully check: need to acknowledge it and discuss it |</p>
 
 
 </section>
