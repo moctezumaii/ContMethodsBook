@@ -262,7 +262,8 @@ print(round(burn_coefs[, c("term","estimate","exp_est","exp_low","exp_high","pct
 cat("\nInterpretation example:\n")
 cat("If estimate for BB = -1.2, then IRR = exp(-1.2) ≈ 0.30\n")
 cat("=> Burned/burned plots have ~70% fewer ticks than unburned/unburned,\n")
-cat("   averaged across all 21 plots and 24 months (population-averaged effect).\n")
+cat(paste0("   averaged across all ", n_plots, " plots and ", n_months,
+           " months (population-averaged effect).\n"))
 
 # ---- 10. Sensitivity check: Poisson vs quasi-Poisson vs NB GLM --------------
 cat("\n=== Sensitivity Check: Family Comparison ===\n")
