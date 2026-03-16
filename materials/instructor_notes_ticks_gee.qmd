@@ -1,0 +1,275 @@
+---
+title: "Instructor Notes — Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data"
+subtitle: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+format: html
+---
+
+::: {.callout-note}
+## For Instructor Use Only
+
+This document is **not** for distribution to students. It provides step-by-step facilitation guidance, expected student difficulties, contingency plans, and follow-up assignments.
+:::
+
+---
+
+# How to Run the Class
+
+## Pre-Class Setup (~15 min before)
+
+- Distribute (or post on Canvas) `activities/pre_activity_entry_ticket.csv` so students have it ready at the start.
+- Open `slides/slides-ticks-gee.qmd` in your browser — advance past the title slide to Slide 3 (Entry Ticket Debrief prompts) so it is ready when you walk in.
+- Write the Hot-Seat Q&A instructions on the board (or keep Slide 9 ready): *"Your group has 60 seconds to write one question for the presenter. The presenter will answer on the spot."*
+- Confirm that the presenter knows the Hot-Seat is coming at ~20 min into their presentation (tell them at the start or remind them the day before).
+- If students will run R code live, verify `geepack` and `MASS` are installed in the classroom R environment.
+
+---
+
+## Minute-by-Minute Facilitation Guide
+
+### 0:00–0:05 — Entry Ticket (5 min)
+
+- Project the entry ticket fields on the screen (Slide 3) or tell students to open the CSV.
+- Say: *"Five minutes — paper out, answer these. Be honest; this is not graded."*
+- Walk around and **read over students' shoulders**. Mentally note:
+  - Did students identify plots (not individual ticks) as the clusters?
+  - Did anyone mention GEE, repeated measures, or clustering?
+  - Any especially good or creative method questions?
+
+---
+
+### 0:05–0:10 — Entry Ticket Debrief (5 min)
+
+- Summarize verbally: *"I saw a few people say [X]. That's exactly right because…"* and *"Several of you wrote [Y] — let's come back to that during the lecture."*
+- Key points to reinforce:
+  - **Cluster = plot** (not individual ticks, not year)
+  - **Outcome = count data** (overdispersed → negative binomial is defensible)
+  - **GEE is appropriate** when you want *marginal* (population-averaged) effects
+
+::: {.callout-tip}
+**Facilitation tip:** Don't give away the full lecture yet. Use this 5 minutes to whet curiosity. Say: *"There's a really interesting tension between GEE and GLMM for this design — we'll get to that."*
+:::
+
+---
+
+### 0:10–0:40 — Student Presentation (30 min)
+
+**Your role:** Active moderator, not passive audience.
+
+- At minute 12–15 (before the Hot-Seat), listen for whether the presenter:
+  - Correctly identifies the cluster structure
+  - Mentions overdispersion or count data
+  - Explains what GEE does (or tries to)
+- **At approximately 20 minutes into the presentation**, interrupt politely: *"Great — let's pause here for our Hot-Seat Q&A round."*
+
+#### Facilitating the Hot-Seat (5 min within the presentation)
+
+1. **Announce:** *"Groups, you have 60 seconds to write one question for [presenter's name]. This is a question they must answer right now."*
+2. Set a visible timer (phone or projector).
+3. Call on 2–3 groups (time permitting): *"Group 1, what's your question?"*
+4. After each question, say: *"[Presenter], you have 30 seconds."*
+5. If the presenter struggles, do NOT immediately rescue — wait 5 seconds, then offer: *"Anyone want to help [presenter] out?"*, and then ask the presenter to synthesize.
+6. After the Hot-Seat, let the presenter finish their remaining ~10 minutes.
+
+::: {.callout-warning}
+**Common presenter mistake:** Trying to answer questions with "I think..." followed by a restatement of the paper. Encourage them to use their own words and to explicitly say "I don't know, but I would look at..." if they are uncertain.
+:::
+
+---
+
+### 0:40–0:55 — GEE Mini-Lecture (15 min)
+
+Use Slides 4–8. Key teaching points per slide:
+
+- **Slide 4 (Why GEE?):** Emphasize *marginal* vs *conditional* interpretation. "GEE answers: what is the average effect of burn treatment across all plots?"
+- **Slide 5 (Estimating Equation):** Walk through each symbol slowly. Spend 2–3 min on $\mathbf{V}_i = \mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}$. Key insight: **the working correlation does not have to be correct** — GEE is consistent even if $R(\alpha)$ is wrong.
+- **Slide 6 (Sandwich Variance):** One sentence: *"The sandwich variance is consistent even when the working covariance is wrong — that is GEE's magic."* Then move on.
+- **Slide 7 (Paper's Model):** Be explicit that the paper does NOT give a formal equation. Show the inferred model and ask: *"Does anyone want to challenge this specification?"*
+- **Slide 8 (Working Correlation Table):** Spend 2 min — AR(1) is usually more realistic for monthly ecological data, but exchangeable is common in practice. This is a good setup for the group worksheet.
+
+---
+
+### 0:55–1:05 — Group Worksheet (10 min)
+
+- Distribute `activities/worksheet_group_ticks.md` (or show it on screen).
+- Give explicit instructions: *"You have 10 minutes. Answer as many of the 6 prompts as you can — but your main deliverable is one 'challenge question' for [presenter's name] at the end."*
+- Circulate. Suggested probing questions when groups get stuck:
+  - *"Would the correlation between tick counts in January and December be the same as between January and February? What does that imply?"* (prompts AR(1) vs exchangeable thinking)
+  - *"If they had used a GLMM instead, how would you interpret the burn regime coefficient differently?"* (marginal vs conditional)
+  - *"The paper says 'negative binomial GEE' — but `geepack::geeglm` doesn't have a negative binomial family option. What does that tell you about the software?"*
+
+---
+
+### 1:05–1:12 — Group Reports + Challenge Questions (7 min)
+
+- Call on 2–3 groups: *"What is your group's challenge question for [presenter]?"*
+- After each question, give the presenter **45–60 seconds** to respond.
+- If responses are weak, ask follow-up: *"[Presenter], do you want to revise that answer?"*
+- Briefly synthesize after all groups: *"Here's what I want you to take away from these questions..."*
+
+::: {.callout-tip}
+**If time is tight:** Skip to the most conceptually rich challenge question (usually the GEE vs GLMM one or the AR(1) vs exchangeable one).
+:::
+
+---
+
+### 1:12–1:15 — Minute Paper (3 min)
+
+- Project Slide 11 (Minute Paper prompts).
+- Say: *"Two questions, index card or phone. You have 3 minutes. Be specific."*
+- Collect before students leave. Review before next class.
+
+---
+
+# Expected Student Difficulties
+
+## 1. Confusing GEE with GLMM
+
+**The confusion:** Both handle clustered/repeated-measures data and both can use non-normal link functions. Students often use the terms interchangeably.
+
+**How to address:**
+- Key distinction: GEE models the **marginal mean** (population-averaged effect); GLMM models the **conditional mean** (cluster-specific effect).
+- Example: "The effect of burn treatment on tick counts **across all plots** (GEE) vs. **within a specific plot** (GLMM)."
+- Analogy: GEE is like asking "on average, do treated fields have fewer ticks?" GLMM asks "for plot #7 specifically, do treated conditions reduce ticks?"
+
+**Relevant worksheet prompt:** Question 6.
+
+---
+
+## 2. Sandwich SEs vs. Model-Based SEs
+
+**The confusion:** Students don't understand why you'd use robust SEs instead of the model-based ones — *"aren't model-based SEs better if the model is correct?"*
+
+**How to address:**
+- In practice, the working correlation is never exactly right. Sandwich SEs are consistent regardless.
+- If the working covariance is correctly specified, sandwich and model-based SEs converge.
+- Analogy: Model-based SEs are like a GPS that assumes perfect roads; sandwich SEs are like a GPS that recalculates based on actual traffic.
+
+**Relevant worksheet prompt:** Question 5.
+
+---
+
+## 3. Negative Binomial vs. Poisson Family Choice
+
+**The confusion:** Students may not understand what overdispersion means or how to detect it.
+
+**How to address:**
+- For count data, Poisson assumes Var(Y) = E(Y). If Var(Y) > E(Y), the data are overdispersed.
+- Signs of overdispersion: residual deviance/df >> 1 in a Poisson GLM; estimated dispersion parameter > 1.
+- `geepack::geeglm` uses a quasi-Poisson approach (scale parameter estimated from data); true negative binomial GEE requires additional packages.
+
+**Relevant R script:** `materials/gee_example.R` section "Overdispersion Check."
+
+---
+
+## 4. Not Recognizing the Cluster Structure
+
+**The confusion:** Students may identify individual tick observations as the unit of analysis, or confuse the cluster (plot) with the treatment (burn regime).
+
+**How to address:**
+- Draw the data structure on the board:
+  ```
+  Plot 1 (BB)   → Jan, Feb, Mar, ... Dec 2010, Jan, ..., Dec 2011
+  Plot 2 (BB)   → Jan, Feb, Mar, ... Dec 2010, Jan, ..., Dec 2011
+  ...
+  Plot 21 (UBUB) → ...
+  ```
+- Key point: plots are the *independent* units; monthly observations within a plot are *dependent* (correlated over time).
+
+**Relevant entry ticket field:** `Cluster_ID_and_time_structure`.
+
+---
+
+## 5. Working Correlation Choice (AR(1) vs. Exchangeable)
+
+**The confusion:** Students may think exchangeable is "fine" because GEE is robust to misspecification.
+
+**How to address:**
+- GEE estimates are consistent regardless of working correlation — but efficiency (precision) depends on how close the working correlation is to the truth.
+- Monthly tick counts likely have autocorrelation that decays with lag — AR(1) is more ecologically realistic.
+- For a 24-time-point monthly series, assuming equal correlation between January and December (exchangeable) as between consecutive months is probably wrong.
+
+---
+
+# Tips for Facilitating Presenter–Student Interaction
+
+## Managing the Hot-Seat
+
+- **Rehearse this the day before** by telling the presenter: "At about minute 20, I'll call a Hot-Seat. Groups will ask you a question. You'll have 30 seconds per question. Don't panic — say what you know."
+- Frame it as professional development: "This is what happens at conference Q&A and dissertation defenses."
+- If a group's question is unclear or unfair, rephrase it: *"I think what they're asking is..."*
+- If the presenter gives a great answer, say so explicitly: "That was a really precise answer — did everyone catch what they said?"
+
+## Managing Challenge Questions from Groups
+
+- Encourage groups to write genuinely challenging questions, not softballs. During the worksheet phase, if you see a group writing an easy question, push back: *"What's a question that would make a methodologist sweat a bit?"*
+- After the presenter responds, ask the questioning group: *"Does that answer satisfy you? Anything you'd add?"* This creates a mini-dialogue.
+
+## If the Presenter Doesn't Know the Answer
+
+- Don't rescue immediately. Wait 5–8 seconds.
+- Offer: *"What would you need to look at to figure that out?"*
+- If truly stumped, open to the class: *"Who wants to help?"*
+- Return to the presenter for a synthesis: *"Based on what the class just said, how would you revise your answer?"*
+
+---
+
+# Follow-Up Assignments
+
+## Option A: R Modification (recommended)
+
+Students run `materials/gee_example.R` with modifications:
+1. Change the correlation structure from `"exchangeable"` to `"ar1"` and `"independence"`. Compare QIC values. Which fits best?
+2. Add a `month*burn_regime` interaction term. Does it improve fit? How would you interpret it?
+3. Write a 200-word methods paragraph suitable for a journal manuscript describing the GEE you ran.
+
+## Option B: Apply to Own Data
+
+Students identify a dataset from their own research (or a publicly available one) that has:
+- Count or rate outcome
+- Repeated measures or clustering
+
+They fit a GEE using `geepack::geeglm`, justify their choice of family, link, and correlation structure, and write a 300-word methods + results paragraph.
+
+## Option C: Peer Review Practice
+
+Students use `activities/rubric_peer_review.md` to review a classmate's Option A or B submission.
+
+---
+
+# Contingency Plans
+
+## If the presentation runs long (presenter at 30+ min at 0:40)
+
+- Interrupt politely: *"Let's stop there — we need to move to the methods lecture. You can post your remaining slides on Canvas."*
+- Skip the Hot-Seat Q&A if it hasn't happened yet, or fold it into the group challenge questions.
+
+## If the presentation runs short (presenter done at 0:25)
+
+- Open the floor to the class for general questions (3–4 min).
+- Move into the GEE lecture earlier; use the extra time to go deeper on the estimating equation derivation.
+
+## If the worksheet activity runs short (groups done in 5 min)
+
+- Prompt deeper thinking: *"Group 2, you said exchangeable is fine — convince me. What would the correlation matrix look like for months 1 vs 2, and months 1 vs 24?"*
+- Ask groups to peer-review another group's challenge question.
+
+## If the worksheet activity runs long (groups not done at 10 min)
+
+- Call time at 10 min regardless. Say: *"We'll only share the challenge questions — skip the written answers for now."*
+- Assign written answers as homework.
+
+## If R code doesn't work (technical failure)
+
+- Show the pre-run output in `solutions/expected_answers_ticks_gee.md`.
+- Walk through the code on the projector without executing it.
+- Send `materials/gee_example.R` via email/Canvas for students to run at home.
+
+---
+
+# References
+
+- Gleim et al. (2014). DOI: 10.1371/journal.pone.0112174
+- Liang & Zeger (1986). *Biometrika*, 73(1), 13–22.
+- Zeger & Liang (1986). *Biometrics*, 42(1), 121–130.
+- Hardin & Hilbe (2013). *Generalized Estimating Equations*, 2nd ed.
+- Bransford, J. D., Brown, A. L., & Cocking, R. R. (Eds.). (2000). *How People Learn*. National Academy Press.
