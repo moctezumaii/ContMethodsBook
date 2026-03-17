@@ -1,0 +1,270 @@
+---
+title: "Week — Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data"
+format: html
+---
+
+# Week Overview
+
+| Session | Content | Duration |
+|---------|---------|----------|
+| **Session A Part 1** | Student-led paper discussion (Gleim et al. 2014) | ~30 min |
+| **Session A Part 2** | Instructor-led GEE theory mini-lecture (slides) | ~15 min |
+| **Session B** | Group worksheet critique + R workshop + wrap-up | ~30 min |
+
+**Paper:** Gleim, E. R., Conner, L. M., Berghaus, R. D., Levin, M. L., Zemtsova, G. E., & Yabsley, M. J. (2014). The Phenology of Ticks and the Effects of Long-Term Prescribed Burning on Tick Population Dynamics in Southwestern Georgia and Northwestern Florida. *PLOS ONE*, 9(11), e112174. <https://doi.org/10.1371/journal.pone.0112174>
+
+---
+
+::: {.callout-tip}
+## Learning Objectives
+
+By the end of class, students will be able to:
+
+1. Explain why GEE is appropriate for clustered/repeated-measures count data
+2. Write the GEE estimating equation and identify each component ($\mathbf{D}_i$, $\mathbf{V}_i$, $\boldsymbol{\mu}_i$, $R(\alpha)$)
+3. Compare exchangeable, AR(1), and independence working correlation structures and articulate when each is defensible
+4. Evaluate whether the paper's analytic choices (negative binomial family, log link, exchangeable correlation) align with the data structure
+5. Implement a GEE in R using `geepack::geeglm` and interpret robust (sandwich) standard errors
+:::
+
+---
+
+# Minute-by-Minute Schedule
+
+## Entry Ticket — 0:00–0:05 (5 min) {.unnumbered}
+
+**Activity type:** In-class formative pre-assessment
+
+**Instructions to students (displayed on screen or distributed as `activities/pre_activity_entry_ticket.csv`):**
+
+> *Before we begin today's discussion, take 5 minutes to answer these questions about the paper you read. You will not be graded on correctness — this is to help me calibrate the discussion.*
+
+| Field | Prompt |
+|-------|--------|
+| `Objective` | In one sentence, what is the paper's primary research objective? |
+| `Research_Question` | State the main research question (what, in whom/what, compared to what, measured how). |
+| `Outcome_Variable` | What is the response/outcome variable? What type of data is it? |
+| `Predictors` | List the main predictor(s)/covariate(s). |
+| `Cluster_ID_and_time_structure` | What are the clusters (sampling units)? How many? How many repeated time points? |
+| `Analysis_method_guess` | What statistical method did the authors use (or what do you think they should have used)? |
+| `One_method_question` | Write one question about the statistical method that you want answered today. |
+
+**Logistics:** Students write on paper or fill in the CSV template digitally; instructor circulates to read answers.
+
+---
+
+## Entry Ticket Debrief — 0:05–0:10 (5 min) {.unnumbered}
+
+**Instructor action:** Briefly scan responses and highlight 2–3 common patterns:
+
+- Common correct answers (reinforce)
+- Common gaps (e.g., not identifying plots as clusters, or calling it "ANOVA")
+- Surprising or especially sharp questions (call out by name)
+
+::: {.callout-note}
+**Timing tip:** Keep this tight — 5 minutes maximum. The goal is to warm up the room and signal that the pre-reading mattered.
+:::
+
+---
+
+## Student Paper Presentation — 0:10–0:40 (30 min) {.unnumbered}
+
+**Presenter:** Assigned student(s) lead a structured discussion of Gleim et al. (2014).
+
+**Suggested presentation structure (for presenters):**
+
+1. **Motivation & context** (3 min): Why study tick phenology? What is prescribed burning?
+2. **Study design** (5 min): 21 plots, 4 burn-regime treatments (BB, BUB, UBB, UBUB), monthly sampling 2010–2011, drag/flag method.
+3. **Data & response variable** (3 min): 47,185 total ticks; 99% *Amblyomma americanum*; overdispersed count data.
+4. **Statistical methods** (7 min): GEE with negative binomial family, log link, exchangeable correlation; predictors (burn regime, host abundance, vegetation structure, climate). Note: the paper does not provide an explicit model equation — discuss inferred model specification.
+5. **Key results** (5 min): Long-term burning reduced tick counts regardless of regime; species composition shifted.
+6. **Critical appraisal** (7 min): What worked well? What are limitations?
+
+---
+
+### ⚡ Hot-Seat Q&A — ~0:28–0:33 (5 min) — *Interaction Activity #1*
+
+::: {.callout-important}
+## Hot-Seat Q&A Instructions
+
+**At approximately the 20-minute mark of the presentation**, the instructor interrupts (gently) and initiates the Hot-Seat round.
+
+**Procedure:**
+1. Each table/group has 60 seconds to write one rapid question directed at the **presenter** (not a general discussion question — a question the presenter must answer).
+2. Groups submit questions (verbally or on a notecard).
+3. The instructor reads questions aloud; the **presenter must respond on the spot** (30–45 seconds per question).
+4. Instructor may follow up or clarify after each response.
+
+**Purpose:** Forces the presenter to demonstrate command of the material under mild pressure; keeps the audience engaged; surfaces misconceptions early.
+
+**Tips for instructor:** Keep it collegial. If the presenter cannot answer, open it to the class briefly and return to the presenter for a synthesis statement.
+:::
+
+---
+
+## GEE Theory Mini-Lecture — 0:40–0:55 (15 min) {.unnumbered}
+
+**Format:** Instructor-led with slides (`slides/slides-ticks-gee.qmd`).
+
+**Slides covered:** Slides 4–8 (Why GEE?, Estimating Equation, Sandwich Variance, Paper's Model Spec, Working Correlation Comparison).
+
+### GEE Estimating Equation
+
+The GEE for subject $i$ solves:
+
+$$
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1}\left(\mathbf{Y}_i - \boldsymbol{\mu}_i\right) = \mathbf{0}
+$$
+
+where:
+
+| Symbol | Definition |
+|--------|-----------|
+| $K$ | Number of clusters (here: 21 plots) |
+| $\mathbf{Y}_i$ | $n_i \times 1$ vector of observed tick counts for plot $i$ |
+| $\boldsymbol{\mu}_i$ | $n_i \times 1$ vector of marginal means, $\mu_{it} = E[Y_{it} \mid \mathbf{X}_{it}]$ |
+| $\mathbf{D}_i$ | $n_i \times p$ derivative matrix, $\mathbf{D}_i = \partial \boldsymbol{\mu}_i / \partial \boldsymbol{\beta}$ |
+| $\mathbf{V}_i$ | Working covariance matrix, $\mathbf{V}_i = \phi \, \mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}$ |
+| $\mathbf{A}_i$ | Diagonal matrix of marginal variances |
+| $R(\alpha)$ | Working correlation matrix (exchangeable, AR(1), or independence) |
+| $\phi$ | Overdispersion parameter |
+
+### Sandwich (Robust) Variance
+
+$$
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+$$
+
+where $\mathbf{B} = \sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i$ (bread) and $\mathbf{M} = \sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \text{Cov}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i$ (meat).
+
+### Paper's Inferred Model Specification
+
+::: {.callout-note}
+The paper (Gleim et al. 2014) does **not** provide an explicit model equation. Based on the Methods section (p. 3), the authors state they used GEE with a negative binomial family and log link, exchangeable working correlation, to account for repeated measures within plots. A defensible inferred model is:
+
+$$
+\log\!\bigl(E[\text{ticks}_{it}]\bigr) = \beta_0 + \beta_1 \cdot \text{BurnRegime}_i + \beta_2 \cdot \text{HostAbundance}_{it} + \beta_3 \cdot \text{Canopy}_{it} + \beta_4 \cdot \text{Season}_{it} + \varepsilon_{it}
+$$
+
+where $i$ indexes plot (cluster) and $t$ indexes monthly time point.
+:::
+
+### Working Correlation Structures
+
+| Structure | $R(\alpha)$ | Assumption | Appropriate when... |
+|-----------|------------|-----------|---------------------|
+| **Independence** | $I$ | No correlation | Cluster size is large; correlation is nuisance |
+| **Exchangeable** | $(1-\alpha)I + \alpha \mathbf{J}$ | Equal pairwise correlation at all lags | Correlation doesn't decay with time |
+| **AR(1)** | $\alpha^{|t-s|}$ | Correlation decays with lag | Time series within clusters; ecological seasonal data |
+
+---
+
+## Group Worksheet Critique — 0:55–1:05 (10 min) {.unnumbered}
+
+**Format:** Small groups (3–4 students), worksheet `activities/worksheet_group_ticks.md`.
+
+**Instructions:**
+1. Each group answers the 6 structured critique prompts about the paper's model specification.
+2. **In addition**, each group formulates **one "challenge question"** directed at the presenter — a methodological question they believe the presenter should be able to address (Interaction Activity #2).
+
+::: {.callout-tip}
+**Instructor tip:** Circulate among groups. Listen for productive misconceptions about exchangeable vs. AR(1), or GEE vs. GLMM. These make great whole-class discussion fodder.
+:::
+
+---
+
+## Group Reports + Presenter Responses — 1:05–1:12 (7 min) {.unnumbered}
+
+### ⚡ Interaction Activity #2: Challenge Questions
+
+**Procedure:**
+1. Each group presents their challenge question (30 sec each, ~3 groups max given time).
+2. The **presenter** must respond to each challenge question directly (45–60 sec per response).
+3. Instructor may supplement if the presenter's answer is incomplete or if an important concept was missed.
+
+::: {.callout-important}
+**Purpose:** Requires the presenter to engage with peer critiques in real time, not just deliver a monologue. Models the kind of methodological defense required in journal peer review and dissertation defenses.
+:::
+
+---
+
+## Minute Paper — 1:12–1:15 (3 min) {.unnumbered}
+
+**Format:** Exit ticket (template: `activities/minute_paper_template.md`)
+
+**Prompts (displayed on screen):**
+
+1. *What is the single most important thing you learned about GEE today?*
+2. *What is one question you still have about applying GEE to your own research data?*
+
+**Logistics:** Students write on an index card or submit via Canvas. Instructor reviews before next class to identify persistent gaps.
+
+---
+
+# Assessment Mapping
+
+| Activity | Learning Objective(s) | Type | Duration |
+|----------|----------------------|------|----------|
+| Entry ticket | 1, 4 | Formative / diagnostic | 5 min |
+| Entry ticket debrief | 1, 4 | Instructor feedback | 5 min |
+| Student presentation | 1, 2, 3, 4 | Peer instruction | 30 min |
+| Hot-seat Q&A | 1, 4 | Presenter interaction | 5 min |
+| GEE mini-lecture | 2, 3, 5 | Direct instruction | 15 min |
+| Group worksheet | 1, 2, 3, 4 | Active learning / peer | 10 min |
+| Group reports + challenge Qs | 4, 5 | Presenter interaction | 7 min |
+| Minute paper | 1–5 (metacognitive) | Formative exit | 3 min |
+
+---
+
+# SoTL Techniques
+
+| Technique | Activity | SoTL Rationale |
+|-----------|----------|---------------|
+| **Entry ticket** (formative assessment) | Pre-activity | Surfaces prior knowledge gaps; primes learners; data for instructor |
+| **Minute paper** (formative exit) | End of class | Metacognitive reflection; identifies persistent misconceptions |
+| **Small-group peer instruction** (active learning) | Worksheet + group reports | Social construction of knowledge; increased engagement |
+| **Presenter hot-seat** (peer interaction) | Hot-seat Q&A + challenge Qs | Models disciplinary practice; increases presenter accountability |
+| **Metacognitive prompts** | Entry ticket + minute paper | Explicit metacognition improves transfer (Bransford et al., 2000) |
+
+---
+
+# Background & Readings
+
+**Required:**
+- Gleim et al. (2014) — see citation above. Available at <https://doi.org/10.1371/journal.pone.0112174>
+
+**Recommended (GEE):**
+- Liang, K.-Y., & Zeger, S. L. (1986). Longitudinal data analysis using generalized linear models. *Biometrika*, 73(1), 13–22.
+- Zeger, S. L., & Liang, K.-Y. (1986). Longitudinal data analysis for discrete and continuous outcomes. *Biometrics*, 42(1), 121–130.
+- Hardin, J. W., & Hilbe, J. M. (2013). *Generalized Estimating Equations* (2nd ed.). Chapman & Hall/CRC.
+
+---
+
+# R Implementation
+
+See `materials/gee_example.R` for a fully annotated script that:
+
+1. Simulates a dataset matching the paper's design (21 plots, 4 burn regimes, 24 monthly time points, overdispersed tick counts)
+2. Fits GEEs with `geepack::geeglm` under exchangeable, AR(1), and independence correlation structures
+3. Demonstrates overdispersion diagnosis (Poisson vs. negative binomial)
+4. Extracts robust (sandwich) SEs and confidence intervals
+5. Compares models using QIC
+
+```{r eval=FALSE}
+library(geepack)
+library(MASS)
+library(tidyverse)
+
+# Full annotated script: materials/gee_example.R
+# Quick demo (exchangeable GEE with quasi-Poisson family):
+fit_exch <- geeglm(
+  tick_count ~ burn_regime + month + host_abundance + canopy_closure,
+  id        = plot_id,
+  data      = tick_data,
+  family    = poisson(link = "log"),
+  corstr    = "exchangeable"
+)
+summary(fit_exch)
+```
+
+See `activities/worksheet_r_script.R` for the scaffolded student version.

@@ -1,0 +1,257 @@
+---
+title: "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data"
+subtitle: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    incremental: false
+    scrollable: true
+    code-fold: false
+    chalkboard: true
+execute:
+  eval: false
+  echo: true
+---
+
+## Agenda {.center}
+
+| Time | Activity |
+|------|----------|
+| 0:00–0:05 | Entry ticket |
+| 0:05–0:10 | Entry ticket debrief |
+| 0:10–0:40 | Student paper presentation (+ Hot-Seat Q&A ~0:28) |
+| 0:40–0:55 | GEE theory mini-lecture |
+| 0:55–1:05 | Group worksheet critique |
+| 1:05–1:12 | Group reports + presenter challenge Q's |
+| 1:12–1:15 | Minute paper |
+
+::: {.notes}
+Welcome everyone. Here is the road map for today. We have a 75-minute class. The first half belongs to our presenter — they will walk us through Gleim et al. (2014), the tick phenology and prescribed burning paper. The second half belongs to methods — we'll dig into GEE (Generalized Estimating Equations), which is the statistical engine the authors used. Before the presentation starts, I need everyone to fill out a quick entry ticket — paper out or open the CSV on your laptop. Five minutes, not graded.
+:::
+
+---
+
+## Entry Ticket Debrief {.center}
+
+::: {.callout-tip}
+## What I saw in your entry tickets
+
+- **Research objective:** Long-term prescribed burning effects on tick population dynamics
+- **Outcome variable:** Tick counts per plot per month (count, overdispersed)
+- **Clusters:** 21 sampling plots (not individual ticks!)
+- **Time structure:** Monthly repeated measures over 2 years (24 time points)
+- **Method:** GEE with negative binomial family, log link, exchangeable correlation
+:::
+
+. . .
+
+**Common question from entry tickets:** *"Why not just use a mixed model?"* — We'll come back to this.
+
+::: {.notes}
+I want to highlight a few patterns I saw. A lot of you correctly identified the outcome as tick counts — great. Several of you said the clusters were "observations" or "individual ticks" — that's the most important misconception to address today. The cluster is the PLOT. There are 21 plots; each plot was measured monthly for 2 years. The 24 time points within each plot are the repeated measures. Also, many of you asked "why not a mixed model?" — excellent question, and we will spend time on exactly that distinction today.
+:::
+
+---
+
+## Why GEE? Clustered Data & Marginal Inference
+
+**The data structure problem:**
+
+- 21 plots, each measured 24 times (monthly, 2010–2011)
+- Tick counts within a plot are **correlated** (not independent)
+- Ordinary GLM assumes independence → **inflated Type I error**
+
+. . .
+
+**Two solutions:**
+
+| Approach | What it models | Interpretation |
+|----------|---------------|----------------|
+| **GLMM** | Conditional mean $E[Y \mid \mathbf{b}]$ | Effect *within* a specific plot |
+| **GEE** | Marginal mean $E[Y]$ | Effect *averaged across* all plots |
+
+. . .
+
+> For policy-relevant questions — *"Does burning reduce ticks on average?"* — **GEE is the natural choice.**
+
+::: {.notes}
+This is the conceptual heart of the lecture. When you have repeated measures or clustered data, you have two philosophically different questions you can ask. GLMM asks: "for THIS plot, what is the effect of burning?" GEE asks: "averaged across ALL plots, what is the effect of burning?" For a public health or wildlife management question like "should we prescribe burn to reduce tick exposure across a landscape?", the marginal, population-averaged answer from GEE is exactly what we want. Conditional effects from GLMM are appropriate when we care about prediction for a specific cluster.
+:::
+
+---
+
+## The GEE Estimating Equation
+
+$$
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1}\left(\mathbf{Y}_i - \boldsymbol{\mu}_i\right) = \mathbf{0}
+$$
+
+| Symbol | Meaning |
+|--------|---------|
+| $K = 21$ | Number of plots (clusters) |
+| $\mathbf{Y}_i$ | Observed tick counts for plot $i$ (length 24) |
+| $\boldsymbol{\mu}_i = E[\mathbf{Y}_i \mid \mathbf{X}_i]$ | Predicted marginal means |
+| $\mathbf{D}_i = \partial \boldsymbol{\mu}_i / \partial \boldsymbol{\beta}$ | Derivative of mean w.r.t. parameters |
+| $\mathbf{V}_i = \phi\,\mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}$ | Working covariance |
+| $R(\alpha)$ | Working correlation matrix |
+
+::: {.notes}
+Let's slow down here. This equation looks intimidating but the logic is simple. GEE is a score equation — we're finding the beta that sets the weighted sum of residuals to zero. The key quantity is V_i — the working covariance matrix. This is where we specify our assumption about how the 24 monthly tick counts within a plot are correlated. A_i is a diagonal matrix of variances (from the negative binomial family). R(alpha) is the working correlation — exchangeable, AR(1), or independence. And here is GEE's great advantage: even if R(alpha) is wrong, the estimates are still consistent. We don't have to get the correlation right to get correct point estimates.
+:::
+
+---
+
+## Sandwich (Robust) Variance
+
+$$
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+$$
+
+- $\mathbf{B} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i$ &nbsp; (the **bread** — model-based information)
+- $\mathbf{M} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \widehat{\text{Cov}}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i$ &nbsp; (the **meat** — empirical)
+
+. . .
+
+> **Key insight:** The sandwich variance is **consistent** even when $R(\alpha)$ is misspecified, provided $K$ (clusters) is large enough.
+
+::: {.callout-warning}
+With only $K = 21$ clusters, the sandwich estimator may be **anti-conservative** (too narrow CIs). Small-sample corrections (e.g., `std.err = "jack"` in `geepack`) are advisable.
+:::
+
+::: {.notes}
+The sandwich estimator gets its name from the formula: B-inverse times M times B-inverse. Bread times meat times bread. B is the expected curvature of the likelihood — it's what you'd use if your working covariance was exactly right. M is the empirical estimate of the actual variance — it uses the observed residuals, not the model-assumed residuals. When you sandwich M between two B-inverses, you get a variance estimate that is robust to correlation misspecification. HOWEVER — and this is critical for this paper — with only 21 clusters, the sandwich estimator can be unreliable. The standard recommendation is at least 40 clusters for stable sandwich SEs. The authors of the tick paper had 21 plots; this is a legitimate limitation worth mentioning.
+:::
+
+---
+
+## The Paper's Model Specification
+
+::: {.callout-note}
+**Note:** Gleim et al. (2014) do **not** provide an explicit model equation. The following is an inferred defensible specification based on their Methods section (p. 3).
+:::
+
+$$
+\log\!\bigl(E[\text{ticks}_{it}]\bigr) = \beta_0 + \beta_1\,\text{BurnRegime}_i + \beta_2\,\text{HostAbundance}_{it} + \beta_3\,\text{Canopy}_{it} + \beta_4\,\text{Season}_{it} + \cdots
+$$
+
+- **Family:** Negative binomial (overdispersed counts; 47,185 total; 99% *A. americanum*)
+- **Link:** Log (counts → multiplicative effects on tick abundance)
+- **Correlation:** Exchangeable (equal correlation among all 24 monthly observations per plot)
+- **Clusters:** 21 plots (7.2–78.9 ha); ≥10 years of consistent burn management
+- **Predictors:** Burn regime (BB, BUB, UBB, UBUB), host abundance (cameras), canopy closure, tree density, ground cover, temperature, precipitation
+
+::: {.notes}
+Here is the model as best we can infer it. The paper describes using GEE with negative binomial family and log link in a sentence or two, but never displays a formal equation or coefficient table in the main text. This is unfortunately common in applied ecology. The negative binomial family is appropriate because tick counts are highly overdispersed — the variance far exceeds the mean. The log link gives us multiplicative effects — a one-unit change in burn regime multiplies the expected tick count by e to the beta. Exchangeable correlation means the model assumes the correlation between plot 7's tick counts in January and December is the same as between January and February. That may not be realistic — seasonal data often shows decaying autocorrelation better captured by AR(1).
+:::
+
+---
+
+## Working Correlation Structures
+
+| Structure | Formula | Assumption | Best for... |
+|-----------|---------|-----------|-------------|
+| **Independence** | $R = I$ | Zero correlation | Sensitivity check; large $K$ |
+| **Exchangeable** | $\text{Corr}(Y_{it}, Y_{is}) = \alpha$ | Equal correlation at all lags | Short series; random effects analogy |
+| **AR(1)** | $\text{Corr}(Y_{it}, Y_{is}) = \alpha^{|t-s|}$ | Correlation decays with lag | Time series; seasonal ecological data |
+
+. . .
+
+> For monthly tick counts over 2 years, **AR(1) is more ecologically realistic** than exchangeable — but GEE estimates are consistent under either.
+
+::: {.fragment}
+**Model selection:** Use QIC (quasi-likelihood under independence model criterion) to compare working correlation structures.
+:::
+
+::: {.notes}
+This table is worth spending a couple of minutes on because it connects directly to the group worksheet. Independence assumes no correlation — use this as a baseline or sensitivity check. Exchangeable assumes that correlation is constant regardless of the time gap — that the correlation between observations 1 month apart is the same as observations 23 months apart. That's a strong assumption for ecological time series. AR(1) assumes correlation decays exponentially with lag — more realistic for monthly data where nearby months are more similar. For this study, AR(1) seems more defensible, but the authors chose exchangeable. This is exactly the kind of analytic choice worth critiquing.
+:::
+
+---
+
+## Group Worksheet Activity {.center}
+
+::: {.callout-tip}
+## Instructions — 10 Minutes
+
+**With your group (3–4 people):**
+
+1. Open `activities/worksheet_group_ticks.md`
+2. Answer as many of the 6 critique prompts as you can
+3. **Your main deliverable:** One "challenge question" for the presenter
+
+**Critique prompts:**
+1. Is negative binomial appropriate? Alternatives?
+2. Is exchangeable correlation realistic for monthly ecological data?
+3. Are cluster sizes balanced? How might imbalance affect GEE?
+4. The paper doesn't report the full model equation — is this a transparency issue?
+5. How does the sandwich variance protect against correlation misspecification?
+6. What would change if they used GLMM instead of GEE?
+:::
+
+::: {.notes}
+Circulate among groups. Push back if groups are writing softball questions. Good challenge questions for the presenter are things like: "Can you justify why exchangeable correlation is more appropriate than AR(1) for monthly sampling?" or "The paper has 21 clusters — is the sandwich estimator reliable?" These are questions that require genuine methodological reasoning, not just paper summary.
+:::
+
+---
+
+## Group Reports + Presenter Response {.center}
+
+::: {.callout-important}
+## Presenter: Challenge Questions
+
+Each group will read their **one challenge question**.
+
+**You have 45–60 seconds to respond.**
+
+The class will evaluate whether your answer is:
+- Methodologically correct
+- Supported by the paper's methods section
+- Or, if unknown: Does the presenter acknowledge uncertainty and point to how they would find out?
+:::
+
+. . .
+
+**After all responses:** Instructor synthesis (~2 min)
+
+::: {.notes}
+Remind the presenter that this is the same kind of Q&A they will face at dissertation defenses and conference presentations. It's good practice. Remind the class that good challenge questions are collegial — the goal is to deepen understanding, not to embarrass the presenter. After all groups have asked, I'll take 2 minutes to synthesize the key methodological points that came up.
+:::
+
+---
+
+## Minute Paper {.center}
+
+::: {.callout-tip}
+## Before You Leave — 3 Minutes
+
+On an index card (or submit via Canvas):
+
+**1.** What is the single most important thing you learned about GEE today?
+
+**2.** What is one question you still have about applying GEE to **your own research data**?
+
+*Be specific. "I learned GEE exists" is not an acceptable answer for question 1.*
+:::
+
+::: {.notes}
+This is a metacognitive closing activity. The second question is intentionally about their own data — this forces them to think about transfer, not just whether they understood the lecture. I will read these before next class and address persistent questions at the start of the next session.
+:::
+
+---
+
+## References
+
+- Gleim, E. R., et al. (2014). The phenology of ticks and the effects of long-term prescribed burning on tick population dynamics. *PLOS ONE*, 9(11), e112174. <https://doi.org/10.1371/journal.pone.0112174>
+
+- Liang, K.-Y., & Zeger, S. L. (1986). Longitudinal data analysis using generalized linear models. *Biometrika*, 73(1), 13–22.
+
+- Zeger, S. L., & Liang, K.-Y. (1986). Longitudinal data analysis for discrete and continuous outcomes. *Biometrics*, 42(1), 121–130.
+
+- Hardin, J. W., & Hilbe, J. M. (2013). *Generalized Estimating Equations* (2nd ed.). Chapman & Hall/CRC.
+
+- Højsgaard, S., Halekoh, U., & Yan, J. (2006). The R package geepack for generalized estimating equations. *Journal of Statistical Software*, 15(2), 1–11.
+
+::: {.notes}
+These are the key references for GEE. The Liang & Zeger 1986 paper is the foundational reference — it is one of the most cited statistics papers ever. Hardin & Hilbe is the most accessible textbook treatment. The geepack vignette is a good practical starting point for R implementation.
+:::
