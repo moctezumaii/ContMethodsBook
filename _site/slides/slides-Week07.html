@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dr.&nbsp;Alejandro Molina Moctezuma">
+<meta name="dcterms.date" content="2001-07-01">
 
-<title>Week 01 — Introductions – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>From Philosophy to Practice: Defending Your Analysis – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -149,10 +131,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../weeks/week07-workshop.html">
  <span class="dropdown-text">Week 07, Thursday</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../weeks/week08.html">
- <span class="dropdown-text">Week 08</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -239,10 +217,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../slides/slides-Week07.html">
  <span class="dropdown-text">Slides Week 07</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../slides/slides-Week08.html">
- <span class="dropdown-text">Slides Week 08</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -261,38 +235,48 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-a-introductions" id="toc-session-a-introductions" class="nav-link active" data-scroll-target="#session-a-introductions"><span class="header-section-number">1</span> Session A: Introductions</a>
-  <ul class="collapse">
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives"><span class="header-section-number">1.1</span> Session Objectives</a></li>
-  </ul></li>
-  <li><a href="#session-b-papers-and-introduction-to-code" id="toc-session-b-papers-and-introduction-to-code" class="nav-link" data-scroll-target="#session-b-papers-and-introduction-to-code"><span class="header-section-number">2</span> Session B: Papers and introduction to code</a>
-  <ul class="collapse">
-  <li><a href="#part-1-paper-discussion-60-minutes-of-the-class" id="toc-part-1-paper-discussion-60-minutes-of-the-class" class="nav-link" data-scroll-target="#part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</a>
-  <ul class="collapse">
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">2.1.1</span> Preparation:</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</a></li>
-  </ul></li>
-  <li><a href="#part-2-github-and-r" id="toc-part-2-github-and-r" class="nav-link" data-scroll-target="#part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">2.2.1</span> </a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#todays-goal" id="toc-todays-goal" class="nav-link active" data-scroll-target="#todays-goal"><span class="header-section-number">1</span> 🎯 Today’s Goal</a></li>
+  <li><a href="#where-weve-been" id="toc-where-weve-been" class="nav-link" data-scroll-target="#where-weve-been"><span class="header-section-number">2</span> 🗺️ Where We’ve Been</a></li>
+  <li><a href="#a-question-for-you" id="toc-a-question-for-you" class="nav-link" data-scroll-target="#a-question-for-you"><span class="header-section-number">3</span> A Question for You</a></li>
+  <li><a href="#this-course" id="toc-this-course" class="nav-link" data-scroll-target="#this-course"><span class="header-section-number">4</span> This course</a></li>
+  <li><a href="#why-so-repetitive" id="toc-why-so-repetitive" class="nav-link" data-scroll-target="#why-so-repetitive"><span class="header-section-number">5</span> Why so repetitive?</a></li>
+  <li><a href="#quik-questions" id="toc-quik-questions" class="nav-link" data-scroll-target="#quik-questions"><span class="header-section-number">6</span> Quik Questions 🔍</a></li>
+  <li><a href="#meet-dr.-reyes" id="toc-meet-dr.-reyes" class="nav-link" data-scroll-target="#meet-dr.-reyes"><span class="header-section-number">7</span> 📄 Meet Dr.&nbsp;Reyes</a></li>
+  <li><a href="#what-did-you-notice" id="toc-what-did-you-notice" class="nav-link" data-scroll-target="#what-did-you-notice"><span class="header-section-number">8</span> 🚨 What Did You Notice?</a></li>
+  <li><a href="#three-problems" id="toc-three-problems" class="nav-link" data-scroll-target="#three-problems"><span class="header-section-number">9</span> 🚨 Three Problems</a></li>
+  <li><a href="#what-kind-of-inference-was-dr.-reyes-making" id="toc-what-kind-of-inference-was-dr.-reyes-making" class="nav-link" data-scroll-target="#what-kind-of-inference-was-dr.-reyes-making"><span class="header-section-number">10</span> 🧭 What Kind of Inference Was Dr.&nbsp;Reyes Making?</a></li>
+  <li><a href="#the-four-requirements-of-a-good-defense" id="toc-the-four-requirements-of-a-good-defense" class="nav-link" data-scroll-target="#the-four-requirements-of-a-good-defense"><span class="header-section-number">11</span> 🔺 The Four Requirements of a Good Defense</a></li>
+  <li><a href="#now-its-your-turn" id="toc-now-its-your-turn" class="nav-link" data-scroll-target="#now-its-your-turn"><span class="header-section-number">12</span> 🔁 Now It’s Your Turn</a></li>
+  <li><a href="#the-assumptions-traffic-light" id="toc-the-assumptions-traffic-light" class="nav-link" data-scroll-target="#the-assumptions-traffic-light"><span class="header-section-number">13</span> 🟢🟡🔴 The Assumptions Traffic Light</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-Week07.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 01 — Introductions</h1>
+<h1 class="title">From Philosophy to Practice: Defending Your Analysis</h1>
+<p class="subtitle lead">Week 7 — Your Methods, Your Defense</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Alejandro Molina Moctezuma </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 1, 2001</p>
+    </div>
+  </div>
   
     
   </div>
@@ -302,61 +286,407 @@ div.csl-indent {
 </header>
 
 
-<section id="session-a-introductions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Session A: Introductions</h1>
-<section id="session-objectives" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="session-objectives"><span class="header-section-number">1.1</span> Session Objectives</h2>
+<section id="todays-goal" class="level2 center" data-number="1">
+<h2 class="center anchored" data-number="1" data-anchor-id="todays-goal"><span class="header-section-number">1</span> 🎯 Today’s Goal</h2>
+<p>. . .</p>
+<p>We’ve spent weeks talking about <em>philosophy</em> and <em>diagnostics</em> and looking at papers</p>
+<p>. . .</p>
+<p>This week: I want people to start working a bit on their methods</p>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p><em>“The best time to defend your methods is ______________”</em></p>
+</blockquote>
+<p>. . .</p>
+<hr>
+</section>
+<section id="where-weve-been" class="level2 smaller" data-number="2">
+<h2 class="smaller anchored" data-number="2" data-anchor-id="where-weve-been"><span class="header-section-number">2</span> 🗺️ Where We’ve Been</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Week</th>
+<th>Idea</th>
+<th>The One-Liner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>Box (1976)</td>
+<td>“All models are wrong — some are useful”</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Bayesian vs.&nbsp;Frequentist</td>
+<td>You’re working in a framework whether you know it or not</td>
+</tr>
+<tr class="odd">
+<td>3, 4</td>
+<td>Method–Question–Data Triangle</td>
+<td>Misalignment = unreliable results</td>
+</tr>
+<tr class="even">
+<td>5, 6</td>
+<td>Papers</td>
+<td>Start planning your paper</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<p><strong>Week 7:</strong> Start justifying your method.</p>
+<hr>
+</section>
+<section id="a-question-for-you" class="level2 center" data-number="3">
+<h2 class="center anchored" data-number="3" data-anchor-id="a-question-for-you"><span class="header-section-number">3</span> A Question for You</h2>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p><em>“You’re in your dissertation defense.<em> </em>Your committee asks:<em> <strong>‘Why did you use this method?’</strong> </em>What do you say?”</em> Are you ready to answer that question?</p>
+</blockquote>
+<p>. . .</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your answer is <em>“because my advisor does it”</em> or <em>“because I Googled it”</em> —&gt; <strong>that’s what this semester is about.</strong></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="this-course" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="this-course"><span class="header-section-number">4</span> This course</h2>
 <ul>
-<li><p>Short class to introduce ourselves</p></li>
-<li><p>Get familiarized with course objectives</p></li>
+<li>A very important aspect of this course is for you to spend time THINKING and applying these concepts</li>
+<li>I am just a facilitator in this course -&gt; not a lecturer as in most courses</li>
 </ul>
 </section>
-</section>
-<section id="session-b-papers-and-introduction-to-code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Session B: Papers and introduction to code</h1>
-<section id="part-1-paper-discussion-60-minutes-of-the-class" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</h2>
-<section id="preparation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.1.1</span> Preparation:</h3>
-<p>We will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.</p>
-<p><strong>Group a:</strong> <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span> This is a paper that <strong>some</strong> of you have read. But I think all of you should read it to be successful in this class.</p>
-<p><strong>Group b:</strong> <span class="citation" data-cites="zuur2010">Zuur, Ieno, and Elphick (<a href="#ref-zuur2010" role="doc-biblioref">2010</a>)</span> if you have already read <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span>, this is the one you should read.</p>
-</section>
-<section id="deliverable" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</h3>
-<p>You will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.</p>
-</section>
-</section>
-<section id="part-2-github-and-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</h2>
-<p>Make sure you have downloaded the following:</p>
+<section id="why-so-repetitive" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="why-so-repetitive"><span class="header-section-number">5</span> Why so repetitive?</h2>
 <ul>
-<li><p>Program R</p></li>
-<li><p>RStudio</p></li>
-<li><p>Know basics of R and RStudio: <a href="https://moctezumaii.github.io/SNR610/installation_instructions.html" class="uri">https://moctezumaii.github.io/SNR610/installation_instructions.html</a></p></li>
-<li><p>RStudio</p></li>
-<li><p>Create a Github account</p></li>
-<li><p>Apply for GitHub Education</p></li>
-<li><p>Join the course repository (you will be invited, accept the invite)</p></li>
-<li><p>Confirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)</p></li>
+<li><p>I am really focusing on some concepts that I think are really important and that I want you to understand deeply</p></li>
+<li><p>They are the foundation for your understanding of concepts from a philosophical perspective</p></li>
 </ul>
-<section id="section" class="level3" data-number="2.2.1">
-
-
-
-
-</section>
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.2.1 </h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-tredennick2021" class="csl-entry" role="listitem">
-Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. <span>“A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.”</span> <em>Ecology</em> 102 (6): e03336. <a href="https://doi.org/10.1002/ecy.3336">https://doi.org/10.1002/ecy.3336</a>.
+<div class="notes">
+<p>If you take a class in the stats department, you will learn a lot of VERY TECHNICAL statistical concepts. Not to apply them If you take one of the AG campus courses, you will learn a lot of technical concepts and how to apply them, but you won’t learn the philosophical concepts that are the foundation for understanding when to apply them and how to defend them. This course is designed to give you the philosophical foundation for understanding when to apply methods and how to defend them. We will touch on technical concepts, but the focus is on the philosophy of science and how it applies to your research.</p>
 </div>
-<div id="ref-zuur2010" class="csl-entry" role="listitem">
-Zuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. <span>“A Protocol for Data Exploration to Avoid Common Statistical Problems.”</span> <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
+</section>
+<section id="quik-questions" class="level2 smaller" data-number="6">
+<h2 class="smaller anchored" data-number="6" data-anchor-id="quik-questions"><span class="header-section-number">6</span> Quik Questions 🔍</h2>
+<p>. . .</p>
+<p><strong>Raise your hand if you can answer:</strong></p>
+<p>. . .</p>
+<ol type="1">
+<li>What does the <strong>Method–Question–Data Triangle</strong> tell us?</li>
+</ol>
+<p>. . .</p>
+<ol start="2" type="1">
+<li>What does Box mean when he says models are “wrong but useful”?</li>
+</ol>
+<p>. . .</p>
+<ol start="3" type="1">
+<li>What is the difference between a <strong>causal</strong> and a <strong>descriptive</strong> claim?</li>
+</ol>
+<p>. . .</p>
+<ol start="4" type="1">
+<li>Why does a split-plot need a <strong>different error term</strong> than a simple ANOVA?</li>
+</ol>
+<p>. . .</p>
+<hr>
+</section>
+<section id="meet-dr.-reyes" class="level2" data-background-color="#fff3cd" data-number="7">
+<h2 data-background-color="#fff3cd" data-number="7" class="anchored" data-anchor-id="meet-dr.-reyes"><span class="header-section-number">7</span> 📄 Meet Dr.&nbsp;Reyes</h2>
+<p><em>You are a peer reviewer for</em> Ecological Applications.</p>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p><strong>Title:</strong> <em>Nitrogen addition increases aboveground biomass in semi-arid grasslands</em></p>
+</blockquote>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p><strong>Methods (excerpt):</strong> We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control, low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested at three time points: May, July, and September.</p>
+<p>We ran a <strong>one-way ANOVA</strong> on the September harvest only, as this represented “peak biomass.” We report p = 0.03 and conclude high nitrogen significantly increased biomass.</p>
+<p>We selected ANOVA because it is the <strong>standard method</strong> in grassland ecology and because our dataset was small. We acknowledge data were <strong>not fully independent</strong> but considered this a <strong>minor concern</strong>.</p>
+</blockquote>
+<hr>
+</section>
+<section id="what-did-you-notice" class="level2 smaller" data-number="8">
+<h2 class="smaller anchored" data-number="8" data-anchor-id="what-did-you-notice"><span class="header-section-number">8</span> 🚨 What Did You Notice?</h2>
+<p>. . .</p>
+<p>Let’s run Dr.&nbsp;Reyes’s design through our tools:</p>
+<p>. . .</p>
+<p><strong>The Triangle:</strong></p>
+<ul>
+<li><p>Research question: Does nitrogen addition increase biomass?</p></li>
+<li><p>Data: 12 plots nested within 4 ranches, repeated measures over time</p></li>
+<li><p>Method: One-way ANOVA on September data only</p></li>
+</ul>
+<p>. . .</p>
+<p><strong>Box Test:</strong> Is this model wrong in a way that <em>matters</em>?</p>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p>Plots nested within ranches. Repeated measures (3 time points). One-way ANOVA ignores both.<br>
+<strong>Yes. Wrong in a way that matters.</strong></p>
+</blockquote>
+<hr>
+</section>
+<section id="three-problems" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="three-problems"><span class="header-section-number">9</span> 🚨 Three Problems</h2>
+<p>. . .</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</div></section></div></main> <!-- /main -->
+<div class="callout-title-container flex-fill">
+Problem 1 — Habit, not design
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>“Standard method”</em> is not a philosophical defense.<br>
+The design calls for <code>lmer()</code> with ranch as a random effect.</p>
+</div>
+</div>
+<p>. . .</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problem 2 — The Triangle is broken
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Repeated measures + nested structure + continuous response<br>
+→ requires a <strong>mixed model</strong>, not a one-way ANOVA.</p>
+</div>
+</div>
+<p>. . .</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Problem 3 — Dropping data without justification
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Why only September? What does the May–July trajectory tell us?<br>
+Selective analysis ≠ rigorous inference.</p>
+</div>
+</div>
+<p>. . .</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The fix?</strong> <code>lmer(biomass ~ treatment * time + (1|ranch/plot), data = reyes_data)</code></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="what-kind-of-inference-was-dr.-reyes-making" class="level2 smaller" data-number="10">
+<h2 class="smaller anchored" data-number="10" data-anchor-id="what-kind-of-inference-was-dr.-reyes-making"><span class="header-section-number">10</span> 🧭 What Kind of Inference Was Dr.&nbsp;Reyes Making?</h2>
+<p>. . .</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 35%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>What you need</th>
+<th>What Dr.&nbsp;Reyes had</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Descriptive</strong></td>
+<td>Representative sample</td>
+<td>✅ (sort of)</td>
+</tr>
+<tr class="even">
+<td><strong>Predictive</strong></td>
+<td>Cross-validation, held-out test</td>
+<td>❌</td>
+</tr>
+<tr class="odd">
+<td><strong>Causal</strong></td>
+<td>Randomization + correct error structure</td>
+<td>⚠️ Treatments assigned to ranches — confounded</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p>Dr.&nbsp;Reyes wrote <em>“significantly increased biomass”</em> -&gt; that’s a causal claim.<br>
+But the design doesn’t fully support it.</p>
+</blockquote>
+<p>. . .</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The honest version:</strong> <em>“Biomass was higher in high-N plots (p = 0.03) –&gt; Descriptive”</em></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-four-requirements-of-a-good-defense" class="level2 smaller" data-number="11">
+<h2 class="smaller anchored" data-number="11" data-anchor-id="the-four-requirements-of-a-good-defense"><span class="header-section-number">11</span> 🔺 The Four Requirements of a Good Defense</h2>
+<p>. . .</p>
+<p><strong>Can you answer all four for your own analysis?</strong></p>
+<p>. . .</p>
+<ol type="1">
+<li><strong>Philosophical grounding</strong> — What framework are you in? Frequentist? Bayesian? What does that require?</li>
+</ol>
+<p>. . .</p>
+<ol start="2" type="1">
+<li><strong>Data–method alignment</strong> — Does your method match your response variable type <em>and</em> data structure?</li>
+</ol>
+<p>. . .</p>
+<ol start="3" type="1">
+<li><strong>Simplicity vs.&nbsp;complexity</strong> — Is your model as simple as possible while still being <em>honest</em>?</li>
+</ol>
+<p>. . .</p>
+<ol start="4" type="1">
+<li><strong>Transparency</strong> — Could someone reproduce your analysis from your GitHub repo today?</li>
+</ol>
+<p>. . .</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The best analysis is the simplest one that honestly addresses your question given your data structure.</strong></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="now-its-your-turn" class="level2 center" data-number="12">
+<h2 class="center anchored" data-number="12" data-anchor-id="now-its-your-turn"><span class="header-section-number">12</span> 🔁 Now It’s Your Turn</h2>
+<p>. . .</p>
+<p><em>You just played reviewer.</em></p>
+<p>. . .</p>
+<p><strong>Thursday’s workshop:</strong> You become the author.</p>
+<p>. . .</p>
+<p>You will fill out a <strong>Method Defense Card</strong>:</p>
+<p>. . .</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My research question</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>My response variable type</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>My planned analysis</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Why it fits (Triangle + framework)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>One thing Dr.&nbsp;Reyes did I might be tempted to do</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>How I’m guarding against it</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="the-assumptions-traffic-light" class="level2 smaller" data-number="13">
+<h2 class="smaller anchored" data-number="13" data-anchor-id="the-assumptions-traffic-light"><span class="header-section-number">13</span> 🟢🟡🔴 The Assumptions Traffic Light</h2>
+<p><em>Coming Thursday — but start thinking now.</em></p>
+<p>. . .</p>
+<p>Every model makes assumptions. Most people know this.<br>
+Fewer people have <strong>actually checked</strong> which ones they’ve met.</p>
+<p>. . .</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Assumption</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Independence of residuals</td>
+<td>🟢 Checked</td>
+</tr>
+<tr class="even">
+<td>Normality of random effects</td>
+<td>🟡</td>
+</tr>
+<tr class="odd">
+<td>No spatial autocorrelation</td>
+<td>🔴</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The goal is not all green.</strong><br>
+Red assumptions are <em>honest limitations</em> —&gt; they belong in your Discussion.<br>
+The failure is <strong>not knowing which color you’re at.</strong></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

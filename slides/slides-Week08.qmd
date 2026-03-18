@@ -1,0 +1,285 @@
+---
+title: "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data"
+subtitle: "SNR 690 - Contemporary Approaches to Quantitative Methods"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    incremental: true
+    scrollable: true
+    code-fold: false
+    chalkboard: true
+execute:
+  eval: false
+  echo: true
+---
+
+## Initial question
+
+*"Why not just use a mixed model?"* 
+
+*GLMMs are usually the default for repeated measures, right?*
+
+---
+
+## Main difference between GLMM and GEE from interpretaion
+
+* Use GLMM when you want to make inference about a specific cluster (or individual) (e.g., plot, lake, animal) -> the conditional mean. 
+* Use GEE when you want to make inference about the population-average effect across all clusters -> the marginal mean.
+
+## Marginal vs Conditional Inference/Mean
+
+* Marginal mean: $E[Y]$ - the average response across the entire population of clusters (plots). This is what GEE estimates.
+* The marginal mean is the overall expected value of a variable by itself, averaging over (i.e., ignoring) other variables.
+* Interpretation: “What is the average value of Y in the whole population/sample?”
+* Example: If Y is income, the marginal mean is the average income across everyone, regardless of age, education, etc.
+
+## Marginal vs Conditional Inference/Mean
+* Conditional mean: $E[Y \mid \mathbf{b}]$ - the expected response for a specific cluster (plot) given its random effect. This is what GLMM estimates.
+* The conditional mean is the expected value of a variable given specific values of other variables (e.g., random effects).
+* Notation: $E[Y \mid \mathbf{b}]$ means the expected value of Y given the random effects b.
+* Interpretation: “What is the expected value of Y for a specific cluster (plot) given its unique characteristics (random effect)?”
+* Example: $E[ Y \mid education = college]$ is the expected income for a specific individual i, given that they went to college.
+
+## Marginal means we are averaging over the random effects
+It is a weighted average of the conditional means across all clusters, where the weights are determined by the distribution of the random effects.
+$$E[Y] = \int E[Y \mid \mathbf{b}] f(\mathbf{b}) d\mathbf{b}$$
+::: {.notes}
+Expected Y equals the integral of expected Y given b times f(b) db
+
+
+
+:::
+
+* “The overall mean of $Y$ is the average of the conditional mean of $Y$, averaged over how likely each $\mathbf{b}$ value is.”
+
+## Why GEE? Clustered Data & Marginal Inference
+
+**The data structure problem:**
+
+- 21 plots, each measured 24 times (monthly, 2010–2011)
+- Tick counts within a plot are correlated (not independent)
+- Ordinary GLM assumes independence → inflated Type I error
+- GLMM models this correlation with random effects → estimates conditional mean
+- GEE models this correlation with a working covariance → estimates marginal mean
+
+. . .
+
+**Two solutions:**
+
+| Approach | What it models | Interpretation |
+|----------|---------------|----------------|
+| **GLMM** | Conditional mean $E[Y \mid \mathbf{b}]$ | Effect *within* a specific plot |
+| **GEE** | Marginal mean $E[Y]$ | Effect *averaged across* all plots |
+
+. . .
+
+> For policy-relevant questions - *"Does burning reduce ticks on average?"* - **GEE is a better choice.**
+
+::: {.notes}
+This is the conceptual heart of the lecture. When you have repeated measures or clustered data, you have two philosophically different questions you can ask. GLMM asks: "for THIS plot, what is the effect of burning?" GEE asks: "averaged across ALL plots, what is the effect of burning?" For a public health or wildlife management question like "should we prescribe burn to reduce tick exposure across a landscape?", the marginal, population-averaged answer from GEE is exactly what we want. Conditional effects from GLMM are appropriate when we care about prediction for a specific cluster.
+:::
+
+---
+
+## The GEE Estimating Equation
+
+$$
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1}\left(\mathbf{Y}_i - \boldsymbol{\mu}_i\right) = \mathbf{0}
+$$
+
+| Symbol | Meaning |
+|--------|---------|
+| $K = 21$ | Number of plots (clusters) |
+| $\mathbf{Y}_i$ | Observed tick counts for plot $i$ (length 24) |
+| $\boldsymbol{\mu}_i = E[\mathbf{Y}_i \mid \mathbf{X}_i]$ | Predicted marginal means |
+| $\mathbf{D}_i = \partial \boldsymbol{\mu}_i / \partial \boldsymbol{\beta}$ | Derivative of mean w.r.t. parameters |
+| $\mathbf{V}_i = \phi\,\mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}$ | Working covariance |
+| $R(\alpha)$ | Working correlation matrix |
+
+::: {.notes}
+with respect to
+Let's slow down here. This equation looks intimidating but the logic is simple. GEE is a score equation -> we're finding the beta that sets the weighted sum of residuals to zero. The key quantity is V_i - the working covariance matrix. This is where we specify our assumption about how the 24 monthly tick counts within a plot are correlated. A_i is a diagonal matrix of variances (from the negative binomial family). R(alpha) is the working correlation - exchangeable, AR(1), or independence. And here is GEE's great advantage: even if R(alpha) is wrong, the estimates are still consistent. We don't have to get the correlation right to get correct point estimates.
+D -> How sensitive the expected counts are to changes in the model parameters
+
+In your tick-count example
+
+𝜇
+𝑖
+μ
+i
+	​
+
+: expected tick counts for plot 
+𝑖
+i across 24 observations
+
+𝛽
+β: effects of predictors (treatment, time, etc.)
+
+👉 Then 
+𝐷
+𝑖
+D
+i
+	​
+
+ is:
+
+a matrix of slopes showing how each expected count changes as each parameter changes
+
+:::
+
+---
+
+## Robust standard errors with the sandwich estimator
+
+* Robust S.E. allow us to get good uncertainty estimates even if our working correlation is wrong. This is critical because we often don't know the true correlation structure.
+
+* We usually assume the variance has a correct structure:
+
+* Normal: $\text{Var}(Y_{it}) = \sigma^2$
+
+* Poisson: $\text{Var}(Y_{it}) = \lambda_{it}$
+
+* Negative binomial: $\text{Var}(Y_{it}) = \mu_{it} + \frac{\mu_{it}^2}{k}$
+
+* What happens is those are violated???
+* What happens to our estimates
+* What happens to our standard errors? And decisions?
+
+
+## Sandwich (Robust) Variance
+
+$$
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+$$
+
+- $\mathbf{B} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i$ &nbsp; (the **bread** -> model-based information)
+- $\mathbf{M} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \widehat{\text{Cov}}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i$ &nbsp; (the **meat** -> empirical)
+
+. . .
+
+## 🥖 Bread (Model-Based)
+- Comes from the **assumed model**
+- Uses design matrix \(X\) and weights \(W\)
+- Represents:
+  > “How precise estimates would be *if the model were correct*”
+
+
+## 🥩 Meat (Data-Based)
+- Comes from **observed residual variability**
+- Uses cluster-level contributions \( \mathbf{U}_i \)
+- Represents:
+  > “How much variability we actually saw in the data”
+
+## 🧠 Intuition
+- Bread = theory  
+- Meat = reality  
+- Sandwich = **robust standard errors**
+
+
+
+> **Key insight:** model gives the structure, the data gives the variability. The sandwich estimator combines both to give us robust standard errors.
+
+## When to use? 
+- Not only based on the type of mean structure (marginal vs conditional) but also based on the number of clusters!!!
+- Generally, it is advised to have MANY CLUSTERS for the sandwich estimator to perform well. A common rule of thumb is at least 40 clusters. With fewer clusters, the sandwich estimator can be biased and produce anti-conservative confidence intervals (too narrow).
+
+::: {.callout-warning}
+With only $K = 21$ clusters, the sandwich estimator may be **anti-conservative** (too narrow CIs). Small-sample corrections (e.g., `std.err = "jack"` in `geepack`) are advisable.
+:::
+
+::: {.notes}
+The sandwich estimator gets its name from the formula: B-inverse times M times B-inverse. Bread times meat times bread. B is the expected curvature of the likelihood - it's what you'd use if your working covariance was exactly right. M is the empirical estimate of the actual variance - it uses the observed residuals, not the model-assumed residuals. When you sandwich M between two B-inverses, you get a variance estimate that is robust to correlation misspecification. HOWEVER - and this is critical for this paper - with only 21 clusters, the sandwich estimator can be unreliable. The standard recommendation is at least 40 clusters for stable sandwich SEs. The authors of the tick paper had 21 plots; this is a legitimate limitation worth mentioning.
+:::
+
+---
+
+## The Paper's Model Specification
+
+::: {.callout-note}
+**Note:** Gleim et al. (2014) do **not** provide an explicit model equation. The following is an inferred defensible specification based on their Methods section (p. 3).
+:::
+
+$$
+\log\!\bigl(E[\text{ticks}_{it}]\bigr) = \beta_0 + \beta_1\,\text{BurnRegime}_i + \beta_2\,\text{HostAbundance}_{it} + \beta_3\,\text{Canopy}_{it} + \beta_4\,\text{Season}_{it} + \cdots
+$$
+
+- **Family:** Negative binomial (overdispersed counts; 47,185 total; 99% *A. americanum*)
+- **Link:** Log (counts → multiplicative effects on tick abundance)
+- **Correlation:** Exchangeable (equal correlation among all 24 monthly observations per plot)
+- **Clusters:** 21 plots (7.2–78.9 ha); ≥10 years of consistent burn management
+- **Predictors:** Burn regime (BB, BUB, UBB, UBUB), host abundance (cameras), canopy closure, tree density, ground cover, temperature, precipitation
+
+::: {.notes}
+Here is the model as best we can infer it. The paper describes using GEE with negative binomial family and log link in a sentence or two, but never displays a formal equation or coefficient table in the main text. This is unfortunately common in applied ecology. The negative binomial family is appropriate because tick counts are highly overdispersed - the variance far exceeds the mean. The log link gives us multiplicative effects - a one-unit change in burn regime multiplies the expected tick count by e to the beta. Exchangeable correlation means the model assumes the correlation between plot 7's tick counts in January and December is the same as between January and February. That may not be realistic - seasonal data often shows decaying autocorrelation better captured by AR(1).
+:::
+
+---
+
+## Working Correlation Structures
+
+| Structure | Formula | Assumption | Best for... |
+|-----------|---------|-----------|-------------|
+| **Independence** | $R = I$ | Zero correlation | Sensitivity check; large $K$ |
+| **Exchangeable** | $\text{Corr}(Y_{it}, Y_{is}) = \alpha$ | Equal correlation at all lags | Short series; random effects analogy |
+| **AR(1)** | $\text{Corr}(Y_{it}, Y_{is}) = \alpha^{|t-s|}$ | Correlation decays with lag | Time series; seasonal ecological data |
+
+. . .
+
+> For monthly tick counts over 2 years, **AR(1) is more ecologically realistic** than exchangeable - but GEE estimates are consistent under either.
+
+::: {.fragment}
+**Model selection:** Use QIC (quasi-likelihood under independence model criterion) to compare working correlation structures.
+:::
+
+::: {.notes}
+This table is worth spending a couple of minutes on because it connects directly to the group worksheet. Independence assumes no correlation - use this as a baseline or sensitivity check. Exchangeable assumes that correlation is constant regardless of the time gap - that the correlation between observations 1 month apart is the same as observations 23 months apart. That's a strong assumption for ecological time series. AR(1) assumes correlation decays exponentially with lag - more realistic for monthly data where nearby months are more similar. For this study, AR(1) seems more defensible, but the authors chose exchangeable. This is exactly the kind of analytic choice worth critiquing.
+:::
+
+## How to run it?
+In R, you can use the `geepack` package:
+```{r}
+library(geepack)
+
+fit_gee <- geeglm(
+  y ~ x1 + x2 + time,
+  id      = subject_id,          # cluster / repeated unit
+  data    = dat,
+  family  = binomial(link="logit"),
+  corstr  = "ar1"                 # working AR(1)
+)
+
+summary(fit_gee)
+
+```
+
+---
+
+## Group Worksheet Critique - 0:55–1:05 (10 min) {.unnumbered}
+
+**Format:** Small groups (2–3 students)
+
+**Instructions:**
+1. Each group gives 3 specific critiques of the paper as if you were a reviewer
+
+---
+
+## Before You Leave 
+
+On an index card :
+
+**1.** What is the single most important thing you learned about GEE today?
+
+**2.** What is one question you still have about GEE or do you think you could apply GEE to **your own research data**?
+
+*Be specific. "I learned GEE exists" is not an acceptable answer for question 1.*
+
+
+::: {.notes}
+This is a metacognitive closing activity. The second question is intentionally about their own data - this forces them to think about transfer, not just whether they understood the lecture. I will read these before next class and address persistent questions at the start of the next session.
+:::
+
+
+

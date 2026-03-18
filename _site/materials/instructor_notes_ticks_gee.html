@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Instructor Notes — Tick Phenology &amp; Prescribed Burning: GEE for Repeated-Measures Count Data – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week05.html">
+ <span class="dropdown-text">Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07.html">
+ <span class="dropdown-text">Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07-workshop.html">
+ <span class="dropdown-text">Week 07, Thursday</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week04.html">
+ <span class="dropdown-text">Slides Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week05.html">
+ <span class="dropdown-text">Slides Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week07.html">
+ <span class="dropdown-text">Slides Week 07</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-to-run-the-class" id="toc-how-to-run-the-class" class="nav-link active" data-scroll-target="#how-to-run-the-class"><span class="header-section-number">1</span> How to Run the Class</a>
+  <ul class="collapse">
+  <li><a href="#pre-class-setup-15-min-before" id="toc-pre-class-setup-15-min-before" class="nav-link" data-scroll-target="#pre-class-setup-15-min-before"><span class="header-section-number">1.1</span> Pre-Class Setup (~15 min before)</a></li>
+  <li><a href="#minute-by-minute-facilitation-guide" id="toc-minute-by-minute-facilitation-guide" class="nav-link" data-scroll-target="#minute-by-minute-facilitation-guide"><span class="header-section-number">1.2</span> Minute-by-Minute Facilitation Guide</a>
+  <ul class="collapse">
+  <li><a href="#entry-ticket-5-min" id="toc-entry-ticket-5-min" class="nav-link" data-scroll-target="#entry-ticket-5-min"><span class="header-section-number">1.2.1</span> 0:00–0:05 — Entry Ticket (5 min)</a></li>
+  <li><a href="#entry-ticket-debrief-5-min" id="toc-entry-ticket-debrief-5-min" class="nav-link" data-scroll-target="#entry-ticket-debrief-5-min"><span class="header-section-number">1.2.2</span> 0:05–0:10 — Entry Ticket Debrief (5 min)</a></li>
+  <li><a href="#student-presentation-30-min" id="toc-student-presentation-30-min" class="nav-link" data-scroll-target="#student-presentation-30-min"><span class="header-section-number">1.2.3</span> 0:10–0:40 — Student Presentation (30 min)</a></li>
+  <li><a href="#gee-mini-lecture-15-min" id="toc-gee-mini-lecture-15-min" class="nav-link" data-scroll-target="#gee-mini-lecture-15-min"><span class="header-section-number">1.2.4</span> 0:40–0:55 — GEE Mini-Lecture (15 min)</a></li>
+  <li><a href="#group-worksheet-10-min" id="toc-group-worksheet-10-min" class="nav-link" data-scroll-target="#group-worksheet-10-min"><span class="header-section-number">1.2.5</span> 0:55–1:05 — Group Worksheet (10 min)</a></li>
+  <li><a href="#group-reports-challenge-questions-7-min" id="toc-group-reports-challenge-questions-7-min" class="nav-link" data-scroll-target="#group-reports-challenge-questions-7-min"><span class="header-section-number">1.2.6</span> 1:05–1:12 — Group Reports + Challenge Questions (7 min)</a></li>
+  <li><a href="#minute-paper-3-min" id="toc-minute-paper-3-min" class="nav-link" data-scroll-target="#minute-paper-3-min"><span class="header-section-number">1.2.7</span> 1:12–1:15 — Minute Paper (3 min)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#expected-student-difficulties" id="toc-expected-student-difficulties" class="nav-link" data-scroll-target="#expected-student-difficulties"><span class="header-section-number">2</span> Expected Student Difficulties</a>
+  <ul class="collapse">
+  <li><a href="#confusing-gee-with-glmm" id="toc-confusing-gee-with-glmm" class="nav-link" data-scroll-target="#confusing-gee-with-glmm"><span class="header-section-number">2.1</span> 1. Confusing GEE with GLMM</a></li>
+  <li><a href="#sandwich-ses-vs.-model-based-ses" id="toc-sandwich-ses-vs.-model-based-ses" class="nav-link" data-scroll-target="#sandwich-ses-vs.-model-based-ses"><span class="header-section-number">2.2</span> 2. Sandwich SEs vs.&nbsp;Model-Based SEs</a></li>
+  <li><a href="#negative-binomial-vs.-poisson-family-choice" id="toc-negative-binomial-vs.-poisson-family-choice" class="nav-link" data-scroll-target="#negative-binomial-vs.-poisson-family-choice"><span class="header-section-number">2.3</span> 3. Negative Binomial vs.&nbsp;Poisson Family Choice</a></li>
+  <li><a href="#not-recognizing-the-cluster-structure" id="toc-not-recognizing-the-cluster-structure" class="nav-link" data-scroll-target="#not-recognizing-the-cluster-structure"><span class="header-section-number">2.4</span> 4. Not Recognizing the Cluster Structure</a></li>
+  <li><a href="#working-correlation-choice-ar1-vs.-exchangeable" id="toc-working-correlation-choice-ar1-vs.-exchangeable" class="nav-link" data-scroll-target="#working-correlation-choice-ar1-vs.-exchangeable"><span class="header-section-number">2.5</span> 5. Working Correlation Choice (AR(1) vs.&nbsp;Exchangeable)</a></li>
+  </ul></li>
+  <li><a href="#tips-for-facilitating-presenterstudent-interaction" id="toc-tips-for-facilitating-presenterstudent-interaction" class="nav-link" data-scroll-target="#tips-for-facilitating-presenterstudent-interaction"><span class="header-section-number">3</span> Tips for Facilitating Presenter–Student Interaction</a>
+  <ul class="collapse">
+  <li><a href="#managing-the-hot-seat" id="toc-managing-the-hot-seat" class="nav-link" data-scroll-target="#managing-the-hot-seat"><span class="header-section-number">3.1</span> Managing the Hot-Seat</a></li>
+  <li><a href="#managing-challenge-questions-from-groups" id="toc-managing-challenge-questions-from-groups" class="nav-link" data-scroll-target="#managing-challenge-questions-from-groups"><span class="header-section-number">3.2</span> Managing Challenge Questions from Groups</a></li>
+  <li><a href="#if-the-presenter-doesnt-know-the-answer" id="toc-if-the-presenter-doesnt-know-the-answer" class="nav-link" data-scroll-target="#if-the-presenter-doesnt-know-the-answer"><span class="header-section-number">3.3</span> If the Presenter Doesn’t Know the Answer</a></li>
+  </ul></li>
+  <li><a href="#follow-up-assignments" id="toc-follow-up-assignments" class="nav-link" data-scroll-target="#follow-up-assignments"><span class="header-section-number">4</span> Follow-Up Assignments</a>
+  <ul class="collapse">
+  <li><a href="#option-a-r-modification-recommended" id="toc-option-a-r-modification-recommended" class="nav-link" data-scroll-target="#option-a-r-modification-recommended"><span class="header-section-number">4.1</span> Option A: R Modification (recommended)</a></li>
+  <li><a href="#option-b-apply-to-own-data" id="toc-option-b-apply-to-own-data" class="nav-link" data-scroll-target="#option-b-apply-to-own-data"><span class="header-section-number">4.2</span> Option B: Apply to Own Data</a></li>
+  <li><a href="#option-c-peer-review-practice" id="toc-option-c-peer-review-practice" class="nav-link" data-scroll-target="#option-c-peer-review-practice"><span class="header-section-number">4.3</span> Option C: Peer Review Practice</a></li>
+  </ul></li>
+  <li><a href="#contingency-plans" id="toc-contingency-plans" class="nav-link" data-scroll-target="#contingency-plans"><span class="header-section-number">5</span> Contingency Plans</a>
+  <ul class="collapse">
+  <li><a href="#if-the-presentation-runs-long-presenter-at-30-min-at-040" id="toc-if-the-presentation-runs-long-presenter-at-30-min-at-040" class="nav-link" data-scroll-target="#if-the-presentation-runs-long-presenter-at-30-min-at-040"><span class="header-section-number">5.1</span> If the presentation runs long (presenter at 30+ min at 0:40)</a></li>
+  <li><a href="#if-the-presentation-runs-short-presenter-done-at-025" id="toc-if-the-presentation-runs-short-presenter-done-at-025" class="nav-link" data-scroll-target="#if-the-presentation-runs-short-presenter-done-at-025"><span class="header-section-number">5.2</span> If the presentation runs short (presenter done at 0:25)</a></li>
+  <li><a href="#if-the-worksheet-activity-runs-short-groups-done-in-5-min" id="toc-if-the-worksheet-activity-runs-short-groups-done-in-5-min" class="nav-link" data-scroll-target="#if-the-worksheet-activity-runs-short-groups-done-in-5-min"><span class="header-section-number">5.3</span> If the worksheet activity runs short (groups done in 5 min)</a></li>
+  <li><a href="#if-the-worksheet-activity-runs-long-groups-not-done-at-10-min" id="toc-if-the-worksheet-activity-runs-long-groups-not-done-at-10-min" class="nav-link" data-scroll-target="#if-the-worksheet-activity-runs-long-groups-not-done-at-10-min"><span class="header-section-number">5.4</span> If the worksheet activity runs long (groups not done at 10 min)</a></li>
+  <li><a href="#if-r-code-doesnt-work-technical-failure" id="toc-if-r-code-doesnt-work-technical-failure" class="nav-link" data-scroll-target="#if-r-code-doesnt-work-technical-failure"><span class="header-section-number">5.5</span> If R code doesn’t work (technical failure)</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Instructor Notes — Tick Phenology &amp; Prescribed Burning: GEE for Repeated-Measures Count Data</h1>
+<p class="subtitle lead">SNR 690 — Contemporary Approaches to Quantitative Methods</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For Instructor Use Only
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This document is <strong>not</strong> for distribution to students. It provides step-by-step facilitation guidance, expected student difficulties, contingency plans, and follow-up assignments.</p>
+</div>
+</div>
+<hr>
+<section id="how-to-run-the-class" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> How to Run the Class</h1>
+<section id="pre-class-setup-15-min-before" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="pre-class-setup-15-min-before"><span class="header-section-number">1.1</span> Pre-Class Setup (~15 min before)</h2>
+<ul>
+<li>Distribute (or post on Canvas) <code>activities/pre_activity_entry_ticket.csv</code> so students have it ready at the start.</li>
+<li>Open <code>slides/slides-ticks-gee.qmd</code> in your browser — advance past the title slide to Slide 3 (Entry Ticket Debrief prompts) so it is ready when you walk in.</li>
+<li>Write the Hot-Seat Q&amp;A instructions on the board (or keep Slide 9 ready): <em>“Your group has 60 seconds to write one question for the presenter. The presenter will answer on the spot.”</em></li>
+<li>Confirm that the presenter knows the Hot-Seat is coming at ~20 min into their presentation (tell them at the start or remind them the day before).</li>
+<li>If students will run R code live, verify <code>geepack</code> and <code>MASS</code> are installed in the classroom R environment.</li>
+</ul>
+<hr>
+</section>
+<section id="minute-by-minute-facilitation-guide" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="minute-by-minute-facilitation-guide"><span class="header-section-number">1.2</span> Minute-by-Minute Facilitation Guide</h2>
+<section id="entry-ticket-5-min" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="entry-ticket-5-min"><span class="header-section-number">1.2.1</span> 0:00–0:05 — Entry Ticket (5 min)</h3>
+<ul>
+<li>Project the entry ticket fields on the screen (Slide 3) or tell students to open the CSV.</li>
+<li>Say: <em>“Five minutes — paper out, answer these. Be honest; this is not graded.”</em></li>
+<li>Walk around and <strong>read over students’ shoulders</strong>. Mentally note:
+<ul>
+<li>Did students identify plots (not individual ticks) as the clusters?</li>
+<li>Did anyone mention GEE, repeated measures, or clustering?</li>
+<li>Any especially good or creative method questions?</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="entry-ticket-debrief-5-min" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="entry-ticket-debrief-5-min"><span class="header-section-number">1.2.2</span> 0:05–0:10 — Entry Ticket Debrief (5 min)</h3>
+<ul>
+<li>Summarize verbally: <em>“I saw a few people say [X]. That’s exactly right because…”</em> and <em>“Several of you wrote [Y] — let’s come back to that during the lecture.”</em></li>
+<li>Key points to reinforce:
+<ul>
+<li><strong>Cluster = plot</strong> (not individual ticks, not year)</li>
+<li><strong>Outcome = count data</strong> (overdispersed → negative binomial is defensible)</li>
+<li><strong>GEE is appropriate</strong> when you want <em>marginal</em> (population-averaged) effects</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Facilitation tip:</strong> Don’t give away the full lecture yet. Use this 5 minutes to whet curiosity. Say: <em>“There’s a really interesting tension between GEE and GLMM for this design — we’ll get to that.”</em></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="student-presentation-30-min" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="student-presentation-30-min"><span class="header-section-number">1.2.3</span> 0:10–0:40 — Student Presentation (30 min)</h3>
+<p><strong>Your role:</strong> Active moderator, not passive audience.</p>
+<ul>
+<li>At minute 12–15 (before the Hot-Seat), listen for whether the presenter:
+<ul>
+<li>Correctly identifies the cluster structure</li>
+<li>Mentions overdispersion or count data</li>
+<li>Explains what GEE does (or tries to)</li>
+</ul></li>
+<li><strong>At approximately 20 minutes into the presentation</strong>, interrupt politely: <em>“Great — let’s pause here for our Hot-Seat Q&amp;A round.”</em></li>
+</ul>
+<section id="facilitating-the-hot-seat-5-min-within-the-presentation" class="level4" data-number="1.2.3.1">
+<h4 data-number="1.2.3.1" class="anchored" data-anchor-id="facilitating-the-hot-seat-5-min-within-the-presentation"><span class="header-section-number">1.2.3.1</span> Facilitating the Hot-Seat (5 min within the presentation)</h4>
+<ol type="1">
+<li><strong>Announce:</strong> <em>“Groups, you have 60 seconds to write one question for [presenter’s name]. This is a question they must answer right now.”</em></li>
+<li>Set a visible timer (phone or projector).</li>
+<li>Call on 2–3 groups (time permitting): <em>“Group 1, what’s your question?”</em></li>
+<li>After each question, say: <em>“[Presenter], you have 30 seconds.”</em></li>
+<li>If the presenter struggles, do NOT immediately rescue — wait 5 seconds, then offer: <em>“Anyone want to help [presenter] out?”</em>, and then ask the presenter to synthesize.</li>
+<li>After the Hot-Seat, let the presenter finish their remaining ~10 minutes.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Common presenter mistake:</strong> Trying to answer questions with “I think…” followed by a restatement of the paper. Encourage them to use their own words and to explicitly say “I don’t know, but I would look at…” if they are uncertain.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="gee-mini-lecture-15-min" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="gee-mini-lecture-15-min"><span class="header-section-number">1.2.4</span> 0:40–0:55 — GEE Mini-Lecture (15 min)</h3>
+<p>Use Slides 4–8. Key teaching points per slide:</p>
+<ul>
+<li><strong>Slide 4 (Why GEE?):</strong> Emphasize <em>marginal</em> vs <em>conditional</em> interpretation. “GEE answers: what is the average effect of burn treatment across all plots?”</li>
+<li><strong>Slide 5 (Estimating Equation):</strong> Walk through each symbol slowly. Spend 2–3 min on <span class="math inline">\(\mathbf{V}_i = \mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}\)</span>. Key insight: <strong>the working correlation does not have to be correct</strong> — GEE is consistent even if <span class="math inline">\(R(\alpha)\)</span> is wrong.</li>
+<li><strong>Slide 6 (Sandwich Variance):</strong> One sentence: <em>“The sandwich variance is consistent even when the working covariance is wrong — that is GEE’s magic.”</em> Then move on.</li>
+<li><strong>Slide 7 (Paper’s Model):</strong> Be explicit that the paper does NOT give a formal equation. Show the inferred model and ask: <em>“Does anyone want to challenge this specification?”</em></li>
+<li><strong>Slide 8 (Working Correlation Table):</strong> Spend 2 min — AR(1) is usually more realistic for monthly ecological data, but exchangeable is common in practice. This is a good setup for the group worksheet.</li>
+</ul>
+<hr>
+</section>
+<section id="group-worksheet-10-min" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="group-worksheet-10-min"><span class="header-section-number">1.2.5</span> 0:55–1:05 — Group Worksheet (10 min)</h3>
+<ul>
+<li>Distribute <code>activities/worksheet_group_ticks.md</code> (or show it on screen).</li>
+<li>Give explicit instructions: <em>“You have 10 minutes. Answer as many of the 6 prompts as you can — but your main deliverable is one ‘challenge question’ for [presenter’s name] at the end.”</em></li>
+<li>Circulate. Suggested probing questions when groups get stuck:
+<ul>
+<li><em>“Would the correlation between tick counts in January and December be the same as between January and February? What does that imply?”</em> (prompts AR(1) vs exchangeable thinking)</li>
+<li><em>“If they had used a GLMM instead, how would you interpret the burn regime coefficient differently?”</em> (marginal vs conditional)</li>
+<li><em>“The paper says ‘negative binomial GEE’ — but <code>geepack::geeglm</code> doesn’t have a negative binomial family option. What does that tell you about the software?”</em></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="group-reports-challenge-questions-7-min" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="group-reports-challenge-questions-7-min"><span class="header-section-number">1.2.6</span> 1:05–1:12 — Group Reports + Challenge Questions (7 min)</h3>
+<ul>
+<li>Call on 2–3 groups: <em>“What is your group’s challenge question for [presenter]?”</em></li>
+<li>After each question, give the presenter <strong>45–60 seconds</strong> to respond.</li>
+<li>If responses are weak, ask follow-up: <em>“[Presenter], do you want to revise that answer?”</em></li>
+<li>Briefly synthesize after all groups: <em>“Here’s what I want you to take away from these questions…”</em></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>If time is tight:</strong> Skip to the most conceptually rich challenge question (usually the GEE vs GLMM one or the AR(1) vs exchangeable one).</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="minute-paper-3-min" class="level3" data-number="1.2.7">
+<h3 data-number="1.2.7" class="anchored" data-anchor-id="minute-paper-3-min"><span class="header-section-number">1.2.7</span> 1:12–1:15 — Minute Paper (3 min)</h3>
+<ul>
+<li>Project Slide 11 (Minute Paper prompts).</li>
+<li>Say: <em>“Two questions, index card or phone. You have 3 minutes. Be specific.”</em></li>
+<li>Collect before students leave. Review before next class.</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="expected-student-difficulties" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Expected Student Difficulties</h1>
+<section id="confusing-gee-with-glmm" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="confusing-gee-with-glmm"><span class="header-section-number">2.1</span> 1. Confusing GEE with GLMM</h2>
+<p><strong>The confusion:</strong> Both handle clustered/repeated-measures data and both can use non-normal link functions. Students often use the terms interchangeably.</p>
+<p><strong>How to address:</strong> - Key distinction: GEE models the <strong>marginal mean</strong> (population-averaged effect); GLMM models the <strong>conditional mean</strong> (cluster-specific effect). - Example: “The effect of burn treatment on tick counts <strong>across all plots</strong> (GEE) vs.&nbsp;<strong>within a specific plot</strong> (GLMM).” - Analogy: GEE is like asking “on average, do treated fields have fewer ticks?” GLMM asks “for plot #7 specifically, do treated conditions reduce ticks?”</p>
+<p><strong>Relevant worksheet prompt:</strong> Question 6.</p>
+<hr>
+</section>
+<section id="sandwich-ses-vs.-model-based-ses" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sandwich-ses-vs.-model-based-ses"><span class="header-section-number">2.2</span> 2. Sandwich SEs vs.&nbsp;Model-Based SEs</h2>
+<p><strong>The confusion:</strong> Students don’t understand why you’d use robust SEs instead of the model-based ones — <em>“aren’t model-based SEs better if the model is correct?”</em></p>
+<p><strong>How to address:</strong> - In practice, the working correlation is never exactly right. Sandwich SEs are consistent regardless. - If the working covariance is correctly specified, sandwich and model-based SEs converge. - Analogy: Model-based SEs are like a GPS that assumes perfect roads; sandwich SEs are like a GPS that recalculates based on actual traffic.</p>
+<p><strong>Relevant worksheet prompt:</strong> Question 5.</p>
+<hr>
+</section>
+<section id="negative-binomial-vs.-poisson-family-choice" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="negative-binomial-vs.-poisson-family-choice"><span class="header-section-number">2.3</span> 3. Negative Binomial vs.&nbsp;Poisson Family Choice</h2>
+<p><strong>The confusion:</strong> Students may not understand what overdispersion means or how to detect it.</p>
+<p><strong>How to address:</strong> - For count data, Poisson assumes Var(Y) = E(Y). If Var(Y) &gt; E(Y), the data are overdispersed. - Signs of overdispersion: residual deviance/df &gt;&gt; 1 in a Poisson GLM; estimated dispersion parameter &gt; 1. - <code>geepack::geeglm</code> uses a quasi-Poisson approach (scale parameter estimated from data); true negative binomial GEE requires additional packages.</p>
+<p><strong>Relevant R script:</strong> <code>materials/gee_example.R</code> section “Overdispersion Check.”</p>
+<hr>
+</section>
+<section id="not-recognizing-the-cluster-structure" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="not-recognizing-the-cluster-structure"><span class="header-section-number">2.4</span> 4. Not Recognizing the Cluster Structure</h2>
+<p><strong>The confusion:</strong> Students may identify individual tick observations as the unit of analysis, or confuse the cluster (plot) with the treatment (burn regime).</p>
+<p><strong>How to address:</strong> - Draw the data structure on the board: <code>Plot 1 (BB)   → Jan, Feb, Mar, ... Dec 2010, Jan, ..., Dec 2011   Plot 2 (BB)   → Jan, Feb, Mar, ... Dec 2010, Jan, ..., Dec 2011   ...   Plot 21 (UBUB) → ...</code> - Key point: plots are the <em>independent</em> units; monthly observations within a plot are <em>dependent</em> (correlated over time).</p>
+<p><strong>Relevant entry ticket field:</strong> <code>Cluster_ID_and_time_structure</code>.</p>
+<hr>
+</section>
+<section id="working-correlation-choice-ar1-vs.-exchangeable" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="working-correlation-choice-ar1-vs.-exchangeable"><span class="header-section-number">2.5</span> 5. Working Correlation Choice (AR(1) vs.&nbsp;Exchangeable)</h2>
+<p><strong>The confusion:</strong> Students may think exchangeable is “fine” because GEE is robust to misspecification.</p>
+<p><strong>How to address:</strong> - GEE estimates are consistent regardless of working correlation — but efficiency (precision) depends on how close the working correlation is to the truth. - Monthly tick counts likely have autocorrelation that decays with lag — AR(1) is more ecologically realistic. - For a 24-time-point monthly series, assuming equal correlation between January and December (exchangeable) as between consecutive months is probably wrong.</p>
+<hr>
+</section>
+</section>
+<section id="tips-for-facilitating-presenterstudent-interaction" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Tips for Facilitating Presenter–Student Interaction</h1>
+<section id="managing-the-hot-seat" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="managing-the-hot-seat"><span class="header-section-number">3.1</span> Managing the Hot-Seat</h2>
+<ul>
+<li><strong>Rehearse this the day before</strong> by telling the presenter: “At about minute 20, I’ll call a Hot-Seat. Groups will ask you a question. You’ll have 30 seconds per question. Don’t panic — say what you know.”</li>
+<li>Frame it as professional development: “This is what happens at conference Q&amp;A and dissertation defenses.”</li>
+<li>If a group’s question is unclear or unfair, rephrase it: <em>“I think what they’re asking is…”</em></li>
+<li>If the presenter gives a great answer, say so explicitly: “That was a really precise answer — did everyone catch what they said?”</li>
+</ul>
+</section>
+<section id="managing-challenge-questions-from-groups" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="managing-challenge-questions-from-groups"><span class="header-section-number">3.2</span> Managing Challenge Questions from Groups</h2>
+<ul>
+<li>Encourage groups to write genuinely challenging questions, not softballs. During the worksheet phase, if you see a group writing an easy question, push back: <em>“What’s a question that would make a methodologist sweat a bit?”</em></li>
+<li>After the presenter responds, ask the questioning group: <em>“Does that answer satisfy you? Anything you’d add?”</em> This creates a mini-dialogue.</li>
+</ul>
+</section>
+<section id="if-the-presenter-doesnt-know-the-answer" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="if-the-presenter-doesnt-know-the-answer"><span class="header-section-number">3.3</span> If the Presenter Doesn’t Know the Answer</h2>
+<ul>
+<li>Don’t rescue immediately. Wait 5–8 seconds.</li>
+<li>Offer: <em>“What would you need to look at to figure that out?”</em></li>
+<li>If truly stumped, open to the class: <em>“Who wants to help?”</em></li>
+<li>Return to the presenter for a synthesis: <em>“Based on what the class just said, how would you revise your answer?”</em></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="follow-up-assignments" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Follow-Up Assignments</h1>
+<section id="option-a-r-modification-recommended" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="option-a-r-modification-recommended"><span class="header-section-number">4.1</span> Option A: R Modification (recommended)</h2>
+<p>Students run <code>materials/gee_example.R</code> with modifications: 1. Change the correlation structure from <code>"exchangeable"</code> to <code>"ar1"</code> and <code>"independence"</code>. Compare QIC values. Which fits best? 2. Add a <code>month*burn_regime</code> interaction term. Does it improve fit? How would you interpret it? 3. Write a 200-word methods paragraph suitable for a journal manuscript describing the GEE you ran.</p>
+</section>
+<section id="option-b-apply-to-own-data" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="option-b-apply-to-own-data"><span class="header-section-number">4.2</span> Option B: Apply to Own Data</h2>
+<p>Students identify a dataset from their own research (or a publicly available one) that has: - Count or rate outcome - Repeated measures or clustering</p>
+<p>They fit a GEE using <code>geepack::geeglm</code>, justify their choice of family, link, and correlation structure, and write a 300-word methods + results paragraph.</p>
+</section>
+<section id="option-c-peer-review-practice" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="option-c-peer-review-practice"><span class="header-section-number">4.3</span> Option C: Peer Review Practice</h2>
+<p>Students use <code>activities/rubric_peer_review.md</code> to review a classmate’s Option A or B submission.</p>
+<hr>
+</section>
+</section>
+<section id="contingency-plans" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Contingency Plans</h1>
+<section id="if-the-presentation-runs-long-presenter-at-30-min-at-040" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="if-the-presentation-runs-long-presenter-at-30-min-at-040"><span class="header-section-number">5.1</span> If the presentation runs long (presenter at 30+ min at 0:40)</h2>
+<ul>
+<li>Interrupt politely: <em>“Let’s stop there — we need to move to the methods lecture. You can post your remaining slides on Canvas.”</em></li>
+<li>Skip the Hot-Seat Q&amp;A if it hasn’t happened yet, or fold it into the group challenge questions.</li>
+</ul>
+</section>
+<section id="if-the-presentation-runs-short-presenter-done-at-025" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="if-the-presentation-runs-short-presenter-done-at-025"><span class="header-section-number">5.2</span> If the presentation runs short (presenter done at 0:25)</h2>
+<ul>
+<li>Open the floor to the class for general questions (3–4 min).</li>
+<li>Move into the GEE lecture earlier; use the extra time to go deeper on the estimating equation derivation.</li>
+</ul>
+</section>
+<section id="if-the-worksheet-activity-runs-short-groups-done-in-5-min" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="if-the-worksheet-activity-runs-short-groups-done-in-5-min"><span class="header-section-number">5.3</span> If the worksheet activity runs short (groups done in 5 min)</h2>
+<ul>
+<li>Prompt deeper thinking: <em>“Group 2, you said exchangeable is fine — convince me. What would the correlation matrix look like for months 1 vs 2, and months 1 vs 24?”</em></li>
+<li>Ask groups to peer-review another group’s challenge question.</li>
+</ul>
+</section>
+<section id="if-the-worksheet-activity-runs-long-groups-not-done-at-10-min" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="if-the-worksheet-activity-runs-long-groups-not-done-at-10-min"><span class="header-section-number">5.4</span> If the worksheet activity runs long (groups not done at 10 min)</h2>
+<ul>
+<li>Call time at 10 min regardless. Say: <em>“We’ll only share the challenge questions — skip the written answers for now.”</em></li>
+<li>Assign written answers as homework.</li>
+</ul>
+</section>
+<section id="if-r-code-doesnt-work-technical-failure" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="if-r-code-doesnt-work-technical-failure"><span class="header-section-number">5.5</span> If R code doesn’t work (technical failure)</h2>
+<ul>
+<li>Show the pre-run output in <code>solutions/expected_answers_ticks_gee.md</code>.</li>
+<li>Walk through the code on the projector without executing it.</li>
+<li>Send <code>materials/gee_example.R</code> via email/Canvas for students to run at home.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="references" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<ul>
+<li>Gleim et al.&nbsp;(2014). DOI: 10.1371/journal.pone.0112174</li>
+<li>Liang &amp; Zeger (1986). <em>Biometrika</em>, 73(1), 13–22.</li>
+<li>Zeger &amp; Liang (1986). <em>Biometrics</em>, 42(1), 121–130.</li>
+<li>Hardin &amp; Hilbe (2013). <em>Generalized Estimating Equations</em>, 2nd ed.</li>
+<li>Bransford, J. D., Brown, A. L., &amp; Cocking, R. R. (Eds.). (2000). <em>How People Learn</em>. National Academy Press.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

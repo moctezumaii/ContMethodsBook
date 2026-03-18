@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 01 — Introductions – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>expected_answers_ticks_gee – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -88,6 +68,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -261,102 +270,192 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-a-introductions" id="toc-session-a-introductions" class="nav-link active" data-scroll-target="#session-a-introductions"><span class="header-section-number">1</span> Session A: Introductions</a>
+  <li><a href="#expected-answers-tick-phenology-gee-workshop" id="toc-expected-answers-tick-phenology-gee-workshop" class="nav-link active" data-scroll-target="#expected-answers-tick-phenology-gee-workshop"><span class="header-section-number">1</span> Expected Answers: Tick Phenology &amp; GEE Workshop</a>
   <ul class="collapse">
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives"><span class="header-section-number">1.1</span> Session Objectives</a></li>
+  <li><a href="#part-1-entry-ticket-expected-answers" id="toc-part-1-entry-ticket-expected-answers" class="nav-link" data-scroll-target="#part-1-entry-ticket-expected-answers"><span class="header-section-number">1.1</span> Part 1: Entry Ticket Expected Answers</a></li>
+  <li><a href="#part-2-worksheet-critique-prompts-detailed-expected-answers" id="toc-part-2-worksheet-critique-prompts-detailed-expected-answers" class="nav-link" data-scroll-target="#part-2-worksheet-critique-prompts-detailed-expected-answers"><span class="header-section-number">1.2</span> Part 2: Worksheet Critique Prompts — Detailed Expected Answers</a>
+  <ul class="collapse">
+  <li><a href="#prompt-1-is-negative-binomial-appropriate-what-alternatives-exist" id="toc-prompt-1-is-negative-binomial-appropriate-what-alternatives-exist" class="nav-link" data-scroll-target="#prompt-1-is-negative-binomial-appropriate-what-alternatives-exist"><span class="header-section-number">1.2.1</span> Prompt 1: Is negative binomial appropriate? What alternatives exist?</a></li>
+  <li><a href="#prompt-2-is-exchangeable-correlation-realistic-for-monthly-ecological-data-ar1" id="toc-prompt-2-is-exchangeable-correlation-realistic-for-monthly-ecological-data-ar1" class="nav-link" data-scroll-target="#prompt-2-is-exchangeable-correlation-realistic-for-monthly-ecological-data-ar1"><span class="header-section-number">1.2.2</span> Prompt 2: Is exchangeable correlation realistic for monthly ecological data? AR(1)?</a></li>
+  <li><a href="#prompt-3-are-cluster-sizes-balanced-how-might-imbalance-affect-gee" id="toc-prompt-3-are-cluster-sizes-balanced-how-might-imbalance-affect-gee" class="nav-link" data-scroll-target="#prompt-3-are-cluster-sizes-balanced-how-might-imbalance-affect-gee"><span class="header-section-number">1.2.3</span> Prompt 3: Are cluster sizes balanced? How might imbalance affect GEE?</a></li>
+  <li><a href="#prompt-4-transparency-the-paper-doesnt-report-the-full-model-equation" id="toc-prompt-4-transparency-the-paper-doesnt-report-the-full-model-equation" class="nav-link" data-scroll-target="#prompt-4-transparency-the-paper-doesnt-report-the-full-model-equation"><span class="header-section-number">1.2.4</span> Prompt 4: Transparency — the paper doesn’t report the full model equation</a></li>
+  <li><a href="#prompt-5-sandwich-variance-how-does-it-protect-against-misspecification" id="toc-prompt-5-sandwich-variance-how-does-it-protect-against-misspecification" class="nav-link" data-scroll-target="#prompt-5-sandwich-variance-how-does-it-protect-against-misspecification"><span class="header-section-number">1.2.5</span> Prompt 5: Sandwich variance — how does it protect against misspecification?</a></li>
+  <li><a href="#prompt-6-gee-vs-glmm-marginal-vs-conditional-interpretation" id="toc-prompt-6-gee-vs-glmm-marginal-vs-conditional-interpretation" class="nav-link" data-scroll-target="#prompt-6-gee-vs-glmm-marginal-vs-conditional-interpretation"><span class="header-section-number">1.2.6</span> Prompt 6: GEE vs GLMM — marginal vs conditional interpretation</a></li>
   </ul></li>
-  <li><a href="#session-b-papers-and-introduction-to-code" id="toc-session-b-papers-and-introduction-to-code" class="nav-link" data-scroll-target="#session-b-papers-and-introduction-to-code"><span class="header-section-number">2</span> Session B: Papers and introduction to code</a>
+  <li><a href="#part-3-sample-gee-output-interpretation" id="toc-part-3-sample-gee-output-interpretation" class="nav-link" data-scroll-target="#part-3-sample-gee-output-interpretation"><span class="header-section-number">1.3</span> Part 3: Sample GEE Output Interpretation</a></li>
+  <li><a href="#part-4-suggested-reviewer-comments-for-rubric-use" id="toc-part-4-suggested-reviewer-comments-for-rubric-use" class="nav-link" data-scroll-target="#part-4-suggested-reviewer-comments-for-rubric-use"><span class="header-section-number">1.4</span> Part 4: Suggested Reviewer Comments (for rubric use)</a>
   <ul class="collapse">
-  <li><a href="#part-1-paper-discussion-60-minutes-of-the-class" id="toc-part-1-paper-discussion-60-minutes-of-the-class" class="nav-link" data-scroll-target="#part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</a>
-  <ul class="collapse">
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">2.1.1</span> Preparation:</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</a></li>
-  </ul></li>
-  <li><a href="#part-2-github-and-r" id="toc-part-2-github-and-r" class="nav-link" data-scroll-target="#part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">2.2.1</span> </a></li>
+  <li><a href="#strong-reviewer-comments-score-4-across-criteria" id="toc-strong-reviewer-comments-score-4-across-criteria" class="nav-link" data-scroll-target="#strong-reviewer-comments-score-4-across-criteria"><span class="header-section-number">1.4.1</span> Strong reviewer comments (Score 4 across criteria):</a></li>
+  <li><a href="#moderate-comments-score-23" id="toc-moderate-comments-score-23" class="nav-link" data-scroll-target="#moderate-comments-score-23"><span class="header-section-number">1.4.2</span> Moderate comments (Score 2–3):</a></li>
+  <li><a href="#lowest-level-comments-score-1" id="toc-lowest-level-comments-score-1" class="nav-link" data-scroll-target="#lowest-level-comments-score-1"><span class="header-section-number">1.4.3</span> Lowest-level comments (Score 1):</a></li>
   </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Week 01 — Introductions</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="session-a-introductions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Session A: Introductions</h1>
-<section id="session-objectives" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="session-objectives"><span class="header-section-number">1.1</span> Session Objectives</h2>
+<section id="expected-answers-tick-phenology-gee-workshop" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Expected Answers: Tick Phenology &amp; GEE Workshop</h1>
+<p><strong>SNR 690 — For Instructor Use Only</strong><br>
+<strong>Paper:</strong> Gleim et al.&nbsp;(2014). <em>PLOS ONE</em>, 9(11), e112174. DOI: <a href="https://doi.org/10.1371/journal.pone.0112174">10.1371/journal.pone.0112174</a></p>
+<hr>
+<section id="part-1-entry-ticket-expected-answers" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="part-1-entry-ticket-expected-answers"><span class="header-section-number">1.1</span> Part 1: Entry Ticket Expected Answers</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Expected Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Objective</strong></td>
+<td>To quantify the effects of long-term prescribed burning regimes on tick population dynamics (phenology, abundance, species composition) in the longleaf pine ecosystem of southwestern Georgia and northwestern Florida.</td>
+</tr>
+<tr class="even">
+<td><strong>Research Question</strong></td>
+<td>Does long-term prescribed burning (under different burn regimes: burned/burned, burned/unburned, unburned/burned, unburned/unburned) reduce tick abundance and alter tick species composition, controlling for habitat and host variables?</td>
+</tr>
+<tr class="odd">
+<td><strong>Outcome Variable</strong></td>
+<td>Tick count per drag-flag sample (per plot per month). Overdispersed count data (47,185 total ticks; 99% <em>Amblyomma americanum</em>).</td>
+</tr>
+<tr class="even">
+<td><strong>Predictors</strong></td>
+<td>Burn treatment regime (BB, BUB, UBB, UBUB); host abundance (trail camera index); vegetation structure (canopy closure, tree density, ground cover); climatic variables (temperature, precipitation).</td>
+</tr>
+<tr class="odd">
+<td><strong>Cluster ID and time structure</strong></td>
+<td>Cluster = sampling plot (21 plots; 7.2–78.9 ha). Time = monthly sampling over 2 years (January 2010–December 2011) = 24 time points per plot. Plots are the independent units; monthly observations within a plot are the repeated measures.</td>
+</tr>
+<tr class="even">
+<td><strong>Analysis method guess</strong></td>
+<td>Generalized Estimating Equations (GEE) with negative binomial family, log link, and exchangeable working correlation. (Also acceptable: repeated-measures GLM, mixed model.)</td>
+</tr>
+<tr class="odd">
+<td><strong>Method question</strong></td>
+<td>Accepts any genuine methodological question. Examples of strong questions: “Why exchangeable and not AR(1)?”; “How do you handle overdispersion in GEE?”; “Why GEE instead of a GLMM with random plot effects?”</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="part-2-worksheet-critique-prompts-detailed-expected-answers" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="part-2-worksheet-critique-prompts-detailed-expected-answers"><span class="header-section-number">1.2</span> Part 2: Worksheet Critique Prompts — Detailed Expected Answers</h2>
+<section id="prompt-1-is-negative-binomial-appropriate-what-alternatives-exist" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="prompt-1-is-negative-binomial-appropriate-what-alternatives-exist"><span class="header-section-number">1.2.1</span> Prompt 1: Is negative binomial appropriate? What alternatives exist?</h3>
+<p><strong>Expected answer:</strong></p>
+<p>Yes, negative binomial is appropriate. Tick count data are overdispersed: the variance of counts far exceeds the mean due to spatial aggregation of ticks in microhabitats, seasonal patchiness, and among-plot heterogeneity. Overdispersion in Poisson models causes standard errors to be underestimated (anti-conservative inference). The negative binomial adds a dispersion parameter <span class="math inline">\(\theta\)</span>, allowing Var(Y) = μ + μ²/θ.</p>
+<p><strong>Alternatives and when to prefer them:</strong> - <strong>Poisson:</strong> Appropriate when Var(Y) ≈ E(Y). Should be rejected here (overdispersion ratio &gt;&gt; 1 expected). - <strong>Quasi-Poisson:</strong> Estimates a scale parameter from the data; equivalent to Poisson with scaled SEs. Pragmatic and widely used in GEE implementations (geepack uses this approach). - <strong>Zero-inflated NB:</strong> Appropriate when there are excess zeros (e.g., months with zero ticks in winter). Check zero-inflation separately; the paper does not mention it.</p>
+<p><strong>Key diagnostic:</strong> Compute <code>deviance / df</code> from a Poisson GLM. Values &gt;&gt; 1 indicate overdispersion.</p>
+<hr>
+</section>
+<section id="prompt-2-is-exchangeable-correlation-realistic-for-monthly-ecological-data-ar1" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="prompt-2-is-exchangeable-correlation-realistic-for-monthly-ecological-data-ar1"><span class="header-section-number">1.2.2</span> Prompt 2: Is exchangeable correlation realistic for monthly ecological data? AR(1)?</h3>
+<p><strong>Expected answer:</strong></p>
+<p><strong>Exchangeable</strong> assumes constant pairwise correlation regardless of temporal lag: Corr(Y₁, Y₂) = Corr(Y₁, Y₂₄). For monthly tick counts over 2 years, this is likely unrealistic. Tick counts within a plot are probably more correlated between adjacent months (due to seasonal phenology, carryover effects) than between months a year apart.</p>
+<p><strong>AR(1)</strong> assumes Corr(Y_t, Y_s) = α^|t-s|, which decays with lag. This is more ecologically realistic for monthly data.</p>
+<p><strong>Practical consequence of misspecification:</strong> GEE point estimates remain consistent (unbiased for large K) regardless of working correlation choice. However, efficiency (precision of estimates) depends on how close R(α) is to the truth. Using exchangeable when AR(1) is true gives valid but somewhat less efficient estimates. <strong>The bigger concern here is K = 21 clusters: the sandwich SE may be unreliable regardless of correlation structure choice.</strong></p>
+<p><strong>Model selection:</strong> Compare QIC under exchangeable vs.&nbsp;AR(1) — lower QIC favors better-fitting correlation structure.</p>
+<hr>
+</section>
+<section id="prompt-3-are-cluster-sizes-balanced-how-might-imbalance-affect-gee" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="prompt-3-are-cluster-sizes-balanced-how-might-imbalance-affect-gee"><span class="header-section-number">1.2.3</span> Prompt 3: Are cluster sizes balanced? How might imbalance affect GEE?</h3>
+<p><strong>Expected answer:</strong></p>
+<p><strong>Balance across treatment groups:</strong> 21 plots across 4 burn regimes does not divide evenly. Approximately 5–6 plots per treatment. This is mild imbalance; GEE handles unequal cluster sizes without special treatment.</p>
+<p><strong>Plot area imbalance:</strong> Plots range from 7.2 to 78.9 ha. Larger plots likely capture more tick drag samples, affecting raw counts. This could be addressed by: 1. Including plot area as a covariate (log area) 2. Using tick density (count per unit area) as the outcome 3. Including log(area) as an <strong>offset</strong> in the model: <code>log(E[ticks]) = log(area) + Xβ</code></p>
+<p>The paper does not appear to use an offset — this is a legitimate limitation.</p>
+<p><strong>Temporal imbalance:</strong> Some plot-months may be missing (bad weather, no sampling). GEE handles missing time points within clusters without requiring complete data (unlike RM-ANOVA).</p>
+<hr>
+</section>
+<section id="prompt-4-transparency-the-paper-doesnt-report-the-full-model-equation" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="prompt-4-transparency-the-paper-doesnt-report-the-full-model-equation"><span class="header-section-number">1.2.4</span> Prompt 4: Transparency — the paper doesn’t report the full model equation</h3>
+<p><strong>Expected answer:</strong></p>
+<p>The paper’s methods section describes using GEE with negative binomial family, log link, and exchangeable correlation, but does not display a formal model equation, a complete predictor list in equation form, or parameter estimates in a standard table for the GEE model.</p>
+<p><strong>Is this a transparency issue?</strong> Yes. For full reproducibility, a paper should provide: 1. Formal model equation with notation 2. Complete list of predictors with coding (reference category for factors) 3. Software and package used (<code>geepack</code>, <code>gee</code>, <code>SAS PROC GENMOD</code>) 4. Parameter estimates, robust SEs, and 95% CIs for all predictors 5. Information on handling missing data</p>
+<p><strong>This is common in applied ecology</strong> but does not meet modern reproducibility standards (e.g., PLOS ONE data availability policy, Transparent Statistics in Ecology guidelines).</p>
+<p><strong>Strong reviewer comment:</strong> “The authors should provide a formal model specification with predictor notation and a complete parameter table with robust SEs.”</p>
+<hr>
+</section>
+<section id="prompt-5-sandwich-variance-how-does-it-protect-against-misspecification" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="prompt-5-sandwich-variance-how-does-it-protect-against-misspecification"><span class="header-section-number">1.2.5</span> Prompt 5: Sandwich variance — how does it protect against misspecification?</h3>
+<p><strong>Expected answer:</strong></p>
+<p>The sandwich (robust) variance estimator Var̂(β̂) = B⁻¹MB⁻¹ separates the model-based information matrix B (the “bread”) from the empirical variance M (the “meat”).</p>
 <ul>
-<li><p>Short class to introduce ourselves</p></li>
-<li><p>Get familiarized with course objectives</p></li>
+<li><strong>B</strong> assumes the working covariance V_i is correctly specified.</li>
+<li><strong>M</strong> uses the actual observed residuals: M = Σᵢ Dᵢ’ Vᵢ⁻¹ Ĉov(Yᵢ) Vᵢ⁻¹ Dᵢ.</li>
+</ul>
+<p>If V_i is wrong, B⁻¹ alone gives incorrect SEs. But the empirical M captures the true residual variability. The sandwich combines them, giving consistent SEs even if R(α) is wrong.</p>
+<p><strong>Limitation for K = 21:</strong> The sandwich estimator is asymptotically consistent (requires K → ∞). With only 21 clusters, it can be anti-conservative (SEs too small). Corrections: jackknife SEs (<code>std.err = "jack"</code> in geepack) or bootstrap resampling at the cluster level.</p>
+<hr>
+</section>
+<section id="prompt-6-gee-vs-glmm-marginal-vs-conditional-interpretation" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="prompt-6-gee-vs-glmm-marginal-vs-conditional-interpretation"><span class="header-section-number">1.2.6</span> Prompt 6: GEE vs GLMM — marginal vs conditional interpretation</h3>
+<p><strong>Expected answer:</strong></p>
+<p><strong>GEE (marginal/population-averaged):</strong> The burn regime coefficient represents the average effect of burning across <em>all</em> 21 plots. Interpretation: “Burned/burned plots have, on average, 70% fewer ticks than unburned/unburned plots, across the entire sampled landscape.”</p>
+<p><strong>GLMM (conditional/cluster-specific):</strong> The burn regime coefficient represents the effect of burning for a plot with random effect b_i = 0 (the “average” plot). Interpretation: “For a plot with average unobserved characteristics, burning reduces tick counts by 70%.”</p>
+<p>For a non-linear link (like log), these are numerically different: the marginal effect (GEE) is smaller than the conditional effect (GLMM) due to Jensen’s inequality.</p>
+<p><strong>Which is more relevant for land management?</strong> The marginal GEE interpretation — “on average, burning reduces ticks by X% across the landscape” — is directly what a land manager needs to make a policy decision. GLMM answers a subtly different, plot-specific question.</p>
+<hr>
+</section>
+</section>
+<section id="part-3-sample-gee-output-interpretation" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="part-3-sample-gee-output-interpretation"><span class="header-section-number">1.3</span> Part 3: Sample GEE Output Interpretation</h2>
+<p>Based on the simulated data in <code>materials/gee_example.R</code>:</p>
+<pre><code>Burn regime effects (reference = UBUB = unburned/unburned):
+         estimate  robust_se   IRR    IRR_low  IRR_high  pct_change
+burn_BB    -1.20    0.18     0.30     0.21     0.43       -70%
+burn_BUB   -0.70    0.14     0.50     0.38     0.66       -50%
+burn_UBB   -0.50    0.12     0.61     0.48     0.77       -39%</code></pre>
+<p><strong>Plain-language interpretation:</strong></p>
+<ul>
+<li><strong>BB (burned/burned):</strong> Plots that received prescribed burns in both the first and second burn cycle had approximately 70% fewer ticks (IRR = 0.30, 95% CI: 0.21–0.43) than unburned/unburned plots, averaged across all plots and time points.</li>
+<li><strong>BUB and UBB:</strong> Intermediate reductions (~40–50%) in plots burned in only one of the two cycles.</li>
+<li><strong>Seasonal peak coefficient:</strong> During peak tick season (April–August), expected tick counts were approximately 2–3× higher than in off-season months (IRR ≈ 2.2–2.5).</li>
+</ul>
+<hr>
+</section>
+<section id="part-4-suggested-reviewer-comments-for-rubric-use" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="part-4-suggested-reviewer-comments-for-rubric-use"><span class="header-section-number">1.4</span> Part 4: Suggested Reviewer Comments (for rubric use)</h2>
+<section id="strong-reviewer-comments-score-4-across-criteria" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="strong-reviewer-comments-score-4-across-criteria"><span class="header-section-number">1.4.1</span> Strong reviewer comments (Score 4 across criteria):</h3>
+<ul>
+<li>“The presenter correctly identified the GEE model structure and articulated the marginal vs conditional distinction clearly. The IR interpretation (70% fewer ticks for BB plots) was ecologically accurate and connected to management implications.”</li>
+<li>“The R code correctly implements geeglm with exchangeable correlation. The comparison of QIC across correlation structures was a strong addition.”</li>
+<li>“The presenter proactively noted that the paper does not provide a formal equation and proposed a defensible inferred specification.”</li>
 </ul>
 </section>
-</section>
-<section id="session-b-papers-and-introduction-to-code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Session B: Papers and introduction to code</h1>
-<section id="part-1-paper-discussion-60-minutes-of-the-class" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</h2>
-<section id="preparation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.1.1</span> Preparation:</h3>
-<p>We will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.</p>
-<p><strong>Group a:</strong> <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span> This is a paper that <strong>some</strong> of you have read. But I think all of you should read it to be successful in this class.</p>
-<p><strong>Group b:</strong> <span class="citation" data-cites="zuur2010">Zuur, Ieno, and Elphick (<a href="#ref-zuur2010" role="doc-biblioref">2010</a>)</span> if you have already read <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span>, this is the one you should read.</p>
-</section>
-<section id="deliverable" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</h3>
-<p>You will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.</p>
-</section>
-</section>
-<section id="part-2-github-and-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</h2>
-<p>Make sure you have downloaded the following:</p>
+<section id="moderate-comments-score-23" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="moderate-comments-score-23"><span class="header-section-number">1.4.2</span> Moderate comments (Score 2–3):</h3>
 <ul>
-<li><p>Program R</p></li>
-<li><p>RStudio</p></li>
-<li><p>Know basics of R and RStudio: <a href="https://moctezumaii.github.io/SNR610/installation_instructions.html" class="uri">https://moctezumaii.github.io/SNR610/installation_instructions.html</a></p></li>
-<li><p>RStudio</p></li>
-<li><p>Create a Github account</p></li>
-<li><p>Apply for GitHub Education</p></li>
-<li><p>Join the course repository (you will be invited, accept the invite)</p></li>
-<li><p>Confirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)</p></li>
+<li>“The model family and link were identified correctly, but the presenter did not explain why negative binomial is preferred over Poisson for these data. Consider adding overdispersion diagnostics.”</li>
+<li>“Results were summarized as ‘significant’ but coefficients were not interpreted on the original scale (exp(β) = IRR). Clarify the multiplicative interpretation.”</li>
+<li>“The code ran correctly, but did not compare across correlation structures or test for model fit with QIC.”</li>
 </ul>
-<section id="section" class="level3" data-number="2.2.1">
-
-
+</section>
+<section id="lowest-level-comments-score-1" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="lowest-level-comments-score-1"><span class="header-section-number">1.4.3</span> Lowest-level comments (Score 1):</h3>
+<ul>
+<li>“The presenter identified the paper as using ‘ANOVA’ — this is incorrect. The method is GEE (generalized estimating equations), a marginal model for correlated count data.”</li>
+<li>“The cluster structure was not identified correctly. Individual tick observations are not the analysis unit; sampling plots (n=21) are the clusters.”</li>
+</ul>
 
 
 </section>
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.2.1 </h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-tredennick2021" class="csl-entry" role="listitem">
-Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. <span>“A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.”</span> <em>Ecology</em> 102 (6): e03336. <a href="https://doi.org/10.1002/ecy.3336">https://doi.org/10.1002/ecy.3336</a>.
-</div>
-<div id="ref-zuur2010" class="csl-entry" role="listitem">
-Zuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. <span>“A Protocol for Data Exploration to Avoid Common Statistical Problems.”</span> <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

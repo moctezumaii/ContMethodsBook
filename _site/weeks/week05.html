@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 01 — Introductions – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -149,10 +163,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../weeks/week07-workshop.html">
  <span class="dropdown-text">Week 07, Thursday</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../weeks/week08.html">
- <span class="dropdown-text">Week 08</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -239,10 +249,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../slides/slides-Week07.html">
  <span class="dropdown-text">Slides Week 07</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../slides/slides-Week08.html">
- <span class="dropdown-text">Slides Week 08</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -261,21 +267,23 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-a-introductions" id="toc-session-a-introductions" class="nav-link active" data-scroll-target="#session-a-introductions"><span class="header-section-number">1</span> Session A: Introductions</a>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a>
   <ul class="collapse">
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives"><span class="header-section-number">1.1</span> Session Objectives</a></li>
+  <li><a href="#background-readings" id="toc-background-readings" class="nav-link" data-scroll-target="#background-readings"><span class="header-section-number">1.1</span> Background &amp; Readings</a></li>
+  <li><a href="#response-variables" id="toc-response-variables" class="nav-link" data-scroll-target="#response-variables"><span class="header-section-number">1.2</span> Response variables</a></li>
   </ul></li>
-  <li><a href="#session-b-papers-and-introduction-to-code" id="toc-session-b-papers-and-introduction-to-code" class="nav-link" data-scroll-target="#session-b-papers-and-introduction-to-code"><span class="header-section-number">2</span> Session B: Papers and introduction to code</a>
+  <li><a href="#the-experimental-design" id="toc-the-experimental-design" class="nav-link" data-scroll-target="#the-experimental-design"><span class="header-section-number">2</span> The Experimental Design</a>
   <ul class="collapse">
-  <li><a href="#part-1-paper-discussion-60-minutes-of-the-class" id="toc-part-1-paper-discussion-60-minutes-of-the-class" class="nav-link" data-scroll-target="#part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</a>
-  <ul class="collapse">
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">2.1.1</span> Preparation:</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</a></li>
-  </ul></li>
-  <li><a href="#part-2-github-and-r" id="toc-part-2-github-and-r" class="nav-link" data-scroll-target="#part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">2.2.1</span> </a></li>
-  </ul></li>
+  <li><a href="#why-it-is-a-split-plot" id="toc-why-it-is-a-split-plot" class="nav-link" data-scroll-target="#why-it-is-a-split-plot"><span class="header-section-number">2.1</span> Why It Is a Split-Plot</a></li>
+  <li><a href="#two-error-strata" id="toc-two-error-strata" class="nav-link" data-scroll-target="#two-error-strata"><span class="header-section-number">2.2</span> Two Error Strata</a></li>
+  <li><a href="#how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that" id="toc-how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that" class="nav-link" data-scroll-target="#how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that"><span class="header-section-number">2.3</span> How to run as an ANOVA (not what they did, even though they claim that)</a></li>
+  <li><a href="#what-they-likely-ran" id="toc-what-they-likely-ran" class="nav-link" data-scroll-target="#what-they-likely-ran"><span class="header-section-number">2.4</span> What They Likely Ran</a></li>
+  <li><a href="#what-a-significant-g-st-interaction-means" id="toc-what-a-significant-g-st-interaction-means" class="nav-link" data-scroll-target="#what-a-significant-g-st-interaction-means"><span class="header-section-number">2.5</span> What a Significant G × ST Interaction Means</a></li>
+  <li><a href="#ordinal-vs.-disordinal" id="toc-ordinal-vs.-disordinal" class="nav-link" data-scroll-target="#ordinal-vs.-disordinal"><span class="header-section-number">2.6</span> Ordinal vs.&nbsp;Disordinal</a></li>
+  <li><a href="#tukey-vs.-lsd" id="toc-tukey-vs.-lsd" class="nav-link" data-scroll-target="#tukey-vs.-lsd"><span class="header-section-number">2.7</span> Tukey vs.&nbsp;LSD</a></li>
+  <li><a href="#the-methodquestiondata-triangle" id="toc-the-methodquestiondata-triangle" class="nav-link" data-scroll-target="#the-methodquestiondata-triangle"><span class="header-section-number">2.8</span> The Method–Question–Data Triangle</a></li>
+  <li><a href="#the-6-key-takeaways" id="toc-the-6-key-takeaways" class="nav-link" data-scroll-target="#the-6-key-takeaways"><span class="header-section-number">2.9</span> The 6 Key Takeaways</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">2.10</span> Data analysis</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -285,7 +293,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 01 — Introductions</h1>
+<h1 class="title">Week 05 — Performance and Potentiality of Camelina (Camelina sativa L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment</h1>
 </div>
 
 
@@ -302,61 +310,325 @@ div.csl-indent {
 </header>
 
 
-<section id="session-a-introductions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Session A: Introductions</h1>
-<section id="session-objectives" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="session-objectives"><span class="header-section-number">1.1</span> Session Objectives</h2>
-<ul>
-<li><p>Short class to introduce ourselves</p></li>
-<li><p>Get familiarized with course objectives</p></li>
-</ul>
-</section>
-</section>
-<section id="session-b-papers-and-introduction-to-code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Session B: Papers and introduction to code</h1>
-<section id="part-1-paper-discussion-60-minutes-of-the-class" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</h2>
-<section id="preparation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.1.1</span> Preparation:</h3>
-<p>We will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.</p>
-<p><strong>Group a:</strong> <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span> This is a paper that <strong>some</strong> of you have read. But I think all of you should read it to be successful in this class.</p>
-<p><strong>Group b:</strong> <span class="citation" data-cites="zuur2010">Zuur, Ieno, and Elphick (<a href="#ref-zuur2010" role="doc-biblioref">2010</a>)</span> if you have already read <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span>, this is the one you should read.</p>
-</section>
-<section id="deliverable" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</h3>
-<p>You will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.</p>
-</section>
-</section>
-<section id="part-2-github-and-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</h2>
-<p>Make sure you have downloaded the following:</p>
-<ul>
-<li><p>Program R</p></li>
-<li><p>RStudio</p></li>
-<li><p>Know basics of R and RStudio: <a href="https://moctezumaii.github.io/SNR610/installation_instructions.html" class="uri">https://moctezumaii.github.io/SNR610/installation_instructions.html</a></p></li>
-<li><p>RStudio</p></li>
-<li><p>Create a Github account</p></li>
-<li><p>Apply for GitHub Education</p></li>
-<li><p>Join the course repository (you will be invited, accept the invite)</p></li>
-<li><p>Confirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)</p></li>
-</ul>
-<section id="section" class="level3" data-number="2.2.1">
-
-
-
-
-</section>
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.2.1 </h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-tredennick2021" class="csl-entry" role="listitem">
-Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. <span>“A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.”</span> <em>Ecology</em> 102 (6): e03336. <a href="https://doi.org/10.1002/ecy.3336">https://doi.org/10.1002/ecy.3336</a>.
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Session A Part 1</strong></td>
+<td>Student-led paper discussion (~35 min)</td>
+</tr>
+<tr class="even">
+<td><strong>Session A Part 2</strong></td>
+<td>Method deep-dive (this document, ~35 min)</td>
+</tr>
+<tr class="odd">
+<td><strong>Session B</strong></td>
+<td>Hands-on coding workshop</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-zuur2010" class="csl-entry" role="listitem">
-Zuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. <span>“A Protocol for Data Exploration to Avoid Common Statistical Problems.”</span> <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
+<div class="callout-title-container flex-fill">
+Learning Objectives
 </div>
-</div></section></div></main> <!-- /main -->
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Understand why split-plot designs exist and how they differ from RCBD</li>
+<li>Recognize that <code>lmer + anova()</code> is a <strong>linear mixed model</strong>, not classical ANOVA</li>
+<li>Identify whole-plot vs subplot error strata and why they change the F-ratio</li>
+<li>Interpret G × ST interactions biologically and agronomically</li>
+<li>Apply the Zuur data exploration checklist critically to a published paper</li>
+</ol>
+</div>
+</div>
+<section id="background-readings" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="background-readings"><span class="header-section-number">1.1</span> Background &amp; Readings</h2>
+<p><strong>Paper:</strong></p>
+<p>Angelini, L. G., Chehade, L. A., Foschi, L., &amp; Tavarini, S. (2020). Performance and Potentiality of Camelina (<em>Camelina sativa</em> L. Crantz) Genotypes in Response to Sowing Date under Mediterranean Environment. <em>Agronomy</em>, 10(12), 1929. <a href="https://doi.org/10.3390/agronomy10121929">https://doi.org/10.3390/agronomy10121929</a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Questions to Consider
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While reading, always think about:</p>
+<ul>
+<li>What is the research question**? What factors are being tested?</li>
+<li>What is the experimental design**? (How many factors? How are treatments arranged? What is the blocking factor?)</li>
+<li>What are the response variables**? What type of data are they? (continuous, counts, proportions?)</li>
+<li>What statistical methods are used? Are they appropriate given the design?</li>
+<li>Does the Method-Question-Data Triangle align in this paper?</li>
+<li>What would Zuur (Week 1) say about their data exploration? Do you see evidence of it?</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="response-variables" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="response-variables"><span class="header-section-number">1.2</span> Response variables</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Seed yield (Mg/ha)</td>
+<td>Continuous</td>
+</tr>
+<tr class="even">
+<td>Oil content (% DW)</td>
+<td>Continuous</td>
+</tr>
+<tr class="odd">
+<td>1000-seed weight (g)</td>
+<td>Continuous</td>
+</tr>
+<tr class="even">
+<td>Plant height (cm)</td>
+<td>Continuous</td>
+</tr>
+<tr class="odd">
+<td>Siliques per plant</td>
+<td><strong>Count</strong></td>
+</tr>
+<tr class="even">
+<td>Plant density (No./m²)</td>
+<td><strong>Count</strong></td>
+</tr>
+<tr class="odd">
+<td>Harvest index</td>
+<td>Index</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Counts were analyzed with Poisson GLMs: potentially the right call (if they checked for zero-inflation). We return to this below.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="the-experimental-design" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The Experimental Design</h1>
+<section id="why-it-is-a-split-plot" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="why-it-is-a-split-plot"><span class="header-section-number">2.1</span> Why It Is a Split-Plot</h2>
+<p>You cannot randomize Autumn vs.&nbsp;Spring sowing within the same small plot — the whole field area for a given replicate must be sown in the same season. <strong>Sowing time requires a large experimental unit.</strong> This is the defining reason split-plot designs exist.</p>
+<pre><code>BLOCK (replicate, n = 4)
+├── WHOLE PLOT: Autumn sowing
+│   ├── subplot: V1, V2, V3, V4, V5, V6, CELINE (randomized)
+└── WHOLE PLOT: Spring sowing
+    └── subplot: V1, V2, V3, V4, V5, V6, CELINE (randomized)</code></pre>
+</section>
+<section id="two-error-strata" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="two-error-strata"><span class="header-section-number">2.2</span> Two Error Strata</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Stratum</th>
+<th>Tests</th>
+<th>Experimental unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Whole-plot error</strong></td>
+<td>Sowing Time (ST)</td>
+<td>Whole plot within block</td>
+</tr>
+<tr class="even">
+<td><strong>Subplot error</strong></td>
+<td>Genotype (G), G×ST</td>
+<td>Subplot within whole plot</td>
+</tr>
+</tbody>
+</table>
+<p>Using a single pooled error (naive ANOVA) gives an <strong>anti-conservative test for ST</strong> (false positives) and an <strong>over-conservative test for G</strong> (false negatives).</p>
+</section>
+<section id="how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="how-to-run-as-an-anova-not-what-they-did-even-though-they-claim-that"><span class="header-section-number">2.3</span> How to run as an ANOVA (not what they did, even though they claim that)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(yield <span class="sc">~</span> ST <span class="sc">*</span> Genotype <span class="sc">*</span> Year <span class="sc">+</span> <span class="fu">Error</span>(Block<span class="sc">/</span>ST), <span class="at">data =</span> dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-they-likely-ran" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="what-they-likely-ran"><span class="header-section-number">2.4</span> What They Likely Ran</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> Genotype <span class="sc">*</span> ST <span class="sc">*</span> Year <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block<span class="sc">:</span>ST),</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> dat)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model)  <span class="co"># Satterthwaite F-tests</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+lmer + anova() ≠ Classical ANOVA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a <strong>linear mixed model</strong>. The <code>anova()</code> call uses Satterthwaite approximated denominator df - which may be non-integer. Reporting this as “ANOVA” obscures what was done.</p>
+</div>
+</div>
+</section>
+<section id="what-a-significant-g-st-interaction-means" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="what-a-significant-g-st-interaction-means"><span class="header-section-number">2.5</span> What a Significant G × ST Interaction Means</h2>
+<blockquote class="blockquote">
+<p><strong>The ranking of genotypes depends on sowing time.</strong> You cannot make one variety recommendation.</p>
+</blockquote>
+</section>
+<section id="ordinal-vs.-disordinal" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="ordinal-vs.-disordinal"><span class="header-section-number">2.6</span> Ordinal vs.&nbsp;Disordinal</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 36%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Definition</th>
+<th>Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Ordinal</strong></td>
+<td>Rankings preserved, magnitudes differ</td>
+<td>Main effects broadly valid</td>
+</tr>
+<tr class="even">
+<td><strong>Disordinal</strong></td>
+<td>Rankings cross over</td>
+<td>Separate recommendations essential</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tukey-vs.-lsd" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="tukey-vs.-lsd"><span class="header-section-number">2.7</span> Tukey vs.&nbsp;LSD</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>LSD</th>
+<th>Tukey HSD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Controls</td>
+<td>Per-comparison alpha</td>
+<td>Familywise error rate</td>
+</tr>
+<tr class="even">
+<td>Result</td>
+<td>More liberal</td>
+<td>More conservative</td>
+</tr>
+<tr class="odd">
+<td>Used in paper</td>
+<td></td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compact letter displays (“a”, “ab”, “b”) can mask near-significant differences. Always look at the actual means and CIs.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-methodquestiondata-triangle" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="the-methodquestiondata-triangle"><span class="header-section-number">2.8</span> The Method–Question–Data Triangle</h2>
+<pre><code>       QUESTION
+   "Best genotype × 
+   sowing time?"
+        /\
+       /  \
+ DATA /    \ METHOD
+-----/------\-------
+Factorial    Split-plot LMM
+blocked      Two error strata
+cont+count   Poisson for counts</code></pre>
+<div class="fragment">
+<p><strong>Alignment?</strong> Mostly yes — but the gap between what was done (LMM) and what was reported (“ANOVA”) is a transparency issue.</p>
+</div>
+<hr>
+</section>
+<section id="the-6-key-takeaways" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="the-6-key-takeaways"><span class="header-section-number">2.9</span> The 6 Key Takeaways</h2>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li><strong>Split-plot</strong> because ST cannot be randomized at subplot level → two error strata</li>
+<li><strong><code>lmer + anova()</code></strong> is a linear mixed model, not classical ANOVA, this is a reporting issue</li>
+<li><strong>Year as fixed</strong> is pragmatic with n=2 but limits generalizability</li>
+<li><strong>G×ST is disordinal</strong> separate recommendations required</li>
+<li><strong>Poisson for counts</strong> was correct if they checked for zero-inflation (not reported)</li>
+<li><strong>Data exploration is underreported</strong> it usually is</li>
+</ol>
+</div>
+</section>
+<section id="data-analysis" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">2.10</span> Data analysis</h2>
+<p>You can generate the data using this, and then analyze it using either the <code>aov()</code> or <code>lmer()</code> approach. Check for differences</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I will simulate the data. 4 repliacation (Block), 2 sowing times (ST), 7 Genotypes (G), 2 years (Year)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dat<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(<span class="at">Block =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ST =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Autumn"</span>, <span class="st">"Spring"</span>)),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Genotype =</span> <span class="fu">factor</span>(<span class="fu">paste0</span>(<span class="st">"V"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">Year =</span> <span class="fu">factor</span>(<span class="dv">2018</span><span class="sc">:</span><span class="dv">2019</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>yield <span class="ot">&lt;-</span> <span class="fl">1.8</span> <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.30</span> <span class="sc">*</span> (dat<span class="sc">$</span>ST <span class="sc">==</span> <span class="st">"Autumn"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="sc">-</span><span class="fl">0.10</span>, <span class="fl">0.40</span>, <span class="sc">-</span><span class="fl">0.20</span>, <span class="fl">0.05</span>, <span class="fl">0.10</span>, <span class="fl">0.20</span>)[<span class="fu">as.integer</span>(dat<span class="sc">$</span>G)] <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.40</span> <span class="sc">*</span> (dat<span class="sc">$</span>ST <span class="sc">==</span> <span class="st">"Autumn"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>G <span class="sc">==</span> <span class="st">"V3"</span>) <span class="sc">+</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>   <span class="sc">-</span><span class="fl">0.05</span> <span class="sc">*</span> (dat<span class="sc">$</span>ST <span class="sc">==</span> <span class="st">"Spring"</span> <span class="sc">&amp;</span> dat<span class="sc">$</span>G <span class="sc">==</span> <span class="st">"V5"</span>) <span class="sc">+</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.20</span> <span class="sc">*</span> (dat<span class="sc">$</span>Year <span class="sc">==</span> <span class="st">"2019"</span>) <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">rnorm</span>(<span class="fu">nrow</span>(dat), <span class="dv">0</span>, <span class="fl">0.15</span>)  <span class="co"># add some noise</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lecture_notes_ticks_gee – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-274c3d255ff4b40ad85bc0e900837b3c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week05.html">
+ <span class="dropdown-text">Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07.html">
+ <span class="dropdown-text">Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07-workshop.html">
+ <span class="dropdown-text">Week 07, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08.html">
+ <span class="dropdown-text">Week 08</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week04.html">
+ <span class="dropdown-text">Slides Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week05.html">
+ <span class="dropdown-text">Slides Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week07.html">
+ <span class="dropdown-text">Slides Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week08.html">
+ <span class="dropdown-text">Slides Week 08</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#expanded-lecture-notes-gee-for-repeated-measures-count-data" id="toc-expanded-lecture-notes-gee-for-repeated-measures-count-data" class="nav-link active" data-scroll-target="#expanded-lecture-notes-gee-for-repeated-measures-count-data"><span class="header-section-number">1</span> Expanded Lecture Notes: GEE for Repeated-Measures Count Data</a>
+  <ul class="collapse">
+  <li><a href="#snr-690-tick-phenology-prescribed-burning-gleim-et-al.-2014" id="toc-snr-690-tick-phenology-prescribed-burning-gleim-et-al.-2014" class="nav-link" data-scroll-target="#snr-690-tick-phenology-prescribed-burning-gleim-et-al.-2014"><span class="header-section-number">1.1</span> SNR 690 — Tick Phenology &amp; Prescribed Burning (Gleim et al.&nbsp;2014)</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">1.2</span> Overview</a></li>
+  <li><a href="#slide-1-title-speaker-notes" id="toc-slide-1-title-speaker-notes" class="nav-link" data-scroll-target="#slide-1-title-speaker-notes"><span class="header-section-number">1.3</span> Slide 1 (Title) — Speaker Notes</a></li>
+  <li><a href="#slide-2-agenda-speaker-notes" id="toc-slide-2-agenda-speaker-notes" class="nav-link" data-scroll-target="#slide-2-agenda-speaker-notes"><span class="header-section-number">1.4</span> Slide 2 (Agenda) — Speaker Notes</a></li>
+  <li><a href="#slide-3-entry-ticket-debrief-speaker-notes" id="toc-slide-3-entry-ticket-debrief-speaker-notes" class="nav-link" data-scroll-target="#slide-3-entry-ticket-debrief-speaker-notes"><span class="header-section-number">1.5</span> Slide 3 (Entry Ticket Debrief) — Speaker Notes</a></li>
+  <li><a href="#slide-4-why-gee-extended-notes" id="toc-slide-4-why-gee-extended-notes" class="nav-link" data-scroll-target="#slide-4-why-gee-extended-notes"><span class="header-section-number">1.6</span> Slide 4 (Why GEE?) — Extended Notes</a>
+  <ul class="collapse">
+  <li><a href="#marginal-vs.-conditional-models" id="toc-marginal-vs.-conditional-models" class="nav-link" data-scroll-target="#marginal-vs.-conditional-models"><span class="header-section-number">1.6.1</span> Marginal vs.&nbsp;Conditional Models</a></li>
+  <li><a href="#why-this-matters-practically" id="toc-why-this-matters-practically" class="nav-link" data-scroll-target="#why-this-matters-practically"><span class="header-section-number">1.6.2</span> Why This Matters Practically</a></li>
+  </ul></li>
+  <li><a href="#slide-5-gee-estimating-equation-derivation-from-quasi-likelihood" id="toc-slide-5-gee-estimating-equation-derivation-from-quasi-likelihood" class="nav-link" data-scroll-target="#slide-5-gee-estimating-equation-derivation-from-quasi-likelihood"><span class="header-section-number">1.7</span> Slide 5 (GEE Estimating Equation) — Derivation from Quasi-Likelihood</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">1.7.1</span> Setup</a></li>
+  <li><a href="#from-score-equations" id="toc-from-score-equations" class="nav-link" data-scroll-target="#from-score-equations"><span class="header-section-number">1.7.2</span> From Score Equations</a></li>
+  <li><a href="#the-working-covariance" id="toc-the-working-covariance" class="nav-link" data-scroll-target="#the-working-covariance"><span class="header-section-number">1.7.3</span> The Working Covariance</a></li>
+  <li><a href="#key-result-consistency-under-misspecification" id="toc-key-result-consistency-under-misspecification" class="nav-link" data-scroll-target="#key-result-consistency-under-misspecification"><span class="header-section-number">1.7.4</span> Key Result: Consistency Under Misspecification</a></li>
+  </ul></li>
+  <li><a href="#slide-6-sandwich-variance-extended-notes" id="toc-slide-6-sandwich-variance-extended-notes" class="nav-link" data-scroll-target="#slide-6-sandwich-variance-extended-notes"><span class="header-section-number">1.8</span> Slide 6 (Sandwich Variance) — Extended Notes</a>
+  <ul class="collapse">
+  <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation"><span class="header-section-number">1.8.1</span> Derivation</a></li>
+  <li><a href="#small-sample-warning" id="toc-small-sample-warning" class="nav-link" data-scroll-target="#small-sample-warning"><span class="header-section-number">1.8.2</span> Small-Sample Warning</a></li>
+  </ul></li>
+  <li><a href="#slide-7-papers-model-extended-notes" id="toc-slide-7-papers-model-extended-notes" class="nav-link" data-scroll-target="#slide-7-papers-model-extended-notes"><span class="header-section-number">1.9</span> Slide 7 (Paper’s Model) — Extended Notes</a>
+  <ul class="collapse">
+  <li><a href="#what-the-paper-reports" id="toc-what-the-paper-reports" class="nav-link" data-scroll-target="#what-the-paper-reports"><span class="header-section-number">1.9.1</span> What the Paper Reports</a></li>
+  <li><a href="#inferred-model" id="toc-inferred-model" class="nav-link" data-scroll-target="#inferred-model"><span class="header-section-number">1.9.2</span> Inferred Model</a></li>
+  <li><a href="#interpretation-of-coefficients-log-link-negative-binomial" id="toc-interpretation-of-coefficients-log-link-negative-binomial" class="nav-link" data-scroll-target="#interpretation-of-coefficients-log-link-negative-binomial"><span class="header-section-number">1.9.3</span> Interpretation of Coefficients (Log Link, Negative Binomial)</a></li>
+  </ul></li>
+  <li><a href="#slide-8-working-correlation-extended-notes" id="toc-slide-8-working-correlation-extended-notes" class="nav-link" data-scroll-target="#slide-8-working-correlation-extended-notes"><span class="header-section-number">1.10</span> Slide 8 (Working Correlation) — Extended Notes</a>
+  <ul class="collapse">
+  <li><a href="#exchangeable-correlation" id="toc-exchangeable-correlation" class="nav-link" data-scroll-target="#exchangeable-correlation"><span class="header-section-number">1.10.1</span> Exchangeable Correlation</a></li>
+  <li><a href="#ar1-correlation" id="toc-ar1-correlation" class="nav-link" data-scroll-target="#ar1-correlation"><span class="header-section-number">1.10.2</span> AR(1) Correlation</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">1.10.3</span> Independence</a></li>
+  <li><a href="#model-selection-via-qic" id="toc-model-selection-via-qic" class="nav-link" data-scroll-target="#model-selection-via-qic"><span class="header-section-number">1.10.4</span> Model Selection via QIC</a></li>
+  </ul></li>
+  <li><a href="#why-negative-binomial-over-poisson-for-overdispersed-counts" id="toc-why-negative-binomial-over-poisson-for-overdispersed-counts" class="nav-link" data-scroll-target="#why-negative-binomial-over-poisson-for-overdispersed-counts"><span class="header-section-number">1.11</span> Why Negative Binomial Over Poisson for Overdispersed Counts</a>
+  <ul class="collapse">
+  <li><a href="#the-poisson-constraint" id="toc-the-poisson-constraint" class="nav-link" data-scroll-target="#the-poisson-constraint"><span class="header-section-number">1.11.1</span> The Poisson Constraint</a></li>
+  <li><a href="#the-negative-binomial-alternative" id="toc-the-negative-binomial-alternative" class="nav-link" data-scroll-target="#the-negative-binomial-alternative"><span class="header-section-number">1.11.2</span> The Negative Binomial Alternative</a></li>
+  <li><a href="#diagnosing-overdispersion" id="toc-diagnosing-overdispersion" class="nav-link" data-scroll-target="#diagnosing-overdispersion"><span class="header-section-number">1.11.3</span> Diagnosing Overdispersion</a></li>
+  <li><a href="#geepack-limitation" id="toc-geepack-limitation" class="nav-link" data-scroll-target="#geepack-limitation"><span class="header-section-number">1.11.4</span> <code>geepack</code> Limitation</a></li>
+  </ul></li>
+  <li><a href="#connection-to-gleim-et-al.-2014-design" id="toc-connection-to-gleim-et-al.-2014-design" class="nav-link" data-scroll-target="#connection-to-gleim-et-al.-2014-design"><span class="header-section-number">1.12</span> Connection to Gleim et al.&nbsp;(2014) Design</a>
+  <ul class="collapse">
+  <li><a href="#study-design-summary" id="toc-study-design-summary" class="nav-link" data-scroll-target="#study-design-summary"><span class="header-section-number">1.12.1</span> Study Design Summary</a></li>
+  <li><a href="#gee-application-in-this-context" id="toc-gee-application-in-this-context" class="nav-link" data-scroll-target="#gee-application-in-this-context"><span class="header-section-number">1.12.2</span> GEE Application in this Context</a></li>
+  </ul></li>
+  <li><a href="#key-references" id="toc-key-references" class="nav-link" data-scroll-target="#key-references"><span class="header-section-number">1.13</span> Key References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="expanded-lecture-notes-gee-for-repeated-measures-count-data" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Expanded Lecture Notes: GEE for Repeated-Measures Count Data</h1>
+<section id="snr-690-tick-phenology-prescribed-burning-gleim-et-al.-2014" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="snr-690-tick-phenology-prescribed-burning-gleim-et-al.-2014"><span class="header-section-number">1.1</span> SNR 690 — Tick Phenology &amp; Prescribed Burning (Gleim et al.&nbsp;2014)</h2>
+<hr>
+</section>
+<section id="overview" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.2</span> Overview</h2>
+<p>These notes expand on the slide deck (<code>slides/slides-ticks-gee.qmd</code>) and provide: - Short derivation of the GEE estimating equation from quasi-likelihood - Sandwich variance derivation (bread and meat) - Working correlation comparison (pros, cons, guidance) - Why negative binomial over Poisson for overdispersed counts - Connection to the specific design and analysis in Gleim et al.&nbsp;(2014) - Key references</p>
+<hr>
+</section>
+<section id="slide-1-title-speaker-notes" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="slide-1-title-speaker-notes"><span class="header-section-number">1.3</span> Slide 1 (Title) — Speaker Notes</h2>
+<p>Introduce the paper briefly: it is an applied ecology paper asking whether long-term prescribed burning reduces tick abundance. The paper is notable for using GEE to account for repeated sampling within plots — a correct and defensible choice, though the methods reporting could be more transparent.</p>
+<hr>
+</section>
+<section id="slide-2-agenda-speaker-notes" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="slide-2-agenda-speaker-notes"><span class="header-section-number">1.4</span> Slide 2 (Agenda) — Speaker Notes</h2>
+<p>Orient students to the structure of the 75-minute class. Emphasize that the student presenter leads the first half; the second half is instructor-led methods and group activity. The minute paper at the end feeds into next class.</p>
+<hr>
+</section>
+<section id="slide-3-entry-ticket-debrief-speaker-notes" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="slide-3-entry-ticket-debrief-speaker-notes"><span class="header-section-number">1.5</span> Slide 3 (Entry Ticket Debrief) — Speaker Notes</h2>
+<p>Fill in the bullet points based on what you actually saw in entry tickets. Key corrections to make: - Cluster = plot (not individual ticks) - Outcome = count data → appropriate distribution choices are Poisson or negative binomial - GEE handles the within-plot repeated measures structure</p>
+<hr>
+</section>
+<section id="slide-4-why-gee-extended-notes" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="slide-4-why-gee-extended-notes"><span class="header-section-number">1.6</span> Slide 4 (Why GEE?) — Extended Notes</h2>
+<section id="marginal-vs.-conditional-models" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="marginal-vs.-conditional-models"><span class="header-section-number">1.6.1</span> Marginal vs.&nbsp;Conditional Models</h3>
+<p>The distinction between <strong>marginal</strong> and <strong>conditional</strong> models is foundational.</p>
+<p><strong>Conditional model (GLMM):</strong> <span class="math display">\[
+\log(E[Y_{it} \mid b_i]) = \mathbf{X}_{it}^\top \boldsymbol{\beta} + b_i
+\]</span> where <span class="math inline">\(b_i \sim N(0, \sigma^2)\)</span> is a random effect for plot <span class="math inline">\(i\)</span>.</p>
+<p>The interpretation of <span class="math inline">\(\boldsymbol{\beta}\)</span> here is: <em>the effect of a one-unit change in a covariate on the log-expected tick count for a plot with random effect <span class="math inline">\(b_i\)</span></em>. The coefficient is <strong>plot-specific</strong>.</p>
+<p><strong>Marginal model (GEE):</strong> <span class="math display">\[
+\log(E[Y_{it}]) = \mathbf{X}_{it}^\top \boldsymbol{\beta}
+\]</span></p>
+<p>Here <span class="math inline">\(\boldsymbol{\beta}\)</span> is the <strong>population-averaged</strong> effect — the average effect across all plots.</p>
+</section>
+<section id="why-this-matters-practically" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="why-this-matters-practically"><span class="header-section-number">1.6.2</span> Why This Matters Practically</h3>
+<p>For the tick burning question: “Does prescribed burning reduce tick abundance on average across the landscape?” — the marginal GEE answer is directly what we want. If we asked “what is the tick reduction in plot 7 specifically?”, GLMM would be more appropriate.</p>
+<p>In large-cohort observational studies (where GEE originated in biostatistics), the population-averaged effect is almost always the policy-relevant quantity.</p>
+<hr>
+</section>
+</section>
+<section id="slide-5-gee-estimating-equation-derivation-from-quasi-likelihood" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="slide-5-gee-estimating-equation-derivation-from-quasi-likelihood"><span class="header-section-number">1.7</span> Slide 5 (GEE Estimating Equation) — Derivation from Quasi-Likelihood</h2>
+<section id="setup" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1.7.1</span> Setup</h3>
+<p>Let: - <span class="math inline">\(K\)</span> = number of clusters (21 plots) - <span class="math inline">\(n_i\)</span> = number of observations in cluster <span class="math inline">\(i\)</span> (up to 24 months) - <span class="math inline">\(Y_{it}\)</span> = tick count for plot <span class="math inline">\(i\)</span> at month <span class="math inline">\(t\)</span> - <span class="math inline">\(\mu_{it} = E[Y_{it} \mid \mathbf{X}_{it}]\)</span> = marginal mean - <span class="math inline">\(\mathbf{Y}_i = (Y_{i1}, \ldots, Y_{in_i})^\top\)</span>, <span class="math inline">\(\boldsymbol{\mu}_i = (\mu_{i1}, \ldots, \mu_{in_i})^\top\)</span></p>
+</section>
+<section id="from-score-equations" class="level3" data-number="1.7.2">
+<h3 data-number="1.7.2" class="anchored" data-anchor-id="from-score-equations"><span class="header-section-number">1.7.2</span> From Score Equations</h3>
+<p>For a generalized linear model (GLM) with response vector <span class="math inline">\(\mathbf{Y}_i\)</span> and mean <span class="math inline">\(\boldsymbol{\mu}_i\)</span>, the quasi-likelihood score equation for a single cluster would be:</p>
+<p><span class="math display">\[
+\mathbf{S}_i(\boldsymbol{\beta}) = \mathbf{D}_i^\top \mathbf{V}_i^{-1} (\mathbf{Y}_i - \boldsymbol{\mu}_i)
+\]</span></p>
+<p>where: - <span class="math inline">\(\mathbf{D}_i = \frac{\partial \boldsymbol{\mu}_i}{\partial \boldsymbol{\beta}}\)</span> is the <span class="math inline">\(n_i \times p\)</span> Jacobian of the mean w.r.t. parameters - <span class="math inline">\(\mathbf{V}_i\)</span> is the working covariance matrix of <span class="math inline">\(\mathbf{Y}_i\)</span></p>
+<p>Summing over all clusters and setting equal to zero gives the GEE:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1} (\mathbf{Y}_i - \boldsymbol{\mu}_i) = \mathbf{0}
+\]</span></p>
+</section>
+<section id="the-working-covariance" class="level3" data-number="1.7.3">
+<h3 data-number="1.7.3" class="anchored" data-anchor-id="the-working-covariance"><span class="header-section-number">1.7.3</span> The Working Covariance</h3>
+<p><span class="math display">\[
+\mathbf{V}_i = \phi \, \mathbf{A}_i^{1/2} \, R(\alpha) \, \mathbf{A}_i^{1/2}
+\]</span></p>
+<p>where: - <span class="math inline">\(\phi\)</span> = dispersion parameter (estimated from data; for negative binomial, this is the overdispersion) - <span class="math inline">\(\mathbf{A}_i\)</span> = diagonal matrix with <span class="math inline">\(\text{Var}(\mu_{it})\)</span> on the diagonal (depends on the family; for Poisson: <span class="math inline">\(\mu_{it}\)</span>; for negative binomial: <span class="math inline">\(\mu_{it} + \mu_{it}^2/\theta\)</span>) - <span class="math inline">\(R(\alpha)\)</span> = working correlation matrix</p>
+</section>
+<section id="key-result-consistency-under-misspecification" class="level3" data-number="1.7.4">
+<h3 data-number="1.7.4" class="anchored" data-anchor-id="key-result-consistency-under-misspecification"><span class="header-section-number">1.7.4</span> Key Result: Consistency Under Misspecification</h3>
+<p>Liang &amp; Zeger (1986) showed that if the mean structure <span class="math inline">\(\boldsymbol{\mu}_i = h(\mathbf{X}_i \boldsymbol{\beta})\)</span> is correctly specified, then <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is <strong>consistent</strong> regardless of whether <span class="math inline">\(R(\alpha)\)</span> is the true correlation matrix. This is GEE’s defining advantage.</p>
+<hr>
+</section>
+</section>
+<section id="slide-6-sandwich-variance-extended-notes" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="slide-6-sandwich-variance-extended-notes"><span class="header-section-number">1.8</span> Slide 6 (Sandwich Variance) — Extended Notes</h2>
+<section id="derivation" class="level3" data-number="1.8.1">
+<h3 data-number="1.8.1" class="anchored" data-anchor-id="derivation"><span class="header-section-number">1.8.1</span> Derivation</h3>
+<p>The GEE estimator <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> solves <span class="math inline">\(\sum_i \mathbf{S}_i(\boldsymbol{\beta}) = \mathbf{0}\)</span>.</p>
+<p>By a Taylor expansion:</p>
+<p><span class="math display">\[
+\hat{\boldsymbol{\beta}} - \boldsymbol{\beta}_0 \approx \left[\sum_i \frac{\partial \mathbf{S}_i}{\partial \boldsymbol{\beta}}\right]^{-1} \sum_i \mathbf{S}_i(\boldsymbol{\beta}_0)
+\]</span></p>
+<p>The asymptotic variance of <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> is:</p>
+<p><span class="math display">\[
+\text{Var}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \, \text{Var}\!\left(\sum_i \mathbf{S}_i\right) \mathbf{B}^{-1}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{B} = \sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> (the <strong>bread</strong>).</p>
+<p>Since the clusters are independent, <span class="math inline">\(\text{Var}(\sum_i \mathbf{S}_i) = \sum_i \text{Var}(\mathbf{S}_i)\)</span>.</p>
+<p>Estimating <span class="math inline">\(\text{Var}(\mathbf{S}_i)\)</span> empirically gives the <strong>meat</strong>:</p>
+<p><span class="math display">\[
+\mathbf{M} = \sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \widehat{\text{Cov}}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i
+\]</span></p>
+<p>where <span class="math inline">\(\widehat{\text{Cov}}(\mathbf{Y}_i) = (\mathbf{Y}_i - \hat{\boldsymbol{\mu}}_i)(\mathbf{Y}_i - \hat{\boldsymbol{\mu}}_i)^\top\)</span>.</p>
+<p>The <strong>sandwich estimator</strong> is:</p>
+<p><span class="math display">\[
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+\]</span></p>
+</section>
+<section id="small-sample-warning" class="level3" data-number="1.8.2">
+<h3 data-number="1.8.2" class="anchored" data-anchor-id="small-sample-warning"><span class="header-section-number">1.8.2</span> Small-Sample Warning</h3>
+<p>The sandwich estimator assumes <span class="math inline">\(K \to \infty\)</span>. With <span class="math inline">\(K = 21\)</span> clusters (as in this paper), it can be anti-conservative. Corrections include: - Jackknife SE: <code>std.err = "jack"</code> in <code>geepack::geeglm</code> - Pan (2001) small-sample correction - Bootstrap SEs (resample entire clusters)</p>
+<hr>
+</section>
+</section>
+<section id="slide-7-papers-model-extended-notes" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="slide-7-papers-model-extended-notes"><span class="header-section-number">1.9</span> Slide 7 (Paper’s Model) — Extended Notes</h2>
+<section id="what-the-paper-reports" class="level3" data-number="1.9.1">
+<h3 data-number="1.9.1" class="anchored" data-anchor-id="what-the-paper-reports"><span class="header-section-number">1.9.1</span> What the Paper Reports</h3>
+<p>Gleim et al.&nbsp;(2014) state (paraphrasing from Methods, p.&nbsp;3):</p>
+<blockquote class="blockquote">
+<p>“We used generalized estimating equations (GEE) with a negative binomial distribution and log link function to account for the repeated monthly sampling within plots. The exchangeable working correlation structure was used.”</p>
+</blockquote>
+<p>The paper does <strong>not</strong> display a formal model equation, parameter table, or explicit predictor list in a single model specification table. Predictors mentioned in the text include: burn treatment (BB, BUB, UBB, UBUB), host abundance indices (trail camera data), vegetation structure (canopy closure, tree density, ground cover), and climatic variables.</p>
+</section>
+<section id="inferred-model" class="level3" data-number="1.9.2">
+<h3 data-number="1.9.2" class="anchored" data-anchor-id="inferred-model"><span class="header-section-number">1.9.2</span> Inferred Model</h3>
+<p>A defensible inferred specification is:</p>
+<p><span class="math display">\[
+\log(E[\text{ticks}_{it}]) = \beta_0 + \beta_1 \cdot \text{BurnRegime}_i + \beta_2 \cdot \text{HostAbundance}_{it} + \beta_3 \cdot \text{Canopy}_{it} + \beta_4 \cdot \text{Season}_{it} + \cdots
+\]</span></p>
+<p>Subscript <span class="math inline">\(i\)</span> = plot (cluster), <span class="math inline">\(t\)</span> = month (time point within cluster).</p>
+</section>
+<section id="interpretation-of-coefficients-log-link-negative-binomial" class="level3" data-number="1.9.3">
+<h3 data-number="1.9.3" class="anchored" data-anchor-id="interpretation-of-coefficients-log-link-negative-binomial"><span class="header-section-number">1.9.3</span> Interpretation of Coefficients (Log Link, Negative Binomial)</h3>
+<p>For a log-link model: - <span class="math inline">\(\exp(\hat{\beta}_1)\)</span> = multiplicative change in expected tick count per unit change in <span class="math inline">\(X_1\)</span> - If <span class="math inline">\(\hat{\beta}_1 = -0.8\)</span> for UBB vs UBUB: <span class="math inline">\(\exp(-0.8) \approx 0.45\)</span> → 55% reduction in tick counts in UBB plots compared to UBUB plots</p>
+<hr>
+</section>
+</section>
+<section id="slide-8-working-correlation-extended-notes" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="slide-8-working-correlation-extended-notes"><span class="header-section-number">1.10</span> Slide 8 (Working Correlation) — Extended Notes</h2>
+<section id="exchangeable-correlation" class="level3" data-number="1.10.1">
+<h3 data-number="1.10.1" class="anchored" data-anchor-id="exchangeable-correlation"><span class="header-section-number">1.10.1</span> Exchangeable Correlation</h3>
+<p><span class="math display">\[
+R(\alpha) = \begin{pmatrix} 1 &amp; \alpha &amp; \alpha &amp; \cdots \\ \alpha &amp; 1 &amp; \alpha &amp; \cdots \\ \vdots &amp; &amp; \ddots &amp; \\ \alpha &amp; \cdots &amp; \alpha &amp; 1 \end{pmatrix}
+\]</span></p>
+<p><strong>Pros:</strong> Simple; one parameter to estimate; analogous to random intercept model; well-behaved with small <span class="math inline">\(K\)</span>.</p>
+<p><strong>Cons:</strong> Assumes January–February correlation = January–December correlation. Unrealistic for time series.</p>
+</section>
+<section id="ar1-correlation" class="level3" data-number="1.10.2">
+<h3 data-number="1.10.2" class="anchored" data-anchor-id="ar1-correlation"><span class="header-section-number">1.10.2</span> AR(1) Correlation</h3>
+<p><span class="math display">\[
+R_{ts} = \alpha^{|t-s|}
+\]</span></p>
+<p><strong>Pros:</strong> Ecologically realistic for monthly data (closer months more correlated); one parameter.</p>
+<p><strong>Cons:</strong> Requires equally spaced time points; can behave oddly with missing data.</p>
+</section>
+<section id="independence" class="level3" data-number="1.10.3">
+<h3 data-number="1.10.3" class="anchored" data-anchor-id="independence"><span class="header-section-number">1.10.3</span> Independence</h3>
+<p><span class="math display">\[
+R = I
+\]</span></p>
+<p><strong>Pros:</strong> Simplest; robust with large <span class="math inline">\(K\)</span>; equivalent to ignoring clustering (but using sandwich SEs).</p>
+<p><strong>Cons:</strong> Least efficient (widest CIs if true correlation is non-zero).</p>
+</section>
+<section id="model-selection-via-qic" class="level3" data-number="1.10.4">
+<h3 data-number="1.10.4" class="anchored" data-anchor-id="model-selection-via-qic"><span class="header-section-number">1.10.4</span> Model Selection via QIC</h3>
+<p>The QIC (Pan 2001) is used to compare GEE models. It is analogous to AIC but accounts for the quasi-likelihood:</p>
+<p><span class="math display">\[
+\text{QIC}(R) = -2 \hat{Q}(\hat{\boldsymbol{\beta}}; I) + 2 \text{tr}(\hat{\boldsymbol{\Omega}}_I \hat{\mathbf{V}}_R)
+\]</span></p>
+<p>where the independence model quasi-likelihood is used as the reference, and <span class="math inline">\(\hat{\mathbf{V}}_R\)</span> is the sandwich variance under working correlation <span class="math inline">\(R\)</span>.</p>
+<hr>
+</section>
+</section>
+<section id="why-negative-binomial-over-poisson-for-overdispersed-counts" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="why-negative-binomial-over-poisson-for-overdispersed-counts"><span class="header-section-number">1.11</span> Why Negative Binomial Over Poisson for Overdispersed Counts</h2>
+<section id="the-poisson-constraint" class="level3" data-number="1.11.1">
+<h3 data-number="1.11.1" class="anchored" data-anchor-id="the-poisson-constraint"><span class="header-section-number">1.11.1</span> The Poisson Constraint</h3>
+<p>The Poisson distribution assumes <span class="math inline">\(\text{Var}(Y) = E[Y] = \mu\)</span>.</p>
+<p>For tick count data, this is almost never true: - Spatial heterogeneity in plots → some plots consistently have very high or low tick counts - Temporal aggregation → tick counts spike during peak season - Biological clustering → ticks aggregate in microhabitats</p>
+</section>
+<section id="the-negative-binomial-alternative" class="level3" data-number="1.11.2">
+<h3 data-number="1.11.2" class="anchored" data-anchor-id="the-negative-binomial-alternative"><span class="header-section-number">1.11.2</span> The Negative Binomial Alternative</h3>
+<p>The negative binomial distribution with parameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\theta\)</span> has: <span class="math display">\[
+\text{Var}(Y) = \mu + \frac{\mu^2}{\theta}
+\]</span></p>
+<p>As <span class="math inline">\(\theta \to \infty\)</span>, NB → Poisson. For small <span class="math inline">\(\theta\)</span> (high overdispersion), variance much exceeds the mean.</p>
+</section>
+<section id="diagnosing-overdispersion" class="level3" data-number="1.11.3">
+<h3 data-number="1.11.3" class="anchored" data-anchor-id="diagnosing-overdispersion"><span class="header-section-number">1.11.3</span> Diagnosing Overdispersion</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit Poisson GLM</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fit_pois <span class="ot">&lt;-</span> <span class="fu">glm</span>(tick_count <span class="sc">~</span> burn_regime <span class="sc">+</span> month, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> poisson, <span class="at">data =</span> tick_data)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check: residual deviance / df</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>fit_pois<span class="sc">$</span>deviance <span class="sc">/</span> fit_pois<span class="sc">$</span>df.residual</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Values &gt;&gt; 1 indicate overdispersion</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the Gleim et al.&nbsp;data, 47,185 ticks across 21 plots × 24 months × 4 treatments suggests variance &gt;&gt; mean. Negative binomial is appropriate.</p>
+</section>
+<section id="geepack-limitation" class="level3" data-number="1.11.4">
+<h3 data-number="1.11.4" class="anchored" data-anchor-id="geepack-limitation"><span class="header-section-number">1.11.4</span> <code>geepack</code> Limitation</h3>
+<p><code>geepack::geeglm</code> does <strong>not</strong> directly support <code>family = negative.binomial(...)</code> in the same way as <code>glm</code>. Common workarounds: 1. Use <code>family = poisson</code> with the scale parameter estimated from data (quasi-Poisson approach) 2. Fit negative binomial GLM (not GEE) with <code>MASS::glm.nb</code> and use manual sandwich SEs 3. Use the <code>gee</code> package (which does accept <code>family = "negative.binomial"</code>)</p>
+<p>See <code>materials/gee_example.R</code> for implementation of all three approaches.</p>
+<hr>
+</section>
+</section>
+<section id="connection-to-gleim-et-al.-2014-design" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="connection-to-gleim-et-al.-2014-design"><span class="header-section-number">1.12</span> Connection to Gleim et al.&nbsp;(2014) Design</h2>
+<section id="study-design-summary" class="level3" data-number="1.12.1">
+<h3 data-number="1.12.1" class="anchored" data-anchor-id="study-design-summary"><span class="header-section-number">1.12.1</span> Study Design Summary</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Plots (clusters)</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>Burn treatments</td>
+<td>BB (burned/burned), BUB, UBB, UBUB = 4 levels</td>
+</tr>
+<tr class="odd">
+<td>Sampling duration</td>
+<td>2 years × 12 months = 24 time points per plot</td>
+</tr>
+<tr class="even">
+<td>Total observations</td>
+<td>~21 × 24 = 504 plot-months (some missing due to weather)</td>
+</tr>
+<tr class="odd">
+<td>Outcome</td>
+<td>Tick count per drag-flag sample</td>
+</tr>
+<tr class="even">
+<td>Primary species</td>
+<td><em>Amblyomma americanum</em> (99% of ticks)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gee-application-in-this-context" class="level3" data-number="1.12.2">
+<h3 data-number="1.12.2" class="anchored" data-anchor-id="gee-application-in-this-context"><span class="header-section-number">1.12.2</span> GEE Application in this Context</h3>
+<ul>
+<li><strong>Cluster = plot</strong>: 21 independent sampling units</li>
+<li><strong>Within-cluster correlation</strong>: Monthly observations within a plot are correlated (seasonal patterns, habitat effects)</li>
+<li><strong>Exchangeable assumption</strong>: Debatable — monthly data probably have autocorrelation that decays with lag (AR(1) more realistic)</li>
+<li><strong>Negative binomial</strong>: Appropriate for overdispersed counts</li>
+<li><strong>Log link</strong>: Natural for multiplicative effects on counts</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="key-references" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="key-references"><span class="header-section-number">1.13</span> Key References</h2>
+<ol type="1">
+<li><p><strong>Liang, K.-Y., &amp; Zeger, S. L. (1986).</strong> Longitudinal data analysis using generalized linear models. <em>Biometrika</em>, 73(1), 13–22.<br>
+<em>The foundational GEE paper. Read this.</em></p></li>
+<li><p><strong>Zeger, S. L., &amp; Liang, K.-Y. (1986).</strong> Longitudinal data analysis for discrete and continuous outcomes. <em>Biometrics</em>, 42(1), 121–130.<br>
+<em>Companion paper with more focus on the discrete (count) case.</em></p></li>
+<li><p><strong>Hardin, J. W., &amp; Hilbe, J. M. (2013).</strong> <em>Generalized Estimating Equations</em> (2nd ed.). Chapman &amp; Hall/CRC.<br>
+<em>Best textbook treatment; accessible for applied researchers.</em></p></li>
+<li><p><strong>Pan, W. (2001).</strong> Akaike’s information criterion in generalized estimating equations. <em>Biometrics</em>, 57(1), 120–125.<br>
+<em>Introduces QIC for model selection in GEE.</em></p></li>
+<li><p><strong>Højsgaard, S., Halekoh, U., &amp; Yan, J. (2006).</strong> The R package geepack for generalized estimating equations. <em>Journal of Statistical Software</em>, 15(2), 1–11.<br>
+<em>R implementation reference.</em></p></li>
+<li><p><strong>Gleim, E. R., et al.&nbsp;(2014).</strong> The phenology of ticks and the effects of long-term prescribed burning on tick population dynamics. <em>PLOS ONE</em>, 9(11), e112174.<br>
+DOI: https://doi.org/10.1371/journal.pone.0112174</p></li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

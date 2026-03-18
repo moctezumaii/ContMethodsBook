@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Discussion on Bailey’s lecture">
+<meta name="dcterms.date" content="2001-04-01">
 
-<title>Week 01 — Introductions – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Lecture on Angelini et al.&nbsp;(2020) – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -88,6 +104,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -148,10 +193,6 @@ div.csl-indent {
         <li>
     <a class="dropdown-item" href="../weeks/week07-workshop.html">
  <span class="dropdown-text">Week 07, Thursday</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../weeks/week08.html">
- <span class="dropdown-text">Week 08</span></a>
   </li>  
     </ul>
   </li>
@@ -239,10 +280,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../slides/slides-Week07.html">
  <span class="dropdown-text">Slides Week 07</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../slides/slides-Week08.html">
- <span class="dropdown-text">Slides Week 08</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -261,38 +298,43 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-a-introductions" id="toc-session-a-introductions" class="nav-link active" data-scroll-target="#session-a-introductions"><span class="header-section-number">1</span> Session A: Introductions</a>
-  <ul class="collapse">
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives"><span class="header-section-number">1.1</span> Session Objectives</a></li>
-  </ul></li>
-  <li><a href="#session-b-papers-and-introduction-to-code" id="toc-session-b-papers-and-introduction-to-code" class="nav-link" data-scroll-target="#session-b-papers-and-introduction-to-code"><span class="header-section-number">2</span> Session B: Papers and introduction to code</a>
-  <ul class="collapse">
-  <li><a href="#part-1-paper-discussion-60-minutes-of-the-class" id="toc-part-1-paper-discussion-60-minutes-of-the-class" class="nav-link" data-scroll-target="#part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</a>
-  <ul class="collapse">
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">2.1.1</span> Preparation:</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</a></li>
-  </ul></li>
-  <li><a href="#part-2-github-and-r" id="toc-part-2-github-and-r" class="nav-link" data-scroll-target="#part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">2.2.1</span> </a></li>
-  </ul></li>
-  </ul></li>
+  <li><a href="#the-paper-in-one-sentence" id="toc-the-paper-in-one-sentence" class="nav-link active" data-scroll-target="#the-paper-in-one-sentence"><span class="header-section-number">1</span> The Paper in One Sentence</a></li>
+  <li><a href="#not-a-simple-rcbd" id="toc-not-a-simple-rcbd" class="nav-link" data-scroll-target="#not-a-simple-rcbd"><span class="header-section-number">2</span> Not a simple RCBD</a></li>
+  <li><a href="#split-plot" id="toc-split-plot" class="nav-link" data-scroll-target="#split-plot"><span class="header-section-number">3</span> Split plot:</a></li>
+  <li><a href="#what-are-we-seeing-here" id="toc-what-are-we-seeing-here" class="nav-link" data-scroll-target="#what-are-we-seeing-here"><span class="header-section-number">4</span> What are we seeing here?</a></li>
+  <li><a href="#two-error-strata" id="toc-two-error-strata" class="nav-link" data-scroll-target="#two-error-strata"><span class="header-section-number">5</span> Two Error Strata</a></li>
+  <li><a href="#aov-vs.-lmer-for-split-plots" id="toc-aov-vs.-lmer-for-split-plots" class="nav-link" data-scroll-target="#aov-vs.-lmer-for-split-plots"><span class="header-section-number">6</span> <code>aov()</code> vs.&nbsp;<code>lmer()</code> for Split-Plots</a></li>
+  <li><a href="#the-methodquestiondata-triangle" id="toc-the-methodquestiondata-triangle" class="nav-link" data-scroll-target="#the-methodquestiondata-triangle"><span class="header-section-number">7</span> The Method–Question–Data Triangle</a></li>
+  <li><a href="#the-6-key-takeaways" id="toc-the-6-key-takeaways" class="nav-link" data-scroll-target="#the-6-key-takeaways"><span class="header-section-number">8</span> The 6 Key Takeaways</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">9</span> Questions</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-Week05.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 01 — Introductions</h1>
+<h1 class="title">Lecture on Angelini et al.&nbsp;(2020)</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Discussion on Bailey’s lecture </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 1, 2001</p>
+    </div>
+  </div>
   
     
   </div>
@@ -302,61 +344,169 @@ div.csl-indent {
 </header>
 
 
-<section id="session-a-introductions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Session A: Introductions</h1>
-<section id="session-objectives" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="session-objectives"><span class="header-section-number">1.1</span> Session Objectives</h2>
+<section id="the-paper-in-one-sentence" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-paper-in-one-sentence"><span class="header-section-number">1</span> The Paper in One Sentence</h2>
 <ul>
-<li><p>Short class to introduce ourselves</p></li>
-<li><p>Get familiarized with course objectives</p></li>
+<li><p>Seven camelina cultivars × two sowing times × two years</p></li>
+<li><p>Which combination gives the best site-specific results?</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Why it matters statistically:</strong> the experimental design is more complex than it looks.</p>
+</div>
+</section>
+<section id="not-a-simple-rcbd" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="not-a-simple-rcbd"><span class="header-section-number">2</span> Not a simple RCBD</h2>
+<ul>
+<li><p>All 14 treatments randomized within each block</p></li>
+<li><p>That’s impossible: You can’t sow half a block in October and the other half in March</p></li>
 </ul>
 </section>
+<section id="split-plot" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="split-plot"><span class="header-section-number">3</span> Split plot:</h2>
+<pre><code>BLOCK
+├── WHOLE PLOT: Autumn
+│   └── V1 V2 V3 V4 V5 V6 CELINE
+└── WHOLE PLOT: Spring
+    └── V1 V2 V3 V4 V5 V6 CELINE</code></pre>
+<hr>
 </section>
-<section id="session-b-papers-and-introduction-to-code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Session B: Papers and introduction to code</h1>
-<section id="part-1-paper-discussion-60-minutes-of-the-class" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</h2>
-<section id="preparation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.1.1</span> Preparation:</h3>
-<p>We will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.</p>
-<p><strong>Group a:</strong> <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span> This is a paper that <strong>some</strong> of you have read. But I think all of you should read it to be successful in this class.</p>
-<p><strong>Group b:</strong> <span class="citation" data-cites="zuur2010">Zuur, Ieno, and Elphick (<a href="#ref-zuur2010" role="doc-biblioref">2010</a>)</span> if you have already read <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span>, this is the one you should read.</p>
-</section>
-<section id="deliverable" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</h3>
-<p>You will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.</p>
-</section>
-</section>
-<section id="part-2-github-and-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</h2>
-<p>Make sure you have downloaded the following:</p>
+<section id="what-are-we-seeing-here" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="what-are-we-seeing-here"><span class="header-section-number">4</span> What are we seeing here?</h2>
+<p><span class="math display">\[
+y =
+\mu
++ \text{Replicate}
++ \text{Year}
++ \text{SowingTime}
++ \text{WholePlotError}
++ \text{Cultivar}
++ \text{Interactions}
++ \text{SubplotError}
+\]</span></p>
+<div class="notes">
+<p>Conceptual model:</p>
+<p><span class="math display">\[
+y_{ij} = \mu + B_i + T_j + \epsilon_{ij}
+\]</span></p>
+<p>Where:</p>
 <ul>
-<li><p>Program R</p></li>
-<li><p>RStudio</p></li>
-<li><p>Know basics of R and RStudio: <a href="https://moctezumaii.github.io/SNR610/installation_instructions.html" class="uri">https://moctezumaii.github.io/SNR610/installation_instructions.html</a></p></li>
-<li><p>RStudio</p></li>
-<li><p>Create a Github account</p></li>
-<li><p>Apply for GitHub Education</p></li>
-<li><p>Join the course repository (you will be invited, accept the invite)</p></li>
-<li><p>Confirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)</p></li>
+<li><p><span class="math inline">\(y_{ij}\)</span> = observed response in block <span class="math inline">\(i\)</span> receiving treatment <span class="math inline">\(j\)</span></p></li>
+<li><p><span class="math inline">\(\mu\)</span> = overall mean response</p></li>
+<li><p><span class="math inline">\(B_i\)</span> = effect of block <span class="math inline">\(i\)</span></p>
+<ul>
+<li>Accounts for background variation we are not primarily interested in</li>
+<li>Examples: lake, field, site, year</li>
+<li>Typically treated as a random effect</li>
+</ul></li>
+<li><p><span class="math inline">\(T_j\)</span> = effect of treatment <span class="math inline">\(j\)</span></p>
+<ul>
+<li>The main effect we want to study</li>
+<li>Treated as a fixed effect</li>
+</ul></li>
+<li><p><span class="math inline">\(\epsilon_{ij}\)</span> = residual error</p>
+<ul>
+<li>Random unexplained variation</li>
+<li>Represents variability among experimental units within blocks</li>
+<li>Assumed: <span class="math display">\[
+\epsilon_{ij} \sim \text{Normal}(0, \sigma^2)
+\]</span></li>
+</ul></li>
 </ul>
-<section id="section" class="level3" data-number="2.2.1">
-
-
-
-
-</section>
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.2.1 </h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-tredennick2021" class="csl-entry" role="listitem">
-Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. <span>“A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.”</span> <em>Ecology</em> 102 (6): e03336. <a href="https://doi.org/10.1002/ecy.3336">https://doi.org/10.1002/ecy.3336</a>.
+<p>Key idea:</p>
+<p>There is only ONE level of experimental units and ONE source of experimental error.</p>
 </div>
-<div id="ref-zuur2010" class="csl-entry" role="listitem">
-Zuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. <span>“A Protocol for Data Exploration to Avoid Common Statistical Problems.”</span> <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
+<hr>
+</section>
+<section id="two-error-strata" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="two-error-strata"><span class="header-section-number">5</span> Two Error Strata</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Stratum</th>
+<th>Tests</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Whole-plot error</strong></td>
+<td>Sowing Time</td>
+<td>Whole plot in block</td>
+</tr>
+<tr class="even">
+<td><strong>Subplot error</strong></td>
+<td>Genotype, G×ST</td>
+<td>Subplot in whole plot</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</div></section></div></main> <!-- /main -->
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using a single pooled error gives an <strong>anti-conservative test for ST</strong> and an <strong>over-conservative test for G</strong>. This is one of the most common errors in agronomy papers.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="aov-vs.-lmer-for-split-plots" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="aov-vs.-lmer-for-split-plots"><span class="header-section-number">6</span> <code>aov()</code> vs.&nbsp;<code>lmer()</code> for Split-Plots</h2>
+<p><strong>Classical approach — explicit error strata:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(yield <span class="sc">~</span> ST <span class="sc">*</span> G <span class="sc">*</span> Year <span class="sc">+</span> <span class="fu">Error</span>(Block<span class="sc">/</span>ST), <span class="at">data =</span> dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>What <code>lmerTest</code> does:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lmer</span>(yield <span class="sc">~</span> G <span class="sc">*</span> ST <span class="sc">*</span> Year <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Block<span class="sc">:</span>ST), <span class="at">data =</span> dat)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(model)  <span class="co"># Satterthwaite df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>Both are valid. But <code>lmer</code> output labeled as “ANOVA” obscures that this is a <strong>linear mixed model</strong> with approximated denominator df.</p>
+</div>
+</section>
+<section id="the-methodquestiondata-triangle" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="the-methodquestiondata-triangle"><span class="header-section-number">7</span> The Method–Question–Data Triangle</h2>
+<pre><code>       QUESTION
+   "Best genotype × 
+   sowing time?"
+        /\
+       /  \
+ DATA /    \ METHOD
+-----/------\-------
+Factorial    Split-plot LMM
+blocked      Two error strata
+cont+count   Poisson for counts</code></pre>
+<div class="fragment">
+<p><strong>Alignment?</strong> Mostly yes - but the gap between what was done (LMM) and what was reported (“ANOVA”) is a transparency issue.</p>
+</div>
+<hr>
+</section>
+<section id="the-6-key-takeaways" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="the-6-key-takeaways"><span class="header-section-number">8</span> The 6 Key Takeaways</h2>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li><strong>Split-plot</strong> because ST cannot be randomized at subplot level → two error strata</li>
+<li><strong><code>lmer + anova()</code></strong> is a linear mixed model, not classical ANOVA</li>
+<li><strong>Year as fixed</strong> is pragmatic with n=2 but limits generalizability</li>
+<li><strong>G×ST is disordinal</strong> — separate recommendations required</li>
+<li><strong>Poisson for counts</strong> was correct; response type matters</li>
+<li><strong>Data exploration is underreported</strong> — Zuur would want figures</li>
+</ol>
+</div>
+</section>
+<section id="questions" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="questions"><span class="header-section-number">9</span> Questions</h2>
+<ul>
+<li><p>How did the authors control for environmental variation when comparing genotypes across different sowing dates?</p></li>
+<li><p>The paper mentions they used “visual inspection of model residuals was also done to check for model assumptions”</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

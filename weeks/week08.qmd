@@ -35,7 +35,6 @@ By the end of class, students will be able to:
 
 **Activity type:** In-class formative pre-assessment
 
-**Instructions to students (displayed on screen or distributed as `activities/pre_activity_entry_ticket.csv`):**
 
 > *Before we begin today's discussion, take 5 minutes to answer these questions about the paper you read. You can work in groups.*
 
@@ -52,30 +51,20 @@ By the end of class, students will be able to:
 5 minutes for discussion
 
 
-## Student Paper Presentation — 0:10–0:40 (30 min) {.unnumbered}
+## Student Paper Presentation - 0:10–0:40 (30 min) {.unnumbered}
 
 **Presenter:** Silas
 
 
-### ⚡ Hot-Seat Q&A — ~0:28–0:33 (5 min) — *Interaction Activity #1*
 
-::: {.callout-important}
-## Hot-Seat Q&A Instructions
-
-**At approximately the 20-minute mark of the presentation**, the instructor interrupts (gently) and initiates the Hot-Seat round.
+## ⚡ Interaction Activity: Challenge Questions
 
 **Procedure:**
-1. Each table/group has 60 seconds to write one rapid question directed at the **presenter** (not a general discussion question — a question the presenter must answer).
-2. Groups submit questions (verbally or on a notecard).
-3. The instructor reads questions aloud; the **presenter must respond on the spot** (30–45 seconds per question).
-4. Instructor may follow up or clarify after each response.
+1. Each group (~2) presents their challenge question (30 sec each, ~3 groups max given time).
+2. The **presenter** must respond to each challenge question directly (45–60 sec per response).
+3. Instructor may supplement if the presenter's answer is incomplete or if an important concept was missed.
 
-**Purpose:** Forces the presenter to demonstrate command of the material under mild pressure; keeps the audience engaged; surfaces misconceptions early.
 
-**Tips for instructor:** Keep it collegial. If the presenter cannot answer, open it to the class briefly and return to the presenter for a synthesis statement.
-:::
-
----
 
 ## GEE Theory Mini-Lecture — 0:40–0:55 (15 min) {.unnumbered}
 
@@ -136,30 +125,11 @@ where $i$ indexes plot (cluster) and $t$ indexes monthly time point.
 
 ## Group Worksheet Critique — 0:55–1:05 (10 min) {.unnumbered}
 
-**Format:** Small groups (3–4 students), worksheet `activities/worksheet_group_ticks.md`.
+**Format:** Small groups (2–3 students)
 
 **Instructions:**
-1. Each group answers the 6 structured critique prompts about the paper's model specification.
-2. **In addition**, each group formulates **one "challenge question"** directed at the presenter — a methodological question they believe the presenter should be able to address (Interaction Activity #2).
+1. Each group gives 3 specific critiques of the paper as if you were a reviewer
 
-::: {.callout-tip}
-**Instructor tip:** Circulate among groups. Listen for productive misconceptions about exchangeable vs. AR(1), or GEE vs. GLMM. These make great whole-class discussion fodder.
-:::
-
----
-
-## Group Reports + Presenter Responses — 1:05–1:12 (7 min) {.unnumbered}
-
-### ⚡ Interaction Activity #2: Challenge Questions
-
-**Procedure:**
-1. Each group presents their challenge question (30 sec each, ~3 groups max given time).
-2. The **presenter** must respond to each challenge question directly (45–60 sec per response).
-3. Instructor may supplement if the presenter's answer is incomplete or if an important concept was missed.
-
-::: {.callout-important}
-**Purpose:** Requires the presenter to engage with peer critiques in real time, not just deliver a monologue. Models the kind of methodological defense required in journal peer review and dissertation defenses.
-:::
 
 ---
 
@@ -167,79 +137,9 @@ where $i$ indexes plot (cluster) and $t$ indexes monthly time point.
 
 **Format:** Exit ticket (template: `activities/minute_paper_template.md`)
 
-**Prompts (displayed on screen):**
+**Prompts:**
 
 1. *What is the single most important thing you learned about GEE today?*
 2. *What is one question you still have about applying GEE to your own research data?*
 
-**Logistics:** Students write on an index card or submit via Canvas. Instructor reviews before next class to identify persistent gaps.
 
----
-
-# Assessment Mapping
-
-| Activity | Learning Objective(s) | Type | Duration |
-|----------|----------------------|------|----------|
-| Entry ticket | 1, 4 | Formative / diagnostic | 5 min |
-| Entry ticket debrief | 1, 4 | Instructor feedback | 5 min |
-| Student presentation | 1, 2, 3, 4 | Peer instruction | 30 min |
-| Hot-seat Q&A | 1, 4 | Presenter interaction | 5 min |
-| GEE mini-lecture | 2, 3, 5 | Direct instruction | 15 min |
-| Group worksheet | 1, 2, 3, 4 | Active learning / peer | 10 min |
-| Group reports + challenge Qs | 4, 5 | Presenter interaction | 7 min |
-| Minute paper | 1–5 (metacognitive) | Formative exit | 3 min |
-
----
-
-# SoTL Techniques
-
-| Technique | Activity | SoTL Rationale |
-|-----------|----------|---------------|
-| **Entry ticket** (formative assessment) | Pre-activity | Surfaces prior knowledge gaps; primes learners; data for instructor |
-| **Minute paper** (formative exit) | End of class | Metacognitive reflection; identifies persistent misconceptions |
-| **Small-group peer instruction** (active learning) | Worksheet + group reports | Social construction of knowledge; increased engagement |
-| **Presenter hot-seat** (peer interaction) | Hot-seat Q&A + challenge Qs | Models disciplinary practice; increases presenter accountability |
-| **Metacognitive prompts** | Entry ticket + minute paper | Explicit metacognition improves transfer (Bransford et al., 2000) |
-
----
-
-# Background & Readings
-
-**Required:**
-- Gleim et al. (2014) — see citation above. Available at <https://doi.org/10.1371/journal.pone.0112174>
-
-**Recommended (GEE):**
-- Liang, K.-Y., & Zeger, S. L. (1986). Longitudinal data analysis using generalized linear models. *Biometrika*, 73(1), 13–22.
-- Zeger, S. L., & Liang, K.-Y. (1986). Longitudinal data analysis for discrete and continuous outcomes. *Biometrics*, 42(1), 121–130.
-- Hardin, J. W., & Hilbe, J. M. (2013). *Generalized Estimating Equations* (2nd ed.). Chapman & Hall/CRC.
-
----
-
-# R Implementation
-
-See `materials/gee_example.R` for a fully annotated script that:
-
-1. Simulates a dataset matching the paper's design (21 plots, 4 burn regimes, 24 monthly time points, overdispersed tick counts)
-2. Fits GEEs with `geepack::geeglm` under exchangeable, AR(1), and independence correlation structures
-3. Demonstrates overdispersion diagnosis (Poisson vs. negative binomial)
-4. Extracts robust (sandwich) SEs and confidence intervals
-5. Compares models using QIC
-
-```{r eval=FALSE}
-library(geepack)
-library(MASS)
-library(tidyverse)
-
-# Full annotated script: materials/gee_example.R
-# Quick demo (exchangeable GEE with quasi-Poisson family):
-fit_exch <- geeglm(
-  tick_count ~ burn_regime + month + host_abundance + canopy_closure,
-  id        = plot_id,
-  data      = tick_data,
-  family    = poisson(link = "log"),
-  corstr    = "exchangeable"
-)
-summary(fit_exch)
-```
-
-See `activities/worksheet_r_script.R` for the scaffolded student version.

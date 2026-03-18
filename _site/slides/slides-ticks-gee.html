@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 08 — Lecture Notes: The Philosophy Behind Your Analysis – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Tick Phenology &amp; Prescribed Burning: GEE for Repeated-Measures Count Data – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -128,10 +157,6 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../weeks/week07-workshop.html">
  <span class="dropdown-text">Week 07, Thursday</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../weeks/week08.html">
- <span class="dropdown-text">Week 08</span></a>
   </li>  
     </ul>
   </li>
@@ -219,10 +244,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../slides/slides-Week07.html">
  <span class="dropdown-text">Slides Week 07</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../slides/slides-Week08.html">
- <span class="dropdown-text">Slides Week 08</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -241,24 +262,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#talking-points-20-min" id="toc-talking-points-20-min" class="nav-link active" data-scroll-target="#talking-points-20-min"><span class="header-section-number">1</span> Talking Points (~20 min)</a>
-  <ul class="collapse">
-  <li><a href="#opening-hook-2-min" id="toc-opening-hook-2-min" class="nav-link" data-scroll-target="#opening-hook-2-min"><span class="header-section-number">1.1</span> Opening Hook (2 min)</a></li>
-  <li><a href="#section-1-revisiting-box-5-min" id="toc-section-1-revisiting-box-5-min" class="nav-link" data-scroll-target="#section-1-revisiting-box-5-min"><span class="header-section-number">1.2</span> Section 1: Revisiting Box (5 min)</a></li>
-  <li><a href="#section-2-what-kind-of-inference-5-min" id="toc-section-2-what-kind-of-inference-5-min" class="nav-link" data-scroll-target="#section-2-what-kind-of-inference-5-min"><span class="header-section-number">1.3</span> Section 2: What Kind of Inference? (5 min)</a></li>
-  <li><a href="#section-3-the-triangle-in-practice-5-min" id="toc-section-3-the-triangle-in-practice-5-min" class="nav-link" data-scroll-target="#section-3-the-triangle-in-practice-5-min"><span class="header-section-number">1.4</span> Section 3: The Triangle in Practice (5 min)</a></li>
-  <li><a href="#section-4-tying-it-together-3-min" id="toc-section-4-tying-it-together-3-min" class="nav-link" data-scroll-target="#section-4-tying-it-together-3-min"><span class="header-section-number">1.5</span> Section 4: Tying It Together (3 min)</a></li>
-  <li><a href="#quick-reference-summary" id="toc-quick-reference-summary" class="nav-link" data-scroll-target="#quick-reference-summary"><span class="header-section-number">1.6</span> Quick Reference Summary</a></li>
-  </ul></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda"><span class="header-section-number">1</span> Agenda</a></li>
+  <li><a href="#entry-ticket-debrief" id="toc-entry-ticket-debrief" class="nav-link" data-scroll-target="#entry-ticket-debrief"><span class="header-section-number">2</span> Entry Ticket Debrief</a></li>
+  <li><a href="#why-gee-clustered-data-marginal-inference" id="toc-why-gee-clustered-data-marginal-inference" class="nav-link" data-scroll-target="#why-gee-clustered-data-marginal-inference"><span class="header-section-number">3</span> Why GEE? Clustered Data &amp; Marginal Inference</a></li>
+  <li><a href="#the-gee-estimating-equation" id="toc-the-gee-estimating-equation" class="nav-link" data-scroll-target="#the-gee-estimating-equation"><span class="header-section-number">4</span> The GEE Estimating Equation</a></li>
+  <li><a href="#sandwich-robust-variance" id="toc-sandwich-robust-variance" class="nav-link" data-scroll-target="#sandwich-robust-variance"><span class="header-section-number">5</span> Sandwich (Robust) Variance</a></li>
+  <li><a href="#the-papers-model-specification" id="toc-the-papers-model-specification" class="nav-link" data-scroll-target="#the-papers-model-specification"><span class="header-section-number">6</span> The Paper’s Model Specification</a></li>
+  <li><a href="#working-correlation-structures" id="toc-working-correlation-structures" class="nav-link" data-scroll-target="#working-correlation-structures"><span class="header-section-number">7</span> Working Correlation Structures</a></li>
+  <li><a href="#group-worksheet-activity" id="toc-group-worksheet-activity" class="nav-link" data-scroll-target="#group-worksheet-activity"><span class="header-section-number">8</span> Group Worksheet Activity</a></li>
+  <li><a href="#group-reports-presenter-response" id="toc-group-reports-presenter-response" class="nav-link" data-scroll-target="#group-reports-presenter-response"><span class="header-section-number">9</span> Group Reports + Presenter Response</a></li>
+  <li><a href="#minute-paper" id="toc-minute-paper" class="nav-link" data-scroll-target="#minute-paper"><span class="header-section-number">10</span> Minute Paper</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11</span> References</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ticks-gee.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 08 — Lecture Notes: The Philosophy Behind Your Analysis</h1>
+<h1 class="title">Tick Phenology &amp; Prescribed Burning: GEE for Repeated-Measures Count Data</h1>
+<p class="subtitle lead">SNR 690 — Contemporary Approaches to Quantitative Methods</p>
 </div>
 
 
@@ -275,272 +299,370 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Instructor Use Only
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>These are structured talking points for the ~20-minute mini-lecture in Session A, Part 2. They are not distributed to students in advance.</p>
-</div>
-</div>
-<section id="talking-points-20-min" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Talking Points (~20 min)</h1>
-<hr>
-<section id="opening-hook-2-min" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="opening-hook-2-min"><span class="header-section-number">1.1</span> Opening Hook (2 min)</h2>
-<blockquote class="blockquote">
-<p><em>“Imagine you’re in your dissertation defense. Your committee asks: ‘Why did you use this method?’ What do you say?”</em></p>
-</blockquote>
-<p>Pause. Let the question land.</p>
-<blockquote class="blockquote">
-<p><em>“If your answer is ‘because my advisor does it that way’ or ‘because I Googled it and it seemed right’ — that’s a problem. Not because those methods are wrong, but because you can’t defend them. Today we’re going to practice defending them.”</em></p>
-</blockquote>
-<p>Transition: <em>“Let’s start by revisiting something from Week 2 that sounds abstract but is deeply practical.”</em></p>
-<hr>
-</section>
-<section id="section-1-revisiting-box-5-min" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="section-1-revisiting-box-5-min"><span class="header-section-number">1.2</span> Section 1: Revisiting Box (5 min)</h2>
-<p><strong>Core idea:</strong> “All models are wrong, some are useful.” — George Box</p>
-<p>This is not a cop-out or a disclaimer. It is a <strong>design principle</strong>.</p>
-<p><strong>What it means in practice:</strong></p>
-<blockquote class="blockquote">
-<p>Your model doesn’t need to perfectly describe reality. It needs to be <em>wrong in a way that doesn’t matter</em> for your specific question.</p>
-</blockquote>
-<p><strong>Two examples of being wrong in a way that DOES matter:</strong></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example 1: Linear model on count data
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>lm(insect_count ~ treatment)</code></p>
-<p>Count data cannot be negative. A linear model can predict negative counts. When your counts are small (0–10), this matters — your inference is compromised.</p>
-<p><strong>Wrong in a way that matters.</strong></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example 2: RCBD ANOVA on a split-plot design
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><code>aov(yield ~ variety + block)</code> — ignoring that sowing time is a whole-plot factor.</p>
-<p>You are using the wrong error term for the whole-plot factor. Your F-ratio for sowing time is anticonservative (too many false positives).</p>
-<p><strong>Wrong in a way that matters.</strong> (See Week 5.)</p>
-</div>
-</div>
-<p><strong>Actionable version for students:</strong></p>
-<blockquote class="blockquote">
-<p>Ask yourself: “In what way is my model wrong? Does that wrongness affect my conclusions?”</p>
-</blockquote>
-<p>If you can answer that honestly, you are doing philosophy.</p>
-<hr>
-</section>
-<section id="section-2-what-kind-of-inference-5-min" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="section-2-what-kind-of-inference-5-min"><span class="header-section-number">1.3</span> Section 2: What Kind of Inference? (5 min)</h2>
-<p><strong>Core idea:</strong> Your method must match the <em>type of claim</em> you want to make.</p>
+<section id="agenda" class="level2 center" data-number="1">
+<h2 class="center anchored" data-number="1" data-anchor-id="agenda"><span class="header-section-number">1</span> Agenda</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 37%">
-<col style="width: 31%">
-<col style="width: 18%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Type</th>
-<th>What you’re doing</th>
-<th>What you need</th>
-<th>Example</th>
+<th>Time</th>
+<th>Activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Descriptive</strong></td>
-<td>Summarizing what is in your data</td>
-<td>Representative sample, appropriate summary stats</td>
-<td>“Mean wheat yield was 4.2 Mg/ha across all sites”</td>
+<td>0:00–0:05</td>
+<td>Entry ticket</td>
 </tr>
 <tr class="even">
-<td><strong>Predictive</strong></td>
-<td>Forecasting new observations</td>
-<td>Cross-validation, held-out test set</td>
-<td>“A model trained on 2020–2022 predicts 2023 yield within 0.3 Mg/ha”</td>
+<td>0:05–0:10</td>
+<td>Entry ticket debrief</td>
 </tr>
 <tr class="odd">
-<td><strong>Causal</strong></td>
-<td>Claiming X causes Y</td>
-<td>Randomization or strong causal design + assumptions</td>
-<td>“Nitrogen application increased yield by 0.8 Mg/ha” (from RCT)</td>
+<td>0:10–0:40</td>
+<td>Student paper presentation (+ Hot-Seat Q&amp;A ~0:28)</td>
+</tr>
+<tr class="even">
+<td>0:40–0:55</td>
+<td>GEE theory mini-lecture</td>
+</tr>
+<tr class="odd">
+<td>0:55–1:05</td>
+<td>Group worksheet critique</td>
+</tr>
+<tr class="even">
+<td>1:05–1:12</td>
+<td>Group reports + presenter challenge Q’s</td>
+</tr>
+<tr class="odd">
+<td>1:12–1:15</td>
+<td>Minute paper</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="notes">
+<p>Welcome everyone. Here is the road map for today. We have a 75-minute class. The first half belongs to our presenter — they will walk us through Gleim et al.&nbsp;(2014), the tick phenology and prescribed burning paper. The second half belongs to methods — we’ll dig into GEE (Generalized Estimating Equations), which is the statistical engine the authors used. Before the presentation starts, I need everyone to fill out a quick entry ticket — paper out or open the CSV on your laptop. Five minutes, not graded.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Warning: Observational Data + Regression ≠ Causal
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is one of the most common errors in applied agricultural and ecological research.</p>
-<blockquote class="blockquote">
-<p><em>“We found that farms with higher biodiversity had lower pest pressure (β = −0.42, p &lt; 0.001). Therefore, increasing biodiversity reduces pests.”</em></p>
-</blockquote>
-<p>This is a <strong>causal claim</strong> from an <strong>observational study</strong>. The regression tells you there is an association. It does not tell you why.</p>
-<p>You need a randomized experiment, a natural experiment, or explicit causal modeling (DAGs, instrumental variables) to make causal claims.</p>
-</div>
-</div>
-<p><strong>Transition:</strong> <em>“So: what kind of inference are you making? Point at your Methods section mentally. Does your method actually support that type of claim?”</em></p>
 <hr>
 </section>
-<section id="section-3-the-triangle-in-practice-5-min" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="section-3-the-triangle-in-practice-5-min"><span class="header-section-number">1.4</span> Section 3: The Triangle in Practice (5 min)</h2>
-<p><strong>Core idea:</strong> Question + Data + Method must all align. (Week 3 recap, with new examples.)</p>
-<p><strong>Three concrete examples from ag / natural resources:</strong></p>
+<section id="entry-ticket-debrief" class="level2 center" data-number="2">
+<h2 class="center anchored" data-number="2" data-anchor-id="entry-ticket-debrief"><span class="header-section-number">2</span> Entry Ticket Debrief</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Good Alignment: Nitrogen Rate × Year on Wheat Yield
+What I saw in your entry tickets
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>Question:</strong> Does nitrogen rate affect wheat yield, and does this vary by year?</li>
-<li><strong>Data:</strong> Continuous yield (kg/ha); blocked RCT; two years; plots within blocks</li>
-<li><strong>Method:</strong> <code>lmer(yield ~ N_rate * Year + (1|Block), data = dat)</code></li>
-<li><strong>Triangle:</strong> ✅ Continuous response → lmer; blocked design → random block; factorial treatment → interaction term</li>
+<li><strong>Research objective:</strong> Long-term prescribed burning effects on tick population dynamics</li>
+<li><strong>Outcome variable:</strong> Tick counts per plot per month (count, overdispersed)</li>
+<li><strong>Clusters:</strong> 21 sampling plots (not individual ticks!)</li>
+<li><strong>Time structure:</strong> Monthly repeated measures over 2 years (24 time points)</li>
+<li><strong>Method:</strong> GEE with negative binomial family, log link, exchangeable correlation</li>
 </ul>
-<p><strong>This is defensible.</strong></p>
 </div>
 </div>
+<p>. . .</p>
+<p><strong>Common question from entry tickets:</strong> <em>“Why not just use a mixed model?”</em> — We’ll come back to this.</p>
+<div class="notes">
+<p>I want to highlight a few patterns I saw. A lot of you correctly identified the outcome as tick counts — great. Several of you said the clusters were “observations” or “individual ticks” — that’s the most important misconception to address today. The cluster is the PLOT. There are 21 plots; each plot was measured monthly for 2 years. The 24 time points within each plot are the repeated measures. Also, many of you asked “why not a mixed model?” — excellent question, and we will spend time on exactly that distinction today.</p>
+</div>
+<hr>
+</section>
+<section id="why-gee-clustered-data-marginal-inference" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="why-gee-clustered-data-marginal-inference"><span class="header-section-number">3</span> Why GEE? Clustered Data &amp; Marginal Inference</h2>
+<p><strong>The data structure problem:</strong></p>
+<ul>
+<li>21 plots, each measured 24 times (monthly, 2010–2011)</li>
+<li>Tick counts within a plot are <strong>correlated</strong> (not independent)</li>
+<li>Ordinary GLM assumes independence → <strong>inflated Type I error</strong></li>
+</ul>
+<p>. . .</p>
+<p><strong>Two solutions:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 36%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>What it models</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GLMM</strong></td>
+<td>Conditional mean <span class="math inline">\(E[Y \mid \mathbf{b}]\)</span></td>
+<td>Effect <em>within</em> a specific plot</td>
+</tr>
+<tr class="even">
+<td><strong>GEE</strong></td>
+<td>Marginal mean <span class="math inline">\(E[Y]\)</span></td>
+<td>Effect <em>averaged across</em> all plots</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p>For policy-relevant questions — <em>“Does burning reduce ticks on average?”</em> — <strong>GEE is the natural choice.</strong></p>
+</blockquote>
+<div class="notes">
+<p>This is the conceptual heart of the lecture. When you have repeated measures or clustered data, you have two philosophically different questions you can ask. GLMM asks: “for THIS plot, what is the effect of burning?” GEE asks: “averaged across ALL plots, what is the effect of burning?” For a public health or wildlife management question like “should we prescribe burn to reduce tick exposure across a landscape?”, the marginal, population-averaged answer from GEE is exactly what we want. Conditional effects from GLMM are appropriate when we care about prediction for a specific cluster.</p>
+</div>
+<hr>
+</section>
+<section id="the-gee-estimating-equation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-gee-estimating-equation"><span class="header-section-number">4</span> The GEE Estimating Equation</h2>
+<p><span class="math display">\[
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1}\left(\mathbf{Y}_i - \boldsymbol{\mu}_i\right) = \mathbf{0}
+\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(K = 21\)</span></td>
+<td>Number of plots (clusters)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{Y}_i\)</span></td>
+<td>Observed tick counts for plot <span class="math inline">\(i\)</span> (length 24)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\boldsymbol{\mu}_i = E[\mathbf{Y}_i \mid \mathbf{X}_i]\)</span></td>
+<td>Predicted marginal means</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{D}_i = \partial \boldsymbol{\mu}_i / \partial \boldsymbol{\beta}\)</span></td>
+<td>Derivative of mean w.r.t. parameters</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{V}_i = \phi\,\mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}\)</span></td>
+<td>Working covariance</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R(\alpha)\)</span></td>
+<td>Working correlation matrix</td>
+</tr>
+</tbody>
+</table>
+<div class="notes">
+<p>Let’s slow down here. This equation looks intimidating but the logic is simple. GEE is a score equation — we’re finding the beta that sets the weighted sum of residuals to zero. The key quantity is V_i — the working covariance matrix. This is where we specify our assumption about how the 24 monthly tick counts within a plot are correlated. A_i is a diagonal matrix of variances (from the negative binomial family). R(alpha) is the working correlation — exchangeable, AR(1), or independence. And here is GEE’s great advantage: even if R(alpha) is wrong, the estimates are still consistent. We don’t have to get the correlation right to get correct point estimates.</p>
+</div>
+<hr>
+</section>
+<section id="sandwich-robust-variance" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="sandwich-robust-variance"><span class="header-section-number">5</span> Sandwich (Robust) Variance</h2>
+<p><span class="math display">\[
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{B} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> &nbsp; (the <strong>bread</strong> — model-based information)</li>
+<li><span class="math inline">\(\mathbf{M} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \widehat{\text{Cov}}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> &nbsp; (the <strong>meat</strong> — empirical)</li>
+</ul>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p><strong>Key insight:</strong> The sandwich variance is <strong>consistent</strong> even when <span class="math inline">\(R(\alpha)\)</span> is misspecified, provided <span class="math inline">\(K\)</span> (clusters) is large enough.</p>
+</blockquote>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Common Mistake: Bird Richness Counts with Repeated Measures → <code>aov()</code>
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li><strong>Question:</strong> Is bird species richness declining over years across urban parks?</li>
-<li><strong>Data:</strong> Integer counts (0–47); 8 parks; 6 visits/year; 5 years; counts are non-normal</li>
-<li><strong>Method used:</strong> <code>aov(richness ~ year)</code></li>
-<li><strong>Triangle:</strong> ❌ Count data → Poisson, not Gaussian; repeated measures → random effects needed; pseudoreplication ignored</li>
-</ul>
-<p><strong>Should be:</strong> <code>glmer(richness ~ year + (1|park), family = poisson, data = dat)</code></p>
+<p>With only <span class="math inline">\(K = 21\)</span> clusters, the sandwich estimator may be <strong>anti-conservative</strong> (too narrow CIs). Small-sample corrections (e.g., <code>std.err = "jack"</code> in <code>geepack</code>) are advisable.</p>
 </div>
 </div>
+<div class="notes">
+<p>The sandwich estimator gets its name from the formula: B-inverse times M times B-inverse. Bread times meat times bread. B is the expected curvature of the likelihood — it’s what you’d use if your working covariance was exactly right. M is the empirical estimate of the actual variance — it uses the observed residuals, not the model-assumed residuals. When you sandwich M between two B-inverses, you get a variance estimate that is robust to correlation misspecification. HOWEVER — and this is critical for this paper — with only 21 clusters, the sandwich estimator can be unreliable. The standard recommendation is at least 40 clusters for stable sandwich SEs. The authors of the tick paper had 21 plots; this is a legitimate limitation worth mentioning.</p>
+</div>
+<hr>
+</section>
+<section id="the-papers-model-specification" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="the-papers-model-specification"><span class="header-section-number">6</span> The Paper’s Model Specification</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Overcomplicated: Soil pH, 2 Groups, 10 Samples → Bayesian Hierarchical Model
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p><strong>Note:</strong> Gleim et al.&nbsp;(2014) do <strong>not</strong> provide an explicit model equation. The following is an inferred defensible specification based on their Methods section (p.&nbsp;3).</p>
+</div>
+</div>
+<p><span class="math display">\[
+\log\!\bigl(E[\text{ticks}_{it}]\bigr) = \beta_0 + \beta_1\,\text{BurnRegime}_i + \beta_2\,\text{HostAbundance}_{it} + \beta_3\,\text{Canopy}_{it} + \beta_4\,\text{Season}_{it} + \cdots
+\]</span></p>
 <ul>
-<li><strong>Question:</strong> Does tillage treatment affect soil pH?</li>
-<li><strong>Data:</strong> 10 samples per treatment (n = 20 total); continuous pH; no nesting or grouping structure</li>
-<li><strong>Method used:</strong> Full Bayesian hierarchical model with weakly informative priors and MCMC</li>
-<li><strong>Triangle:</strong> ⚠️ A t-test (or simple Bayesian two-sample comparison) is sufficient. The added complexity provides no additional insight and makes your methods section impenetrable.</li>
+<li><strong>Family:</strong> Negative binomial (overdispersed counts; 47,185 total; 99% <em>A. americanum</em>)</li>
+<li><strong>Link:</strong> Log (counts → multiplicative effects on tick abundance)</li>
+<li><strong>Correlation:</strong> Exchangeable (equal correlation among all 24 monthly observations per plot)</li>
+<li><strong>Clusters:</strong> 21 plots (7.2–78.9 ha); ≥10 years of consistent burn management</li>
+<li><strong>Predictors:</strong> Burn regime (BB, BUB, UBB, UBUB), host abundance (cameras), canopy closure, tree density, ground cover, temperature, precipitation</li>
 </ul>
-<p><strong>Complexity must be earned by your data, not borrowed from methodology papers.</strong></p>
-</div>
+<div class="notes">
+<p>Here is the model as best we can infer it. The paper describes using GEE with negative binomial family and log link in a sentence or two, but never displays a formal equation or coefficient table in the main text. This is unfortunately common in applied ecology. The negative binomial family is appropriate because tick counts are highly overdispersed — the variance far exceeds the mean. The log link gives us multiplicative effects — a one-unit change in burn regime multiplies the expected tick count by e to the beta. Exchangeable correlation means the model assumes the correlation between plot 7’s tick counts in January and December is the same as between January and February. That may not be realistic — seasonal data often shows decaying autocorrelation better captured by AR(1).</p>
 </div>
 <hr>
 </section>
-<section id="section-4-tying-it-together-3-min" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="section-4-tying-it-together-3-min"><span class="header-section-number">1.5</span> Section 4: Tying It Together (3 min)</h2>
-<p><strong>Core message:</strong></p>
-<blockquote class="blockquote">
-<p><em>“Your methods section is not just a technical description — it is a philosophical argument.”</em></p>
-</blockquote>
-<p>When a reviewer reads your methods, they are asking:</p>
-<ol type="1">
-<li>Did you know what kind of claim you were making?</li>
-<li>Did you choose a method that is honest about what your data can support?</li>
-<li>Did you avoid being either naively simple or gratuitously complex?</li>
-</ol>
-<p><strong>Transition to Think-Pair-Share:</strong></p>
-<blockquote class="blockquote">
-<p><em>“Now you’re going to make that argument — out loud, to a peer who will push back. Take out a notecard.”</em></p>
-</blockquote>
-<hr>
-</section>
-<section id="quick-reference-summary" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="quick-reference-summary"><span class="header-section-number">1.6</span> Quick Reference Summary</h2>
+<section id="working-correlation-structures" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="working-correlation-structures"><span class="header-section-number">7</span> Working Correlation Structures</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 32%">
-<col style="width: 46%">
-<col style="width: 21%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 29%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Section</th>
-<th>Core Message</th>
-<th>Time</th>
+<th>Structure</th>
+<th>Formula</th>
+<th>Assumption</th>
+<th>Best for…</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Opening Hook</td>
-<td>“Can you defend your method?”</td>
-<td>2 min</td>
+<td><strong>Independence</strong></td>
+<td><span class="math inline">\(R = I\)</span></td>
+<td>Zero correlation</td>
+<td>Sensitivity check; large <span class="math inline">\(K\)</span></td>
 </tr>
 <tr class="even">
-<td>Section 1: Box</td>
-<td>Wrong in a way that matters vs.&nbsp;doesn’t</td>
-<td>5 min</td>
+<td><strong>Exchangeable</strong></td>
+<td><span class="math inline">\(\text{Corr}(Y_{it}, Y_{is}) = \alpha\)</span></td>
+<td>Equal correlation at all lags</td>
+<td>Short series; random effects analogy</td>
 </tr>
 <tr class="odd">
-<td>Section 2: Inference Type</td>
-<td>Descriptive / Predictive / Causal; observational ≠ causal</td>
-<td>5 min</td>
-</tr>
-<tr class="even">
-<td>Section 3: Triangle in Practice</td>
-<td>Three concrete ag/NR examples</td>
-<td>5 min</td>
-</tr>
-<tr class="odd">
-<td>Section 4: Tying Together</td>
-<td>Methods section = philosophical argument</td>
-<td>3 min</td>
-</tr>
-<tr class="even">
-<td><strong>Total</strong></td>
-<td></td>
-<td><strong>~20 min</strong></td>
+<td><strong>AR(1)</strong></td>
+<td><span class="math inline">\(\text{Corr}(Y_{it}, Y_{is}) = \alpha^{|t-s|}\)</span></td>
+<td>Correlation decays with lag</td>
+<td>Time series; seasonal ecological data</td>
 </tr>
 </tbody>
 </table>
-
-
+<p>. . .</p>
+<blockquote class="blockquote">
+<p>For monthly tick counts over 2 years, <strong>AR(1) is more ecologically realistic</strong> than exchangeable — but GEE estimates are consistent under either.</p>
+</blockquote>
+<div class="fragment">
+<p><strong>Model selection:</strong> Use QIC (quasi-likelihood under independence model criterion) to compare working correlation structures.</p>
+</div>
+<div class="notes">
+<p>This table is worth spending a couple of minutes on because it connects directly to the group worksheet. Independence assumes no correlation — use this as a baseline or sensitivity check. Exchangeable assumes that correlation is constant regardless of the time gap — that the correlation between observations 1 month apart is the same as observations 23 months apart. That’s a strong assumption for ecological time series. AR(1) assumes correlation decays exponentially with lag — more realistic for monthly data where nearby months are more similar. For this study, AR(1) seems more defensible, but the authors chose exchangeable. This is exactly the kind of analytic choice worth critiquing.</p>
+</div>
+<hr>
 </section>
+<section id="group-worksheet-activity" class="level2 center" data-number="8">
+<h2 class="center anchored" data-number="8" data-anchor-id="group-worksheet-activity"><span class="header-section-number">8</span> Group Worksheet Activity</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Instructions — 10 Minutes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>With your group (3–4 people):</strong></p>
+<ol type="1">
+<li>Open <code>activities/worksheet_group_ticks.md</code></li>
+<li>Answer as many of the 6 critique prompts as you can</li>
+<li><strong>Your main deliverable:</strong> One “challenge question” for the presenter</li>
+</ol>
+<p><strong>Critique prompts:</strong> 1. Is negative binomial appropriate? Alternatives? 2. Is exchangeable correlation realistic for monthly ecological data? 3. Are cluster sizes balanced? How might imbalance affect GEE? 4. The paper doesn’t report the full model equation — is this a transparency issue? 5. How does the sandwich variance protect against correlation misspecification? 6. What would change if they used GLMM instead of GEE?</p>
+</div>
+</div>
+<div class="notes">
+<p>Circulate among groups. Push back if groups are writing softball questions. Good challenge questions for the presenter are things like: “Can you justify why exchangeable correlation is more appropriate than AR(1) for monthly sampling?” or “The paper has 21 clusters — is the sandwich estimator reliable?” These are questions that require genuine methodological reasoning, not just paper summary.</p>
+</div>
+<hr>
+</section>
+<section id="group-reports-presenter-response" class="level2 center" data-number="9">
+<h2 class="center anchored" data-number="9" data-anchor-id="group-reports-presenter-response"><span class="header-section-number">9</span> Group Reports + Presenter Response</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Presenter: Challenge Questions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each group will read their <strong>one challenge question</strong>.</p>
+<p><strong>You have 45–60 seconds to respond.</strong></p>
+<p>The class will evaluate whether your answer is: - Methodologically correct - Supported by the paper’s methods section - Or, if unknown: Does the presenter acknowledge uncertainty and point to how they would find out?</p>
+</div>
+</div>
+<p>. . .</p>
+<p><strong>After all responses:</strong> Instructor synthesis (~2 min)</p>
+<div class="notes">
+<p>Remind the presenter that this is the same kind of Q&amp;A they will face at dissertation defenses and conference presentations. It’s good practice. Remind the class that good challenge questions are collegial — the goal is to deepen understanding, not to embarrass the presenter. After all groups have asked, I’ll take 2 minutes to synthesize the key methodological points that came up.</p>
+</div>
+<hr>
+</section>
+<section id="minute-paper" class="level2 center" data-number="10">
+<h2 class="center anchored" data-number="10" data-anchor-id="minute-paper"><span class="header-section-number">10</span> Minute Paper</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Before You Leave — 3 Minutes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On an index card (or submit via Canvas):</p>
+<p><strong>1.</strong> What is the single most important thing you learned about GEE today?</p>
+<p><strong>2.</strong> What is one question you still have about applying GEE to <strong>your own research data</strong>?</p>
+<p><em>Be specific. “I learned GEE exists” is not an acceptable answer for question 1.</em></p>
+</div>
+</div>
+<div class="notes">
+<p>This is a metacognitive closing activity. The second question is intentionally about their own data — this forces them to think about transfer, not just whether they understood the lecture. I will read these before next class and address persistent questions at the start of the next session.</p>
+</div>
+<hr>
+</section>
+<section id="references" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="references"><span class="header-section-number">11</span> References</h2>
+<ul>
+<li><p>Gleim, E. R., et al.&nbsp;(2014). The phenology of ticks and the effects of long-term prescribed burning on tick population dynamics. <em>PLOS ONE</em>, 9(11), e112174. <a href="https://doi.org/10.1371/journal.pone.0112174" class="uri">https://doi.org/10.1371/journal.pone.0112174</a></p></li>
+<li><p>Liang, K.-Y., &amp; Zeger, S. L. (1986). Longitudinal data analysis using generalized linear models. <em>Biometrika</em>, 73(1), 13–22.</p></li>
+<li><p>Zeger, S. L., &amp; Liang, K.-Y. (1986). Longitudinal data analysis for discrete and continuous outcomes. <em>Biometrics</em>, 42(1), 121–130.</p></li>
+<li><p>Hardin, J. W., &amp; Hilbe, J. M. (2013). <em>Generalized Estimating Equations</em> (2nd ed.). Chapman &amp; Hall/CRC.</p></li>
+<li><p>Højsgaard, S., Halekoh, U., &amp; Yan, J. (2006). The R package geepack for generalized estimating equations. <em>Journal of Statistical Software</em>, 15(2), 1–11.</p></li>
+</ul>
+<div class="notes">
+<p>These are the key references for GEE. The Liang &amp; Zeger 1986 paper is the foundational reference — it is one of the most cited statistics papers ever. Hardin &amp; Hilbe is the most accessible textbook treatment. The geepack vignette is a good practical starting point for R implementation.</p>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

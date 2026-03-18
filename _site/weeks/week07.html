@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 01 — Introductions – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Week 07 - Your analysis – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -149,10 +129,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../weeks/week07-workshop.html">
  <span class="dropdown-text">Week 07, Thursday</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../weeks/week08.html">
- <span class="dropdown-text">Week 08</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -239,10 +215,6 @@ div.csl-indent {
     <a class="dropdown-item" href="../slides/slides-Week07.html">
  <span class="dropdown-text">Slides Week 07</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../slides/slides-Week08.html">
- <span class="dropdown-text">Slides Week 08</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -261,20 +233,28 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#session-a-introductions" id="toc-session-a-introductions" class="nav-link active" data-scroll-target="#session-a-introductions"><span class="header-section-number">1</span> Session A: Introductions</a>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a>
   <ul class="collapse">
-  <li><a href="#session-objectives" id="toc-session-objectives" class="nav-link" data-scroll-target="#session-objectives"><span class="header-section-number">1.1</span> Session Objectives</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</a></li>
   </ul></li>
-  <li><a href="#session-b-papers-and-introduction-to-code" id="toc-session-b-papers-and-introduction-to-code" class="nav-link" data-scroll-target="#session-b-papers-and-introduction-to-code"><span class="header-section-number">2</span> Session B: Papers and introduction to code</a>
+  <li><a href="#session-a-the-philosophy-behind-your-analysis-75-min" id="toc-session-a-the-philosophy-behind-your-analysis-75-min" class="nav-link" data-scroll-target="#session-a-the-philosophy-behind-your-analysis-75-min"><span class="header-section-number">2</span> Session A: The Philosophy Behind Your Analysis (75 min)</a>
   <ul class="collapse">
-  <li><a href="#part-1-paper-discussion-60-minutes-of-the-class" id="toc-part-1-paper-discussion-60-minutes-of-the-class" class="nav-link" data-scroll-target="#part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</a>
+  <li><a href="#part-0-assignment-check-5-min" id="toc-part-0-assignment-check-5-min" class="nav-link" data-scroll-target="#part-0-assignment-check-5-min"><span class="header-section-number">2.1</span> ⚡ Part 0: Assignment Check (5 min)</a></li>
+  <li><a href="#part-1-opening.-pulse-check-minute-paper-10-min" id="toc-part-1-opening.-pulse-check-minute-paper-10-min" class="nav-link" data-scroll-target="#part-1-opening.-pulse-check-minute-paper-10-min"><span class="header-section-number">2.2</span> Part 1: Opening. Pulse Check &amp; Minute Paper (10 min)</a></li>
+  <li><a href="#part-2-the-case-dr.-reyess-grassland-study-20-min" id="toc-part-2-the-case-dr.-reyess-grassland-study-20-min" class="nav-link" data-scroll-target="#part-2-the-case-dr.-reyess-grassland-study-20-min"><span class="header-section-number">2.3</span> Part 2: The Case — “Dr.&nbsp;Reyes’s Grassland Study” (20 min)</a>
   <ul class="collapse">
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation"><span class="header-section-number">2.1.1</span> Preparation:</a></li>
-  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</a></li>
+  <li><a href="#setup-3-min" id="toc-setup-3-min" class="nav-link" data-scroll-target="#setup-3-min"><span class="header-section-number">2.3.1</span> Setup (3 min)</a></li>
   </ul></li>
-  <li><a href="#part-2-github-and-r" id="toc-part-2-github-and-r" class="nav-link" data-scroll-target="#part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</a>
+  <li><a href="#part-3-case-diagnosis-small-group-work-20-min" id="toc-part-3-case-diagnosis-small-group-work-20-min" class="nav-link" data-scroll-target="#part-3-case-diagnosis-small-group-work-20-min"><span class="header-section-number">2.4</span> Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)</a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">2.2.1</span> </a></li>
+  <li><a href="#role-assignments" id="toc-role-assignments" class="nav-link" data-scroll-target="#role-assignments"><span class="header-section-number">2.4.1</span> Role Assignments</a></li>
+  <li><a href="#group-task" id="toc-group-task" class="nav-link" data-scroll-target="#group-task"><span class="header-section-number">2.4.2</span> Group Task</a></li>
+  </ul></li>
+  <li><a href="#part-4-lecture" id="toc-part-4-lecture" class="nav-link" data-scroll-target="#part-4-lecture"><span class="header-section-number">2.5</span> Part 4: Lecture</a></li>
+  <li><a href="#part-5-defend-your-own-methods-think-pair-share-20-min" id="toc-part-5-defend-your-own-methods-think-pair-share-20-min" class="nav-link" data-scroll-target="#part-5-defend-your-own-methods-think-pair-share-20-min"><span class="header-section-number">2.6</span> Part 5: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#think-5-min" id="toc-think-5-min" class="nav-link" data-scroll-target="#think-5-min"><span class="header-section-number">2.6.1</span> Think (5 min)</a></li>
+  <li><a href="#pair-5-min" id="toc-pair-5-min" class="nav-link" data-scroll-target="#pair-5-min"><span class="header-section-number">2.6.2</span> Pair (5 min)</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -285,7 +265,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 01 — Introductions</h1>
+<h1 class="title">Week 07 - Your analysis</h1>
 </div>
 
 
@@ -302,61 +282,278 @@ div.csl-indent {
 </header>
 
 
-<section id="session-a-introductions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Session A: Introductions</h1>
-<section id="session-objectives" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="session-objectives"><span class="header-section-number">1.1</span> Session Objectives</h2>
-<ul>
-<li><p>Short class to introduce ourselves</p></li>
-<li><p>Get familiarized with course objectives</p></li>
-</ul>
-</section>
-</section>
-<section id="session-b-papers-and-introduction-to-code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Session B: Papers and introduction to code</h1>
-<section id="part-1-paper-discussion-60-minutes-of-the-class" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="part-1-paper-discussion-60-minutes-of-the-class"><span class="header-section-number">2.1</span> Part 1: Paper discussion (~60 minutes of the class)</h2>
-<section id="preparation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="preparation"><span class="header-section-number">2.1.1</span> Preparation:</h3>
-<p>We will have a short discussion of two papers. Get in groups of four, each group will then read a paper and present it to the other team.</p>
-<p><strong>Group a:</strong> <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span> This is a paper that <strong>some</strong> of you have read. But I think all of you should read it to be successful in this class.</p>
-<p><strong>Group b:</strong> <span class="citation" data-cites="zuur2010">Zuur, Ieno, and Elphick (<a href="#ref-zuur2010" role="doc-biblioref">2010</a>)</span> if you have already read <span class="citation" data-cites="tredennick2021">Tredennick et al. (<a href="#ref-tredennick2021" role="doc-biblioref">2021</a>)</span>, this is the one you should read.</p>
-</section>
-<section id="deliverable" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="deliverable"><span class="header-section-number">2.1.2</span> Deliverable:</h3>
-<p>You will give a short lecture ~15 to 20 minutes on the most important aspects of your paper to the other group. YOU ARE THE EXPERTS, so make sure you can answer questions from your “students”. You can use slides, but you don’t have to. You will self-govern your group. Each member can present, just two, or have a single person present.</p>
-</section>
-</section>
-<section id="part-2-github-and-r" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="part-2-github-and-r"><span class="header-section-number">2.2</span> Part 2: Github and R</h2>
-<p>Make sure you have downloaded the following:</p>
-<ul>
-<li><p>Program R</p></li>
-<li><p>RStudio</p></li>
-<li><p>Know basics of R and RStudio: <a href="https://moctezumaii.github.io/SNR610/installation_instructions.html" class="uri">https://moctezumaii.github.io/SNR610/installation_instructions.html</a></p></li>
-<li><p>RStudio</p></li>
-<li><p>Create a Github account</p></li>
-<li><p>Apply for GitHub Education</p></li>
-<li><p>Join the course repository (you will be invited, accept the invite)</p></li>
-<li><p>Confirm Codespaces access (we will provide guidance; Codespaces may be enabled by GitHub Education or by the organization)</p></li>
-</ul>
-<section id="section" class="level3" data-number="2.2.1">
-
-
-
-
-</section>
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2.2.1 </h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-tredennick2021" class="csl-entry" role="listitem">
-Tredennick, Andrew T., Giles Hooker, Stephen P. Ellner, and Peter B. Adler. 2021. <span>“A Practical Guide to Selecting Models for Exploration, Inference, and Prediction in Ecology.”</span> <em>Ecology</em> 102 (6): e03336. <a href="https://doi.org/10.1002/ecy.3336">https://doi.org/10.1002/ecy.3336</a>.
+<p>Week: 8</p>
+<p>Topic: The Philosophy Behind Your Analysis</p>
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Session A</strong></td>
+<td>Case-based philosophy + peer review (~75 min)</td>
+</tr>
+<tr class="even">
+<td><strong>Session B</strong></td>
+<td>Workshop: project progress, peer review &amp; method justification (~75 min)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-zuur2010" class="csl-entry" role="listitem">
-Zuur, Alain F., Elena N. Ieno, and Chris S. Elphick. 2010. <span>“A Protocol for Data Exploration to Avoid Common Statistical Problems.”</span> <em>Methods in Ecology and Evolution</em> 1 (1): 3–14. <a href="https://doi.org/10.1111/j.2041-210X.2009.00001.x">https://doi.org/10.1111/j.2041-210X.2009.00001.x</a>.
+<div class="callout-title-container flex-fill">
+Note
 </div>
-</div></section></div></main> <!-- /main -->
+</div>
+<div class="callout-body-container callout-body">
+<p>No student presenter is available this week. Come ready to read, diagnose, and argue.</p>
+</div>
+</div>
+<section id="learning-objectives" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1.1</span> Learning Objectives</h2>
+<ol type="1">
+<li>Connect the philosophical ideas from Weeks 2, 3, and 5 to <em>to someone else’s flawed analysis</em> before your own</li>
+<li>Articulate and defend your method choice in writing and verbally</li>
+<li>Identify common philosophical pitfalls by diagnosing them in a real scenario</li>
+<li>Assess your project’s current progress against your planned timeline</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="session-a-the-philosophy-behind-your-analysis-75-min" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Session A: The Philosophy Behind Your Analysis (75 min)</h1>
+<section id="part-0-assignment-check-5-min" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="part-0-assignment-check-5-min"><span class="header-section-number">2.1</span> ⚡ Part 0: Assignment Check (5 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Quick Check-In — Your Thursday Actionable Item
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>3-5 minutes</p>
+<p>Think back to the <strong>one actionable item</strong> you committed to working on by Thursday.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My original actionable item was:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Current status (circle):</td>
+<td><strong>On track</strong><br><strong>Stuck</strong><br><strong>Needs revision</strong><br><strong>Not started</strong></td>
+</tr>
+<tr class="odd">
+<td>If revising: what’s the adjusted version?</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>One thing I need to do in the next 48 hrs (“do nothing” is an option):</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="part-1-opening.-pulse-check-minute-paper-10-min" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="part-1-opening.-pulse-check-minute-paper-10-min"><span class="header-section-number">2.2</span> Part 1: Opening. Pulse Check &amp; Minute Paper (10 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Activity #2: Minute Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Respond to both questions in 3–4 minutes:</p>
+<ol type="1">
+<li><strong>“What is the single most important thing you learned in this course so far?”</strong></li>
+</ol>
+<p><br><br></p>
+<ol start="2" type="1">
+<li><strong>“What is the thing you want to talk about in a future class? What topic or question should we cover?”</strong></li>
+</ol>
+<p><br><br><br></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-2-the-case-dr.-reyess-grassland-study-20-min" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="part-2-the-case-dr.-reyess-grassland-study-20-min"><span class="header-section-number">2.3</span> Part 2: The Case — “Dr.&nbsp;Reyes’s Grassland Study” (20 min)</h2>
+<section id="setup-3-min" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="setup-3-min"><span class="header-section-number">2.3.1</span> Setup (3 min)</h3>
+<blockquote class="blockquote">
+<p><em>You are a peer reviewer for the journal</em> Ecological Applications. <em>You’ve just received the following methods section. Your job: find everything that’s wrong — and explain why it matters.</em></p>
+</blockquote>
+<hr>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📄 The Manuscript Excerpt — Read Carefully
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Title:</strong> <em>Nitrogen addition increases aboveground biomass in semi-arid grasslands</em></p>
+<p><strong>Methods (excerpt):</strong></p>
+<blockquote class="blockquote">
+<p>We established 12 plots across 4 ranches in eastern Colorado. Each ranch received one of three nitrogen treatments: control (0 kg N/ha), low (25 kg N/ha), and high (50 kg N/ha). Biomass was harvested from each plot at three time points: May, July, and September of the same year.</p>
+<p>To assess treatment effects, we calculated mean biomass per treatment per time point and ran a one-way ANOVA (treatment as the fixed effect) on the September harvest only, as this represented “peak biomass.” We report p-values and conclude that high nitrogen significantly increased biomass (p = 0.03). All plots were located within 5 km of one another on each ranch.</p>
+<p>We selected ANOVA because it is the standard method in grassland ecology and because our dataset was small. We acknowledge that data were not fully independent but considered this a minor concern.</p>
+</blockquote>
+</div>
+</div>
+<p>Individual choice of reject, revisions or accept.</p>
+</section>
+</section>
+<section id="part-3-case-diagnosis-small-group-work-20-min" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="part-3-case-diagnosis-small-group-work-20-min"><span class="header-section-number">2.4</span> Part 3: 🔬 Case Diagnosis — Small Group Work (20 min)</h2>
+<p>Work in groups of 3–4. Each group gets <strong>one diagnostic role</strong> you are responsible for that angle, but your findings feed the whole class.</p>
+<section id="role-assignments" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="role-assignments"><span class="header-section-number">2.4.1</span> Role Assignments</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Your Diagnostic Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>🔺 <strong>Triangle Auditors</strong></td>
+<td>Does the method match the question, data type, and structure? What would the correct model be?</td>
+</tr>
+<tr class="even">
+<td>🧭 <strong>Framework Detectives</strong></td>
+<td>What philosophical framework is Dr.&nbsp;Reyes implicitly using? Where does it break down? What would a Bayesian alternative look like?</td>
+</tr>
+<tr class="odd">
+<td>✂️ <strong>Complexity Judges</strong></td>
+<td>Was dropping July and May data defensible? What is lost? Is the model too simple? Could it have been simpler in a <em>different</em> direction?</td>
+</tr>
+<tr class="even">
+<td>🔁 <strong>Reproducibility Auditors</strong></td>
+<td>What would you need to reproduce this analysis? What is missing? List <em>specific</em> items.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="group-task" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="group-task"><span class="header-section-number">2.4.2</span> Group Task</h3>
+<ol type="1">
+<li>Read the excerpt again as a group</li>
+<li>Prepare a <strong>2-minute verbal finding</strong> — one clear diagnosis + one concrete fix</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-4-lecture" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="part-4-lecture"><span class="header-section-number">2.5</span> Part 4: Lecture</h2>
+</section>
+<section id="part-5-defend-your-own-methods-think-pair-share-20-min" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="part-5-defend-your-own-methods-think-pair-share-20-min"><span class="header-section-number">2.6</span> Part 5: 🤝 Defend Your Own Methods — Think-Pair-Share (20 min)</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SoTL Activity #2: Structured Peer Dialogue
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>You just played reviewer. Now you’re the author.</em></p>
+</div>
+</div>
+<section id="think-5-min" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="think-5-min"><span class="header-section-number">2.6.1</span> Think (5 min)</h3>
+<p>Fill out a <strong>Method Defense Card</strong>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Your Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>My research question:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>My response variable type:</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>My planned analysis:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Why it fits (reference Triangle + one framework point):</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>One thing Dr.&nbsp;Reyes did that I might be tempted to do too:</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>How I’m guarding against it:</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pair-5-min" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="pair-5-min"><span class="header-section-number">2.6.2</span> Pair (5 min)</h3>
+<p>Partner with someone <strong>outside your immediate research area.</strong></p>
+<ul>
+<li>Present your Method Defense Card (~3 min each)</li>
+<li>Your partner plays <strong>skeptical reviewer</strong> — one tough question only</li>
+</ul>
+<blockquote class="blockquote">
+<p>Tough question bank: <em>“Why not use a simpler model?” / “How do you know your data meet that assumption?” / “What would Dr.&nbsp;Reyes say about your justification?” / “What are you waving away as ‘a minor concern’?”</em></p>
+</blockquote>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
