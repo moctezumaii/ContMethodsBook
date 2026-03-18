@@ -1,5 +1,35 @@
 ---
-title: "Final Paper Instructions"
+title: "Final Paper — Project Home"
+format: html
+---
+
+This is your **living project guide**. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper.
+
+::: {.callout-tip}
+## Workshop Rhythm
+
+Every Thursday workshop begins with a **10-minute self-assessment**. Use [Weekly Self-Assessment](weekly-self-assessment.html) to structure that check-in. Update your README on GitHub as you go — that is how your instructor can see your progress.
+:::
+
+---
+
+## Upcoming: Brief Progress Presentations
+
+Starting **next week**, each student will give a **3–5 minute progress update** during Thursday workshop time. This is informal — no slides required. You will briefly describe where you are, show one thing from your project, and name one open question.
+
+See [Progress Presentation Instructions](progress-presentation.html) for what to prepare and bring.
+
+::: {.callout-important}
+## Before next Thursday's workshop
+
+⬜ Update your Expected Timeline in your README  
+⬜ Push your latest code or analysis to GitHub  
+⬜ Add or update your Methods section (at least two sentences)  
+⬜ Have your assumption check table present (even if incomplete)  
+⬜ Identify one open question you want feedback on
+
+:::
+
 ---
 
 This assignment guides you through creating a research project repository and developing your final paper proposal.

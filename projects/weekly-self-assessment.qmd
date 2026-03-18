@@ -1,0 +1,101 @@
+---
+title: "Weekly Self-Assessment"
+subtitle: "First 10 Minutes of Workshop — Bring this open every Thursday"
+format: html
+number-sections: false
+---
+
+::: {.callout-note}
+## How to use this page
+
+This is a **10-minute check-in** to do at the start of every Thursday workshop. Work through it on your own, then share briefly with a neighbor. Be honest — this is for you, not for a grade.
+:::
+
+---
+
+## Step 1 — Open your project README (2 min)
+
+Go to your GitHub repository and open your `README.md`. Find your **Expected Timeline** section.
+
+- If you have not written a timeline yet, do that now. Use the template in the [Project Home](index.html).
+
+---
+
+## Step 2 — Reflect on last week (3 min)
+
+Answer the following in a few words or sentences. You can write directly in your README or on paper.
+
+**What did you plan to accomplish last week?**
+
+*(Copy the goal from your timeline here, or recall it.)*
+
+<br>
+
+**What did you actually get done?**
+
+*(Be specific: "I ran a preliminary model" is more useful than "I worked on my project.")*
+
+<br>
+
+**What got in the way, if anything?**
+
+<br>
+
+---
+
+## Step 3 — Where are you right now? (1 min)
+
+Pick one:
+
+::: {.callout-tip}
+## Status Check
+
+⬜ 🟢 **On track or ahead** — my timeline is still realistic  
+⬜ 🟡 **Slightly behind** — I know what I need to do to catch up  
+⬜ 🔴 **Significantly behind** — I need to re-plan or get help
+
+:::
+
+If you selected 🟡 or 🔴: write **one concrete step** you will take this week to get back on track.
+
+*(Example: "I will finish cleaning my data file by Wednesday so I can run a model on Thursday.")*
+
+<br>
+
+---
+
+## Step 4 — Update your timeline if needed (2 min)
+
+If your status is 🟡 or 🔴, revise your Expected Timeline in your README now.
+
+If your status is 🟢, confirm that the **next two weeks** of your timeline are still realistic.
+
+::: {.callout-important}
+## One thing I will finish by the end of this week
+
+Write it here (or in your README). Make it specific and achievable in the time you have.
+
+<br><br>
+
+:::
+
+---
+
+## Step 5 — Neighbor check-in (2 min)
+
+Share your status (🟢 / 🟡 / 🔴) and your one goal for the week with the person next to you.
+
+- Offer **one** encouraging word or concrete suggestion.
+- You do not need to solve their problems — just listen and respond briefly.
+
+---
+
+::: {.callout-note}
+## Why do this every week?
+
+Brief, repeated self-monitoring is one of the most consistent findings in educational research for improving long-term project completion. Checking in weekly — rather than just at the end — helps you catch small problems before they become large ones. This takes 10 minutes. The payoff is substantial.
+:::
+
+---
+
+*Return to [Project Home](index.html) · See also: [Progress Presentation Instructions](progress-presentation.html)*

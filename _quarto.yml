@@ -36,6 +36,10 @@ site:
         menu:
           - text: Project Home
             href: projects/index.qmd
+          - text: Weekly Self-Assessment
+            href: projects/weekly-self-assessment.qmd
+          - text: Progress Presentation
+            href: projects/progress-presentation.qmd
       - text: Materials
         menu:
           - text: Week 3 questions
