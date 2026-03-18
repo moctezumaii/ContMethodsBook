@@ -7,63 +7,56 @@ Week: 8
 
 Topic: Project Progress, Peer Review & Method Justification
 
-
-
-## Part 1: Timeline Self-Assessment (15 min)
-
-### Step 1 — Individual Review (5 min)
-
-Open your project README and finish and review your **Expected Timeline**.
-
-Answer the following:
-
-::: {.callout-tip}
-## Timeline Check Prompts
-
-**What did you plan to have done by next week?**
-
-Be aware that you are NOT expected to work on this over break
-
-<br><br>
-
-**Moving forward, you should answer the followign each week**
-
-<br><br>
-
-**Where are you:**
-
-⬜ 🟢 On track or ahead  
-⬜ 🟡 Slightly behind; I know what I need to do  
-⬜ 🔴 Significantly behind; need help re-planning
-
-**If Yellow or Red: one concrete thing I will do this week:**
-
-<br><br>
-
-**Updated timeline for remaining weeks:**
-Update or leave your timeline as needed.
-Please, if possible, start working on Github so you can share this with me
-:::
-
-### Step 2 — Share with Neighbor (5 min)
-
-Share your timeline with the person next to you. Offer one suggestion or piece of encouragement.
-
+| Part | Activity | Time |
+|------|----------|------|
+| 1 | Weekly Self-Assessment | 10 min |
+| 2 | Start / Extend Your Methods Section | 10 min |
+| 3 | Peer Feedback | ~15 min |
+| 4 | Method Justification — Written Exercise | 15 min |
+| 5 | Assumption Check | 10 min |
+| 6 | Reflective Activity | 10 min |
+| 7 | Prepare for Next Week's Presentation | 10 min |
+| 8 | Project Work Time | remaining |
 
 ---
 
-## Part 2: Start working on your methods
+## Part 1: Weekly Self-Assessment (10 min)
 
-In your project (RSTUDIO or Github or Word) start a "Methods" section. Write two sentences there. Examples:
-- I chose X methods because ...
-- A key limitation of my analysis is ... so we ...
+Open the [Weekly Self-Assessment](../projects/weekly-self-assessment.html) page and work through it now.
 
-## Part 3: Peer Feedback - We will be doing this most weeks
+The short version:
+
+- Open your project README and find your **Expected Timeline**.
+- Reflect on what you planned to do last week and what you actually did.
+- Pick your status: 🟢 On track · 🟡 Slightly behind · 🔴 Significantly behind
+- If 🟡 or 🔴: write one concrete step you will take this week to catch up.
+- Identify **one specific thing you will finish by the end of this week**.
+- Share your status and your one goal with the person next to you.
+
+::: {.callout-tip}
+## Update your README now if you haven't already
+
+Go to your GitHub repository and make sure your Expected Timeline is there. It doesn't need to be perfect — it needs to exist and be honest about where you are.
+:::
+
+---
+
+## Part 2: Start Working on Your Methods (10 min)
+
+In your project (RStudio, GitHub, or Word) open or create a **Methods** section. Write at least two sentences:
+
+- *I chose X methods because ...*
+- *A key limitation of my analysis is ... so we ...*
+
+If you already have this section, extend it. Add one more sentence about your data structure or your response variable distribution.
+
+---
+
+## Part 3: Peer Feedback — We will do this most weeks (15 min)
 
 Pair with someone **outside** your immediate research area.
 
 **⏱ ~7 minutes per person**
-
 
 | Time | Task |
 |------|------|
@@ -72,8 +65,6 @@ Pair with someone **outside** your immediate research area.
 | 2 min | Receive feedback from your reviewer |
 
 ### Reviewer Feedback Guide
-
-Use this structure when reviewing your partner's project:
 
 ::: {.callout-note}
 ## Peer Feedback Guide
@@ -103,13 +94,11 @@ Write down:
 
 ---
 
-## Part 3: Method Justification — Written Exercise (15 min)
+## Part 4: Method Justification — Written Exercise (15 min)
 
-Write a new section on your methods:
+In your project repository, write or expand your **Method Justification** section.
 
-**Method justification**
-
-Your paragraph can address:
+Your paragraph should address:
 
 ::: {.callout-tip}
 ## Writing Checklist
@@ -121,10 +110,11 @@ Your paragraph can address:
 ⬜ What assumptions does your method make? List ALL OF THEM!
 :::
 
-## Part 4: Check your assumptions
+---
 
-Based on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project.
-list every assumption your chosen model requires. Then rate each one:
+## Part 5: Check Your Assumptions (10 min)
+
+List every assumption your chosen model requires. Then rate each one:
 
 | Assumption | Status |
 |------------|--------|
@@ -132,8 +122,69 @@ list every assumption your chosen model requires. Then rate each one:
 | *(e.g., normality of random effects)* | 🟡 Haven't checked yet: but I could by next class |
 | *(e.g., no spatial autocorrelation)* | 🔴 Can't fully check: need to acknowledge it and discuss it |
 
-**The goal is not to have all green.** Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.
+**The goal is not to have all green.** Red assumptions are honest, and they belong in your discussion section.
+
 ---
 
-## Part 5: Work on your project. 
+## Part 6: Reflective Activity — Learning Check-In (10 min)
+
+Take 5 minutes on your own, then 5 minutes to share with a neighbor.
+
+::: {.callout-note}
+## Reflection Prompts
+
+Think about your experience working on this project so far — not just the results, but the *process*.
+
+**1. What is one thing about quantitative methods that feels more clear to you now than it did at the start of the semester?**
+
+*(Be specific. "I understand statistics better" is not enough. Example: "I now understand why GLMM is appropriate for nested data, whereas before I would have just run an ANOVA.")*
+
+<br><br>
+
+**2. What is one thing you are still genuinely uncertain about in your own analysis?**
+
+*(Not a vague worry — a specific methodological question you haven't resolved yet.)*
+
+<br><br>
+
+**3. What would you tell a student starting this course next year about how to approach the project?**
+
+<br><br>
+
+:::
+
+These questions are for you. You don't hand them in. But writing them down — and saying them out loud — makes a difference.
+
+---
+
+## Part 7: Prepare for Next Week's Presentation (10 min)
+
+**Next week during workshop time**, each student will give a **3–5 minute progress update**. This is informal, low-stakes, and does not require slides.
+
+Read the [Progress Presentation Instructions](../projects/progress-presentation.html) now.
+
+Then, use the remaining time to:
+
+::: {.callout-important}
+## Before You Leave Today
+
+⬜ Update your Expected Timeline in your README (even if nothing changed — confirm it)  
+⬜ Identify one specific thing you will show next week (a figure, table, output, or code chunk)  
+⬜ Write down one open question you want feedback on from your classmates  
+⬜ Push your latest work to GitHub  
+
+:::
+
+---
+
+## Part 8: Project Work Time (remaining time)
+
+Use the rest of the session to make progress on your project. Suggested priorities:
+
+1. Run a preliminary model or analysis (even if rough)
+2. Generate at least one exploratory figure
+3. Continue writing your Methods section
+4. Clean or organize your data file
+
+Ask the instructor or a classmate if you get stuck. This is work time, not reading time.
 
