@@ -180,10 +180,13 @@ This project directly informs my thesis research on habitat restoration and biod
 I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.
 
 **Assumption Check:**
+
+---
+
 | Assumption | Status |
-|------------|--------|
+|---------|------|
 | Independence of residuals  |  🟢 Checked: and it holds |  
 | Normality of random effects | 🟡  Haven't checked yet: but I could by next class | 
 | No spatial autocorrelation | 🔴 Can't fully check: need to acknowledge it and discuss it | 
 
-
+---
