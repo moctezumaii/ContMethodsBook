@@ -29,9 +29,11 @@ site:
           - text: Week 07
             href: weeks/week07.qmd
           - text: Week 07, Thursday
-            href: weeks/week07-workshop.qmd
+            href: weeks/week07-workshop_2.qmd
           - text: Week 08
             href: weeks/week08.qmd
+          - text: Week 08, Thursday
+            href: weeks/week08-workshop.qmd
       - text: Projects
         menu:
           - text: Project Home

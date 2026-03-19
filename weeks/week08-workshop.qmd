@@ -11,7 +11,7 @@ Topic: Project Progress, Peer Review & Method Justification
 |------|----------|------|
 | 1 | Weekly Self-Assessment | 10 min |
 | 2 | Start / Extend Your Methods Section | 10 min |
-| 3 | Peer Feedback | ~15 min |
+| 3 | Peer Feedback | ~10 min |
 | 4 | Method Justification — Written Exercise | 15 min |
 | 5 | Assumption Check | 10 min |
 | 6 | Reflective Activity | 10 min |
@@ -41,125 +41,17 @@ Go to your GitHub repository and make sure your Expected Timeline is there. It d
 
 ---
 
-## Part 2: Start Working on Your Methods (10 min)
 
-In your project (RStudio, GitHub, or Word) open or create a **Methods** section. Write at least two sentences:
-
-- *I chose X methods because ...*
-- *A key limitation of my analysis is ... so we ...*
-
-If you already have this section, extend it. Add one more sentence about your data structure or your response variable distribution.
-
----
-
-## Part 3: Peer Feedback — We will do this most weeks (15 min)
+## Part 2: Peer Feedback — We will do this most weeks (5 min)
 
 Pair with someone **outside** your immediate research area.
 
-**⏱ ~7 minutes per person**
-
-| Time | Task |
-|------|------|
-| 4 min | Explain your project: question, data, and why it matters |
-| 1 min | Show your current work: code, figures, or written sections |
-| 2 min | Receive feedback from your reviewer |
-
-### Reviewer Feedback Guide
-
-::: {.callout-note}
-## Peer Feedback Guide
-
-**Strengths** (at least one):
-> "One thing that is working well is..."
-
-**One Idea**:
-> "One thing you might consider is..."
-
-**One Hard Question**:
-> Ask one question the presenter may not have considered yet.
-
-:::
-
-### After Both Rounds
-
-Write down:
-
-1. **One piece of feedback I received that I will act on:**
-
-<br><br>
-
-2. **One idea I gave my partner that also applies to my own work:**
-
-<br><br>
-
+Talk about how your project is going
 ---
 
-## Part 4: Method Justification — Written Exercise (15 min)
+## Part 3: Prepare for Next Week's Presentation (10 min)
 
-In your project repository, write or expand your **Method Justification** section.
-
-Your paragraph should address:
-
-::: {.callout-tip}
-## Writing Checklist
-
-⬜ What is your response variable and what distribution does it follow?  
-⬜ What is your data structure (independent, nested, repeated, blocked)?  
-⬜ Why is a simpler analysis insufficient?  
-⬜ Why is a more complex analysis not warranted?  
-⬜ What assumptions does your method make? List ALL OF THEM!
-:::
-
----
-
-## Part 5: Check Your Assumptions (10 min)
-
-List every assumption your chosen model requires. Then rate each one:
-
-| Assumption | Status |
-|------------|--------|
-| *(e.g., independence of residuals)* | 🟢 Checked: and it holds |
-| *(e.g., normality of random effects)* | 🟡 Haven't checked yet: but I could by next class |
-| *(e.g., no spatial autocorrelation)* | 🔴 Can't fully check: need to acknowledge it and discuss it |
-
-**The goal is not to have all green.** Red assumptions are honest, and they belong in your discussion section.
-
----
-
-## Part 6: Reflective Activity — Learning Check-In (10 min)
-
-Take 5 minutes on your own, then 5 minutes to share with a neighbor.
-
-::: {.callout-note}
-## Reflection Prompts
-
-Think about your experience working on this project so far — not just the results, but the *process*.
-
-**1. What is one thing about quantitative methods that feels more clear to you now than it did at the start of the semester?**
-
-*(Be specific. "I understand statistics better" is not enough. Example: "I now understand why GLMM is appropriate for nested data, whereas before I would have just run an ANOVA.")*
-
-<br><br>
-
-**2. What is one thing you are still genuinely uncertain about in your own analysis?**
-
-*(Not a vague worry — a specific methodological question you haven't resolved yet.)*
-
-<br><br>
-
-**3. What would you tell a student starting this course next year about how to approach the project?**
-
-<br><br>
-
-:::
-
-These questions are for you. You don't hand them in. But writing them down — and saying them out loud — makes a difference.
-
----
-
-## Part 7: Prepare for Next Week's Presentation (10 min)
-
-**Next week during workshop time**, each student will give a **3–5 minute progress update**. This is informal, low-stakes, and does not require slides.
+**Next week during workshop time**, each student will give a **3–5 minute progress update**. This is informal, low-stakes, and require slides.
 
 Read the [Progress Presentation Instructions](../projects/progress-presentation.html) now.
 
@@ -176,8 +68,17 @@ Then, use the remaining time to:
 :::
 
 ---
+## ## Part 4: Start Working on Your Methods (10 min)
 
-## Part 8: Project Work Time (remaining time)
+In your project (RStudio, GitHub, or Word) open or create a **Methods** section. Write at least two sentences:
+
+- *I chose X methods because ...*
+- *A key limitation of my analysis is ... so we ...*
+- *Write down a description of the analysis you will do, and start working on it! At this point you should start coding*
+
+If you already have this section, extend it. Add one more sentence about your data structure or your response variable distribution.
+
+## Part 5: Project Work Time (remaining time)
 
 Use the rest of the session to make progress on your project. Suggested priorities:
 

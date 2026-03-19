@@ -27,13 +27,11 @@ Answer the following in a few words or sentences. You can write directly in your
 
 **What did you plan to accomplish last week?**
 
-*(Copy the goal from your timeline here, or recall it.)*
 
 <br>
 
 **What did you actually get done?**
 
-*(Be specific: "I ran a preliminary model" is more useful than "I worked on my project.")*
 
 <br>
 
@@ -81,19 +79,11 @@ Write it here (or in your README). Make it specific and achievable in the time y
 
 ---
 
-## Step 5 — Neighbor check-in (2 min)
-
-Share your status (🟢 / 🟡 / 🔴) and your one goal for the week with the person next to you.
-
-- Offer **one** encouraging word or concrete suggestion.
-- You do not need to solve their problems — just listen and respond briefly.
-
----
 
 ::: {.callout-note}
 ## Why do this every week?
 
-Brief, repeated self-monitoring is one of the most consistent findings in educational research for improving long-term project completion. Checking in weekly — rather than just at the end — helps you catch small problems before they become large ones. This takes 10 minutes. The payoff is substantial.
+Brief, repeated self-monitoring is one of the most consistent findings in educational research for improving long-term project completion. Checking in weekly  rather than just at the end helps you catch small problems before they become large ones. You should do this for your thesis/dissertation as well!!!
 :::
 
 ---

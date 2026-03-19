@@ -10,20 +10,19 @@ number-sections: false
 
 Next week during workshop time, each student will give a **3–5 minute informal progress update** on their project. This is not a formal presentation. It is a check-in designed to help you articulate where you are, get quick feedback from your peers, and identify what you need to do next.
 
-There are no slides required. Come prepared to talk through your work.
 :::
 
 ---
 
-## Purpose
+## Why?
 
 These short updates serve three goals:
 
-1. **Accountability** — sharing your progress publicly helps you commit to your own timeline.
-2. **Feedback** — your classmates can ask questions you haven't thought of yet.
-3. **Practice** — articulating your methods and results out loud is a core research skill.
+1. **Accountability**: sharing your progress publicly helps you commit to your own timeline.
+2. **Feedback**: your peers can ask questions you haven't thought of yet.
+3. **Practice**: articulating your methods and results out loud is a core research skill.
 
-Think of this as a progress briefing, not a performance.
+Think of this as a progress briefing
 
 ---
 
@@ -35,51 +34,7 @@ Think of this as a progress briefing, not a performance.
 | Peer questions | 1–2 minutes |
 | Instructor comment (if any) | < 1 minute |
 
-**Total per student:** approximately 5–7 minutes
-
----
-
-## Suggested Structure
-
-You do not have to follow this exactly, but it is a useful scaffold:
-
-### 1. What is your project? (30 seconds)
-
-One or two sentences. Assume your classmates remember the basics — just remind them of your research question and response variable.
-
-> *Example: "I'm modeling bird species richness at riparian restoration sites using a GLMM with Poisson errors, comparing restored vs. unrestored plots across three seasons."*
-
-### 2. Where are you in your timeline? (30–60 seconds)
-
-Tell us where you planned to be and where you actually are. It is okay if they don't match — just be honest about it.
-
-> *Example: "I planned to finish data cleaning by now. I got the cleaning done but haven't run my first model yet — I'm planning to do that by Wednesday."*
-
-### 3. Show one thing (1–2 minutes)
-
-Show something from your project. This could be:
-
-- A figure or plot (even exploratory)
-- A table of summary statistics
-- A model output in R (even if preliminary or messy)
-- Your assumption check table
-- Your updated README
-
-::: {.callout-tip}
-## You don't need polished results
-
-Raw output is fine. A partial figure is fine. A summary table is fine. The goal is to show that your project is active and moving, not that it is complete or perfect.
-:::
-
-### 4. One challenge or open question (30–60 seconds)
-
-Tell us one thing you are stuck on, unsure about, or need to decide. This is where peer feedback is most useful.
-
-> *Example: "I'm not sure whether to treat year as a fixed or random effect given that I only have three years of data. Any thoughts?"*
-
-### 5. What's next (30 seconds)
-
-One sentence about what you plan to accomplish before the week is over.
+**Total per student:** approximately 5–7 minutes Hopefully tehre's time for all of you
 
 ---
 
@@ -88,7 +43,6 @@ One sentence about what you plan to accomplish before the week is over.
 ::: {.callout-important}
 ## Checklist — Prepare before you arrive
 
-⬜ Your project repository open (GitHub or RStudio)  
 ⬜ One specific thing to show — a figure, output, table, or code chunk  
 ⬜ Your updated timeline (in your README)  
 ⬜ One open question you want feedback on  
@@ -96,43 +50,8 @@ One sentence about what you plan to accomplish before the week is over.
 
 :::
 
-You do not need to prepare separate slides. Just have your project repo open and ready to share on screen.
 
 ---
 
-## How You Will Be Evaluated
-
-This update is **not formally graded** on content quality. What matters is:
-
-- You showed up and shared something real
-- You can describe your research question and method in plain language
-- You identified one honest challenge or next step
-
-Think of it as a **progress check-in**, not a performance review.
-
----
-
-## Tips for a Strong Update
-
-- **Be specific.** "I ran a model" is less useful than "I ran a GLMM and the residuals look approximately normal, but I haven't checked the random effects yet."
-- **Be honest.** If you're behind, say so and tell us your plan to catch up.
-- **Make it conversational.** You're talking to colleagues, not presenting to a committee.
-- **Point at something.** Showing beats telling — even a messy figure communicates more than a verbal description.
-- **End with a question.** Leave the audience with something to respond to.
-
----
-
-## Connecting to Your Project Repository
-
-Before next week's workshop:
-
-1. Push your latest work to your GitHub repository
-2. Update your README's Expected Timeline section
-3. Make sure your assumption check table is present (even if incomplete)
-4. Add or update a "Methods" section with at least two sentences
-
-This way, when it's your turn to present, you can simply share your screen and walk through your README.
-
----
 
 *Return to [Project Home](index.html) · See also: [Weekly Self-Assessment](weekly-self-assessment.html)*
