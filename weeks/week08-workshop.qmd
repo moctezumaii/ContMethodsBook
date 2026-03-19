@@ -68,7 +68,7 @@ Then, use the remaining time to:
 :::
 
 ---
-## ## Part 4: Start Working on Your Methods (10 min)
+## Part 4: Start Working on Your Methods (10 min)
 
 In your project (RStudio, GitHub, or Word) open or create a **Methods** section. Write at least two sentences:
 
@@ -87,5 +87,4 @@ Use the rest of the session to make progress on your project. Suggested prioriti
 3. Continue writing your Methods section
 4. Clean or organize your data file
 
-Ask the instructor or a classmate if you get stuck. This is work time, not reading time.
 

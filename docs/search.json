@@ -802,28 +802,28 @@
     "href": "projects/progress-presentation.html",
     "title": "3–5 Minute Progress Presentation",
     "section": "",
-    "text": "What this is\n\n\n\nNext week during workshop time, each student will give a 3–5 minute informal progress update on their project. This is not a formal presentation. It is a check-in designed to help you articulate where you are, get quick feedback from your peers, and identify what you need to do next."
+    "text": "What this is\n\n\n\nNext week during workshop time, each student will give a 3–5 minute informal progress update on their project. This is not a formal presentation, more of a check-in to share what you’ve done, where you are, and get feedback from your peers."
   },
   {
     "objectID": "projects/progress-presentation.html#why",
     "href": "projects/progress-presentation.html#why",
     "title": "3–5 Minute Progress Presentation",
     "section": "Why?",
-    "text": "Why?\nThese short updates serve three goals:\n\nAccountability: sharing your progress publicly helps you commit to your own timeline.\nFeedback: your peers can ask questions you haven’t thought of yet.\nPractice: articulating your methods and results out loud is a core research skill.\n\nThink of this as a progress briefing"
+    "text": "Why?\nThese short updates serve three goals:\n\nAccountability: sharing your progress publicly helps you commit to your own timeline.\nFeedback: your peers can ask questions you haven’t thought of yet.\nPractice: articulating your methods and results out loud is a core research skill."
   },
   {
     "objectID": "projects/progress-presentation.html#duration-and-format",
     "href": "projects/progress-presentation.html#duration-and-format",
     "title": "3–5 Minute Progress Presentation",
     "section": "Duration and Format",
-    "text": "Duration and Format\n\n\n\nElement\nTime\n\n\n\n\nYour update\n3–5 minutes\n\n\nPeer questions\n1–2 minutes\n\n\nInstructor comment (if any)\n&lt; 1 minute\n\n\n\nTotal per student: approximately 5–7 minutes Hopefully tehre’s time for all of you"
+    "text": "Duration and Format\n\n\n\nElement\nTime\n\n\n\n\nYour update\n3–5 minutes\n\n\nPeer questions\n1–2 minutes\n\n\nTransition\n&lt; 1 minute\n\n\n\nTotal per student: approximately 5–7 minutes Hopefully there’s time for all of you"
   },
   {
     "objectID": "projects/progress-presentation.html#what-to-bring",
     "href": "projects/progress-presentation.html#what-to-bring",
     "title": "3–5 Minute Progress Presentation",
     "section": "What to Bring",
-    "text": "What to Bring\n\n\n\n\n\n\nChecklist — Prepare before you arrive\n\n\n\n⬜ One specific thing to show — a figure, output, table, or code chunk\n⬜ Your updated timeline (in your README)\n⬜ One open question you want feedback on\n⬜ Your assumption check table (even if incomplete)\n\n\n\nReturn to Project Home · See also: Weekly Self-Assessment"
+    "text": "What to Bring\n\n\n\n\n\n\nChecklist — Prepare before you arrive\n\n\n\n⬜ One specific thing to show -&gt; a figure, output, table, or code chunk\n⬜ Your updated timeline ⬜ One open question you want feedback on\n⬜ Your assumption check table (even if incomplete)\n\n\n\nReturn to Project Home · See also: Weekly Self-Assessment"
   },
   {
     "objectID": "materials/Week3questions.html",
@@ -1360,100 +1360,107 @@
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "",
     "text": "This is your living project guide. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper."
   },
   {
     "objectID": "projects/index.html#upcoming-brief-progress-presentations",
     "href": "projects/index.html#upcoming-brief-progress-presentations",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "1 Upcoming: Brief Progress Presentations",
-    "text": "1 Upcoming: Brief Progress Presentations\nStarting next week, each student will give a 3–5 minute progress update during Thursday workshop time. This is informal — no slides required. You will briefly describe where you are, show one thing from your project, and name one open question.\nSee Progress Presentation Instructions for what to prepare and bring.\n\n\n\n\n\n\nBefore next Thursday’s workshop\n\n\n\n⬜ Update your Expected Timeline in your README\n⬜ Push your latest code or analysis to GitHub\n⬜ Add or update your Methods section (at least two sentences)\n⬜ Have your assumption check table present (even if incomplete)\n⬜ Identify one open question you want feedback on\n\n\n\nThis assignment guides you through creating a research project repository and developing your final paper proposal."
+    "text": "1 Upcoming: Brief Progress Presentations\nNext week, you will give a 3–5 minute progress update during Thursday workshop time.\nSee Progress Presentation Instructions for what to prepare and bring.\n\n\n\n\n\n\nBefore next Thursday’s workshop\n\n\n\n⬜ Update your Expected Timeline in your README\n⬜ Push your latest code or analysis to GitHub\n⬜ Add or update your Methods section (at least two sentences)\n⬜ Have your assumption check table present (even if incomplete)\n⬜ Identify one open question you want feedback on\n\n\n\nThis assignment guides you through creating a research project repository and developing your final paper proposal."
   },
   {
     "objectID": "projects/index.html#step-1-create-a-private-github-repository",
     "href": "projects/index.html#step-1-create-a-private-github-repository",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "2 Step 1: Create a Private GitHub Repository",
     "text": "2 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
   },
   {
     "objectID": "projects/index.html#step-2-clone-repository-to-rstudio",
     "href": "projects/index.html#step-2-clone-repository-to-rstudio",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "3 Step 2: Clone Repository to RStudio",
     "text": "3 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
   },
   {
     "objectID": "projects/index.html#step-3-modify-the-readme",
     "href": "projects/index.html#step-3-modify-the-readme",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "4 Step 3: Modify the README",
     "text": "4 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n4.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n4.2 Research Question\nWhat specific question are you trying to answer?\n\n\n4.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n4.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n4.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n4.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n4.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n4.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n4.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
   },
   {
     "objectID": "projects/index.html#step-4-share-your-repository-with-me-via-github",
     "href": "projects/index.html#step-4-share-your-repository-with-me-via-github",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "5 Step 4: Share your repository with me via Github",
     "text": "5 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
   },
   {
     "objectID": "projects/index.html#step-5-write-a-method-justification-section",
     "href": "projects/index.html#step-5-write-a-method-justification-section",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "6 Step 5: Write a method justification section",
-    "text": "6 Step 5: Write a method justification section\nOn the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we …\nIt should be two or so paragraphs.\nYour paragraphs can address:\n\n\n\n\n\n\nWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!\n\n\nAnd more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis."
+    "text": "6 Step 5: Write a method justification section\nOn the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we … - Write down a description of the analysis you will do, and start working on it! At this point you should start coding\nIt should be two or so paragraphs.\nYour paragraphs can address:\n\n\n\n\n\n\nWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!\n\n\nAnd more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis."
   },
   {
     "objectID": "projects/index.html#step-6-check-your-assumptions",
     "href": "projects/index.html#step-6-check-your-assumptions",
-    "title": "Final Paper — Project Home",
+    "title": "Final Paper: Project Home",
     "section": "7 Step 6: Check your assumptions",
     "text": "7 Step 6: Check your assumptions\nBased on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked: and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet: but I could by next class\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check: need to acknowledge it and discuss it\n\n\n\nThe goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section."
   },
   {
+    "objectID": "projects/index.html#step-7-start-working-on-your-methods",
+    "href": "projects/index.html#step-7-start-working-on-your-methods",
+    "title": "Final Paper: Project Home",
+    "section": "8 Step 7: Start working on your methods",
+    "text": "8 Step 7: Start working on your methods\nI wante everyone to do “one concrete” thing this week, aimed at analyzing your data. This could be a code chunk that runs a model, creates a figure, or produces a table. It can be cleaning data. We are at the half point of the semester, so, this is where you should be.\nSuggested priorities:\n\nRun a preliminary model or analysis (even if rough)\nGenerate at least one exploratory figure\nContinue writing your Methods section\nClean or organize your data file"
+  },
+  {
     "objectID": "projects/index.html#example-project-template",
     "href": "projects/index.html#example-project-template",
-    "title": "Final Paper — Project Home",
-    "section": "8 Example Project Template",
-    "text": "8 Example Project Template\n\n\n\n\n\n\nImportant\n\n\n\nBy the end of this week your project should look like this example (obviously with more detail and specific to your project)!\n\n\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.\nMethod Justification: I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.\nAssumption Check: | Assumption | Status | |————|——–| | Independence of residuals | 🟢 Checked: and it holds | | Normality of random effects | 🟡 Haven’t checked yet: but I could by next class | | No spatial autocorrelation | 🔴 Can’t fully check: need to acknowledge it and discuss it |"
+    "title": "Final Paper: Project Home",
+    "section": "9 Example Project Template",
+    "text": "9 Example Project Template\n\n\n\n\n\n\nImportant\n\n\n\nBy the end of this week your project should look like this example (obviously with more detail and specific to your project)!\n\n\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.\nMethod Justification: I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.\nAssumption Check: | Assumption | Status | |————|——–| | Independence of residuals | 🟢 Checked: and it holds |\n| Normality of random effects | 🟡 Haven’t checked yet: but I could by next class | | No spatial autocorrelation | 🔴 Can’t fully check: need to acknowledge it and discuss it |"
   },
   {
     "objectID": "projects/weekly-self-assessment.html",
     "href": "projects/weekly-self-assessment.html",
     "title": "Weekly Self-Assessment",
     "section": "",
-    "text": "How to use this page\n\n\n\nThis is a 10-minute check-in to do at the start of every Thursday workshop. Work through it on your own, then share briefly with a neighbor. Be honest — this is for you, not for a grade."
+    "text": "How to use this page\n\n\n\nThis is a 10-minute check-in to do at the start of every Thursday workshop. Work through it on your own, you can share with me or with a neighbor if you want, but the main point is to get you in the habit of checking in with yourself about your progress and timeline."
   },
   {
-    "objectID": "projects/weekly-self-assessment.html#step-1-open-your-project-readme-2-min",
-    "href": "projects/weekly-self-assessment.html#step-1-open-your-project-readme-2-min",
+    "objectID": "projects/weekly-self-assessment.html#step-1.-open-your-project-readme-2-min",
+    "href": "projects/weekly-self-assessment.html#step-1.-open-your-project-readme-2-min",
     "title": "Weekly Self-Assessment",
-    "section": "Step 1 — Open your project README (2 min)",
-    "text": "Step 1 — Open your project README (2 min)\nGo to your GitHub repository and open your README.md. Find your Expected Timeline section.\n\nIf you have not written a timeline yet, do that now. Use the template in the Project Home."
+    "section": "Step 1. Open your project README (2 min)",
+    "text": "Step 1. Open your project README (2 min)\nGo to your GitHub repository and open your README.md. Find your Expected Timeline section. In case you do not have your files on Github, this should be the time you make it and share it with me\n\nIf you have not written a timeline yet, do that now. Use the template in the Project Home."
   },
   {
-    "objectID": "projects/weekly-self-assessment.html#step-2-reflect-on-last-week-3-min",
-    "href": "projects/weekly-self-assessment.html#step-2-reflect-on-last-week-3-min",
+    "objectID": "projects/weekly-self-assessment.html#step-2.-reflect-on-last-week-3-min",
+    "href": "projects/weekly-self-assessment.html#step-2.-reflect-on-last-week-3-min",
     "title": "Weekly Self-Assessment",
-    "section": "Step 2 — Reflect on last week (3 min)",
-    "text": "Step 2 — Reflect on last week (3 min)\nAnswer the following in a few words or sentences. You can write directly in your README or on paper.\nWhat did you plan to accomplish last week?\n\nWhat did you actually get done?\n\nWhat got in the way, if anything?"
+    "section": "Step 2. Reflect on last week (3 min)",
+    "text": "Step 2. Reflect on last week (3 min)\nAnswer the following in a few words or sentences. You can write directly them down, on paper or in your README.\nWhat did you plan to accomplish last week?\n\nWhat did you actually get done?\n\nWhat got in the way, if anything?"
   },
   {
-    "objectID": "projects/weekly-self-assessment.html#step-3-where-are-you-right-now-1-min",
-    "href": "projects/weekly-self-assessment.html#step-3-where-are-you-right-now-1-min",
+    "objectID": "projects/weekly-self-assessment.html#step-3.-where-are-you-right-now-1-min",
+    "href": "projects/weekly-self-assessment.html#step-3.-where-are-you-right-now-1-min",
     "title": "Weekly Self-Assessment",
-    "section": "Step 3 — Where are you right now? (1 min)",
-    "text": "Step 3 — Where are you right now? (1 min)\nPick one:\n\n\n\n\n\n\nStatus Check\n\n\n\n⬜ 🟢 On track or ahead — my timeline is still realistic\n⬜ 🟡 Slightly behind — I know what I need to do to catch up\n⬜ 🔴 Significantly behind — I need to re-plan or get help\n\n\nIf you selected 🟡 or 🔴: write one concrete step you will take this week to get back on track.\n(Example: “I will finish cleaning my data file by Wednesday so I can run a model on Thursday.”)"
+    "section": "Step 3. Where are you right now? (1 min)",
+    "text": "Step 3. Where are you right now? (1 min)\nPick one:\n\n\n\n\n\n\nStatus Check\n\n\n\n⬜ 🟢 On track or ahead - my timeline is still realistic\n⬜ 🟡 Slightly behind - I know what I need to do to catch up\n⬜ 🔴 Significantly behind - I need to re-plan or get help or change my overall plan\n\n\nIf you selected 🟡 or 🔴: write one concrete step you will take this week to get back on track.\n(Example: “I will finish cleaning my data file by Wednesday so I can run a model on Thursday.”)"
   },
   {
-    "objectID": "projects/weekly-self-assessment.html#step-4-update-your-timeline-if-needed-2-min",
-    "href": "projects/weekly-self-assessment.html#step-4-update-your-timeline-if-needed-2-min",
+    "objectID": "projects/weekly-self-assessment.html#step-4---update-your-timeline-if-needed-2-min",
+    "href": "projects/weekly-self-assessment.html#step-4---update-your-timeline-if-needed-2-min",
     "title": "Weekly Self-Assessment",
-    "section": "Step 4 — Update your timeline if needed (2 min)",
-    "text": "Step 4 — Update your timeline if needed (2 min)\nIf your status is 🟡 or 🔴, revise your Expected Timeline in your README now.\nIf your status is 🟢, confirm that the next two weeks of your timeline are still realistic.\n\n\n\n\n\n\nOne thing I will finish by the end of this week\n\n\n\nWrite it here (or in your README). Make it specific and achievable in the time you have.\n\n\n\n\n\n\n\n\n\n\nWhy do this every week?\n\n\n\nBrief, repeated self-monitoring is one of the most consistent findings in educational research for improving long-term project completion. Checking in weekly rather than just at the end helps you catch small problems before they become large ones. You should do this for your thesis/dissertation as well!!!\n\n\n\nReturn to Project Home · See also: Progress Presentation Instructions"
+    "section": "Step 4 - Update your timeline if needed (2 min)",
+    "text": "Step 4 - Update your timeline if needed (2 min)\nIf your status is 🟡 or 🔴, revise your Expected Timeline in your README now.\nIf your status is 🟢, confirm that the next two weeks of your timeline are still realistic.\n\n\n\n\n\n\nOne thing I will finish by the end of this week\n\n\n\nWrite it down. Make it specific and achievable in the time you have.You will review it next week.\n\n\n\n\n\n\n\n\n\n\nWhy do this every week?\n\n\n\nBrief, repeated self-monitoring is one of the most consistent findings in educational research for improving long-term project completion. Checking in weekly rather than just at the end helps you catch small problems before they become large ones. You should do this for your thesis/dissertation as well!!!\n\n\n\nReturn to Project Home · See also: Progress Presentation Instructions"
   },
   {
     "objectID": "slides/notes-week01.html#zuur-paper-a-protocol-for-data-exploration-to-avoid-common-statistical-problems",

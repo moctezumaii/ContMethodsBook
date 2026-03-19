@@ -1,6 +1,6 @@
 ---
 title: "Weekly Self-Assessment"
-subtitle: "First 10 Minutes of Workshop — Bring this open every Thursday"
+subtitle: "First 10 Minutes of Every Workshop: open this every Thursday"
 format: html
 number-sections: false
 ---
@@ -8,22 +8,22 @@ number-sections: false
 ::: {.callout-note}
 ## How to use this page
 
-This is a **10-minute check-in** to do at the start of every Thursday workshop. Work through it on your own, then share briefly with a neighbor. Be honest — this is for you, not for a grade.
+This is a **10-minute check-in** to do at the start of every Thursday workshop. Work through it on your own, you can share with me or with a neighbor if you want, but the main point is to get you in the habit of checking in with yourself about your progress and timeline.
 :::
 
 ---
 
-## Step 1 — Open your project README (2 min)
+## Step 1. Open your project README (2 min)
 
-Go to your GitHub repository and open your `README.md`. Find your **Expected Timeline** section.
+Go to your GitHub repository and open your `README.md`. Find your **Expected Timeline** section. In case you do not have your files on Github, this should be the time you make it and share it with me
 
 - If you have not written a timeline yet, do that now. Use the template in the [Project Home](index.html).
 
 ---
 
-## Step 2 — Reflect on last week (3 min)
+## Step 2. Reflect on last week (3 min)
 
-Answer the following in a few words or sentences. You can write directly in your README or on paper.
+Answer the following in a few words or sentences. You can write directly them down, on paper or in your README. 
 
 **What did you plan to accomplish last week?**
 
@@ -41,16 +41,16 @@ Answer the following in a few words or sentences. You can write directly in your
 
 ---
 
-## Step 3 — Where are you right now? (1 min)
+## Step 3. Where are you right now? (1 min)
 
 Pick one:
 
 ::: {.callout-tip}
 ## Status Check
 
-⬜ 🟢 **On track or ahead** — my timeline is still realistic  
-⬜ 🟡 **Slightly behind** — I know what I need to do to catch up  
-⬜ 🔴 **Significantly behind** — I need to re-plan or get help
+⬜ 🟢 **On track or ahead** - my timeline is still realistic  
+⬜ 🟡 **Slightly behind** - I know what I need to do to catch up  
+⬜ 🔴 **Significantly behind** - I need to re-plan or get help or change my overall plan
 
 :::
 
@@ -62,7 +62,7 @@ If you selected 🟡 or 🔴: write **one concrete step** you will take this wee
 
 ---
 
-## Step 4 — Update your timeline if needed (2 min)
+## Step 4 - Update your timeline if needed (2 min)
 
 If your status is 🟡 or 🔴, revise your Expected Timeline in your README now.
 
@@ -71,7 +71,7 @@ If your status is 🟢, confirm that the **next two weeks** of your timeline are
 ::: {.callout-important}
 ## One thing I will finish by the end of this week
 
-Write it here (or in your README). Make it specific and achievable in the time you have.
+Write it down. Make it specific and achievable in the time you have.You will review it next week.
 
 <br><br>
 

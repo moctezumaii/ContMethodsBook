@@ -8,7 +8,7 @@ number-sections: false
 ::: {.callout-note}
 ## What this is
 
-Next week during workshop time, each student will give a **3–5 minute informal progress update** on their project. This is not a formal presentation. It is a check-in designed to help you articulate where you are, get quick feedback from your peers, and identify what you need to do next.
+Next week during workshop time, each student will give a 3–5 minute informal progress update on their project. This is not a formal presentation, more of a check-in to share what you've done, where you are, and get feedback from your peers. 
 
 :::
 
@@ -22,7 +22,6 @@ These short updates serve three goals:
 2. **Feedback**: your peers can ask questions you haven't thought of yet.
 3. **Practice**: articulating your methods and results out loud is a core research skill.
 
-Think of this as a progress briefing
 
 ---
 
@@ -32,9 +31,9 @@ Think of this as a progress briefing
 |---------|------|
 | Your update | 3–5 minutes |
 | Peer questions | 1–2 minutes |
-| Instructor comment (if any) | < 1 minute |
+| Transition | < 1 minute |
 
-**Total per student:** approximately 5–7 minutes Hopefully tehre's time for all of you
+**Total per student:** approximately 5–7 minutes Hopefully there's time for all of you
 
 ---
 
@@ -43,8 +42,8 @@ Think of this as a progress briefing
 ::: {.callout-important}
 ## Checklist — Prepare before you arrive
 
-⬜ One specific thing to show — a figure, output, table, or code chunk  
-⬜ Your updated timeline (in your README)  
+⬜ One specific thing to show -> a figure, output, table, or code chunk  
+⬜ Your updated timeline
 ⬜ One open question you want feedback on  
 ⬜ Your assumption check table (even if incomplete)
 
