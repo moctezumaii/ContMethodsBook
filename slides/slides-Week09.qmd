@@ -133,10 +133,13 @@ model <- lmer(Yield ~ Tillage * Fertilizer + (1 | Block/WU), data = data)
 #| echo: true
 #| eval: true
 
-# Source the simulation and plotting code
+# Source the simulation and plotting code from the repo.
+# This script (projects/examplesplitplot.R) creates:
+#   - data: a data.frame with Tillage, Fertilizer, Replicate, Yield, WU, Block
+#   - model: an lmer fit (Yield ~ Tillage * Fertilizer + (1 | Block/WU))
+#   - p: a ggplot object showing the simulated split-plot data
 source("projects/examplesplitplot.R")
 
-# The sourced script creates: data, model, and plot p
 # Display the ANOVA table
 anova(model)
 ```
