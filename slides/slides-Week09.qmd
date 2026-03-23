@@ -1,0 +1,230 @@
+---
+title: "Week 9 - Split-Plot Demo"
+subtitle: "SNR 690 - Contemporary Approaches to Quantitative Methods"
+author: "For instructor demo"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    incremental: false
+    scrollable: true
+    code-fold: false
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Split-Plot Designs: Quick Demo
+
+**Purpose:** 5-8 minute instructor-led walkthrough of split-plot design concepts and R code.
+
+**Reading:** Adcock et al. (1999) - No-tillage culture and nitrogen fertilizer management for burley tobacco production.
+
+<https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10>
+
+---
+
+## The Cambridge Paper at a Glance
+
+- **Goal:** Compare tillage methods (conventional vs. no-till) and nitrogen fertilizer rates on burley tobacco yield
+- **Design:** Split-plot with tillage as the main-plot factor and fertilizer as the subplot factor
+- **Main plots:** Tillage (CT, NT) - applied to whole plots because tillage requires large equipment
+- **Subplots:** Fertilizer (0, 140, 280 kg N/ha) - can vary within a main plot
+- **Replicates:** 4 blocks (randomized complete block design at the main-plot level)
+
+---
+
+## Split-Plot Design Diagram
+
+```{r}
+#| label: fig-splitplot-diagram
+#| fig-cap: "Schematic of a split-plot design with 2 tillage levels and 3 fertilizer rates across 4 blocks."
+#| fig-width: 9
+#| fig-height: 5
+#| echo: true
+
+library(ggplot2)
+
+# Build a schematic of the split-plot layout
+blocks <- rep(1:4, each = 6)
+tillage <- rep(rep(c("CT", "NT"), each = 3), 4)
+fertilizer <- rep(c("0", "140", "280"), 8)
+
+diagram_data <- data.frame(
+  Block = factor(blocks),
+  Tillage = tillage,
+  Fertilizer = fertilizer
+)
+
+# Create x and y positions for the grid
+diagram_data$x <- as.numeric(diagram_data$Block)
+diagram_data$y <- ifelse(diagram_data$Tillage == "CT", 2, 1)
+fert_offset <- ifelse(diagram_data$Fertilizer == "0", -0.25,
+               ifelse(diagram_data$Fertilizer == "140", 0, 0.25))
+diagram_data$x <- diagram_data$x + fert_offset
+
+diagram_data$label <- paste0(diagram_data$Tillage, "\n", diagram_data$Fertilizer, " kg N")
+
+ggplot(diagram_data, aes(x = x, y = y, fill = Fertilizer)) +
+  geom_tile(width = 0.22, height = 0.6, color = "black") +
+  geom_text(aes(label = label), size = 2.3) +
+  scale_fill_manual(
+    values = c("0" = "#a6d96a", "140" = "#fdae61", "280" = "#d73027"),
+    name = "Fertilizer\n(kg N/ha)"
+  ) +
+  scale_y_continuous(
+    breaks = c(1, 2),
+    labels = c("NT (No-Till)", "CT (Conventional)"),
+    limits = c(0.3, 2.7)
+  ) +
+  scale_x_continuous(
+    breaks = 1:4,
+    labels = paste("Block", 1:4)
+  ) +
+  labs(
+    title = "Split-Plot Layout",
+    x = "Block (Replicate)",
+    y = "Main Plot (Tillage)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(panel.grid = element_blank())
+```
+
+---
+
+## Key Properties of Split-Plot Designs
+
+- **Two levels of randomization:**
+  - Main-plot factor (tillage) is randomized across whole plots within each block
+  - Subplot factor (fertilizer) is randomized within each main plot
+- **Two error terms:**
+  - Main-plot error: variation among main plots within blocks (used to test tillage)
+  - Subplot error: variation among subplots within main plots (used to test fertilizer and the interaction)
+- **Why split-plot?** Some factors (e.g., tillage) are hard or impractical to apply at a small scale
+
+---
+
+## The Model
+
+In R, we fit the split-plot model using `lmer` from the `lme4` package:
+
+```r
+# Yield ~ fixed effects + random effects
+# Tillage * Fertilizer = Tillage + Fertilizer + Tillage:Fertilizer
+# (1 | Block/WU) = random intercept for Block and whole-plot unit nested in Block
+
+model <- lmer(Yield ~ Tillage * Fertilizer + (1 | Block/WU), data = data)
+```
+
+| Term | Meaning |
+|------|---------|
+| `Tillage * Fertilizer` | Fixed effects: main effects and interaction |
+| `(1 | Block)` | Random effect for blocks (replicates) |
+| `(1 | Block:WU)` | Random effect for whole-plot units (main-plot error) |
+| Residual | Subplot error |
+
+---
+
+## Fitting the Model in R
+
+```{r}
+#| label: fit-splitplot-model
+#| echo: true
+#| eval: true
+
+# Source the simulation and plotting code
+source("projects/examplesplitplot.R")
+
+# The sourced script creates: data, model, and plot p
+# Display the ANOVA table
+anova(model)
+```
+
+---
+
+## Model Summary
+
+```{r}
+#| label: model-summary
+#| echo: true
+#| eval: true
+
+summary(model)
+```
+
+---
+
+## Diagnostic Plot: Residuals vs Fitted
+
+```{r}
+#| label: fig-diagnostics
+#| fig-cap: "Residuals vs fitted values for the split-plot model. Look for patterns indicating model misspecification."
+#| fig-width: 7
+#| fig-height: 4.5
+#| echo: true
+#| eval: true
+
+# Diagnostic plot: residuals vs fitted values
+diag_data <- data.frame(
+  Fitted = fitted(model),
+  Residuals = residuals(model)
+)
+
+ggplot(diag_data, aes(x = Fitted, y = Residuals)) +
+  geom_point(alpha = 0.7, size = 2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  labs(
+    title = "Residuals vs Fitted Values",
+    x = "Fitted Values",
+    y = "Residuals"
+  ) +
+  theme_minimal(base_size = 14)
+```
+
+---
+
+## Interpreting the Results
+
+- **Main-plot effect (Tillage):** Tested against the whole-plot error. A significant tillage effect means the two tillage methods produce different average yields.
+- **Subplot effect (Fertilizer):** Tested against the subplot (residual) error. A significant fertilizer effect means nitrogen rate influences yield.
+- **Interaction (Tillage x Fertilizer):** Also tested against subplot error. A significant interaction means the fertilizer effect depends on which tillage method is used.
+- **Check:** The whole-plot error variance should be non-negligible. If it is near zero, the split-plot structure may not be needed.
+
+---
+
+## Practical Tips
+
+- **Balance:** Ensure equal replication of all treatment combinations within each block.
+- **Blocking:** Use blocks to control for known sources of variation (e.g., field position, soil type).
+- **Diagnostics:** Always check residual plots for non-constant variance or non-normality.
+- **Random vs. fixed:** The whole-plot grouping factor must be random. If you treat it as fixed, you underestimate the main-plot error.
+- **Software:** `lme4::lmer` and `nlme::lme` both handle split-plot models. Use `car::Anova()` or `anova()` for Type III tests.
+
+---
+
+## Next Steps
+
+**Student activity (10 min):**
+
+1. Write a split-plot experiment proposal for your thesis or research area.
+2. Identify your main-plot factor and subplot factor.
+3. Describe how you would analyze the data (e.g., write out the `lmer` call).
+
+Share with a neighbor and be ready to discuss.
+
+---
+
+## References
+
+- **Cambridge paper:** Adcock, C. W., Farthing, G. R., & Williams, J. D. (1999). No-tillage culture and nitrogen fertilizer management for burley tobacco production. *Journal of Agricultural Science*. <https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10>
+- **R code:** `projects/examplesplitplot.R` - source with `source("projects/examplesplitplot.R")`
+- **Packages:** `lme4`, `car`, `ggplot2`, `dplyr`
+
+```{r}
+#| label: install-note
+#| eval: false
+#| echo: true
+# Install required packages if needed:
+install.packages(c("lme4", "car", "ggplot2", "dplyr"))
+```

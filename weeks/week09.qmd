@@ -1,0 +1,248 @@
+---
+title: "Week 9 - Split-Plot Designs"
+author: "SNR 690"
+date: "Week 9"
+format: html
+categories: [split-plot, experimental design]
+---
+
+# Week Overview
+
+**Week 9 - Split-Plot Designs and Student Lecture**
+
+This week we examine split-plot experimental designs using a study on no-tillage culture and nitrogen fertilizer management for burley tobacco production. The primary reading is:
+
+> Adcock, C. W., Farthing, G. R., & Williams, J. D. (1999). No-tillage culture and nitrogen fertilizer management for burley tobacco production. *Journal of Agricultural Science*, Cambridge University Press.
+> <https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10>
+
+The Cambridge paper uses a split-plot design to study how tillage method (main plot) and nitrogen fertilizer rates (subplot) affect tobacco yield. We pair this paper with a hands-on R demo using the simulation code in `projects/examplesplitplot.R`.
+
+---
+
+::: {.callout-tip}
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. Explain the structure and assumptions of a split-plot experimental design.
+2. Draw and interpret split-plot allocation including main plots and subplots.
+3. Implement and interpret a split-plot analysis in R using `projects/examplesplitplot.R` as a template.
+4. Critically evaluate a split-plot experiment from the Cambridge paper.
+5. Design a split-plot experiment relevant to the student's research question.
+:::
+
+---
+
+# Schedule
+
+| Time | Activity | Duration |
+|------|----------|----------|
+| 0:00-0:15 | Pre-lecture activation (individual writing) | 15 min |
+| 0:15-0:45 | Student lecture on the Cambridge paper | 25-30 min |
+| 0:45-0:52 | Discussion and Q&A | 5-7 min |
+| 0:52-1:00 | Instructor slideshow demo | 5-8 min |
+| 1:00-1:10 | Student writing task (split-plot proposal) | 10 min |
+| 1:10-1:15 | Optional SoTL activity / wrap-up | 5 min |
+
+---
+
+# Session A (75 minutes)
+
+## Pre-Lecture Activation - 0:00-0:15 (15 min) {.unnumbered}
+
+::: {.callout-important}
+## Pre-Lecture Writing (not submitted)
+
+**Write the following for your own notes. You will not submit these. Be ready to share your answers with classmates.**
+
+1. **Draw the experimental design** from the Cambridge paper. Sketch main plots and subplots and label the treatments (tillage and fertilizer levels).
+2. **List three study objectives** in one or two sentences each.
+3. **Define a split-plot design** in one or two sentences and note why one might use it. You may briefly research this.
+4. **Come up with an experiment** using a split-plot design relevant to your area of expertise. The experiment can be a short description or bullet points. After writing, you will share your experiment with classmates.
+:::
+
+**Instructor note:** I give students the full 15 minutes for this writing. I circulate the room and prompt students who seem stuck. At the 12-minute mark, I ask a few volunteers to share their answer to item 4. This warms up discussion for the student lecture.
+
+---
+
+## Student Lecture - 0:15-0:45 (25-30 min) {.unnumbered}
+
+The assigned student will teach the class about the Cambridge paper, focusing on experimental setup, split-plot structure, randomization scheme, outcome measures, key results, and methods.
+
+### Student Lecturer Checklist
+
+I provide this checklist to the student presenter before class. During the lecture, I use it to track coverage:
+
+- [ ] **Draw the design:** Sketch main plots (tillage) and subplots (fertilizer) on the board or slide. Label blocks, treatments, and replication.
+- [ ] **Summarize methods:** Describe how data were collected, the number of replicates, and the randomization procedure.
+- [ ] **Specify the statistical model:** State what model was used (e.g., mixed model with whole-plot and subplot error terms) and explain why.
+- [ ] **Present main findings:** Highlight the key results for tillage, fertilizer, and their interaction.
+- [ ] **List limitations:** Identify at least two limitations of the study (e.g., number of replicates, generalizability, assumptions).
+
+**Instructor note:** If the student misses a checklist item, I gently prompt them during Q&A. I keep time and give a 5-minute warning.
+
+---
+
+## Post-Lecture Instructor Demo and Activities - 0:45-1:15 (30 min) {.unnumbered}
+
+### 1. Discussion - 0:45-0:52 (5-7 min) {.unnumbered}
+
+I lead a guided Q&A using students' pre-class assignment responses. Sample prompts:
+
+- "What question did you have about the paper that the lecture did not answer?"
+- "Did anyone identify a method concern or limitation?"
+- "Who wrote a split-plot experiment idea they would like to share?"
+
+### 2. Slideshow Demo - 0:52-1:00 (5-8 min) {.unnumbered}
+
+I run through the short slide deck: [slides/slides-Week09.qmd](../slides/slides-Week09.qmd)
+
+**How to run the demo:**
+
+1. Open R or RStudio at the repository root.
+2. Ensure required packages are installed:
+
+```{r}
+#| label: install-packages
+#| eval: false
+#| echo: true
+install.packages(c("lme4", "car", "ggplot2", "dplyr"))
+```
+
+3. Source the split-plot example code:
+
+```{r}
+#| label: source-splitplot
+#| eval: false
+#| echo: true
+source("projects/examplesplitplot.R")
+```
+
+4. Render the slides from the terminal:
+
+```bash
+quarto render slides/slides-Week09.qmd
+```
+
+The slides show: what a split-plot design is (with a diagram), the model and variance structure, R code to fit the model, an ANOVA table, and a diagnostic plot.
+
+### 3. Student Writing Task - 1:00-1:10 (10 min) {.unnumbered}
+
+Students individually write a split-plot experiment proposal relevant to their thesis or research interest. The proposal should include:
+
+- A brief description of the experiment (one to two paragraphs or bullet points)
+- Identification of the main-plot factor and subplot factor
+- How they would analyze the data (e.g., `lmer` syntax or conceptual model description)
+
+I circulate and offer feedback. Students can share with a neighbor for peer review.
+
+### 4. Optional SoTL Activity - 1:10-1:15 (5 min, if time permits) {.unnumbered}
+
+**SoTL idea: Comparing comprehension before and after a student-led lecture.**
+
+- **Data to collect:** Give students a 3-question quiz on split-plot designs (a) before the student lecture and (b) after the instructor demo. Compare paired scores.
+- **Plan:** Use a paired t-test or Wilcoxon signed-rank test on the pre/post scores. If you run this across multiple weeks with different student lecturers, you could also examine whether lecture quality predicts learning gains. This provides evidence for the pedagogical value of student-led teaching in a graduate methods course.
+
+---
+
+# Session B
+
+Follow the Canvas instructions. Session B consists of student presentations only.
+
+---
+
+# Student Responses (from pre-class assignment)
+
+Each student already completed the following five items before class. **Before class, paste all 10 student responses in the section below.**
+
+The five items each student answered:
+
+1. One question you have about the paper.
+2. One question you want Sarah to answer during the lecture.
+3. The method used in the paper.
+4. A criticism of the paper.
+5. Whether they could use something similar in their research (yes or no, plus one sentence).
+
+### Example row
+
+| Student | Question | Question for Sarah | Method | Criticism | Use in research? |
+|---------|----------|--------------------|--------|-----------|-------------------|
+| Example Student | How were blocks assigned to fields? | Can you explain the randomization of fertilizer levels? | Split-plot ANOVA with tillage as main plot and fertilizer as subplot | Only 4 replicates may limit power to detect small interaction effects. | Yes - I could use a split-plot to test irrigation method (main plot) and seed variety (subplot). |
+
+### PASTE STUDENT RESPONSES HERE
+
+<!-- Instructor: Replace this section with the actual 10 student responses before class.
+     Copy the table format above for each student, or paste a bullet list.
+     Example format for each student:
+
+     | Name | Q1 answer | Q2 answer | Method | Criticism | Use in research? |
+-->
+
+---
+
+# Assessment
+
+## Participation and Student Lecture Rubric
+
+| Criterion | Excellent (5) | Good (3-4) | Needs Improvement (1-2) |
+|-----------|---------------|------------|--------------------------|
+| **Design drawing** | Clear, accurate diagram with all labels | Mostly correct with minor omissions | Missing or inaccurate diagram |
+| **Methods summary** | Thorough, accurate description of data collection and randomization | Covers main points but misses details | Incomplete or inaccurate |
+| **Statistical model** | Correctly identifies and explains the split-plot model and error terms | Identifies the model but explanation is vague | Does not specify or incorrectly describes the model |
+| **Main findings** | Presents key results clearly with reference to data | Presents results but lacks clarity or specificity | Missing or incorrect findings |
+| **Limitations** | Identifies two or more meaningful limitations | Identifies one limitation | Does not discuss limitations |
+| **Class engagement** | Responds to questions, invites discussion | Answers questions but does not invite discussion | Does not engage with audience |
+
+**Participation:** I note which students contribute to the pre-lecture sharing, Q&A discussion, and writing task. Participation is assessed holistically, not per-item.
+
+---
+
+# Materials and Technology
+
+| Resource | Location / Link |
+|----------|-----------------|
+| Cambridge paper | <https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10> |
+| Slide deck | [slides/slides-Week09.qmd](../slides/slides-Week09.qmd) |
+| Split-plot R code | `projects/examplesplitplot.R` - source with `source("projects/examplesplitplot.R")` |
+| Required R packages | `lme4`, `car`, `ggplot2`, `dplyr` |
+
+**Install packages if missing:**
+
+```{r}
+#| label: install-deps
+#| eval: false
+#| echo: true
+install.packages(c("lme4", "car", "ggplot2", "dplyr"))
+```
+
+---
+
+# Accessibility and Inclusivity Notes
+
+- **Printed copies:** Offer printed copies of the lesson plan, slides, and the Cambridge paper for students who prefer paper.
+- **Alt text for diagrams:** All R-generated plots in the slides include descriptive labels and titles. When projecting diagrams, I describe the layout verbally (e.g., "The x-axis shows tillage type, each color represents a fertilizer level").
+- **Extra time:** Students who need additional time for the writing tasks can finish after class and submit via email or Canvas.
+- **Multiple modalities:** The pre-lecture activation includes drawing, writing, and discussion to engage visual, verbal, and social learners.
+- **Language support:** Key terms (split-plot, main plot, subplot, blocking, error term) are defined during the lecture and available in the slides for reference.
+
+---
+
+# Render Check
+
+To confirm this page renders locally, run from the repository root:
+
+```bash
+quarto render weeks/week09.qmd
+```
+
+If packages are missing, install them first:
+
+```r
+install.packages(c("lme4", "car", "ggplot2", "dplyr"))
+```
+
+The page does not execute R code by default (code chunks are set to `eval: false`), so it will render even without the packages installed. To run the code interactively, open R at the repository root and source the example script:
+
+```r
+source("projects/examplesplitplot.R")
+```
