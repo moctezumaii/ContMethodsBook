@@ -2252,5 +2252,89 @@
     "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
     "section": "6 Part 5: Work on your project.",
     "text": "6 Part 5: Work on your project."
+  },
+  {
+    "objectID": "slides/slides-Week09.html#split-plot-designs-quick-demo",
+    "href": "slides/slides-Week09.html#split-plot-designs-quick-demo",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Split-Plot Designs: Quick Demo",
+    "text": "Split-Plot Designs: Quick Demo\nPurpose: 5-8 minute instructor-led walkthrough of split-plot design concepts and R code.\nReading: No-tillage culture and nitrogen fertilizer management for burley tobacco production.\nhttps://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10"
+  },
+  {
+    "objectID": "slides/slides-Week09.html#the-paper-at-a-glance",
+    "href": "slides/slides-Week09.html#the-paper-at-a-glance",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "The Paper at a Glance",
+    "text": "The Paper at a Glance\n\nGoal: Compare tillage methods (conventional vs. no-till) and nitrogen fertilizer rates on burley tobacco yield\nDesign: Split-plot with tillage as the main-plot factor and fertilizer as the subplot factor\nMain plots: Tillage (CT, NT) - applied to whole plots because tillage requires large equipment\nSubplots: Fertilizer (0, 140, 280 kg N/ha) - can vary within a main plot\nReplicates: 4 blocks (randomized complete block design at the main-plot level)"
+  },
+  {
+    "objectID": "slides/slides-Week09.html#split-plot-design-diagram",
+    "href": "slides/slides-Week09.html#split-plot-design-diagram",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Split-Plot Design Diagram",
+    "text": "Split-Plot Design Diagram\n\n\nFigure 1: Schematic of a split-plot design with 2 tillage levels and 3 fertilizer rates across 4 blocks."
+  },
+  {
+    "objectID": "slides/slides-Week09.html#key-properties-of-split-plot-designs",
+    "href": "slides/slides-Week09.html#key-properties-of-split-plot-designs",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Key Properties of Split-Plot Designs",
+    "text": "Key Properties of Split-Plot Designs\n\nTwo levels of randomization:\n\nMain-plot factor (tillage) is randomized across whole plots within each block\nSubplot factor (fertilizer) is randomized within each main plot\n\nTwo error terms:\n\nMain-plot error: variation among main plots within blocks (used to test tillage)\nSubplot error: variation among subplots within main plots (used to test fertilizer and the interaction)\n\nWhy split-plot? Some factors (e.g., tillage) are hard or impractical to apply at a small scale"
+  },
+  {
+    "objectID": "slides/slides-Week09.html#the-model",
+    "href": "slides/slides-Week09.html#the-model",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "The Model",
+    "text": "The Model\nIn R, we fit the split-plot model using lmer from the lme4 package:\n# Yield ~ fixed effects + random effects\n# Tillage * Fertilizer = Tillage + Fertilizer + Tillage:Fertilizer\n# (1 | Block/WU) = random intercept for Block and whole-plot unit nested in Block\n\nmodel &lt;- lmer(Yield ~ Tillage * Fertilizer + (1 | Block/WU), data = data)\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nTillage * Fertilizer\nFixed effects: main effects and interaction\n\n\n(1 | Block)\nRandom effect for blocks (replicates)\n\n\n(1 | Block:WU)\nRandom effect for whole-plot units (main-plot error)\n\n\nResidual\nSubplot error"
+  },
+  {
+    "objectID": "slides/slides-Week09.html#fitting-the-model-in-r",
+    "href": "slides/slides-Week09.html#fitting-the-model-in-r",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Fitting the Model in R",
+    "text": "Fitting the Model in R\n\n# Source the simulation and plotting code from the repo.\n# This script (projects/examplesplitplot.R) creates:\n#   - data: a data.frame with Tillage, Fertilizer, Replicate, Yield, WU, Block\n#   - model: an lmer fit (Yield ~ Tillage * Fertilizer + (1 | Block/WU))\n#   - p: a ggplot object showing the simulated split-plot data\nsource(\"../projects/examplesplitplot.R\")\n\n# Display the ANOVA table\nanova(model)\n\nAnalysis of Variance Table\n                   npar  Sum Sq Mean Sq  F value\nTillage               1   723.8   723.8  27.0436\nFertilizer            2 12843.6  6421.8 239.9364\nTillage:Fertilizer    2    38.1    19.1   0.7121"
+  },
+  {
+    "objectID": "slides/slides-Week09.html#model-summary",
+    "href": "slides/slides-Week09.html#model-summary",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Model Summary",
+    "text": "Model Summary\n\nsummary(model)\n\nLinear mixed model fit by REML ['lmerMod']\nFormula: Yield ~ Tillage * Fertilizer + (1 | Block/WU)\n   Data: data\n\nREML criterion at convergence: 118.6\n\nScaled residuals: \n    Min      1Q  Median      3Q     Max \n-1.7507 -0.5957 -0.0413  0.4511  1.8075 \n\nRandom effects:\n Groups   Name        Variance  Std.Dev. \n WU:Block (Intercept) 0.000e+00 0.000e+00\n Block    (Intercept) 3.282e-17 5.729e-09\n Residual             2.676e+01 5.173e+00\nNumber of obs: 24, groups:  WU:Block, 8; Block, 4\n\nFixed effects:\n                        Estimate Std. Error t value\n(Intercept)               61.253      2.587  23.680\nTillageNT                -13.575      3.658  -3.711\nFertilizer140             25.807      3.658   7.055\nFertilizer280             55.778      3.658  15.248\nTillageNT:Fertilizer140    6.007      5.173   1.161\nTillageNT:Fertilizer280    1.768      5.173   0.342\n\nCorrelation of Fixed Effects:\n            (Intr) TllgNT Frt140 Frt280 TNT:F1\nTillageNT   -0.707                            \nFertilzr140 -0.707  0.500                     \nFertilzr280 -0.707  0.500  0.500              \nTllgNT:F140  0.500 -0.707 -0.707 -0.354       \nTllgNT:F280  0.500 -0.707 -0.354 -0.707  0.500\noptimizer (nloptwrap) convergence code: 0 (OK)\nboundary (singular) fit: see help('isSingular')"
+  },
+  {
+    "objectID": "slides/slides-Week09.html#diagnostic-plot-residuals-vs-fitted",
+    "href": "slides/slides-Week09.html#diagnostic-plot-residuals-vs-fitted",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Diagnostic Plot: Residuals vs Fitted",
+    "text": "Diagnostic Plot: Residuals vs Fitted\n\n\nFigure 2: Residuals vs fitted values for the split-plot model. Look for patterns indicating model misspecification."
+  },
+  {
+    "objectID": "slides/slides-Week09.html#interpreting-the-results",
+    "href": "slides/slides-Week09.html#interpreting-the-results",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Interpreting the Results",
+    "text": "Interpreting the Results\n\nMain-plot effect (Tillage): Tested against the whole-plot error. A significant tillage effect means the two tillage methods produce different average yields.\nSubplot effect (Fertilizer): Tested against the subplot (residual) error. A significant fertilizer effect means nitrogen rate influences yield.\nInteraction (Tillage x Fertilizer): Also tested against subplot error. A significant interaction means the fertilizer effect depends on which tillage method is used.\nCheck: The whole-plot error variance should be non-negligible. If it is near zero, the split-plot structure may not be needed."
+  },
+  {
+    "objectID": "slides/slides-Week09.html#practical-tips",
+    "href": "slides/slides-Week09.html#practical-tips",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Practical Tips",
+    "text": "Practical Tips\n\nBalance: Ensure equal replication of all treatment combinations within each block.\nBlocking: Use blocks to control for known sources of variation (e.g., field position, soil type).\nDiagnostics: Always check residual plots for non-constant variance or non-normality.\nRandom vs. fixed: The whole-plot grouping factor must be random. If you treat it as fixed, you underestimate the main-plot error.\nSoftware: lme4::lmer and nlme::lme both handle split-plot models. Use car::Anova() or anova() for Type III tests."
+  },
+  {
+    "objectID": "slides/slides-Week09.html#next-steps",
+    "href": "slides/slides-Week09.html#next-steps",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "Next Steps",
+    "text": "Next Steps\nStudent activity (10 min):\n\nWrite a split-plot experiment proposal for your thesis or research area.\nIdentify your main-plot factor and subplot factor.\nDescribe how you would analyze the data (e.g., write out the lmer call).\n\nShare with a neighbor and be ready to discuss."
+  },
+  {
+    "objectID": "slides/slides-Week09.html#references",
+    "href": "slides/slides-Week09.html#references",
+    "title": "Week 9 - Split-Plot Demo",
+    "section": "References",
+    "text": "References\n\nCambridge paper: Adcock, C. W., Farthing, G. R., & Williams, J. D. (1999). No-tillage culture and nitrogen fertilizer management for burley tobacco production. Journal of Agricultural Science. https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10\nR code: projects/examplesplitplot.R - source with source(\"projects/examplesplitplot.R\")\nPackages: lme4, car, ggplot2, dplyr\n\n\n# Install required packages if needed:\ninstall.packages(c(\"lme4\", \"car\", \"ggplot2\", \"dplyr\"))"
   }
 ]

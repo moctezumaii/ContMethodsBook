@@ -1,7 +1,6 @@
 ---
 title: "Week 9 - Split-Plot Demo"
 subtitle: "SNR 690 - Contemporary Approaches to Quantitative Methods"
-author: "For instructor demo"
 format:
   revealjs:
     theme: default
@@ -19,13 +18,13 @@ execute:
 
 **Purpose:** 5-8 minute instructor-led walkthrough of split-plot design concepts and R code.
 
-**Reading:** Adcock et al. (1999) - No-tillage culture and nitrogen fertilizer management for burley tobacco production.
+**Reading:** No-tillage culture and nitrogen fertilizer management for burley tobacco production.
 
 <https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10>
 
 ---
 
-## The Cambridge Paper at a Glance
+## The Paper at a Glance
 
 - **Goal:** Compare tillage methods (conventional vs. no-till) and nitrogen fertilizer rates on burley tobacco yield
 - **Design:** Split-plot with tillage as the main-plot factor and fertilizer as the subplot factor
@@ -42,7 +41,7 @@ execute:
 #| fig-cap: "Schematic of a split-plot design with 2 tillage levels and 3 fertilizer rates across 4 blocks."
 #| fig-width: 9
 #| fig-height: 5
-#| echo: true
+#| echo: false
 
 library(ggplot2)
 
@@ -138,7 +137,7 @@ model <- lmer(Yield ~ Tillage * Fertilizer + (1 | Block/WU), data = data)
 #   - data: a data.frame with Tillage, Fertilizer, Replicate, Yield, WU, Block
 #   - model: an lmer fit (Yield ~ Tillage * Fertilizer + (1 | Block/WU))
 #   - p: a ggplot object showing the simulated split-plot data
-source("projects/examplesplitplot.R")
+source("../projects/examplesplitplot.R")
 
 # Display the ANOVA table
 anova(model)
@@ -165,7 +164,7 @@ summary(model)
 #| fig-cap: "Residuals vs fitted values for the split-plot model. Look for patterns indicating model misspecification."
 #| fig-width: 7
 #| fig-height: 4.5
-#| echo: true
+#| echo: false
 #| eval: true
 
 # Diagnostic plot: residuals vs fitted values
