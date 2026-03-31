@@ -131,7 +131,7 @@ detection_history <- matrix(
     0, 0, 0, 0, 0,   # Site 6
     1, 1, 0, 0, 1),  # Site 7
   nrow = 7, ncol = 5, byrow = TRUE,
-  dimnames = list(paste("Site", 1:7), paste("V", 1:5))
+  dimnames = list(paste("Site", 1:7), paste("Visit", 1:5))
 )
 
 detection_history
