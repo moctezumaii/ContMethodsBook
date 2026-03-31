@@ -1,0 +1,421 @@
+---
+title: "Week 10 - Occupancy Modeling (Instructor)"
+author: "SNR 690"
+date: "Week 10"
+format: html
+categories: [occupancy, detection probability, imperfect detection]
+---
+
+# Week Overview
+
+**Week 10 - Occupancy Modeling & Student Presentations (Instructor-Only Plan)**
+
+::: {.callout-important}
+## Instructor-Only Document
+
+This document contains facilitation notes, timing guidance, and pedagogical scaffolding for the instructor. It is **not** intended for student distribution.
+:::
+
+This week introduces single-season occupancy models using a student-led discussion of an MDPI paper on drone-based wildlife surveys. The session emphasizes the fundamental insight that **non-detection ≠ absence** and how occupancy models account for imperfect detection.
+
+**Primary Paper (Student Lecture):**
+
+> Figueira, M., et al. (2024). Use of Drones as a Tool for Wildlife Monitoring: A Systematic Review. *Fishes*, 9(11), 454. <https://www.mdpi.com/2410-3888/9/11/454>
+
+---
+
+::: {.callout-tip}
+## Learning Objectives
+
+By the end of this session, students will be able to:
+
+1. Explain the difference between occupancy (ψ) and detection probability (p) in single-season occupancy models.
+2. Describe why repeated visits are necessary to distinguish non-detection from true absence.
+3. Interpret a detection history matrix and explain what each row/column represents.
+4. Apply Bayesian reasoning to estimate presence probability given a detection history of all zeros.
+5. Critically evaluate how a paper's methods align with its stated objectives and data structure.
+6. Identify potential applications of occupancy modeling to their own research systems.
+:::
+
+---
+
+# Session Structure
+
+::: {.callout-note}
+## No Session B This Week
+
+This week has **Session A only** (75 minutes total). There is **no Session B**. The time normally allocated to Session B has been converted into extended in-class project work time within Session A.
+:::
+
+---
+
+# Schedule
+
+| Time | Activity | Duration |
+|------|----------|----------|
+| 0:00–0:05 | Entry ticket: retrieval practice | 5 min |
+| 0:05–0:15 | Instructor intro + activation (occupancy concepts) | 10 min |
+| 0:15–0:53 | Student Presentations (total ~38 min) | |
+|           | — Paper lecture (Lexie): drone-based monitoring | ~31 min |
+|           | — Progress report (strictly timed) | 7 min |
+| 0:53–1:00 | Challenge questions for presenter + synthesis | 7 min |
+| 1:00–1:10 | Occupancy challenge activity (Think-Pair-Share) | 10 min |
+| 1:10–1:15 | Minute paper + transition to project work | 5 min |
+
+**Total:** 75 minutes
+
+---
+
+# Session A (75 minutes)
+
+## Pre-Class Student Responses {.unnumbered}
+
+::: {.callout-important}
+## Required Before Class
+
+Students must submit written responses to these questions **before** class (via Canvas or another system). Responses of "I don't know" or "these methods do not apply" are **not acceptable** for question 1.
+
+1. **Application to your system:** Describe one specific way you could use occupancy modeling or drone-based survey methods in your own research system. Be concrete—name the species/taxon, habitat, and why imperfect detection might matter.
+
+2. **Methods alignment:** Does the paper demonstrate logical alignment from research objectives → data collection → statistical methods? Why or why not? (2–3 sentences)
+
+3. **Question for Lexie:** Write one substantive question you want to ask the presenter about the paper, methods, or applications.
+:::
+
+**Instructor facilitation plan for pre-class responses:**
+
+- **Before class:** Skim all responses; group them by theme (e.g., "detection issues," "spatial scale," "cost/logistics," "statistical concerns").
+- **During entry ticket (0:00–0:05):** Project 2–3 anonymized student applications (question 1) as discussion prompts.
+- **During Q&A (0:53–1:00):** Use student questions (question 3) as the basis for challenge questions. Prioritize questions that probe methodological assumptions.
+- **If responses are thin:** Have 3 backup challenge questions ready (see below).
+
+---
+
+## Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min) {.unnumbered}
+
+::: {.callout-note}
+## SoTL Activity: Retrieval Practice
+
+**Purpose:** Activate prior knowledge from readings and prepare students for occupancy concepts.
+
+**Instructions:** On a notecard or device, write answers to:
+
+1. What is the difference between **presence** and **detection**?
+2. If you survey a site once and find nothing, what are two possible explanations?
+3. Define "detection probability" in one sentence.
+
+**Instructor note:** Do not collect these. Have 2–3 students share aloud. Use incorrect/partial answers as teaching moments (error-driven learning).
+:::
+
+**If students struggle:** Prompt with: "Think about a species you've tried to find in the field. Was it always there when you looked? Was it always absent when you didn't see it?"
+
+---
+
+## Instructor Introduction + Activation — 0:05–0:15 (10 min) {.unnumbered}
+
+**Format:** Brief instructor-led mini-lecture with slides.
+
+**Slide deck:** [slides/slides-Week10.qmd](../slides/slides-Week10.qmd)
+
+**Key concepts to cover (slides 1–3):**
+
+1. **Occupancy (ψ):** Probability a site is occupied by the target species.
+2. **Detection probability (p):** Probability of detecting the species *given* it is present.
+3. **Detection history:** Matrix of 1s (detection) and 0s (non-detection) across sites and visits.
+4. **Core insight:** A detection history of all 0s could mean:
+   - The species is truly absent, **OR**
+   - The species is present but was not detected on any visit.
+
+**Activation question (pose to class):**
+
+> *"If you visit a site 5 times and detect nothing each time, what is the probability the species is actually there? What information do you need to answer this?"*
+
+Allow 60 seconds for think time. Cold-call 1–2 students. Defer full answer to the challenge activity later.
+
+---
+
+## Student Lecture: Drone-Based Wildlife Monitoring — 0:15–0:46 (~31 min) {.unnumbered}
+
+**Presenter:** Lexie
+
+**Paper:** Figueira et al. (2024). Use of Drones as a Tool for Wildlife Monitoring: A Systematic Review. *Fishes*, 9(11), 454.
+
+**Instructor expectations for the lecture:**
+
+- Overview of systematic review scope and search strategy
+- Key findings on drone applications across taxa (mammals, birds, fish, etc.)
+- Detection considerations: how drones affect detection probability
+- Limitations and biases identified in the literature
+- Recommendations for future research
+
+**Instructor facilitation notes:**
+
+- If the presenter focuses only on "cool drone applications," gently redirect to methodological considerations.
+- Watch for opportunities to connect to occupancy concepts (detection rates, survey effort, spatial scale).
+- Note any methodological gaps the presenter identifies—these feed into the critique activity.
+
+---
+
+## Student Progress Report — 0:46–0:53 (7 min) {.unnumbered}
+
+**Format:** Strictly timed 7-minute progress report from a student on their course project.
+
+::: {.callout-important}
+## Strict Time Enforcement
+
+Use a visible timer. At 6:30, give a 30-second warning. At 7:00, politely but firmly interrupt if necessary. This teaches professional presentation skills and respects class time.
+:::
+
+**Required content:**
+
+- Current project status
+- Key decisions made since last update
+- One specific challenge or roadblock
+- Next steps
+
+---
+
+## Challenge Questions for Presenter + Synthesis — 0:53–1:00 (7 min) {.unnumbered}
+
+::: {.callout-note}
+## SoTL Activity: Peer Challenge Questions
+
+**Purpose:** Encourage critical engagement with the paper; practice constructive academic discourse.
+
+**Rules:**
+
+1. Audience members pose challenge questions (prioritize student-submitted questions from pre-class responses).
+2. The presenter must respond directly (45–60 sec per response).
+3. Questions must be substantive (not answerable with yes/no).
+4. Instructor supplements only if the presenter's answer is incomplete or a key concept was missed.
+:::
+
+**Backup challenge questions (use if student-submitted questions are insufficient):**
+
+1. "The review covers multiple taxa. How might detection probability differ between a thermal drone survey for mammals versus a visual drone survey for waterbirds? How does this affect the conclusions?"
+
+2. "What systematic biases might exist in the literature on drone surveys? How would these biases affect a meta-analysis?"
+
+3. "If a drone survey detects a species at 15 of 30 sites, but ground-truth data shows the species is present at 25 sites, what does this tell us about detection probability? How would you design a study to estimate p?"
+
+**Synthesis bridge (1–2 min):**
+
+> *"The drone paper highlights detection as a key issue. This connects directly to occupancy modeling, which explicitly separates detection from presence. Let's explore this with a hands-on challenge."*
+
+---
+
+## Occupancy Challenge Activity — 1:00–1:10 (10 min) {.unnumbered}
+
+**Format:** Think-Pair-Share with small-group discussion.
+
+**Slide deck:** Use slides 4–6 from [slides/slides-Week10.qmd](../slides/slides-Week10.qmd)
+
+### The Dataset {.unnumbered}
+
+Present the following detection history matrix. This represents 7 sites surveyed 5 times each for a cryptic species with low detection probability.
+
+| Site | Visit 1 | Visit 2 | Visit 3 | Visit 4 | Visit 5 |
+|------|---------|---------|---------|---------|---------|
+| 1    | 0       | 1       | 0       | 0       | 0       |
+| 2    | 0       | 0       | 0       | 0       | 0       |
+| 3    | 1       | 0       | 1       | 0       | 0       |
+| 4    | 0       | 0       | 0       | 0       | 0       |
+| 5    | 0       | 0       | 0       | 1       | 0       |
+| 6    | 0       | 0       | 0       | 0       | 0       |
+| 7    | 1       | 1       | 0       | 0       | 1       |
+
+**R code to construct the dataset:**
+
+```{r}
+#| label: detection-history
+#| echo: true
+#| eval: false
+
+# Detection history matrix for 7 sites, 5 visits
+# 1 = detected, 0 = not detected
+detection_history <- matrix(
+  c(
+    0, 1, 0, 0, 0,  # Site 1
+    0, 0, 0, 0, 0,  # Site 2
+    1, 0, 1, 0, 0,  # Site 3
+    0, 0, 0, 0, 0,  # Site 4
+    0, 0, 0, 1, 0,  # Site 5
+    0, 0, 0, 0, 0,  # Site 6
+    1, 1, 0, 0, 1   # Site 7
+  ),
+  nrow = 7, ncol = 5, byrow = TRUE,
+  dimnames = list(
+    paste("Site", 1:7),
+    paste("Visit", 1:5)
+  )
+)
+
+detection_history
+```
+
+### The Challenge Question {.unnumbered}
+
+::: {.callout-important}
+## Challenge
+
+An **8th site** is surveyed 5 times. The detection history is: **0, 0, 0, 0, 0** (no detections across all 5 visits).
+
+**What is the probability the species is actually present at Site 8?**
+
+You may use:
+
+- The observed data from Sites 1–7
+- Logical reasoning about detection probability
+- Bayes' theorem (conceptually)
+
+You do **not** need to compute an exact numerical answer—explain your reasoning.
+:::
+
+### Think (2 min) {.unnumbered}
+
+Students work individually. Write down:
+
+1. Your intuitive estimate of presence probability.
+2. What information from the data did you use?
+3. What assumptions did you make?
+
+### Pair (3 min) {.unnumbered}
+
+Discuss with a partner:
+
+- Compare your estimates and reasoning.
+- Identify where you agree/disagree.
+- Try to refine your estimate together.
+
+### Share (3–4 min) {.unnumbered}
+
+Instructor calls on 2–3 pairs to share their reasoning. Probe for:
+
+- How did you estimate detection probability?
+- How did prior occupancy rate inform your estimate?
+- Did you consider that all-zero sites could be true absences OR presence with non-detection?
+
+---
+
+### Instructor Facilitation Notes: Worked Solution Approach {.unnumbered}
+
+::: {.callout-tip}
+## High-Level Solution Approach (For Instructor Reference)
+
+**Key insight:** We need to distinguish between P(present | detected) and P(present | not detected).
+
+**Step 1: Estimate detection probability (p)**
+
+From sites where we *know* the species is present (Sites 1, 3, 5, 7 — they had at least one detection):
+
+- Site 1: 1 detection in 5 visits → 1/5 = 0.20
+- Site 3: 2 detections in 5 visits → 2/5 = 0.40
+- Site 5: 1 detection in 5 visits → 1/5 = 0.20
+- Site 7: 3 detections in 5 visits → 3/5 = 0.60
+
+Average detection probability: p ≈ (0.20 + 0.40 + 0.20 + 0.60) / 4 = **0.35**
+
+Or use total: 7 detections / 20 visits at occupied sites = **0.35**
+
+**Step 2: Calculate probability of all 0s given presence**
+
+P(all zeros | present) = (1 - p)^5 = (1 - 0.35)^5 = 0.65^5 ≈ **0.116**
+
+This means even if a species IS present, there's about an 11.6% chance of detecting it zero times in 5 visits.
+
+**Step 3: Apply Bayes' theorem (conceptual)**
+
+Let ψ = prior probability of occupancy. From the data, 4 of 7 sites had detections, so naïve estimate is ψ ≈ 4/7 ≈ 0.57. But this underestimates true occupancy because some all-zero sites may be occupied!
+
+Using Bayes:
+
+P(present | all zeros) = [P(all zeros | present) × P(present)] / P(all zeros)
+
+Where:
+- P(all zeros) = P(all zeros | present)×P(present) + P(all zeros | absent)×P(absent)
+- P(all zeros | absent) = 1 (if absent, you definitely see zeros)
+
+If we assume ψ = 0.6 (slightly higher than naïve estimate):
+- P(all zeros) = 0.116 × 0.6 + 1 × 0.4 = 0.0696 + 0.4 = 0.4696
+- P(present | all zeros) = (0.116 × 0.6) / 0.4696 ≈ 0.0696 / 0.4696 ≈ **0.15**
+
+**Answer:** Given the observed data, there is approximately a **15%** probability that Site 8 is occupied despite having all zero detections.
+
+**Key teaching points:**
+
+1. Non-detection ≠ absence. Even with 5 visits, there's a meaningful chance of missing a present species.
+2. Lower detection probability → higher P(present | all zeros).
+3. Higher prior occupancy → higher P(present | all zeros).
+4. This is why occupancy models are essential for species distribution studies!
+:::
+
+**If students struggle:**
+
+- Ask: "What fraction of visits resulted in detection at sites where we KNOW the species is present?"
+- Prompt: "If the species were at Site 8, what's the chance you'd miss it all 5 times?"
+- Simplify: "If detection probability is 0.3, what's 0.7^5?"
+
+**Extensions (if time permits or for advanced students):**
+
+- How does the answer change if p = 0.1 (very cryptic species)?
+- How does the answer change if p = 0.8 (conspicuous species)?
+- What if we added covariates (habitat type affects detection)?
+
+---
+
+## Minute Paper + Transition — 1:10–1:15 (5 min) {.unnumbered}
+
+::: {.callout-note}
+## SoTL Activity: Minute Paper
+
+**Purpose:** Metacognitive reflection; identify persistent confusion for next session.
+
+**Prompts (on notecard or digital):**
+
+1. What is the single most important insight about occupancy modeling from today?
+2. How might imperfect detection affect a study in your own research area?
+3. One question you still have about occupancy models or the challenge problem.
+
+**Instructor action:** Collect and skim before next class. Address top 2–3 questions at the start of the next session.
+:::
+
+---
+
+# In-Class Project Work Time (Integrated Above)
+
+::: {.callout-note}
+## No Separate Session B
+
+Because there is no Session B this week, structured project work time is integrated into the activities above (the progress report and synthesis discussions). 
+
+If the session runs faster than planned (e.g., shorter Q&A), use the remaining time for **informal project troubleshooting**:
+
+**Checkpoint (what students must produce):**
+
+- Identify one specific methodological connection between today's content (occupancy/detection) and their project.
+- Write 2–3 sentences explaining how they will handle detection/observation error in their analysis (even if the answer is "it's not relevant because...").
+
+**Peer troubleshooting:**
+
+- Pair students working on similar topics or methods.
+- Each student has 3 minutes to explain their current roadblock.
+- Partner asks one clarifying question and offers one suggestion.
+
+**Stretch goal:**
+
+- Students with functioning analyses: Draft a 1-paragraph "methods" description of their detection/observation process.
+- Students still in data collection: Map out their sampling design and identify where imperfect detection might occur.
+:::
+
+---
+
+# Instructor Reflection Prompts (Post-Class)
+
+After class, note:
+
+1. Which pre-class responses showed deepest engagement? Patterns?
+2. Did the challenge activity generate genuine Bayesian reasoning, or did students rely on intuition?
+3. How did the presenter handle challenge questions? Areas for feedback?
+4. What persistent confusions emerged from the minute paper?
+
+---
