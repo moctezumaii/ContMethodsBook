@@ -1,0 +1,207 @@
+---
+title: "Week 10 - Occupancy Models"
+subtitle: "SNR 690 - Contemporary Approaches to Quantitative Methods"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    incremental: false
+    scrollable: true
+    code-fold: false
+    chalkboard: true
+execute:
+  echo: true
+  warning: false
+  message: false
+  eval: false
+---
+
+## The Detection Problem
+
+**Core question:** How do you know if a species is *absent* vs. *undetected*?
+
+. . .
+
+**Scenario:**
+
+- You survey a wetland for secretive marsh birds
+- You visit 5 times and detect nothing
+- Is the species absent? Or just hard to find?
+
+. . .
+
+::: {.callout-important}
+**Non-detection ≠ Absence**
+
+Occupancy models explicitly separate *presence* from *detection*.
+:::
+
+---
+
+## Occupancy Model Basics
+
+**Two key parameters:**
+
+| Parameter | Symbol | Definition |
+|-----------|--------|------------|
+| **Occupancy** | ψ (psi) | Probability a site is occupied |
+| **Detection** | p | Probability of detecting the species *given* it is present |
+
+. . .
+
+**Why this matters:**
+
+- If p = 1.0 → perfect detection → naïve occupancy = true occupancy
+- If p < 1.0 → imperfect detection → naïve occupancy **underestimates** true occupancy
+
+. . .
+
+> *"The naïve occupancy rate (proportion of sites with detections) is a biased estimator of true occupancy when p < 1."*
+
+---
+
+## Detection Histories
+
+A **detection history** records outcomes across multiple visits to each site.
+
+**Example:** 7 sites, 5 visits each
+
+| Site | V1 | V2 | V3 | V4 | V5 | Interpretation |
+|------|----|----|----|----|----|----|
+| 1    | 0  | 1  | 0  | 0  | 0  | Present (detected once) |
+| 2    | 0  | 0  | 0  | 0  | 0  | Unknown (never detected) |
+| 3    | 1  | 0  | 1  | 0  | 0  | Present (detected twice) |
+| 4    | 0  | 0  | 0  | 0  | 0  | Unknown (never detected) |
+| 5    | 0  | 0  | 0  | 1  | 0  | Present (detected once) |
+| 6    | 0  | 0  | 0  | 0  | 0  | Unknown (never detected) |
+| 7    | 1  | 1  | 0  | 0  | 1  | Present (detected three times) |
+
+. . .
+
+**Key insight:** Sites 2, 4, 6 could be:
+
+- Truly unoccupied, **OR**
+- Occupied but species was missed every time
+
+---
+
+## The Likelihood Intuition
+
+**For a site with at least one detection (e.g., Site 7: 11001):**
+
+$$
+P(\text{history } 11001) = \psi \times p \times p \times (1-p) \times (1-p) \times p
+$$
+
+The species *must* be present (we saw it!), so ψ appears once.
+
+. . .
+
+**For a site with all zeros (e.g., Site 2: 00000):**
+
+$$
+P(\text{history } 00000) = \underbrace{\psi \times (1-p)^5}_{\text{present but missed}} + \underbrace{(1-\psi) \times 1}_{\text{truly absent}}
+$$
+
+Two possibilities: present but undetected, *or* truly absent.
+
+. . .
+
+::: {.callout-note}
+This is why repeated visits are essential—they let us estimate p and separate these possibilities!
+:::
+
+---
+
+## In-Class Challenge: Your Dataset
+
+**7 sites, 5 visits each**
+
+```{r}
+#| echo: true
+#| eval: true
+
+# Detection history: 1 = detected, 0 = not detected
+detection_history <- matrix(
+  c(0, 1, 0, 0, 0,   # Site 1
+    0, 0, 0, 0, 0,   # Site 2
+    1, 0, 1, 0, 0,   # Site 3
+    0, 0, 0, 0, 0,   # Site 4
+    0, 0, 0, 1, 0,   # Site 5
+    0, 0, 0, 0, 0,   # Site 6
+    1, 1, 0, 0, 1),  # Site 7
+  nrow = 7, ncol = 5, byrow = TRUE,
+  dimnames = list(paste("Site", 1:7), paste("Visit", 1:5))
+)
+
+detection_history
+```
+
+**Observations:**
+
+- 4 sites have at least one detection (Sites 1, 3, 5, 7)
+- 3 sites have all zeros (Sites 2, 4, 6)
+
+---
+
+## The Challenge Question
+
+::: {.callout-important}
+## Your Task
+
+An **8th site** is surveyed 5 times. 
+
+Detection history: **0, 0, 0, 0, 0** (no detections)
+
+**What is the probability the species is present at Site 8?**
+:::
+
+. . .
+
+**Think (2 min):**
+
+1. What is your intuitive estimate?
+2. What information from Sites 1–7 can you use?
+3. What assumptions are you making?
+
+. . .
+
+**Pair (3 min):**
+
+- Compare estimates with a partner
+- Where do you agree/disagree?
+- Refine your reasoning together
+
+. . .
+
+**Share:** Be ready to explain your reasoning!
+
+---
+
+## Hints for the Challenge
+
+**Step 1:** Estimate detection probability (p)
+
+- Use sites where you *know* the species is present
+- How many detections / how many visits at those sites?
+
+. . .
+
+**Step 2:** Calculate P(all zeros | present)
+
+- If the species *is* present, what's the probability of missing it 5 times?
+- P(all zeros | present) = (1 - p)^5
+
+. . .
+
+**Step 3:** Apply Bayes' rule (conceptually)
+
+$$
+P(\text{present} \mid \text{all zeros}) = \frac{P(\text{all zeros} \mid \text{present}) \times P(\text{present})}{P(\text{all zeros})}
+$$
+
+. . .
+
+::: {.callout-tip}
+**Key insight:** Even with 5 visits showing nothing, there's a non-zero probability the species is there but you missed it every time!
+:::
