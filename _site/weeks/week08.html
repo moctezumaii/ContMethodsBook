@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Final Paper: Project Home – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Week 8 - Tick Phenology &amp; Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -263,26 +292,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#upcoming-brief-progress-presentations" id="toc-upcoming-brief-progress-presentations" class="nav-link active" data-scroll-target="#upcoming-brief-progress-presentations"><span class="header-section-number">1</span> Upcoming: Brief Progress Presentations</a></li>
-  <li><a href="#step-1-create-a-private-github-repository" id="toc-step-1-create-a-private-github-repository" class="nav-link" data-scroll-target="#step-1-create-a-private-github-repository"><span class="header-section-number">2</span> Step 1: Create a Private GitHub Repository</a></li>
-  <li><a href="#step-2-clone-repository-to-rstudio" id="toc-step-2-clone-repository-to-rstudio" class="nav-link" data-scroll-target="#step-2-clone-repository-to-rstudio"><span class="header-section-number">3</span> Step 2: Clone Repository to RStudio</a></li>
-  <li><a href="#step-3-modify-the-readme" id="toc-step-3-modify-the-readme" class="nav-link" data-scroll-target="#step-3-modify-the-readme"><span class="header-section-number">4</span> Step 3: Modify the README</a>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule"><span class="header-section-number">2</span> Schedule</a>
   <ul class="collapse">
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">4.1</span> Objective</a></li>
-  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">4.2</span> Research Question</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">4.3</span> Variables</a></li>
-  <li><a href="#experimental-design-or-data-structure" id="toc-experimental-design-or-data-structure" class="nav-link" data-scroll-target="#experimental-design-or-data-structure"><span class="header-section-number">4.4</span> Experimental Design or Data Structure</a></li>
-  <li><a href="#analysis-method" id="toc-analysis-method" class="nav-link" data-scroll-target="#analysis-method"><span class="header-section-number">4.5</span> Analysis Method</a></li>
-  <li><a href="#main-result" id="toc-main-result" class="nav-link" data-scroll-target="#main-result"><span class="header-section-number">4.6</span> Main Result</a></li>
-  <li><a href="#logical-alignment" id="toc-logical-alignment" class="nav-link" data-scroll-target="#logical-alignment"><span class="header-section-number">4.7</span> Logical Alignment</a></li>
-  <li><a href="#expected-timeline" id="toc-expected-timeline" class="nav-link" data-scroll-target="#expected-timeline"><span class="header-section-number">4.8</span> Expected Timeline</a></li>
-  <li><a href="#usefulness-for-your-career-or-degree" id="toc-usefulness-for-your-career-or-degree" class="nav-link" data-scroll-target="#usefulness-for-your-career-or-degree"><span class="header-section-number">4.9</span> Usefulness for Your Career or Degree</a></li>
+  <li><a href="#entry-ticket-000005-5-min" id="toc-entry-ticket-000005-5-min" class="nav-link" data-scroll-target="#entry-ticket-000005-5-min">Entry Ticket — 0:00–0:05 (5 min)</a></li>
+  <li><a href="#student-paper-presentation---010040-30-min" id="toc-student-paper-presentation---010040-30-min" class="nav-link" data-scroll-target="#student-paper-presentation---010040-30-min">Student Paper Presentation - 0:10–0:40 (30 min)</a></li>
+  <li><a href="#interaction-activity-challenge-questions" id="toc-interaction-activity-challenge-questions" class="nav-link" data-scroll-target="#interaction-activity-challenge-questions"><span class="header-section-number">2.1</span> ⚡ Interaction Activity: Challenge Questions</a></li>
+  <li><a href="#gee-theory-mini-lecture-040055-15-min" id="toc-gee-theory-mini-lecture-040055-15-min" class="nav-link" data-scroll-target="#gee-theory-mini-lecture-040055-15-min">GEE Theory Mini-Lecture — 0:40–0:55 (15 min)</a>
+  <ul class="collapse">
+  <li><a href="#gee-estimating-equation" id="toc-gee-estimating-equation" class="nav-link" data-scroll-target="#gee-estimating-equation"><span class="header-section-number">2.1.1</span> GEE Estimating Equation</a></li>
+  <li><a href="#sandwich-robust-variance" id="toc-sandwich-robust-variance" class="nav-link" data-scroll-target="#sandwich-robust-variance"><span class="header-section-number">2.1.2</span> Sandwich (Robust) Variance</a></li>
+  <li><a href="#papers-inferred-model-specification" id="toc-papers-inferred-model-specification" class="nav-link" data-scroll-target="#papers-inferred-model-specification"><span class="header-section-number">2.1.3</span> Paper’s Inferred Model Specification</a></li>
+  <li><a href="#working-correlation-structures" id="toc-working-correlation-structures" class="nav-link" data-scroll-target="#working-correlation-structures"><span class="header-section-number">2.1.4</span> Working Correlation Structures</a></li>
   </ul></li>
-  <li><a href="#step-4-share-your-repository-with-me-via-github" id="toc-step-4-share-your-repository-with-me-via-github" class="nav-link" data-scroll-target="#step-4-share-your-repository-with-me-via-github"><span class="header-section-number">5</span> Step 4: Share your repository with me via Github</a></li>
-  <li><a href="#step-5-write-a-method-justification-section" id="toc-step-5-write-a-method-justification-section" class="nav-link" data-scroll-target="#step-5-write-a-method-justification-section"><span class="header-section-number">6</span> Step 5: Write a method justification section</a></li>
-  <li><a href="#step-6-check-your-assumptions" id="toc-step-6-check-your-assumptions" class="nav-link" data-scroll-target="#step-6-check-your-assumptions"><span class="header-section-number">7</span> Step 6: Check your assumptions</a></li>
-  <li><a href="#step-7-start-working-on-your-methods" id="toc-step-7-start-working-on-your-methods" class="nav-link" data-scroll-target="#step-7-start-working-on-your-methods"><span class="header-section-number">8</span> Step 7: Start working on your methods</a></li>
-  <li><a href="#example-project-template" id="toc-example-project-template" class="nav-link" data-scroll-target="#example-project-template"><span class="header-section-number">9</span> Example Project Template</a></li>
+  <li><a href="#group-worksheet-critique-055105-10-min" id="toc-group-worksheet-critique-055105-10-min" class="nav-link" data-scroll-target="#group-worksheet-critique-055105-10-min">Group Worksheet Critique — 0:55–1:05 (10 min)</a></li>
+  <li><a href="#minute-paper-112115-3-min" id="toc-minute-paper-112115-3-min" class="nav-link" data-scroll-target="#minute-paper-112115-3-min">Minute Paper — 1:12–1:15 (3 min)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -291,7 +316,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Final Paper: Project Home</h1>
+<h1 class="title">Week 8 - Tick Phenology &amp; Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data</h1>
 </div>
 
 
@@ -308,239 +333,266 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is your <strong>living project guide</strong>. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper.</p>
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 32%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Session</th>
+<th>Content</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Session A Part 1</strong></td>
+<td>Student-led paper discussion (Gleim et al.&nbsp;2014)</td>
+<td>~30 min</td>
+</tr>
+<tr class="even">
+<td><strong>Session A Part 2</strong></td>
+<td>Instructor-led GEE theory mini-lecture (slides)</td>
+<td>~15 min</td>
+</tr>
+<tr class="odd">
+<td><strong>Session A Part 3</strong></td>
+<td>Group worksheet critique + R workshop + wrap-up</td>
+<td>~30 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paper:</strong> Gleim, E. R., Conner, L. M., Berghaus, R. D., Levin, M. L., Zemtsova, G. E., &amp; Yabsley, M. J. (2014). The Phenology of Ticks and the Effects of Long-Term Prescribed Burning on Tick Population Dynamics in Southwestern Georgia and Northwestern Florida. <em>PLOS ONE</em>, 9(11), e112174. <a href="https://doi.org/10.1371/journal.pone.0112174" class="uri">https://doi.org/10.1371/journal.pone.0112174</a></p>
+<hr>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Workshop Rhythm
+<span class="screen-reader-only">Tip</span>Learning Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Every Thursday workshop begins with a <strong>10-minute self-assessment</strong>. Use <a href="weekly-self-assessment.html">Weekly Self-Assessment</a></p>
+<p>By the end of class, students will be able to:</p>
+<ol type="1">
+<li>Explain why GEE is appropriate for clustered/repeated-measures count data</li>
+<li>Write the GEE estimating equation and identify each component (<span class="math inline">\(\mathbf{D}_i\)</span>, <span class="math inline">\(\mathbf{V}_i\)</span>, <span class="math inline">\(\boldsymbol{\mu}_i\)</span>, <span class="math inline">\(R(\alpha)\)</span>)</li>
+<li>Compare exchangeable, AR(1), and independence working correlation structures and articulate when each is defensible</li>
+<li>Evaluate whether the paper’s analytic choices (negative binomial family, log link, exchangeable correlation) align with the data structure</li>
+<li>Implement a GEE in R using <code>geepack::geeglm</code> and interpret robust (sandwich) standard errors</li>
+</ol>
 </div>
 </div>
 <hr>
-<section id="upcoming-brief-progress-presentations" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="upcoming-brief-progress-presentations"><span class="header-section-number">1</span> Upcoming: Brief Progress Presentations</h2>
-<p>Next week, you will give a <strong>3–5 minute progress update</strong> during Thursday workshop time.</p>
-<p>See <a href="progress-presentation.html">Progress Presentation Instructions</a> for what to prepare and bring.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Before next Thursday’s workshop
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>⬜ Update your Expected Timeline in your README<br>
-⬜ Push your latest code or analysis to GitHub<br>
-⬜ Add or update your Methods section (at least two sentences)<br>
-⬜ Have your assumption check table present (even if incomplete)<br>
-⬜ Identify one open question you want feedback on</p>
-</div>
-</div>
-<hr>
-<p>This assignment guides you through creating a research project repository and developing your final paper proposal.</p>
 </section>
-<section id="step-1-create-a-private-github-repository" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="step-1-create-a-private-github-repository"><span class="header-section-number">2</span> Step 1: Create a Private GitHub Repository</h2>
-<ol type="1">
-<li>Go to <a href="https://github.com">GitHub</a> and log in</li>
-<li>Click the <strong>“+”</strong> icon in the top-right corner and select <strong>“New repository”</strong></li>
-<li>Name your repository (e.g., <code>SNR690-final-paper-yourname</code>)</li>
-<li>Add a brief description of your project</li>
-<li><strong>Important:</strong> Select <strong>“Private”</strong> to keep your work confidential</li>
-<li>Check <strong>“Add a README file”</strong></li>
-<li>Click <strong>“Create repository”</strong></li>
-</ol>
-</section>
-<section id="step-2-clone-repository-to-rstudio" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="step-2-clone-repository-to-rstudio"><span class="header-section-number">3</span> Step 2: Clone Repository to RStudio</h2>
-<ol type="1">
-<li>In your new GitHub repository, click the green <strong>“Code”</strong> button</li>
-<li>Copy the HTTPS URL</li>
-<li>Open RStudio</li>
-<li>Go to <strong>File &gt; New Project &gt; Version Control &gt; Git</strong></li>
-<li>Paste the repository URL</li>
-<li>Choose a local directory and click <strong>“Create Project”</strong></li>
-</ol>
-</section>
-<section id="step-3-modify-the-readme" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="step-3-modify-the-readme"><span class="header-section-number">4</span> Step 3: Modify the README</h2>
-<p>Edit your README.md file to include the following sections:</p>
-<section id="objective" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">4.1</span> Objective</h3>
-<p><em>What do you aim to accomplish with this research?</em></p>
-</section>
-<section id="research-question" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">4.2</span> Research Question</h3>
-<p><em>What specific question are you trying to answer?</em></p>
-</section>
-<section id="variables" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="variables"><span class="header-section-number">4.3</span> Variables</h3>
-<p><em>List your response variable(s) and predictor variable(s)</em></p>
-</section>
-<section id="experimental-design-or-data-structure" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="experimental-design-or-data-structure"><span class="header-section-number">4.4</span> Experimental Design or Data Structure</h3>
-<p><em>Describe your data collection approach or existing dataset structure</em></p>
-</section>
-<section id="analysis-method" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="analysis-method"><span class="header-section-number">4.5</span> Analysis Method</h3>
-<p><em>What statistical method(s) will you use?</em></p>
-</section>
-<section id="main-result" class="level3" data-number="4.6">
-<h3 data-number="4.6" class="anchored" data-anchor-id="main-result"><span class="header-section-number">4.6</span> Main Result</h3>
-<p><em>What do you expect to find or demonstrate?</em></p>
-</section>
-<section id="logical-alignment" class="level3" data-number="4.7">
-<h3 data-number="4.7" class="anchored" data-anchor-id="logical-alignment"><span class="header-section-number">4.7</span> Logical Alignment</h3>
-<p><em>Do these components align logically? Explain briefly how your methods will answer your research question.</em></p>
-</section>
-<section id="expected-timeline" class="level3" data-number="4.8">
-<h3 data-number="4.8" class="anchored" data-anchor-id="expected-timeline"><span class="header-section-number">4.8</span> Expected Timeline</h3>
-<p><em>Create a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.</em></p>
-</section>
-<section id="usefulness-for-your-career-or-degree" class="level3" data-number="4.9">
-<h3 data-number="4.9" class="anchored" data-anchor-id="usefulness-for-your-career-or-degree"><span class="header-section-number">4.9</span> Usefulness for Your Career or Degree</h3>
-<p><em>Briefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory</em></p>
-</section>
-</section>
-<section id="step-4-share-your-repository-with-me-via-github" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="step-4-share-your-repository-with-me-via-github"><span class="header-section-number">5</span> Step 4: Share your repository with me via Github</h2>
-<ol type="1">
-<li>In your GitHub repository, click on <strong>“Settings”</strong></li>
-<li>In the left sidebar, click <strong>“Manage access”</strong></li>
-<li>Click <strong>“Invite a collaborator”</strong></li>
-<li>Enter my email address</li>
-</ol>
-</section>
-<section id="step-5-write-a-method-justification-section" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="step-5-write-a-method-justification-section"><span class="header-section-number">6</span> Step 5: Write a method justification section</h2>
-<p>On the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we … - <em>Write down a description of the analysis you will do, and start working on it! At this point you should start coding</em></p>
-<p>It should be two or so paragraphs.</p>
-<p>Your paragraphs can address:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Writing Checklist
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>⬜ What is your response variable and what distribution does it follow?<br>
-⬜ What is your data structure (independent, nested, repeated, blocked)?<br>
-⬜ Why is a simpler analysis insufficient?<br>
-⬜ Why is a more complex analysis not warranted?<br>
-⬜ What assumptions does your method make? List ALL OF THEM!</p>
-</div>
-</div>
-<p>And more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis.</p>
-</section>
-<section id="step-6-check-your-assumptions" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="step-6-check-your-assumptions"><span class="header-section-number">7</span> Step 6: Check your assumptions</h2>
-<p>Based on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:</p>
+<section id="schedule" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Schedule</h1>
+<section id="entry-ticket-000005-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="entry-ticket-000005-5-min">Entry Ticket — 0:00–0:05 (5 min)</h2>
+<p><strong>Activity type:</strong> In-class formative pre-assessment</p>
+<blockquote class="blockquote">
+<p><em>Before we begin today’s discussion, take 5 minutes to answer these questions about the paper you read. You can work in groups.</em></p>
+</blockquote>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
+<col style="width: 46%">
+<col style="width: 53%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Assumption</th>
-<th>Status</th>
+<th>Field</th>
+<th>Question</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><em>(e.g., independence of residuals)</em></td>
-<td>🟢 Checked: and it holds</td>
+<td><code>Objective</code></td>
+<td>In one sentence, what is the paper’s primary research objective?</td>
 </tr>
 <tr class="even">
-<td><em>(e.g., normality of random effects)</em></td>
-<td>🟡 Haven’t checked yet: but I could by next class</td>
+<td><code>Research_Question</code></td>
+<td>State the main research question (what, in whom/what, compared to what, measured how).</td>
 </tr>
 <tr class="odd">
-<td><em>(e.g., no spatial autocorrelation)</em></td>
-<td>🔴 Can’t fully check: need to acknowledge it and discuss it</td>
+<td><code>Outcome_Variable</code></td>
+<td>What is the response/outcome variable? What type of data is it?</td>
+</tr>
+<tr class="even">
+<td><code>Predictors</code></td>
+<td>List the main predictor(s)/covariate(s).</td>
+</tr>
+<tr class="odd">
+<td><code>Cluster_ID_and_time_structure</code></td>
+<td>What are the clusters (sampling units)? How many? How many repeated time points?</td>
+</tr>
+<tr class="even">
+<td><code>Analysis_method_guess</code></td>
+<td>What statistical method did the authors use (or what do you think they should have used)?</td>
+</tr>
+<tr class="odd">
+<td><code>One_method_question</code></td>
+<td>Write one question about the statistical method that you want answered today.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>The goal is not to have all green.</strong> Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.</p>
+<p>5 minutes for discussion</p>
 </section>
-<section id="step-7-start-working-on-your-methods" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="step-7-start-working-on-your-methods"><span class="header-section-number">8</span> Step 7: Start working on your methods</h2>
-<p>I wante everyone to do “one concrete” thing this week, aimed at analyzing your data. This could be a code chunk that runs a model, creates a figure, or produces a table. It can be cleaning data. We are at the half point of the semester, so, this is where you should be.</p>
-<p>Suggested priorities:</p>
-<ol type="1">
-<li>Run a preliminary model or analysis (even if rough)</li>
-<li>Generate at least one exploratory figure</li>
-<li>Continue writing your Methods section</li>
-<li>Clean or organize your data file</li>
-</ol>
+<section id="student-paper-presentation---010040-30-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="student-paper-presentation---010040-30-min">Student Paper Presentation - 0:10–0:40 (30 min)</h2>
+<p><strong>Presenter:</strong> Silas</p>
 </section>
-<section id="example-project-template" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="example-project-template"><span class="header-section-number">9</span> Example Project Template</h2>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="interaction-activity-challenge-questions" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="interaction-activity-challenge-questions"><span class="header-section-number">2.1</span> ⚡ Interaction Activity: Challenge Questions</h2>
+<p><strong>Procedure:</strong> 1. Each group (~2) presents their challenge question (30 sec each, ~3 groups max given time). 2. The <strong>presenter</strong> must respond to each challenge question directly (45–60 sec per response). 3. Instructor may supplement if the presenter’s answer is incomplete or if an important concept was missed.</p>
+</section>
+<section id="gee-theory-mini-lecture-040055-15-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="gee-theory-mini-lecture-040055-15-min">GEE Theory Mini-Lecture — 0:40–0:55 (15 min)</h2>
+<p><strong>Format:</strong> Instructor-led with slides (<code>slides/slides-ticks-gee.qmd</code>).</p>
+<p><strong>Slides covered:</strong> Slides 4–8 (Why GEE?, Estimating Equation, Sandwich Variance, Paper’s Model Spec, Working Correlation Comparison).</p>
+<section id="gee-estimating-equation" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="gee-estimating-equation"><span class="header-section-number">2.1.1</span> GEE Estimating Equation</h3>
+<p>The GEE for subject <span class="math inline">\(i\)</span> solves:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1}\left(\mathbf{Y}_i - \boldsymbol{\mu}_i\right) = \mathbf{0}
+\]</span></p>
+<p>where:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(K\)</span></td>
+<td>Number of clusters (here: 21 plots)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{Y}_i\)</span></td>
+<td><span class="math inline">\(n_i \times 1\)</span> vector of observed tick counts for plot <span class="math inline">\(i\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\boldsymbol{\mu}_i\)</span></td>
+<td><span class="math inline">\(n_i \times 1\)</span> vector of marginal means, <span class="math inline">\(\mu_{it} = E[Y_{it} \mid \mathbf{X}_{it}]\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{D}_i\)</span></td>
+<td><span class="math inline">\(n_i \times p\)</span> derivative matrix, <span class="math inline">\(\mathbf{D}_i = \partial \boldsymbol{\mu}_i / \partial \boldsymbol{\beta}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{V}_i\)</span></td>
+<td>Working covariance matrix, <span class="math inline">\(\mathbf{V}_i = \phi \, \mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{A}_i\)</span></td>
+<td>Diagonal matrix of marginal variances</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R(\alpha)\)</span></td>
+<td>Working correlation matrix (exchangeable, AR(1), or independence)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\phi\)</span></td>
+<td>Overdispersion parameter</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sandwich-robust-variance" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="sandwich-robust-variance"><span class="header-section-number">2.1.2</span> Sandwich (Robust) Variance</h3>
+<p><span class="math display">\[
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{B} = \sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> (bread) and <span class="math inline">\(\mathbf{M} = \sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \text{Cov}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> (meat).</p>
+</section>
+<section id="papers-inferred-model-specification" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="papers-inferred-model-specification"><span class="header-section-number">2.1.3</span> Paper’s Inferred Model Specification</h3>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>By the end of this week your project should look like this example (obviously with more detail and specific to your project)!</p>
+<p>The paper (Gleim et al.&nbsp;2014) does <strong>not</strong> provide an explicit model equation. Based on the Methods section (p.&nbsp;3), the authors state they used GEE with a negative binomial family and log link, exchangeable working correlation, to account for repeated measures within plots. A defensible inferred model is:</p>
+<p><span class="math display">\[
+\log\!\bigl(E[\text{ticks}_{it}]\bigr) = \beta_0 + \beta_1 \cdot \text{BurnRegime}_i + \beta_2 \cdot \text{HostAbundance}_{it} + \beta_3 \cdot \text{Canopy}_{it} + \beta_4 \cdot \text{Season}_{it} + \varepsilon_{it}
+\]</span></p>
+<p>where <span class="math inline">\(i\)</span> indexes plot (cluster) and <span class="math inline">\(t\)</span> indexes monthly time point.</p>
 </div>
 </div>
-<p><strong>Objective:</strong> Assess the impact of habitat restoration on native bird species richness in riparian zones</p>
-<p><strong>Research Question:</strong> Does riparian habitat restoration increase native bird species richness compared to unrestored sites?</p>
-<p><strong>Variables:</strong> - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)</p>
-<p><strong>Experimental Design or Data Structure:</strong> Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons</p>
-<p><strong>Analysis Method:</strong> Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures</p>
-<p><strong>Main Result:</strong> Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration</p>
-<p><strong>Logical Alignment:</strong> Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.</p>
-<p><strong>Expected Timeline:</strong> - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper</p>
-<p><strong>Usefulness for Your Career or Degree:</strong> This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.</p>
-<p><strong>Method Justification:</strong> I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.</p>
-<p><strong>Assumption Check:</strong></p>
-<hr>
+</section>
+<section id="working-correlation-structures" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="working-correlation-structures"><span class="header-section-number">2.1.4</span> Working Correlation Structures</h3>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 38%">
 </colgroup>
 <thead>
 <tr class="header">
+<th>Structure</th>
+<th><span class="math inline">\(R(\alpha)\)</span></th>
 <th>Assumption</th>
-<th>Status</th>
+<th>Appropriate when…</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Independence of residuals</td>
-<td>🟢 Checked: and it holds</td>
+<td><strong>Independence</strong></td>
+<td><span class="math inline">\(I\)</span></td>
+<td>No correlation</td>
+<td>Cluster size is large; correlation is nuisance</td>
 </tr>
 <tr class="even">
-<td>Normality of random effects</td>
-<td>🟡 Haven’t checked yet: but I could by next class</td>
+<td><strong>Exchangeable</strong></td>
+<td><span class="math inline">\((1-\alpha)I + \alpha \mathbf{J}\)</span></td>
+<td>Equal pairwise correlation at all lags</td>
+<td>Correlation doesn’t decay with time</td>
 </tr>
 <tr class="odd">
-<td>No spatial autocorrelation</td>
-<td>🔴 Can’t fully check: need to acknowledge it and discuss it</td>
+<td><strong>AR(1)</strong></td>
+<td><span class="math inline">\(\alpha^{|t-s|}\)</span></td>
+<td>Correlation decays with lag</td>
+<td>Time series within clusters; ecological seasonal data</td>
 </tr>
 </tbody>
 </table>
 <hr>
+</section>
+</section>
+<section id="group-worksheet-critique-055105-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="group-worksheet-critique-055105-10-min">Group Worksheet Critique — 0:55–1:05 (10 min)</h2>
+<p><strong>Format:</strong> Small groups (2–3 students)</p>
+<p><strong>Instructions:</strong> 1. Each group gives 3 specific critiques of the paper as if you were a reviewer</p>
+<hr>
+</section>
+<section id="minute-paper-112115-3-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="minute-paper-112115-3-min">Minute Paper — 1:12–1:15 (3 min)</h2>
+<p><strong>Format:</strong> Exit ticket (template: <code>activities/minute_paper_template.md</code>)</p>
+<p><strong>Prompts:</strong></p>
+<ol type="1">
+<li><em>What is the single most important thing you learned about GEE today?</em></li>
+<li><em>What is one question you still have about applying GEE to your own research data?</em></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

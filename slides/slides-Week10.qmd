@@ -16,6 +16,20 @@ execute:
   eval: false
 ---
 
+## First activity
+
+**Purpose:** Activate prior knowledge from readings and prepare students for occupancy concepts.
+
+**Instructions:** On your notecard, write answers to:
+
+1. What is the difference between presence and detection?
+2. If you survey a site for an animal once and find nothing, what are two possible explanations?
+3. What is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?
+4. If 75% of your madtom captures come from gravel substrate, but gravel makes up 90% of the available habitat, what does that tell you about habitat preference?
+
+Compare your Canvas answers with your peers
+
+
 ## The Detection Problem
 
 **Core question:** How do you know if a species is *absent* vs. *undetected*?
@@ -195,6 +209,7 @@ Detection history: **0, 0, 0, 0, 0** (no detections)
 . . .
 
 **Step 3:** Apply Bayes' rule (conceptually)
+If you have prior information, you can apply it here! Use 0.60 for this example
 
 $$
 P(\text{present} \mid \text{all zeros}) = \frac{P(\text{all zeros} \mid \text{present}) \times P(\text{present})}{P(\text{all zeros})}

@@ -268,9 +268,9 @@
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
-    "title": "Final Paper Instructions",
+    "title": "Final Paper: Project Home",
     "section": "",
-    "text": "This assignment guides you through creating a research project repository and developing your final paper proposal."
+    "text": "This is your living project guide. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper."
   },
   {
     "objectID": "slides/notes-week01.html",
@@ -1411,7 +1411,7 @@
     "href": "materials/week07_actionable_item.html",
     "title": "Quick Check-In",
     "section": "",
-    "text": "Quick Check-In — Your Thursday Actionable Item\n\n\n\nThink back to the one actionable item you committed to working on by Thursday.\n\nMy original actionable item was: \nCurrent status:\n( ) On track ( ) Stuck ( ) Needs revision ( ) Not started\nIf revising: what’s the adjusted version?\nOne thing I need to do in the next 48 hrs (“do nothing” is an option):\nThanks!"
+    "text": "TipQuick Check-In — Your Thursday Actionable Item\n\n\n\n\nMy original actionable item was: \nCurrent status:\n( ) On track ( ) Stuck ( ) Needs revision ( ) Not started\nIf revising: what’s the adjusted version?\nOne thing I need to do in the next 48 hrs (“do nothing” is an option):\nThanks!"
   },
   {
     "objectID": "materials/lecture_notes_ticks_gee.html",
@@ -1836,51 +1836,51 @@
   {
     "objectID": "projects/index.html#step-1-create-a-private-github-repository",
     "href": "projects/index.html#step-1-create-a-private-github-repository",
-    "title": "Final Paper Instructions",
-    "section": "1 Step 1: Create a Private GitHub Repository",
-    "text": "1 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
+    "title": "Final Paper: Project Home",
+    "section": "2 Step 1: Create a Private GitHub Repository",
+    "text": "2 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
   },
   {
     "objectID": "projects/index.html#step-2-clone-repository-to-rstudio",
     "href": "projects/index.html#step-2-clone-repository-to-rstudio",
-    "title": "Final Paper Instructions",
-    "section": "2 Step 2: Clone Repository to RStudio",
-    "text": "2 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
+    "title": "Final Paper: Project Home",
+    "section": "3 Step 2: Clone Repository to RStudio",
+    "text": "3 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
   },
   {
     "objectID": "projects/index.html#step-3-modify-the-readme",
     "href": "projects/index.html#step-3-modify-the-readme",
-    "title": "Final Paper Instructions",
-    "section": "3 Step 3: Modify the README",
-    "text": "3 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n3.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n3.2 Research Question\nWhat specific question are you trying to answer?\n\n\n3.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n3.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n3.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n3.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n3.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n3.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n3.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
+    "title": "Final Paper: Project Home",
+    "section": "4 Step 3: Modify the README",
+    "text": "4 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n4.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n4.2 Research Question\nWhat specific question are you trying to answer?\n\n\n4.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n4.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n4.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n4.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n4.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n4.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n4.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
   },
   {
     "objectID": "projects/index.html#step-4-share-your-repository-with-me-via-github",
     "href": "projects/index.html#step-4-share-your-repository-with-me-via-github",
-    "title": "Final Paper Instructions",
-    "section": "4 Step 4: Share your repository with me via Github",
-    "text": "4 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
+    "title": "Final Paper: Project Home",
+    "section": "5 Step 4: Share your repository with me via Github",
+    "text": "5 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
   },
   {
     "objectID": "projects/index.html#step-5-write-a-method-justification-section",
     "href": "projects/index.html#step-5-write-a-method-justification-section",
-    "title": "Final Paper Instructions",
-    "section": "5 Step 5: Write a method justification section",
-    "text": "5 Step 5: Write a method justification section\nOn the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we …\nIt should be two or so paragraphs.\nYour paragraphs can address:\n\n\n\n\n\n\nWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!\n\n\nAnd more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis."
+    "title": "Final Paper: Project Home",
+    "section": "6 Step 5: Write a method justification section",
+    "text": "6 Step 5: Write a method justification section\nOn the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we … - Write down a description of the analysis you will do, and start working on it! At this point you should start coding\nIt should be two or so paragraphs.\nYour paragraphs can address:\n\n\n\n\n\n\nTipWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!\n\n\nAnd more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis."
   },
   {
     "objectID": "projects/index.html#step-6-check-your-assumptions",
     "href": "projects/index.html#step-6-check-your-assumptions",
-    "title": "Final Paper Instructions",
-    "section": "6 Step 6: Check your assumptions",
-    "text": "6 Step 6: Check your assumptions\nBased on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked: and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet: but I could by next class\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check: need to acknowledge it and discuss it\n\n\n\nThe goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section."
+    "title": "Final Paper: Project Home",
+    "section": "7 Step 6: Check your assumptions",
+    "text": "7 Step 6: Check your assumptions\nBased on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked: and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet: but I could by next class\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check: need to acknowledge it and discuss it\n\n\n\nThe goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section."
   },
   {
     "objectID": "projects/index.html#example-project-template",
     "href": "projects/index.html#example-project-template",
-    "title": "Final Paper Instructions",
-    "section": "7 Example Project Template",
-    "text": "7 Example Project Template\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.\nMethod Justification: I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.\nAssumption Check: | Assumption | Status | |————|——–| | Independence of residuals | 🟢 Checked: and it holds | | Normality of random effects | 🟡 Haven’t checked yet: but I could by next class | | No spatial autocorrelation | 🔴 Can’t fully check: need to acknowledge it and discuss it |"
+    "title": "Final Paper: Project Home",
+    "section": "9 Example Project Template",
+    "text": "9 Example Project Template\n\n\n\n\n\n\nImportant\n\n\n\nBy the end of this week your project should look like this example (obviously with more detail and specific to your project)!\n\n\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.\nMethod Justification: I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.\nAssumption Check:\n\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\nIndependence of residuals\n🟢 Checked: and it holds\n\n\nNormality of random effects\n🟡 Haven’t checked yet: but I could by next class\n\n\nNo spatial autocorrelation\n🔴 Can’t fully check: need to acknowledge it and discuss it"
   },
   {
     "objectID": "slides/slides-Week04.html",
@@ -2336,5 +2336,537 @@
     "title": "Week 9 - Split-Plot Demo",
     "section": "References",
     "text": "References\n\nCambridge paper: Adcock, C. W., Farthing, G. R., & Williams, J. D. (1999). No-tillage culture and nitrogen fertilizer management for burley tobacco production. Journal of Agricultural Science. https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10\nR code: projects/examplesplitplot.R - source with source(\"projects/examplesplitplot.R\")\nPackages: lme4, car, ggplot2, dplyr\n\n\n# Install required packages if needed:\ninstall.packages(c(\"lme4\", \"car\", \"ggplot2\", \"dplyr\"))"
+  },
+  {
+    "objectID": "weeks/week10.html",
+    "href": "weeks/week10.html",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "",
+    "text": "Week 10 - Occupancy Modeling & Student Presentations (Instructor-Only Plan)\n\n\n\n\n\n\nImportantInstructor-Only Document\n\n\n\nThis document contains facilitation notes, timing guidance, and pedagogical scaffolding for the instructor. It is not intended for student distribution.\n\n\nThis week introduces single-season occupancy models using a student-led discussion of an MDPI paper on drone-based wildlife surveys. The session emphasizes the fundamental insight that non-detection ≠ absence and how occupancy models account for imperfect detection.\nPrimary Paper (Student Lecture):"
+  },
+  {
+    "objectID": "weeks/week10.html#pre-class-student-responses",
+    "href": "weeks/week10.html#pre-class-student-responses",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Pre-Class Student Responses",
+    "text": "Pre-Class Student Responses\n\n\n\n\n\n\nImportantRequired Before Class\n\n\n\nStudents must submit written responses to these questions before class (via Canvas or another system). Responses of “I don’t know” or “these methods do not apply” are not acceptable for question 1.\n\nApplication to your system: Describe one specific way you could use occupancy modeling or drone-based survey methods in your own research system. Be concrete—name the species/taxon, habitat, and why imperfect detection might matter.\nMethods alignment: Does the paper demonstrate logical alignment from research objectives → data collection → statistical methods? Why or why not? (2–3 sentences)\nQuestion for Lexie: Write one substantive question you want to ask the presenter about the paper, methods, or applications.\n\n\n\nInstructor facilitation plan for pre-class responses:\n\nBefore class: Skim all responses; group them by theme (e.g., “detection issues,” “spatial scale,” “cost/logistics,” “statistical concerns”).\nDuring entry ticket (0:00–0:05): Project 2–3 anonymized student applications (question 1) as discussion prompts.\nDuring Q&A (0:53–1:00): Use student questions (question 3) as the basis for challenge questions. Prioritize questions that probe methodological assumptions.\nIf responses are thin: Have 3 backup challenge questions ready (see below)."
+  },
+  {
+    "objectID": "weeks/week10.html#entry-ticket-retrieval-practice-000005-5-min",
+    "href": "weeks/week10.html#entry-ticket-retrieval-practice-000005-5-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)",
+    "text": "Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)\n\n\n\n\n\n\nNoteSoTL Activity: Retrieval Practice\n\n\n\nPurpose: Activate prior knowledge from readings and prepare students for occupancy concepts.\nInstructions: On your notecard, write answers to:\n\nWhat is the difference between presence and detection?\nIf you survey a site once and find nothing, what are two possible explanations?\nWhat is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?\n\nInstructor note: Do not collect these. Have 2–3 students share aloud. Use incorrect/partial answers as teaching moments (error-driven learning).\n\n\nIf students struggle: Prompt with: “Think about a species you’ve tried to find in the field. Was it always there when you looked? Was it always absent when you didn’t see it?”"
+  },
+  {
+    "objectID": "weeks/week10.html#instructor-introduction-activation-005015-10-min",
+    "href": "weeks/week10.html#instructor-introduction-activation-005015-10-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Instructor Introduction + Activation — 0:05–0:15 (10 min)",
+    "text": "Instructor Introduction + Activation — 0:05–0:15 (10 min)\nFormat: Brief instructor-led mini-lecture with slides.\nSlide deck: slides/slides-Week10.qmd\nKey concepts to cover (slides 1–3):\n\nOccupancy (ψ): Probability a site is occupied by the target species.\nDetection probability (p): Probability of detecting the species given it is present.\nDetection history: Matrix of 1s (detection) and 0s (non-detection) across sites and visits.\nCore insight: A detection history of all 0s could mean:\n\nThe species is truly absent, OR\nThe species is present but was not detected on any visit.\n\n\nActivation question (pose to class):\n\n“If you visit a site 5 times and detect nothing each time, what is the probability the species is actually there? What information do you need to answer this?”\n\nAllow 60 seconds for think time. Cold-call 1–2 students. Defer full answer to the challenge activity later."
+  },
+  {
+    "objectID": "weeks/week10.html#student-lecture-drone-based-wildlife-monitoring-015046-31-min",
+    "href": "weeks/week10.html#student-lecture-drone-based-wildlife-monitoring-015046-31-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Student Lecture: Drone-Based Wildlife Monitoring — 0:15–0:46 (~31 min)",
+    "text": "Student Lecture: Drone-Based Wildlife Monitoring — 0:15–0:46 (~31 min)\nPresenter: Lexie"
+  },
+  {
+    "objectID": "weeks/week10.html#student-progress-report-046053-7-min",
+    "href": "weeks/week10.html#student-progress-report-046053-7-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Student Progress Report — 0:46–0:53 (7 min)",
+    "text": "Student Progress Report — 0:46–0:53 (7 min)\nFormat: Strictly timed 7-minute progress report from a student on their course project.\n\n\n\n\n\n\nImportantStrict Time Enforcement\n\n\n\nUse a visible timer. At 6:30, give a 30-second warning. At 7:00, politely but firmly interrupt if necessary. This teaches professional presentation skills and respects class time.\n\n\nRequired content:\n\nCurrent project status\nKey decisions made since last update\nOne specific challenge or roadblock\nNext steps"
+  },
+  {
+    "objectID": "weeks/week10.html#challenge-questions-for-presenter-synthesis-053100-7-min",
+    "href": "weeks/week10.html#challenge-questions-for-presenter-synthesis-053100-7-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Challenge Questions for Presenter + Synthesis — 0:53–1:00 (7 min)",
+    "text": "Challenge Questions for Presenter + Synthesis — 0:53–1:00 (7 min)\n\n\n\n\n\n\nNoteSoTL Activity: Peer Challenge Questions\n\n\n\nPurpose: Encourage critical engagement with the paper; practice constructive academic discourse.\nRules:\n\nAudience members pose challenge questions (prioritize student-submitted questions from pre-class responses).\nThe presenter must respond directly (45–60 sec per response).\nQuestions must be substantive (not answerable with yes/no).\nInstructor supplements only if the presenter’s answer is incomplete or a key concept was missed.\n\n\n\nBackup challenge questions (use if student-submitted questions are insufficient):\n\n“The review covers multiple taxa. How might detection probability differ between a thermal drone survey for mammals versus a visual drone survey for waterbirds? How does this affect the conclusions?”\n“What systematic biases might exist in the literature on drone surveys? How would these biases affect a meta-analysis?”\n“If a drone survey detects a species at 15 of 30 sites, but ground-truth data shows the species is present at 25 sites, what does this tell us about detection probability? How would you design a study to estimate p?”\n\nSynthesis bridge (1–2 min):\n\n“The drone paper highlights detection as a key issue. This connects directly to occupancy modeling, which explicitly separates detection from presence. Let’s explore this with a hands-on challenge.”"
+  },
+  {
+    "objectID": "weeks/week10.html#occupancy-challenge-activity-100110-10-min",
+    "href": "weeks/week10.html#occupancy-challenge-activity-100110-10-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Occupancy Challenge Activity — 1:00–1:10 (10 min)",
+    "text": "Occupancy Challenge Activity — 1:00–1:10 (10 min)\nFormat: Think-Pair-Share with small-group discussion.\nSlide deck: Use slides 4–6 from slides/slides-Week10.qmd\n\nThe Dataset\nPresent the following detection history matrix. This represents 7 sites surveyed 5 times each for a cryptic species with low detection probability.\n\n\n\nSite\nVisit 1\nVisit 2\nVisit 3\nVisit 4\nVisit 5\n\n\n\n\n1\n0\n1\n0\n0\n0\n\n\n2\n0\n0\n0\n0\n0\n\n\n3\n1\n0\n1\n0\n0\n\n\n4\n0\n0\n1\n0\n0\n\n\n5\n0\n0\n0\n1\n0\n\n\n6\n0\n0\n0\n0\n0\n\n\n7\n1\n1\n0\n0\n1\n\n\n\nR code to construct the dataset:\n\n# Detection history matrix for 7 sites, 5 visits\n# 1 = detected, 0 = not detected\ndetection_history &lt;- matrix(\n  c(\n    0, 1, 0, 0, 0,  # Site 1\n    0, 0, 0, 0, 0,  # Site 2\n    1, 0, 1, 0, 0,  # Site 3\n    0, 0, 0, 0, 0,  # Site 4\n    0, 0, 0, 1, 0,  # Site 5\n    0, 0, 0, 0, 0,  # Site 6\n    1, 1, 0, 0, 1   # Site 7\n  ),\n  nrow = 7, ncol = 5, byrow = TRUE,\n  dimnames = list(\n    paste(\"Site\", 1:7),\n    paste(\"Visit\", 1:5)\n  )\n)\n\ndetection_history\n\n\n\nThe Challenge Question\n\n\n\n\n\n\nImportantChallenge\n\n\n\nAn 8th site is surveyed 5 times. The detection history is: 0, 0, 0, 0, 0 (no detections across all 5 visits).\nWhat is the probability the species is actually present at Site 8?\nYou may use:\n\nThe observed data from Sites 1–7\nLogical reasoning about detection probability\nBayes’ theorem (conceptually)\n\nYou do not need to compute an exact numerical answer—explain your reasoning.\n\n\n\n\nThink (2 min)\nStudents work individually. Write down:\n\nYour intuitive estimate of presence probability.\nWhat information from the data did you use?\nWhat assumptions did you make?\n\n\n\nPair (3 min)\nDiscuss with a partner:\n\nCompare your estimates and reasoning.\nIdentify where you agree/disagree.\nTry to refine your estimate together.\n\n\n\nShare (3–4 min)\nInstructor calls on 2–3 pairs to share their reasoning. Probe for:\n\nHow did you estimate detection probability?\nHow did prior occupancy rate inform your estimate?\nDid you consider that all-zero sites could be true absences OR presence with non-detection?\n\n\n\n\nInstructor Facilitation Notes: Worked Solution Approach\n\n\n\n\n\n\nTipHigh-Level Solution Approach (For Instructor Reference)\n\n\n\nKey insight: We need to distinguish between P(present | detected) and P(present | not detected).\nStep 1: Estimate detection probability (p)\nFrom sites where we know the species is present (Sites 1, 3, 5, 7 — they had at least one detection):\n\nSite 1: 1 detection in 5 visits → 1/5 = 0.20\nSite 3: 2 detections in 5 visits → 2/5 = 0.40\nSite 5: 1 detection in 5 visits → 1/5 = 0.20\nSite 7: 3 detections in 5 visits → 3/5 = 0.60\n\nAverage detection probability: p ≈ (0.20 + 0.40 + 0.20 + 0.60) / 4 = 0.35\nOr use total: 7 detections / 20 visits at occupied sites = 0.35\nStep 2: Calculate probability of all 0s given presence\nP(all zeros | present) = (1 - p)^5 = (1 - 0.35)^5 = 0.65^5 ≈ 0.116\nThis means even if a species IS present, there’s about an 11.6% chance of detecting it zero times in 5 visits.\nStep 3: Apply Bayes’ theorem (conceptual)\nLet ψ = prior probability of occupancy. From the data, 4 of 7 sites had detections, so naïve estimate is ψ ≈ 4/7 ≈ 0.57. But this underestimates true occupancy because some all-zero sites may be occupied!\nUsing Bayes:\nP(present | all zeros) = [P(all zeros | present) × P(present)] / P(all zeros)\nWhere: - P(all zeros) = P(all zeros | present)×P(present) + P(all zeros | absent)×P(absent) - P(all zeros | absent) = 1 (if absent, you definitely see zeros)\nIf we assume ψ = 0.6 (slightly higher than naïve estimate): - P(all zeros) = 0.116 × 0.6 + 1 × 0.4 = 0.0696 + 0.4 = 0.4696 - P(present | all zeros) = (0.116 × 0.6) / 0.4696 ≈ 0.0696 / 0.4696 ≈ 0.15\nAnswer: Given the observed data, there is approximately a 15% probability that Site 8 is occupied despite having all zero detections.\nKey teaching points:\n\nNon-detection ≠ absence. Even with 5 visits, there’s a meaningful chance of missing a present species.\nLower detection probability → higher P(present | all zeros).\nHigher prior occupancy → higher P(present | all zeros).\nThis is why occupancy models are essential for species distribution studies!\n\n\n\nIf students struggle:\n\nAsk: “What fraction of visits resulted in detection at sites where we KNOW the species is present?”\nPrompt: “If the species were at Site 8, what’s the chance you’d miss it all 5 times?”\nSimplify: “If detection probability is 0.3, what’s 0.7^5?”\n\nExtensions (if time permits or for advanced students):\n\nHow does the answer change if p = 0.1 (very cryptic species)?\nHow does the answer change if p = 0.8 (conspicuous species)?\nWhat if we added covariates (habitat type affects detection)?"
+  },
+  {
+    "objectID": "weeks/week10.html#minute-paper-transition-110115-5-min",
+    "href": "weeks/week10.html#minute-paper-transition-110115-5-min",
+    "title": "Week 10 - Occupancy Modeling (Instructor)",
+    "section": "Minute Paper + Transition — 1:10–1:15 (5 min)",
+    "text": "Minute Paper + Transition — 1:10–1:15 (5 min)\n\n\n\n\n\n\nNoteSoTL Activity: Minute Paper\n\n\n\nPurpose: Metacognitive reflection; identify persistent confusion for next session.\nPrompts (on notecard or digital):\n\nWhat is the single most important insight about occupancy modeling from today?\nHow might imperfect detection affect a study in your own research area?\nOne question you still have about occupancy models or the challenge problem.\n\nInstructor action: Collect and skim before next class. Address top 2–3 questions at the start of the next session."
+  },
+  {
+    "objectID": "weeks/week09.html",
+    "href": "weeks/week09.html",
+    "title": "Week 9 - Split-Plot Designs",
+    "section": "",
+    "text": "Week 9 - Split-Plot Designs and Student Lecture\nThis week we examine split-plot experimental designs using a study on no-tillage culture and nitrogen fertilizer management for burley tobacco production. The primary reading is:\n\nNo-tillage culture and nitrogen fertilizer management for burley tobacco production https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10\n\nThe paper uses a split-plot design to study how tillage method (main plot) and nitrogen fertilizer rates (subplot) affect tobacco yield. We pair this paper with a hands-on R demo using the simulation code in projects/examplesplitplot.R.\n\n\n\n\n\n\n\nTipLearning Objectives\n\n\n\nBy the end of this session, students will be able to:\n\nExplain the structure and assumptions of a split-plot experimental design.\nDraw and interpret split-plot allocation including main plots and subplots.\nImplement and interpret a split-plot analysis in R using projects/examplesplitplot.R as a template.\nCritically evaluate a split-plot experiment from the Cambridge paper.\nDesign a split-plot experiment relevant to the student’s research question."
+  },
+  {
+    "objectID": "weeks/week09.html#pre-lecture-activation",
+    "href": "weeks/week09.html#pre-lecture-activation",
+    "title": "Week 9 - Split-Plot Designs",
+    "section": "Pre-Lecture Activation",
+    "text": "Pre-Lecture Activation\n\n\n\n\n\n\nImportantPre-Lecture Writing\n\n\n\nWrite the following for your own notes. You will not submit these. Be ready to share your answers with classmates.\n\nDraw the experimental design from the paper. Sketch main plots and subplots and label the treatments (tillage and fertilizer levels).\nList three study objectives in one or two sentences each.\nDefine a split-plot design in one or two sentences and note why one might use it. You may briefly research this.\nCome up with an experiment using a split-plot design relevant to your area of expertise. The experiment can be a short description or bullet points. After writing, you will share your experiment with classmates."
+  },
+  {
+    "objectID": "weeks/week09.html#student-lecture---015-045-25-30-min",
+    "href": "weeks/week09.html#student-lecture---015-045-25-30-min",
+    "title": "Week 9 - Split-Plot Designs",
+    "section": "Student Lecture - 0:15-0:45 (25-30 min)",
+    "text": "Student Lecture - 0:15-0:45 (25-30 min)\nSarah will teach the class about the Cambridge paper, focusing on experimental setup, split-plot structure, randomization scheme, outcome measures, key results, and methods."
+  },
+  {
+    "objectID": "weeks/week09.html#post-lecture-instructor-demo-and-activities---045-115-30-min",
+    "href": "weeks/week09.html#post-lecture-instructor-demo-and-activities---045-115-30-min",
+    "title": "Week 9 - Split-Plot Designs",
+    "section": "Post-Lecture Instructor Demo and Activities - 0:45-1:15 (30 min)",
+    "text": "Post-Lecture Instructor Demo and Activities - 0:45-1:15 (30 min)\n\n1. Discussion - 0:45-0:52 (5-7 min)\n\n\n2. Slideshow Demo - 0:52-1:00 (5-8 min)\nshort slide deck: slides/slides-Week09.qmd\n\ninstall.packages(c(\"lme4\", \"car\", \"ggplot2\", \"dplyr\"))\n\n\nSource the split-plot example code:\n\n\n\n3. Student Writing Task - 1:00-1:10 (10 min)\nWrite a split-plot experiment proposal relevant to their thesis or research interest. The proposal should include:\n\nA brief description of the experiment (one to two paragraphs or bullet points)\nIdentification of the main-plot factor and subplot factor\nHow they would analyze the data (e.g., lmer syntax or conceptual model description)"
+  },
+  {
+    "objectID": "weeks/week08-workshop.html",
+    "href": "weeks/week08-workshop.html",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "",
+    "text": "Week: 8\nTopic: Project Progress, Peer Review & Method Justification"
+  },
+  {
+    "objectID": "weeks/week08-workshop.html#part-1-weekly-self-assessment-10-min",
+    "href": "weeks/week08-workshop.html#part-1-weekly-self-assessment-10-min",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "1 Part 1: Weekly Self-Assessment (10 min)",
+    "text": "1 Part 1: Weekly Self-Assessment (10 min)\nOpen the Weekly Self-Assessment page and work through it now.\nThe short version:\n\nOpen your project README and find your Expected Timeline.\nReflect on what you planned to do last week and what you actually did.\nPick your status: 🟢 On track · 🟡 Slightly behind · 🔴 Significantly behind\nIf 🟡 or 🔴: write one concrete step you will take this week to catch up.\nIdentify one specific thing you will finish by the end of this week.\nShare your status and your one goal with the person next to you.\n\n\n\n\n\n\n\nTipUpdate your README now if you haven’t already\n\n\n\nGo to your GitHub repository and make sure your Expected Timeline is there. It doesn’t need to be perfect — it needs to exist and be honest about where you are."
+  },
+  {
+    "objectID": "weeks/week08-workshop.html#part-2-peer-feedback-we-will-do-this-most-weeks-5-min",
+    "href": "weeks/week08-workshop.html#part-2-peer-feedback-we-will-do-this-most-weeks-5-min",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "2 Part 2: Peer Feedback — We will do this most weeks (5 min)",
+    "text": "2 Part 2: Peer Feedback — We will do this most weeks (5 min)\nPair with someone outside your immediate research area."
+  },
+  {
+    "objectID": "weeks/week08-workshop.html#talk-about-how-your-project-is-going",
+    "href": "weeks/week08-workshop.html#talk-about-how-your-project-is-going",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "3 Talk about how your project is going",
+    "text": "3 Talk about how your project is going"
+  },
+  {
+    "objectID": "weeks/week08-workshop.html#part-3-prepare-for-next-weeks-presentation-10-min",
+    "href": "weeks/week08-workshop.html#part-3-prepare-for-next-weeks-presentation-10-min",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "4 Part 3: Prepare for Next Week’s Presentation (10 min)",
+    "text": "4 Part 3: Prepare for Next Week’s Presentation (10 min)\nNext week during workshop time, each student will give a 3–5 minute progress update. This is informal, low-stakes, and require slides.\nRead the Progress Presentation Instructions now.\nThen, use the remaining time to:\n\n\n\n\n\n\nImportantBefore You Leave Today\n\n\n\n⬜ Update your Expected Timeline in your README (even if nothing changed — confirm it)\n⬜ Identify one specific thing you will show next week (a figure, table, output, or code chunk)\n⬜ Write down one open question you want feedback on from your classmates\n⬜ Push your latest work to GitHub"
+  },
+  {
+    "objectID": "weeks/week08-workshop.html#part-4-start-working-on-your-methods-10-min",
+    "href": "weeks/week08-workshop.html#part-4-start-working-on-your-methods-10-min",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "5 Part 4: Start Working on Your Methods (10 min)",
+    "text": "5 Part 4: Start Working on Your Methods (10 min)\nIn your project (RStudio, GitHub, or Word) open or create a Methods section. Write at least two sentences:\n\nI chose X methods because …\nA key limitation of my analysis is … so we …\nWrite down a description of the analysis you will do, and start working on it! At this point you should start coding\n\nIf you already have this section, extend it. Add one more sentence about your data structure or your response variable distribution."
+  },
+  {
+    "objectID": "weeks/week08-workshop.html#part-5-project-work-time-remaining-time",
+    "href": "weeks/week08-workshop.html#part-5-project-work-time-remaining-time",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "6 Part 5: Project Work Time (remaining time)",
+    "text": "6 Part 5: Project Work Time (remaining time)\nUse the rest of the session to make progress on your project. Suggested priorities:\n\nRun a preliminary model or analysis (even if rough)\nGenerate at least one exploratory figure\nContinue writing your Methods section\nClean or organize your data file"
+  },
+  {
+    "objectID": "slides/slides-Week10.html",
+    "href": "slides/slides-Week10.html",
+    "title": "Week 10 - Occupancy Models",
+    "section": "",
+    "text": "Purpose: Activate prior knowledge from readings and prepare students for occupancy concepts.\nInstructions: On your notecard, write answers to:\n\nWhat is the difference between presence and detection?\nIf you survey a site for an animal once and find nothing, what are two possible explanations?\nWhat is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?\nIf 75% of your madtom captures come from gravel substrate, but gravel makes up 90% of the available habitat, what does that tell you about habitat preference?\n\nCompare your Canvas answers with your peers"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#the-detection-problem",
+    "href": "slides/slides-Week10.html#the-detection-problem",
+    "title": "Week 10 - Occupancy Models",
+    "section": "The Detection Problem",
+    "text": "The Detection Problem\nCore question: How do you know if a species is absent vs. undetected?\n\nScenario:\n\nYou survey a wetland for secretive marsh birds\nYou visit 5 times and detect nothing\nIs the species absent? Or just hard to find?\n\n\n\n\n\n\n\n\n\nImportant\n\n\nNon-detection ≠ Absence\nOccupancy models explicitly separate presence from detection."
+  },
+  {
+    "objectID": "slides/slides-Week10.html#occupancy-model-basics",
+    "href": "slides/slides-Week10.html#occupancy-model-basics",
+    "title": "Week 10 - Occupancy Models",
+    "section": "Occupancy Model Basics",
+    "text": "Occupancy Model Basics\nTwo key parameters:\n\n\n\n\n\n\n\n\nParameter\nSymbol\nDefinition\n\n\n\n\nOccupancy\nψ (psi)\nProbability a site is occupied\n\n\nDetection\np\nProbability of detecting the species given it is present\n\n\n\n\nWhy this matters:\n\nIf p = 1.0 → perfect detection → naïve occupancy = true occupancy\nIf p &lt; 1.0 → imperfect detection → naïve occupancy underestimates true occupancy\n\n\n\n\n“The naïve occupancy rate (proportion of sites with detections) is a biased estimator of true occupancy when p &lt; 1.”"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#detection-histories",
+    "href": "slides/slides-Week10.html#detection-histories",
+    "title": "Week 10 - Occupancy Models",
+    "section": "Detection Histories",
+    "text": "Detection Histories\nA detection history records outcomes across multiple visits to each site.\nExample: 7 sites, 5 visits each\n\n\n\nSite\nV1\nV2\nV3\nV4\nV5\nInterpretation\n\n\n\n\n1\n0\n1\n0\n0\n0\nPresent (detected once)\n\n\n2\n0\n0\n0\n0\n0\nUnknown (never detected)\n\n\n3\n1\n0\n1\n0\n0\nPresent (detected twice)\n\n\n4\n0\n0\n0\n0\n0\nUnknown (never detected)\n\n\n5\n0\n0\n0\n1\n0\nPresent (detected once)\n\n\n6\n0\n0\n0\n0\n0\nUnknown (never detected)\n\n\n7\n1\n1\n0\n0\n1\nPresent (detected three times)\n\n\n\n\nKey insight: Sites 2, 4, 6 could be:\n\nTruly unoccupied, OR\nOccupied but species was missed every time"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#the-likelihood-intuition",
+    "href": "slides/slides-Week10.html#the-likelihood-intuition",
+    "title": "Week 10 - Occupancy Models",
+    "section": "The Likelihood Intuition",
+    "text": "The Likelihood Intuition\nFor a site with at least one detection (e.g., Site 7: 11001):\n\\[\nP(\\text{history } 11001) = \\psi \\times p \\times p \\times (1-p) \\times (1-p) \\times p\n\\]\nThe species must be present (we saw it!), so ψ appears once.\n\nFor a site with all zeros (e.g., Site 2: 00000):\n\\[\nP(\\text{history } 00000) = \\underbrace{\\psi \\times (1-p)^5}_{\\text{present but missed}} + \\underbrace{(1-\\psi) \\times 1}_{\\text{truly absent}}\n\\]\nTwo possibilities: present but undetected, or truly absent.\n\n\n\n\n\n\n\n\nNote\n\n\nThis is why repeated visits are essential—they let us estimate p and separate these possibilities!"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#in-class-challenge-your-dataset",
+    "href": "slides/slides-Week10.html#in-class-challenge-your-dataset",
+    "title": "Week 10 - Occupancy Models",
+    "section": "In-Class Challenge: Your Dataset",
+    "text": "In-Class Challenge: Your Dataset\n7 sites, 5 visits each\n\n# Detection history: 1 = detected, 0 = not detected\ndetection_history &lt;- matrix(\n  c(0, 1, 0, 0, 0,   # Site 1\n    0, 0, 0, 0, 0,   # Site 2\n    1, 0, 1, 0, 0,   # Site 3\n    0, 0, 0, 0, 0,   # Site 4\n    0, 0, 0, 1, 0,   # Site 5\n    0, 0, 0, 0, 0,   # Site 6\n    1, 1, 0, 0, 1),  # Site 7\n  nrow = 7, ncol = 5, byrow = TRUE,\n  dimnames = list(paste(\"Site\", 1:7), paste(\"Visit\", 1:5))\n)\n\ndetection_history\n\n       Visit 1 Visit 2 Visit 3 Visit 4 Visit 5\nSite 1       0       1       0       0       0\nSite 2       0       0       0       0       0\nSite 3       1       0       1       0       0\nSite 4       0       0       0       0       0\nSite 5       0       0       0       1       0\nSite 6       0       0       0       0       0\nSite 7       1       1       0       0       1\n\n\nObservations:\n\n4 sites have at least one detection (Sites 1, 3, 5, 7)\n3 sites have all zeros (Sites 2, 4, 6)"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#the-challenge-question",
+    "href": "slides/slides-Week10.html#the-challenge-question",
+    "title": "Week 10 - Occupancy Models",
+    "section": "The Challenge Question",
+    "text": "The Challenge Question\n\n\n\n\n\n\nYour Task\n\n\nAn 8th site is surveyed 5 times.\nDetection history: 0, 0, 0, 0, 0 (no detections)\nWhat is the probability the species is present at Site 8?\n\n\n\n\nThink (2 min):\n\nWhat is your intuitive estimate?\nWhat information from Sites 1–7 can you use?\nWhat assumptions are you making?\n\n\n\nPair (3 min):\n\nCompare estimates with a partner\nWhere do you agree/disagree?\nRefine your reasoning together\n\n\n\nShare: Be ready to explain your reasoning!"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#hints-for-the-challenge",
+    "href": "slides/slides-Week10.html#hints-for-the-challenge",
+    "title": "Week 10 - Occupancy Models",
+    "section": "Hints for the Challenge",
+    "text": "Hints for the Challenge\nStep 1: Estimate detection probability (p)\n\nUse sites where you know the species is present\nHow many detections / how many visits at those sites?\n\n\nStep 2: Calculate P(all zeros | present)\n\nIf the species is present, what’s the probability of missing it 5 times?\nP(all zeros | present) = (1 - p)^5\n\n\n\nStep 3: Apply Bayes’ rule (conceptually) If you have prior information, you can apply it here! Use 0.60 for this example\n\\[\nP(\\text{present} \\mid \\text{all zeros}) = \\frac{P(\\text{all zeros} \\mid \\text{present}) \\times P(\\text{present})}{P(\\text{all zeros})}\n\\]\n\n\n\n\n\n\n\n\nTip\n\n\nKey insight: Even with 5 visits showing nothing, there’s a non-zero probability the species is there but you missed it every time!"
+  },
+  {
+    "objectID": "projects/weekly-self-assessment.html",
+    "href": "projects/weekly-self-assessment.html",
+    "title": "Weekly Self-Assessment",
+    "section": "",
+    "text": "NoteHow to use this page\n\n\n\nThis is a 10-minute check-in to do at the start of every Thursday workshop. Work through it on your own, you can share with me or with a neighbor if you want, but the main point is to get you in the habit of checking in with yourself about your progress and timeline."
+  },
+  {
+    "objectID": "projects/weekly-self-assessment.html#step-1.-open-your-project-readme-2-min",
+    "href": "projects/weekly-self-assessment.html#step-1.-open-your-project-readme-2-min",
+    "title": "Weekly Self-Assessment",
+    "section": "Step 1. Open your project README (2 min)",
+    "text": "Step 1. Open your project README (2 min)\nGo to your GitHub repository and open your README.md. Find your Expected Timeline section. In case you do not have your files on Github, this should be the time you make it and share it with me\n\nIf you have not written a timeline yet, do that now. Use the template in the Project Home."
+  },
+  {
+    "objectID": "projects/weekly-self-assessment.html#step-2.-reflect-on-last-week-3-min",
+    "href": "projects/weekly-self-assessment.html#step-2.-reflect-on-last-week-3-min",
+    "title": "Weekly Self-Assessment",
+    "section": "Step 2. Reflect on last week (3 min)",
+    "text": "Step 2. Reflect on last week (3 min)\nAnswer the following in a few words or sentences. You can write directly them down, on paper or in your README.\nWhat did you plan to accomplish last week?\n\nWhat did you actually get done?\n\nWhat got in the way, if anything?"
+  },
+  {
+    "objectID": "projects/weekly-self-assessment.html#step-3.-where-are-you-right-now-1-min",
+    "href": "projects/weekly-self-assessment.html#step-3.-where-are-you-right-now-1-min",
+    "title": "Weekly Self-Assessment",
+    "section": "Step 3. Where are you right now? (1 min)",
+    "text": "Step 3. Where are you right now? (1 min)\nPick one:\n\n\n\n\n\n\nTipStatus Check\n\n\n\n⬜ 🟢 On track or ahead - my timeline is still realistic\n⬜ 🟡 Slightly behind - I know what I need to do to catch up\n⬜ 🔴 Significantly behind - I need to re-plan or get help or change my overall plan\n\n\nIf you selected 🟡 or 🔴: write one concrete step you will take this week to get back on track.\n(Example: “I will finish cleaning my data file by Wednesday so I can run a model on Thursday.”)"
+  },
+  {
+    "objectID": "projects/weekly-self-assessment.html#step-4---update-your-timeline-if-needed-2-min",
+    "href": "projects/weekly-self-assessment.html#step-4---update-your-timeline-if-needed-2-min",
+    "title": "Weekly Self-Assessment",
+    "section": "Step 4 - Update your timeline if needed (2 min)",
+    "text": "Step 4 - Update your timeline if needed (2 min)\nIf your status is 🟡 or 🔴, revise your Expected Timeline in your README now.\nIf your status is 🟢, confirm that the next two weeks of your timeline are still realistic.\n\n\n\n\n\n\nImportantOne thing I will finish by the end of this week\n\n\n\nWrite it down. Make it specific and achievable in the time you have.You will review it next week.\n\n\n\n\n\n\n\n\n\n\nNoteWhy do this every week?\n\n\n\nBrief, repeated self-monitoring is one of the most consistent findings in educational research for improving long-term project completion. Checking in weekly rather than just at the end helps you catch small problems before they become large ones. You should do this for your thesis/dissertation as well!!!\n\n\n\nReturn to Project Home · See also: Progress Presentation Instructions"
+  },
+  {
+    "objectID": "projects/index.html#upcoming-brief-progress-presentations",
+    "href": "projects/index.html#upcoming-brief-progress-presentations",
+    "title": "Final Paper: Project Home",
+    "section": "1 Upcoming: Brief Progress Presentations",
+    "text": "1 Upcoming: Brief Progress Presentations\nNext week, you will give a 3–5 minute progress update during Thursday workshop time.\nSee Progress Presentation Instructions for what to prepare and bring.\n\n\n\n\n\n\nImportantBefore next Thursday’s workshop\n\n\n\n⬜ Update your Expected Timeline in your README\n⬜ Push your latest code or analysis to GitHub\n⬜ Add or update your Methods section (at least two sentences)\n⬜ Have your assumption check table present (even if incomplete)\n⬜ Identify one open question you want feedback on\n\n\n\nThis assignment guides you through creating a research project repository and developing your final paper proposal."
+  },
+  {
+    "objectID": "projects/index.html#step-7-start-working-on-your-methods",
+    "href": "projects/index.html#step-7-start-working-on-your-methods",
+    "title": "Final Paper: Project Home",
+    "section": "8 Step 7: Start working on your methods",
+    "text": "8 Step 7: Start working on your methods\nI wante everyone to do “one concrete” thing this week, aimed at analyzing your data. This could be a code chunk that runs a model, creates a figure, or produces a table. It can be cleaning data. We are at the half point of the semester, so, this is where you should be.\nSuggested priorities:\n\nRun a preliminary model or analysis (even if rough)\nGenerate at least one exploratory figure\nContinue writing your Methods section\nClean or organize your data file"
+  },
+  {
+    "objectID": "materials/week07_actionable_item.html#think-back-to-the-one-actionable-item-you-committed-to-working-on-by-thursday.",
+    "href": "materials/week07_actionable_item.html#think-back-to-the-one-actionable-item-you-committed-to-working-on-by-thursday.",
+    "title": "Quick Check-In",
+    "section": "",
+    "text": "My original actionable item was: \nCurrent status:\n( ) On track ( ) Stuck ( ) Needs revision ( ) Not started\nIf revising: what’s the adjusted version?\nOne thing I need to do in the next 48 hrs (“do nothing” is an option):\nThanks!"
+  },
+  {
+    "objectID": "projects/progress-presentation.html",
+    "href": "projects/progress-presentation.html",
+    "title": "3–5 Minute Progress Presentation",
+    "section": "",
+    "text": "NoteWhat this is\n\n\n\nNext week during workshop time, each student will give a 3–5 minute informal progress update on their project. This is not a formal presentation, more of a check-in to share what you’ve done, where you are, and get feedback from your peers."
+  },
+  {
+    "objectID": "projects/progress-presentation.html#why",
+    "href": "projects/progress-presentation.html#why",
+    "title": "3–5 Minute Progress Presentation",
+    "section": "Why?",
+    "text": "Why?\nThese short updates serve three goals:\n\nAccountability: sharing your progress publicly helps you commit to your own timeline.\nFeedback: your peers can ask questions you haven’t thought of yet.\nPractice: articulating your methods and results out loud is a core research skill."
+  },
+  {
+    "objectID": "projects/progress-presentation.html#duration-and-format",
+    "href": "projects/progress-presentation.html#duration-and-format",
+    "title": "3–5 Minute Progress Presentation",
+    "section": "Duration and Format",
+    "text": "Duration and Format\n\n\n\nElement\nTime\n\n\n\n\nYour update\n3–5 minutes\n\n\nPeer questions\n1–2 minutes\n\n\nTransition\n&lt; 1 minute\n\n\n\nTotal per student: approximately 5–7 minutes Hopefully there’s time for all of you"
+  },
+  {
+    "objectID": "projects/progress-presentation.html#what-to-bring",
+    "href": "projects/progress-presentation.html#what-to-bring",
+    "title": "3–5 Minute Progress Presentation",
+    "section": "What to Bring",
+    "text": "What to Bring\n\n\n\n\n\n\nImportantChecklist — Prepare before you arrive\n\n\n\n⬜ One specific thing to show -&gt; a figure, output, table, or code chunk\n⬜ Your updated timeline ⬜ One open question you want feedback on\n⬜ Your assumption check table (even if incomplete)\n\n\n\nReturn to Project Home · See also: Weekly Self-Assessment"
+  },
+  {
+    "objectID": "slides/slides-Week08.html",
+    "href": "slides/slides-Week08.html",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "",
+    "text": "“Why not just use a mixed model?”\nGLMMs are usually the default for repeated measures, right?"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#initial-question",
+    "href": "slides/slides-Week08.html#initial-question",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "",
+    "text": "“Why not just use a mixed model?”\nGLMMs are usually the default for repeated measures, right?"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#main-difference-between-glmm-and-gee-from-interpretaion",
+    "href": "slides/slides-Week08.html#main-difference-between-glmm-and-gee-from-interpretaion",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "2 Main difference between GLMM and GEE from interpretaion",
+    "text": "2 Main difference between GLMM and GEE from interpretaion\n\nUse GLMM when you want to make inference about a specific cluster (or individual) (e.g., plot, lake, animal) -&gt; the conditional mean.\nUse GEE when you want to make inference about the population-average effect across all clusters -&gt; the marginal mean."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#marginal-vs-conditional-inferencemean",
+    "href": "slides/slides-Week08.html#marginal-vs-conditional-inferencemean",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "3 Marginal vs Conditional Inference/Mean",
+    "text": "3 Marginal vs Conditional Inference/Mean\n\nMarginal mean: \\(E[Y]\\) - the average response across the entire population of clusters (plots). This is what GEE estimates.\nThe marginal mean is the overall expected value of a variable by itself, averaging over (i.e., ignoring) other variables.\nInterpretation: “What is the average value of Y in the whole population/sample?”\nExample: If Y is income, the marginal mean is the average income across everyone, regardless of age, education, etc."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#marginal-vs-conditional-inferencemean-1",
+    "href": "slides/slides-Week08.html#marginal-vs-conditional-inferencemean-1",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "4 Marginal vs Conditional Inference/Mean",
+    "text": "4 Marginal vs Conditional Inference/Mean\n\nConditional mean: \\(E[Y \\mid \\mathbf{b}]\\) - the expected response for a specific cluster (plot) given its random effect. This is what GLMM estimates.\nThe conditional mean is the expected value of a variable given specific values of other variables (e.g., random effects).\nNotation: \\(E[Y \\mid \\mathbf{b}]\\) means the expected value of Y given the random effects b.\nInterpretation: “What is the expected value of Y for a specific cluster (plot) given its unique characteristics (random effect)?”\nExample: \\(E[ Y \\mid education = college]\\) is the expected income for a specific individual i, given that they went to college."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#marginal-means-we-are-averaging-over-the-random-effects",
+    "href": "slides/slides-Week08.html#marginal-means-we-are-averaging-over-the-random-effects",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "5 Marginal means we are averaging over the random effects",
+    "text": "5 Marginal means we are averaging over the random effects\nIt is a weighted average of the conditional means across all clusters, where the weights are determined by the distribution of the random effects. \\[E[Y] = \\int E[Y \\mid \\mathbf{b}] f(\\mathbf{b}) d\\mathbf{b}\\] ::: {.notes} Expected Y equals the integral of expected Y given b times f(b) db\n:::\n\n“The overall mean of \\(Y\\) is the average of the conditional mean of \\(Y\\), averaged over how likely each \\(\\mathbf{b}\\) value is.”"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#why-gee-clustered-data-marginal-inference",
+    "href": "slides/slides-Week08.html#why-gee-clustered-data-marginal-inference",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "6 Why GEE? Clustered Data & Marginal Inference",
+    "text": "6 Why GEE? Clustered Data & Marginal Inference\nThe data structure problem:\n\n21 plots, each measured 24 times (monthly, 2010–2011)\nTick counts within a plot are correlated (not independent)\nOrdinary GLM assumes independence → inflated Type I error\nGLMM models this correlation with random effects → estimates conditional mean\nGEE models this correlation with a working covariance → estimates marginal mean\n\n. . .\nTwo solutions:\n\n\n\n\n\n\n\n\nApproach\nWhat it models\nInterpretation\n\n\n\n\nGLMM\nConditional mean \\(E[Y \\mid \\mathbf{b}]\\)\nEffect within a specific plot\n\n\nGEE\nMarginal mean \\(E[Y]\\)\nEffect averaged across all plots\n\n\n\n. . .\n\nFor policy-relevant questions - “Does burning reduce ticks on average?” - GEE is a better choice.\n\n\nThis is the conceptual heart of the lecture. When you have repeated measures or clustered data, you have two philosophically different questions you can ask. GLMM asks: “for THIS plot, what is the effect of burning?” GEE asks: “averaged across ALL plots, what is the effect of burning?” For a public health or wildlife management question like “should we prescribe burn to reduce tick exposure across a landscape?”, the marginal, population-averaged answer from GEE is exactly what we want. Conditional effects from GLMM are appropriate when we care about prediction for a specific cluster."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#the-gee-estimating-equation",
+    "href": "slides/slides-Week08.html#the-gee-estimating-equation",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "7 The GEE Estimating Equation",
+    "text": "7 The GEE Estimating Equation\n\\[\n\\sum_{i=1}^{K} \\mathbf{D}_i^\\top \\mathbf{V}_i^{-1}\\left(\\mathbf{Y}_i - \\boldsymbol{\\mu}_i\\right) = \\mathbf{0}\n\\]\n\n\n\n\n\n\n\nSymbol\nMeaning\n\n\n\n\n\\(K = 21\\)\nNumber of plots (clusters)\n\n\n\\(\\mathbf{Y}_i\\)\nObserved tick counts for plot \\(i\\) (length 24)\n\n\n\\(\\boldsymbol{\\mu}_i = E[\\mathbf{Y}_i \\mid \\mathbf{X}_i]\\)\nPredicted marginal means\n\n\n\\(\\mathbf{D}_i = \\partial \\boldsymbol{\\mu}_i / \\partial \\boldsymbol{\\beta}\\)\nDerivative of mean w.r.t. parameters\n\n\n\\(\\mathbf{V}_i = \\phi\\,\\mathbf{A}_i^{1/2} R(\\alpha) \\mathbf{A}_i^{1/2}\\)\nWorking covariance\n\n\n\\(R(\\alpha)\\)\nWorking correlation matrix\n\n\n\n\nwith respect to Let’s slow down here. This equation looks intimidating but the logic is simple. GEE is a score equation -&gt; we’re finding the beta that sets the weighted sum of residuals to zero. The key quantity is V_i - the working covariance matrix. This is where we specify our assumption about how the 24 monthly tick counts within a plot are correlated. A_i is a diagonal matrix of variances (from the negative binomial family). R(alpha) is the working correlation - exchangeable, AR(1), or independence. And here is GEE’s great advantage: even if R(alpha) is wrong, the estimates are still consistent. We don’t have to get the correlation right to get correct point estimates. D -&gt; How sensitive the expected counts are to changes in the model parameters\nIn your tick-count example\n𝜇 𝑖 μ i ​\n: expected tick counts for plot 𝑖 i across 24 observations\n𝛽 β: effects of predictors (treatment, time, etc.)\n👉 Then 𝐷 𝑖 D i ​\nis:\na matrix of slopes showing how each expected count changes as each parameter changes"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#robust-standard-errors-with-the-sandwich-estimator",
+    "href": "slides/slides-Week08.html#robust-standard-errors-with-the-sandwich-estimator",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "8 Robust standard errors with the sandwich estimator",
+    "text": "8 Robust standard errors with the sandwich estimator\n\nRobust S.E. allow us to get good uncertainty estimates even if our working correlation is wrong. This is critical because we often don’t know the true correlation structure.\nWe usually assume the variance has a correct structure:\nNormal: \\(\\text{Var}(Y_{it}) = \\sigma^2\\)\nPoisson: \\(\\text{Var}(Y_{it}) = \\lambda_{it}\\)\nNegative binomial: \\(\\text{Var}(Y_{it}) = \\mu_{it} + \\frac{\\mu_{it}^2}{k}\\)\nWhat happens is those are violated???\nWhat happens to our estimates\nWhat happens to our standard errors? And decisions?"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#sandwich-robust-variance",
+    "href": "slides/slides-Week08.html#sandwich-robust-variance",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "9 Sandwich (Robust) Variance",
+    "text": "9 Sandwich (Robust) Variance\n\\[\n\\widehat{\\text{Var}}(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{B}^{-1} \\mathbf{M} \\mathbf{B}^{-1}\n\\]\n\n\\(\\mathbf{B} = \\displaystyle\\sum_i \\mathbf{D}_i^\\top \\mathbf{V}_i^{-1} \\mathbf{D}_i\\)   (the bread -&gt; model-based information)\n\\(\\mathbf{M} = \\displaystyle\\sum_i \\mathbf{D}_i^\\top \\mathbf{V}_i^{-1} \\widehat{\\text{Cov}}(\\mathbf{Y}_i) \\mathbf{V}_i^{-1} \\mathbf{D}_i\\)   (the meat -&gt; empirical)\n\n. . ."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#bread-model-based",
+    "href": "slides/slides-Week08.html#bread-model-based",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "10 🥖 Bread (Model-Based)",
+    "text": "10 🥖 Bread (Model-Based)\n\nComes from the assumed model\nUses design matrix (X) and weights (W)\nRepresents: &gt; “How precise estimates would be if the model were correct”"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#meat-data-based",
+    "href": "slides/slides-Week08.html#meat-data-based",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "11 🥩 Meat (Data-Based)",
+    "text": "11 🥩 Meat (Data-Based)\n\nComes from observed residual variability\nUses cluster-level contributions ( _i )\nRepresents: &gt; “How much variability we actually saw in the data”"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#intuition",
+    "href": "slides/slides-Week08.html#intuition",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "12 🧠 Intuition",
+    "text": "12 🧠 Intuition\n\nBread = theory\n\nMeat = reality\n\nSandwich = robust standard errors\n\n\nKey insight: model gives the structure, the data gives the variability. The sandwich estimator combines both to give us robust standard errors."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#when-to-use",
+    "href": "slides/slides-Week08.html#when-to-use",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "13 When to use?",
+    "text": "13 When to use?\n\nNot only based on the type of mean structure (marginal vs conditional) but also based on the number of clusters!!!\nGenerally, it is advised to have MANY CLUSTERS for the sandwich estimator to perform well. A common rule of thumb is at least 40 clusters. With fewer clusters, the sandwich estimator can be biased and produce anti-conservative confidence intervals (too narrow).\n\n\n\n\n\n\n\nWarning\n\n\n\nWith only \\(K = 21\\) clusters, the sandwich estimator may be anti-conservative (too narrow CIs). Small-sample corrections (e.g., std.err = \"jack\" in geepack) are advisable.\n\n\n\nThe sandwich estimator gets its name from the formula: B-inverse times M times B-inverse. Bread times meat times bread. B is the expected curvature of the likelihood - it’s what you’d use if your working covariance was exactly right. M is the empirical estimate of the actual variance - it uses the observed residuals, not the model-assumed residuals. When you sandwich M between two B-inverses, you get a variance estimate that is robust to correlation misspecification. HOWEVER - and this is critical for this paper - with only 21 clusters, the sandwich estimator can be unreliable. The standard recommendation is at least 40 clusters for stable sandwich SEs. The authors of the tick paper had 21 plots; this is a legitimate limitation worth mentioning."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#the-papers-model-specification",
+    "href": "slides/slides-Week08.html#the-papers-model-specification",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "14 The Paper’s Model Specification",
+    "text": "14 The Paper’s Model Specification\n\n\n\n\n\n\nNote\n\n\n\nNote: Gleim et al. (2014) do not provide an explicit model equation. The following is an inferred defensible specification based on their Methods section (p. 3).\n\n\n\\[\n\\log\\!\\bigl(E[\\text{ticks}_{it}]\\bigr) = \\beta_0 + \\beta_1\\,\\text{BurnRegime}_i + \\beta_2\\,\\text{HostAbundance}_{it} + \\beta_3\\,\\text{Canopy}_{it} + \\beta_4\\,\\text{Season}_{it} + \\cdots\n\\]\n\nFamily: Negative binomial (overdispersed counts; 47,185 total; 99% A. americanum)\nLink: Log (counts → multiplicative effects on tick abundance)\nCorrelation: Exchangeable (equal correlation among all 24 monthly observations per plot)\nClusters: 21 plots (7.2–78.9 ha); ≥10 years of consistent burn management\nPredictors: Burn regime (BB, BUB, UBB, UBUB), host abundance (cameras), canopy closure, tree density, ground cover, temperature, precipitation\n\n\nHere is the model as best we can infer it. The paper describes using GEE with negative binomial family and log link in a sentence or two, but never displays a formal equation or coefficient table in the main text. This is unfortunately common in applied ecology. The negative binomial family is appropriate because tick counts are highly overdispersed - the variance far exceeds the mean. The log link gives us multiplicative effects - a one-unit change in burn regime multiplies the expected tick count by e to the beta. Exchangeable correlation means the model assumes the correlation between plot 7’s tick counts in January and December is the same as between January and February. That may not be realistic - seasonal data often shows decaying autocorrelation better captured by AR(1)."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#working-correlation-structures",
+    "href": "slides/slides-Week08.html#working-correlation-structures",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "15 Working Correlation Structures",
+    "text": "15 Working Correlation Structures\n\n\n\n\n\n\n\n\n\nStructure\nFormula\nAssumption\nBest for…\n\n\n\n\nIndependence\n\\(R = I\\)\nZero correlation\nSensitivity check; large \\(K\\)\n\n\nExchangeable\n\\(\\text{Corr}(Y_{it}, Y_{is}) = \\alpha\\)\nEqual correlation at all lags\nShort series; random effects analogy\n\n\nAR(1)\n\\(\\text{Corr}(Y_{it}, Y_{is}) = \\alpha^{|t-s|}\\)\nCorrelation decays with lag\nTime series; seasonal ecological data\n\n\n\n. . .\n\nFor monthly tick counts over 2 years, AR(1) is more ecologically realistic than exchangeable - but GEE estimates are consistent under either.\n\n\nModel selection: Use QIC (quasi-likelihood under independence model criterion) to compare working correlation structures.\n\n\nThis table is worth spending a couple of minutes on because it connects directly to the group worksheet. Independence assumes no correlation - use this as a baseline or sensitivity check. Exchangeable assumes that correlation is constant regardless of the time gap - that the correlation between observations 1 month apart is the same as observations 23 months apart. That’s a strong assumption for ecological time series. AR(1) assumes correlation decays exponentially with lag - more realistic for monthly data where nearby months are more similar. For this study, AR(1) seems more defensible, but the authors chose exchangeable. This is exactly the kind of analytic choice worth critiquing."
+  },
+  {
+    "objectID": "slides/slides-Week08.html#how-to-run-it",
+    "href": "slides/slides-Week08.html#how-to-run-it",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "16 How to run it?",
+    "text": "16 How to run it?\nIn R, you can use the geepack package:\n\nlibrary(geepack)\n\nfit_gee &lt;- geeglm(\n  y ~ x1 + x2 + time,\n  id      = subject_id,          # cluster / repeated unit\n  data    = dat,\n  family  = binomial(link=\"logit\"),\n  corstr  = \"ar1\"                 # working AR(1)\n)\n\nsummary(fit_gee)"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#group-worksheet-critique---055105-10-min",
+    "href": "slides/slides-Week08.html#group-worksheet-critique---055105-10-min",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "Group Worksheet Critique - 0:55–1:05 (10 min)",
+    "text": "Group Worksheet Critique - 0:55–1:05 (10 min)\nFormat: Small groups (2–3 students)\nInstructions: 1. Each group gives 3 specific critiques of the paper as if you were a reviewer"
+  },
+  {
+    "objectID": "slides/slides-Week08.html#before-you-leave",
+    "href": "slides/slides-Week08.html#before-you-leave",
+    "title": "Tick Phenology & Prescribed Burning: GEE for Repeated-Measures Count Data",
+    "section": "17 Before You Leave",
+    "text": "17 Before You Leave\nOn an index card :\n1. What is the single most important thing you learned about GEE today?\n2. What is one question you still have about GEE or do you think you could apply GEE to your own research data?\nBe specific. “I learned GEE exists” is not an acceptable answer for question 1.\n\nThis is a metacognitive closing activity. The second question is intentionally about their own data - this forces them to think about transfer, not just whether they understood the lecture. I will read these before next class and address persistent questions at the start of the next session."
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html",
+    "href": "weeks/week07-workshop_2.html",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "",
+    "text": "Week: 8\nTopic: Project Progress, Peer Review & Method Justification"
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#part-1-timeline-self-assessment-15-min",
+    "href": "weeks/week07-workshop_2.html#part-1-timeline-self-assessment-15-min",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "1 Part 1: Timeline Self-Assessment (15 min)",
+    "text": "1 Part 1: Timeline Self-Assessment (15 min)\n\n1.1 Step 1 — Individual Review (5 min)\nOpen your project README and finish and review your Expected Timeline.\nAnswer the following:\n\n\n\n\n\n\nTipTimeline Check Prompts\n\n\n\nWhat did you plan to have done by next week?\nBe aware that you are NOT expected to work on this over break\n\nMoving forward, you should answer the followign each week\n\nWhere are you:\n⬜ 🟢 On track or ahead\n⬜ 🟡 Slightly behind; I know what I need to do\n⬜ 🔴 Significantly behind; need help re-planning\nIf Yellow or Red: one concrete thing I will do this week:\n\nUpdated timeline for remaining weeks: Update or leave your timeline as needed. Please, if possible, start working on Github so you can share this with me\n\n\n\n\n1.2 Step 2 — Share with Neighbor (5 min)\nShare your timeline with the person next to you. Offer one suggestion or piece of encouragement."
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#part-2-start-working-on-your-methods",
+    "href": "weeks/week07-workshop_2.html#part-2-start-working-on-your-methods",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "2 Part 2: Start working on your methods",
+    "text": "2 Part 2: Start working on your methods\nIn your project (RSTUDIO or Github or Word) start a “Methods” section. Write two sentences there. Examples: - I chose X methods because … - A key limitation of my analysis is … so we …"
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#part-3-peer-feedback---we-will-be-doing-this-most-weeks",
+    "href": "weeks/week07-workshop_2.html#part-3-peer-feedback---we-will-be-doing-this-most-weeks",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "3 Part 3: Peer Feedback - We will be doing this most weeks",
+    "text": "3 Part 3: Peer Feedback - We will be doing this most weeks\nPair with someone outside your immediate research area.\n⏱ ~7 minutes per person\n\n\n\nTime\nTask\n\n\n\n\n4 min\nExplain your project: question, data, and why it matters\n\n\n1 min\nShow your current work: code, figures, or written sections\n\n\n2 min\nReceive feedback from your reviewer\n\n\n\n\n3.1 Reviewer Feedback Guide\nUse this structure when reviewing your partner’s project:\n\n\n\n\n\n\nNotePeer Feedback Guide\n\n\n\nStrengths (at least one): &gt; “One thing that is working well is…”\nOne Idea: &gt; “One thing you might consider is…”\nOne Hard Question: &gt; Ask one question the presenter may not have considered yet.\n\n\n\n\n3.2 After Both Rounds\nWrite down:\n\nOne piece of feedback I received that I will act on:\n\n\n\nOne idea I gave my partner that also applies to my own work:"
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#part-3-method-justification-written-exercise-15-min",
+    "href": "weeks/week07-workshop_2.html#part-3-method-justification-written-exercise-15-min",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "4 Part 3: Method Justification — Written Exercise (15 min)",
+    "text": "4 Part 3: Method Justification — Written Exercise (15 min)\nWrite a new section on your methods:\nMethod justification\nYour paragraph can address:\n\n\n\n\n\n\nTipWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!"
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#part-4-check-your-assumptions",
+    "href": "weeks/week07-workshop_2.html#part-4-check-your-assumptions",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "5 Part 4: Check your assumptions",
+    "text": "5 Part 4: Check your assumptions\nBased on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked: and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet: but I could by next class\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check: need to acknowledge it and discuss it"
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#the-goal-is-not-to-have-all-green.-red-assumptions-are-ok-they-are-honest-limitations-all-studies-have-them-that-belong-in-your-discussion-section.",
+    "href": "weeks/week07-workshop_2.html#the-goal-is-not-to-have-all-green.-red-assumptions-are-ok-they-are-honest-limitations-all-studies-have-them-that-belong-in-your-discussion-section.",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "6 The goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.",
+    "text": "6 The goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section."
+  },
+  {
+    "objectID": "weeks/week07-workshop_2.html#part-5-work-on-your-project.",
+    "href": "weeks/week07-workshop_2.html#part-5-work-on-your-project.",
+    "title": "Week 08 — Thursday Workshop: Project Progress, Peer Review & Method Justification",
+    "section": "7 Part 5: Work on your project.",
+    "text": "7 Part 5: Work on your project."
+  },
+  {
+    "objectID": "weeks/week08.html",
+    "href": "weeks/week08.html",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "",
+    "text": "Session\nContent\nDuration\n\n\n\n\nSession A Part 1\nStudent-led paper discussion (Gleim et al. 2014)\n~30 min\n\n\nSession A Part 2\nInstructor-led GEE theory mini-lecture (slides)\n~15 min\n\n\nSession A Part 3\nGroup worksheet critique + R workshop + wrap-up\n~30 min\n\n\n\nPaper: Gleim, E. R., Conner, L. M., Berghaus, R. D., Levin, M. L., Zemtsova, G. E., & Yabsley, M. J. (2014). The Phenology of Ticks and the Effects of Long-Term Prescribed Burning on Tick Population Dynamics in Southwestern Georgia and Northwestern Florida. PLOS ONE, 9(11), e112174. https://doi.org/10.1371/journal.pone.0112174\n\n\n\n\n\n\n\nTipLearning Objectives\n\n\n\nBy the end of class, students will be able to:\n\nExplain why GEE is appropriate for clustered/repeated-measures count data\nWrite the GEE estimating equation and identify each component (\\(\\mathbf{D}_i\\), \\(\\mathbf{V}_i\\), \\(\\boldsymbol{\\mu}_i\\), \\(R(\\alpha)\\))\nCompare exchangeable, AR(1), and independence working correlation structures and articulate when each is defensible\nEvaluate whether the paper’s analytic choices (negative binomial family, log link, exchangeable correlation) align with the data structure\nImplement a GEE in R using geepack::geeglm and interpret robust (sandwich) standard errors"
+  },
+  {
+    "objectID": "weeks/week08.html#entry-ticket-000005-5-min",
+    "href": "weeks/week08.html#entry-ticket-000005-5-min",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "Entry Ticket — 0:00–0:05 (5 min)",
+    "text": "Entry Ticket — 0:00–0:05 (5 min)\nActivity type: In-class formative pre-assessment\n\nBefore we begin today’s discussion, take 5 minutes to answer these questions about the paper you read. You can work in groups.\n\n\n\n\n\n\n\n\nField\nQuestion\n\n\n\n\nObjective\nIn one sentence, what is the paper’s primary research objective?\n\n\nResearch_Question\nState the main research question (what, in whom/what, compared to what, measured how).\n\n\nOutcome_Variable\nWhat is the response/outcome variable? What type of data is it?\n\n\nPredictors\nList the main predictor(s)/covariate(s).\n\n\nCluster_ID_and_time_structure\nWhat are the clusters (sampling units)? How many? How many repeated time points?\n\n\nAnalysis_method_guess\nWhat statistical method did the authors use (or what do you think they should have used)?\n\n\nOne_method_question\nWrite one question about the statistical method that you want answered today.\n\n\n\n5 minutes for discussion"
+  },
+  {
+    "objectID": "weeks/week08.html#student-paper-presentation---010040-30-min",
+    "href": "weeks/week08.html#student-paper-presentation---010040-30-min",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "Student Paper Presentation - 0:10–0:40 (30 min)",
+    "text": "Student Paper Presentation - 0:10–0:40 (30 min)\nPresenter: Silas"
+  },
+  {
+    "objectID": "weeks/week08.html#interaction-activity-challenge-questions",
+    "href": "weeks/week08.html#interaction-activity-challenge-questions",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "2.1 ⚡ Interaction Activity: Challenge Questions",
+    "text": "2.1 ⚡ Interaction Activity: Challenge Questions\nProcedure: 1. Each group (~2) presents their challenge question (30 sec each, ~3 groups max given time). 2. The presenter must respond to each challenge question directly (45–60 sec per response). 3. Instructor may supplement if the presenter’s answer is incomplete or if an important concept was missed."
+  },
+  {
+    "objectID": "weeks/week08.html#gee-theory-mini-lecture-040055-15-min",
+    "href": "weeks/week08.html#gee-theory-mini-lecture-040055-15-min",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "GEE Theory Mini-Lecture — 0:40–0:55 (15 min)",
+    "text": "GEE Theory Mini-Lecture — 0:40–0:55 (15 min)\nFormat: Instructor-led with slides (slides/slides-ticks-gee.qmd).\nSlides covered: Slides 4–8 (Why GEE?, Estimating Equation, Sandwich Variance, Paper’s Model Spec, Working Correlation Comparison).\n\n2.1.1 GEE Estimating Equation\nThe GEE for subject \\(i\\) solves:\n\\[\n\\sum_{i=1}^{K} \\mathbf{D}_i^\\top \\mathbf{V}_i^{-1}\\left(\\mathbf{Y}_i - \\boldsymbol{\\mu}_i\\right) = \\mathbf{0}\n\\]\nwhere:\n\n\n\n\n\n\n\nSymbol\nDefinition\n\n\n\n\n\\(K\\)\nNumber of clusters (here: 21 plots)\n\n\n\\(\\mathbf{Y}_i\\)\n\\(n_i \\times 1\\) vector of observed tick counts for plot \\(i\\)\n\n\n\\(\\boldsymbol{\\mu}_i\\)\n\\(n_i \\times 1\\) vector of marginal means, \\(\\mu_{it} = E[Y_{it} \\mid \\mathbf{X}_{it}]\\)\n\n\n\\(\\mathbf{D}_i\\)\n\\(n_i \\times p\\) derivative matrix, \\(\\mathbf{D}_i = \\partial \\boldsymbol{\\mu}_i / \\partial \\boldsymbol{\\beta}\\)\n\n\n\\(\\mathbf{V}_i\\)\nWorking covariance matrix, \\(\\mathbf{V}_i = \\phi \\, \\mathbf{A}_i^{1/2} R(\\alpha) \\mathbf{A}_i^{1/2}\\)\n\n\n\\(\\mathbf{A}_i\\)\nDiagonal matrix of marginal variances\n\n\n\\(R(\\alpha)\\)\nWorking correlation matrix (exchangeable, AR(1), or independence)\n\n\n\\(\\phi\\)\nOverdispersion parameter\n\n\n\n\n\n2.1.2 Sandwich (Robust) Variance\n\\[\n\\widehat{\\text{Var}}(\\hat{\\boldsymbol{\\beta}}) = \\mathbf{B}^{-1} \\mathbf{M} \\mathbf{B}^{-1}\n\\]\nwhere \\(\\mathbf{B} = \\sum_i \\mathbf{D}_i^\\top \\mathbf{V}_i^{-1} \\mathbf{D}_i\\) (bread) and \\(\\mathbf{M} = \\sum_i \\mathbf{D}_i^\\top \\mathbf{V}_i^{-1} \\text{Cov}(\\mathbf{Y}_i) \\mathbf{V}_i^{-1} \\mathbf{D}_i\\) (meat).\n\n\n2.1.3 Paper’s Inferred Model Specification\n\n\n\n\n\n\nNote\n\n\n\nThe paper (Gleim et al. 2014) does not provide an explicit model equation. Based on the Methods section (p. 3), the authors state they used GEE with a negative binomial family and log link, exchangeable working correlation, to account for repeated measures within plots. A defensible inferred model is:\n\\[\n\\log\\!\\bigl(E[\\text{ticks}_{it}]\\bigr) = \\beta_0 + \\beta_1 \\cdot \\text{BurnRegime}_i + \\beta_2 \\cdot \\text{HostAbundance}_{it} + \\beta_3 \\cdot \\text{Canopy}_{it} + \\beta_4 \\cdot \\text{Season}_{it} + \\varepsilon_{it}\n\\]\nwhere \\(i\\) indexes plot (cluster) and \\(t\\) indexes monthly time point.\n\n\n\n\n2.1.4 Working Correlation Structures\n\n\n\n\n\n\n\n\n\nStructure\n\\(R(\\alpha)\\)\nAssumption\nAppropriate when…\n\n\n\n\nIndependence\n\\(I\\)\nNo correlation\nCluster size is large; correlation is nuisance\n\n\nExchangeable\n\\((1-\\alpha)I + \\alpha \\mathbf{J}\\)\nEqual pairwise correlation at all lags\nCorrelation doesn’t decay with time\n\n\nAR(1)\n\\(\\alpha^{|t-s|}\\)\nCorrelation decays with lag\nTime series within clusters; ecological seasonal data"
+  },
+  {
+    "objectID": "weeks/week08.html#group-worksheet-critique-055105-10-min",
+    "href": "weeks/week08.html#group-worksheet-critique-055105-10-min",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "Group Worksheet Critique — 0:55–1:05 (10 min)",
+    "text": "Group Worksheet Critique — 0:55–1:05 (10 min)\nFormat: Small groups (2–3 students)\nInstructions: 1. Each group gives 3 specific critiques of the paper as if you were a reviewer"
+  },
+  {
+    "objectID": "weeks/week08.html#minute-paper-112115-3-min",
+    "href": "weeks/week08.html#minute-paper-112115-3-min",
+    "title": "Week 8 - Tick Phenology & Prescribed Burning: Generalized Estimating Equations for Repeated-Measures Count Data",
+    "section": "Minute Paper — 1:12–1:15 (3 min)",
+    "text": "Minute Paper — 1:12–1:15 (3 min)\nFormat: Exit ticket (template: activities/minute_paper_template.md)\nPrompts:\n\nWhat is the single most important thing you learned about GEE today?\nWhat is one question you still have about applying GEE to your own research data?"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#prior-to-class",
+    "href": "slides/slides-Week10.html#prior-to-class",
+    "title": "Week 10 - Occupancy Models",
+    "section": "Prior to class",
+    "text": "Prior to class\nPurpose: Activate prior knowledge from readings and prepare students for occupancy concepts.\nInstructions: On your notecard, write answers to:\n\nWhat is the difference between presence and detection?\nIf you survey a site for an animal once and find nothing, what are two possible explanations?\nWhat is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?\nIf 75% of your madtom captures come from gravel substrate, but gravel makes up 90% of the available habitat, what does that tell you about habitat preference?\n\nComapre your prior answers with your peers"
+  },
+  {
+    "objectID": "slides/slides-Week10.html#first-activity",
+    "href": "slides/slides-Week10.html#first-activity",
+    "title": "Week 10 - Occupancy Models",
+    "section": "First activity",
+    "text": "First activity\nPurpose: Activate prior knowledge from readings and prepare students for occupancy concepts.\nInstructions: On your notecard, write answers to:\n\nWhat is the difference between presence and detection?\nIf you survey a site for an animal once and find nothing, what are two possible explanations?\nWhat is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?\nIf 75% of your madtom captures come from gravel substrate, but gravel makes up 90% of the available habitat, what does that tell you about habitat preference?\n\nCompare your Canvas answers with your peers"
   }
 ]

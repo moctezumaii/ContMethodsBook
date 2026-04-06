@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="SNR 690">
+<meta name="dcterms.date" content="2001-09-01">
 
-<title>Final Paper: Project Home – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<title>Week 9 - Split-Plot Designs – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -263,26 +300,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#upcoming-brief-progress-presentations" id="toc-upcoming-brief-progress-presentations" class="nav-link active" data-scroll-target="#upcoming-brief-progress-presentations"><span class="header-section-number">1</span> Upcoming: Brief Progress Presentations</a></li>
-  <li><a href="#step-1-create-a-private-github-repository" id="toc-step-1-create-a-private-github-repository" class="nav-link" data-scroll-target="#step-1-create-a-private-github-repository"><span class="header-section-number">2</span> Step 1: Create a Private GitHub Repository</a></li>
-  <li><a href="#step-2-clone-repository-to-rstudio" id="toc-step-2-clone-repository-to-rstudio" class="nav-link" data-scroll-target="#step-2-clone-repository-to-rstudio"><span class="header-section-number">3</span> Step 2: Clone Repository to RStudio</a></li>
-  <li><a href="#step-3-modify-the-readme" id="toc-step-3-modify-the-readme" class="nav-link" data-scroll-target="#step-3-modify-the-readme"><span class="header-section-number">4</span> Step 3: Modify the README</a>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule"><span class="header-section-number">2</span> Schedule</a></li>
+  <li><a href="#session-a-75-minutes" id="toc-session-a-75-minutes" class="nav-link" data-scroll-target="#session-a-75-minutes"><span class="header-section-number">3</span> Session A (75 minutes)</a>
   <ul class="collapse">
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><span class="header-section-number">4.1</span> Objective</a></li>
-  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question"><span class="header-section-number">4.2</span> Research Question</a></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">4.3</span> Variables</a></li>
-  <li><a href="#experimental-design-or-data-structure" id="toc-experimental-design-or-data-structure" class="nav-link" data-scroll-target="#experimental-design-or-data-structure"><span class="header-section-number">4.4</span> Experimental Design or Data Structure</a></li>
-  <li><a href="#analysis-method" id="toc-analysis-method" class="nav-link" data-scroll-target="#analysis-method"><span class="header-section-number">4.5</span> Analysis Method</a></li>
-  <li><a href="#main-result" id="toc-main-result" class="nav-link" data-scroll-target="#main-result"><span class="header-section-number">4.6</span> Main Result</a></li>
-  <li><a href="#logical-alignment" id="toc-logical-alignment" class="nav-link" data-scroll-target="#logical-alignment"><span class="header-section-number">4.7</span> Logical Alignment</a></li>
-  <li><a href="#expected-timeline" id="toc-expected-timeline" class="nav-link" data-scroll-target="#expected-timeline"><span class="header-section-number">4.8</span> Expected Timeline</a></li>
-  <li><a href="#usefulness-for-your-career-or-degree" id="toc-usefulness-for-your-career-or-degree" class="nav-link" data-scroll-target="#usefulness-for-your-career-or-degree"><span class="header-section-number">4.9</span> Usefulness for Your Career or Degree</a></li>
+  <li><a href="#pre-lecture-activation" id="toc-pre-lecture-activation" class="nav-link" data-scroll-target="#pre-lecture-activation">Pre-Lecture Activation</a></li>
+  <li><a href="#student-lecture---015-045-25-30-min" id="toc-student-lecture---015-045-25-30-min" class="nav-link" data-scroll-target="#student-lecture---015-045-25-30-min">Student Lecture - 0:15-0:45 (25-30 min)</a></li>
+  <li><a href="#post-lecture-instructor-demo-and-activities---045-115-30-min" id="toc-post-lecture-instructor-demo-and-activities---045-115-30-min" class="nav-link" data-scroll-target="#post-lecture-instructor-demo-and-activities---045-115-30-min">Post-Lecture Instructor Demo and Activities - 0:45-1:15 (30 min)</a>
+  <ul class="collapse">
+  <li><a href="#discussion---045-052-5-7-min" id="toc-discussion---045-052-5-7-min" class="nav-link" data-scroll-target="#discussion---045-052-5-7-min">1. Discussion - 0:45-0:52 (5-7 min)</a></li>
+  <li><a href="#slideshow-demo---052-100-5-8-min" id="toc-slideshow-demo---052-100-5-8-min" class="nav-link" data-scroll-target="#slideshow-demo---052-100-5-8-min">2. Slideshow Demo - 0:52-1:00 (5-8 min)</a></li>
+  <li><a href="#student-writing-task---100-110-10-min" id="toc-student-writing-task---100-110-10-min" class="nav-link" data-scroll-target="#student-writing-task---100-110-10-min">3. Student Writing Task - 1:00-1:10 (10 min)</a></li>
   </ul></li>
-  <li><a href="#step-4-share-your-repository-with-me-via-github" id="toc-step-4-share-your-repository-with-me-via-github" class="nav-link" data-scroll-target="#step-4-share-your-repository-with-me-via-github"><span class="header-section-number">5</span> Step 4: Share your repository with me via Github</a></li>
-  <li><a href="#step-5-write-a-method-justification-section" id="toc-step-5-write-a-method-justification-section" class="nav-link" data-scroll-target="#step-5-write-a-method-justification-section"><span class="header-section-number">6</span> Step 5: Write a method justification section</a></li>
-  <li><a href="#step-6-check-your-assumptions" id="toc-step-6-check-your-assumptions" class="nav-link" data-scroll-target="#step-6-check-your-assumptions"><span class="header-section-number">7</span> Step 6: Check your assumptions</a></li>
-  <li><a href="#step-7-start-working-on-your-methods" id="toc-step-7-start-working-on-your-methods" class="nav-link" data-scroll-target="#step-7-start-working-on-your-methods"><span class="header-section-number">8</span> Step 7: Start working on your methods</a></li>
-  <li><a href="#example-project-template" id="toc-example-project-template" class="nav-link" data-scroll-target="#example-project-template"><span class="header-section-number">9</span> Example Project Template</a></li>
+  </ul></li>
+  <li><a href="#session-b" id="toc-session-b" class="nav-link" data-scroll-target="#session-b"><span class="header-section-number">4</span> Session B</a></li>
   </ul>
 </nav>
     </div>
@@ -291,14 +322,30 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Final Paper: Project Home</h1>
-</div>
+<h1 class="title">Week 9 - Split-Plot Designs</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">split-plot</div>
+    <div class="quarto-category">experimental design</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>SNR 690 </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 1, 2001</p>
+    </div>
+  </div>
   
     
   </div>
@@ -308,236 +355,142 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is your <strong>living project guide</strong>. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper.</p>
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<p><strong>Week 9 - Split-Plot Designs and Student Lecture</strong></p>
+<p>This week we examine split-plot experimental designs using a study on no-tillage culture and nitrogen fertilizer management for burley tobacco production. The primary reading is:</p>
+<blockquote class="blockquote">
+<p>No-tillage culture and nitrogen fertilizer management for burley tobacco production <a href="https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10" class="uri">https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/notillage-culture-and-nitrogen-fertilizer-management-for-burley-tobacco-production/C7BCABF749500FB9F69D06DF444D4F10</a></p>
+</blockquote>
+<p>The paper uses a split-plot design to study how tillage method (main plot) and nitrogen fertilizer rates (subplot) affect tobacco yield. We pair this paper with a hands-on R demo using the simulation code in <code>projects/examplesplitplot.R</code>.</p>
+<hr>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Workshop Rhythm
+<span class="screen-reader-only">Tip</span>Learning Objectives
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Every Thursday workshop begins with a <strong>10-minute self-assessment</strong>. Use <a href="weekly-self-assessment.html">Weekly Self-Assessment</a></p>
+<p>By the end of this session, students will be able to:</p>
+<ol type="1">
+<li>Explain the structure and assumptions of a split-plot experimental design.</li>
+<li>Draw and interpret split-plot allocation including main plots and subplots.</li>
+<li>Implement and interpret a split-plot analysis in R using <code>projects/examplesplitplot.R</code> as a template.</li>
+<li>Critically evaluate a split-plot experiment from the Cambridge paper.</li>
+<li>Design a split-plot experiment relevant to the student’s research question.</li>
+</ol>
 </div>
 </div>
 <hr>
-<section id="upcoming-brief-progress-presentations" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="upcoming-brief-progress-presentations"><span class="header-section-number">1</span> Upcoming: Brief Progress Presentations</h2>
-<p>Next week, you will give a <strong>3–5 minute progress update</strong> during Thursday workshop time.</p>
-<p>See <a href="progress-presentation.html">Progress Presentation Instructions</a> for what to prepare and bring.</p>
+</section>
+<section id="schedule" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Schedule</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00-0:20</td>
+<td>I lecture + a individual writing activation</td>
+<td>15 min</td>
+</tr>
+<tr class="even">
+<td>0:25-0:55</td>
+<td>Student lecture</td>
+<td>25-30 min</td>
+</tr>
+<tr class="odd">
+<td>0:55-1:00</td>
+<td>Discussion and Q&amp;A</td>
+<td>5-7 min</td>
+</tr>
+<tr class="even">
+<td>1:00-1:10</td>
+<td>Demo of split-plot analysis in R</td>
+<td>5-8 min</td>
+</tr>
+<tr class="odd">
+<td>1:00-1:15</td>
+<td>Student writing task (split-plot proposal)</td>
+<td>10 min</td>
+</tr>
+<tr class="even">
+<td>no time</td>
+<td>Optional SoTL activity / wrap-up</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="session-a-75-minutes" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Session A (75 minutes)</h1>
+<section id="pre-lecture-activation" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pre-lecture-activation">Pre-Lecture Activation</h2>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Before next Thursday’s workshop
+<span class="screen-reader-only">Important</span>Pre-Lecture Writing
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>⬜ Update your Expected Timeline in your README<br>
-⬜ Push your latest code or analysis to GitHub<br>
-⬜ Add or update your Methods section (at least two sentences)<br>
-⬜ Have your assumption check table present (even if incomplete)<br>
-⬜ Identify one open question you want feedback on</p>
+<p><strong>Write the following for your own notes. You will not submit these. Be ready to share your answers with classmates.</strong></p>
+<ol type="1">
+<li><strong>Draw the experimental design</strong> from the paper. Sketch main plots and subplots and label the treatments (tillage and fertilizer levels).</li>
+<li><strong>List three study objectives</strong> in one or two sentences each.</li>
+<li><strong>Define a split-plot design</strong> in one or two sentences and note why one might use it. You may briefly research this.</li>
+<li><strong>Come up with an experiment</strong> using a split-plot design relevant to your area of expertise. The experiment can be a short description or bullet points. After writing, you will share your experiment with classmates.</li>
+</ol>
 </div>
 </div>
 <hr>
-<p>This assignment guides you through creating a research project repository and developing your final paper proposal.</p>
 </section>
-<section id="step-1-create-a-private-github-repository" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="step-1-create-a-private-github-repository"><span class="header-section-number">2</span> Step 1: Create a Private GitHub Repository</h2>
-<ol type="1">
-<li>Go to <a href="https://github.com">GitHub</a> and log in</li>
-<li>Click the <strong>“+”</strong> icon in the top-right corner and select <strong>“New repository”</strong></li>
-<li>Name your repository (e.g., <code>SNR690-final-paper-yourname</code>)</li>
-<li>Add a brief description of your project</li>
-<li><strong>Important:</strong> Select <strong>“Private”</strong> to keep your work confidential</li>
-<li>Check <strong>“Add a README file”</strong></li>
-<li>Click <strong>“Create repository”</strong></li>
-</ol>
-</section>
-<section id="step-2-clone-repository-to-rstudio" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="step-2-clone-repository-to-rstudio"><span class="header-section-number">3</span> Step 2: Clone Repository to RStudio</h2>
-<ol type="1">
-<li>In your new GitHub repository, click the green <strong>“Code”</strong> button</li>
-<li>Copy the HTTPS URL</li>
-<li>Open RStudio</li>
-<li>Go to <strong>File &gt; New Project &gt; Version Control &gt; Git</strong></li>
-<li>Paste the repository URL</li>
-<li>Choose a local directory and click <strong>“Create Project”</strong></li>
-</ol>
-</section>
-<section id="step-3-modify-the-readme" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="step-3-modify-the-readme"><span class="header-section-number">4</span> Step 3: Modify the README</h2>
-<p>Edit your README.md file to include the following sections:</p>
-<section id="objective" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="objective"><span class="header-section-number">4.1</span> Objective</h3>
-<p><em>What do you aim to accomplish with this research?</em></p>
-</section>
-<section id="research-question" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="research-question"><span class="header-section-number">4.2</span> Research Question</h3>
-<p><em>What specific question are you trying to answer?</em></p>
-</section>
-<section id="variables" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="variables"><span class="header-section-number">4.3</span> Variables</h3>
-<p><em>List your response variable(s) and predictor variable(s)</em></p>
-</section>
-<section id="experimental-design-or-data-structure" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="experimental-design-or-data-structure"><span class="header-section-number">4.4</span> Experimental Design or Data Structure</h3>
-<p><em>Describe your data collection approach or existing dataset structure</em></p>
-</section>
-<section id="analysis-method" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="analysis-method"><span class="header-section-number">4.5</span> Analysis Method</h3>
-<p><em>What statistical method(s) will you use?</em></p>
-</section>
-<section id="main-result" class="level3" data-number="4.6">
-<h3 data-number="4.6" class="anchored" data-anchor-id="main-result"><span class="header-section-number">4.6</span> Main Result</h3>
-<p><em>What do you expect to find or demonstrate?</em></p>
-</section>
-<section id="logical-alignment" class="level3" data-number="4.7">
-<h3 data-number="4.7" class="anchored" data-anchor-id="logical-alignment"><span class="header-section-number">4.7</span> Logical Alignment</h3>
-<p><em>Do these components align logically? Explain briefly how your methods will answer your research question.</em></p>
-</section>
-<section id="expected-timeline" class="level3" data-number="4.8">
-<h3 data-number="4.8" class="anchored" data-anchor-id="expected-timeline"><span class="header-section-number">4.8</span> Expected Timeline</h3>
-<p><em>Create a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.</em></p>
-</section>
-<section id="usefulness-for-your-career-or-degree" class="level3" data-number="4.9">
-<h3 data-number="4.9" class="anchored" data-anchor-id="usefulness-for-your-career-or-degree"><span class="header-section-number">4.9</span> Usefulness for Your Career or Degree</h3>
-<p><em>Briefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory</em></p>
-</section>
-</section>
-<section id="step-4-share-your-repository-with-me-via-github" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="step-4-share-your-repository-with-me-via-github"><span class="header-section-number">5</span> Step 4: Share your repository with me via Github</h2>
-<ol type="1">
-<li>In your GitHub repository, click on <strong>“Settings”</strong></li>
-<li>In the left sidebar, click <strong>“Manage access”</strong></li>
-<li>Click <strong>“Invite a collaborator”</strong></li>
-<li>Enter my email address</li>
-</ol>
-</section>
-<section id="step-5-write-a-method-justification-section" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="step-5-write-a-method-justification-section"><span class="header-section-number">6</span> Step 5: Write a method justification section</h2>
-<p>On the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we … - <em>Write down a description of the analysis you will do, and start working on it! At this point you should start coding</em></p>
-<p>It should be two or so paragraphs.</p>
-<p>Your paragraphs can address:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Writing Checklist
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>⬜ What is your response variable and what distribution does it follow?<br>
-⬜ What is your data structure (independent, nested, repeated, blocked)?<br>
-⬜ Why is a simpler analysis insufficient?<br>
-⬜ Why is a more complex analysis not warranted?<br>
-⬜ What assumptions does your method make? List ALL OF THEM!</p>
-</div>
-</div>
-<p>And more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis.</p>
-</section>
-<section id="step-6-check-your-assumptions" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="step-6-check-your-assumptions"><span class="header-section-number">7</span> Step 6: Check your assumptions</h2>
-<p>Based on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assumption</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><em>(e.g., independence of residuals)</em></td>
-<td>🟢 Checked: and it holds</td>
-</tr>
-<tr class="even">
-<td><em>(e.g., normality of random effects)</em></td>
-<td>🟡 Haven’t checked yet: but I could by next class</td>
-</tr>
-<tr class="odd">
-<td><em>(e.g., no spatial autocorrelation)</em></td>
-<td>🔴 Can’t fully check: need to acknowledge it and discuss it</td>
-</tr>
-</tbody>
-</table>
-<p><strong>The goal is not to have all green.</strong> Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section.</p>
-</section>
-<section id="step-7-start-working-on-your-methods" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="step-7-start-working-on-your-methods"><span class="header-section-number">8</span> Step 7: Start working on your methods</h2>
-<p>I wante everyone to do “one concrete” thing this week, aimed at analyzing your data. This could be a code chunk that runs a model, creates a figure, or produces a table. It can be cleaning data. We are at the half point of the semester, so, this is where you should be.</p>
-<p>Suggested priorities:</p>
-<ol type="1">
-<li>Run a preliminary model or analysis (even if rough)</li>
-<li>Generate at least one exploratory figure</li>
-<li>Continue writing your Methods section</li>
-<li>Clean or organize your data file</li>
-</ol>
-</section>
-<section id="example-project-template" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="example-project-template"><span class="header-section-number">9</span> Example Project Template</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>By the end of this week your project should look like this example (obviously with more detail and specific to your project)!</p>
-</div>
-</div>
-<p><strong>Objective:</strong> Assess the impact of habitat restoration on native bird species richness in riparian zones</p>
-<p><strong>Research Question:</strong> Does riparian habitat restoration increase native bird species richness compared to unrestored sites?</p>
-<p><strong>Variables:</strong> - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)</p>
-<p><strong>Experimental Design or Data Structure:</strong> Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons</p>
-<p><strong>Analysis Method:</strong> Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures</p>
-<p><strong>Main Result:</strong> Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration</p>
-<p><strong>Logical Alignment:</strong> Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.</p>
-<p><strong>Expected Timeline:</strong> - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper</p>
-<p><strong>Usefulness for Your Career or Degree:</strong> This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.</p>
-<p><strong>Method Justification:</strong> I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.</p>
-<p><strong>Assumption Check:</strong></p>
+<section id="student-lecture---015-045-25-30-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="student-lecture---015-045-25-30-min">Student Lecture - 0:15-0:45 (25-30 min)</h2>
+<p>Sarah will teach the class about the Cambridge paper, focusing on experimental setup, split-plot structure, randomization scheme, outcome measures, key results, and methods.</p>
 <hr>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 60%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assumption</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Independence of residuals</td>
-<td>🟢 Checked: and it holds</td>
-</tr>
-<tr class="even">
-<td>Normality of random effects</td>
-<td>🟡 Haven’t checked yet: but I could by next class</td>
-</tr>
-<tr class="odd">
-<td>No spatial autocorrelation</td>
-<td>🔴 Can’t fully check: need to acknowledge it and discuss it</td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="post-lecture-instructor-demo-and-activities---045-115-30-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="post-lecture-instructor-demo-and-activities---045-115-30-min">Post-Lecture Instructor Demo and Activities - 0:45-1:15 (30 min)</h2>
+<section id="discussion---045-052-5-7-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="discussion---045-052-5-7-min">1. Discussion - 0:45-0:52 (5-7 min)</h3>
+</section>
+<section id="slideshow-demo---052-100-5-8-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="slideshow-demo---052-100-5-8-min">2. Slideshow Demo - 0:52-1:00 (5-8 min)</h3>
+<p>short slide deck: <a href="../slides/slides-Week09.html">slides/slides-Week09.qmd</a></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"lme4"</span>, <span class="st">"car"</span>, <span class="st">"ggplot2"</span>, <span class="st">"dplyr"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="3" type="1">
+<li>Source the split-plot example code:</li>
+</ol>
+</section>
+<section id="student-writing-task---100-110-10-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="student-writing-task---100-110-10-min">3. Student Writing Task - 1:00-1:10 (10 min)</h3>
+<p>Write a split-plot experiment proposal relevant to their thesis or research interest. The proposal should include:</p>
+<ul>
+<li>A brief description of the experiment (one to two paragraphs or bullet points)</li>
+<li>Identification of the main-plot factor and subplot factor</li>
+<li>How they would analyze the data (e.g., <code>lmer</code> syntax or conceptual model description)</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="session-b" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Session B</h1>
+<p>Follow the Canvas instructions. Session B consists of student presentations only.</p>
 <hr>
 
 

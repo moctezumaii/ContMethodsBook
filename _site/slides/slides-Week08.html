@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Tick Phenology &amp; Prescribed Burning: GEE for Repeated-Measures Count Data – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week05.html">
+ <span class="dropdown-text">Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07.html">
+ <span class="dropdown-text">Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07-workshop_2.html">
+ <span class="dropdown-text">Week 07, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08.html">
+ <span class="dropdown-text">Week 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08-workshop.html">
+ <span class="dropdown-text">Week 08, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week09.html">
+ <span class="dropdown-text">Week 09</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/weekly-self-assessment.html">
+ <span class="dropdown-text">Weekly Self-Assessment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/progress-presentation.html">
+ <span class="dropdown-text">Progress Presentation</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week04.html">
+ <span class="dropdown-text">Slides Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week05.html">
+ <span class="dropdown-text">Slides Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week07.html">
+ <span class="dropdown-text">Slides Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week08.html">
+ <span class="dropdown-text">Slides Week 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week09.html">
+ <span class="dropdown-text">Slides Week 09</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#initial-question" id="toc-initial-question" class="nav-link active" data-scroll-target="#initial-question"><span class="header-section-number">1</span> Initial question</a></li>
+  <li><a href="#main-difference-between-glmm-and-gee-from-interpretaion" id="toc-main-difference-between-glmm-and-gee-from-interpretaion" class="nav-link" data-scroll-target="#main-difference-between-glmm-and-gee-from-interpretaion"><span class="header-section-number">2</span> Main difference between GLMM and GEE from interpretaion</a></li>
+  <li><a href="#marginal-vs-conditional-inferencemean" id="toc-marginal-vs-conditional-inferencemean" class="nav-link" data-scroll-target="#marginal-vs-conditional-inferencemean"><span class="header-section-number">3</span> Marginal vs Conditional Inference/Mean</a></li>
+  <li><a href="#marginal-vs-conditional-inferencemean-1" id="toc-marginal-vs-conditional-inferencemean-1" class="nav-link" data-scroll-target="#marginal-vs-conditional-inferencemean-1"><span class="header-section-number">4</span> Marginal vs Conditional Inference/Mean</a></li>
+  <li><a href="#marginal-means-we-are-averaging-over-the-random-effects" id="toc-marginal-means-we-are-averaging-over-the-random-effects" class="nav-link" data-scroll-target="#marginal-means-we-are-averaging-over-the-random-effects"><span class="header-section-number">5</span> Marginal means we are averaging over the random effects</a></li>
+  <li><a href="#why-gee-clustered-data-marginal-inference" id="toc-why-gee-clustered-data-marginal-inference" class="nav-link" data-scroll-target="#why-gee-clustered-data-marginal-inference"><span class="header-section-number">6</span> Why GEE? Clustered Data &amp; Marginal Inference</a></li>
+  <li><a href="#the-gee-estimating-equation" id="toc-the-gee-estimating-equation" class="nav-link" data-scroll-target="#the-gee-estimating-equation"><span class="header-section-number">7</span> The GEE Estimating Equation</a></li>
+  <li><a href="#robust-standard-errors-with-the-sandwich-estimator" id="toc-robust-standard-errors-with-the-sandwich-estimator" class="nav-link" data-scroll-target="#robust-standard-errors-with-the-sandwich-estimator"><span class="header-section-number">8</span> Robust standard errors with the sandwich estimator</a></li>
+  <li><a href="#sandwich-robust-variance" id="toc-sandwich-robust-variance" class="nav-link" data-scroll-target="#sandwich-robust-variance"><span class="header-section-number">9</span> Sandwich (Robust) Variance</a></li>
+  <li><a href="#bread-model-based" id="toc-bread-model-based" class="nav-link" data-scroll-target="#bread-model-based"><span class="header-section-number">10</span> 🥖 Bread (Model-Based)</a></li>
+  <li><a href="#meat-data-based" id="toc-meat-data-based" class="nav-link" data-scroll-target="#meat-data-based"><span class="header-section-number">11</span> 🥩 Meat (Data-Based)</a></li>
+  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span class="header-section-number">12</span> 🧠 Intuition</a></li>
+  <li><a href="#when-to-use" id="toc-when-to-use" class="nav-link" data-scroll-target="#when-to-use"><span class="header-section-number">13</span> When to use?</a></li>
+  <li><a href="#the-papers-model-specification" id="toc-the-papers-model-specification" class="nav-link" data-scroll-target="#the-papers-model-specification"><span class="header-section-number">14</span> The Paper’s Model Specification</a></li>
+  <li><a href="#working-correlation-structures" id="toc-working-correlation-structures" class="nav-link" data-scroll-target="#working-correlation-structures"><span class="header-section-number">15</span> Working Correlation Structures</a></li>
+  <li><a href="#how-to-run-it" id="toc-how-to-run-it" class="nav-link" data-scroll-target="#how-to-run-it"><span class="header-section-number">16</span> How to run it?</a></li>
+  <li><a href="#group-worksheet-critique---055105-10-min" id="toc-group-worksheet-critique---055105-10-min" class="nav-link" data-scroll-target="#group-worksheet-critique---055105-10-min">Group Worksheet Critique - 0:55–1:05 (10 min)</a></li>
+  <li><a href="#before-you-leave" id="toc-before-you-leave" class="nav-link" data-scroll-target="#before-you-leave"><span class="header-section-number">17</span> Before You Leave</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-Week08.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tick Phenology &amp; Prescribed Burning: GEE for Repeated-Measures Count Data</h1>
+<p class="subtitle lead">SNR 690 - Contemporary Approaches to Quantitative Methods</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="initial-question" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="initial-question"><span class="header-section-number">1</span> Initial question</h2>
+<p><em>“Why not just use a mixed model?”</em></p>
+<p><em>GLMMs are usually the default for repeated measures, right?</em></p>
+<hr>
+</section>
+<section id="main-difference-between-glmm-and-gee-from-interpretaion" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="main-difference-between-glmm-and-gee-from-interpretaion"><span class="header-section-number">2</span> Main difference between GLMM and GEE from interpretaion</h2>
+<ul>
+<li>Use GLMM when you want to make inference about a specific cluster (or individual) (e.g., plot, lake, animal) -&gt; the conditional mean.</li>
+<li>Use GEE when you want to make inference about the population-average effect across all clusters -&gt; the marginal mean.</li>
+</ul>
+</section>
+<section id="marginal-vs-conditional-inferencemean" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="marginal-vs-conditional-inferencemean"><span class="header-section-number">3</span> Marginal vs Conditional Inference/Mean</h2>
+<ul>
+<li>Marginal mean: <span class="math inline">\(E[Y]\)</span> - the average response across the entire population of clusters (plots). This is what GEE estimates.</li>
+<li>The marginal mean is the overall expected value of a variable by itself, averaging over (i.e., ignoring) other variables.</li>
+<li>Interpretation: “What is the average value of Y in the whole population/sample?”</li>
+<li>Example: If Y is income, the marginal mean is the average income across everyone, regardless of age, education, etc.</li>
+</ul>
+</section>
+<section id="marginal-vs-conditional-inferencemean-1" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="marginal-vs-conditional-inferencemean-1"><span class="header-section-number">4</span> Marginal vs Conditional Inference/Mean</h2>
+<ul>
+<li>Conditional mean: <span class="math inline">\(E[Y \mid \mathbf{b}]\)</span> - the expected response for a specific cluster (plot) given its random effect. This is what GLMM estimates.</li>
+<li>The conditional mean is the expected value of a variable given specific values of other variables (e.g., random effects).</li>
+<li>Notation: <span class="math inline">\(E[Y \mid \mathbf{b}]\)</span> means the expected value of Y given the random effects b.</li>
+<li>Interpretation: “What is the expected value of Y for a specific cluster (plot) given its unique characteristics (random effect)?”</li>
+<li>Example: <span class="math inline">\(E[ Y \mid education = college]\)</span> is the expected income for a specific individual i, given that they went to college.</li>
+</ul>
+</section>
+<section id="marginal-means-we-are-averaging-over-the-random-effects" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="marginal-means-we-are-averaging-over-the-random-effects"><span class="header-section-number">5</span> Marginal means we are averaging over the random effects</h2>
+<p>It is a weighted average of the conditional means across all clusters, where the weights are determined by the distribution of the random effects. <span class="math display">\[E[Y] = \int E[Y \mid \mathbf{b}] f(\mathbf{b}) d\mathbf{b}\]</span> ::: {.notes} Expected Y equals the integral of expected Y given b times f(b) db</p>
+<p>:::</p>
+<ul>
+<li>“The overall mean of <span class="math inline">\(Y\)</span> is the average of the conditional mean of <span class="math inline">\(Y\)</span>, averaged over how likely each <span class="math inline">\(\mathbf{b}\)</span> value is.”</li>
+</ul>
+</section>
+<section id="why-gee-clustered-data-marginal-inference" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="why-gee-clustered-data-marginal-inference"><span class="header-section-number">6</span> Why GEE? Clustered Data &amp; Marginal Inference</h2>
+<p><strong>The data structure problem:</strong></p>
+<ul>
+<li>21 plots, each measured 24 times (monthly, 2010–2011)</li>
+<li>Tick counts within a plot are correlated (not independent)</li>
+<li>Ordinary GLM assumes independence → inflated Type I error</li>
+<li>GLMM models this correlation with random effects → estimates conditional mean</li>
+<li>GEE models this correlation with a working covariance → estimates marginal mean</li>
+</ul>
+<p>. . .</p>
+<p><strong>Two solutions:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 36%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>What it models</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GLMM</strong></td>
+<td>Conditional mean <span class="math inline">\(E[Y \mid \mathbf{b}]\)</span></td>
+<td>Effect <em>within</em> a specific plot</td>
+</tr>
+<tr class="even">
+<td><strong>GEE</strong></td>
+<td>Marginal mean <span class="math inline">\(E[Y]\)</span></td>
+<td>Effect <em>averaged across</em> all plots</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p>For policy-relevant questions - <em>“Does burning reduce ticks on average?”</em> - <strong>GEE is a better choice.</strong></p>
+</blockquote>
+<div class="notes">
+<p>This is the conceptual heart of the lecture. When you have repeated measures or clustered data, you have two philosophically different questions you can ask. GLMM asks: “for THIS plot, what is the effect of burning?” GEE asks: “averaged across ALL plots, what is the effect of burning?” For a public health or wildlife management question like “should we prescribe burn to reduce tick exposure across a landscape?”, the marginal, population-averaged answer from GEE is exactly what we want. Conditional effects from GLMM are appropriate when we care about prediction for a specific cluster.</p>
+</div>
+<hr>
+</section>
+<section id="the-gee-estimating-equation" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="the-gee-estimating-equation"><span class="header-section-number">7</span> The GEE Estimating Equation</h2>
+<p><span class="math display">\[
+\sum_{i=1}^{K} \mathbf{D}_i^\top \mathbf{V}_i^{-1}\left(\mathbf{Y}_i - \boldsymbol{\mu}_i\right) = \mathbf{0}
+\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(K = 21\)</span></td>
+<td>Number of plots (clusters)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{Y}_i\)</span></td>
+<td>Observed tick counts for plot <span class="math inline">\(i\)</span> (length 24)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\boldsymbol{\mu}_i = E[\mathbf{Y}_i \mid \mathbf{X}_i]\)</span></td>
+<td>Predicted marginal means</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{D}_i = \partial \boldsymbol{\mu}_i / \partial \boldsymbol{\beta}\)</span></td>
+<td>Derivative of mean w.r.t. parameters</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{V}_i = \phi\,\mathbf{A}_i^{1/2} R(\alpha) \mathbf{A}_i^{1/2}\)</span></td>
+<td>Working covariance</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R(\alpha)\)</span></td>
+<td>Working correlation matrix</td>
+</tr>
+</tbody>
+</table>
+<div class="notes">
+<p>with respect to Let’s slow down here. This equation looks intimidating but the logic is simple. GEE is a score equation -&gt; we’re finding the beta that sets the weighted sum of residuals to zero. The key quantity is V_i - the working covariance matrix. This is where we specify our assumption about how the 24 monthly tick counts within a plot are correlated. A_i is a diagonal matrix of variances (from the negative binomial family). R(alpha) is the working correlation - exchangeable, AR(1), or independence. And here is GEE’s great advantage: even if R(alpha) is wrong, the estimates are still consistent. We don’t have to get the correlation right to get correct point estimates. D -&gt; How sensitive the expected counts are to changes in the model parameters</p>
+<p>In your tick-count example</p>
+<p>𝜇 𝑖 μ i ​</p>
+<p>: expected tick counts for plot 𝑖 i across 24 observations</p>
+<p>𝛽 β: effects of predictors (treatment, time, etc.)</p>
+<p>👉 Then 𝐷 𝑖 D i ​</p>
+<p>is:</p>
+<p>a matrix of slopes showing how each expected count changes as each parameter changes</p>
+</div>
+<hr>
+</section>
+<section id="robust-standard-errors-with-the-sandwich-estimator" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="robust-standard-errors-with-the-sandwich-estimator"><span class="header-section-number">8</span> Robust standard errors with the sandwich estimator</h2>
+<ul>
+<li><p>Robust S.E. allow us to get good uncertainty estimates even if our working correlation is wrong. This is critical because we often don’t know the true correlation structure.</p></li>
+<li><p>We usually assume the variance has a correct structure:</p></li>
+<li><p>Normal: <span class="math inline">\(\text{Var}(Y_{it}) = \sigma^2\)</span></p></li>
+<li><p>Poisson: <span class="math inline">\(\text{Var}(Y_{it}) = \lambda_{it}\)</span></p></li>
+<li><p>Negative binomial: <span class="math inline">\(\text{Var}(Y_{it}) = \mu_{it} + \frac{\mu_{it}^2}{k}\)</span></p></li>
+<li><p>What happens is those are violated???</p></li>
+<li><p>What happens to our estimates</p></li>
+<li><p>What happens to our standard errors? And decisions?</p></li>
+</ul>
+</section>
+<section id="sandwich-robust-variance" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="sandwich-robust-variance"><span class="header-section-number">9</span> Sandwich (Robust) Variance</h2>
+<p><span class="math display">\[
+\widehat{\text{Var}}(\hat{\boldsymbol{\beta}}) = \mathbf{B}^{-1} \mathbf{M} \mathbf{B}^{-1}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mathbf{B} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> &nbsp; (the <strong>bread</strong> -&gt; model-based information)</li>
+<li><span class="math inline">\(\mathbf{M} = \displaystyle\sum_i \mathbf{D}_i^\top \mathbf{V}_i^{-1} \widehat{\text{Cov}}(\mathbf{Y}_i) \mathbf{V}_i^{-1} \mathbf{D}_i\)</span> &nbsp; (the <strong>meat</strong> -&gt; empirical)</li>
+</ul>
+<p>. . .</p>
+</section>
+<section id="bread-model-based" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="bread-model-based"><span class="header-section-number">10</span> 🥖 Bread (Model-Based)</h2>
+<ul>
+<li>Comes from the <strong>assumed model</strong></li>
+<li>Uses design matrix (X) and weights (W)</li>
+<li>Represents: &gt; “How precise estimates would be <em>if the model were correct</em>”</li>
+</ul>
+</section>
+<section id="meat-data-based" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="meat-data-based"><span class="header-section-number">11</span> 🥩 Meat (Data-Based)</h2>
+<ul>
+<li>Comes from <strong>observed residual variability</strong></li>
+<li>Uses cluster-level contributions ( _i )</li>
+<li>Represents: &gt; “How much variability we actually saw in the data”</li>
+</ul>
+</section>
+<section id="intuition" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="intuition"><span class="header-section-number">12</span> 🧠 Intuition</h2>
+<ul>
+<li>Bread = theory<br>
+</li>
+<li>Meat = reality<br>
+</li>
+<li>Sandwich = <strong>robust standard errors</strong></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Key insight:</strong> model gives the structure, the data gives the variability. The sandwich estimator combines both to give us robust standard errors.</p>
+</blockquote>
+</section>
+<section id="when-to-use" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="when-to-use"><span class="header-section-number">13</span> When to use?</h2>
+<ul>
+<li>Not only based on the type of mean structure (marginal vs conditional) but also based on the number of clusters!!!</li>
+<li>Generally, it is advised to have MANY CLUSTERS for the sandwich estimator to perform well. A common rule of thumb is at least 40 clusters. With fewer clusters, the sandwich estimator can be biased and produce anti-conservative confidence intervals (too narrow).</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>With only <span class="math inline">\(K = 21\)</span> clusters, the sandwich estimator may be <strong>anti-conservative</strong> (too narrow CIs). Small-sample corrections (e.g., <code>std.err = "jack"</code> in <code>geepack</code>) are advisable.</p>
+</div>
+</div>
+<div class="notes">
+<p>The sandwich estimator gets its name from the formula: B-inverse times M times B-inverse. Bread times meat times bread. B is the expected curvature of the likelihood - it’s what you’d use if your working covariance was exactly right. M is the empirical estimate of the actual variance - it uses the observed residuals, not the model-assumed residuals. When you sandwich M between two B-inverses, you get a variance estimate that is robust to correlation misspecification. HOWEVER - and this is critical for this paper - with only 21 clusters, the sandwich estimator can be unreliable. The standard recommendation is at least 40 clusters for stable sandwich SEs. The authors of the tick paper had 21 plots; this is a legitimate limitation worth mentioning.</p>
+</div>
+<hr>
+</section>
+<section id="the-papers-model-specification" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="the-papers-model-specification"><span class="header-section-number">14</span> The Paper’s Model Specification</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note:</strong> Gleim et al.&nbsp;(2014) do <strong>not</strong> provide an explicit model equation. The following is an inferred defensible specification based on their Methods section (p.&nbsp;3).</p>
+</div>
+</div>
+<p><span class="math display">\[
+\log\!\bigl(E[\text{ticks}_{it}]\bigr) = \beta_0 + \beta_1\,\text{BurnRegime}_i + \beta_2\,\text{HostAbundance}_{it} + \beta_3\,\text{Canopy}_{it} + \beta_4\,\text{Season}_{it} + \cdots
+\]</span></p>
+<ul>
+<li><strong>Family:</strong> Negative binomial (overdispersed counts; 47,185 total; 99% <em>A. americanum</em>)</li>
+<li><strong>Link:</strong> Log (counts → multiplicative effects on tick abundance)</li>
+<li><strong>Correlation:</strong> Exchangeable (equal correlation among all 24 monthly observations per plot)</li>
+<li><strong>Clusters:</strong> 21 plots (7.2–78.9 ha); ≥10 years of consistent burn management</li>
+<li><strong>Predictors:</strong> Burn regime (BB, BUB, UBB, UBUB), host abundance (cameras), canopy closure, tree density, ground cover, temperature, precipitation</li>
+</ul>
+<div class="notes">
+<p>Here is the model as best we can infer it. The paper describes using GEE with negative binomial family and log link in a sentence or two, but never displays a formal equation or coefficient table in the main text. This is unfortunately common in applied ecology. The negative binomial family is appropriate because tick counts are highly overdispersed - the variance far exceeds the mean. The log link gives us multiplicative effects - a one-unit change in burn regime multiplies the expected tick count by e to the beta. Exchangeable correlation means the model assumes the correlation between plot 7’s tick counts in January and December is the same as between January and February. That may not be realistic - seasonal data often shows decaying autocorrelation better captured by AR(1).</p>
+</div>
+<hr>
+</section>
+<section id="working-correlation-structures" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="working-correlation-structures"><span class="header-section-number">15</span> Working Correlation Structures</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Structure</th>
+<th>Formula</th>
+<th>Assumption</th>
+<th>Best for…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Independence</strong></td>
+<td><span class="math inline">\(R = I\)</span></td>
+<td>Zero correlation</td>
+<td>Sensitivity check; large <span class="math inline">\(K\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Exchangeable</strong></td>
+<td><span class="math inline">\(\text{Corr}(Y_{it}, Y_{is}) = \alpha\)</span></td>
+<td>Equal correlation at all lags</td>
+<td>Short series; random effects analogy</td>
+</tr>
+<tr class="odd">
+<td><strong>AR(1)</strong></td>
+<td><span class="math inline">\(\text{Corr}(Y_{it}, Y_{is}) = \alpha^{|t-s|}\)</span></td>
+<td>Correlation decays with lag</td>
+<td>Time series; seasonal ecological data</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<blockquote class="blockquote">
+<p>For monthly tick counts over 2 years, <strong>AR(1) is more ecologically realistic</strong> than exchangeable - but GEE estimates are consistent under either.</p>
+</blockquote>
+<div class="fragment">
+<p><strong>Model selection:</strong> Use QIC (quasi-likelihood under independence model criterion) to compare working correlation structures.</p>
+</div>
+<div class="notes">
+<p>This table is worth spending a couple of minutes on because it connects directly to the group worksheet. Independence assumes no correlation - use this as a baseline or sensitivity check. Exchangeable assumes that correlation is constant regardless of the time gap - that the correlation between observations 1 month apart is the same as observations 23 months apart. That’s a strong assumption for ecological time series. AR(1) assumes correlation decays exponentially with lag - more realistic for monthly data where nearby months are more similar. For this study, AR(1) seems more defensible, but the authors chose exchangeable. This is exactly the kind of analytic choice worth critiquing.</p>
+</div>
+</section>
+<section id="how-to-run-it" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="how-to-run-it"><span class="header-section-number">16</span> How to run it?</h2>
+<p>In R, you can use the <code>geepack</code> package:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(geepack)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fit_gee <span class="ot">&lt;-</span> <span class="fu">geeglm</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  y <span class="sc">~</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> time,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">id      =</span> subject_id,          <span class="co"># cluster / repeated unit</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data    =</span> dat,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">family  =</span> <span class="fu">binomial</span>(<span class="at">link=</span><span class="st">"logit"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">corstr  =</span> <span class="st">"ar1"</span>                 <span class="co"># working AR(1)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_gee)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="group-worksheet-critique---055105-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="group-worksheet-critique---055105-10-min">Group Worksheet Critique - 0:55–1:05 (10 min)</h2>
+<p><strong>Format:</strong> Small groups (2–3 students)</p>
+<p><strong>Instructions:</strong> 1. Each group gives 3 specific critiques of the paper as if you were a reviewer</p>
+<hr>
+</section>
+<section id="before-you-leave" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="before-you-leave"><span class="header-section-number">17</span> Before You Leave</h2>
+<p>On an index card :</p>
+<p><strong>1.</strong> What is the single most important thing you learned about GEE today?</p>
+<p><strong>2.</strong> What is one question you still have about GEE or do you think you could apply GEE to <strong>your own research data</strong>?</p>
+<p><em>Be specific. “I learned GEE exists” is not an acceptable answer for question 1.</em></p>
+<div class="notes">
+<p>This is a metacognitive closing activity. The second question is intentionally about their own data - this forces them to think about transfer, not just whether they understood the lecture. I will read these before next class and address persistent questions at the start of the next session.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+
+
+<script>
+
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+  // slide changes (different for each slide format).
+
+  (function () {
+
+    // dispatch for htmlwidgets
+
+    function fireSlideEnter() {
+
+      const event = window.document.createEvent("Event");
+
+      event.initEvent("slideenter", true, true);
+
+      window.document.dispatchEvent(event);
+
+    }
+
+
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+
+      fireSlideEnter();
+
+
+
+      // dispatch for shiny
+
+      if (window.jQuery) {
+
+        if (previousSlide) {
+
+          window.jQuery(previousSlide).trigger("hidden");
+
+        }
+
+        if (currentSlide) {
+
+          window.jQuery(currentSlide).trigger("shown");
+
+        }
+
+      }
+
+    }
+
+
+
+    // hookup for slidy
+
+    if (window.w3c_slidy) {
+
+      window.w3c_slidy.add_observer(function (slide_num) {
+
+        // slide_num starts at position 1
+
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+      });
+
+    }
+
+
+
+  })();
+
+</script>
+
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

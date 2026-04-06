@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="SNR 690">
+<meta name="dcterms.date" content="2001-10-01">
+
+<title>Week 10 - Occupancy Modeling (Instructor) – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week05.html">
+ <span class="dropdown-text">Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07.html">
+ <span class="dropdown-text">Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07-workshop_2.html">
+ <span class="dropdown-text">Week 07, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08.html">
+ <span class="dropdown-text">Week 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08-workshop.html">
+ <span class="dropdown-text">Week 08, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week09.html">
+ <span class="dropdown-text">Week 09</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/weekly-self-assessment.html">
+ <span class="dropdown-text">Weekly Self-Assessment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/progress-presentation.html">
+ <span class="dropdown-text">Progress Presentation</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week04.html">
+ <span class="dropdown-text">Slides Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week05.html">
+ <span class="dropdown-text">Slides Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week07.html">
+ <span class="dropdown-text">Slides Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week08.html">
+ <span class="dropdown-text">Slides Week 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week09.html">
+ <span class="dropdown-text">Slides Week 09</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a></li>
+  <li><a href="#session-structure" id="toc-session-structure" class="nav-link" data-scroll-target="#session-structure"><span class="header-section-number">2</span> Session Structure</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule"><span class="header-section-number">3</span> Schedule</a></li>
+  <li><a href="#session-a-75-minutes" id="toc-session-a-75-minutes" class="nav-link" data-scroll-target="#session-a-75-minutes"><span class="header-section-number">4</span> Session A (75 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#pre-class-student-responses" id="toc-pre-class-student-responses" class="nav-link" data-scroll-target="#pre-class-student-responses">Pre-Class Student Responses</a></li>
+  <li><a href="#entry-ticket-retrieval-practice-000005-5-min" id="toc-entry-ticket-retrieval-practice-000005-5-min" class="nav-link" data-scroll-target="#entry-ticket-retrieval-practice-000005-5-min">Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)</a></li>
+  <li><a href="#instructor-introduction-activation-005015-10-min" id="toc-instructor-introduction-activation-005015-10-min" class="nav-link" data-scroll-target="#instructor-introduction-activation-005015-10-min">Instructor Introduction + Activation — 0:05–0:15 (10 min)</a></li>
+  <li><a href="#student-lecture-drone-based-wildlife-monitoring-015046-31-min" id="toc-student-lecture-drone-based-wildlife-monitoring-015046-31-min" class="nav-link" data-scroll-target="#student-lecture-drone-based-wildlife-monitoring-015046-31-min">Student Lecture: Drone-Based Wildlife Monitoring — 0:15–0:46 (~31 min)</a></li>
+  <li><a href="#student-progress-report-046053-7-min" id="toc-student-progress-report-046053-7-min" class="nav-link" data-scroll-target="#student-progress-report-046053-7-min">Student Progress Report — 0:46–0:53 (7 min)</a></li>
+  <li><a href="#occupancy-challenge-activity-100110-10-min" id="toc-occupancy-challenge-activity-100110-10-min" class="nav-link" data-scroll-target="#occupancy-challenge-activity-100110-10-min">Occupancy Challenge Activity — 1:00–1:10 (10 min)</a>
+  <ul class="collapse">
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link" data-scroll-target="#the-dataset">The Dataset</a></li>
+  <li><a href="#the-challenge-question" id="toc-the-challenge-question" class="nav-link" data-scroll-target="#the-challenge-question">The Challenge Question</a></li>
+  <li><a href="#think-2-min" id="toc-think-2-min" class="nav-link" data-scroll-target="#think-2-min">Think (2 min)</a></li>
+  <li><a href="#pair-3-min" id="toc-pair-3-min" class="nav-link" data-scroll-target="#pair-3-min">Pair (3 min)</a></li>
+  <li><a href="#share-34-min" id="toc-share-34-min" class="nav-link" data-scroll-target="#share-34-min">Share (3–4 min)</a></li>
+  <li><a href="#instructor-facilitation-notes-worked-solution-approach" id="toc-instructor-facilitation-notes-worked-solution-approach" class="nav-link" data-scroll-target="#instructor-facilitation-notes-worked-solution-approach">Instructor Facilitation Notes: Worked Solution Approach</a></li>
+  </ul></li>
+  <li><a href="#minute-paper-transition-110115-5-min" id="toc-minute-paper-transition-110115-5-min" class="nav-link" data-scroll-target="#minute-paper-transition-110115-5-min">Minute Paper + Transition — 1:10–1:15 (5 min)</a></li>
+  </ul></li>
+  <li><a href="#in-class-project-work-time-integrated-above" id="toc-in-class-project-work-time-integrated-above" class="nav-link" data-scroll-target="#in-class-project-work-time-integrated-above"><span class="header-section-number">5</span> In-Class Project Work Time (Integrated Above)</a></li>
+  <li><a href="#instructor-reflection-prompts-post-class" id="toc-instructor-reflection-prompts-post-class" class="nav-link" data-scroll-target="#instructor-reflection-prompts-post-class"><span class="header-section-number">6</span> Instructor Reflection Prompts (Post-Class)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 10 - Occupancy Modeling (Instructor)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">occupancy</div>
+    <div class="quarto-category">detection probability</div>
+    <div class="quarto-category">imperfect detection</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>SNR 690 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 1, 2001</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<p><strong>Week 10 - Occupancy Modeling &amp; Student Presentations (Instructor-Only Plan)</strong></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructor-Only Document
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This document contains facilitation notes, timing guidance, and pedagogical scaffolding for the instructor. It is <strong>not</strong> intended for student distribution.</p>
+</div>
+</div>
+<p>This week introduces single-season occupancy models using a student-led discussion of an MDPI paper on drone-based wildlife surveys. The session emphasizes the fundamental insight that <strong>non-detection ≠ absence</strong> and how occupancy models account for imperfect detection.</p>
+<p><strong>Primary Paper (Student Lecture):</strong></p>
+<hr>
+</section>
+<section id="session-structure" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Session Structure</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>No Session B This Week
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This week has <strong>Session A only</strong> (75 minutes total). There is <strong>no Session B</strong>. The time normally allocated to Session B has been converted into extended in-class project work time within Session A.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="schedule" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Schedule</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 38%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00–0:05</td>
+<td>Entry ticket: retrieval practice</td>
+<td>5 min</td>
+</tr>
+<tr class="even">
+<td>0:05–0:15</td>
+<td>Instructor intro + activation (occupancy concepts)</td>
+<td>10 min</td>
+</tr>
+<tr class="odd">
+<td>0:15–0:53</td>
+<td>Student Presentations (total ~38 min)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>— Paper lecture (Lexie): drone-based monitoring</td>
+<td>~31 min</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>— Progress report (strictly timed)</td>
+<td>7 min</td>
+</tr>
+<tr class="even">
+<td>0:53–1:00</td>
+<td>Challenge questions for presenter + synthesis</td>
+<td>7 min</td>
+</tr>
+<tr class="odd">
+<td>1:00–1:10</td>
+<td>Occupancy challenge activity (Think-Pair-Share)</td>
+<td>10 min</td>
+</tr>
+<tr class="even">
+<td>1:10–1:15</td>
+<td>Minute paper + transition to project work</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total:</strong> 75 minutes</p>
+<hr>
+</section>
+<section id="session-a-75-minutes" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Session A (75 minutes)</h1>
+<section id="pre-class-student-responses" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pre-class-student-responses">Pre-Class Student Responses</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Before Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students must submit written responses to these questions <strong>before</strong> class (via Canvas or another system). Responses of “I don’t know” or “these methods do not apply” are <strong>not acceptable</strong> for question 1.</p>
+<ol type="1">
+<li><p><strong>Application to your system:</strong> Describe one specific way you could use occupancy modeling or drone-based survey methods in your own research system. Be concrete—name the species/taxon, habitat, and why imperfect detection might matter.</p></li>
+<li><p><strong>Methods alignment:</strong> Does the paper demonstrate logical alignment from research objectives → data collection → statistical methods? Why or why not? (2–3 sentences)</p></li>
+<li><p><strong>Question for Lexie:</strong> Write one substantive question you want to ask the presenter about the paper, methods, or applications.</p></li>
+</ol>
+</div>
+</div>
+<p><strong>Instructor facilitation plan for pre-class responses:</strong></p>
+<ul>
+<li><strong>Before class:</strong> Skim all responses; group them by theme (e.g., “detection issues,” “spatial scale,” “cost/logistics,” “statistical concerns”).</li>
+<li><strong>During entry ticket (0:00–0:05):</strong> Project 2–3 anonymized student applications (question 1) as discussion prompts.</li>
+<li><strong>During Q&amp;A (0:53–1:00):</strong> Use student questions (question 3) as the basis for challenge questions. Prioritize questions that probe methodological assumptions.</li>
+<li><strong>If responses are thin:</strong> Have 3 backup challenge questions ready (see below).</li>
+</ul>
+<hr>
+</section>
+<section id="entry-ticket-retrieval-practice-000005-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="entry-ticket-retrieval-practice-000005-5-min">Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Retrieval Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Activate prior knowledge from readings and prepare students for occupancy concepts.</p>
+<p><strong>Instructions:</strong> On your notecard, write answers to:</p>
+<ol type="1">
+<li>What is the difference between <strong>presence</strong> and <strong>detection</strong>?</li>
+<li>If you survey a site once and find nothing, what are two possible explanations?</li>
+<li>What is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?</li>
+</ol>
+<p><strong>Instructor note:</strong> Do not collect these. Have 2–3 students share aloud. Use incorrect/partial answers as teaching moments (error-driven learning).</p>
+</div>
+</div>
+<p><strong>If students struggle:</strong> Prompt with: “Think about a species you’ve tried to find in the field. Was it always there when you looked? Was it always absent when you didn’t see it?”</p>
+<hr>
+</section>
+<section id="instructor-introduction-activation-005015-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructor-introduction-activation-005015-10-min">Instructor Introduction + Activation — 0:05–0:15 (10 min)</h2>
+<p><strong>Format:</strong> Brief instructor-led mini-lecture with slides.</p>
+<p><strong>Slide deck:</strong> <a href="../slides/slides-Week10.html">slides/slides-Week10.qmd</a></p>
+<p><strong>Key concepts to cover (slides 1–3):</strong></p>
+<ol type="1">
+<li><strong>Occupancy (ψ):</strong> Probability a site is occupied by the target species.</li>
+<li><strong>Detection probability (p):</strong> Probability of detecting the species <em>given</em> it is present.</li>
+<li><strong>Detection history:</strong> Matrix of 1s (detection) and 0s (non-detection) across sites and visits.</li>
+<li><strong>Core insight:</strong> A detection history of all 0s could mean:
+<ul>
+<li>The species is truly absent, <strong>OR</strong></li>
+<li>The species is present but was not detected on any visit.</li>
+</ul></li>
+</ol>
+<p><strong>Activation question (pose to class):</strong></p>
+<blockquote class="blockquote">
+<p><em>“If you visit a site 5 times and detect nothing each time, what is the probability the species is actually there? What information do you need to answer this?”</em></p>
+</blockquote>
+<p>Allow 60 seconds for think time. Cold-call 1–2 students. Defer full answer to the challenge activity later.</p>
+</section>
+<section id="student-lecture-drone-based-wildlife-monitoring-015046-31-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="student-lecture-drone-based-wildlife-monitoring-015046-31-min">Student Lecture: Drone-Based Wildlife Monitoring — 0:15–0:46 (~31 min)</h2>
+<p><strong>Presenter:</strong> Lexie</p>
+<hr>
+</section>
+<section id="student-progress-report-046053-7-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="student-progress-report-046053-7-min">Student Progress Report — 0:46–0:53 (7 min)</h2>
+<p><strong>Format:</strong> Strictly timed 7-minute progress report from a student on their course project.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Strict Time Enforcement
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use a visible timer. At 6:30, give a 30-second warning. At 7:00, politely but firmly interrupt if necessary. This teaches professional presentation skills and respects class time.</p>
+</div>
+</div>
+<p><strong>Required content:</strong></p>
+<ul>
+<li>Current project status</li>
+<li>Key decisions made since last update</li>
+<li>One specific challenge or roadblock</li>
+<li>Next steps</li>
+</ul>
+<hr>
+</section>
+<section id="occupancy-challenge-activity-100110-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="occupancy-challenge-activity-100110-10-min">Occupancy Challenge Activity — 1:00–1:10 (10 min)</h2>
+<p><strong>Format:</strong> Think-Pair-Share with small-group discussion.</p>
+<p><strong>Slide deck:</strong> Use slides 4–6 from <a href="../slides/slides-Week10.html">slides/slides-Week10.qmd</a></p>
+<section id="the-dataset" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-dataset">The Dataset</h3>
+<p>Present the following detection history matrix. This represents 7 sites surveyed 5 times each for a cryptic species with low detection probability.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Site</th>
+<th>Visit 1</th>
+<th>Visit 2</th>
+<th>Visit 3</th>
+<th>Visit 4</th>
+<th>Visit 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>R code to construct the dataset:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Detection history matrix for 7 sites, 5 visits</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 = detected, 0 = not detected</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>detection_history <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co"># Site 1</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co"># Site 2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co"># Site 3</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co"># Site 4</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>,  <span class="co"># Site 5</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  <span class="co"># Site 6</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>   <span class="co"># Site 7</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">nrow =</span> <span class="dv">7</span>, <span class="at">ncol =</span> <span class="dv">5</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">dimnames =</span> <span class="fu">list</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"Site"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(<span class="st">"Visit"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>detection_history</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-challenge-question" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-challenge-question">The Challenge Question</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An <strong>8th site</strong> is surveyed 5 times. The detection history is: <strong>0, 0, 0, 0, 0</strong> (no detections across all 5 visits).</p>
+<p><strong>What is the probability the species is actually present at Site 8?</strong></p>
+<p>You may use:</p>
+<ul>
+<li>The observed data from Sites 1–7</li>
+<li>Logical reasoning about detection probability</li>
+<li>Bayes’ theorem (conceptually)</li>
+</ul>
+<p>You do <strong>not</strong> need to compute an exact numerical answer—explain your reasoning.</p>
+</div>
+</div>
+</section>
+<section id="think-2-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="think-2-min">Think (2 min)</h3>
+<p>Students work individually. Write down:</p>
+<ol type="1">
+<li>Your intuitive estimate of presence probability.</li>
+<li>What information from the data did you use?</li>
+<li>What assumptions did you make?</li>
+</ol>
+</section>
+<section id="pair-3-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pair-3-min">Pair (3 min)</h3>
+<p>Discuss with a partner:</p>
+<ul>
+<li>Compare your estimates and reasoning.</li>
+<li>Identify where you agree/disagree.</li>
+<li>Try to refine your estimate together.</li>
+</ul>
+</section>
+<section id="share-34-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="share-34-min">Share (3–4 min)</h3>
+<p>Instructor calls on 2–3 pairs to share their reasoning. Probe for:</p>
+<ul>
+<li>How did you estimate detection probability?</li>
+<li>How did prior occupancy rate inform your estimate?</li>
+<li>Did you consider that all-zero sites could be true absences OR presence with non-detection?</li>
+</ul>
+<hr>
+</section>
+<section id="instructor-facilitation-notes-worked-solution-approach" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="instructor-facilitation-notes-worked-solution-approach">Instructor Facilitation Notes: Worked Solution Approach</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>High-Level Solution Approach (For Instructor Reference)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Key insight:</strong> We need to distinguish between P(present | detected) and P(present | not detected).</p>
+<p><strong>Step 1: Estimate detection probability (p)</strong></p>
+<p>From sites where we <em>know</em> the species is present (Sites 1, 3, 5, 7 — they had at least one detection):</p>
+<ul>
+<li>Site 1: 1 detection in 5 visits → 1/5 = 0.20</li>
+<li>Site 3: 2 detections in 5 visits → 2/5 = 0.40</li>
+<li>Site 5: 1 detection in 5 visits → 1/5 = 0.20</li>
+<li>Site 7: 3 detections in 5 visits → 3/5 = 0.60</li>
+</ul>
+<p>Average detection probability: p ≈ (0.20 + 0.40 + 0.20 + 0.60) / 4 = <strong>0.35</strong></p>
+<p>Or use total: 7 detections / 20 visits at occupied sites = <strong>0.35</strong></p>
+<p><strong>Step 2: Calculate probability of all 0s given presence</strong></p>
+<p>P(all zeros | present) = (1 - p)^5 = (1 - 0.35)^5 = 0.65^5 ≈ <strong>0.116</strong></p>
+<p>This means even if a species IS present, there’s about an 11.6% chance of detecting it zero times in 5 visits.</p>
+<p><strong>Step 3: Apply Bayes’ theorem (conceptual)</strong></p>
+<p>Let ψ = prior probability of occupancy. From the data, 4 of 7 sites had detections, so naïve estimate is ψ ≈ 4/7 ≈ 0.57. But this underestimates true occupancy because some all-zero sites may be occupied!</p>
+<p>Using Bayes:</p>
+<p>P(present | all zeros) = [P(all zeros | present) × P(present)] / P(all zeros)</p>
+<p>Where: - P(all zeros) = P(all zeros | present)×P(present) + P(all zeros | absent)×P(absent) - P(all zeros | absent) = 1 (if absent, you definitely see zeros)</p>
+<p>If we assume ψ = 0.6 (slightly higher than naïve estimate): - P(all zeros) = 0.116 × 0.6 + 1 × 0.4 = 0.0696 + 0.4 = 0.4696 - P(present | all zeros) = (0.116 × 0.6) / 0.4696 ≈ 0.0696 / 0.4696 ≈ <strong>0.15</strong></p>
+<p><strong>Answer:</strong> Given the observed data, there is approximately a <strong>15%</strong> probability that Site 8 is occupied despite having all zero detections.</p>
+<p><strong>Key teaching points:</strong></p>
+<ol type="1">
+<li>Non-detection ≠ absence. Even with 5 visits, there’s a meaningful chance of missing a present species.</li>
+<li>Lower detection probability → higher P(present | all zeros).</li>
+<li>Higher prior occupancy → higher P(present | all zeros).</li>
+<li>This is why occupancy models are essential for species distribution studies!</li>
+</ol>
+</div>
+</div>
+<p><strong>If students struggle:</strong></p>
+<ul>
+<li>Ask: “What fraction of visits resulted in detection at sites where we KNOW the species is present?”</li>
+<li>Prompt: “If the species were at Site 8, what’s the chance you’d miss it all 5 times?”</li>
+<li>Simplify: “If detection probability is 0.3, what’s 0.7^5?”</li>
+</ul>
+<p><strong>Extensions (if time permits or for advanced students):</strong></p>
+<ul>
+<li>How does the answer change if p = 0.1 (very cryptic species)?</li>
+<li>How does the answer change if p = 0.8 (conspicuous species)?</li>
+<li>What if we added covariates (habitat type affects detection)?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="minute-paper-transition-110115-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="minute-paper-transition-110115-5-min">Minute Paper + Transition — 1:10–1:15 (5 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Minute Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Metacognitive reflection; identify persistent confusion for next session.</p>
+<p><strong>Prompts (on notecard or digital):</strong></p>
+<ol type="1">
+<li>What is the single most important insight about occupancy modeling from today?</li>
+<li>How might imperfect detection affect a study in your own research area?</li>
+<li>One question you still have about occupancy models or the challenge problem.</li>
+</ol>
+<p><strong>Instructor action:</strong> Collect and skim before next class. Address top 2–3 questions at the start of the next session.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="in-class-project-work-time-integrated-above" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> In-Class Project Work Time (Integrated Above)</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>No Separate Session B
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because there is no Session B this week, structured project work time is integrated into the activities above (the progress report and synthesis discussions).</p>
+<p>If the session runs faster than planned (e.g., shorter Q&amp;A), use the remaining time for <strong>informal project troubleshooting</strong>:</p>
+<p><strong>Checkpoint (what students must produce):</strong></p>
+<ul>
+<li>Identify one specific methodological connection between today’s content (occupancy/detection) and their project.</li>
+<li>Write 2–3 sentences explaining how they will handle detection/observation error in their analysis (even if the answer is “it’s not relevant because…”).</li>
+</ul>
+<p><strong>Peer troubleshooting:</strong></p>
+<ul>
+<li>Pair students working on similar topics or methods.</li>
+<li>Each student has 3 minutes to explain their current roadblock.</li>
+<li>Partner asks one clarifying question and offers one suggestion.</li>
+</ul>
+<p><strong>Stretch goal:</strong></p>
+<ul>
+<li>Students with functioning analyses: Draft a 1-paragraph “methods” description of their detection/observation process.</li>
+<li>Students still in data collection: Map out their sampling design and identify where imperfect detection might occur.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="instructor-reflection-prompts-post-class" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Instructor Reflection Prompts (Post-Class)</h1>
+<p>After class, note:</p>
+<ol type="1">
+<li>Which pre-class responses showed deepest engagement? Patterns?</li>
+<li>Did the challenge activity generate genuine Bayesian reasoning, or did students rely on intuition?</li>
+<li>How did the presenter handle challenge questions? Areas for feedback?</li>
+<li>What persistent confusions emerged from the minute paper?</li>
+</ol>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

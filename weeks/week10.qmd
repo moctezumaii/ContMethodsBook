@@ -20,22 +20,7 @@ This week introduces single-season occupancy models using a student-led discussi
 
 **Primary Paper (Student Lecture):**
 
-> Figueira, M., et al. (2024). Use of Drones as a Tool for Wildlife Monitoring: A Systematic Review. *Fishes*, 9(11), 454. <https://www.mdpi.com/2410-3888/9/11/454>
 
----
-
-::: {.callout-tip}
-## Learning Objectives
-
-By the end of this session, students will be able to:
-
-1. Explain the difference between occupancy (ψ) and detection probability (p) in single-season occupancy models.
-2. Describe why repeated visits are necessary to distinguish non-detection from true absence.
-3. Interpret a detection history matrix and explain what each row/column represents.
-4. Apply Bayesian reasoning to estimate presence probability given a detection history of all zeros.
-5. Critically evaluate how a paper's methods align with its stated objectives and data structure.
-6. Identify potential applications of occupancy modeling to their own research systems.
-:::
 
 ---
 
@@ -98,11 +83,11 @@ Students must submit written responses to these questions **before** class (via 
 
 **Purpose:** Activate prior knowledge from readings and prepare students for occupancy concepts.
 
-**Instructions:** On a notecard or device, write answers to:
+**Instructions:** On your notecard, write answers to:
 
 1. What is the difference between **presence** and **detection**?
 2. If you survey a site once and find nothing, what are two possible explanations?
-3. Define "detection probability" in one sentence.
+3. What is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?
 
 **Instructor note:** Do not collect these. Have 2–3 students share aloud. Use incorrect/partial answers as teaching moments (error-driven learning).
 :::
@@ -132,27 +117,11 @@ Students must submit written responses to these questions **before** class (via 
 
 Allow 60 seconds for think time. Cold-call 1–2 students. Defer full answer to the challenge activity later.
 
----
 
 ## Student Lecture: Drone-Based Wildlife Monitoring — 0:15–0:46 (~31 min) {.unnumbered}
 
 **Presenter:** Lexie
 
-**Paper:** Figueira et al. (2024). Use of Drones as a Tool for Wildlife Monitoring: A Systematic Review. *Fishes*, 9(11), 454.
-
-**Instructor expectations for the lecture:**
-
-- Overview of systematic review scope and search strategy
-- Key findings on drone applications across taxa (mammals, birds, fish, etc.)
-- Detection considerations: how drones affect detection probability
-- Limitations and biases identified in the literature
-- Recommendations for future research
-
-**Instructor facilitation notes:**
-
-- If the presenter focuses only on "cool drone applications," gently redirect to methodological considerations.
-- Watch for opportunities to connect to occupancy concepts (detection rates, survey effort, spatial scale).
-- Note any methodological gaps the presenter identifies—these feed into the critique activity.
 
 ---
 
@@ -175,34 +144,6 @@ Use a visible timer. At 6:30, give a 30-second warning. At 7:00, politely but fi
 
 ---
 
-## Challenge Questions for Presenter + Synthesis — 0:53–1:00 (7 min) {.unnumbered}
-
-::: {.callout-note}
-## SoTL Activity: Peer Challenge Questions
-
-**Purpose:** Encourage critical engagement with the paper; practice constructive academic discourse.
-
-**Rules:**
-
-1. Audience members pose challenge questions (prioritize student-submitted questions from pre-class responses).
-2. The presenter must respond directly (45–60 sec per response).
-3. Questions must be substantive (not answerable with yes/no).
-4. Instructor supplements only if the presenter's answer is incomplete or a key concept was missed.
-:::
-
-**Backup challenge questions (use if student-submitted questions are insufficient):**
-
-1. "The review covers multiple taxa. How might detection probability differ between a thermal drone survey for mammals versus a visual drone survey for waterbirds? How does this affect the conclusions?"
-
-2. "What systematic biases might exist in the literature on drone surveys? How would these biases affect a meta-analysis?"
-
-3. "If a drone survey detects a species at 15 of 30 sites, but ground-truth data shows the species is present at 25 sites, what does this tell us about detection probability? How would you design a study to estimate p?"
-
-**Synthesis bridge (1–2 min):**
-
-> *"The drone paper highlights detection as a key issue. This connects directly to occupancy modeling, which explicitly separates detection from presence. Let's explore this with a hands-on challenge."*
-
----
 
 ## Occupancy Challenge Activity — 1:00–1:10 (10 min) {.unnumbered}
 
@@ -219,7 +160,7 @@ Present the following detection history matrix. This represents 7 sites surveyed
 | 1    | 0       | 1       | 0       | 0       | 0       |
 | 2    | 0       | 0       | 0       | 0       | 0       |
 | 3    | 1       | 0       | 1       | 0       | 0       |
-| 4    | 0       | 0       | 0       | 0       | 0       |
+| 4    | 0       | 0       | 1       | 0       | 0       |
 | 5    | 0       | 0       | 0       | 1       | 0       |
 | 6    | 0       | 0       | 0       | 0       | 0       |
 | 7    | 1       | 1       | 0       | 0       | 1       |
