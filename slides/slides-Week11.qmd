@@ -1,0 +1,367 @@
+---
+title: "Week 11 — Adult Sex Ratio from Camera Traps"
+subtitle: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    incremental: false
+    scrollable: true
+    code-fold: false
+    chalkboard: true
+execute:
+  echo: true
+  warning: false
+  message: false
+  eval: false
+---
+
+## Entry Ticket
+
+**On your notecard, write answers to:**
+
+1. What is the formula for adult sex ratio (ASR)?
+2. From Week 10: What is the core problem that occupancy models solve?
+3. If 40% of your camera-trap sightings cannot be sexed, how might that bias your ASR estimate?
+
+. . .
+
+Compare your answers with your neighbor — do you agree?
+
+---
+
+## Why Adult Sex Ratio Matters
+
+**Ungulate management depends on population structure**
+
+- ASR influences harvest quotas, population growth projections, and habitat management
+- Sex-biased browsing pressure affects forest regeneration
+- Camera traps are cost-effective but imperfect sensors
+
+. . .
+
+::: {.callout-important}
+**The problem:** Not every sighting can be sexed. Unknown-sex sightings may bias ASR estimates if ignored or handled incorrectly.
+:::
+
+---
+
+## The ASR Equation
+
+$$\text{ASR} = \frac{N_{\text{males}}}{N_{\text{males}} + N_{\text{females}}}$$
+
+. . .
+
+- ASR = 0.5 → equal numbers of males and females
+- ASR < 0.5 → female-biased (common in polygynous ungulates)
+- ASR > 0.5 → male-biased
+
+. . .
+
+**Key question:** What do we do with sightings where sex is unknown?
+
+---
+
+## Study Design Snapshot
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Wohlfahrt et al. (2026)**
+
+- 24 camera traps, Austrian Alps
+- 20,250 camera-days
+- 4,110 adult/subadult sightings
+- **436 unknown-sex** (~8.9%)
+- Jan 2020 – May 2022
+- Focus: weeks 9–17
+:::
+
+::: {.column width="50%"}
+**Camera placement:**
+
+- Along wildlife trails
+- Maximizes detections
+- But may introduce placement bias
+
+**Sighting definition:**
+
+- ≥ 5 min between images = new sighting
+:::
+
+::::
+
+---
+
+## Three Approaches to ASR
+
+```{mermaid}
+%%| fig-width: 9
+flowchart LR
+    A[Camera Trap\nSightings] --> B{Sex known?}
+    B -->|Yes| C[Naive ASR]
+    B -->|No| D[Predict sex\nwith GAM]
+    D --> E[Predicted ASR]
+    A --> F[Detection\nhistories]
+    F --> G[RN Occupancy\nModel]
+    G --> H[Occupancy ASR]
+```
+
+---
+
+## Approach 1: Naive ASR
+
+**Simple:** Use only sightings where sex is identified
+
+$$\text{ASR}_{\text{naive}} = \frac{N_{\text{males, known}}}{N_{\text{males, known}} + N_{\text{females, known}}}$$
+
+. . .
+
+**Assumption:** Unknown-sex sightings are **missing completely at random** (MCAR)
+
+. . .
+
+**When this fails:**
+
+- Males may be easier to identify (antlers) → unknowns skew female
+- Camera placement may favor one sex
+- Unknown rate varies by season or camera location
+
+---
+
+## Approach 2: Predicted ASR (GAM)
+
+**Idea:** Predict sex for unknown sightings using a statistical model
+
+. . .
+
+**Model:** Generalized Additive Model (binomial, logit link)
+
+$$\text{logit}(P(\text{male})) = f_1(\text{day\_of\_year}) + f_2(\text{hour}) + s(\text{camera\_id}) + f_3(\text{dist\_road} \times \text{day\_of\_year})$$
+
+. . .
+
+**Prediction rule:** If $P(\text{male}) > 0.5$ → classify as male; otherwise female
+
+. . .
+
+**Performance:** Precision ≈ 75.24%; Deviance explained ≈ 29.5%
+
+---
+
+## Approach 3: Occupancy-Based ASR (Royle–Nichols)
+
+**Key insight:** Detection probability depends on abundance
+
+$$P(\text{detect} \geq 1 \mid N, r) = 1 - (1-r)^N$$
+
+. . .
+
+- $N$ = latent abundance at a site (Poisson distributed)
+- $r$ = per-individual detection probability
+
+. . .
+
+**For ASR:** Fit RN model separately for males and females
+
+$$\text{ASR}_{\text{occupancy}} = \frac{\bar{N}_{\text{male}}}{\bar{N}_{\text{male}} + \bar{N}_{\text{female}}}$$
+
+. . .
+
+**Requires:** Detection histories (sites × weekly replicates), closure assumption
+
+---
+
+## Quick Poll
+
+::: {.callout-important}
+## Think Before the Presentation
+
+Which approach do you think gives the **most reliable** ASR estimate? Why?
+
+A) Naive — simplicity is a feature, not a bug
+
+B) Predicted — more data is always better
+
+C) Occupancy RN — accounts for the detection process
+
+D) It depends on the study design
+
+*Hold your answer — revisit after the presentation*
+:::
+
+---
+
+## Student Presentation
+
+### Wohlfahrt et al. (2026)
+
+**Red deer adult sex ratio: comparing three approaches using camera trap data**
+
+*Journal of Wildlife Management* 90:e70139
+
+. . .
+
+**Discussion roles assigned:**
+
+| Role | Job |
+|------|-----|
+| Facilitator | Keep discussion flowing |
+| Skeptic | Challenge assumptions |
+| Scribe | Capture key points |
+| Assumption-Checker | Flag statistical assumptions |
+
+---
+
+## Discussion Prompts
+
+After the presentation:
+
+1. The GAM's prediction precision was ~75%. Is that good enough?
+2. Cameras were placed along trails. How might this bias ASR?
+3. Why focus on weeks 9–17? What assumption does this satisfy?
+
+. . .
+
+**From the paper:**
+
+> "Our hypothesis was that these advanced statistical methods reveal a potential bias in the estimation of red deer ASR in a naive approach directly from raw camera trap data." (Wohlfahrt et al. 2026)
+
+---
+
+## Jigsaw Activity
+
+**Expert phase (7 min):**
+
+Your group studies ONE approach in depth:
+
+| Group A | Group B | Group C |
+|---------|---------|---------|
+| Naive ASR | Predicted (GAM) | Occupancy (RN) |
+
+For your method:
+
+1. Write the key equation on the whiteboard
+2. List 2–3 assumptions
+3. Identify 1–2 failure scenarios
+4. Prepare a 2-min teach-back
+
+. . .
+
+**Teach-back (7 min):** Regroup into mixed teams — teach your method!
+
+---
+
+## Method Comparison Summary
+
+| Feature | Naive | Predicted (GAM) | Occupancy (RN) |
+|---------|-------|-----------------|-----------------|
+| Uses unknown sightings | ✗ | ✓ (predicted) | ✗ (separate model) |
+| Accounts for detection bias | ✗ | Partially | ✓ |
+| Data requirement | Low | Moderate | High (repeated visits) |
+| Analytical complexity | Low | Moderate | High |
+| Key assumption | MCAR unknowns | Correct classification | Closure + Poisson abundance |
+
+---
+
+## Choose-Your-Own-Method
+
+**Scenario 1 — Tropical Primates:**
+50 cameras, 40% unknowns, cameras at fruiting trees, 6 months of data.
+
+**Scenario 2 — Prairie Elk:**
+15 trail cameras, 5% unknowns, minimal stats capacity.
+
+**Scenario 3 — Island Invasive Deer:**
+100 cameras in grid, 20% unknowns, skilled analyst on team.
+
+. . .
+
+For your scenario: **Which method? Why? What are the risks?**
+
+Write your group's answer on the poster → gallery walk!
+
+---
+
+## Structured Debate
+
+**Motion:** *"Naive ASR is sufficient for most wildlife management applications."*
+
+. . .
+
+| Side A: "Keep It Simple" | Side B: "Model It Right" |
+|:---|:---|
+| Prepare 2 arguments (2 min) | Prepare 2 arguments (2 min) |
+| Present (2 min) | Present (2 min) |
+
+. . .
+
+**Free rebuttal** (2 min) → **Instructor synthesis** (2 min)
+
+---
+
+## What Did the Paper Find?
+
+| Year | Naive ASR | Predicted ASR | Occupancy ASR |
+|------|-----------|---------------|---------------|
+| 2020 | 0.40 (0.34–0.46) | 0.44 (0.39–0.49) | 0.40 (0.34–0.47) |
+| 2021 | 0.40 (0.31–0.49) | 0.46 (0.39–0.54) | 0.36 (0.36–0.36) |
+| 2022 | 0.42 (0.35–0.50) | 0.48 (0.41–0.56) | 0.45 (0.44–0.46) |
+
+. . .
+
+**Bottom line:** Under these conditions (~8.9% unknowns, trail cameras), all three methods gave comparable results.
+
+. . .
+
+**But:** This does NOT mean naive is always fine. When unknowns are >20–30% or cameras are non-randomly placed, advanced methods become essential.
+
+---
+
+## Concept Map Activity
+
+Draw connections between these terms:
+
+**ASR · naive · predicted · GAM · occupancy · RN · detection probability · latent abundance · bootstrap CI · camera placement · unknowns**
+
+. . .
+
+Label your arrows: *"assumes," "accounts for," "biased by," "estimates"*
+
+. . .
+
+**Muddiest point:** Write the one thing still unclear to you.
+
+---
+
+## Minute Paper
+
+On your notecard:
+
+1. Most important insight from today?
+2. Which approach for YOUR research system?
+3. One question for the workshop?
+
+---
+
+## Up Next: Workshop (Session B)
+
+**Hands-on R exercises:**
+
+- **Exercise A:** Naive ASR + bootstrap CI
+- **Exercise B:** GAM sex prediction + confusion matrix
+- **Exercise C:** Royle–Nichols occupancy model
+
+. . .
+
+**Packages you'll need:**
+
+```{r}
+#| eval: false
+install.packages(c("mgcv", "boot", "unmarked",
+                    "dplyr", "ggplot2", "tidyr"))
+```
+
+. . .
+
+Let's code! 🦌📸
