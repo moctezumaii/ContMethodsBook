@@ -491,7 +491,7 @@ weeks <- 9:17  # Calendar weeks 9-17
 
 sightings <- data.frame(
   sighting_id = 1:n_sightings,
-  camera_id = sample(1:n_cameras, n_sightings, replace = TRUE),
+  camera_id = factor(sample(1:n_cameras, n_sightings, replace = TRUE)),
   week = sample(weeks, n_sightings, replace = TRUE),
   day_of_year = sample(60:120, n_sightings, replace = TRUE),
   hour = sample(0:23, n_sightings, replace = TRUE),
@@ -694,7 +694,7 @@ cat("95% CI:", boot_ci_pred$percent[4], "-", boot_ci_pred$percent[5], "\n")
 | `Error in model.frame()`: missing values | `camera_id` in unknowns has levels not in training data | Ensure `camera_id` is consistent; use `exclude = NULL` or combine factor levels |
 | Overfitting: perfect accuracy on training set | Too many smooth terms or `k` too high | Reduce `k` in `s()` terms; check `gam.check()` |
 | Forgot `set.seed()` before split | Different students get different train/test splits | Add `set.seed(690)` before `sample()` |
-| `camera_id` treated as continuous | Did not convert to factor | Add `sightings$camera_id <- as.factor(sightings$camera_id)` |
+| `camera_id` treated as continuous | Did not create as factor during data simulation | Ensure `camera_id` is wrapped in `factor()` when creating the data frame |
 | Confusion matrix has wrong dimensions | Predicted or actual labels are inconsistent | Ensure both use "male"/"female" as factor levels |
 :::
 

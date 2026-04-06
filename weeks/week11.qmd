@@ -374,7 +374,7 @@ test  <- sex_known[-train_idx, ]
 #| eval: false
 
 # GAM with smooths for day_of_year and hour,
-# camera_id as random effect,
+# camera_id as random effect (accounts for camera-specific detection heterogeneity),
 # interaction: distance_to_road × day_of_year
 gam_model <- gam(
   sex_binary ~ s(day_of_year, bs = "cr") +
