@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="SNR 690">
+<meta name="dcterms.date" content="2001-11-01">
+
+<title>Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor) – SNR 690 — Contemporary Approaches to Quantitative Methods</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../assets/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SNR 690 — Contemporary Approaches to Quantitative Methods</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-weeks" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Weeks</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-weeks">    
+        <li>
+    <a class="dropdown-item" href="../weeks/week01.html">
+ <span class="dropdown-text">Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week02.html">
+ <span class="dropdown-text">Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week03.html">
+ <span class="dropdown-text">Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week04.html">
+ <span class="dropdown-text">Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week05.html">
+ <span class="dropdown-text">Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07.html">
+ <span class="dropdown-text">Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week07-workshop_2.html">
+ <span class="dropdown-text">Week 07, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08.html">
+ <span class="dropdown-text">Week 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week08-workshop.html">
+ <span class="dropdown-text">Week 08, Thursday</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week09.html">
+ <span class="dropdown-text">Week 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week11.html">
+ <span class="dropdown-text">Week 11</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../weeks/week11-instructor.html">
+ <span class="dropdown-text">Week 11 (Instructor)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../projects/index.html">
+ <span class="dropdown-text">Project Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/weekly-self-assessment.html">
+ <span class="dropdown-text">Weekly Self-Assessment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../projects/progress-presentation.html">
+ <span class="dropdown-text">Progress Presentation</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-materials" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Materials</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-materials">    
+        <li>
+    <a class="dropdown-item" href="../materials/Week3questions.html">
+ <span class="dropdown-text">Week 3 questions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/sixq.html">
+ <span class="dropdown-text">Week 3 graffiti wall activity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materials/answersheet_Version5.html">
+ <span class="dropdown-text">Answers to Week 3 questions</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="https://r4ds.hadley.nz/">
+ <span class="dropdown-text">R for Data Science</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://bookdown.org/jgscott/DSGI/">
+ <span class="dropdown-text">Data Science Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://moctezumaii.github.io/SNR610/">
+ <span class="dropdown-text">SNR 610 Course Book</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slideshows" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slideshows</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slideshows">    
+        <li>
+    <a class="dropdown-item" href="../slides/slide-Week01.html">
+ <span class="dropdown-text">Slides Week 01</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week02.html">
+ <span class="dropdown-text">Slides Week 02</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week03.html">
+ <span class="dropdown-text">Slides Week 03</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week04.html">
+ <span class="dropdown-text">Slides Week 04</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week05.html">
+ <span class="dropdown-text">Slides Week 05</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week07.html">
+ <span class="dropdown-text">Slides Week 07</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week08.html">
+ <span class="dropdown-text">Slides Week 08</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week09.html">
+ <span class="dropdown-text">Slides Week 09</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/slides-Week11.html">
+ <span class="dropdown-text">Slides Week 11</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#week-overview" id="toc-week-overview" class="nav-link active" data-scroll-target="#week-overview"><span class="header-section-number">1</span> Week Overview</a></li>
+  <li><a href="#prep-checklist-materials" id="toc-prep-checklist-materials" class="nav-link" data-scroll-target="#prep-checklist-materials"><span class="header-section-number">2</span> Prep Checklist &amp; Materials</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">3</span> Learning Objectives</a></li>
+  <li><a href="#learning-objectives-activities-mapping" id="toc-learning-objectives-activities-mapping" class="nav-link" data-scroll-target="#learning-objectives-activities-mapping"><span class="header-section-number">4</span> Learning Objectives → Activities Mapping</a></li>
+  <li><a href="#session-a-schedule-75-minutes" id="toc-session-a-schedule-75-minutes" class="nav-link" data-scroll-target="#session-a-schedule-75-minutes"><span class="header-section-number">5</span> Session A Schedule (75 minutes)</a></li>
+  <li><a href="#session-a-75-minutes" id="toc-session-a-75-minutes" class="nav-link" data-scroll-target="#session-a-75-minutes"><span class="header-section-number">6</span> Session A (75 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#pre-class-student-responses" id="toc-pre-class-student-responses" class="nav-link" data-scroll-target="#pre-class-student-responses">Pre-Class Student Responses</a></li>
+  <li><a href="#entry-ticket-retrieval-practice-000005-5-min" id="toc-entry-ticket-retrieval-practice-000005-5-min" class="nav-link" data-scroll-target="#entry-ticket-retrieval-practice-000005-5-min">Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)</a></li>
+  <li><a href="#instructor-mini-lecture-asr-concepts-005015-10-min" id="toc-instructor-mini-lecture-asr-concepts-005015-10-min" class="nav-link" data-scroll-target="#instructor-mini-lecture-asr-concepts-005015-10-min">Instructor Mini-Lecture: ASR Concepts — 0:05–0:15 (10 min)</a></li>
+  <li><a href="#student-presentation-segment-015031" id="toc-student-presentation-segment-015031" class="nav-link" data-scroll-target="#student-presentation-segment-015031">Student Presentation Segment — 0:15–0:31</a>
+  <ul class="collapse">
+  <li><a href="#framing-015017-2-min" id="toc-framing-015017-2-min" class="nav-link" data-scroll-target="#framing-015017-2-min">Framing — 0:15–0:17 (2 min)</a></li>
+  <li><a href="#student-core-talk-017025-8-min" id="toc-student-core-talk-017025-8-min" class="nav-link" data-scroll-target="#student-core-talk-017025-8-min">Student Core Talk — 0:17–0:25 (8 min)</a></li>
+  <li><a href="#guided-discussion-025031-6-min" id="toc-guided-discussion-025031-6-min" class="nav-link" data-scroll-target="#guided-discussion-025031-6-min">Guided Discussion — 0:25–0:31 (6 min)</a></li>
+  </ul></li>
+  <li><a href="#discussion-questions-bank-for-instructor-use" id="toc-discussion-questions-bank-for-instructor-use" class="nav-link" data-scroll-target="#discussion-questions-bank-for-instructor-use">Discussion Questions Bank (for instructor use)</a></li>
+  <li><a href="#lightweight-presentation-rubric-participation-checklist" id="toc-lightweight-presentation-rubric-participation-checklist" class="nav-link" data-scroll-target="#lightweight-presentation-rubric-participation-checklist">Lightweight Presentation Rubric / Participation Checklist</a></li>
+  <li><a href="#jigsaw-activity-three-asr-approaches-031046-15-min" id="toc-jigsaw-activity-three-asr-approaches-031046-15-min" class="nav-link" data-scroll-target="#jigsaw-activity-three-asr-approaches-031046-15-min">Jigsaw Activity: Three ASR Approaches — 0:31–0:46 (15 min)</a></li>
+  <li><a href="#choose-your-own-method-scenario-gallery-walk-046056-10-min" id="toc-choose-your-own-method-scenario-gallery-walk-046056-10-min" class="nav-link" data-scroll-target="#choose-your-own-method-scenario-gallery-walk-046056-10-min">Choose-Your-Own-Method Scenario + Gallery Walk — 0:46–0:56 (10 min)</a></li>
+  <li><a href="#structured-mini-debate-when-do-naive-methods-fail-056106-10-min" id="toc-structured-mini-debate-when-do-naive-methods-fail-056106-10-min" class="nav-link" data-scroll-target="#structured-mini-debate-when-do-naive-methods-fail-056106-10-min">Structured Mini-Debate: When Do Naive Methods Fail? — 0:56–1:06 (10 min)</a></li>
+  <li><a href="#synthesis-concept-map-muddiest-point-106112-6-min" id="toc-synthesis-concept-map-muddiest-point-106112-6-min" class="nav-link" data-scroll-target="#synthesis-concept-map-muddiest-point-106112-6-min">Synthesis: Concept Map + Muddiest Point — 1:06–1:12 (6 min)</a></li>
+  <li><a href="#minute-paper-112115-3-min" id="toc-minute-paper-112115-3-min" class="nav-link" data-scroll-target="#minute-paper-112115-3-min">Minute Paper — 1:12–1:15 (3 min)</a></li>
+  </ul></li>
+  <li><a href="#common-misconceptions-how-to-address-them" id="toc-common-misconceptions-how-to-address-them" class="nav-link" data-scroll-target="#common-misconceptions-how-to-address-them"><span class="header-section-number">7</span> Common Misconceptions &amp; How to Address Them</a></li>
+  <li><a href="#session-b-schedule-75-minutes-workshopproject-time" id="toc-session-b-schedule-75-minutes-workshopproject-time" class="nav-link" data-scroll-target="#session-b-schedule-75-minutes-workshopproject-time"><span class="header-section-number">8</span> Session B Schedule (75 minutes) — Workshop/Project Time</a></li>
+  <li><a href="#session-b-75-minutes-workshop" id="toc-session-b-75-minutes-workshop" class="nav-link" data-scroll-target="#session-b-75-minutes-workshop"><span class="header-section-number">9</span> Session B (75 minutes) — Workshop</a>
+  <ul class="collapse">
+  <li><a href="#setup-muddiest-point-debrief-000005-5-min" id="toc-setup-muddiest-point-debrief-000005-5-min" class="nav-link" data-scroll-target="#setup-muddiest-point-debrief-000005-5-min">Setup + Muddiest Point Debrief — 0:00–0:05 (5 min)</a></li>
+  <li><a href="#exercise-a-naive-asr-bootstrap-ci-005025-20-min" id="toc-exercise-a-naive-asr-bootstrap-ci-005025-20-min" class="nav-link" data-scroll-target="#exercise-a-naive-asr-bootstrap-ci-005025-20-min">Exercise A: Naive ASR + Bootstrap CI — 0:05–0:25 (20 min)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-simulate-data" id="toc-step-1-simulate-data" class="nav-link" data-scroll-target="#step-1-simulate-data">Step 1: Simulate data</a></li>
+  <li><a href="#step-2-filter-and-compute-naive-asr" id="toc-step-2-filter-and-compute-naive-asr" class="nav-link" data-scroll-target="#step-2-filter-and-compute-naive-asr">Step 2: Filter and compute naive ASR</a></li>
+  <li><a href="#step-3-bootstrap-ci" id="toc-step-3-bootstrap-ci" class="nav-link" data-scroll-target="#step-3-bootstrap-ci">Step 3: Bootstrap CI</a></li>
+  </ul></li>
+  <li><a href="#exercise-b-gam-sex-prediction-evaluation-025050-25-min" id="toc-exercise-b-gam-sex-prediction-evaluation-025050-25-min" class="nav-link" data-scroll-target="#exercise-b-gam-sex-prediction-evaluation-025050-25-min">Exercise B: GAM Sex Prediction + Evaluation — 0:25–0:50 (25 min)</a>
+  <ul class="collapse">
+  <li><a href="#step-1-prepare-training-and-test-data" id="toc-step-1-prepare-training-and-test-data" class="nav-link" data-scroll-target="#step-1-prepare-training-and-test-data">Step 1: Prepare training and test data</a></li>
+  <li><a href="#step-2-fit-gam" id="toc-step-2-fit-gam" class="nav-link" data-scroll-target="#step-2-fit-gam">Step 2: Fit GAM</a></li>
+  <li><a href="#step-3-evaluate-on-test-set" id="toc-step-3-evaluate-on-test-set" class="nav-link" data-scroll-target="#step-3-evaluate-on-test-set">Step 3: Evaluate on test set</a></li>
+  <li><a href="#step-4-predict-unknowns-and-recompute-asr" id="toc-step-4-predict-unknowns-and-recompute-asr" class="nav-link" data-scroll-target="#step-4-predict-unknowns-and-recompute-asr">Step 4: Predict unknowns and recompute ASR</a></li>
+  </ul></li>
+  <li><a href="#exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min" id="toc-exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min" class="nav-link" data-scroll-target="#exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min">Exercise C: RN Occupancy ASR (Conceptual + Code) — 0:50–1:05 (15 min)</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-framework" id="toc-conceptual-framework" class="nav-link" data-scroll-target="#conceptual-framework">Conceptual Framework</a></li>
+  <li><a href="#step-1-build-detection-histories" id="toc-step-1-build-detection-histories" class="nav-link" data-scroll-target="#step-1-build-detection-histories">Step 1: Build detection histories</a></li>
+  <li><a href="#step-2-fit-rn-model-with-unmarked" id="toc-step-2-fit-rn-model-with-unmarked" class="nav-link" data-scroll-target="#step-2-fit-rn-model-with-unmarked">Step 2: Fit RN model with <code>unmarked</code></a></li>
+  <li><a href="#step-3-compute-occupancy-based-asr" id="toc-step-3-compute-occupancy-based-asr" class="nav-link" data-scroll-target="#step-3-compute-occupancy-based-asr">Step 3: Compute occupancy-based ASR</a></li>
+  </ul></li>
+  <li><a href="#peer-troubleshooting-comparison-105110-5-min" id="toc-peer-troubleshooting-comparison-105110-5-min" class="nav-link" data-scroll-target="#peer-troubleshooting-comparison-105110-5-min">Peer Troubleshooting + Comparison — 1:05–1:10 (5 min)</a></li>
+  <li><a href="#wrap-up-next-steps-110115-5-min" id="toc-wrap-up-next-steps-110115-5-min" class="nav-link" data-scroll-target="#wrap-up-next-steps-110115-5-min">Wrap-Up + Next Steps — 1:10–1:15 (5 min)</a></li>
+  </ul></li>
+  <li><a href="#contingency-plans" id="toc-contingency-plans" class="nav-link" data-scroll-target="#contingency-plans"><span class="header-section-number">10</span> Contingency Plans</a></li>
+  <li><a href="#instructor-reflection-prompts-post-class" id="toc-instructor-reflection-prompts-post-class" class="nav-link" data-scroll-target="#instructor-reflection-prompts-post-class"><span class="header-section-number">11</span> Instructor Reflection Prompts (Post-Class)</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">camera traps</div>
+    <div class="quarto-category">adult sex ratio</div>
+    <div class="quarto-category">GAM</div>
+    <div class="quarto-category">occupancy</div>
+    <div class="quarto-category">Royle-Nichols</div>
+    <div class="quarto-category">bootstrap</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>SNR 690 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 1, 2001</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="week-overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Week Overview</h1>
+<p><strong>Week 11 — Adult Sex Ratio Estimation: Comparing Naive, Predicted, and Occupancy-Based Approaches (Instructor-Only Plan)</strong></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructor-Only Document
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This document contains facilitation notes, timing guidance, rubrics, contingency plans, and pedagogical scaffolding for the instructor. It is <strong>not</strong> intended for student distribution. Distribute <code>week11.qmd</code> (student version) instead.</p>
+</div>
+</div>
+<p>This week uses a student-led presentation of Wohlfahrt et al.&nbsp;(2026) to explore three camera-trap–based approaches for estimating adult sex ratio (ASR) in red deer. Session A builds conceptual understanding through active learning. Session B is a hands-on R workshop where students implement each approach.</p>
+<p><strong>Primary Paper (Student Lecture):</strong></p>
+<blockquote class="blockquote">
+<p>Wohlfahrt, S., Edelhoff, H., Leitner, H., &amp; Hackländer, K. (2026). Red deer adult sex ratio: comparing three approaches using camera trap data. <em>Journal of Wildlife Management</em> 90:e70139. <a href="https://doi.org/10.1002/jwmg.70139" class="uri">https://doi.org/10.1002/jwmg.70139</a></p>
+</blockquote>
+<hr>
+</section>
+<section id="prep-checklist-materials" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Prep Checklist &amp; Materials</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Instructor Prep (Complete Before Class)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Materials needed:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Printed notecards (8–10) for entry ticket and minute paper</label></li>
+<li><label><input type="checkbox">Whiteboard markers (3 colors minimum) and eraser</label></li>
+<li><label><input type="checkbox">3 poster sheets or large whiteboard sections for jigsaw gallery walk</label></li>
+<li><label><input type="checkbox">Timer (visible to students) for student presentation and activities</label></li>
+<li><label><input type="checkbox">Projector with slides loaded: <a href="../slides/slides-Week11.html">slides/slides-Week11.qmd</a></label></li>
+<li><label><input type="checkbox">Pre-class student responses reviewed and grouped by theme</label></li>
+<li><label><input type="checkbox">Scenario cards printed (4 copies of 3 scenarios for “Choose-Your-Own-Method”)</label></li>
+</ul>
+<p><strong>Tech/setup:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Confirm R and RStudio / Codespaces work on instructor machine</label></li>
+<li><label><input type="checkbox">Test that <code>mgcv</code>, <code>boot</code>, <code>unmarked</code>, <code>dplyr</code>, <code>ggplot2</code> packages install</label></li>
+<li><label><input type="checkbox">Have the workshop R script or <code>.qmd</code> ready to screen-share for Session B</label></li>
+<li><label><input type="checkbox">Backup: pre-rendered HTML of workshop output in case of package failures</label></li>
+</ul>
+<p><strong>Before-class pedagogy:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Skim student pre-class responses; group by theme (detection bias, model complexity, application ideas)</label></li>
+<li><label><input type="checkbox">Identify 2–3 strong student responses for question 1 to project during entry ticket</label></li>
+<li><label><input type="checkbox">Prepare student question 3 answers as basis for post-presentation discussion</label></li>
+<li><label><input type="checkbox">Confirm student presenter is ready; offer last-minute support</label></li>
+<li><label><input type="checkbox">Assign rotating roles: facilitator, skeptic, scribe, assumption-checker (rotate from previous week)</label></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="learning-objectives" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Learning Objectives</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By the end of this week, students will be able to:</p>
+<ol type="1">
+<li><strong>Define</strong> adult sex ratio (ASR) and explain why accurate estimation matters for ungulate management and forest regeneration.</li>
+<li><strong>Compare</strong> three approaches to ASR estimation—naive, predicted (GAM), and occupancy-based (Royle–Nichols)—and articulate the assumptions, strengths, and failure modes of each.</li>
+<li><strong>Implement</strong> naive ASR calculation with bootstrap confidence intervals in R.</li>
+<li><strong>Fit and evaluate</strong> a GAM for sex prediction from camera-trap covariates, including model diagnostics and confusion matrix interpretation.</li>
+<li><strong>Describe</strong> Royle–Nichols occupancy modeling and explain how latent abundance estimates inform ASR.</li>
+<li><strong>Critically evaluate</strong> when simple methods (naive ASR) suffice versus when advanced approaches are necessary, using monitoring design constraints as criteria.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="learning-objectives-activities-mapping" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Learning Objectives → Activities Mapping</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Syllabus LO</th>
+<th style="text-align: left;">Week 11 LO</th>
+<th style="text-align: left;">Activity</th>
+<th style="text-align: left;">Timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>LO1</strong> Critically evaluate quantitative methods</td>
+<td style="text-align: left;">WK11-1, WK11-2, WK11-6</td>
+<td style="text-align: left;">Entry ticket; Jigsaw; Choose-your-own-method; Structured debate</td>
+<td style="text-align: left;">0:00–0:05; 0:31–0:46; 0:46–0:56; 0:56–1:06</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LO2</strong> Implement and adapt methods using equations, models, R code</td>
+<td style="text-align: left;">WK11-2, WK11-3, WK11-4, WK11-5</td>
+<td style="text-align: left;">Mini-lecture (ASR equation); Exercises A, B, C (Session B)</td>
+<td style="text-align: left;">0:05–0:15; Session B 0:05–1:05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>LO3</strong> Apply appropriate quantitative approaches to own research data</td>
+<td style="text-align: left;">WK11-3, WK11-4, WK11-6</td>
+<td style="text-align: left;">Choose-your-own-method scenario; Workshop Exercises A–C; Minute paper</td>
+<td style="text-align: left;">0:46–0:56; Session B; 1:12–1:15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>LO4</strong> Communicate and defend methodological decisions</td>
+<td style="text-align: left;">WK11-1, WK11-2, WK11-6</td>
+<td style="text-align: left;">Student presentation; Guided discussion; Structured debate; Jigsaw teach-back</td>
+<td style="text-align: left;">0:15–0:31; 0:31–0:46; 0:56–1:06</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="session-a-schedule-75-minutes" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Session A Schedule (75 minutes)</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Duration</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00–0:05</td>
+<td>Entry ticket: retrieval practice</td>
+<td>5 min</td>
+<td>Individual</td>
+</tr>
+<tr class="even">
+<td>0:05–0:15</td>
+<td>Instructor mini-lecture: ASR concepts + three approaches</td>
+<td>10 min</td>
+<td>Lecture + slides</td>
+</tr>
+<tr class="odd">
+<td>0:15–0:17</td>
+<td>Framing for student presenter</td>
+<td>2 min</td>
+<td>Transition</td>
+</tr>
+<tr class="even">
+<td>0:17–0:25</td>
+<td>Student presentation: core talk</td>
+<td>8 min</td>
+<td>Student-led</td>
+</tr>
+<tr class="odd">
+<td>0:25–0:31</td>
+<td>Guided discussion with rotating roles</td>
+<td>6 min</td>
+<td>Whole class</td>
+</tr>
+<tr class="even">
+<td>0:31–0:46</td>
+<td>Jigsaw: three ASR approaches</td>
+<td>15 min</td>
+<td>Pairs → groups</td>
+</tr>
+<tr class="odd">
+<td>0:46–0:56</td>
+<td>Choose-your-own-method scenario + gallery walk</td>
+<td>10 min</td>
+<td>Small groups</td>
+</tr>
+<tr class="even">
+<td>0:56–1:06</td>
+<td>Structured mini-debate: when do naive methods fail?</td>
+<td>10 min</td>
+<td>Whole class</td>
+</tr>
+<tr class="odd">
+<td>1:06–1:12</td>
+<td>Synthesis: concept map + muddiest point</td>
+<td>6 min</td>
+<td>Individual + share</td>
+</tr>
+<tr class="even">
+<td>1:12–1:15</td>
+<td>Minute paper</td>
+<td>3 min</td>
+<td>Individual</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total:</strong> 75 minutes</p>
+<hr>
+</section>
+<section id="session-a-75-minutes" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Session A (75 minutes)</h1>
+<section id="pre-class-student-responses" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pre-class-student-responses">Pre-Class Student Responses</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Required Before Class
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students must submit written responses to these questions <strong>before</strong> class (via Canvas). Responses of “I don’t know” are <strong>not acceptable</strong> for question 1.</p>
+<ol type="1">
+<li><p><strong>Application to your system:</strong> Describe one specific scenario in your research (or a hypothetical one in your field) where estimating adult sex ratio from remote sensing data (camera traps, drone imagery, acoustic sensors) would be valuable. Name the species/taxon and explain why sex-specific detection bias could matter.</p></li>
+<li><p><strong>Methods alignment:</strong> Does the Wohlfahrt et al.&nbsp;(2026) paper demonstrate logical alignment from research objectives → data collection → statistical methods? Identify one strength and one weakness in 2–3 sentences.</p></li>
+<li><p><strong>Question for the presenter:</strong> Write one substantive question you want to ask about the paper’s methods, results, or implications.</p></li>
+</ol>
+</div>
+</div>
+<p><strong>Instructor facilitation plan for pre-class responses:</strong></p>
+<ul>
+<li><strong>Before class:</strong> Skim all responses; group by theme (e.g., “detection bias concerns,” “model complexity,” “when to use which method,” “camera placement effects”).</li>
+<li><strong>During entry ticket (0:00–0:05):</strong> Project 2–3 anonymized student responses to question 1 as discussion prompts.</li>
+<li><strong>During Q&amp;A (0:25–0:31):</strong> Use student questions (question 3) as the basis for guided discussion. Prioritize questions that probe assumptions of each method.</li>
+<li><strong>If responses are thin:</strong> Have backup discussion questions ready (see Discussion Questions section below).</li>
+</ul>
+<hr>
+</section>
+<section id="entry-ticket-retrieval-practice-000005-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="entry-ticket-retrieval-practice-000005-5-min">Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Retrieval Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Activate prior knowledge from Week 10 (occupancy models) and connect to this week’s ASR content.</p>
+<p><strong>Instructions:</strong> On your notecard, write brief answers to:</p>
+<ol type="1">
+<li>What is the formula for adult sex ratio (ASR)? Write it without looking at your notes.</li>
+<li>From Week 10: What is the core problem that occupancy models solve? (one sentence)</li>
+<li>If 40% of your camera-trap sightings cannot be sexed, how might that bias your ASR estimate? In which direction?</li>
+</ol>
+<p><strong>Instructor note:</strong> Do not collect. Have 2–3 students share. Use incorrect answers as teaching moments. If a student writes ASR = females/total, use that error to clarify the convention used in this paper.</p>
+</div>
+</div>
+<p><strong>If students struggle with Q1:</strong> Write on the board:</p>
+<p><span class="math display">\[\text{ASR} = \frac{N_{\text{males}}}{N_{\text{males}} + N_{\text{females}}}\]</span></p>
+<p><strong>If students struggle with Q3:</strong> Prompt: “Think about <em>which</em> sex is harder to identify. If males have antlers and are easier to ID, what happens to unknowns?”</p>
+<hr>
+</section>
+<section id="instructor-mini-lecture-asr-concepts-005015-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="instructor-mini-lecture-asr-concepts-005015-10-min">Instructor Mini-Lecture: ASR Concepts — 0:05–0:15 (10 min)</h2>
+<p><strong>Format:</strong> Instructor-led with slides (<a href="../slides/slides-Week11.html">slides/slides-Week11.qmd</a>, slides 1–6).</p>
+<p><strong>Key concepts to cover:</strong></p>
+<ol type="1">
+<li><strong>Why ASR matters:</strong> Ungulate browsing pressure on forest regeneration; management decisions require sex-structured population data; ASR is a key demographic parameter.</li>
+<li><strong>The ASR equation:</strong> <span class="math inline">\(\text{ASR} = N_{\text{males}} / (N_{\text{males}} + N_{\text{females}})\)</span></li>
+<li><strong>Three approaches overview</strong> (brief — students will go deep in jigsaw):
+<ul>
+<li><strong>Naive:</strong> Use only sex-identified sightings; simple but ignores unknowns</li>
+<li><strong>Predicted:</strong> Use a GAM to predict sex for unknowns; includes more data but model-dependent</li>
+<li><strong>Occupancy (RN):</strong> Royle–Nichols model estimates latent abundance by sex; accounts for detection heterogeneity</li>
+</ul></li>
+<li><strong>Core tension:</strong> When do simple methods suffice? When do we need complexity?</li>
+<li><strong>Study design snapshot:</strong> 24 cameras, 20,250 camera-days, 4,110 adult/subadult sightings, 436 unknowns (~8.9%), Alps Austria, Jan 2020–May 2022, focal weeks 9–17.</li>
+</ol>
+<p><strong>Activation question (pose at 0:13):</strong></p>
+<blockquote class="blockquote">
+<p><em>“If only 8.9% of sightings are unknown-sex, do you think it matters which method you use? What if it were 40%?”</em></p>
+</blockquote>
+<p>Allow 30 seconds think time. Cold-call 1 student. Do not resolve — this is the question the whole session will explore.</p>
+<hr>
+</section>
+<section id="student-presentation-segment-015031" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="student-presentation-segment-015031">Student Presentation Segment — 0:15–0:31</h2>
+<section id="framing-015017-2-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="framing-015017-2-min">Framing — 0:15–0:17 (2 min)</h3>
+<p><strong>Instructor says:</strong> “Our presenter today will walk us through Wohlfahrt et al.&nbsp;(2026), focusing on how the three ASR approaches were implemented and what the results mean for wildlife monitoring. As you listen, note which approach you find most convincing and one critique you have.”</p>
+<p><strong>Assign rotating roles</strong> (write on board):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 45%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Student</th>
+<th>Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Facilitator</strong></td>
+<td>[assign]</td>
+<td>Keep discussion flowing; call on quiet voices</td>
+</tr>
+<tr class="even">
+<td><strong>Skeptic</strong></td>
+<td>[assign]</td>
+<td>Challenge assumptions; play devil’s advocate</td>
+</tr>
+<tr class="odd">
+<td><strong>Scribe</strong></td>
+<td>[assign]</td>
+<td>Take notes on whiteboard; capture key points</td>
+</tr>
+<tr class="even">
+<td><strong>Assumption-Checker</strong></td>
+<td>[assign]</td>
+<td>Flag statistical assumptions being made/violated</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Timekeeping
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use a visible timer. At 7:00 give a 1-minute warning. At 8:00 politely interrupt if necessary.</p>
+</div>
+</div>
+</section>
+<section id="student-core-talk-017025-8-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="student-core-talk-017025-8-min">Student Core Talk — 0:17–0:25 (8 min)</h3>
+<p><strong>Presenter covers</strong> (per the presentation template given in student version):</p>
+<ol type="1">
+<li>Motivation: why ASR matters for red deer management (1 min)</li>
+<li>Data: camera-trap deployment, sighting classification (1.5 min)</li>
+<li>Three approaches with key equations and assumptions (3.5 min)</li>
+<li>Key results: ASR estimates across years and methods (1.5 min)</li>
+<li>Critique: limitations, what could be improved (0.5 min)</li>
+</ol>
+</section>
+<section id="guided-discussion-025031-6-min" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="guided-discussion-025031-6-min">Guided Discussion — 0:25–0:31 (6 min)</h3>
+<p><strong>Format:</strong> Rotating-role facilitated discussion. The assigned <strong>Facilitator</strong> leads. Instructor intervenes only if discussion stalls.</p>
+<p><strong>Seed questions (draw from student pre-class Q3 responses first):</strong></p>
+<ol type="1">
+<li>The GAM’s prediction precision was ~75%. Is that good enough? What happens to ASR if the model systematically misclassifies one sex?</li>
+<li>Camera traps were placed along wildlife trails. How might this affect sex-specific detection and bias ASR?</li>
+<li>Why did the authors focus on weeks 9–17? What assumption does this satisfy for the RN model?</li>
+</ol>
+<p><strong>Instructor facilitation cues:</strong></p>
+<ul>
+<li>If the <strong>Skeptic</strong> is quiet, prompt: “Skeptic, what’s the weakest link in the naive approach?”</li>
+<li>If the <strong>Assumption-Checker</strong> hasn’t spoken, prompt: “What closure assumption is needed for the RN model, and is it met here?”</li>
+<li>If discussion runs long (&gt;6 min), give 30-sec warning and transition.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="discussion-questions-bank-for-instructor-use" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="discussion-questions-bank-for-instructor-use">Discussion Questions Bank (for instructor use)</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>6–10 Discussion Questions (Mix: Conceptual, Critique, Application)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Conceptual:</strong></p>
+<ol type="1">
+<li>Why is excluding unknown-sex sightings problematic even if they are a small fraction? Under what conditions would this bias ASR upward vs.&nbsp;downward?</li>
+<li>Explain the Royle–Nichols model intuition: <span class="math inline">\(P(\text{detect} \geq 1 \mid N, r) = 1 - (1-r)^N\)</span>. What does <span class="math inline">\(N\)</span> represent and how does it differ from a standard occupancy model?</li>
+<li>What is the difference between occupancy (<span class="math inline">\(\psi\)</span>) and abundance (<span class="math inline">\(\lambda\)</span>) in the RN framework?</li>
+</ol>
+<p><strong>Critique:</strong></p>
+<ol start="4" type="1">
+<li>The Wilcoxon tests showed no significant differences among methods (<span class="math inline">\(p = 0.25\)</span>, <span class="math inline">\(p = 0.655\)</span>). Does this mean the methods are equivalent? What are the limitations of this test for this comparison?</li>
+<li>The GAM explained only 29.5% of deviance. Is this concerning? What other predictors might improve sex classification?</li>
+<li>Trail-based camera placement maximizes detections but may introduce placement bias. Propose a study design modification that would reduce this bias.</li>
+</ol>
+<p><strong>Application:</strong></p>
+<ol start="7" type="1">
+<li>You are monitoring a pronghorn population where males and females use different habitats seasonally. Which ASR approach would you recommend and why?</li>
+<li>Your camera-trap study has 35% unknown-sex sightings. Does the Wohlfahrt et al.&nbsp;conclusion (“naive ASR suffices”) still apply? What would you do differently?</li>
+<li>How could you adapt these methods for a species where sex cannot be determined visually at all (e.g., many bird species from camera traps)?</li>
+<li>If you could add one covariate to the GAM that wasn’t in the paper, what would it be and why?</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="lightweight-presentation-rubric-participation-checklist" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="lightweight-presentation-rubric-participation-checklist">Lightweight Presentation Rubric / Participation Checklist</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Presentation &amp; Participation Checklist
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Student Presenter (out of 15 points):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 30%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criterion</th>
+<th>Points</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Covers motivation and context clearly</td>
+<td>2</td>
+<td>Why does ASR matter?</td>
+</tr>
+<tr class="even">
+<td>Accurately describes all three approaches</td>
+<td>3</td>
+<td>Naive, Predicted, RN — no major errors</td>
+</tr>
+<tr class="odd">
+<td>Presents key results with appropriate nuance</td>
+<td>3</td>
+<td>Includes CIs; avoids over-claiming</td>
+</tr>
+<tr class="even">
+<td>Offers at least one meaningful critique</td>
+<td>2</td>
+<td>Goes beyond “more data needed”</td>
+</tr>
+<tr class="odd">
+<td>Poses a discussion question that generates engagement</td>
+<td>2</td>
+<td>Question is substantive, not yes/no</td>
+</tr>
+<tr class="even">
+<td>Stays within time limit (8 min ± 30 sec)</td>
+<td>1</td>
+<td>Deduct if &gt;9 min</td>
+</tr>
+<tr class="odd">
+<td>Presentation clarity and organization</td>
+<td>2</td>
+<td>Slides/visual aids are clear</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Discussant Roles (out of 5 points each):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Expectation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Facilitator</td>
+<td>Asked ≥2 follow-up questions; kept discussion moving</td>
+</tr>
+<tr class="even">
+<td>Skeptic</td>
+<td>Raised ≥1 legitimate methodological challenge</td>
+</tr>
+<tr class="odd">
+<td>Scribe</td>
+<td>Captured ≥3 key discussion points on whiteboard</td>
+</tr>
+<tr class="even">
+<td>Assumption-Checker</td>
+<td>Identified ≥1 statistical assumption and evaluated whether it was met</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="jigsaw-activity-three-asr-approaches-031046-15-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="jigsaw-activity-three-asr-approaches-031046-15-min">Jigsaw Activity: Three ASR Approaches — 0:31–0:46 (15 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Jigsaw
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Deep engagement with each method; peer teaching consolidates understanding.</p>
+<p><strong>Setup (1 min):</strong> Divide 8 students into 3 expert pairs (2-3-3 split):</p>
+<ul>
+<li><strong>Pair A (2 students):</strong> Naive ASR — assumptions, computation, when it works/fails</li>
+<li><strong>Pair B (3 students):</strong> Predicted ASR — GAM approach, sex prediction, threshold choice</li>
+<li><strong>Pair C (3 students):</strong> Occupancy RN — detection histories, latent abundance, closure assumption</li>
+</ul>
+<p><strong>Expert phase (7 min):</strong> Each pair/trio works together to:</p>
+<ol type="1">
+<li>Write the key equation(s) for their method on a poster/whiteboard section</li>
+<li>List 2–3 assumptions their method requires</li>
+<li>Identify 1–2 scenarios where their method would fail or give biased results</li>
+<li>Prepare a 2-minute teach-back</li>
+</ol>
+<p><strong>Teach-back phase (7 min):</strong> Regroup into mixed groups (one member from each pair). Each expert teaches their method in ~2 min. Others ask questions.</p>
+<p><strong>Instructor role during jigsaw:</strong></p>
+<ul>
+<li>Circulate during expert phase. Listen for misconceptions:
+<ul>
+<li>Common error (Pair A): “Naive ASR has no assumptions” — it assumes unknowns are missing completely at random (MCAR)</li>
+<li>Common error (Pair B): “75% accuracy is bad” — clarify that precision matters more than overall accuracy when one class is rare</li>
+<li>Common error (Pair C): “RN estimates abundance directly from counts” — clarify that RN estimates <em>latent</em> abundance from detection/non-detection patterns</li>
+</ul></li>
+<li>During teach-back: do NOT intervene unless a factual error is being taught. Note errors for correction in synthesis.</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="choose-your-own-method-scenario-gallery-walk-046056-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="choose-your-own-method-scenario-gallery-walk-046056-10-min">Choose-Your-Own-Method Scenario + Gallery Walk — 0:46–0:56 (10 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Applied Scenario + Gallery Walk
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Transfer learning to novel contexts; compare method suitability under different constraints.</p>
+<p><strong>Scenarios</strong> (one per group of ~3 students; print on cards):</p>
+<p><strong>Scenario 1 — Tropical Forest Primates:</strong> You are monitoring a primate population in a dense tropical forest using 50 camera traps. Sexual dimorphism is subtle; ~40% of sightings cannot be sexed. Cameras are placed at fruiting trees (non-random). Budget allows 6 months of data. Which ASR approach(es) do you recommend?</p>
+<p><strong>Scenario 2 — Prairie Elk Population:</strong> State wildlife agency needs annual ASR for elk management. They have 15 trail cameras deployed year-round. Only 5% of sightings are unknown-sex (bulls have obvious antlers most of the year). They have minimal statistical capacity. Which approach?</p>
+<p><strong>Scenario 3 — Island Invasive Ungulates:</strong> You need ASR to model population growth of invasive deer on an island for eradication planning. You have 100 camera stations in a grid (not trail-based). Unknown-sex rate is 20%. You have a skilled quantitative ecologist on the team. Which approach?</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li>Groups read their scenario (1 min)</li>
+<li>Discuss and write on poster: (a) recommended method, (b) justification, (c) one risk/limitation (4 min)</li>
+<li>Gallery walk: groups rotate to view other posters, add sticky-note comments (3 min)</li>
+<li>Brief share-out: 1 sentence per group on most surprising insight from gallery walk (2 min)</li>
+</ol>
+<p><strong>Instructor facilitation:</strong> During gallery walk, check that students recognize:</p>
+<ul>
+<li>Scenario 1 → Predicted or RN approach needed (high unknown rate + non-random placement)</li>
+<li>Scenario 2 → Naive likely sufficient (low unknowns, limited capacity)</li>
+<li>Scenario 3 → RN is ideal (grid placement, adequate data, skilled analyst); predicted as supplement</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="structured-mini-debate-when-do-naive-methods-fail-056106-10-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="structured-mini-debate-when-do-naive-methods-fail-056106-10-min">Structured Mini-Debate: When Do Naive Methods Fail? — 0:56–1:06 (10 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Structured Debate
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Develop critical thinking about method selection; practice defending positions.</p>
+<p><strong>Format:</strong> Split class into two sides (4 vs.&nbsp;4):</p>
+<ul>
+<li><strong>Side A — “Keep It Simple”:</strong> Argues that naive ASR is sufficient for most wildlife management applications.</li>
+<li><strong>Side B — “Model It Right”:</strong> Argues that occupancy-based or predicted ASR should be the standard.</li>
+</ul>
+<p><strong>Rules:</strong></p>
+<ul>
+<li>2 min: each side prepares 2 arguments (internal discussion)</li>
+<li>2 min: Side A presents opening arguments</li>
+<li>2 min: Side B presents opening arguments</li>
+<li>2 min: Free rebuttal (Facilitator moderates)</li>
+<li>2 min: Instructor synthesis — key insight: <em>it depends on the monitoring design</em> (this is the paper’s conclusion)</li>
+</ul>
+<p><strong>Instructor synthesis points:</strong></p>
+<ul>
+<li>Under the conditions of this study (trail cameras, ~8.9% unknowns), all three methods agreed — naive was fine.</li>
+<li>When unknowns are frequent (&gt;20–30%) or camera placement is non-random, advanced methods become necessary.</li>
+<li>The “right” method depends on: (1) unknown-sex rate, (2) sex-specific detectability, (3) camera placement strategy, (4) analytical capacity.</li>
+<li>Quote (optional, use if helpful): “Our hypothesis was that these advanced statistical methods reveal a potential bias in the estimation of red deer ASR in a naive approach directly from raw camera trap data.” (Wohlfahrt et al.&nbsp;2026)</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="synthesis-concept-map-muddiest-point-106112-6-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="synthesis-concept-map-muddiest-point-106112-6-min">Synthesis: Concept Map + Muddiest Point — 1:06–1:12 (6 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Concept Map + Muddiest Point
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Purpose:</strong> Consolidate learning; identify remaining confusion.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li>On your notecard, draw a quick concept map linking: ASR, naive, predicted, GAM, occupancy, RN, detection probability, latent abundance, bootstrap CI, camera placement, unknowns. Connect with labeled arrows (e.g., “accounts for,” “assumes,” “biased by”). (3 min)</li>
+<li>Below your concept map, write your <strong>muddiest point</strong>: the one concept from today that is least clear to you. (1 min)</li>
+<li>Share muddiest point with a neighbor — can they clarify? (2 min)</li>
+</ol>
+<p><strong>Instructor action:</strong> Collect muddiest points. Address top 2 at the start of Session B.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="minute-paper-112115-3-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="minute-paper-112115-3-min">Minute Paper — 1:12–1:15 (3 min)</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SoTL Activity: Minute Paper
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Prompts (on notecard):</strong></p>
+<ol type="1">
+<li>What is the single most important insight about ASR estimation from today?</li>
+<li>Which of the three approaches would you use in your own research system, and why?</li>
+<li>One question you still have heading into the workshop.</li>
+</ol>
+<p><strong>Instructor action:</strong> Collect and skim before Session B. Address top 2 questions at the start of Session B workshop.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="common-misconceptions-how-to-address-them" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Common Misconceptions &amp; How to Address Them</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Anticipated Misconceptions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Misconception</th>
+<th style="text-align: left;">Reality</th>
+<th style="text-align: left;">How to address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">“Excluding unknowns doesn’t bias ASR because they’re random”</td>
+<td style="text-align: left;">Unknowns are likely biased toward one sex (e.g., females without antlers are harder to sex in winter) — MCAR assumption is often violated</td>
+<td style="text-align: left;">Ask: “Which sex is easier to ID? What happens if most unknowns are female?”</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">“75% prediction accuracy means the GAM is bad”</td>
+<td style="text-align: left;">75% precision means 3/4 predicted sexes are correct; the key question is <em>which</em> sex is misclassified and whether errors are balanced</td>
+<td style="text-align: left;">Show confusion matrix; discuss precision vs.&nbsp;recall for each sex</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">“RN occupancy directly counts animals”</td>
+<td style="text-align: left;">RN estimates <em>latent</em> abundance from detection patterns; it’s a model-based inference, not a census</td>
+<td style="text-align: left;">Draw the distinction: raw count vs.&nbsp;model-estimated N</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">“If all three methods agree, we don’t need the complex ones”</td>
+<td style="text-align: left;">Agreement under these conditions doesn’t mean agreement under all conditions; the study has specific scope limitations</td>
+<td style="text-align: left;">Reference the paper’s own caveat about generalizability</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">“Bootstrap gives the ‘true’ CI”</td>
+<td style="text-align: left;">Bootstrap CI reflects sampling variability; it doesn’t fix bias in the point estimate</td>
+<td style="text-align: left;">Distinguish bias correction from variance estimation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">“AICc always picks the ‘true’ model”</td>
+<td style="text-align: left;">AICc ranks models by predictive performance; the best-ranked model may still be biologically wrong</td>
+<td style="text-align: left;">Discuss model averaging when ΔAICc ≤ 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+<section id="session-b-schedule-75-minutes-workshopproject-time" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Session B Schedule (75 minutes) — Workshop/Project Time</h1>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 38%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00–0:05</td>
+<td>Setup + muddiest point debrief</td>
+<td>5 min</td>
+</tr>
+<tr class="even">
+<td>0:05–0:25</td>
+<td>Exercise A: Naive ASR + bootstrap CI</td>
+<td>20 min</td>
+</tr>
+<tr class="odd">
+<td>0:25–0:50</td>
+<td>Exercise B: GAM sex prediction + evaluation</td>
+<td>25 min</td>
+</tr>
+<tr class="even">
+<td>0:50–1:05</td>
+<td>Exercise C: RN occupancy ASR (conceptual + code)</td>
+<td>15 min</td>
+</tr>
+<tr class="odd">
+<td>1:05–1:10</td>
+<td>Peer troubleshooting + comparison</td>
+<td>5 min</td>
+</tr>
+<tr class="even">
+<td>1:10–1:15</td>
+<td>Wrap-up + what to submit + next steps</td>
+<td>5 min</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="session-b-75-minutes-workshop" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Session B (75 minutes) — Workshop</h1>
+<section id="setup-muddiest-point-debrief-000005-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="setup-muddiest-point-debrief-000005-5-min">Setup + Muddiest Point Debrief — 0:00–0:05 (5 min)</h2>
+<ul>
+<li>Address top 2 muddiest points from Session A minute paper</li>
+<li>Confirm all students have R/RStudio/Codespaces working</li>
+<li>Ensure packages are loaded:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install if needed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("mgcv", "boot", "unmarked", "dplyr", "ggplot2"))</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unmarked)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">690</span>)  <span class="co"># Reproducibility — use course number as seed</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="exercise-a-naive-asr-bootstrap-ci-005025-20-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercise-a-naive-asr-bootstrap-ci-005025-20-min">Exercise A: Naive ASR + Bootstrap CI — 0:05–0:25 (20 min)</h2>
+<p><strong>Learning objectives addressed:</strong> WK11-2, WK11-3</p>
+<p><strong>Instructions to students:</strong> Using simulated camera-trap data inspired by Wohlfahrt et al.&nbsp;(2026), compute the naive ASR and a bootstrap confidence interval.</p>
+<section id="step-1-simulate-data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-1-simulate-data">Step 1: Simulate data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">690</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate camera-trap sightings (inspired by Wohlfahrt et al. 2026)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>n_sightings <span class="ot">&lt;-</span> <span class="dv">4110</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>n_cameras <span class="ot">&lt;-</span> <span class="dv">24</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>weeks <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">17</span>  <span class="co"># Calendar weeks 9-17</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>sightings <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">sighting_id =</span> <span class="dv">1</span><span class="sc">:</span>n_sightings,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">camera_id =</span> <span class="fu">factor</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_cameras, n_sightings, <span class="at">replace =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">week =</span> <span class="fu">sample</span>(weeks, n_sightings, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">day_of_year =</span> <span class="fu">sample</span>(<span class="dv">60</span><span class="sc">:</span><span class="dv">120</span>, n_sightings, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">hour =</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">23</span>, n_sightings, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">age_class =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"adult"</span>, <span class="st">"subadult"</span>, <span class="st">"juvenile"</span>),</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                     n_sightings, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.65</span>, <span class="fl">0.20</span>, <span class="fl">0.15</span>)),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">distance_to_road =</span> <span class="fu">runif</span>(n_sightings, <span class="dv">50</span>, <span class="dv">2000</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign sex: ~8.9% unknown, rest male/female</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Males slightly less common (ASR ~ 0.42)</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>sex_probs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.38</span>, <span class="fl">0.53</span>, <span class="fl">0.089</span>)  <span class="co"># male, female, unknown</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>sightings<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>, <span class="st">"unknown"</span>),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                        n_sightings, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>                        <span class="at">prob =</span> sex_probs)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sightings)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-2-filter-and-compute-naive-asr" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-2-filter-and-compute-naive-asr">Step 2: Filter and compute naive ASR</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2a: Filter to adults and subadults only (exclude juveniles!)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>adults <span class="ot">&lt;-</span> sightings <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_class <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"adult"</span>, <span class="st">"subadult"</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2b: Filter to sex-known sightings only (naive approach excludes unknowns)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sex_known <span class="ot">&lt;-</span> adults <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2c: Compute weekly ASR</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>weekly_asr <span class="ot">&lt;-</span> sex_known <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(week) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_males =</span> <span class="fu">sum</span>(sex <span class="sc">==</span> <span class="st">"male"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_females =</span> <span class="fu">sum</span>(sex <span class="sc">==</span> <span class="st">"female"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">asr =</span> n_males <span class="sc">/</span> (n_males <span class="sc">+</span> n_females),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(weekly_asr)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean naive ASR:"</span>, <span class="fu">mean</span>(weekly_asr<span class="sc">$</span>asr), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-3-bootstrap-ci" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-3-bootstrap-ci">Step 3: Bootstrap CI</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bootstrap the mean ASR across weeks (R = 1000)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>boot_mean_asr <span class="ot">&lt;-</span> <span class="cf">function</span>(data, indices) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(data<span class="sc">$</span>asr[indices])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>boot_result <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> weekly_asr,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">statistic =</span> boot_mean_asr,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">R =</span> <span class="dv">1000</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% CI (percentile method)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>boot_ci <span class="ot">&lt;-</span> <span class="fu">boot.ci</span>(boot_result, <span class="at">type =</span> <span class="st">"perc"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Bootstrap 95% CI:"</span>, boot_ci<span class="sc">$</span>percent[<span class="dv">4</span>], <span class="st">"-"</span>, boot_ci<span class="sc">$</span>percent[<span class="dv">5</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise A: Common Errors &amp; Troubleshooting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Error</th>
+<th style="text-align: left;">Diagnosis</th>
+<th style="text-align: left;">Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ASR is too high (~0.6+)</td>
+<td style="text-align: left;">Forgot to exclude juveniles from analysis</td>
+<td style="text-align: left;">Add <code>filter(age_class %in% c("adult", "subadult"))</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bootstrapping individual sightings instead of weekly ASRs</td>
+<td style="text-align: left;">Bootstrapping the wrong unit — should resample weeks, not sightings</td>
+<td style="text-align: left;">Ensure <code>boot()</code> is applied to <code>weekly_asr</code>, not raw <code>sightings</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Getting <code>NaN</code> in ASR</td>
+<td style="text-align: left;">A week has 0 males + 0 females after filtering</td>
+<td style="text-align: left;">Add <code>filter(n_males + n_females &gt; 0)</code> before computing ASR</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CI doesn’t change with different seeds</td>
+<td style="text-align: left;">Using <code>set.seed()</code> inside the boot function</td>
+<td style="text-align: left;">Move <code>set.seed()</code> before <code>boot()</code> call only</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Week assignment is wrong</td>
+<td style="text-align: left;">Using <code>lubridate::week()</code> on dates vs.&nbsp;using the raw week column</td>
+<td style="text-align: left;">Use the simulated <code>week</code> column directly</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="exercise-b-gam-sex-prediction-evaluation-025050-25-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercise-b-gam-sex-prediction-evaluation-025050-25-min">Exercise B: GAM Sex Prediction + Evaluation — 0:25–0:50 (25 min)</h2>
+<p><strong>Learning objectives addressed:</strong> WK11-4</p>
+<p><strong>Instructions:</strong> Fit a GAM to predict sex from spatio-temporal covariates. Evaluate the model, then use it to predict sex for unknown sightings.</p>
+<section id="step-1-prepare-training-and-test-data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-1-prepare-training-and-test-data">Step 1: Prepare training and test data</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">690</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use only sex-known adult/subadult sightings</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sex_known<span class="sc">$</span>sex_binary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(sex_known<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"male"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 80/20 train/test split</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>train_idx <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(sex_known), <span class="at">size =</span> <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">nrow</span>(sex_known))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> sex_known[train_idx, ]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>test  <span class="ot">&lt;-</span> sex_known[<span class="sc">-</span>train_idx, ]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Training set:"</span>, <span class="fu">nrow</span>(train), <span class="st">"sightings</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Test set:"</span>, <span class="fu">nrow</span>(test), <span class="st">"sightings</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-2-fit-gam" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-2-fit-gam">Step 2: Fit GAM</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GAM: smooth terms for day_of_year and hour</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># camera_id as random effect</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># interaction: distance_to_road × day_of_year (tensor product)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>gam_model <span class="ot">&lt;-</span> <span class="fu">gam</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  sex_binary <span class="sc">~</span> <span class="fu">s</span>(day_of_year, <span class="at">bs =</span> <span class="st">"cr"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               <span class="fu">s</span>(hour, <span class="at">bs =</span> <span class="st">"cr"</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>               <span class="fu">s</span>(camera_id, <span class="at">bs =</span> <span class="st">"re"</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>               <span class="fu">ti</span>(distance_to_road, day_of_year, <span class="at">bs =</span> <span class="st">"cr"</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> train,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> <span class="st">"REML"</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gam_model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-3-evaluate-on-test-set" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-3-evaluate-on-test-set">Step 3: Evaluate on test set</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test set</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>pred_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(gam_model, <span class="at">newdata =</span> test, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>pred_sex <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(test<span class="sc">$</span>pred_prob <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"male"</span>, <span class="st">"female"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Confusion matrix</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>conf_mat <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">Predicted =</span> test<span class="sc">$</span>pred_sex, <span class="at">Actual =</span> test<span class="sc">$</span>sex)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(conf_mat)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy and precision for males</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(conf_mat)) <span class="sc">/</span> <span class="fu">sum</span>(conf_mat)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>precision_male <span class="ot">&lt;-</span> conf_mat[<span class="st">"male"</span>, <span class="st">"male"</span>] <span class="sc">/</span> <span class="fu">sum</span>(conf_mat[<span class="st">"male"</span>, ])</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Overall accuracy:"</span>, <span class="fu">round</span>(accuracy, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Precision (male):"</span>, <span class="fu">round</span>(precision_male, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-4-predict-unknowns-and-recompute-asr" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-4-predict-unknowns-and-recompute-asr">Step 4: Predict unknowns and recompute ASR</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get unknown sightings</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>unknowns <span class="ot">&lt;-</span> adults <span class="sc">%&gt;%</span> <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"unknown"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict sex for unknowns</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>unknowns<span class="sc">$</span>pred_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(gam_model, <span class="at">newdata =</span> unknowns, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>unknowns<span class="sc">$</span>sex <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(unknowns<span class="sc">$</span>pred_prob <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"male"</span>, <span class="st">"female"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine sex-known and predicted-unknowns</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(sex_known <span class="sc">%&gt;%</span> <span class="fu">select</span>(week, sex),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                      unknowns <span class="sc">%&gt;%</span> <span class="fu">select</span>(week, sex))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Recompute weekly ASR</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>weekly_asr_predicted <span class="ot">&lt;-</span> combined <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(week) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_males =</span> <span class="fu">sum</span>(sex <span class="sc">==</span> <span class="st">"male"</span>),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_females =</span> <span class="fu">sum</span>(sex <span class="sc">==</span> <span class="st">"female"</span>),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">asr =</span> n_males <span class="sc">/</span> (n_males <span class="sc">+</span> n_females),</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Bootstrap CI</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>boot_result_pred <span class="ot">&lt;-</span> <span class="fu">boot</span>(<span class="at">data =</span> weekly_asr_predicted,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                         <span class="at">statistic =</span> boot_mean_asr,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>                         <span class="at">R =</span> <span class="dv">1000</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>boot_ci_pred <span class="ot">&lt;-</span> <span class="fu">boot.ci</span>(boot_result_pred, <span class="at">type =</span> <span class="st">"perc"</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Predicted ASR mean:"</span>, <span class="fu">mean</span>(weekly_asr_predicted<span class="sc">$</span>asr), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"95% CI:"</span>, boot_ci_pred<span class="sc">$</span>percent[<span class="dv">4</span>], <span class="st">"-"</span>, boot_ci_pred<span class="sc">$</span>percent[<span class="dv">5</span>], <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise B: Common Errors &amp; Troubleshooting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Error</th>
+<th style="text-align: left;">Diagnosis</th>
+<th style="text-align: left;">Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Error in model.frame()</code>: missing values</td>
+<td style="text-align: left;"><code>camera_id</code> in unknowns has levels not in training data</td>
+<td style="text-align: left;">Ensure <code>camera_id</code> is consistent; use <code>exclude = NULL</code> or combine factor levels</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Overfitting: perfect accuracy on training set</td>
+<td style="text-align: left;">Too many smooth terms or <code>k</code> too high</td>
+<td style="text-align: left;">Reduce <code>k</code> in <code>s()</code> terms; check <code>gam.check()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Forgot <code>set.seed()</code> before split</td>
+<td style="text-align: left;">Different students get different train/test splits</td>
+<td style="text-align: left;">Add <code>set.seed(690)</code> before <code>sample()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>camera_id</code> treated as continuous</td>
+<td style="text-align: left;">Did not create as factor during data simulation</td>
+<td style="text-align: left;">Ensure <code>camera_id</code> is wrapped in <code>factor()</code> when creating the data frame</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Confusion matrix has wrong dimensions</td>
+<td style="text-align: left;">Predicted or actual labels are inconsistent</td>
+<td style="text-align: left;">Ensure both use “male”/“female” as factor levels</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min">Exercise C: RN Occupancy ASR (Conceptual + Code) — 0:50–1:05 (15 min)</h2>
+<p><strong>Learning objectives addressed:</strong> WK11-5</p>
+<p><strong>Instructions:</strong> Build detection histories and fit a Royle–Nichols model for one sex and one year. This exercise is more conceptual with guided code.</p>
+<section id="conceptual-framework" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="conceptual-framework">Conceptual Framework</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Royle–Nichols Model Intuition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The standard occupancy model estimates the probability a site is occupied (<span class="math inline">\(\psi\)</span>). The Royle–Nichols (RN) model goes further: it estimates <strong>latent abundance</strong> (<span class="math inline">\(\lambda\)</span>) at each site, where detection probability increases with abundance:</p>
+<p><span class="math display">\[P(\text{detect} \geq 1 \mid N, r) = 1 - (1-r)^N\]</span></p>
+<ul>
+<li><span class="math inline">\(r\)</span> = per-individual detection probability</li>
+<li><span class="math inline">\(N\)</span> = number of individuals at the site (latent)</li>
+<li><span class="math inline">\(\lambda\)</span> = expected abundance (Poisson: <span class="math inline">\(N \sim \text{Poisson}(\lambda)\)</span>)</li>
+</ul>
+<p>For ASR: fit RN separately for males and females. Then:</p>
+<p><span class="math display">\[\text{ASR}_{\text{occupancy}} = \frac{\bar{N}_{\text{male}}}{\bar{N}_{\text{male}} + \bar{N}_{\text{female}}}\]</span></p>
+<p>where <span class="math inline">\(\bar{N}\)</span> is the mean predicted latent abundance across sites.</p>
+</div>
+</div>
+</section>
+<section id="step-1-build-detection-histories" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-1-build-detection-histories">Step 1: Build detection histories</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Focus on males, simulating one year</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create binary detection histories: detected (1) or not (0) per camera per week</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>males_only <span class="ot">&lt;-</span> adults <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"male"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>det_hist_male <span class="ot">&lt;-</span> males_only <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">detected =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">id_cols =</span> camera_id,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> week,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> detected,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fn =</span> <span class="sc">~</span><span class="dv">1</span>,    <span class="co"># If any detection, code as 1</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span>    <span class="co"># No detection = 0</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(camera_id)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure all 9 weeks (9-17) are present as columns</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (w <span class="cf">in</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">17</span>) {</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  col_name <span class="ot">&lt;-</span> <span class="fu">as.character</span>(w)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(col_name <span class="sc">%in%</span> <span class="fu">names</span>(det_hist_male))) {</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    det_hist_male[[col_name]] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract detection matrix (cameras × weeks)</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>det_matrix_male <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(det_hist_male[, <span class="fu">as.character</span>(<span class="dv">9</span><span class="sc">:</span><span class="dv">17</span>)])</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(det_matrix_male) <span class="ot">&lt;-</span> det_hist_male<span class="sc">$</span>camera_id</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Detection history dimensions:"</span>, <span class="fu">dim</span>(det_matrix_male), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(det_matrix_male)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-2-fit-rn-model-with-unmarked" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-2-fit-rn-model-with-unmarked">Step 2: Fit RN model with <code>unmarked</code></h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unmarked)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create unmarkedFrame</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>umf_male <span class="ot">&lt;-</span> <span class="fu">unmarkedFrameOccu</span>(<span class="at">y =</span> det_matrix_male)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit Royle-Nichols model (no covariates for simplicity)</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>rn_male <span class="ot">&lt;-</span> <span class="fu">occuRN</span>(<span class="sc">~</span><span class="dv">1</span>, <span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> umf_male)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rn_male)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract latent abundance estimate (lambda, log scale)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>lambda_male <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">coef</span>(rn_male, <span class="at">type =</span> <span class="st">"state"</span>))</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Estimated mean latent abundance (males):"</span>, lambda_male, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="step-3-compute-occupancy-based-asr" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="step-3-compute-occupancy-based-asr">Step 3: Compute occupancy-based ASR</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat for females (students do this)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ... [same process with sex == "female"] ...</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Then compute:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># lambda_female &lt;- exp(coef(rn_female, type = "state"))</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># asr_occupancy &lt;- lambda_male / (lambda_male + lambda_female)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># cat("Occupancy-based ASR:", asr_occupancy, "\n")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Exercise C: Common Errors &amp; Troubleshooting
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Error</th>
+<th style="text-align: left;">Diagnosis</th>
+<th style="text-align: left;">Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>unmarkedFrameOccu</code> expects specific format</td>
+<td style="text-align: left;">Detection matrix must be sites × replicates with no extra columns</td>
+<td style="text-align: left;">Remove <code>camera_id</code> column before converting to matrix</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Covariates not standardized</td>
+<td style="text-align: left;">RN model may not converge if covariates are on different scales</td>
+<td style="text-align: left;">Use <code>scale()</code> on numeric covariates</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Misinterpreting <span class="math inline">\(\lambda\)</span> as raw count</td>
+<td style="text-align: left;"><span class="math inline">\(\lambda\)</span> is the <em>expected</em> latent abundance, not an observed count</td>
+<td style="text-align: left;">Explain that this is a model parameter, not data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Model doesn’t converge</td>
+<td style="text-align: left;">Too few sites or detections for the model complexity</td>
+<td style="text-align: left;">Reduce model complexity (intercept-only first); add covariates incrementally</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Comparing ASR across methods without CIs</td>
+<td style="text-align: left;">Point estimates alone are misleading</td>
+<td style="text-align: left;">Use SE from model output; compute CIs via delta method or Goodman (1960)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="peer-troubleshooting-comparison-105110-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="peer-troubleshooting-comparison-105110-5-min">Peer Troubleshooting + Comparison — 1:05–1:10 (5 min)</h2>
+<p><strong>Format:</strong> Pair up. Each student shares:</p>
+<ol type="1">
+<li>Their naive ASR estimate and CI</li>
+<li>Their predicted ASR estimate and CI</li>
+<li>Their lambda estimate from RN (if they got that far)</li>
+</ol>
+<p><strong>Comparison question:</strong> “Do your three estimates agree? If not, what explains the differences?”</p>
+<hr>
+</section>
+<section id="wrap-up-next-steps-110115-5-min" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="wrap-up-next-steps-110115-5-min">Wrap-Up + Next Steps — 1:10–1:15 (5 min)</h2>
+<p><strong>What to submit (if applicable — follow Canvas instructions):</strong></p>
+<ul>
+<li>Completed R script / <code>.qmd</code> with Exercises A–C</li>
+<li>A 2–3 sentence reflection: which ASR approach would you use for your own research system?</li>
+</ul>
+<p><strong>What to bring next time:</strong></p>
+<ul>
+<li>Progress on your course project (be ready for a brief update if called upon)</li>
+<li>One remaining question about occupancy or ASR methods</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="contingency-plans" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Contingency Plans</h1>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Contingency Plans
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>If discussion runs long in Session A (&gt;6 min for Q&amp;A):</strong></p>
+<ul>
+<li>Shorten the structured debate to 5 min (cut free rebuttal)</li>
+<li>Combine concept map and muddiest point into a 3-min written activity only (skip share)</li>
+</ul>
+<p><strong>If R packages fail to install in Session B:</strong></p>
+<ul>
+<li>Have pre-rendered HTML output available to display</li>
+<li>Students can work through the code conceptually (annotate on paper or in comments)</li>
+<li>Use GitHub Codespaces as backup — packages are pre-installed in the course environment</li>
+</ul>
+<p><strong>If students are behind / struggling with R:</strong></p>
+<ul>
+<li>Prioritize Exercise A (naive ASR) — this is achievable for all skill levels</li>
+<li>Make Exercise B a guided walk-through (instructor live-codes, students follow)</li>
+<li>Make Exercise C fully conceptual (discussion only, no code requirement)</li>
+</ul>
+<p><strong>If student presenter is absent:</strong></p>
+<ul>
+<li>Instructor delivers a 10-minute condensed version of the paper summary using slides 7–12</li>
+<li>Redistribute discussion roles among remaining students</li>
+<li>Add 5 min to the jigsaw activity to compensate</li>
+</ul>
+<p><strong>If class finishes Session A early:</strong></p>
+<ul>
+<li>Begin Exercise A setup (package installation, data simulation) during remaining time</li>
+<li>Run an extended gallery walk with an additional scenario</li>
+</ul>
+<p><strong>If jigsaw pairs are uneven (odd number of students):</strong></p>
+<ul>
+<li>Make one group of 3 for the expert phase; assign two members as co-experts on the same method</li>
+<li>During teach-back, both members jointly present their method</li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="instructor-reflection-prompts-post-class" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Instructor Reflection Prompts (Post-Class)</h1>
+<p>After class, note:</p>
+<ol type="1">
+<li>Which pre-class responses showed deepest engagement? Any patterns by research area?</li>
+<li>Did the jigsaw expert phase produce accurate representations of each method, or were there consistent misconceptions?</li>
+<li>How did the presenter handle challenge questions? Areas for feedback?</li>
+<li>Did the structured debate generate genuine engagement, or did one side dominate?</li>
+<li>What persistent confusions emerged from the muddiest point / minute paper?</li>
+<li>Were students able to complete Exercises A–C, or did Session B need more scaffolding?</li>
+</ol>
+<hr>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

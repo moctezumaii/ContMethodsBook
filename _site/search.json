@@ -2868,5 +2868,397 @@
     "title": "Week 10 - Occupancy Models",
     "section": "First activity",
     "text": "First activity\nPurpose: Activate prior knowledge from readings and prepare students for occupancy concepts.\nInstructions: On your notecard, write answers to:\n\nWhat is the difference between presence and detection?\nIf you survey a site for an animal once and find nothing, what are two possible explanations?\nWhat is the difference between where an animal is found and where it prefers to be and: what information would you need to tell them apart?\nIf 75% of your madtom captures come from gravel substrate, but gravel makes up 90% of the available habitat, what does that tell you about habitat preference?\n\nCompare your Canvas answers with your peers"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html",
+    "href": "weeks/week11-instructor.html",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "",
+    "text": "Week 11 — Adult Sex Ratio Estimation: Comparing Naive, Predicted, and Occupancy-Based Approaches (Instructor-Only Plan)\n\n\n\n\n\n\nImportantInstructor-Only Document\n\n\n\nThis document contains facilitation notes, timing guidance, rubrics, contingency plans, and pedagogical scaffolding for the instructor. It is not intended for student distribution. Distribute week11.qmd (student version) instead.\n\n\nThis week uses a student-led presentation of Wohlfahrt et al. (2026) to explore three camera-trap–based approaches for estimating adult sex ratio (ASR) in red deer. Session A builds conceptual understanding through active learning. Session B is a hands-on R workshop where students implement each approach.\nPrimary Paper (Student Lecture):\n\nWohlfahrt, S., Edelhoff, H., Leitner, H., & Hackländer, K. (2026). Red deer adult sex ratio: comparing three approaches using camera trap data. Journal of Wildlife Management 90:e70139. https://doi.org/10.1002/jwmg.70139"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#pre-class-student-responses",
+    "href": "weeks/week11-instructor.html#pre-class-student-responses",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Pre-Class Student Responses",
+    "text": "Pre-Class Student Responses\n\n\n\n\n\n\nImportantRequired Before Class\n\n\n\nStudents must submit written responses to these questions before class (via Canvas). Responses of “I don’t know” are not acceptable for question 1.\n\nApplication to your system: Describe one specific scenario in your research (or a hypothetical one in your field) where estimating adult sex ratio from remote sensing data (camera traps, drone imagery, acoustic sensors) would be valuable. Name the species/taxon and explain why sex-specific detection bias could matter.\nMethods alignment: Does the Wohlfahrt et al. (2026) paper demonstrate logical alignment from research objectives → data collection → statistical methods? Identify one strength and one weakness in 2–3 sentences.\nQuestion for the presenter: Write one substantive question you want to ask about the paper’s methods, results, or implications.\n\n\n\nInstructor facilitation plan for pre-class responses:\n\nBefore class: Skim all responses; group by theme (e.g., “detection bias concerns,” “model complexity,” “when to use which method,” “camera placement effects”).\nDuring entry ticket (0:00–0:05): Project 2–3 anonymized student responses to question 1 as discussion prompts.\nDuring Q&A (0:25–0:31): Use student questions (question 3) as the basis for guided discussion. Prioritize questions that probe assumptions of each method.\nIf responses are thin: Have backup discussion questions ready (see Discussion Questions section below)."
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#entry-ticket-retrieval-practice-000005-5-min",
+    "href": "weeks/week11-instructor.html#entry-ticket-retrieval-practice-000005-5-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)",
+    "text": "Entry Ticket: Retrieval Practice — 0:00–0:05 (5 min)\n\n\n\n\n\n\nNoteSoTL Activity: Retrieval Practice\n\n\n\nPurpose: Activate prior knowledge from Week 10 (occupancy models) and connect to this week’s ASR content.\nInstructions: On your notecard, write brief answers to:\n\nWhat is the formula for adult sex ratio (ASR)? Write it without looking at your notes.\nFrom Week 10: What is the core problem that occupancy models solve? (one sentence)\nIf 40% of your camera-trap sightings cannot be sexed, how might that bias your ASR estimate? In which direction?\n\nInstructor note: Do not collect. Have 2–3 students share. Use incorrect answers as teaching moments. If a student writes ASR = females/total, use that error to clarify the convention used in this paper.\n\n\nIf students struggle with Q1: Write on the board:\n\\[\\text{ASR} = \\frac{N_{\\text{males}}}{N_{\\text{males}} + N_{\\text{females}}}\\]\nIf students struggle with Q3: Prompt: “Think about which sex is harder to identify. If males have antlers and are easier to ID, what happens to unknowns?”"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#instructor-mini-lecture-asr-concepts-005015-10-min",
+    "href": "weeks/week11-instructor.html#instructor-mini-lecture-asr-concepts-005015-10-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Instructor Mini-Lecture: ASR Concepts — 0:05–0:15 (10 min)",
+    "text": "Instructor Mini-Lecture: ASR Concepts — 0:05–0:15 (10 min)\nFormat: Instructor-led with slides (slides/slides-Week11.qmd, slides 1–6).\nKey concepts to cover:\n\nWhy ASR matters: Ungulate browsing pressure on forest regeneration; management decisions require sex-structured population data; ASR is a key demographic parameter.\nThe ASR equation: \\(\\text{ASR} = N_{\\text{males}} / (N_{\\text{males}} + N_{\\text{females}})\\)\nThree approaches overview (brief — students will go deep in jigsaw):\n\nNaive: Use only sex-identified sightings; simple but ignores unknowns\nPredicted: Use a GAM to predict sex for unknowns; includes more data but model-dependent\nOccupancy (RN): Royle–Nichols model estimates latent abundance by sex; accounts for detection heterogeneity\n\nCore tension: When do simple methods suffice? When do we need complexity?\nStudy design snapshot: 24 cameras, 20,250 camera-days, 4,110 adult/subadult sightings, 436 unknowns (~8.9%), Alps Austria, Jan 2020–May 2022, focal weeks 9–17.\n\nActivation question (pose at 0:13):\n\n“If only 8.9% of sightings are unknown-sex, do you think it matters which method you use? What if it were 40%?”\n\nAllow 30 seconds think time. Cold-call 1 student. Do not resolve — this is the question the whole session will explore."
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#student-presentation-segment-015031",
+    "href": "weeks/week11-instructor.html#student-presentation-segment-015031",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Student Presentation Segment — 0:15–0:31",
+    "text": "Student Presentation Segment — 0:15–0:31\n\nFraming — 0:15–0:17 (2 min)\nInstructor says: “Our presenter today will walk us through Wohlfahrt et al. (2026), focusing on how the three ASR approaches were implemented and what the results mean for wildlife monitoring. As you listen, note which approach you find most convincing and one critique you have.”\nAssign rotating roles (write on board):\n\n\n\n\n\n\n\n\nRole\nStudent\nJob\n\n\n\n\nFacilitator\n[assign]\nKeep discussion flowing; call on quiet voices\n\n\nSkeptic\n[assign]\nChallenge assumptions; play devil’s advocate\n\n\nScribe\n[assign]\nTake notes on whiteboard; capture key points\n\n\nAssumption-Checker\n[assign]\nFlag statistical assumptions being made/violated\n\n\n\n\n\n\n\n\n\nWarningTimekeeping\n\n\n\nUse a visible timer. At 7:00 give a 1-minute warning. At 8:00 politely interrupt if necessary.\n\n\n\n\nStudent Core Talk — 0:17–0:25 (8 min)\nPresenter covers (per the presentation template given in student version):\n\nMotivation: why ASR matters for red deer management (1 min)\nData: camera-trap deployment, sighting classification (1.5 min)\nThree approaches with key equations and assumptions (3.5 min)\nKey results: ASR estimates across years and methods (1.5 min)\nCritique: limitations, what could be improved (0.5 min)\n\n\n\nGuided Discussion — 0:25–0:31 (6 min)\nFormat: Rotating-role facilitated discussion. The assigned Facilitator leads. Instructor intervenes only if discussion stalls.\nSeed questions (draw from student pre-class Q3 responses first):\n\nThe GAM’s prediction precision was ~75%. Is that good enough? What happens to ASR if the model systematically misclassifies one sex?\nCamera traps were placed along wildlife trails. How might this affect sex-specific detection and bias ASR?\nWhy did the authors focus on weeks 9–17? What assumption does this satisfy for the RN model?\n\nInstructor facilitation cues:\n\nIf the Skeptic is quiet, prompt: “Skeptic, what’s the weakest link in the naive approach?”\nIf the Assumption-Checker hasn’t spoken, prompt: “What closure assumption is needed for the RN model, and is it met here?”\nIf discussion runs long (&gt;6 min), give 30-sec warning and transition."
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#discussion-questions-bank-for-instructor-use",
+    "href": "weeks/week11-instructor.html#discussion-questions-bank-for-instructor-use",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Discussion Questions Bank (for instructor use)",
+    "text": "Discussion Questions Bank (for instructor use)\n\n\n\n\n\n\nImportant6–10 Discussion Questions (Mix: Conceptual, Critique, Application)\n\n\n\nConceptual:\n\nWhy is excluding unknown-sex sightings problematic even if they are a small fraction? Under what conditions would this bias ASR upward vs. downward?\nExplain the Royle–Nichols model intuition: \\(P(\\text{detect} \\geq 1 \\mid N, r) = 1 - (1-r)^N\\). What does \\(N\\) represent and how does it differ from a standard occupancy model?\nWhat is the difference between occupancy (\\(\\psi\\)) and abundance (\\(\\lambda\\)) in the RN framework?\n\nCritique:\n\nThe Wilcoxon tests showed no significant differences among methods (\\(p = 0.25\\), \\(p = 0.655\\)). Does this mean the methods are equivalent? What are the limitations of this test for this comparison?\nThe GAM explained only 29.5% of deviance. Is this concerning? What other predictors might improve sex classification?\nTrail-based camera placement maximizes detections but may introduce placement bias. Propose a study design modification that would reduce this bias.\n\nApplication:\n\nYou are monitoring a pronghorn population where males and females use different habitats seasonally. Which ASR approach would you recommend and why?\nYour camera-trap study has 35% unknown-sex sightings. Does the Wohlfahrt et al. conclusion (“naive ASR suffices”) still apply? What would you do differently?\nHow could you adapt these methods for a species where sex cannot be determined visually at all (e.g., many bird species from camera traps)?\nIf you could add one covariate to the GAM that wasn’t in the paper, what would it be and why?"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#lightweight-presentation-rubric-participation-checklist",
+    "href": "weeks/week11-instructor.html#lightweight-presentation-rubric-participation-checklist",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Lightweight Presentation Rubric / Participation Checklist",
+    "text": "Lightweight Presentation Rubric / Participation Checklist\n\n\n\n\n\n\nImportantPresentation & Participation Checklist\n\n\n\nStudent Presenter (out of 15 points):\n\n\n\n\n\n\n\n\nCriterion\nPoints\nNotes\n\n\n\n\nCovers motivation and context clearly\n2\nWhy does ASR matter?\n\n\nAccurately describes all three approaches\n3\nNaive, Predicted, RN — no major errors\n\n\nPresents key results with appropriate nuance\n3\nIncludes CIs; avoids over-claiming\n\n\nOffers at least one meaningful critique\n2\nGoes beyond “more data needed”\n\n\nPoses a discussion question that generates engagement\n2\nQuestion is substantive, not yes/no\n\n\nStays within time limit (8 min ± 30 sec)\n1\nDeduct if &gt;9 min\n\n\nPresentation clarity and organization\n2\nSlides/visual aids are clear\n\n\n\nDiscussant Roles (out of 5 points each):\n\n\n\n\n\n\n\nRole\nExpectation\n\n\n\n\nFacilitator\nAsked ≥2 follow-up questions; kept discussion moving\n\n\nSkeptic\nRaised ≥1 legitimate methodological challenge\n\n\nScribe\nCaptured ≥3 key discussion points on whiteboard\n\n\nAssumption-Checker\nIdentified ≥1 statistical assumption and evaluated whether it was met"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#jigsaw-activity-three-asr-approaches-031046-15-min",
+    "href": "weeks/week11-instructor.html#jigsaw-activity-three-asr-approaches-031046-15-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Jigsaw Activity: Three ASR Approaches — 0:31–0:46 (15 min)",
+    "text": "Jigsaw Activity: Three ASR Approaches — 0:31–0:46 (15 min)\n\n\n\n\n\n\nNoteSoTL Activity: Jigsaw\n\n\n\nPurpose: Deep engagement with each method; peer teaching consolidates understanding.\nSetup (1 min): Divide 8 students into 3 expert pairs (2-3-3 split):\n\nPair A (2 students): Naive ASR — assumptions, computation, when it works/fails\nPair B (3 students): Predicted ASR — GAM approach, sex prediction, threshold choice\nPair C (3 students): Occupancy RN — detection histories, latent abundance, closure assumption\n\nExpert phase (7 min): Each pair/trio works together to:\n\nWrite the key equation(s) for their method on a poster/whiteboard section\nList 2–3 assumptions their method requires\nIdentify 1–2 scenarios where their method would fail or give biased results\nPrepare a 2-minute teach-back\n\nTeach-back phase (7 min): Regroup into mixed groups (one member from each pair). Each expert teaches their method in ~2 min. Others ask questions.\nInstructor role during jigsaw:\n\nCirculate during expert phase. Listen for misconceptions:\n\nCommon error (Pair A): “Naive ASR has no assumptions” — it assumes unknowns are missing completely at random (MCAR)\nCommon error (Pair B): “75% accuracy is bad” — clarify that precision matters more than overall accuracy when one class is rare\nCommon error (Pair C): “RN estimates abundance directly from counts” — clarify that RN estimates latent abundance from detection/non-detection patterns\n\nDuring teach-back: do NOT intervene unless a factual error is being taught. Note errors for correction in synthesis."
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#choose-your-own-method-scenario-gallery-walk-046056-10-min",
+    "href": "weeks/week11-instructor.html#choose-your-own-method-scenario-gallery-walk-046056-10-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Choose-Your-Own-Method Scenario + Gallery Walk — 0:46–0:56 (10 min)",
+    "text": "Choose-Your-Own-Method Scenario + Gallery Walk — 0:46–0:56 (10 min)\n\n\n\n\n\n\nNoteSoTL Activity: Applied Scenario + Gallery Walk\n\n\n\nPurpose: Transfer learning to novel contexts; compare method suitability under different constraints.\nScenarios (one per group of ~3 students; print on cards):\nScenario 1 — Tropical Forest Primates: You are monitoring a primate population in a dense tropical forest using 50 camera traps. Sexual dimorphism is subtle; ~40% of sightings cannot be sexed. Cameras are placed at fruiting trees (non-random). Budget allows 6 months of data. Which ASR approach(es) do you recommend?\nScenario 2 — Prairie Elk Population: State wildlife agency needs annual ASR for elk management. They have 15 trail cameras deployed year-round. Only 5% of sightings are unknown-sex (bulls have obvious antlers most of the year). They have minimal statistical capacity. Which approach?\nScenario 3 — Island Invasive Ungulates: You need ASR to model population growth of invasive deer on an island for eradication planning. You have 100 camera stations in a grid (not trail-based). Unknown-sex rate is 20%. You have a skilled quantitative ecologist on the team. Which approach?\nInstructions:\n\nGroups read their scenario (1 min)\nDiscuss and write on poster: (a) recommended method, (b) justification, (c) one risk/limitation (4 min)\nGallery walk: groups rotate to view other posters, add sticky-note comments (3 min)\nBrief share-out: 1 sentence per group on most surprising insight from gallery walk (2 min)\n\nInstructor facilitation: During gallery walk, check that students recognize:\n\nScenario 1 → Predicted or RN approach needed (high unknown rate + non-random placement)\nScenario 2 → Naive likely sufficient (low unknowns, limited capacity)\nScenario 3 → RN is ideal (grid placement, adequate data, skilled analyst); predicted as supplement"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#structured-mini-debate-when-do-naive-methods-fail-056106-10-min",
+    "href": "weeks/week11-instructor.html#structured-mini-debate-when-do-naive-methods-fail-056106-10-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Structured Mini-Debate: When Do Naive Methods Fail? — 0:56–1:06 (10 min)",
+    "text": "Structured Mini-Debate: When Do Naive Methods Fail? — 0:56–1:06 (10 min)\n\n\n\n\n\n\nNoteSoTL Activity: Structured Debate\n\n\n\nPurpose: Develop critical thinking about method selection; practice defending positions.\nFormat: Split class into two sides (4 vs. 4):\n\nSide A — “Keep It Simple”: Argues that naive ASR is sufficient for most wildlife management applications.\nSide B — “Model It Right”: Argues that occupancy-based or predicted ASR should be the standard.\n\nRules:\n\n2 min: each side prepares 2 arguments (internal discussion)\n2 min: Side A presents opening arguments\n2 min: Side B presents opening arguments\n2 min: Free rebuttal (Facilitator moderates)\n2 min: Instructor synthesis — key insight: it depends on the monitoring design (this is the paper’s conclusion)\n\nInstructor synthesis points:\n\nUnder the conditions of this study (trail cameras, ~8.9% unknowns), all three methods agreed — naive was fine.\nWhen unknowns are frequent (&gt;20–30%) or camera placement is non-random, advanced methods become necessary.\nThe “right” method depends on: (1) unknown-sex rate, (2) sex-specific detectability, (3) camera placement strategy, (4) analytical capacity.\nQuote (optional, use if helpful): “Our hypothesis was that these advanced statistical methods reveal a potential bias in the estimation of red deer ASR in a naive approach directly from raw camera trap data.” (Wohlfahrt et al. 2026)"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#synthesis-concept-map-muddiest-point-106112-6-min",
+    "href": "weeks/week11-instructor.html#synthesis-concept-map-muddiest-point-106112-6-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Synthesis: Concept Map + Muddiest Point — 1:06–1:12 (6 min)",
+    "text": "Synthesis: Concept Map + Muddiest Point — 1:06–1:12 (6 min)\n\n\n\n\n\n\nNoteSoTL Activity: Concept Map + Muddiest Point\n\n\n\nPurpose: Consolidate learning; identify remaining confusion.\nInstructions:\n\nOn your notecard, draw a quick concept map linking: ASR, naive, predicted, GAM, occupancy, RN, detection probability, latent abundance, bootstrap CI, camera placement, unknowns. Connect with labeled arrows (e.g., “accounts for,” “assumes,” “biased by”). (3 min)\nBelow your concept map, write your muddiest point: the one concept from today that is least clear to you. (1 min)\nShare muddiest point with a neighbor — can they clarify? (2 min)\n\nInstructor action: Collect muddiest points. Address top 2 at the start of Session B."
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#minute-paper-112115-3-min",
+    "href": "weeks/week11-instructor.html#minute-paper-112115-3-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Minute Paper — 1:12–1:15 (3 min)",
+    "text": "Minute Paper — 1:12–1:15 (3 min)\n\n\n\n\n\n\nNoteSoTL Activity: Minute Paper\n\n\n\nPrompts (on notecard):\n\nWhat is the single most important insight about ASR estimation from today?\nWhich of the three approaches would you use in your own research system, and why?\nOne question you still have heading into the workshop.\n\nInstructor action: Collect and skim before Session B. Address top 2 questions at the start of Session B workshop."
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#setup-muddiest-point-debrief-000005-5-min",
+    "href": "weeks/week11-instructor.html#setup-muddiest-point-debrief-000005-5-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Setup + Muddiest Point Debrief — 0:00–0:05 (5 min)",
+    "text": "Setup + Muddiest Point Debrief — 0:00–0:05 (5 min)\n\nAddress top 2 muddiest points from Session A minute paper\nConfirm all students have R/RStudio/Codespaces working\nEnsure packages are loaded:\n\n\n# Install if needed\n# install.packages(c(\"mgcv\", \"boot\", \"unmarked\", \"dplyr\", \"ggplot2\"))\n\nlibrary(mgcv)\nlibrary(boot)\nlibrary(unmarked)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nset.seed(690)  # Reproducibility — use course number as seed"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#exercise-a-naive-asr-bootstrap-ci-005025-20-min",
+    "href": "weeks/week11-instructor.html#exercise-a-naive-asr-bootstrap-ci-005025-20-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Exercise A: Naive ASR + Bootstrap CI — 0:05–0:25 (20 min)",
+    "text": "Exercise A: Naive ASR + Bootstrap CI — 0:05–0:25 (20 min)\nLearning objectives addressed: WK11-2, WK11-3\nInstructions to students: Using simulated camera-trap data inspired by Wohlfahrt et al. (2026), compute the naive ASR and a bootstrap confidence interval.\n\nStep 1: Simulate data\n\nset.seed(690)\n\n# Simulate camera-trap sightings (inspired by Wohlfahrt et al. 2026)\nn_sightings &lt;- 4110\nn_cameras &lt;- 24\nweeks &lt;- 9:17  # Calendar weeks 9-17\n\nsightings &lt;- data.frame(\n  sighting_id = 1:n_sightings,\n  camera_id = factor(sample(1:n_cameras, n_sightings, replace = TRUE)),\n  week = sample(weeks, n_sightings, replace = TRUE),\n  day_of_year = sample(60:120, n_sightings, replace = TRUE),\n  hour = sample(0:23, n_sightings, replace = TRUE),\n  age_class = sample(c(\"adult\", \"subadult\", \"juvenile\"),\n                     n_sightings, replace = TRUE,\n                     prob = c(0.65, 0.20, 0.15)),\n  distance_to_road = runif(n_sightings, 50, 2000)\n)\n\n# Assign sex: ~8.9% unknown, rest male/female\n# Males slightly less common (ASR ~ 0.42)\nsex_probs &lt;- c(0.38, 0.53, 0.089)  # male, female, unknown\nsightings$sex &lt;- sample(c(\"male\", \"female\", \"unknown\"),\n                        n_sightings, replace = TRUE,\n                        prob = sex_probs)\n\nhead(sightings)\n\n\n\nStep 2: Filter and compute naive ASR\n\n# Step 2a: Filter to adults and subadults only (exclude juveniles!)\nadults &lt;- sightings %&gt;%\n  filter(age_class %in% c(\"adult\", \"subadult\"))\n\n# Step 2b: Filter to sex-known sightings only (naive approach excludes unknowns)\nsex_known &lt;- adults %&gt;%\n  filter(sex %in% c(\"male\", \"female\"))\n\n# Step 2c: Compute weekly ASR\nweekly_asr &lt;- sex_known %&gt;%\n  group_by(week) %&gt;%\n  summarise(\n    n_males = sum(sex == \"male\"),\n    n_females = sum(sex == \"female\"),\n    asr = n_males / (n_males + n_females),\n    .groups = \"drop\"\n  )\n\nprint(weekly_asr)\ncat(\"Mean naive ASR:\", mean(weekly_asr$asr), \"\\n\")\n\n\n\nStep 3: Bootstrap CI\n\n# Bootstrap the mean ASR across weeks (R = 1000)\nboot_mean_asr &lt;- function(data, indices) {\n  mean(data$asr[indices])\n}\n\nboot_result &lt;- boot(data = weekly_asr,\n                    statistic = boot_mean_asr,\n                    R = 1000)\n\n# 95% CI (percentile method)\nboot_ci &lt;- boot.ci(boot_result, type = \"perc\")\ncat(\"Bootstrap 95% CI:\", boot_ci$percent[4], \"-\", boot_ci$percent[5], \"\\n\")\n\n\n\n\n\n\n\nImportantExercise A: Common Errors & Troubleshooting\n\n\n\n\n\n\n\n\n\n\n\nError\nDiagnosis\nFix\n\n\n\n\nASR is too high (~0.6+)\nForgot to exclude juveniles from analysis\nAdd filter(age_class %in% c(\"adult\", \"subadult\"))\n\n\nBootstrapping individual sightings instead of weekly ASRs\nBootstrapping the wrong unit — should resample weeks, not sightings\nEnsure boot() is applied to weekly_asr, not raw sightings\n\n\nGetting NaN in ASR\nA week has 0 males + 0 females after filtering\nAdd filter(n_males + n_females &gt; 0) before computing ASR\n\n\nCI doesn’t change with different seeds\nUsing set.seed() inside the boot function\nMove set.seed() before boot() call only\n\n\nWeek assignment is wrong\nUsing lubridate::week() on dates vs. using the raw week column\nUse the simulated week column directly"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#exercise-b-gam-sex-prediction-evaluation-025050-25-min",
+    "href": "weeks/week11-instructor.html#exercise-b-gam-sex-prediction-evaluation-025050-25-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Exercise B: GAM Sex Prediction + Evaluation — 0:25–0:50 (25 min)",
+    "text": "Exercise B: GAM Sex Prediction + Evaluation — 0:25–0:50 (25 min)\nLearning objectives addressed: WK11-4\nInstructions: Fit a GAM to predict sex from spatio-temporal covariates. Evaluate the model, then use it to predict sex for unknown sightings.\n\nStep 1: Prepare training and test data\n\nset.seed(690)\n\n# Use only sex-known adult/subadult sightings\nsex_known$sex_binary &lt;- ifelse(sex_known$sex == \"male\", 1, 0)\n\n# 80/20 train/test split\ntrain_idx &lt;- sample(1:nrow(sex_known), size = 0.8 * nrow(sex_known))\ntrain &lt;- sex_known[train_idx, ]\ntest  &lt;- sex_known[-train_idx, ]\n\ncat(\"Training set:\", nrow(train), \"sightings\\n\")\ncat(\"Test set:\", nrow(test), \"sightings\\n\")\n\n\n\nStep 2: Fit GAM\n\n# GAM: smooth terms for day_of_year and hour\n# camera_id as random effect\n# interaction: distance_to_road × day_of_year (tensor product)\ngam_model &lt;- gam(\n  sex_binary ~ s(day_of_year, bs = \"cr\") +\n               s(hour, bs = \"cr\") +\n               s(camera_id, bs = \"re\") +\n               ti(distance_to_road, day_of_year, bs = \"cr\"),\n  data = train,\n  family = binomial(link = \"logit\"),\n  method = \"REML\"\n)\n\nsummary(gam_model)\n\n\n\nStep 3: Evaluate on test set\n\n# Predict on test set\ntest$pred_prob &lt;- predict(gam_model, newdata = test, type = \"response\")\ntest$pred_sex &lt;- ifelse(test$pred_prob &gt; 0.5, \"male\", \"female\")\n\n# Confusion matrix\nconf_mat &lt;- table(Predicted = test$pred_sex, Actual = test$sex)\nprint(conf_mat)\n\n# Accuracy and precision for males\naccuracy &lt;- sum(diag(conf_mat)) / sum(conf_mat)\nprecision_male &lt;- conf_mat[\"male\", \"male\"] / sum(conf_mat[\"male\", ])\n\ncat(\"Overall accuracy:\", round(accuracy, 3), \"\\n\")\ncat(\"Precision (male):\", round(precision_male, 3), \"\\n\")\n\n\n\nStep 4: Predict unknowns and recompute ASR\n\n# Get unknown sightings\nunknowns &lt;- adults %&gt;% filter(sex == \"unknown\")\n\n# Predict sex for unknowns\nunknowns$pred_prob &lt;- predict(gam_model, newdata = unknowns, type = \"response\")\nunknowns$sex &lt;- ifelse(unknowns$pred_prob &gt; 0.5, \"male\", \"female\")\n\n# Combine sex-known and predicted-unknowns\ncombined &lt;- bind_rows(sex_known %&gt;% select(week, sex),\n                      unknowns %&gt;% select(week, sex))\n\n# Recompute weekly ASR\nweekly_asr_predicted &lt;- combined %&gt;%\n  group_by(week) %&gt;%\n  summarise(\n    n_males = sum(sex == \"male\"),\n    n_females = sum(sex == \"female\"),\n    asr = n_males / (n_males + n_females),\n    .groups = \"drop\"\n  )\n\n# Bootstrap CI\nboot_result_pred &lt;- boot(data = weekly_asr_predicted,\n                         statistic = boot_mean_asr,\n                         R = 1000)\nboot_ci_pred &lt;- boot.ci(boot_result_pred, type = \"perc\")\n\ncat(\"Predicted ASR mean:\", mean(weekly_asr_predicted$asr), \"\\n\")\ncat(\"95% CI:\", boot_ci_pred$percent[4], \"-\", boot_ci_pred$percent[5], \"\\n\")\n\n\n\n\n\n\n\nImportantExercise B: Common Errors & Troubleshooting\n\n\n\n\n\n\n\n\n\n\n\nError\nDiagnosis\nFix\n\n\n\n\nError in model.frame(): missing values\ncamera_id in unknowns has levels not in training data\nEnsure camera_id is consistent; use exclude = NULL or combine factor levels\n\n\nOverfitting: perfect accuracy on training set\nToo many smooth terms or k too high\nReduce k in s() terms; check gam.check()\n\n\nForgot set.seed() before split\nDifferent students get different train/test splits\nAdd set.seed(690) before sample()\n\n\ncamera_id treated as continuous\nDid not create as factor during data simulation\nEnsure camera_id is wrapped in factor() when creating the data frame\n\n\nConfusion matrix has wrong dimensions\nPredicted or actual labels are inconsistent\nEnsure both use “male”/“female” as factor levels"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min",
+    "href": "weeks/week11-instructor.html#exercise-c-rn-occupancy-asr-conceptual-code-050105-15-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Exercise C: RN Occupancy ASR (Conceptual + Code) — 0:50–1:05 (15 min)",
+    "text": "Exercise C: RN Occupancy ASR (Conceptual + Code) — 0:50–1:05 (15 min)\nLearning objectives addressed: WK11-5\nInstructions: Build detection histories and fit a Royle–Nichols model for one sex and one year. This exercise is more conceptual with guided code.\n\nConceptual Framework\n\n\n\n\n\n\nNoteRoyle–Nichols Model Intuition\n\n\n\nThe standard occupancy model estimates the probability a site is occupied (\\(\\psi\\)). The Royle–Nichols (RN) model goes further: it estimates latent abundance (\\(\\lambda\\)) at each site, where detection probability increases with abundance:\n\\[P(\\text{detect} \\geq 1 \\mid N, r) = 1 - (1-r)^N\\]\n\n\\(r\\) = per-individual detection probability\n\\(N\\) = number of individuals at the site (latent)\n\\(\\lambda\\) = expected abundance (Poisson: \\(N \\sim \\text{Poisson}(\\lambda)\\))\n\nFor ASR: fit RN separately for males and females. Then:\n\\[\\text{ASR}_{\\text{occupancy}} = \\frac{\\bar{N}_{\\text{male}}}{\\bar{N}_{\\text{male}} + \\bar{N}_{\\text{female}}}\\]\nwhere \\(\\bar{N}\\) is the mean predicted latent abundance across sites.\n\n\n\n\nStep 1: Build detection histories\n\n# Focus on males, simulating one year\n# Create binary detection histories: detected (1) or not (0) per camera per week\nmales_only &lt;- adults %&gt;%\n  filter(sex == \"male\")\n\ndet_hist_male &lt;- males_only %&gt;%\n  mutate(detected = 1) %&gt;%\n  tidyr::pivot_wider(\n    id_cols = camera_id,\n    names_from = week,\n    values_from = detected,\n    values_fn = ~1,    # If any detection, code as 1\n    values_fill = 0    # No detection = 0\n  ) %&gt;%\n  arrange(camera_id)\n\n# Ensure all 9 weeks (9-17) are present as columns\nfor (w in 9:17) {\n  col_name &lt;- as.character(w)\n  if (!(col_name %in% names(det_hist_male))) {\n    det_hist_male[[col_name]] &lt;- 0\n  }\n}\n\n# Extract detection matrix (cameras × weeks)\ndet_matrix_male &lt;- as.matrix(det_hist_male[, as.character(9:17)])\nrownames(det_matrix_male) &lt;- det_hist_male$camera_id\n\ncat(\"Detection history dimensions:\", dim(det_matrix_male), \"\\n\")\nhead(det_matrix_male)\n\n\n\nStep 2: Fit RN model with unmarked\n\nlibrary(unmarked)\n\n# Create unmarkedFrame\numf_male &lt;- unmarkedFrameOccu(y = det_matrix_male)\n\n# Fit Royle-Nichols model (no covariates for simplicity)\nrn_male &lt;- occuRN(~1, ~1, data = umf_male)\nsummary(rn_male)\n\n# Extract latent abundance estimate (lambda, log scale)\nlambda_male &lt;- exp(coef(rn_male, type = \"state\"))\ncat(\"Estimated mean latent abundance (males):\", lambda_male, \"\\n\")\n\n\n\nStep 3: Compute occupancy-based ASR\n\n# Repeat for females (students do this)\n# ... [same process with sex == \"female\"] ...\n\n# Then compute:\n# lambda_female &lt;- exp(coef(rn_female, type = \"state\"))\n# asr_occupancy &lt;- lambda_male / (lambda_male + lambda_female)\n# cat(\"Occupancy-based ASR:\", asr_occupancy, \"\\n\")\n\n\n\n\n\n\n\nImportantExercise C: Common Errors & Troubleshooting\n\n\n\n\n\n\n\n\n\n\n\nError\nDiagnosis\nFix\n\n\n\n\nunmarkedFrameOccu expects specific format\nDetection matrix must be sites × replicates with no extra columns\nRemove camera_id column before converting to matrix\n\n\nCovariates not standardized\nRN model may not converge if covariates are on different scales\nUse scale() on numeric covariates\n\n\nMisinterpreting \\(\\lambda\\) as raw count\n\\(\\lambda\\) is the expected latent abundance, not an observed count\nExplain that this is a model parameter, not data\n\n\nModel doesn’t converge\nToo few sites or detections for the model complexity\nReduce model complexity (intercept-only first); add covariates incrementally\n\n\nComparing ASR across methods without CIs\nPoint estimates alone are misleading\nUse SE from model output; compute CIs via delta method or Goodman (1960)"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#peer-troubleshooting-comparison-105110-5-min",
+    "href": "weeks/week11-instructor.html#peer-troubleshooting-comparison-105110-5-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Peer Troubleshooting + Comparison — 1:05–1:10 (5 min)",
+    "text": "Peer Troubleshooting + Comparison — 1:05–1:10 (5 min)\nFormat: Pair up. Each student shares:\n\nTheir naive ASR estimate and CI\nTheir predicted ASR estimate and CI\nTheir lambda estimate from RN (if they got that far)\n\nComparison question: “Do your three estimates agree? If not, what explains the differences?”"
+  },
+  {
+    "objectID": "weeks/week11-instructor.html#wrap-up-next-steps-110115-5-min",
+    "href": "weeks/week11-instructor.html#wrap-up-next-steps-110115-5-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data (Instructor)",
+    "section": "Wrap-Up + Next Steps — 1:10–1:15 (5 min)",
+    "text": "Wrap-Up + Next Steps — 1:10–1:15 (5 min)\nWhat to submit (if applicable — follow Canvas instructions):\n\nCompleted R script / .qmd with Exercises A–C\nA 2–3 sentence reflection: which ASR approach would you use for your own research system?\n\nWhat to bring next time:\n\nProgress on your course project (be ready for a brief update if called upon)\nOne remaining question about occupancy or ASR methods"
+  },
+  {
+    "objectID": "weeks/week11.html",
+    "href": "weeks/week11.html",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "",
+    "text": "Week 11 — Adult Sex Ratio Estimation: Comparing Naive, Predicted, and Occupancy-Based Approaches\nThis week we explore three camera-trap–based approaches for estimating adult sex ratio (ASR) in red deer, using:\n\nWohlfahrt, S., Edelhoff, H., Leitner, H., & Hackländer, K. (2026). Red deer adult sex ratio: comparing three approaches using camera trap data. Journal of Wildlife Management 90:e70139. https://doi.org/10.1002/jwmg.70139\n\n\n\n\n\n\n\n\n\nSession\nContent\nDuration\n\n\n\n\nSession A\nStudent paper presentation + ASR methods deep-dive + active learning\n~75 min\n\n\nSession B\nHands-on R workshop: naive ASR, GAM prediction, RN occupancy\n~75 min\n\n\n\n\n\n\n\n\n\n\nTipLearning Objectives\n\n\n\nBy the end of this week, you will be able to:\n\nDefine adult sex ratio (ASR) and explain why accurate estimation matters for ungulate management and forest regeneration.\nCompare three approaches to ASR estimation—naive, predicted (GAM), and occupancy-based (Royle–Nichols)—and articulate the assumptions, strengths, and failure modes of each.\nImplement naive ASR calculation with bootstrap confidence intervals in R.\nFit and evaluate a GAM for sex prediction from camera-trap covariates, including model diagnostics and confusion matrix interpretation.\nDescribe Royle–Nichols occupancy modeling and explain how latent abundance estimates inform ASR.\nCritically evaluate when simple methods (naive ASR) suffice versus when advanced approaches are necessary, using monitoring design constraints as criteria."
+  },
+  {
+    "objectID": "weeks/week11.html#schedule",
+    "href": "weeks/week11.html#schedule",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n0:00–0:05\nEntry ticket: retrieval practice\n\n\n0:05–0:15\nInstructor mini-lecture: ASR concepts and three approaches\n\n\n0:15–0:31\nStudent paper presentation + guided discussion\n\n\n0:31–0:46\nJigsaw activity: become an expert in one ASR approach\n\n\n0:46–0:56\nChoose-your-own-method scenario + gallery walk\n\n\n0:56–1:06\nStructured mini-debate\n\n\n1:06–1:12\nConcept map + muddiest point\n\n\n1:12–1:15\nMinute paper"
+  },
+  {
+    "objectID": "weeks/week11.html#entry-ticket-000005",
+    "href": "weeks/week11.html#entry-ticket-000005",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Entry Ticket — 0:00–0:05",
+    "text": "Entry Ticket — 0:00–0:05\nOn your notecard, write brief answers to:\n\nWhat is the formula for adult sex ratio (ASR)? Write it without looking at your notes.\nFrom Week 10: What is the core problem that occupancy models solve? (one sentence)\nIf 40% of your camera-trap sightings cannot be sexed, how might that bias your ASR estimate? In which direction?"
+  },
+  {
+    "objectID": "weeks/week11.html#key-concepts-asr-and-three-approaches-005015",
+    "href": "weeks/week11.html#key-concepts-asr-and-three-approaches-005015",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Key Concepts: ASR and Three Approaches — 0:05–0:15",
+    "text": "Key Concepts: ASR and Three Approaches — 0:05–0:15\nAdult sex ratio (ASR) is a fundamental demographic parameter:\n\\[\\text{ASR} = \\frac{N_{\\text{males}}}{N_{\\text{males}} + N_{\\text{females}}}\\]\nThe paper compares three approaches to estimate ASR from camera-trap data:\n\n\n\n\n\n\n\n\nApproach\nWhat it does\nKey assumption\n\n\n\n\nNaive\nUse only sex-identified sightings; exclude unknowns\nUnknowns are missing completely at random (MCAR)\n\n\nPredicted\nUse a GAM to predict sex for unknown sightings, then recompute ASR\nGAM correctly classifies sex; prediction errors are balanced\n\n\nOccupancy (RN)\nRoyle–Nichols model estimates latent abundance by sex, accounting for detection probability\nPopulation closure during sampling window; constant per-individual detection\n\n\n\nStudy snapshot: 24 cameras · 20,250 camera-days · 4,110 adult/subadult sightings · 436 unknowns (~8.9%) · Austrian Alps · Jan 2020–May 2022 · Focal weeks 9–17"
+  },
+  {
+    "objectID": "weeks/week11.html#student-paper-presentation-015031",
+    "href": "weeks/week11.html#student-paper-presentation-015031",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Student Paper Presentation — 0:15–0:31",
+    "text": "Student Paper Presentation — 0:15–0:31\nYour classmate will present Wohlfahrt et al. (2026). As you listen:\n\nNote which ASR approach you find most convincing and why\nPrepare one follow-up question or observation\n\n\nRotating Discussion Roles\nToday’s assigned roles:\n\n\n\n\n\n\n\nRole\nYour job\n\n\n\n\nFacilitator\nKeep discussion flowing; call on quiet voices\n\n\nSkeptic\nChallenge assumptions; play devil’s advocate\n\n\nScribe\nCapture key points on the whiteboard\n\n\nAssumption-Checker\nFlag statistical assumptions being made or violated\n\n\n\nEveryone else: contribute to discussion freely.\n\n\nPresentation Template (for the presenter)\n\n\n\n\n\n\nNoteWhat to Cover in Your Presentation (~8 min)\n\n\n\n\nMotivation (~1 min): Why does ASR matter for red deer management? Why are camera traps useful but tricky?\nData (~1.5 min): Describe the study area, camera deployment (24 cameras, trail-based), sighting classification (species, sex, age), and the unknown-sex problem.\nThree Approaches (~3.5 min):\n\nNaive ASR: formula, what’s excluded, when it works\nPredicted ASR: GAM model, covariates used, prediction precision (~75%), threshold (0.5)\nOccupancy RN: detection histories, latent abundance, how ASR is derived from \\(\\bar{N}\\) estimates\n\nKey Results (~1.5 min): ASR estimates across years and methods (with CIs), Wilcoxon tests, the main finding (methods agreed under these conditions)\nCritique (~0.5 min): One limitation you identified; one thing you would do differently\n\nPrepare 2 discussion questions to pose to the class after your talk."
+  },
+  {
+    "objectID": "weeks/week11.html#jigsaw-activity-three-asr-approaches-031046",
+    "href": "weeks/week11.html#jigsaw-activity-three-asr-approaches-031046",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Jigsaw Activity: Three ASR Approaches — 0:31–0:46",
+    "text": "Jigsaw Activity: Three ASR Approaches — 0:31–0:46\n\n\n\n\n\n\nNoteBecome an Expert, Then Teach\n\n\n\nExpert phase (7 min): You’ll be assigned to one method. With your partner(s):\n\nWrite the key equation(s) for your method on the poster/whiteboard\nList 2–3 assumptions your method requires\nIdentify 1–2 scenarios where your method would fail or give biased results\nPrepare a 2-minute teach-back\n\n\n\n\n\n\n\n\n\nGroup\nMethod\nKey focus\n\n\n\n\nA\nNaive ASR\n\\(\\text{ASR} = N_m / (N_m + N_f)\\); when does excluding unknowns bias estimates?\n\n\nB\nPredicted ASR (GAM)\nHow does the GAM predict sex? What happens at the 0.5 threshold?\n\n\nC\nOccupancy RN\n\\(P(\\text{detect} \\geq 1 \\mid N, r) = 1 - (1-r)^N\\); what is latent abundance?\n\n\n\nTeach-back phase (7 min): Regroup into mixed teams (one person from each group). Each expert teaches their method in ~2 min. Ask questions!"
+  },
+  {
+    "objectID": "weeks/week11.html#choose-your-own-method-scenario-046056",
+    "href": "weeks/week11.html#choose-your-own-method-scenario-046056",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Choose-Your-Own-Method Scenario — 0:46–0:56",
+    "text": "Choose-Your-Own-Method Scenario — 0:46–0:56\nYour group will receive a wildlife monitoring scenario. Decide:\n\nWhich ASR approach(es) you would recommend\nWhy that approach is the best fit for the constraints described\nWhat risks or limitations remain\n\nWrite your recommendation on your poster. Then do a gallery walk — visit other groups’ posters and add comments."
+  },
+  {
+    "objectID": "weeks/week11.html#structured-mini-debate-056106",
+    "href": "weeks/week11.html#structured-mini-debate-056106",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Structured Mini-Debate — 0:56–1:06",
+    "text": "Structured Mini-Debate — 0:56–1:06\nMotion: “Naive ASR is sufficient for most wildlife management applications.”\n\nSide A — “Keep It Simple”: Argue for naive ASR\nSide B — “Model It Right”: Argue for occupancy-based or predicted ASR\n\nEach side prepares arguments (2 min), then presents (2 min each), followed by open rebuttal (2 min) and synthesis (2 min)."
+  },
+  {
+    "objectID": "weeks/week11.html#concept-map-muddiest-point-106112",
+    "href": "weeks/week11.html#concept-map-muddiest-point-106112",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Concept Map + Muddiest Point — 1:06–1:12",
+    "text": "Concept Map + Muddiest Point — 1:06–1:12\nOn your notecard:\n\nDraw a quick concept map linking: ASR, naive, predicted, GAM, occupancy, RN, detection probability, latent abundance, bootstrap CI, camera placement, unknowns. Connect terms with labeled arrows (e.g., “assumes,” “accounts for,” “biased by”).\nWrite your muddiest point: the one concept from today that is least clear.\nDiscuss with a neighbor — can they clarify?"
+  },
+  {
+    "objectID": "weeks/week11.html#minute-paper-112115",
+    "href": "weeks/week11.html#minute-paper-112115",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Minute Paper — 1:12–1:15",
+    "text": "Minute Paper — 1:12–1:15\nOn your notecard:\n\nWhat is the single most important insight about ASR estimation from today?\nWhich of the three approaches would you use in your own research system, and why?\nOne question you still have heading into the workshop."
+  },
+  {
+    "objectID": "weeks/week11.html#schedule-1",
+    "href": "weeks/week11.html#schedule-1",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\nTime\nActivity\n\n\n\n\n0:00–0:05\nSetup + debrief muddiest points from Session A\n\n\n0:05–0:25\nExercise A: Naive ASR + bootstrap CI\n\n\n0:25–0:50\nExercise B: GAM sex prediction + evaluation\n\n\n0:50–1:05\nExercise C: RN occupancy ASR\n\n\n1:05–1:10\nPeer comparison\n\n\n1:10–1:15\nWrap-up + next steps"
+  },
+  {
+    "objectID": "weeks/week11.html#setup",
+    "href": "weeks/week11.html#setup",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Setup",
+    "text": "Setup\n\n# Install if needed\n# install.packages(c(\"mgcv\", \"boot\", \"unmarked\", \"dplyr\", \"ggplot2\", \"tidyr\"))\n\nlibrary(mgcv)\nlibrary(boot)\nlibrary(unmarked)\nlibrary(dplyr)\nlibrary(ggplot2)\n\nset.seed(690)"
+  },
+  {
+    "objectID": "weeks/week11.html#exercise-a-naive-asr-bootstrap-ci-20-min",
+    "href": "weeks/week11.html#exercise-a-naive-asr-bootstrap-ci-20-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Exercise A: Naive ASR + Bootstrap CI (20 min)",
+    "text": "Exercise A: Naive ASR + Bootstrap CI (20 min)\nGoal: Compute weekly ASR from sex-known sightings (weeks 9–17) and bootstrap a confidence interval.\n\nStep 1: Simulate data\n\nset.seed(690)\n\n# Simulated camera-trap sightings inspired by Wohlfahrt et al. (2026)\nn_sightings &lt;- 4110\nn_cameras &lt;- 24\nweeks &lt;- 9:17\n\nsightings &lt;- data.frame(\n  sighting_id = 1:n_sightings,\n  camera_id = factor(sample(1:n_cameras, n_sightings, replace = TRUE)),\n  week = sample(weeks, n_sightings, replace = TRUE),\n  day_of_year = sample(60:120, n_sightings, replace = TRUE),\n  hour = sample(0:23, n_sightings, replace = TRUE),\n  age_class = sample(c(\"adult\", \"subadult\", \"juvenile\"),\n                     n_sightings, replace = TRUE,\n                     prob = c(0.65, 0.20, 0.15)),\n  distance_to_road = runif(n_sightings, 50, 2000)\n)\n\n# Assign sex: ~8.9% unknown; males slightly less common (ASR ~ 0.42)\nsightings$sex &lt;- sample(c(\"male\", \"female\", \"unknown\"),\n                        n_sightings, replace = TRUE,\n                        prob = c(0.38, 0.53, 0.089))\n\n\n\nStep 2: Filter and compute weekly naive ASR\n\n# Filter: adults and subadults only (exclude juveniles!)\nadults &lt;- sightings %&gt;%\n  filter(age_class %in% c(\"adult\", \"subadult\"))\n\n# Filter: sex-known only (naive approach excludes unknowns)\nsex_known &lt;- adults %&gt;%\n  filter(sex %in% c(\"male\", \"female\"))\n\n# Compute weekly ASR\nweekly_asr &lt;- sex_known %&gt;%\n  group_by(week) %&gt;%\n  summarise(\n    n_males = sum(sex == \"male\"),\n    n_females = sum(sex == \"female\"),\n    asr = n_males / (n_males + n_females),\n    .groups = \"drop\"\n  )\n\nprint(weekly_asr)\ncat(\"Mean naive ASR:\", mean(weekly_asr$asr), \"\\n\")\n\n\n\nStep 3: Bootstrap CI\n\n# Bootstrap mean ASR across weeks (R = 1000)\nboot_mean_asr &lt;- function(data, indices) {\n  mean(data$asr[indices])\n}\n\nboot_result &lt;- boot(data = weekly_asr,\n                    statistic = boot_mean_asr,\n                    R = 1000)\n\nboot_ci &lt;- boot.ci(boot_result, type = \"perc\")\ncat(\"Bootstrap 95% CI:\", boot_ci$percent[4], \"-\", boot_ci$percent[5], \"\\n\")\n\n\n\n\n\n\n\nTipCheckpoint A\n\n\n\nExpected output: Mean ASR around 0.38–0.44; CI width of approximately ±0.03–0.06.\nCommon pitfalls:\n\nForgot to exclude juveniles → ASR will be wrong\nBootstrapping individual sightings instead of weekly ASRs → wrong unit of resampling\nGetting NaN → a week has 0 sex-known sightings after filtering"
+  },
+  {
+    "objectID": "weeks/week11.html#exercise-b-gam-sex-prediction-evaluation-25-min",
+    "href": "weeks/week11.html#exercise-b-gam-sex-prediction-evaluation-25-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Exercise B: GAM Sex Prediction + Evaluation (25 min)",
+    "text": "Exercise B: GAM Sex Prediction + Evaluation (25 min)\nGoal: Fit a GAM to predict sex from covariates, evaluate it, then use predictions for unknown sightings to compute predicted ASR.\n\nStep 1: Train/test split\n\nset.seed(690)\n\nsex_known$sex_binary &lt;- ifelse(sex_known$sex == \"male\", 1, 0)\n\n# 80/20 split\ntrain_idx &lt;- sample(1:nrow(sex_known), size = 0.8 * nrow(sex_known))\ntrain &lt;- sex_known[train_idx, ]\ntest  &lt;- sex_known[-train_idx, ]\n\n\n\nStep 2: Fit GAM\n\n# GAM with smooths for day_of_year and hour,\n# camera_id as random effect (accounts for camera-specific detection heterogeneity),\n# interaction: distance_to_road × day_of_year\ngam_model &lt;- gam(\n  sex_binary ~ s(day_of_year, bs = \"cr\") +\n               s(hour, bs = \"cr\") +\n               s(camera_id, bs = \"re\") +\n               ti(distance_to_road, day_of_year, bs = \"cr\"),\n  data = train,\n  family = binomial(link = \"logit\"),\n  method = \"REML\"\n)\n\nsummary(gam_model)\n\n\n\nStep 3: Evaluate\n\n# Predict on test set\ntest$pred_prob &lt;- predict(gam_model, newdata = test, type = \"response\")\ntest$pred_sex &lt;- ifelse(test$pred_prob &gt; 0.5, \"male\", \"female\")\n\n# Confusion matrix\nconf_mat &lt;- table(Predicted = test$pred_sex, Actual = test$sex)\nprint(conf_mat)\n\naccuracy &lt;- sum(diag(conf_mat)) / sum(conf_mat)\ncat(\"Accuracy:\", round(accuracy, 3), \"\\n\")\n\n\n\nStep 4: Predict unknowns → recompute ASR\n\n# Predict sex for unknown sightings\nunknowns &lt;- adults %&gt;% filter(sex == \"unknown\")\nunknowns$pred_prob &lt;- predict(gam_model, newdata = unknowns, type = \"response\")\nunknowns$sex &lt;- ifelse(unknowns$pred_prob &gt; 0.5, \"male\", \"female\")\n\n# Combine and recompute weekly ASR\ncombined &lt;- bind_rows(\n  sex_known %&gt;% select(week, sex),\n  unknowns %&gt;% select(week, sex)\n)\n\nweekly_asr_predicted &lt;- combined %&gt;%\n  group_by(week) %&gt;%\n  summarise(\n    n_males = sum(sex == \"male\"),\n    n_females = sum(sex == \"female\"),\n    asr = n_males / (n_males + n_females),\n    .groups = \"drop\"\n  )\n\n# Bootstrap\nboot_result_pred &lt;- boot(data = weekly_asr_predicted,\n                         statistic = boot_mean_asr,\n                         R = 1000)\nboot_ci_pred &lt;- boot.ci(boot_result_pred, type = \"perc\")\n\ncat(\"Predicted ASR mean:\", mean(weekly_asr_predicted$asr), \"\\n\")\ncat(\"95% CI:\", boot_ci_pred$percent[4], \"-\", boot_ci_pred$percent[5], \"\\n\")\n\n\n\n\n\n\n\nTipCheckpoint B\n\n\n\nExpected output: Predicted ASR should be similar to naive ASR (since unknowns are only ~8.9% of data in this simulation). The CI may be slightly narrower because more data is included.\nCommon pitfalls:\n\nForgot set.seed() before train/test split\ncamera_id not converted to factor → GAM treats it as continuous\nConfusion matrix dimensions don’t match → check factor levels"
+  },
+  {
+    "objectID": "weeks/week11.html#exercise-c-roylenichols-occupancy-asr-15-min",
+    "href": "weeks/week11.html#exercise-c-roylenichols-occupancy-asr-15-min",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Exercise C: Royle–Nichols Occupancy ASR (15 min)",
+    "text": "Exercise C: Royle–Nichols Occupancy ASR (15 min)\nGoal: Build detection histories and fit a Royle–Nichols model for one sex. Understand how latent abundance translates to ASR.\n\nConceptual Framework\nThe Royle–Nichols (RN) model estimates latent abundance (\\(\\lambda\\)) from detection/non-detection data:\n\\[P(\\text{detect} \\geq 1 \\mid N, r) = 1 - (1-r)^N\\]\nwhere \\(r\\) is per-individual detection probability and \\(N \\sim \\text{Poisson}(\\lambda)\\).\nFor ASR: fit RN separately for males and females, then:\n\\[\\text{ASR}_{\\text{occupancy}} = \\frac{\\bar{N}_{\\text{male}}}{\\bar{N}_{\\text{male}} + \\bar{N}_{\\text{female}}}\\]\n\n\nStep 1: Build detection histories\n\nlibrary(tidyr)\n\n# Male detection histories: cameras × weeks\nmales_only &lt;- adults %&gt;% filter(sex == \"male\")\n\ndet_hist_male &lt;- males_only %&gt;%\n  mutate(detected = 1) %&gt;%\n  pivot_wider(\n    id_cols = camera_id,\n    names_from = week,\n    values_from = detected,\n    values_fn = ~1,\n    values_fill = 0\n  ) %&gt;%\n  arrange(camera_id)\n\n# Ensure all weeks 9-17 are present\nfor (w in 9:17) {\n  if (!(as.character(w) %in% names(det_hist_male))) {\n    det_hist_male[[as.character(w)]] &lt;- 0\n  }\n}\n\ndet_matrix_male &lt;- as.matrix(det_hist_male[, as.character(9:17)])\nhead(det_matrix_male)\n\n\n\nStep 2: Fit RN model\n\nlibrary(unmarked)\n\numf_male &lt;- unmarkedFrameOccu(y = det_matrix_male)\n\n# Royle-Nichols model (intercept-only for simplicity)\nrn_male &lt;- occuRN(~1, ~1, data = umf_male)\nsummary(rn_male)\n\nlambda_male &lt;- exp(coef(rn_male, type = \"state\"))\ncat(\"Estimated mean latent abundance (males):\", lambda_male, \"\\n\")\n\n\n\nStep 3: Compute occupancy-based ASR\n\n# YOUR TASK: Repeat Steps 1-2 for females\n# Then compute:\n# asr_occupancy &lt;- lambda_male / (lambda_male + lambda_female)\n\n# Compare all three ASR estimates:\n# cat(\"Naive ASR:\", mean(weekly_asr$asr), \"\\n\")\n# cat(\"Predicted ASR:\", mean(weekly_asr_predicted$asr), \"\\n\")\n# cat(\"Occupancy ASR:\", asr_occupancy, \"\\n\")\n\n\n\n\n\n\n\nTipCheckpoint C\n\n\n\nExpected output: Lambda estimates should be positive. Occupancy-based ASR should be in a plausible range (0.3–0.6).\nKey things to check:\n\nDetection matrix dimensions: should be (number of cameras) × 9\nNo extra columns (remove camera_id before converting to matrix)\nModel converges without warnings"
+  },
+  {
+    "objectID": "weeks/week11.html#peer-comparison-105110",
+    "href": "weeks/week11.html#peer-comparison-105110",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Peer Comparison — 1:05–1:10",
+    "text": "Peer Comparison — 1:05–1:10\nPair up and compare your results:\n\nYour naive ASR estimate and CI\nYour predicted ASR estimate and CI\nYour RN lambda estimate\n\nDiscussion: Do your three estimates agree? What explains any differences?"
+  },
+  {
+    "objectID": "weeks/week11.html#wrap-up-110115",
+    "href": "weeks/week11.html#wrap-up-110115",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Wrap-Up — 1:10–1:15",
+    "text": "Wrap-Up — 1:10–1:15\n\n\n\n\n\n\nImportantWhat to Submit / What to Bring Next Time\n\n\n\nSubmit (via Canvas, if applicable):\n\nYour completed R script or .qmd with Exercises A–C\nA 2–3 sentence reflection: Which ASR approach would you use for your own research system, and why?\n\nBring next time:\n\nProgress on your course project (be ready for a brief update if called upon)\nOne remaining question about occupancy or ASR methods"
+  },
+  {
+    "objectID": "weeks/week11.html#key-results-from-the-paper-reference",
+    "href": "weeks/week11.html#key-results-from-the-paper-reference",
+    "title": "Week 11 — Adult Sex Ratio Estimation from Camera-Trap Data",
+    "section": "Key Results from the Paper (Reference)",
+    "text": "Key Results from the Paper (Reference)\nFor comparing your simulation results to the actual paper findings:\n\n\n\n\n\n\n\n\n\nYear\nNaive ASR (95% CI)\nPredicted ASR (95% CI)\nOccupancy ASR (95% CI)\n\n\n\n\n2020\n0.40 (0.34–0.46)\n0.44 (0.39–0.49)\n0.40 (0.34–0.47)\n\n\n2021\n0.40 (0.31–0.49)\n0.46 (0.39–0.54)\n0.36 (0.36–0.36)\n\n\n2022\n0.42 (0.35–0.50)\n0.48 (0.41–0.56)\n0.45 (0.44–0.46)\n\n\n\nSource: Wohlfahrt et al. (2026), Table/Figure for weeks 9–17.\nKey finding: Under these study conditions (~8.9% unknowns, trail-based cameras), all three methods produced comparable ASR estimates with overlapping CIs. No statistically significant differences (Wilcoxon signed-rank tests, \\(p &gt; 0.05\\))."
+  },
+  {
+    "objectID": "slides/slides-Week11.html",
+    "href": "slides/slides-Week11.html",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "",
+    "text": "On your notecard, write answers to:\n\nWhat is the formula for adult sex ratio (ASR)?\nFrom Week 10: What is the core problem that occupancy models solve?\nIf 40% of your camera-trap sightings cannot be sexed, how might that bias your ASR estimate?\n\n. . .\nCompare your answers with your neighbor — do you agree?"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#entry-ticket",
+    "href": "slides/slides-Week11.html#entry-ticket",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "",
+    "text": "On your notecard, write answers to:\n\nWhat is the formula for adult sex ratio (ASR)?\nFrom Week 10: What is the core problem that occupancy models solve?\nIf 40% of your camera-trap sightings cannot be sexed, how might that bias your ASR estimate?\n\n. . .\nCompare your answers with your neighbor — do you agree?"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#why-adult-sex-ratio-matters",
+    "href": "slides/slides-Week11.html#why-adult-sex-ratio-matters",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "2 Why Adult Sex Ratio Matters",
+    "text": "2 Why Adult Sex Ratio Matters\nUngulate management depends on population structure\n\nASR influences harvest quotas, population growth projections, and habitat management\nSex-biased browsing pressure affects forest regeneration\nCamera traps are cost-effective but imperfect sensors\n\n. . .\n\n\n\n\n\n\nImportant\n\n\n\nThe problem: Not every sighting can be sexed. Unknown-sex sightings may bias ASR estimates if ignored or handled incorrectly."
+  },
+  {
+    "objectID": "slides/slides-Week11.html#the-asr-equation",
+    "href": "slides/slides-Week11.html#the-asr-equation",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "3 The ASR Equation",
+    "text": "3 The ASR Equation\n\\[\\text{ASR} = \\frac{N_{\\text{males}}}{N_{\\text{males}} + N_{\\text{females}}}\\]\n. . .\n\nASR = 0.5 → equal numbers of males and females\nASR &lt; 0.5 → female-biased (common in polygynous ungulates)\nASR &gt; 0.5 → male-biased\n\n. . .\nKey question: What do we do with sightings where sex is unknown?"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#study-design-snapshot",
+    "href": "slides/slides-Week11.html#study-design-snapshot",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "4 Study Design Snapshot",
+    "text": "4 Study Design Snapshot\n\n\nWohlfahrt et al. (2026)\n\n24 camera traps, Austrian Alps\n20,250 camera-days\n4,110 adult/subadult sightings\n436 unknown-sex (~8.9%)\nJan 2020 – May 2022\nFocus: weeks 9–17\n\n\nCamera placement:\n\nAlong wildlife trails\nMaximizes detections\nBut may introduce placement bias\n\nSighting definition:\n\n≥ 5 min between images = new sighting"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#three-approaches-to-asr",
+    "href": "slides/slides-Week11.html#three-approaches-to-asr",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "5 Three Approaches to ASR",
+    "text": "5 Three Approaches to ASR\n\nflowchart LR\n    A[Camera Trap\\nSightings] --&gt; B{Sex known?}\n    B --&gt;|Yes| C[Naive ASR]\n    B --&gt;|No| D[Predict sex\\nwith GAM]\n    D --&gt; E[Predicted ASR]\n    A --&gt; F[Detection\\nhistories]\n    F --&gt; G[RN Occupancy\\nModel]\n    G --&gt; H[Occupancy ASR]"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#approach-1-naive-asr",
+    "href": "slides/slides-Week11.html#approach-1-naive-asr",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "6 Approach 1: Naive ASR",
+    "text": "6 Approach 1: Naive ASR\nSimple: Use only sightings where sex is identified\n\\[\\text{ASR}_{\\text{naive}} = \\frac{N_{\\text{males, known}}}{N_{\\text{males, known}} + N_{\\text{females, known}}}\\]\n. . .\nAssumption: Unknown-sex sightings are missing completely at random (MCAR)\n. . .\nWhen this fails:\n\nMales may be easier to identify (antlers) → unknowns skew female\nCamera placement may favor one sex\nUnknown rate varies by season or camera location"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#approach-2-predicted-asr-gam",
+    "href": "slides/slides-Week11.html#approach-2-predicted-asr-gam",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "7 Approach 2: Predicted ASR (GAM)",
+    "text": "7 Approach 2: Predicted ASR (GAM)\nIdea: Predict sex for unknown sightings using a statistical model\n. . .\nModel: Generalized Additive Model (binomial, logit link)\n\\[\\text{logit}(P(\\text{male})) = f_1(\\text{day\\_of\\_year}) + f_2(\\text{hour}) + s(\\text{camera\\_id}) + f_3(\\text{dist\\_road} \\times \\text{day\\_of\\_year})\\]\n. . .\nPrediction rule: If \\(P(\\text{male}) &gt; 0.5\\) → classify as male; otherwise female\n. . .\nPerformance: Precision ≈ 75.24%; Deviance explained ≈ 29.5%"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#approach-3-occupancy-based-asr-roylenichols",
+    "href": "slides/slides-Week11.html#approach-3-occupancy-based-asr-roylenichols",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "8 Approach 3: Occupancy-Based ASR (Royle–Nichols)",
+    "text": "8 Approach 3: Occupancy-Based ASR (Royle–Nichols)\nKey insight: Detection probability depends on abundance\n\\[P(\\text{detect} \\geq 1 \\mid N, r) = 1 - (1-r)^N\\]\n. . .\n\n\\(N\\) = latent abundance at a site (Poisson distributed)\n\\(r\\) = per-individual detection probability\n\n. . .\nFor ASR: Fit RN model separately for males and females\n\\[\\text{ASR}_{\\text{occupancy}} = \\frac{\\bar{N}_{\\text{male}}}{\\bar{N}_{\\text{male}} + \\bar{N}_{\\text{female}}}\\]\n. . .\nRequires: Detection histories (sites × weekly replicates), closure assumption"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#quick-poll",
+    "href": "slides/slides-Week11.html#quick-poll",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "9 Quick Poll",
+    "text": "9 Quick Poll\n\n\n\n\n\n\nImportantThink Before the Presentation\n\n\n\nWhich approach do you think gives the most reliable ASR estimate? Why?\n\nNaive — simplicity is a feature, not a bug\nPredicted — more data is always better\nOccupancy RN — accounts for the detection process\nIt depends on the study design\n\nHold your answer — revisit after the presentation"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#student-presentation",
+    "href": "slides/slides-Week11.html#student-presentation",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "10 Student Presentation",
+    "text": "10 Student Presentation\n\n10.1 Wohlfahrt et al. (2026)\nRed deer adult sex ratio: comparing three approaches using camera trap data\nJournal of Wildlife Management 90:e70139\n. . .\nDiscussion roles assigned:\n\n\n\nRole\nJob\n\n\n\n\nFacilitator\nKeep discussion flowing\n\n\nSkeptic\nChallenge assumptions\n\n\nScribe\nCapture key points\n\n\nAssumption-Checker\nFlag statistical assumptions"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#discussion-prompts",
+    "href": "slides/slides-Week11.html#discussion-prompts",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "11 Discussion Prompts",
+    "text": "11 Discussion Prompts\nAfter the presentation:\n\nThe GAM’s prediction precision was ~75%. Is that good enough?\nCameras were placed along trails. How might this bias ASR?\nWhy focus on weeks 9–17? What assumption does this satisfy?\n\n. . .\nFrom the paper:\n\n“Our hypothesis was that these advanced statistical methods reveal a potential bias in the estimation of red deer ASR in a naive approach directly from raw camera trap data.” (Wohlfahrt et al. 2026)"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#jigsaw-activity",
+    "href": "slides/slides-Week11.html#jigsaw-activity",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "12 Jigsaw Activity",
+    "text": "12 Jigsaw Activity\nExpert phase (7 min):\nYour group studies ONE approach in depth:\n\n\n\nGroup A\nGroup B\nGroup C\n\n\n\n\nNaive ASR\nPredicted (GAM)\nOccupancy (RN)\n\n\n\nFor your method:\n\nWrite the key equation on the whiteboard\nList 2–3 assumptions\nIdentify 1–2 failure scenarios\nPrepare a 2-min teach-back\n\n. . .\nTeach-back (7 min): Regroup into mixed teams — teach your method!"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#method-comparison-summary",
+    "href": "slides/slides-Week11.html#method-comparison-summary",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "13 Method Comparison Summary",
+    "text": "13 Method Comparison Summary\n\n\n\n\n\n\n\n\n\nFeature\nNaive\nPredicted (GAM)\nOccupancy (RN)\n\n\n\n\nUses unknown sightings\n✗\n✓ (predicted)\n✗ (separate model)\n\n\nAccounts for detection bias\n✗\nPartially\n✓\n\n\nData requirement\nLow\nModerate\nHigh (repeated visits)\n\n\nAnalytical complexity\nLow\nModerate\nHigh\n\n\nKey assumption\nMCAR unknowns\nCorrect classification\nClosure + Poisson abundance"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#choose-your-own-method",
+    "href": "slides/slides-Week11.html#choose-your-own-method",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "14 Choose-Your-Own-Method",
+    "text": "14 Choose-Your-Own-Method\nScenario 1 — Tropical Primates: 50 cameras, 40% unknowns, cameras at fruiting trees, 6 months of data.\nScenario 2 — Prairie Elk: 15 trail cameras, 5% unknowns, minimal stats capacity.\nScenario 3 — Island Invasive Deer: 100 cameras in grid, 20% unknowns, skilled analyst on team.\n. . .\nFor your scenario: Which method? Why? What are the risks?\nWrite your group’s answer on the poster → gallery walk!"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#structured-debate",
+    "href": "slides/slides-Week11.html#structured-debate",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "15 Structured Debate",
+    "text": "15 Structured Debate\nMotion: “Naive ASR is sufficient for most wildlife management applications.”\n. . .\n\n\n\nSide A: “Keep It Simple”\nSide B: “Model It Right”\n\n\n\n\nPrepare 2 arguments (2 min)\nPrepare 2 arguments (2 min)\n\n\nPresent (2 min)\nPresent (2 min)\n\n\n\n. . .\nFree rebuttal (2 min) → Instructor synthesis (2 min)"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#what-did-the-paper-find",
+    "href": "slides/slides-Week11.html#what-did-the-paper-find",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "16 What Did the Paper Find?",
+    "text": "16 What Did the Paper Find?\n\n\n\nYear\nNaive ASR\nPredicted ASR\nOccupancy ASR\n\n\n\n\n2020\n0.40 (0.34–0.46)\n0.44 (0.39–0.49)\n0.40 (0.34–0.47)\n\n\n2021\n0.40 (0.31–0.49)\n0.46 (0.39–0.54)\n0.36 (0.36–0.36)\n\n\n2022\n0.42 (0.35–0.50)\n0.48 (0.41–0.56)\n0.45 (0.44–0.46)\n\n\n\n. . .\nBottom line: Under these conditions (~8.9% unknowns, trail cameras), all three methods gave comparable results.\n. . .\nBut: This does NOT mean naive is always fine. When unknowns are &gt;20–30% or cameras are non-randomly placed, advanced methods become essential."
+  },
+  {
+    "objectID": "slides/slides-Week11.html#concept-map-activity",
+    "href": "slides/slides-Week11.html#concept-map-activity",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "17 Concept Map Activity",
+    "text": "17 Concept Map Activity\nDraw connections between these terms:\nASR · naive · predicted · GAM · occupancy · RN · detection probability · latent abundance · bootstrap CI · camera placement · unknowns\n. . .\nLabel your arrows: “assumes,” “accounts for,” “biased by,” “estimates”\n. . .\nMuddiest point: Write the one thing still unclear to you."
+  },
+  {
+    "objectID": "slides/slides-Week11.html#minute-paper",
+    "href": "slides/slides-Week11.html#minute-paper",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "18 Minute Paper",
+    "text": "18 Minute Paper\nOn your notecard:\n\nMost important insight from today?\nWhich approach for YOUR research system?\nOne question for the workshop?"
+  },
+  {
+    "objectID": "slides/slides-Week11.html#up-next-workshop-session-b",
+    "href": "slides/slides-Week11.html#up-next-workshop-session-b",
+    "title": "Week 11 — Adult Sex Ratio from Camera Traps",
+    "section": "19 Up Next: Workshop (Session B)",
+    "text": "19 Up Next: Workshop (Session B)\nHands-on R exercises:\n\nExercise A: Naive ASR + bootstrap CI\nExercise B: GAM sex prediction + confusion matrix\nExercise C: Royle–Nichols occupancy model\n\n. . .\nPackages you’ll need:\n\ninstall.packages(c(\"mgcv\", \"boot\", \"unmarked\",\n                    \"dplyr\", \"ggplot2\", \"tidyr\"))\n\n. . .\nLet’s code! 🦌📸"
   }
 ]

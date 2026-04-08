@@ -190,3 +190,7 @@ I chose a Generalized Linear Mixed Model with a Poisson distribution because my 
 | No spatial autocorrelation | 🔴 Can't fully check: need to acknowledge it and discuss it | 
 
 ---
+
+## Step 8: Run preliminary analyses
+
+At this point you should be runnign your preliminary analyses and having one r file with your analyses! You should share it.

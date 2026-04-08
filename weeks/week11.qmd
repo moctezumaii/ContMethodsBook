@@ -43,14 +43,7 @@ By the end of this week, you will be able to:
 
 **Read:** Wohlfahrt et al. (2026) — full paper. Focus on the Methods and Results sections.
 
-**Submit on Canvas before class** — written responses to:
-
-1. **Application to your system:** Describe one specific scenario in your research (or a hypothetical one in your field) where estimating adult sex ratio from remote sensing data (camera traps, drone imagery, acoustic sensors) would be valuable. Name the species/taxon and explain why sex-specific detection bias could matter.
-
-2. **Methods alignment:** Does the Wohlfahrt et al. (2026) paper demonstrate logical alignment from research objectives → data collection → statistical methods? Identify one strength and one weakness in 2–3 sentences.
-
-3. **Question for the presenter:** Write one substantive question you want to ask about the paper's methods, results, or implications.
-:::
+**Submit on Canvas before class** — written responses to questions
 
 **Guiding questions as you read:**
 
@@ -64,18 +57,7 @@ By the end of this week, you will be able to:
 
 # Session A — Paper Discussion & Methods Deep-Dive (~75 min)
 
-## Schedule {.unnumbered}
 
-| Time | Activity |
-|------|----------|
-| 0:00–0:05 | Entry ticket: retrieval practice |
-| 0:05–0:15 | Instructor mini-lecture: ASR concepts and three approaches |
-| 0:15–0:31 | Student paper presentation + guided discussion |
-| 0:31–0:46 | Jigsaw activity: become an expert in one ASR approach |
-| 0:46–0:56 | Choose-your-own-method scenario + gallery walk |
-| 0:56–1:06 | Structured mini-debate |
-| 1:06–1:12 | Concept map + muddiest point |
-| 1:12–1:15 | Minute paper |
 
 ---
 
@@ -107,46 +89,16 @@ The paper compares three approaches to estimate ASR from camera-trap data:
 
 ---
 
-## Student Paper Presentation — 0:15–0:31 {.unnumbered}
+## Student Paper Presentation {.unnumbered}
 
 **Your classmate will present Wohlfahrt et al. (2026).** As you listen:
 
 - Note which ASR approach you find most convincing and why
 - Prepare one follow-up question or observation
 
-### Rotating Discussion Roles {.unnumbered}
 
-Today's assigned roles:
 
-| Role | Your job |
-|------|----------|
-| **Facilitator** | Keep discussion flowing; call on quiet voices |
-| **Skeptic** | Challenge assumptions; play devil's advocate |
-| **Scribe** | Capture key points on the whiteboard |
-| **Assumption-Checker** | Flag statistical assumptions being made or violated |
-
-*Everyone else: contribute to discussion freely.*
-
-### Presentation Template (for the presenter) {.unnumbered}
-
-::: {.callout-note}
-## What to Cover in Your Presentation (~8 min)
-
-1. **Motivation** (~1 min): Why does ASR matter for red deer management? Why are camera traps useful but tricky?
-2. **Data** (~1.5 min): Describe the study area, camera deployment (24 cameras, trail-based), sighting classification (species, sex, age), and the unknown-sex problem.
-3. **Three Approaches** (~3.5 min):
-   - Naive ASR: formula, what's excluded, when it works
-   - Predicted ASR: GAM model, covariates used, prediction precision (~75%), threshold (0.5)
-   - Occupancy RN: detection histories, latent abundance, how ASR is derived from $\bar{N}$ estimates
-4. **Key Results** (~1.5 min): ASR estimates across years and methods (with CIs), Wilcoxon tests, the main finding (methods agreed under these conditions)
-5. **Critique** (~0.5 min): One limitation you identified; one thing you would do differently
-
-**Prepare 2 discussion questions** to pose to the class after your talk.
-:::
-
----
-
-## Jigsaw Activity: Three ASR Approaches — 0:31–0:46 {.unnumbered}
+## Jigsaw Activity: Three ASR Approaches —{.unnumbered}
 
 ::: {.callout-note}
 ## Become an Expert, Then Teach
@@ -177,7 +129,7 @@ Your group will receive a wildlife monitoring scenario. Decide:
 - Why that approach is the best fit for the constraints described
 - What risks or limitations remain
 
-Write your recommendation on your poster. Then do a **gallery walk** — visit other groups' posters and add comments.
+Write your recommendation on your poster. 
 
 ---
 
