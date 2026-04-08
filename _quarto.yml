@@ -38,6 +38,8 @@ site:
             href: weeks/week09.qmd
           - text: Week 11
             href: weeks/week11.qmd
+          - text: Week 11, Thursday
+            href: weeks/week11-workshop.qmd
           - text: Week 11 (Instructor)
             href: weeks/week11-instructor.qmd
       - text: Projects

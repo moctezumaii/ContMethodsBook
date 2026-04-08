@@ -1,0 +1,136 @@
+---
+title: "Week 11 — Workshop: Final Projects and Presentations"
+format: html
+---
+
+::: {.callout-note}
+## Schedule
+
+**Student Presentations:**
+
+- **April 14:** Hannah presents
+- **April 21:** Areli presents
+- **April 23:** Brittnany presents
+- **April 28:** Ronnie presents
+
+**Final Project Presentation Dates:**
+
+- **April 28** — 2 students present
+- **April 30** — 4 students present
+- **May 5** — 4 students present
+
+**Final Paper Due:**
+
+- **May 10** — Final paper due (written section)
+:::
+
+---
+
+## Today's Class
+
+| Order | Activity |
+|-------|----------|
+| 1 | Jim presents |
+| 2 | Complete the Weekly Self-Assessment |
+| 3 | Review the Final Project page |
+| 4 | Work on your project |
+
+**a)** Jim will present to the class.
+
+**b)** Complete the [Weekly Self-Assessment](../projects/weekly-self-assessment.html). Take a few minutes to reflect on your progress and update your status.
+
+**c)** Review the [Final Project page](../projects/index.html). Make sure you understand all requirements and deliverables.
+
+**d)** Use the remaining class time to work on your project.
+
+---
+
+::: {.callout-tip}
+## Checklist
+
+Use this checklist to track your progress. Make sure every item is done before Thursday.
+
+- [ ] Attend Jim's presentation
+- [ ] Complete the [Weekly Self-Assessment](../projects/weekly-self-assessment.html)
+- [ ] Review the [Final Project page](../projects/index.html)
+- [ ] Add the presentation information to your project timeline (remember: the presentation date is different than the day the paper is due)
+- [ ] Begin preparing your final presentation — focus on your analytical methods
+- [ ] Prepare a 15-minute PowerPoint presentation with 2–3 minutes for Q&A
+- [ ] Work on your project during class time
+- [ ] Push all current project work to your GitHub repository by Thursday
+- [ ] If anything is incomplete by Thursday, include a written justification in your repository
+:::
+
+---
+
+::: {.callout-warning}
+## Important: Thursday Deadline
+
+By **next week Thursday**, you must have all of the steps above completed and shared to me via GitHub.
+
+If you have not completed everything by Thursday, you **must** provide a written justification explaining what is outstanding and when it will be finished.
+
+Check your checklist and make sure everything is pushed to GitHub before the deadline.
+:::
+
+---
+
+## Add Presentation Info to Your Timeline
+
+You need to update your project timeline now with the presentation information from the schedule above.
+
+- **The presentation date is different than the day the paper is due.** Your final paper is due **May 10**, but your presentation will happen on one of the earlier dates listed in the schedule.
+- You should be **preparing your presentation now** — do not wait until the last minute.
+- Your presentation should focus on your **analytical methods**.
+
+---
+
+## Final Presentation Instructions
+
+Each student will deliver a final project presentation to the class.
+
+- **Length:** 15 minutes presentation + 2–3 minutes Q&A
+- **Format:** PowerPoint presentation
+- **Class size:** 10 students
+
+### Peer Assessment
+
+Your presentation will be assessed by the other students in the class. Each audience member will provide feedback and scores based on the following criteria:
+
+| Criterion | Description |
+|-----------|-------------|
+| **Clarity** | Was the research question and motivation clearly communicated? |
+| **Methods** | Were the analytical methods well-explained and justified? |
+| **Results** | Were the results presented clearly and accurately? |
+| **Structure** | Was the presentation well-organized and within the time limit? |
+| **Engagement** | Did the presenter engage the audience and respond well to questions? |
+
+---
+
+## In-Class Roles for Presentation Days
+
+Each presentation day, the following roles will be assigned to students in the audience:
+
+| Role | Responsibility |
+|------|----------------|
+| **Scribe** | Captures key feedback and questions during the presentation |
+| **Timekeeper** | Keeps the presenter on schedule (signals at 12 min and 15 min) |
+| **Moderator** | Manages Q&A and ensures respectful discussion |
+| **Tech Helper** | Assists with slides, screen sharing, and any technical issues |
+| **Feedback Lead** | Ensures every audience member submits their peer assessment |
+
+The names will be randomly drawed on Tuesday 14. Send me an email if you cannot do a date.
+
+---
+
+## What to Submit by Thursday
+
+The following must be completed and shared via GitHub **by Thursday**:
+
+1. Complete the [Weekly Self-Assessment](../projects/weekly-self-assessment.html)
+2. Review the [Final Project page](../projects/index.html)
+3. Add presentation information to your project timeline
+4. Push all current project work to your GitHub repository
+5. Begin preparing your final presentation (outline or draft slides)
+
+If anything is incomplete, include a written justification in your repository explaining what is outstanding and your plan to finish it.
