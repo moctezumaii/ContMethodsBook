@@ -44,6 +44,10 @@ site:
         menu:
           - text: Project Home
             href: projects/index.qmd
+          - text: Final Paper Instructions
+            href: projects/instructionsandtemplate.qmd
+          - text: Final Presentation Instructions
+            href: projects/finalpresentation.qmd
           - text: Weekly Self-Assessment
             href: projects/weekly-self-assessment.qmd
           - text: Progress Presentation
