@@ -289,10 +289,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">3.4</span> 4. Discussion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.5</span> 5. References</a></li>
   </ul></li>
-  <li><a href="#template-outline" id="toc-template-outline" class="nav-link" data-scroll-target="#template-outline"><span class="header-section-number">4</span> Template Outline</a></li>
-  <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric"><span class="header-section-number">5</span> Rubric</a></li>
-  <li><a href="#timeline-reminders" id="toc-timeline-reminders" class="nav-link" data-scroll-target="#timeline-reminders"><span class="header-section-number">6</span> Timeline Reminders</a></li>
-  <li><a href="#submission-checklist" id="toc-submission-checklist" class="nav-link" data-scroll-target="#submission-checklist"><span class="header-section-number">7</span> Submission Checklist</a></li>
+  <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric"><span class="header-section-number">4</span> Rubric</a></li>
+  <li><a href="#timeline-reminders" id="toc-timeline-reminders" class="nav-link" data-scroll-target="#timeline-reminders"><span class="header-section-number">5</span> Timeline Reminders</a></li>
   </ul>
 </nav>
     </div>
@@ -367,13 +365,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Your Methods section must include:</p>
 <ul>
 <li><strong>Study design or data structure</strong>: Describe your experimental design, sampling scheme, or observational data structure. Identify your response variable(s), predictor variable(s), and any grouping or nesting factors.</li>
-<li><strong>Analysis method(s)</strong>: Describe the statistical method(s) you used and justify your choice. Reference the Method-Question-Data Triangle — explain why this method fits your question and data, why a simpler method would be insufficient, and why a more complex method is not warranted.</li>
+<li><strong>Analysis method(s)</strong>: Describe the statistical method(s) you used and justify your choice. Reference the Method-Question-Data Triangle: explain why this method fits your question and data, why a simpler method would be insufficient, and why a more complex method is not warranted.</li>
 <li><strong>Model specification</strong>: Write out your model (e.g., the <code>lmer()</code> or <code>glm()</code> call, or the mathematical equation). Be specific about fixed effects, random effects, distributions, and link functions as applicable.</li>
 <li><strong>Software and packages</strong>: State the software and R packages you used, with version numbers.</li>
 </ul>
 <section id="assumptions-and-assumption-checks" class="level4" data-number="3.2.1">
 <h4 data-number="3.2.1" class="anchored" data-anchor-id="assumptions-and-assumption-checks"><span class="header-section-number">3.2.1</span> Assumptions and Assumption Checks</h4>
-<p>This subsection is <strong>required</strong>. You must:</p>
+<p>This subsection can be included in the Methods section or the README. But you need to share it. You must:</p>
 <ul>
 <li>List every assumption your chosen model requires (e.g., independence of residuals, normality of random effects, homoscedasticity, no spatial autocorrelation, etc.).</li>
 <li>Describe how you evaluated each assumption (e.g., residual plots, Shapiro-Wilk test, variogram, etc.).</li>
@@ -430,8 +428,8 @@ ul.task-list li input[type="checkbox"] {
 <p>This is the other most important section. Your Results section must include:</p>
 <ul>
 <li><strong>Plots and figures</strong>: Include at least one figure that displays your data and/or model results. Figures should be clear, well-labeled, and interpretable without reading the text. Follow your target journal’s figure formatting guidelines.</li>
-<li><strong>Model output</strong>: Present your key results (coefficients, confidence intervals, p-values, effect sizes, or posterior summaries — whatever is appropriate for your method and inferential framework).</li>
-<li><strong>Interpretation</strong>: Describe what the results mean in the context of your research question. Do not just paste R output — interpret it.</li>
+<li><strong>Model output</strong>: Present your key results (coefficients, confidence intervals, p-values, effect sizes, or posterior summaries or whatever is appropriate for your method and inferential framework).</li>
+<li><strong>Interpretation</strong>: Describe what the results mean in the context of your research question.</li>
 <li><strong>Tables</strong>: If appropriate, include summary tables of model results, means, or comparisons.</li>
 </ul>
 </section>
@@ -454,47 +452,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="template-outline" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="template-outline"><span class="header-section-number">4</span> Template Outline</h2>
-<p>You may use the following as a starting structure for your paper. Adapt it to your target journal’s format.</p>
-<pre><code># Title
-
-## Introduction
-- [Research question stated here]
-- [Brief background — why does this matter?]
-- [Objective or hypothesis]
-
-## Methods
-
-### Study Design / Data Structure
-- [Description of experimental design or data collection]
-- [Response variable(s) and predictor variable(s)]
-- [Grouping, nesting, or blocking factors]
-
-### Statistical Analysis
-- [Method chosen and justification]
-- [Model specification — equation or R code]
-- [Software and packages used]
-
-### Assumptions and Assumption Checks
-- [Table of assumptions, how checked, results, and actions taken]
-
-## Results
-- [Key findings — text, tables, and figures]
-- [Model output interpretation]
-- [At least one figure]
-
-## Discussion
-- [Summary of findings]
-- [Alignment of question ↔ methods ↔ results]
-- [Limitations and assumption violations]
-- [Broader implications and next steps]
-
-## References</code></pre>
-<hr>
-</section>
-<section id="rubric" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="rubric"><span class="header-section-number">5</span> Rubric</h2>
+<section id="rubric" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="rubric"><span class="header-section-number">4</span> Rubric</h2>
 <p>Your final paper is worth <strong>25% of your course grade</strong> (as part of the Final Project component, which includes both the paper and the presentation). I will evaluate your paper using the following criteria:</p>
 <table class="caption-top table">
 <colgroup>
@@ -522,7 +481,7 @@ ul.task-list li input[type="checkbox"] {
 <td>15%</td>
 </tr>
 <tr class="even">
-<td><strong>Methods — Correctness &amp; Clarity</strong></td>
+<td><strong>Methods. Correctness &amp; Clarity</strong></td>
 <td>Statistical method is appropriate for the data structure and question. Model is fully specified (equation or code). Justification is clear and references course concepts (e.g., why not simpler, why not more complex).</td>
 <td>Method is reasonable but justification is thin or model specification is incomplete.</td>
 <td>Method is inappropriate for the data, or no justification is provided.</td>
@@ -536,7 +495,7 @@ ul.task-list li input[type="checkbox"] {
 <td>15%</td>
 </tr>
 <tr class="even">
-<td><strong>Results — Plots, Figures &amp; Interpretation</strong></td>
+<td><strong>Results. Plots, Figures &amp; Interpretation</strong></td>
 <td>Results are presented clearly with well-formatted figures and tables. Output is interpreted in context, not just pasted. Figures are publication-quality and follow journal guidelines.</td>
 <td>Results are present but figures need improvement, or interpretation is too brief.</td>
 <td>Results are missing, unclear, or consist of uninterpreted R output.</td>
@@ -560,8 +519,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <hr>
 </section>
-<section id="timeline-reminders" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="timeline-reminders"><span class="header-section-number">6</span> Timeline Reminders</h2>
+<section id="timeline-reminders" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="timeline-reminders"><span class="header-section-number">5</span> Timeline Reminders</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -581,38 +540,6 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>Your presentation date is not the same as your paper due date.</p>
-<hr>
-</section>
-<section id="submission-checklist" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="submission-checklist"><span class="header-section-number">7</span> Submission Checklist</h2>
-<p>Before you submit, make sure you can check off every item:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Final Submission Checklist
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul class="task-list">
-<li><label><input type="checkbox">My research question is clearly stated in the Introduction</label></li>
-<li><label><input type="checkbox">My paper follows the author guidelines of my target journal (formatting, citation style, structure)</label></li>
-<li><label><input type="checkbox">My Methods section includes a full model specification (equation or code)</label></li>
-<li><label><input type="checkbox">My Methods section includes a justification for my method choice</label></li>
-<li><label><input type="checkbox">I have an Assumptions and Assumption Checks subsection with a completed table</label></li>
-<li><label><input type="checkbox">My Results section includes at least one well-formatted figure</label></li>
-<li><label><input type="checkbox">My Results section interprets model output — it is not just pasted R output</label></li>
-<li><label><input type="checkbox">My Discussion addresses alignment between question, methods, and results</label></li>
-<li><label><input type="checkbox">My Discussion honestly acknowledges limitations and assumption violations</label></li>
-<li><label><input type="checkbox">All references are cited in the correct style for my target journal</label></li>
-<li><label><input type="checkbox">My code and data are in my GitHub repository and the analysis is reproducible</label></li>
-<li><label><input type="checkbox">My README is up to date with my research question, variables, method, and assumption check table</label></li>
-<li><label><input type="checkbox">I have pushed everything to GitHub and emailed the instructor</label></li>
-</ul>
-</div>
-</div>
 <hr>
 <p><em>Return to <a href="index.html">Project Home</a> · See also: <a href="finalpresentation.html">Final Presentation Instructions</a></em></p>
 
