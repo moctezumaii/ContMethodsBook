@@ -1,6 +1,6 @@
 ---
-title: "Final Project Paper — Instructions, Template & Rubric"
-subtitle: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+title: "Final Project Paper. Instructions, Template & Rubric"
+subtitle: "SNR 690. Contemporary Approaches to Quantitative Methods"
 format: html
 number-sections: true
 ---

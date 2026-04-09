@@ -1,6 +1,6 @@
 ---
 title: "Final Presentation Instructions"
-subtitle: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+subtitle: "SNR 690. Contemporary Approaches to Quantitative Methods"
 format: html
 number-sections: false
 ---
