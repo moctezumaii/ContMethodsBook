@@ -78,7 +78,7 @@ Check your checklist and make sure everything is pushed to GitHub before the dea
 You need to update your project timeline now with the presentation information from the schedule above.
 
 - **The presentation date is different than the day the paper is due.** Your final paper is due **May 10**, but your presentation will happen on one of the earlier dates listed in the schedule.
-- You should be **preparing your presentation now** — do not wait until the last minute.
+- You should be **preparing your presentation now**: do not wait until the last minute.
 - Your presentation should focus on your **analytical methods**.
 
 ---
@@ -114,7 +114,7 @@ Each presentation day, the following roles will be assigned to students in the a
 | **Scribe** | Captures key feedback and questions during the presentation |
 | **Timekeeper** | Keeps the presenter on schedule (signals at 12 min and 15 min) |
 | **Moderator** | Manages Q&A and ensures respectful discussion |
-| **Tech Helper and Feedback** | Assists with slides, screen sharing, and any technical issues gets all feedback|
+| **Feedback** | Gets all feedback, and data from scribe|
 
 The names will be randomly selected on Tuesday 14. Send me an email if you cannot do a date.
 
