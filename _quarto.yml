@@ -40,8 +40,6 @@ site:
             href: weeks/week11.qmd
           - text: Week 11, Thursday
             href: weeks/week11-workshop.qmd
-          - text: Week 11 (Instructor)
-            href: weeks/week11-instructor.qmd
       - text: Projects
         menu:
           - text: Project Home
@@ -88,8 +86,7 @@ site:
             href: slides/slides-Week08.qmd
           - text: Slides Week 09
             href: slides/slides-Week09.qmd
-          - text: Slides Week 11
-            href: slides/slides-Week11.qmd
+
 
 bibliography: references.bib   # main BibTeX file (place in repo root)
 

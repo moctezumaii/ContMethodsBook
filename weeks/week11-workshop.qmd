@@ -50,12 +50,10 @@ format: html
 
 Use this checklist to track your progress. Make sure every item is done before Thursday.
 
-- [ ] Attend Jim's presentation
 - [ ] Complete the [Weekly Self-Assessment](../projects/weekly-self-assessment.html)
 - [ ] Review the [Final Project page](../projects/index.html)
 - [ ] Add the presentation information to your project timeline (remember: the presentation date is different than the day the paper is due)
-- [ ] Begin preparing your final presentation — focus on your analytical methods
-- [ ] Prepare a 15-minute PowerPoint presentation with 2–3 minutes for Q&A
+- [ ] Begin preparing your final presentation focus on your analytical methods
 - [ ] Work on your project during class time
 - [ ] Push all current project work to your GitHub repository by Thursday
 - [ ] If anything is incomplete by Thursday, include a written justification in your repository
@@ -116,14 +114,13 @@ Each presentation day, the following roles will be assigned to students in the a
 | **Scribe** | Captures key feedback and questions during the presentation |
 | **Timekeeper** | Keeps the presenter on schedule (signals at 12 min and 15 min) |
 | **Moderator** | Manages Q&A and ensures respectful discussion |
-| **Tech Helper** | Assists with slides, screen sharing, and any technical issues |
-| **Feedback Lead** | Ensures every audience member submits their peer assessment |
+| **Tech Helper and Feedback** | Assists with slides, screen sharing, and any technical issues gets all feedback|
 
-The names will be randomly drawed on Tuesday 14. Send me an email if you cannot do a date.
+The names will be randomly selected on Tuesday 14. Send me an email if you cannot do a date.
 
 ---
 
-## What to Submit by Thursday
+## What to Submit by Thursday of next week
 
 The following must be completed and shared via GitHub **by Thursday**:
 
