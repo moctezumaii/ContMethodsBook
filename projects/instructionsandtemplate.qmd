@@ -7,25 +7,27 @@ number-sections: true
 
 ## Overview
 
-Your final paper is the capstone of this course. It brings together everything we have worked on this semester — from the Method-Question-Data Triangle (Week 3), to method justification and assumption checking (Weeks 5–9), to your own research question and data.
+Your final paper is the main deliverable of this course. It brings together everything we have worked on this semester: from the Method-Question-Data Triangle (Week 3), to method justification and assumption checking (Weeks 5–9), to your own research question and data.
 
-The paper should be written **as a submission to a journal of your choosing**. You must identify a target journal before you begin writing, review that journal's author guidelines (formatting, citation style, structure expectations), and follow them. Your paper must demonstrate that you can align a research question with appropriate quantitative methods, carry out the analysis, and communicate the results clearly and honestly.
+The paper should be written as a submission to a journal of your choosing. You must identify a target journal before you begin writing, review that journal's author guidelines (formatting, citation style, structure expectations), and follow them. Your paper must demonstrate that you can align a research question with appropriate quantitative methods, carry out the analysis, and communicate the results clearly and honestly.
+
+You need to include the journal that you are tageting in your submission.
 
 ::: {.callout-important}
 ## Due Date
 
 **Your final paper is due May 10, 2026.**
 
-Submit your paper by pushing the final version to your GitHub repository and notifying me via email. Make sure the repository is shared with me (see Step 4 in the [Project Home](index.html) page).
+Submit your paper by either submitting it via Canvas or by pushing the final version to your GitHub repository. Make sure the repository is shared with me (see Step 4 in the [Project Home](index.html) page).
 :::
 
 ---
 
 ## What to Submit
 
-1. **A written paper** in your GitHub repository. The paper can be a `.qmd`, `.Rmd`, `.docx`, or `.pdf` file — whatever your target journal would accept, but I strongly encourage you to use Quarto or R Markdown for reproducibility.
-2. **All code and data** (or a clear description of how to obtain the data) needed to reproduce your analysis, pushed to your GitHub repository.
-3. **A README** in your repository that includes your research question, variables, analysis method, assumption check table, and expected timeline (you should already have this from earlier in the semester — update it as needed).
+1. **A written paper**. The paper can be a `.qmd`, `.Rmd`, `.docx`, or `.pdf` file but remember that you need to read your target journal's author guidelines to ensure your submission meets their requirements.
+2. **All code** pushed to your GitHub repository, or a supplementary material. The code must be organized and commented so that someone else could run it and reproduce your analysis.
+3. **A README** ONLY IN CERTAIN CASES. Please read. Put this file in your repository and it should include your research question, variables, analysis method, assumption check table, and expected timeline, but only if you have not already included this information in your paper. If your paper already includes all of this information, you do not need a README.
 
 ---
 
@@ -35,10 +37,10 @@ Your paper must be structured with at least the following major sections. You sh
 
 ### 1. Introduction
 
-- State your **research question** explicitly and early.
-- Provide enough background for the reader to understand why the question matters.
-- I encourage brevity here — a focused introduction is better than a long one. Think 1–2 paragraphs for a course paper, unless your target journal expects more.
-- End the introduction with a clear statement of your objective or hypothesis.
+- State your research question, research objective or BOTH explicitly.
+- Provide enough background for the reader to understand why the question matters. But this is not the main focus of the paper, so be concise. You can assume your reader has a general background in natural resources, plant sciences, etc., but not necessarily in your specific topic.
+- I encourage a focused introduction rather than a long one. 
+- End the introduction with a clear statement of your objective and/or hypothesis.
 
 ### 2. Methods
 
@@ -68,7 +70,7 @@ This subsection is **required**. You must:
 ::: {.callout-tip}
 ## Remember
 
-The goal is **not** to have all assumptions perfectly met. Red-flag assumptions are honest limitations that belong in your Discussion section. Every study has them. What I am looking for is that you identified them, checked them, and dealt with them transparently.
+The goal is not to have all assumptions perfectly met. Red-flag assumptions are honest limitations that belong in your Discussion section. Every study has them. What I am looking for is that you identified them, checked them, and dealt with them transparently.
 :::
 
 ### 3. Results
@@ -83,7 +85,7 @@ This is the other most important section. Your Results section must include:
 ### 4. Discussion
 
 - Summarize your main findings and how they answer your research question.
-- Discuss the **alignment** between your research question, methods, and results. Did your analysis answer the question you set out to address?
+- Discuss the alignment between your research question, methods, and results. Did your analysis answer the question you set out to address?
 - Discuss limitations honestly, including any assumptions that were violated or could not be fully checked.
 - Connect your findings to the broader literature or practical implications in your field.
 - If relevant, suggest next steps or future analyses.
@@ -149,7 +151,7 @@ Your final paper is worth **25% of your course grade** (as part of the Final Pro
 | **Assumptions & Assumption Checks** | All relevant assumptions are listed. Each is checked with an appropriate diagnostic. Results and actions are reported transparently. Violated assumptions are acknowledged honestly. | Most assumptions are listed and checked, but some are missing or checks are superficial. | Assumptions are not discussed, or the section is missing entirely. | 15% |
 | **Results — Plots, Figures & Interpretation** | Results are presented clearly with well-formatted figures and tables. Output is interpreted in context, not just pasted. Figures are publication-quality and follow journal guidelines. | Results are present but figures need improvement, or interpretation is too brief. | Results are missing, unclear, or consist of uninterpreted R output. | 20% |
 | **Writing, Organization & Journal Compliance** | Paper is well-organized, follows the target journal's author guidelines (citation style, formatting, structure). Writing is clear and concise. Instructor voice is absent (i.e., it reads like a real paper). | Organization is reasonable but does not closely follow journal guidelines, or writing has some unclear passages. | Paper is disorganized, does not follow any journal format, or has significant writing issues. | 15% |
-| **Reproducibility & Code** | Code and data are available in the GitHub repository. Analysis can be reproduced by running the code. Software and package versions are reported. | Code is present but incomplete or not fully reproducible. | No code is shared, or code does not run. | 10% |
+| **Reproducibility & Code** | Code is available in the GitHub repository. Analysis can be reproduced by running the code. Software and package versions are reported. | Code is present but incomplete or not fully reproducible. | No code is shared, or code does not run. | 10% |
 
 ---
 
@@ -158,9 +160,9 @@ Your final paper is worth **25% of your course grade** (as part of the Final Pro
 | Date | Milestone |
 |------|-----------|
 | **April 28, 30, or May 5** | Final presentation (see [Final Presentation Instructions](finalpresentation.html)) |
-| **May 10, 2026** | **Final paper due** — push to GitHub and email me |
+| **May 10, 2026** | Final paper due  |
 
-Your presentation date is **not** the same as your paper due date. You should be working on your paper continuously — do not wait until after your presentation to start writing.
+Your presentation date is not the same as your paper due date.
 
 ---
 

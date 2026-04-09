@@ -1078,6 +1078,83 @@
     "text": "What to Bring\n\n\n\n\n\n\nImportantChecklist — Prepare before you arrive\n\n\n\n⬜ One specific thing to show -&gt; a figure, output, table, or code chunk\n⬜ Your updated timeline ⬜ One open question you want feedback on\n⬜ Your assumption check table (even if incomplete)\n\n\n\nReturn to Project Home · See also: Weekly Self-Assessment"
   },
   {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Final Paper: Project Home",
+    "section": "",
+    "text": "This is your living project guide. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper."
+  },
+  {
+    "objectID": "projects/index.html#upcoming-brief-progress-presentations",
+    "href": "projects/index.html#upcoming-brief-progress-presentations",
+    "title": "Final Paper: Project Home",
+    "section": "1 Upcoming: Brief Progress Presentations",
+    "text": "1 Upcoming: Brief Progress Presentations\nNext week, you will give a 3–5 minute progress update during Thursday workshop time.\nSee Progress Presentation Instructions for what to prepare and bring.\n\n\n\n\n\n\nImportantBefore next Thursday’s workshop\n\n\n\n⬜ Update your Expected Timeline in your README\n⬜ Push your latest code or analysis to GitHub\n⬜ Add or update your Methods section (at least two sentences)\n⬜ Have your assumption check table present (even if incomplete)\n⬜ Identify one open question you want feedback on\n\n\n\nThis assignment guides you through creating a research project repository and developing your final paper proposal."
+  },
+  {
+    "objectID": "projects/index.html#step-1-create-a-private-github-repository",
+    "href": "projects/index.html#step-1-create-a-private-github-repository",
+    "title": "Final Paper: Project Home",
+    "section": "2 Step 1: Create a Private GitHub Repository",
+    "text": "2 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
+  },
+  {
+    "objectID": "projects/index.html#step-2-clone-repository-to-rstudio",
+    "href": "projects/index.html#step-2-clone-repository-to-rstudio",
+    "title": "Final Paper: Project Home",
+    "section": "3 Step 2: Clone Repository to RStudio",
+    "text": "3 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
+  },
+  {
+    "objectID": "projects/index.html#step-3-modify-the-readme",
+    "href": "projects/index.html#step-3-modify-the-readme",
+    "title": "Final Paper: Project Home",
+    "section": "4 Step 3: Modify the README",
+    "text": "4 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n4.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n4.2 Research Question\nWhat specific question are you trying to answer?\n\n\n4.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n4.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n4.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n4.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n4.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n4.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n4.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
+  },
+  {
+    "objectID": "projects/index.html#step-4-share-your-repository-with-me-via-github",
+    "href": "projects/index.html#step-4-share-your-repository-with-me-via-github",
+    "title": "Final Paper: Project Home",
+    "section": "5 Step 4: Share your repository with me via Github",
+    "text": "5 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
+  },
+  {
+    "objectID": "projects/index.html#step-5-write-a-method-justification-section",
+    "href": "projects/index.html#step-5-write-a-method-justification-section",
+    "title": "Final Paper: Project Home",
+    "section": "6 Step 5: Write a method justification section",
+    "text": "6 Step 5: Write a method justification section\nOn the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we … - Write down a description of the analysis you will do, and start working on it! At this point you should start coding\nIt should be two or so paragraphs.\nYour paragraphs can address:\n\n\n\n\n\n\nTipWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!\n\n\nAnd more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis."
+  },
+  {
+    "objectID": "projects/index.html#step-6-check-your-assumptions",
+    "href": "projects/index.html#step-6-check-your-assumptions",
+    "title": "Final Paper: Project Home",
+    "section": "7 Step 6: Check your assumptions",
+    "text": "7 Step 6: Check your assumptions\nBased on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked: and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet: but I could by next class\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check: need to acknowledge it and discuss it\n\n\n\nThe goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section."
+  },
+  {
+    "objectID": "projects/index.html#step-7-start-working-on-your-methods",
+    "href": "projects/index.html#step-7-start-working-on-your-methods",
+    "title": "Final Paper: Project Home",
+    "section": "8 Step 7: Start working on your methods",
+    "text": "8 Step 7: Start working on your methods\nI wante everyone to do “one concrete” thing this week, aimed at analyzing your data. This could be a code chunk that runs a model, creates a figure, or produces a table. It can be cleaning data. We are at the half point of the semester, so, this is where you should be.\nSuggested priorities:\n\nRun a preliminary model or analysis (even if rough)\nGenerate at least one exploratory figure\nContinue writing your Methods section\nClean or organize your data file"
+  },
+  {
+    "objectID": "projects/index.html#example-project-template",
+    "href": "projects/index.html#example-project-template",
+    "title": "Final Paper: Project Home",
+    "section": "9 Example Project Template",
+    "text": "9 Example Project Template\n\n\n\n\n\n\nImportant\n\n\n\nBy the end of this week your project should look like this example (obviously with more detail and specific to your project)!\n\n\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.\nMethod Justification: I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.\nAssumption Check:\n\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\nIndependence of residuals\n🟢 Checked: and it holds\n\n\nNormality of random effects\n🟡 Haven’t checked yet: but I could by next class\n\n\nNo spatial autocorrelation\n🔴 Can’t fully check: need to acknowledge it and discuss it"
+  },
+  {
+    "objectID": "projects/index.html#step-8-run-preliminary-analyses",
+    "href": "projects/index.html#step-8-run-preliminary-analyses",
+    "title": "Final Paper: Project Home",
+    "section": "10 Step 8: Run preliminary analyses",
+    "text": "10 Step 8: Run preliminary analyses\nAt this point you should be runnign your preliminary analyses and having one r file with your analyses! You should share it."
+  },
+  {
     "objectID": "materials/Week3questions.html",
     "href": "materials/Week3questions.html",
     "title": "Week 03 — Linear Models and GLM’s",
@@ -1610,81 +1687,116 @@
     "text": "1.6 Quick Reference Summary\n\n\n\n\n\n\n\n\nSection\nCore Message\nTime\n\n\n\n\nOpening Hook\n“Can you defend your method?”\n2 min\n\n\nSection 1: Box\nWrong in a way that matters vs. doesn’t\n5 min\n\n\nSection 2: Inference Type\nDescriptive / Predictive / Causal; observational ≠ causal\n5 min\n\n\nSection 3: Triangle in Practice\nThree concrete ag/NR examples\n5 min\n\n\nSection 4: Tying Together\nMethods section = philosophical argument\n3 min\n\n\nTotal\n\n~20 min"
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Final Paper: Project Home",
+    "objectID": "projects/finalpresentation.html",
+    "href": "projects/finalpresentation.html",
+    "title": "Final Presentation Instructions",
     "section": "",
-    "text": "This is your living project guide. You will return to it every week to update your timeline, document your method decisions, and track your progress. The sections below walk you through the full project workflow from setup to final paper."
+    "text": "Each student will deliver a final project presentation to the class. Your presentation should focus on your analytical methods. I want to see that you can explain and defend your methodological choices."
   },
   {
-    "objectID": "projects/index.html#upcoming-brief-progress-presentations",
-    "href": "projects/index.html#upcoming-brief-progress-presentations",
-    "title": "Final Paper: Project Home",
-    "section": "1 Upcoming: Brief Progress Presentations",
-    "text": "1 Upcoming: Brief Progress Presentations\nNext week, you will give a 3–5 minute progress update during Thursday workshop time.\nSee Progress Presentation Instructions for what to prepare and bring.\n\n\n\n\n\n\nImportantBefore next Thursday’s workshop\n\n\n\n⬜ Update your Expected Timeline in your README\n⬜ Push your latest code or analysis to GitHub\n⬜ Add or update your Methods section (at least two sentences)\n⬜ Have your assumption check table present (even if incomplete)\n⬜ Identify one open question you want feedback on\n\n\n\nThis assignment guides you through creating a research project repository and developing your final paper proposal."
+    "objectID": "projects/finalpresentation.html#overview",
+    "href": "projects/finalpresentation.html#overview",
+    "title": "Final Presentation Instructions",
+    "section": "",
+    "text": "Each student will deliver a final project presentation to the class. Your presentation should focus on your analytical methods. I want to see that you can explain and defend your methodological choices."
   },
   {
-    "objectID": "projects/index.html#step-1-create-a-private-github-repository",
-    "href": "projects/index.html#step-1-create-a-private-github-repository",
-    "title": "Final Paper: Project Home",
-    "section": "2 Step 1: Create a Private GitHub Repository",
-    "text": "2 Step 1: Create a Private GitHub Repository\n\nGo to GitHub and log in\nClick the “+” icon in the top-right corner and select “New repository”\nName your repository (e.g., SNR690-final-paper-yourname)\nAdd a brief description of your project\nImportant: Select “Private” to keep your work confidential\nCheck “Add a README file”\nClick “Create repository”"
+    "objectID": "projects/finalpresentation.html#presentation-schedule",
+    "href": "projects/finalpresentation.html#presentation-schedule",
+    "title": "Final Presentation Instructions",
+    "section": "Presentation Schedule",
+    "text": "Presentation Schedule\n\n\n\n\n\n\nNotePresentation Dates\n\n\n\nThis will be updated with the final schedule once I assign presentation dates. Here is the general plan:\n\n\n\nDate\nNumber of Presenters\n\n\n\n\nApril 28, 2026\n2 students present\n\n\nApril 30, 2026\n4 students present\n\n\nMay 5, 2026\n4 students present\n\n\n\nYour final paper is due May 10, 2026. This is a separate deadline from your presentation. See the Final Paper Instructions for paper requirements.\nSend me an email if you cannot present on a particular date. Otherwise, I will assign presentation dates."
   },
   {
-    "objectID": "projects/index.html#step-2-clone-repository-to-rstudio",
-    "href": "projects/index.html#step-2-clone-repository-to-rstudio",
-    "title": "Final Paper: Project Home",
-    "section": "3 Step 2: Clone Repository to RStudio",
-    "text": "3 Step 2: Clone Repository to RStudio\n\nIn your new GitHub repository, click the green “Code” button\nCopy the HTTPS URL\nOpen RStudio\nGo to File &gt; New Project &gt; Version Control &gt; Git\nPaste the repository URL\nChoose a local directory and click “Create Project”"
+    "objectID": "projects/finalpresentation.html#format-and-timing",
+    "href": "projects/finalpresentation.html#format-and-timing",
+    "title": "Final Presentation Instructions",
+    "section": "Format and Timing",
+    "text": "Format and Timing\n\n\n\nElement\nTime\n\n\n\n\nPresentation\n15 minutes maximum\n\n\nQ&A\n2–3 minutes\n\n\n\n\nFormat: PowerPoint (or equivalent slide-based presentation)\n\n\n\n\n\n\n\nWarningStrict Timing Policy\n\n\n\nYou cannot go over 15 minutes. There will be a strict timeline during the presentations. A timekeeper will signal you at 12 minutes and again at 15 minutes. If you reach 15 minutes, you will be asked to wrap up immediately.\nPlan and practice your presentation to fit within the time limit. Going over time affects every presenter who follows you and will be reflected in your Structure score on the peer assessment."
   },
   {
-    "objectID": "projects/index.html#step-3-modify-the-readme",
-    "href": "projects/index.html#step-3-modify-the-readme",
-    "title": "Final Paper: Project Home",
-    "section": "4 Step 3: Modify the README",
-    "text": "4 Step 3: Modify the README\nEdit your README.md file to include the following sections:\n\n4.1 Objective\nWhat do you aim to accomplish with this research?\n\n\n4.2 Research Question\nWhat specific question are you trying to answer?\n\n\n4.3 Variables\nList your response variable(s) and predictor variable(s)\n\n\n4.4 Experimental Design or Data Structure\nDescribe your data collection approach or existing dataset structure\n\n\n4.5 Analysis Method\nWhat statistical method(s) will you use?\n\n\n4.6 Main Result\nWhat do you expect to find or demonstrate?\n\n\n4.7 Logical Alignment\nDo these components align logically? Explain briefly how your methods will answer your research question.\n\n\n4.8 Expected Timeline\nCreate a week-by-week plan from Week 6 through Week 14 outlining your anticipated progress on the final paper. For each week, write a brief description of what you plan to accomplish (e.g., data cleaning, running analyses, drafting the methods section). This timeline should be realistic and account for your other coursework and obligations. You will use this as a self-assessment tool throughout the semester: revisiting and updating it as you progress.\n\n\n4.9 Usefulness for Your Career or Degree\nBriefly describe how this project connects to your thesis or your broader academic or professional goals. How does working through this research question and analysis contribute to your development as a researcher or practitioner in your field? Does it help you with your thesis/dissertation? This section should demonstrate that the project is not just an academic exercise, but an opportunity to apply appropriate quantitative approaches to a problem that is meaningful and relevant to your own research trajectory"
+    "objectID": "projects/finalpresentation.html#what-to-cover-in-your-presentation",
+    "href": "projects/finalpresentation.html#what-to-cover-in-your-presentation",
+    "title": "Final Presentation Instructions",
+    "section": "What to Cover in Your Presentation",
+    "text": "What to Cover in Your Presentation\nYour presentation should focus on your analytical methods and results. Use the following as a guide:\n\nResearch question — State it clearly at the beginning. What are you trying to answer?\nData and study design — Briefly describe your data structure, response variable(s), and predictor variable(s). Keep this concise.\nMethods — This is the core of your presentation. Explain:\n\nWhat method you chose and why\nYour model specification\nHow your method aligns with your question and data (the Method-Question-Data Triangle)\n\nAssumptions and assumption checks — Show how you evaluated your model’s assumptions and what you found.\nResults — Present your key findings with figures and/or tables. Interpret the results. Do not just show R output.\nConclusions — Summarize what you found and how it answers your research question. Mention key limitations."
   },
   {
-    "objectID": "projects/index.html#step-4-share-your-repository-with-me-via-github",
-    "href": "projects/index.html#step-4-share-your-repository-with-me-via-github",
-    "title": "Final Paper: Project Home",
-    "section": "5 Step 4: Share your repository with me via Github",
-    "text": "5 Step 4: Share your repository with me via Github\n\nIn your GitHub repository, click on “Settings”\nIn the left sidebar, click “Manage access”\nClick “Invite a collaborator”\nEnter my email address"
+    "objectID": "projects/finalpresentation.html#peer-assessment",
+    "href": "projects/finalpresentation.html#peer-assessment",
+    "title": "Final Presentation Instructions",
+    "section": "Peer Assessment",
+    "text": "Peer Assessment\nYour presentation will be assessed by the other students in the class. Each audience member will provide feedback and scores based on the following criteria:\n\n\n\n\n\n\n\nCriterion\nDescription\n\n\n\n\nClarity\nWas the research question and motivation clearly communicated?\n\n\nMethods\nWere the analytical methods well-explained and justified?\n\n\nResults\nWere the results presented clearly and accurately?\n\n\nStructure\nWas the presentation well-organized and within the time limit?\n\n\nEngagement\nDid the presenter engage the audience and respond well to questions?\n\n\n\nThe feedback assistant will collect the peer assessments and share a summary of the feedback with each presenter."
   },
   {
-    "objectID": "projects/index.html#step-5-write-a-method-justification-section",
-    "href": "projects/index.html#step-5-write-a-method-justification-section",
-    "title": "Final Paper: Project Home",
-    "section": "6 Step 5: Write a method justification section",
-    "text": "6 Step 5: Write a method justification section\nOn the same document, write a brief justification for your chosen method(s). This should start with a sentence like this: - I chose X methods because … - A key limitation of my analysis is … so we … - Write down a description of the analysis you will do, and start working on it! At this point you should start coding\nIt should be two or so paragraphs.\nYour paragraphs can address:\n\n\n\n\n\n\nTipWriting Checklist\n\n\n\n⬜ What is your response variable and what distribution does it follow?\n⬜ What is your data structure (independent, nested, repeated, blocked)?\n⬜ Why is a simpler analysis insufficient?\n⬜ Why is a more complex analysis not warranted?\n⬜ What assumptions does your method make? List ALL OF THEM!\n\n\nAnd more, depending on your project. The goal is to justify your method choice and acknowledge its limitations. And to be 100% sure about it befor you go into data cleaning and analysis."
+    "objectID": "projects/finalpresentation.html#in-class-roles-for-presentation-days",
+    "href": "projects/finalpresentation.html#in-class-roles-for-presentation-days",
+    "title": "Final Presentation Instructions",
+    "section": "In-Class Roles for Presentation Days",
+    "text": "In-Class Roles for Presentation Days\nEach presentation day, the following roles will be assigned to students in the audience:\n\n\n\n\n\n\n\nRole\nResponsibility\n\n\n\n\nScribe\nCaptures key feedback and questions during the presentation\n\n\nTimekeeper\nKeeps the presenter on schedule (signals at 12 min and 15 min)\n\n\nModerator\nManages Q&A and ensures respectful discussion\n\n\nFeedback assistant\nCollects all feedback and data from the Scribe\n\n\n\nRole assignments will be randomly selected. Send me an email if you cannot do a particular date."
   },
   {
-    "objectID": "projects/index.html#step-6-check-your-assumptions",
-    "href": "projects/index.html#step-6-check-your-assumptions",
-    "title": "Final Paper: Project Home",
-    "section": "7 Step 6: Check your assumptions",
-    "text": "7 Step 6: Check your assumptions\nBased on the assumptions you wrote, check your assumptions. You can do this by hand, on a piece of paper or on your project. list every assumption your chosen model requires. Then rate each one:\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\n(e.g., independence of residuals)\n🟢 Checked: and it holds\n\n\n(e.g., normality of random effects)\n🟡 Haven’t checked yet: but I could by next class\n\n\n(e.g., no spatial autocorrelation)\n🔴 Can’t fully check: need to acknowledge it and discuss it\n\n\n\nThe goal is not to have all green. Red assumptions are ok! they are honest limitations (all studies have them) that belong in your discussion section."
+    "objectID": "projects/finalpresentation.html#preparation-checklist",
+    "href": "projects/finalpresentation.html#preparation-checklist",
+    "title": "Final Presentation Instructions",
+    "section": "Preparation Checklist",
+    "text": "Preparation Checklist\n\n\n\n\n\n\nTipBefore Your Presentation Day\n\n\n\n\nPrepare your slides (PowerPoint or equivalent)\nPractice your presentation: make sure it fits within 15 minutes\nInclude at least one figure or plot that displays your data and/or results\nBe ready to explain and defend your method choice\nHave your assumption check results ready to show or discuss\nPrepare for Q&A: think about questions your classmates might ask\nUpdate your project timeline in your README to include your presentation date\n\n\n\n\nReturn to Project Home · See also: Final Paper Instructions · Weekly Self-Assessment"
   },
   {
-    "objectID": "projects/index.html#step-7-start-working-on-your-methods",
-    "href": "projects/index.html#step-7-start-working-on-your-methods",
-    "title": "Final Paper: Project Home",
-    "section": "8 Step 7: Start working on your methods",
-    "text": "8 Step 7: Start working on your methods\nI wante everyone to do “one concrete” thing this week, aimed at analyzing your data. This could be a code chunk that runs a model, creates a figure, or produces a table. It can be cleaning data. We are at the half point of the semester, so, this is where you should be.\nSuggested priorities:\n\nRun a preliminary model or analysis (even if rough)\nGenerate at least one exploratory figure\nContinue writing your Methods section\nClean or organize your data file"
+    "objectID": "projects/instructionsandtemplate.html",
+    "href": "projects/instructionsandtemplate.html",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "",
+    "text": "Your final paper is the main deliverable of this course. It brings together everything we have worked on this semester: from the Method-Question-Data Triangle (Week 3), to method justification and assumption checking (Weeks 5–9), to your own research question and data.\nThe paper should be written as a submission to a journal of your choosing. You must identify a target journal before you begin writing, review that journal’s author guidelines (formatting, citation style, structure expectations), and follow them. Your paper must demonstrate that you can align a research question with appropriate quantitative methods, carry out the analysis, and communicate the results clearly and honestly.\nYou need to include the journal that you are tageting in your submission.\n\n\n\n\n\n\nImportantDue Date\n\n\n\nYour final paper is due May 10, 2026.\nSubmit your paper by either submitting it via Canvas or by pushing the final version to your GitHub repository. Make sure the repository is shared with me (see Step 4 in the Project Home page)."
   },
   {
-    "objectID": "projects/index.html#example-project-template",
-    "href": "projects/index.html#example-project-template",
-    "title": "Final Paper: Project Home",
-    "section": "9 Example Project Template",
-    "text": "9 Example Project Template\n\n\n\n\n\n\nImportant\n\n\n\nBy the end of this week your project should look like this example (obviously with more detail and specific to your project)!\n\n\nObjective: Assess the impact of habitat restoration on native bird species richness in riparian zones\nResearch Question: Does riparian habitat restoration increase native bird species richness compared to unrestored sites?\nVariables: - Response: Bird species richness (count) - Predictors: Restoration status (restored/unrestored), time since restoration (years), habitat area (hectares)\nExperimental Design or Data Structure: Observational study with 20 restored and 20 unrestored riparian sites across Arizona, sampled over 3 breeding seasons\nAnalysis Method: Generalized Linear Mixed Model (Poisson regression) with site as random effect to account for repeated measures\nMain Result: Restored sites are expected to show significantly higher species richness, with effect size increasing with time since restoration\nLogical Alignment: Yes - the GLMM approach handles count data (species richness) and accounts for site-level variation while testing the restoration effect. The temporal component allows assessment of restoration trajectory, directly addressing whether and how restoration increases bird diversity.\nExpected Timeline: - Week 6: Finalize research question analysis plan - Week 7: Clean data - Week 8: Run preliminary analyses - Week 9: Interpret results and create figures - Week 10: Draft methods section - Week 11: Draft results section - Week 12: Draft introduction and discussion - Week 13: Revise and finalize paper - Week 14: Submit final paper\nUsefulness for Your Career or Degree: This project directly informs my thesis research on habitat restoration and biodiversity. It allows me to apply advanced statistical methods to real-world ecological data, enhancing my quantitative skills and contributing to a publishable paper that will strengthen my CV and support my future academic career.\nMethod Justification: I chose a Generalized Linear Mixed Model with a Poisson distribution because my response variable, bird species richness, is a count variable that typically follows a Poisson distribution. A simpler analysis, such as a t-test comparing restored and unrestored sites, would not account for the repeated measures across multiple seasons or the potential non-independence of observations within sites. On the other hand, a more complex model, like a zero-inflated model, is not warranted given that preliminary data exploration did not indicate an excess of zeros in species richness.\nAssumption Check:\n\n\n\n\n\n\n\n\nAssumption\nStatus\n\n\n\n\nIndependence of residuals\n🟢 Checked: and it holds\n\n\nNormality of random effects\n🟡 Haven’t checked yet: but I could by next class\n\n\nNo spatial autocorrelation\n🔴 Can’t fully check: need to acknowledge it and discuss it"
+    "objectID": "projects/instructionsandtemplate.html#overview",
+    "href": "projects/instructionsandtemplate.html#overview",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "",
+    "text": "Your final paper is the main deliverable of this course. It brings together everything we have worked on this semester: from the Method-Question-Data Triangle (Week 3), to method justification and assumption checking (Weeks 5–9), to your own research question and data.\nThe paper should be written as a submission to a journal of your choosing. You must identify a target journal before you begin writing, review that journal’s author guidelines (formatting, citation style, structure expectations), and follow them. Your paper must demonstrate that you can align a research question with appropriate quantitative methods, carry out the analysis, and communicate the results clearly and honestly.\nYou need to include the journal that you are tageting in your submission.\n\n\n\n\n\n\nImportantDue Date\n\n\n\nYour final paper is due May 10, 2026.\nSubmit your paper by either submitting it via Canvas or by pushing the final version to your GitHub repository. Make sure the repository is shared with me (see Step 4 in the Project Home page)."
   },
   {
-    "objectID": "projects/index.html#step-8-run-preliminary-analyses",
-    "href": "projects/index.html#step-8-run-preliminary-analyses",
-    "title": "Final Paper: Project Home",
-    "section": "10 Step 8: Run preliminary analyses",
-    "text": "10 Step 8: Run preliminary analyses\nAt this point you should be runnign your preliminary analyses and having one r file with your analyses! You should share it."
+    "objectID": "projects/instructionsandtemplate.html#what-to-submit",
+    "href": "projects/instructionsandtemplate.html#what-to-submit",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "2 What to Submit",
+    "text": "2 What to Submit\n\nA written paper. The paper can be a .qmd, .Rmd, .docx, or .pdf file but remember that you need to read your target journal’s author guidelines to ensure your submission meets their requirements.\nAll code pushed to your GitHub repository, or a supplementary material. The code must be organized and commented so that someone else could run it and reproduce your analysis.\nA README ONLY IN CERTAIN CASES. Please read. Put this file in your repository and it should include your research question, variables, analysis method, assumption check table, and expected timeline, but only if you have not already included this information in your paper. If your paper already includes all of this information, you do not need a README."
+  },
+  {
+    "objectID": "projects/instructionsandtemplate.html#paper-structure-and-requirements",
+    "href": "projects/instructionsandtemplate.html#paper-structure-and-requirements",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "3 Paper Structure and Requirements",
+    "text": "3 Paper Structure and Requirements\nYour paper must be structured with at least the following major sections. You should follow the specific formatting and section conventions of your target journal, but the content below is required regardless of journal style.\n\n3.1 1. Introduction\n\nState your research question, research objective or BOTH explicitly.\nProvide enough background for the reader to understand why the question matters. But this is not the main focus of the paper, so be concise. You can assume your reader has a general background in natural resources, plant sciences, etc., but not necessarily in your specific topic.\nI encourage a focused introduction rather than a long one.\nEnd the introduction with a clear statement of your objective and/or hypothesis.\n\n\n\n3.2 2. Methods\nThis is one of the two most important sections of your paper. I expect substantial detail here.\nYour Methods section must include:\n\nStudy design or data structure: Describe your experimental design, sampling scheme, or observational data structure. Identify your response variable(s), predictor variable(s), and any grouping or nesting factors.\nAnalysis method(s): Describe the statistical method(s) you used and justify your choice. Reference the Method-Question-Data Triangle — explain why this method fits your question and data, why a simpler method would be insufficient, and why a more complex method is not warranted.\nModel specification: Write out your model (e.g., the lmer() or glm() call, or the mathematical equation). Be specific about fixed effects, random effects, distributions, and link functions as applicable.\nSoftware and packages: State the software and R packages you used, with version numbers.\n\n\n3.2.1 Assumptions and Assumption Checks\nThis subsection is required. You must:\n\nList every assumption your chosen model requires (e.g., independence of residuals, normality of random effects, homoscedasticity, no spatial autocorrelation, etc.).\nDescribe how you evaluated each assumption (e.g., residual plots, Shapiro-Wilk test, variogram, etc.).\nReport what you found and what you did if an assumption was violated (e.g., transformed variables, switched to a different model, acknowledged the limitation).\nUse the assumption check table format we have used in class:\n\n\n\n\n\n\n\n\n\n\nAssumption\nHow checked\nResult\nAction taken\n\n\n\n\n(e.g., independence of residuals)\n(e.g., residual vs. fitted plot)\n(e.g., no pattern observed)\n(e.g., none needed)\n\n\n(e.g., normality of random effects)\n(e.g., QQ-plot of random effects)\n(e.g., slight departure)\n(e.g., acknowledged in Discussion)\n\n\n\n\n\n\n\n\n\nTipRemember\n\n\n\nThe goal is not to have all assumptions perfectly met. Red-flag assumptions are honest limitations that belong in your Discussion section. Every study has them. What I am looking for is that you identified them, checked them, and dealt with them transparently.\n\n\n\n\n\n3.3 3. Results\nThis is the other most important section. Your Results section must include:\n\nPlots and figures: Include at least one figure that displays your data and/or model results. Figures should be clear, well-labeled, and interpretable without reading the text. Follow your target journal’s figure formatting guidelines.\nModel output: Present your key results (coefficients, confidence intervals, p-values, effect sizes, or posterior summaries — whatever is appropriate for your method and inferential framework).\nInterpretation: Describe what the results mean in the context of your research question. Do not just paste R output — interpret it.\nTables: If appropriate, include summary tables of model results, means, or comparisons.\n\n\n\n3.4 4. Discussion\n\nSummarize your main findings and how they answer your research question.\nDiscuss the alignment between your research question, methods, and results. Did your analysis answer the question you set out to address?\nDiscuss limitations honestly, including any assumptions that were violated or could not be fully checked.\nConnect your findings to the broader literature or practical implications in your field.\nIf relevant, suggest next steps or future analyses.\n\n\n\n3.5 5. References\n\nUse the citation style required by your target journal.\nCite all sources, R packages, and methods references appropriately."
+  },
+  {
+    "objectID": "projects/instructionsandtemplate.html#template-outline",
+    "href": "projects/instructionsandtemplate.html#template-outline",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "4 Template Outline",
+    "text": "4 Template Outline\nYou may use the following as a starting structure for your paper. Adapt it to your target journal’s format.\n# Title\n\n## Introduction\n- [Research question stated here]\n- [Brief background — why does this matter?]\n- [Objective or hypothesis]\n\n## Methods\n\n### Study Design / Data Structure\n- [Description of experimental design or data collection]\n- [Response variable(s) and predictor variable(s)]\n- [Grouping, nesting, or blocking factors]\n\n### Statistical Analysis\n- [Method chosen and justification]\n- [Model specification — equation or R code]\n- [Software and packages used]\n\n### Assumptions and Assumption Checks\n- [Table of assumptions, how checked, results, and actions taken]\n\n## Results\n- [Key findings — text, tables, and figures]\n- [Model output interpretation]\n- [At least one figure]\n\n## Discussion\n- [Summary of findings]\n- [Alignment of question ↔ methods ↔ results]\n- [Limitations and assumption violations]\n- [Broader implications and next steps]\n\n## References"
+  },
+  {
+    "objectID": "projects/instructionsandtemplate.html#rubric",
+    "href": "projects/instructionsandtemplate.html#rubric",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "5 Rubric",
+    "text": "5 Rubric\nYour final paper is worth 25% of your course grade (as part of the Final Project component, which includes both the paper and the presentation). I will evaluate your paper using the following criteria:\n\n\n\n\n\n\n\n\n\n\nCriterion\nExcellent (A)\nGood (B)\nNeeds Improvement (C or below)\nWeight\n\n\n\n\nResearch Question & Alignment\nResearch question is clearly stated. Methods, results, and conclusions are logically aligned with the question. The Method-Question-Data Triangle is clearly satisfied.\nResearch question is present but could be sharper. Alignment is mostly clear but has minor gaps.\nResearch question is vague or missing. Methods do not clearly connect to the question asked.\n15%\n\n\nMethods — Correctness & Clarity\nStatistical method is appropriate for the data structure and question. Model is fully specified (equation or code). Justification is clear and references course concepts (e.g., why not simpler, why not more complex).\nMethod is reasonable but justification is thin or model specification is incomplete.\nMethod is inappropriate for the data, or no justification is provided.\n25%\n\n\nAssumptions & Assumption Checks\nAll relevant assumptions are listed. Each is checked with an appropriate diagnostic. Results and actions are reported transparently. Violated assumptions are acknowledged honestly.\nMost assumptions are listed and checked, but some are missing or checks are superficial.\nAssumptions are not discussed, or the section is missing entirely.\n15%\n\n\nResults — Plots, Figures & Interpretation\nResults are presented clearly with well-formatted figures and tables. Output is interpreted in context, not just pasted. Figures are publication-quality and follow journal guidelines.\nResults are present but figures need improvement, or interpretation is too brief.\nResults are missing, unclear, or consist of uninterpreted R output.\n20%\n\n\nWriting, Organization & Journal Compliance\nPaper is well-organized, follows the target journal’s author guidelines (citation style, formatting, structure). Writing is clear and concise. Instructor voice is absent (i.e., it reads like a real paper).\nOrganization is reasonable but does not closely follow journal guidelines, or writing has some unclear passages.\nPaper is disorganized, does not follow any journal format, or has significant writing issues.\n15%\n\n\nReproducibility & Code\nCode is available in the GitHub repository. Analysis can be reproduced by running the code. Software and package versions are reported.\nCode is present but incomplete or not fully reproducible.\nNo code is shared, or code does not run.\n10%"
+  },
+  {
+    "objectID": "projects/instructionsandtemplate.html#timeline-reminders",
+    "href": "projects/instructionsandtemplate.html#timeline-reminders",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "6 Timeline Reminders",
+    "text": "6 Timeline Reminders\n\n\n\nDate\nMilestone\n\n\n\n\nApril 28, 30, or May 5\nFinal presentation (see Final Presentation Instructions)\n\n\nMay 10, 2026\nFinal paper due\n\n\n\nYour presentation date is not the same as your paper due date."
+  },
+  {
+    "objectID": "projects/instructionsandtemplate.html#submission-checklist",
+    "href": "projects/instructionsandtemplate.html#submission-checklist",
+    "title": "Final Project Paper — Instructions, Template & Rubric",
+    "section": "7 Submission Checklist",
+    "text": "7 Submission Checklist\nBefore you submit, make sure you can check off every item:\n\n\n\n\n\n\nTipFinal Submission Checklist\n\n\n\n\nMy research question is clearly stated in the Introduction\nMy paper follows the author guidelines of my target journal (formatting, citation style, structure)\nMy Methods section includes a full model specification (equation or code)\nMy Methods section includes a justification for my method choice\nI have an Assumptions and Assumption Checks subsection with a completed table\nMy Results section includes at least one well-formatted figure\nMy Results section interprets model output — it is not just pasted R output\nMy Discussion addresses alignment between question, methods, and results\nMy Discussion honestly acknowledges limitations and assumption violations\nAll references are cited in the correct style for my target journal\nMy code and data are in my GitHub repository and the analysis is reproducible\nMy README is up to date with my research question, variables, method, and assumption check table\nI have pushed everything to GitHub and emailed the instructor\n\n\n\n\nReturn to Project Home · See also: Final Presentation Instructions"
   },
   {
     "objectID": "projects/weekly-self-assessment.html",
