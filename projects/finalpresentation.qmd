@@ -1,0 +1,124 @@
+---
+title: "Final Presentation Instructions"
+subtitle: "SNR 690 — Contemporary Approaches to Quantitative Methods"
+format: html
+number-sections: false
+---
+
+## Overview
+
+Each student will deliver a **final project presentation** to the class. This is your opportunity to share your research question, analytical approach, and results with your peers. Your presentation should focus on your **analytical methods** — this is a methods course, and I want to see that you can explain and defend your methodological choices.
+
+---
+
+## Presentation Schedule
+
+::: {.callout-note}
+## Presentation Dates
+
+| Date | Number of Presenters |
+|------|---------------------|
+| **April 28, 2026** | 2 students present |
+| **April 30, 2026** | 4 students present |
+| **May 5, 2026** | 4 students present |
+
+**Your final paper is due May 10, 2026** — this is a separate deadline from your presentation. See the [Final Paper Instructions](instructionsandtemplate.html) for paper requirements.
+
+Send me an email if you cannot present on a particular date. Otherwise, I will assign presentation dates.
+:::
+
+---
+
+## Format and Timing
+
+| Element | Time |
+|---------|------|
+| Presentation | **15 minutes maximum** |
+| Q&A | 2–3 minutes |
+
+- **Format:** PowerPoint (or equivalent slide-based presentation)
+- **Class size:** 10 students
+
+::: {.callout-warning}
+## Strict Timing Policy
+
+**You cannot go over 15 minutes.** There will be a strict timeline during the presentations. A timekeeper will signal you at **12 minutes** and again at **15 minutes**. If you reach 15 minutes, you will be asked to wrap up immediately.
+
+Plan and practice your presentation to fit within the time limit. Going over time affects every presenter who follows you and will be reflected in your Structure score on the peer assessment.
+:::
+
+---
+
+## What to Cover in Your Presentation
+
+Your presentation should focus on your analytical methods and results. Use the following as a guide:
+
+1. **Research question** — State it clearly at the beginning. What are you trying to answer?
+2. **Data and study design** — Briefly describe your data structure, response variable(s), and predictor variable(s). Keep this concise.
+3. **Methods** — This is the core of your presentation. Explain:
+   - What method you chose and why
+   - Your model specification
+   - How your method aligns with your question and data (the Method-Question-Data Triangle)
+4. **Assumptions and assumption checks** — Show how you evaluated your model's assumptions and what you found.
+5. **Results** — Present your key findings with figures and/or tables. Interpret the results — do not just show R output.
+6. **Conclusions** — Summarize what you found and how it answers your research question. Mention key limitations.
+
+---
+
+## Peer Assessment
+
+Your presentation will be assessed by the other students in the class. Each audience member will provide feedback and scores based on the following criteria:
+
+| Criterion | Description |
+|-----------|-------------|
+| **Clarity** | Was the research question and motivation clearly communicated? |
+| **Methods** | Were the analytical methods well-explained and justified? |
+| **Results** | Were the results presented clearly and accurately? |
+| **Structure** | Was the presentation well-organized and within the time limit? |
+| **Engagement** | Did the presenter engage the audience and respond well to questions? |
+
+I will collect the peer assessments and share a summary of the feedback with each presenter.
+
+---
+
+## In-Class Roles for Presentation Days
+
+Each presentation day, the following roles will be assigned to students in the audience:
+
+| Role | Responsibility |
+|------|----------------|
+| **Scribe** | Captures key feedback and questions during the presentation |
+| **Timekeeper** | Keeps the presenter on schedule (signals at 12 min and 15 min) |
+| **Moderator** | Manages Q&A and ensures respectful discussion |
+| **Feedback** | Collects all feedback and data from the Scribe |
+
+Role assignments will be randomly selected. Send me an email if you cannot do a particular date.
+
+---
+
+## Preparation Checklist
+
+::: {.callout-tip}
+## Before Your Presentation Day
+
+- [ ] Prepare your slides (PowerPoint or equivalent)
+- [ ] Practice your presentation — make sure it fits within **15 minutes**
+- [ ] Include at least one figure or plot that displays your data and/or results
+- [ ] Be ready to explain and defend your method choice
+- [ ] Have your assumption check results ready to show or discuss
+- [ ] Prepare for Q&A — think about questions your classmates might ask
+- [ ] Update your project timeline in your README to include your presentation date
+- [ ] Push all current project work to your GitHub repository before your presentation day
+:::
+
+---
+
+## Reminders
+
+- **The presentation date is different from the day your paper is due.** Your final paper is due **May 10, 2026**, but your presentation will happen on one of the earlier dates listed above.
+- You should be **preparing your presentation now** — do not wait until the last minute.
+- Your presentation should focus on your **analytical methods**. This is a methods course.
+
+---
+
+*Return to [Project Home](index.html) · See also: [Final Paper Instructions](instructionsandtemplate.html) · [Weekly Self-Assessment](weekly-self-assessment.html)*
