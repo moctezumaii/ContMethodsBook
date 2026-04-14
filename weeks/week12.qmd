@@ -1,0 +1,35 @@
+---
+title: "Week 12"
+author: "SNR 690"
+format: html
+---
+
+# Week Overview
+
+This week we will be having a discussion on Hanna's paper, and work on final project and final presentations.
+
+## Session A - Paper Discussion
+
+We will discuss the following paper:
+Anderson, M. J., & Willis, T. J. (2003). Canonical analysis of principal coordinates: a useful method of constrained ordination for ecology. Ecology, 84(2), 511-525.
+
+### After the paper
+I will present the order of presenters and update the website with the final schedule. 
+
+### Assignment for Thursday
+
+Importantly, you will be giving a very short ~8 to 10 minute lecture on Thursday. You will do this twice, and it will be in pairs. 
+
+Here are the instructions:
+For Thursday's class activity, you will give a short, focused explanation of a topic [check my CANVAS message to you] to a peer and then listen to theirs. You'll rotate through two partners, so you'll give your explanation more than once.
+Your job between now and Thursday: Prepare an 8–10 minute explanation you could deliver one-on-one, without slides. You can use a whiteboard, scratch paper, a sketch, or any props that help, just no PowerPoint.
+Here's a loose structure to guide your prep (you don't have to follow it rigidly):
+
+What is this concept? Give a plain-language definition or analogy.
+Why does it matter? Connect it to your research or to a concrete example.
+The tricky part. Walk through the piece that's hardest to understand. This is the core of your talk.
+
+However, the structure I gave you On Canvas is more important! You should follow that structure, and you can use the above as a loose guide if you want.
+
+You are not expected to be a complete expert. You are expected to have thought hard enough about this that you can explain it clearly and field a question or two. Preparing to teach something is often what finally makes it click.
+Come to class ready to go.

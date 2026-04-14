@@ -40,6 +40,8 @@ site:
             href: weeks/week11.qmd
           - text: Week 11, Thursday
             href: weeks/week11-workshop.qmd
+          - text: Week 12
+            href: weeks/week12.qmd
       - text: Projects
         menu:
           - text: Project Home
