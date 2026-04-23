@@ -16,13 +16,11 @@ Each student will deliver a final project presentation to the class. Your presen
 ::: {.callout-note}
 ## Presentation Dates
 
-This will be updated with the final schedule once I assign presentation dates. Here is the general plan:
-
-| Date | Number of Presenters |
-|------|---------------------|
-| **April 28, 2026** | 2 students present |
-| **April 30, 2026** | 4 students present |
-| **May 5, 2026** | 4 students present |
+| Dates  | 11:22     | 11:40  | 11:58  | 12:16  | Moderator | Time   | Scribe | Assistant |
+|--------|-----------|--------|--------|--------|-----------|--------|--------|-----------|
+| 28-Apr |   NA      | NA     |Brittnany| Ivette| Hannah    | Silas  | Ronnie | Sarah     |
+| 30-Apr | Hannah    | Silas  | Lexie  | Ronnie | Jimbo     | Sarah  | Bailey | Ivette    |
+| 5-May  | Jimbo     | Sarah  | Bailey | Areli  | Brittnany | Lexie  | Silas  | Hannah    |
 
 Your final paper is due May 10, 2026. This is a separate deadline from your presentation. See the [Final Paper Instructions](instructionsandtemplate.html) for paper requirements.
 
@@ -31,12 +29,30 @@ Send me an email if you cannot present on a particular date. Otherwise, I will a
 
 ---
 
+## In-Class Roles for Presentation Days
+
+Each presentation day, the following roles will be assigned to students in the audience:
+
+| Role | Responsibility |
+|------|----------------|
+| **Scribe** | Captures key feedback and questions during the presentation. Will share the notes, and will be uploaded to the website |
+| **Timekeeper** | Keeps the presenter on schedule (signals at 12 min and 15 min) |
+| **Moderator** | Introduces the presenters, manages Q&A |
+| **Feedback assistant** | Collects all feedback from all students and data from the Scribe |
+
+Role assignments will be randomly selected. Send me an email if you cannot do a particular date.
+
+---
+
+
+
 ## Format and Timing
 
 | Element | Time |
 |---------|------|
-| Presentation | 15 minutes maximum |
+| Presentation | 15 minutes MAXIMUM |
 | Q&A | 2–3 minutes |
+| TOTAL | 17 minutes MAXIMUM |
 
 - **Format:** PowerPoint (or equivalent slide-based presentation)
 
@@ -47,6 +63,8 @@ Send me an email if you cannot present on a particular date. Otherwise, I will a
 **You cannot go over 15 minutes.** There will be a strict timeline during the presentations. A timekeeper will signal you at **12 minutes** and again at **15 minutes**. If you reach 15 minutes, you will be asked to wrap up immediately.
 
 Plan and practice your presentation to fit within the time limit. Going over time affects every presenter who follows you and will be reflected in your Structure score on the peer assessment.
+The presentation and Q&A together should not exceed 17 minutes. If you have a lot of material, consider cutting some of it to ensure you can finish on time.
+The presentations will start on the published time.
 :::
 
 ---
@@ -81,20 +99,6 @@ Your presentation will be assessed by the other students in the class. Each audi
 
 The feedback assistant will collect the peer assessments and share a summary of the feedback with each presenter.
 
----
-
-## In-Class Roles for Presentation Days
-
-Each presentation day, the following roles will be assigned to students in the audience:
-
-| Role | Responsibility |
-|------|----------------|
-| **Scribe** | Captures key feedback and questions during the presentation |
-| **Timekeeper** | Keeps the presenter on schedule (signals at 12 min and 15 min) |
-| **Moderator** | Manages Q&A and ensures respectful discussion |
-| **Feedback assistant** | Collects all feedback and data from the Scribe |
-
-Role assignments will be randomly selected. Send me an email if you cannot do a particular date.
 
 ---
 
