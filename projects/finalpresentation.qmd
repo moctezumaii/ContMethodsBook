@@ -18,9 +18,9 @@ Each student will deliver a final project presentation to the class. Your presen
 
 | Dates  | 11:22     | 11:40  | 11:58  | 12:16  | Moderator | Time   | Scribe | Assistant |
 |--------|-----------|--------|--------|--------|-----------|--------|--------|-----------|
-| 28-Apr |   NA      | NA     |Brittnany| Ivette| Hannah    | Silas  | Ronnie | Sarah     |
+| 28-Apr |   NA      | NA     |Brittnany| Areli| Hannah    | Silas  | Ronnie | Sarah     |
 | 30-Apr | Hannah    | Silas  | Lexie  | Ronnie | Jimbo     | Sarah  | Bailey | Ivette    |
-| 5-May  | Jimbo     | Sarah  | Bailey | Areli  | Brittnany | Lexie  | Silas  | Hannah    |
+| 5-May  | Jimbo     | Sarah  | Bailey |  Ivette | Brittnany | Lexie  | Silas  | Areli    |
 
 Your final paper is due May 10, 2026. This is a separate deadline from your presentation. See the [Final Paper Instructions](instructionsandtemplate.html) for paper requirements.
 
